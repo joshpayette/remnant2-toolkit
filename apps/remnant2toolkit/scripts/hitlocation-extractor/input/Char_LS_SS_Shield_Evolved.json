@@ -1,0 +1,1564 @@
+[
+  {
+    "Type": "ActionComponent",
+    "Name": "ActionComp",
+    "Outer": "Default__Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'ActionComponent'",
+    "Template": {
+      "ObjectName": "ActionComponent'Default__Char_LS_SS_Shield_C:ActionComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.0"
+    }
+  },
+  {
+    "Type": "ActorCustomizationComponent",
+    "Name": "Visual_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'ActorCustomizationComponent'",
+    "Template": {
+      "ObjectName": "ActorCustomizationComponent'Char_LS_SS_Shield_C:Visual_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.1"
+    },
+    "Properties": {
+      "Slots": [
+        {
+          "NameID": "Default",
+          "DefaultCustomizationID": "Shield_Evolved",
+          "CustomizationID": "Shield_Evolved",
+          "IsTransient": false
+        },
+        {
+          "NameID": "StatusEffects",
+          "DefaultCustomizationID": "None",
+          "CustomizationID": "None",
+          "IsTransient": true
+        },
+        {
+          "NameID": "Weakpoint",
+          "DefaultCustomizationID": "None",
+          "CustomizationID": "None",
+          "IsTransient": true
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'Char_LS_SS_Shield_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.3"
+    },
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Char_LS_SS_Shield_Evolved_C:SimpleConstructionScript_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.28"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'Char_LS_SS_Shield_Evolved_C:InheritableComponentHandler'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.20"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'Char_LS_SS_Shield_Evolved_C:ExecuteUbergraph_Char_LS_SS_Shield_Evolved'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.12"
+      }
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'Char_LS_SS_Shield_Evolved_C:InitMaterials'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.13"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Shield_Evolved_C:OnNotifyAllWorldReset'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.16"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Shield_Evolved_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.18"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Shield_Evolved_C:OnWorldReset'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.17"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Shield_Evolved_C:OnEmergeStatueEnter'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.15"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Shield_Evolved_C:OnDead_Event'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.14"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Shield_Evolved_C:ExecuteUbergraph_Char_LS_SS_Shield_Evolved'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.12"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_Char_LS_SS_Shield_Evolved": {
+        "ObjectName": "Function'Char_LS_SS_Shield_Evolved_C:ExecuteUbergraph_Char_LS_SS_Shield_Evolved'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.12"
+      },
+      "OnDead_Event": {
+        "ObjectName": "Function'Char_LS_SS_Shield_Evolved_C:OnDead_Event'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.14"
+      },
+      "OnEmergeStatueEnter": {
+        "ObjectName": "Function'Char_LS_SS_Shield_Evolved_C:OnEmergeStatueEnter'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.15"
+      },
+      "OnWorldReset": {
+        "ObjectName": "Function'Char_LS_SS_Shield_Evolved_C:OnWorldReset'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.17"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'Char_LS_SS_Shield_Evolved_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.18"
+      },
+      "OnNotifyAllWorldReset": {
+        "ObjectName": "Function'Char_LS_SS_Shield_Evolved_C:OnNotifyAllWorldReset'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.16"
+      },
+      "InitMaterials": {
+        "ObjectName": "Function'Char_LS_SS_Shield_Evolved_C:InitMaterials'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.13"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "Interfaces": [
+      {
+        "Class": {
+          "ObjectName": "Class'WorldResetInterface'",
+          "ObjectPath": "/Script/Remnant"
+        },
+        "PointerOffset": 0,
+        "bImplementedByK2": true
+      }
+    ],
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Char_LS_SS_Shield_Evolved_C'Default__Char_LS_SS_Shield_Evolved_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.9"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal",
+      "ImplementedInterfaces": "((Interface=/Script/CoreUObject.Class'\"/Script/Remnant.WorldResetInterface\"'))"
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "WP_Arm_R_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Template": {
+      "ObjectName": "BoxComponent'Char_LS_SS_Shield_C:WP_Arm_R_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.4"
+    },
+    "Properties": {
+      "BoxExtent": {
+        "X": 32.0,
+        "Y": 32.0,
+        "Z": 32.0
+      },
+      "bGenerateOverlapEvents": true,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_WorldDynamic",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "OverlapAllDynamic",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "ThrownProjectile",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "WeaponPhantom",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "BossPawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 0.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "WP_Shield_1_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Template": {
+      "ObjectName": "BoxComponent'Char_LS_SS_Shield_C:WP_Shield_1_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.5"
+    },
+    "Properties": {
+      "BoxExtent": {
+        "X": 32.0,
+        "Y": 32.0,
+        "Z": 32.0
+      },
+      "bGenerateOverlapEvents": true,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_WorldDynamic",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "OverlapAllDynamic",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "ThrownProjectile",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "WeaponPhantom",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "BossPawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 0.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "WP_Shield_2_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Template": {
+      "ObjectName": "BoxComponent'Char_LS_SS_Shield_C:WP_Shield_2_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.6"
+    },
+    "Properties": {
+      "BoxExtent": {
+        "X": 32.0,
+        "Y": 32.0,
+        "Z": 32.0
+      },
+      "bGenerateOverlapEvents": true,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_WorldDynamic",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "OverlapAllDynamic",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "ThrownProjectile",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "WeaponPhantom",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "BossPawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 0.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "Shield_WP_Collision_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Char_LS_SS_Shield_C:Shield_WP_Collision_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.7"
+    },
+    "Properties": {
+      "CapsuleHalfHeight": 44.0,
+      "CapsuleRadius": 22.0,
+      "BodyInstance": {
+        "CollisionProfileName": "OverlapAllDynamic",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "ThrownProjectile",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "WeaponPhantom",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "BossPawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        },
+        "PhysMaterialOverride": null
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 0.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "Weakpoint_Chest_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Char_LS_SS_Shield_C:Weakpoint_Chest_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.8"
+    },
+    "Properties": {
+      "CapsuleHalfHeight": 32.0,
+      "CapsuleRadius": 15.0
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__Char_LS_SS_Shield_C:CollisionCylinder'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.9"
+    }
+  },
+  {
+    "Type": "Char_LS_SS_Shield_Evolved_C",
+    "Name": "Default__Char_LS_SS_Shield_Evolved_C",
+    "Class": "BlueprintGeneratedClass'/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.Char_LS_SS_Shield_Evolved_C'",
+    "Template": {
+      "ObjectName": "Char_LS_SS_Shield_C'Default__Char_LS_SS_Shield_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.10"
+    },
+    "Properties": {
+      "UberGraphFrame": {},
+      "Debug_Evolved": true,
+      "SFX_FlyLoop_Sound": {
+        "ObjectName": "AkAudioEvent'DLC2_SS_Fly_Loop_C'",
+        "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_DLC2/DLC2_SS/DLC2_SS_Fly_Loop_C.1"
+      },
+      "AlertSound": {
+        "SoundObject": {
+          "ObjectName": "AkAudioEvent'Voc_DLC2_SS_Shield_Evolved_Alert_BP'",
+          "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_Alert_BP/Alert_DLC2/Voc_DLC2_SS_Shield_Evolved_Alert_BP.1"
+        }
+      },
+      "CombatClass": {
+        "ObjectName": "BlueprintGeneratedClass'CombatClass_Elite_C'",
+        "ObjectPath": "/Game/_Core/CombatClasses/CombatClass_Elite.0"
+      },
+      "StatsComp": {
+        "ObjectName": "StatsComponent'Default__Char_LS_SS_Shield_Evolved_C:StatsComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.31"
+      },
+      "ActionComp": {
+        "ObjectName": "ActionComponent'Default__Char_LS_SS_Shield_Evolved_C:ActionComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.0"
+      },
+      "WeaponPhantomProviderComp": {
+        "ObjectName": "WeaponPhantomComponent'Default__Char_LS_SS_Shield_Evolved_C:WeaponPhantomProviderComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.32"
+      },
+      "HitLogComp": {
+        "ObjectName": "HitLogComponent'Default__Char_LS_SS_Shield_Evolved_C:HitLogComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.19"
+      },
+      "ReplicatedMovementComp": {
+        "ObjectName": "ReplicatedMovementComponent'Default__Char_LS_SS_Shield_Evolved_C:ReplicatedMovement'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.24"
+      },
+      "Data": {
+        "RowName": "Pan_ShiftingSoldier_Evolved"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_LS_SS_Shield_Evolved_C:CharacterMesh0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.29"
+      },
+      "CharacterMovement": {
+        "ObjectName": "CharacterMovementComponentGunfire'Default__Char_LS_SS_Shield_Evolved_C:CharMoveComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.10"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_SS_Shield_Evolved_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.8"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_SS_Shield_Evolved_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.8"
+      },
+      "Tags": [
+        "CanActivateWP",
+        "Evolved",
+        "NoBleed",
+        "DarkVFX"
+      ]
+    }
+  },
+  {
+    "Type": "CharacterMovementComponentGunfire",
+    "Name": "CharMoveComp",
+    "Outer": "Default__Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'CharacterMovementComponentGunfire'",
+    "Template": {
+      "ObjectName": "CharacterMovementComponentGunfire'Default__Char_LS_SS_Shield_C:CharMoveComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.11"
+    }
+  },
+  {
+    "Type": "DissolveComponent",
+    "Name": "Dissolve_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'DissolveComponent'",
+    "Template": {
+      "ObjectName": "DissolveComponent'Char_LS_SS_Base_C:Dissolve_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.15"
+    },
+    "Properties": {
+      "Materials": [
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_ShiftingSoldier_Obsidian'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Materials/M_ShiftingSoldier_Obsidian.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_ShiftingSoldier_Obsidian_Dis'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Materials/M_ShiftingSoldier_Obsidian_Dis.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_ShiftingSoldier_Gem'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Materials/M_ShiftingSoldier_Gem.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_ShiftingSoldier_Gem_Dissolve'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Materials/M_ShiftingSoldier_Gem_Dissolve.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_ShiftingSoldier_Void'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Materials/M_ShiftingSoldier_Void.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_ShiftingSoldier_Void_Dis'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Materials/M_ShiftingSoldier_Void_Dis.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Living_Stone_Shifting_Soldier_Miniboss'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Materials/M_Pan_Living_Stone_Shifting_Soldier_Miniboss.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Living_Stone_Shifting_Soldier_Miniboss_Dis'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Materials/M_Pan_Living_Stone_Shifting_Soldier_Miniboss_Dis.0"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_Char_LS_SS_Shield_Evolved",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_Reason",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": null
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'CharacterGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Cause",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetActorLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSoundAtLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "InitMaterials",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_LS_SS_Base_C:InitMaterials'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.30"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CheckTag_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnDead_Event",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_LS_SS_Shield_C:OnDead_Event'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.23"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "Reason",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": null
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'CharacterGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Cause",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnEmergeStatueEnter",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_LS_SS_Base_C:OnEmergeStatueEnter'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.36"
+    },
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnNotifyAllWorldReset",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnWorldReset",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_LS_SS_Base_C:ReceiveBeginPlay'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.40"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "HitLogComponent",
+    "Name": "HitLogComp",
+    "Outer": "Default__Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'HitLogComponent'",
+    "Template": {
+      "ObjectName": "HitLogComponent'Default__Char_LS_SS_Shield_C:HitLogComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.34"
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_SS_Shield_Evolved_C:VFX_Shield_Slam_Charge_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.23"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_SS_Shield_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.3"
+            },
+            "SCSVariableName": "VFX_Shield_Slam_Charge",
+            "AssociatedGuid": "F2AB659A-4EA7B5FA-1B227494-1F67A157"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_SS_Shield_Evolved_C:VFX_Shield_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.22"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_SS_Shield_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.3"
+            },
+            "SCSVariableName": "VFX_Shield",
+            "AssociatedGuid": "583376A0-46CF6644-3D6BCCA3-17E7C997"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'ActorCustomizationComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "ActorCustomizationComponent'Char_LS_SS_Shield_Evolved_C:Visual_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.1"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_Base_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.3"
+            },
+            "SCSVariableName": "Visual",
+            "AssociatedGuid": "88E8F05F-499F34E6-178F9CA8-75D39337"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_SS_Shield_Evolved_C:VFX_Idle_Sand_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.21"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_SS_Base_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.4"
+            },
+            "SCSVariableName": "VFX_Idle_Sand",
+            "AssociatedGuid": "C66B7687-4F1736F9-692B8F99-C422D4D3"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'CapsuleComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "CapsuleComponent'Char_LS_SS_Shield_Evolved_C:Shield_WP_Collision_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.6"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_SS_Shield_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.3"
+            },
+            "SCSVariableName": "Shield_WP_Collision",
+            "AssociatedGuid": "97C717BF-4883A0A1-4BFD489A-11057154"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'StaticMeshComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "StaticMeshComponent'Char_LS_SS_Shield_Evolved_C:Shield_Collision_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.30"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_SS_Shield_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.3"
+            },
+            "SCSVariableName": "Shield_Collision",
+            "AssociatedGuid": "177DAF74-4E8DE43C-537C6A89-3458B6EC"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'CapsuleComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "CapsuleComponent'Char_LS_SS_Shield_Evolved_C:Weakpoint_Chest_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.7"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_SS_Base_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.4"
+            },
+            "SCSVariableName": "Weakpoint_Chest",
+            "AssociatedGuid": "03ECAC74-4FA4DF70-4C3A53AD-688DF27A"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'SceneComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "SceneComponent'Char_LS_SS_Shield_Evolved_C:HandLocation_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.26"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_SS_Shield_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.3"
+            },
+            "SCSVariableName": "HandLocation",
+            "AssociatedGuid": "8158138E-49AD1D3C-45EC6188-B52969B8"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'BoxComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BoxComponent'Char_LS_SS_Shield_Evolved_C:WP_Arm_R_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.3"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_SS_Shield_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.3"
+            },
+            "SCSVariableName": "WP_Arm_R",
+            "AssociatedGuid": "F2E5D843-48937705-A5054D9B-2DC6215D"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'BoxComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BoxComponent'Char_LS_SS_Shield_Evolved_C:WP_Shield_2_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.5"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_SS_Shield_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.3"
+            },
+            "SCSVariableName": "WP_Shield_2",
+            "AssociatedGuid": "BA74F0A1-4F93AE4D-8BD9B08D-569807B1"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'BoxComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BoxComponent'Char_LS_SS_Shield_Evolved_C:WP_Shield_1_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.4"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_SS_Shield_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.3"
+            },
+            "SCSVariableName": "WP_Shield_1",
+            "AssociatedGuid": "4E915C81-43BF63D4-CDF93DB3-E8861F5F"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'DissolveComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "DissolveComponent'Char_LS_SS_Shield_Evolved_C:Dissolve_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.11"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "Dissolve",
+            "AssociatedGuid": "63F89BCB-4D3243A5-A96E8C83-1826967D"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "VFX_Idle_Sand_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_SS_Shield_C:VFX_Idle_Sand_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.36"
+    },
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_SS_Idle_Sand_EVO'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/VFX/NS_SS_Idle_Sand_EVO.80"
+      },
+      "OverrideParameters": {
+        "UserParameterRedirects": [
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "EVO_Color",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.EVO_Color",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          }
+        ],
+        "SortedParameterOffsets": [
+          {
+            "Offset": 0,
+            "Name": "User.Color",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 16,
+            "Name": "User.Color_02",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 48,
+            "Name": "User.EVO_Color",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 32,
+            "Name": "User.FormedLerp",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 36,
+            "Name": "User.HeightScale",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 40,
+            "Name": "User.OpacityScale",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 44,
+            "Name": "User.Scale",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          }
+        ],
+        "ParameterData": [
+          205,
+          204,
+          204,
+          62,
+          82,
+          184,
+          166,
+          62,
+          184,
+          30,
+          133,
+          62,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          63,
+          90,
+          185,
+          87,
+          61,
+          10,
+          215,
+          163,
+          60,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          62,
+          154,
+          153,
+          153,
+          62,
+          205,
+          204,
+          76,
+          62,
+          0,
+          0,
+          240,
+          66,
+          43,
+          190,
+          33,
+          61,
+          4,
+          171,
+          106,
+          61,
+          103,
+          44,
+          90,
+          61,
+          0,
+          0,
+          128,
+          63
+        ]
+      }
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "VFX_Shield_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_SS_Shield_C:VFX_Shield_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.37"
+    },
+    "Properties": {
+      "OverrideParameters": {},
+      "RelativeRotation": {
+        "Pitch": -54.72799,
+        "Yaw": 82.00232,
+        "Roll": 5.912941
+      }
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "VFX_Shield_Slam_Charge_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_SS_Shield_C:VFX_Shield_Slam_Charge_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.38"
+    },
+    "Properties": {
+      "OverrideParameters": {
+        "SortedParameterOffsets": [
+          {
+            "Offset": 0,
+            "Name": "User.Color",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          }
+        ]
+      },
+      "RelativeLocation": {
+        "X": -18.10578,
+        "Y": -4.479669,
+        "Z": 3.970714
+      },
+      "RelativeRotation": {
+        "Pitch": -12.018127,
+        "Yaw": 13.89687,
+        "Roll": -49.916714
+      }
+    }
+  },
+  {
+    "Type": "ReplicatedMovementComponent",
+    "Name": "ReplicatedMovement",
+    "Outer": "Default__Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'ReplicatedMovementComponent'",
+    "Template": {
+      "ObjectName": "ReplicatedMovementComponent'Default__Char_LS_SS_Shield_C:ReplicatedMovement'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.39"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "HandLocation_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Template": {
+      "ObjectName": "SceneComponent'Char_LS_SS_Shield_C:HandLocation_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.41"
+    },
+    "Properties": {
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_LS_SS_Shield_Evolved_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.25"
+      },
+      "VariableGuid": "39F54507-440CB5B6-51E07AAC-C323AD0A",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Char_LS_SS_Shield_Evolved_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.27"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponentBudgeted",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'SkeletalMeshComponentBudgeted'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_LS_SS_Shield_C:CharacterMesh0'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.55"
+    },
+    "Properties": {
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'Pan_LivingStone_SS_Shield_Head_Legs'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Mesh/Pan_LivingStone_SS_Shield_Head_Legs.0"
+      },
+      "SkinnedAsset": {
+        "ObjectName": "SkeletalMesh'Pan_LivingStone_SS_Shield_Head_Legs'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Mesh/Pan_LivingStone_SS_Shield_Head_Legs.0"
+      },
+      "OverrideMaterials": [
+        {
+          "ObjectName": "MaterialInstanceConstant'M_ShiftingSoldier_Obsidian'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Materials/M_ShiftingSoldier_Obsidian.0"
+        },
+        null,
+        null
+      ],
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_SS_Shield_Evolved_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Shield_Evolved/Char_LS_SS_Shield_Evolved.8"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Shield_Collision_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Template": {
+      "ObjectName": "StaticMeshComponent'Char_LS_SS_Shield_C:Shield_Collision_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.58"
+    },
+    "Properties": {
+      "StaticMesh": null,
+      "OverrideMaterials": [],
+      "BodyInstance": {
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "BlockAllDynamic",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "ThrownProjectile",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "WeaponPhantom",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "MoveTrace",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "BossPawn",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        },
+        "PhysMaterialOverride": null
+      },
+      "RelativeLocation": {
+        "X": 24.838953,
+        "Y": -1.5644363,
+        "Z": -5.5005054
+      },
+      "RelativeRotation": {
+        "Pitch": -9.347583E-10,
+        "Yaw": 2.644772E-10,
+        "Roll": 33.397522
+      },
+      "RelativeScale3D": {
+        "X": 1.0,
+        "Y": 1.0,
+        "Z": 1.0
+      },
+      "bVisible": true,
+      "bHiddenInGame": false
+    }
+  },
+  {
+    "Type": "StatsComponent",
+    "Name": "StatsComp",
+    "Outer": "Default__Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'StatsComponent'",
+    "Template": {
+      "ObjectName": "StatsComponent'Default__Char_LS_SS_Shield_C:StatsComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.59"
+    }
+  },
+  {
+    "Type": "WeaponPhantomComponent",
+    "Name": "WeaponPhantomProviderComp",
+    "Outer": "Default__Char_LS_SS_Shield_Evolved_C",
+    "Class": "UScriptClass'WeaponPhantomComponent'",
+    "Template": {
+      "ObjectName": "WeaponPhantomComponent'Default__Char_LS_SS_Shield_C:WeaponPhantomProviderComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Shield/Char_LS_SS_Shield.60"
+    }
+  }
+]

@@ -1,0 +1,537 @@
+[
+  {
+    "Type": "ActionComponent",
+    "Name": "ActionComp",
+    "Outer": "Default__Char_Pan_NobleSwordsman_Aberration_C",
+    "Class": "UScriptClass'ActionComponent'",
+    "Template": {
+      "ObjectName": "ActionComponent'Default__Char_Pan_NobleSwordsman_C:ActionComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.0"
+    }
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Char_Pan_NobleSwordsman_Aberration_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'Char_Pan_NobleSwordsman_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.2"
+    },
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Char_Pan_NobleSwordsman_Aberration_C:SimpleConstructionScript_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.17"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'Char_Pan_NobleSwordsman_Aberration_C:InheritableComponentHandler'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.11"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'Char_Pan_NobleSwordsman_Aberration_C:ExecuteUbergraph_Char_Pan_NobleSwordsman_Aberration'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.7"
+      }
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'Char_Pan_NobleSwordsman_Aberration_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.9"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_NobleSwordsman_Aberration_C:PlayDeathStinger'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.8"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_NobleSwordsman_Aberration_C:ExecuteUbergraph_Char_Pan_NobleSwordsman_Aberration'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.7"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Name",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NamedActorComponent'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_Char_Pan_NobleSwordsman_Aberration": {
+        "ObjectName": "Function'Char_Pan_NobleSwordsman_Aberration_C:ExecuteUbergraph_Char_Pan_NobleSwordsman_Aberration'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.7"
+      },
+      "PlayDeathStinger": {
+        "ObjectName": "Function'Char_Pan_NobleSwordsman_Aberration_C:PlayDeathStinger'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.8"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'Char_Pan_NobleSwordsman_Aberration_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.9"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Char_Pan_NobleSwordsman_Aberration_C'Default__Char_Pan_NobleSwordsman_Aberration_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.3"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__Char_Pan_NobleSwordsman_Aberration_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__Char_Pan_NobleSwordsman_C:CollisionCylinder'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.5"
+    }
+  },
+  {
+    "Type": "Char_Pan_NobleSwordsman_Aberration_C",
+    "Name": "Default__Char_Pan_NobleSwordsman_Aberration_C",
+    "Class": "BlueprintGeneratedClass'/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.Char_Pan_NobleSwordsman_Aberration_C'",
+    "Template": {
+      "ObjectName": "Char_Pan_NobleSwordsman_C'Default__Char_Pan_NobleSwordsman_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.6"
+    },
+    "Properties": {
+      "UberGraphFrame": {},
+      "DissolveSoundFX": {
+        "SoundObject": {
+          "ObjectName": "AkAudioEvent'Creature_Dissolve_Aberration'",
+          "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_Shared/Creature_Dissolve/Creature_Dissolve_Aberration.1"
+        }
+      },
+      "Type": "MonsterType::NewEnumerator5",
+      "ModTable": {
+        "ObjectName": "SpawnTable'Char_Pan_NobleSwordsman_ModTable'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_ModTable.0"
+      },
+      "AlertSound": {
+        "SoundObject": {
+          "ObjectName": "AkAudioEvent'Voc_DLC2_Pan_Nobleman_Aberration_Alert_BP'",
+          "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_Alert_BP/Alert_DLC2/Voc_DLC2_Pan_Nobleman_Aberration_Alert_BP.1"
+        }
+      },
+      "CombatClass": {
+        "ObjectName": "BlueprintGeneratedClass'CombatClass_Aberration_C'",
+        "ObjectPath": "/Game/_Core/CombatClasses/CombatClass_Aberration.0"
+      },
+      "StatsComp": {
+        "ObjectName": "StatsComponent'Default__Char_Pan_NobleSwordsman_Aberration_C:StatsComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.19"
+      },
+      "ActionComp": {
+        "ObjectName": "ActionComponent'Default__Char_Pan_NobleSwordsman_Aberration_C:ActionComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.0"
+      },
+      "WeaponPhantomProviderComp": {
+        "ObjectName": "WeaponPhantomComponent'Default__Char_Pan_NobleSwordsman_Aberration_C:WeaponPhantomProviderComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.20"
+      },
+      "HitLogComp": {
+        "ObjectName": "HitLogComponent'Default__Char_Pan_NobleSwordsman_Aberration_C:HitLogComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.10"
+      },
+      "ReplicatedMovementComp": {
+        "ObjectName": "ReplicatedMovementComponent'Default__Char_Pan_NobleSwordsman_Aberration_C:ReplicatedMovement'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.13"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_Pan_NobleSwordsman_Aberration_C:CharacterMesh0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.18"
+      },
+      "CharacterMovement": {
+        "ObjectName": "CharacterMovementComponentGunfire'Default__Char_Pan_NobleSwordsman_Aberration_C:CharMoveComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.4"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Pan_NobleSwordsman_Aberration_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.2"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Pan_NobleSwordsman_Aberration_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.2"
+      },
+      "Tags": [
+        "NoMark"
+      ]
+    }
+  },
+  {
+    "Type": "CharacterMovementComponentGunfire",
+    "Name": "CharMoveComp",
+    "Outer": "Default__Char_Pan_NobleSwordsman_Aberration_C",
+    "Class": "UScriptClass'CharacterMovementComponentGunfire'",
+    "Template": {
+      "ObjectName": "CharacterMovementComponentGunfire'Default__Char_Pan_NobleSwordsman_C:CharMoveComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.7"
+    }
+  },
+  {
+    "Type": "DisplayInfoComponent_C",
+    "Name": "DisplayInfoComponent_GEN_VARIABLE",
+    "Outer": "Char_Pan_NobleSwordsman_Aberration_C",
+    "Class": "BlueprintGeneratedClass'/Game/_Core/Blueprints/Base/DisplayInfoComponent.DisplayInfoComponent_C'",
+    "Template": {
+      "ObjectName": "DisplayInfoComponent_C'BP_Monster_C:DisplayInfoComponent_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.10"
+    },
+    "Properties": {
+      "Label": {
+        "Namespace": "",
+        "Key": "6EBF4B5E4545D0E3130C23B8322B0932",
+        "SourceString": "The Bloodless Heir ",
+        "LocalizedString": "The Bloodless Heir "
+      }
+    }
+  },
+  {
+    "Type": "DissolveComponent",
+    "Name": "Dissolve_GEN_VARIABLE",
+    "Outer": "Char_Pan_NobleSwordsman_Aberration_C",
+    "Class": "UScriptClass'DissolveComponent'",
+    "Template": {
+      "ObjectName": "DissolveComponent'BP_Monster_C:Dissolve_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.11"
+    },
+    "Properties": {
+      "DissolveFX": {
+        "ObjectName": "NiagaraSystem'NS_Dissolve_Aberration'",
+        "ObjectPath": "/Game/VFX/Global_Particles/Creature/Dissolve/NS_Dissolve_Aberration.23"
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_Char_Pan_NobleSwordsman_Aberration",
+    "Outer": "Char_Pan_NobleSwordsman_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioAttachParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioStopParams",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioStopParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_2",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSound2D_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSoundAttached_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "PlayDeathStinger",
+    "Outer": "Char_Pan_NobleSwordsman_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_Monster_Base_C:PlayDeathStinger'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.39"
+    },
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "Char_Pan_NobleSwordsman_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_Monster_C:ReceiveBeginPlay'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.27"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "HitLogComponent",
+    "Name": "HitLogComp",
+    "Outer": "Default__Char_Pan_NobleSwordsman_Aberration_C",
+    "Class": "UScriptClass'HitLogComponent'",
+    "Template": {
+      "ObjectName": "HitLogComponent'Default__Char_Pan_NobleSwordsman_C:HitLogComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.10"
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "Char_Pan_NobleSwordsman_Aberration_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'DisplayInfoComponent_C'",
+            "ObjectPath": "/Game/_Core/Blueprints/Base/DisplayInfoComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "DisplayInfoComponent_C'Char_Pan_NobleSwordsman_Aberration_C:DisplayInfoComponent_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.5"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "DisplayInfoComponent",
+            "AssociatedGuid": "9D516F77-47F7A864-60CD9289-9CBD107C"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'DissolveComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "DissolveComponent'Char_Pan_NobleSwordsman_Aberration_C:Dissolve_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.6"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "Dissolve",
+            "AssociatedGuid": "63F89BCB-4D3243A5-A96E8C83-1826967D"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "NamedActorComponent",
+    "Name": "Name_GEN_VARIABLE",
+    "Outer": "Char_Pan_NobleSwordsman_Aberration_C",
+    "Class": "UScriptClass'NamedActorComponent'",
+    "Properties": {
+      "NameID": "Pan_NobleSwordsman"
+    }
+  },
+  {
+    "Type": "ReplicatedMovementComponent",
+    "Name": "ReplicatedMovement",
+    "Outer": "Default__Char_Pan_NobleSwordsman_Aberration_C",
+    "Class": "UScriptClass'ReplicatedMovementComponent'",
+    "Template": {
+      "ObjectName": "ReplicatedMovementComponent'Default__Char_Pan_NobleSwordsman_C:ReplicatedMovement'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.12"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "Char_Pan_NobleSwordsman_Aberration_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_Pan_NobleSwordsman_Aberration_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.14"
+      },
+      "VariableGuid": "A7146C50-4749FE3F-E0CB0EAD-C8CE54AD",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NamedActorComponent'",
+        "ObjectPath": "/Script/GunfireRuntime"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NamedActorComponent'Char_Pan_NobleSwordsman_Aberration_C:Name_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.12"
+      },
+      "VariableGuid": "3A6F6DE4-4284D147-FB2A09A4-4C4E2747",
+      "InternalVariableName": "Name"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "Char_Pan_NobleSwordsman_Aberration_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_Pan_NobleSwordsman_Aberration_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.16"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_Pan_NobleSwordsman_Aberration_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.16"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Char_Pan_NobleSwordsman_Aberration_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.15"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponentBudgeted",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__Char_Pan_NobleSwordsman_Aberration_C",
+    "Class": "UScriptClass'SkeletalMeshComponentBudgeted'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_Pan_NobleSwordsman_C:CharacterMesh0'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.18"
+    },
+    "Properties": {
+      "bRenderCustomDepth": true,
+      "CustomDepthStencilValue": 1,
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Pan_NobleSwordsman_Aberration_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Aberration/Char_Pan_NobleSwordsman_Aberration.2"
+      }
+    }
+  },
+  {
+    "Type": "StatsComponent",
+    "Name": "StatsComp",
+    "Outer": "Default__Char_Pan_NobleSwordsman_Aberration_C",
+    "Class": "UScriptClass'StatsComponent'",
+    "Template": {
+      "ObjectName": "StatsComponent'Default__Char_Pan_NobleSwordsman_C:StatsComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.21"
+    }
+  },
+  {
+    "Type": "WeaponPhantomComponent",
+    "Name": "WeaponPhantomProviderComp",
+    "Outer": "Default__Char_Pan_NobleSwordsman_Aberration_C",
+    "Class": "UScriptClass'WeaponPhantomComponent'",
+    "Template": {
+      "ObjectName": "WeaponPhantomComponent'Default__Char_Pan_NobleSwordsman_C:WeaponPhantomProviderComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.22"
+    }
+  }
+]

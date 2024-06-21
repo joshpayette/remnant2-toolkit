@@ -1,0 +1,17 @@
+{
+  "name": "@repo/db",
+  "scripts": {
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push --skip-generate"
+  },
+  "exports": {
+    ".": "./index.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "5.15.0"
+  },
+  "devDependencies": {
+    "typescript": "latest",
+    "prisma": "5.15.0"
+  }
+}

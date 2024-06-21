@@ -1,0 +1,3995 @@
+[
+  {
+    "Type": "ActionComponent",
+    "Name": "ActionComp",
+    "Outer": "Default__Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'ActionComponent'",
+    "Template": {
+      "ObjectName": "ActionComponent'Default__Char_Pan_Sightline_C:ActionComp'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.0"
+    }
+  },
+  {
+    "Type": "ActorCustomizationComponent",
+    "Name": "Visual_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'ActorCustomizationComponent'",
+    "Template": {
+      "ObjectName": "ActorCustomizationComponent'Char_Pan_Sightline_C:Visual_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.1"
+    },
+    "Properties": {
+      "CustomizationSet": {
+        "ObjectName": "ActorCustomizationSet'Char_Pan_Sightline_DLC2_VisualSet'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_DLC2_VisualSet.16"
+      },
+      "Slots": [
+        {
+          "NameID": "Default",
+          "DefaultCustomizationID": "None",
+          "CustomizationID": "None",
+          "IsTransient": false
+        },
+        {
+          "NameID": "StatusEffects",
+          "DefaultCustomizationID": "None",
+          "CustomizationID": "None",
+          "IsTransient": false
+        }
+      ]
+    }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "Ak_PlayLocation_Crystal_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'AkComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": 18.879812,
+        "Y": 1.6798279E-13,
+        "Z": -1.00253644E-07
+      }
+    }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "Ak_VisSet_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'AkComponent'",
+    "Template": {
+      "ObjectName": "AkComponent'BP_Monster_Base_C:Ak_VisSet_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.2"
+    },
+    "Properties": {
+      "RelativeLocation": {
+        "X": -1.4372029E-07,
+        "Y": 48.944164,
+        "Z": 260.761
+      }
+    }
+  },
+  {
+    "Type": "ArrowComponent",
+    "Name": "Arrow1_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'ArrowComponent'",
+    "Properties": {
+      "RelativeRotation": {
+        "Pitch": 1.3960552E-06,
+        "Yaw": 180.0,
+        "Roll": 180.0
+      }
+    }
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'Char_Pan_Sightline_C'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.3"
+    },
+    "Properties": {
+      "DynamicBindingObjects": [
+        {
+          "ObjectName": "ComponentDelegateBinding'Char_Pan_Sightline_Aberration_C:ComponentDelegateBinding_0'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.10"
+        }
+      ],
+      "Timelines": [
+        {
+          "ObjectName": "TimelineTemplate'Char_Pan_Sightline_Aberration_C:Speaking_DarkToLightTL_Template'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.93"
+        },
+        {
+          "ObjectName": "TimelineTemplate'Char_Pan_Sightline_Aberration_C:Speaking_LightToDarkTL_Template'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.94"
+        }
+      ],
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.87"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'Char_Pan_Sightline_Aberration_C:InheritableComponentHandler'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.65"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:ExecuteUbergraph_Char_Pan_Sightline_Aberration'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.25"
+      }
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:CREATEDELEGATE_PROXYFUNCTION_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.22"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:FilterIncomingDamage'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.26"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:ModifyDamage'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.30"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:SFX_TargetDamaged'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.42"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:SFX_RootSightlineDamaged'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.41"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:Trigger Dialog with Cooldown'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.53"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:EvaluatePlayerNearby'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.24"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:RestoreMeshLocation'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.39"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:GlitchSound'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.28"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:RandomizeMeshLocation'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.36"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:Speaking_DarkToLightTL__FinishedFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.45"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:Speaking_DarkToLightTL__UpdateFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.46"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:Speaking_LightToDarkTL__FinishedFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.47"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:Speaking_LightToDarkTL__UpdateFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.48"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:OnWorldReset'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.34"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:VO_RootSightline_IntroBark'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.59"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:VO_RootSightline_PlayerDeath'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.62"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:VO_RootSightline_PlayerLowHealth'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.63"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:VO_RootSightline_PlayerDamaged'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.61"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:VO_RootSightline_LowHealth'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.60"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:VO_RootSightline_GeneralTaunt'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.58"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:VO_RootSightline_Death'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.57"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:SFX_VocalLoop_Start'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.43"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:SFX_VocalLoop_Stop'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.44"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.37"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:PlayDeathStinger'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.35"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:GlitchMesh'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.27"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:EndGlitch'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.23"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:GlitchVisual'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.29"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:TestStopPersistingAction'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.52"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:ReceiveDestroyed'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.38"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:BndEvt__Char_Pan_Sightline_Aberration_PlayerDetect_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.18"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:BndEvt__Char_Pan_Sightline_Aberration_PlayerDetect_K2Node_ComponentBoundEvent_1_ComponentEndOverlapSignature__DelegateSignature'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.19"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:CombatEnter'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.21"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:SetUpAberration'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.40"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:TurnStencilOn'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.56"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:TurnStencilOff'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.55"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:CheckIfSpeaking'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.20"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:OnDead_Event'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.31"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:OnNotifyTakeDamage_Event'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.33"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:OnNotifyAllWorldReset'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.32"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:StartSpeakingCheckTimer'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.49"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:StopSpeakingCheckTimer'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.50"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:StopTalkVFXLight'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.51"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:TurnOffSpeakingVFX'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.54"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:ExecuteUbergraph_Char_Pan_Sightline_Aberration'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.25"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "LookAt",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Ak_PlayLocation_Crystal",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AkComponent'",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ContextualDialog",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'ContextualDialogComponent'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "VFX_Sightline_Talk",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Arrow1",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'ArrowComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Interact_Node",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Dialogue",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'NPCDialogueComponent_C'",
+          "ObjectPath": "/Game/_Core/Blueprints/Base/NPCDialogueComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Faction1",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'FactionComponent'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "PlayerDetect",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'BoxComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Name",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NamedActorComponent'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Speaking_LightToDarkTL_delta_3F25C451496AACCC00A5548025285C5F",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Speaking_LightToDarkTL__Direction_3F25C451496AACCC00A5548025285C5F",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Class'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Speaking_LightToDarkTL",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Speaking_DarkToLightTL_delta_F37679904AEC2F8FE7FF588ADAB58E6D",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Speaking_DarkToLightTL__Direction_F37679904AEC2F8FE7FF588ADAB58E6D",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Class'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Speaking_DarkToLightTL",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "StartingMeshLocation",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 24,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "TimerGlitchMesh",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Struct": {
+          "ObjectName": "Class'TimerHandle'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "NS_Glitch",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "RandomTime",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "PlayerNearby",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "SpeakingCheckTimer",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Struct": {
+          "ObjectName": "Class'TimerHandle'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CD_Time_PlayerDeath",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CD_Time_PlayerLowHealth",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CD_Time_PlayerDamaged",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CD_Time_RSLowHleath",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "SFX_TrackVocalLoop",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Debug_TransitionToAberration",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "AllowTalkVFX",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_Char_Pan_Sightline_Aberration": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:ExecuteUbergraph_Char_Pan_Sightline_Aberration'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.25"
+      },
+      "TurnOffSpeakingVFX": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:TurnOffSpeakingVFX'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.54"
+      },
+      "StopTalkVFXLight": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:StopTalkVFXLight'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.51"
+      },
+      "StopSpeakingCheckTimer": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:StopSpeakingCheckTimer'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.50"
+      },
+      "StartSpeakingCheckTimer": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:StartSpeakingCheckTimer'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.49"
+      },
+      "OnNotifyAllWorldReset": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:OnNotifyAllWorldReset'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.32"
+      },
+      "OnNotifyTakeDamage_Event": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:OnNotifyTakeDamage_Event'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.33"
+      },
+      "OnDead_Event": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:OnDead_Event'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.31"
+      },
+      "CheckIfSpeaking": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:CheckIfSpeaking'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.20"
+      },
+      "TurnStencilOff": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:TurnStencilOff'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.55"
+      },
+      "TurnStencilOn": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:TurnStencilOn'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.56"
+      },
+      "SetUpAberration": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:SetUpAberration'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.40"
+      },
+      "CombatEnter": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:CombatEnter'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.21"
+      },
+      "BndEvt__Char_Pan_Sightline_Aberration_PlayerDetect_K2Node_ComponentBoundEvent_1_ComponentEndOverlapSignature__DelegateSignature": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:BndEvt__Char_Pan_Sightline_Aberration_PlayerDetect_K2Node_ComponentBoundEvent_1_ComponentEndOverlapSignature__DelegateSignature'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.19"
+      },
+      "BndEvt__Char_Pan_Sightline_Aberration_PlayerDetect_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:BndEvt__Char_Pan_Sightline_Aberration_PlayerDetect_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.18"
+      },
+      "ReceiveDestroyed": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:ReceiveDestroyed'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.38"
+      },
+      "TestStopPersistingAction": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:TestStopPersistingAction'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.52"
+      },
+      "GlitchVisual": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:GlitchVisual'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.29"
+      },
+      "EndGlitch": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:EndGlitch'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.23"
+      },
+      "GlitchMesh": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:GlitchMesh'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.27"
+      },
+      "PlayDeathStinger": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:PlayDeathStinger'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.35"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.37"
+      },
+      "SFX_VocalLoop_Stop": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:SFX_VocalLoop_Stop'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.44"
+      },
+      "SFX_VocalLoop_Start": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:SFX_VocalLoop_Start'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.43"
+      },
+      "VO_RootSightline_Death": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:VO_RootSightline_Death'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.57"
+      },
+      "VO_RootSightline_GeneralTaunt": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:VO_RootSightline_GeneralTaunt'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.58"
+      },
+      "VO_RootSightline_LowHealth": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:VO_RootSightline_LowHealth'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.60"
+      },
+      "VO_RootSightline_PlayerDamaged": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:VO_RootSightline_PlayerDamaged'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.61"
+      },
+      "VO_RootSightline_PlayerLowHealth": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:VO_RootSightline_PlayerLowHealth'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.63"
+      },
+      "VO_RootSightline_PlayerDeath": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:VO_RootSightline_PlayerDeath'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.62"
+      },
+      "VO_RootSightline_IntroBark": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:VO_RootSightline_IntroBark'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.59"
+      },
+      "OnWorldReset": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:OnWorldReset'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.34"
+      },
+      "Speaking_LightToDarkTL__UpdateFunc": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:Speaking_LightToDarkTL__UpdateFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.48"
+      },
+      "Speaking_LightToDarkTL__FinishedFunc": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:Speaking_LightToDarkTL__FinishedFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.47"
+      },
+      "Speaking_DarkToLightTL__UpdateFunc": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:Speaking_DarkToLightTL__UpdateFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.46"
+      },
+      "Speaking_DarkToLightTL__FinishedFunc": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:Speaking_DarkToLightTL__FinishedFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.45"
+      },
+      "RandomizeMeshLocation": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:RandomizeMeshLocation'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.36"
+      },
+      "GlitchSound": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:GlitchSound'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.28"
+      },
+      "RestoreMeshLocation": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:RestoreMeshLocation'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.39"
+      },
+      "EvaluatePlayerNearby": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:EvaluatePlayerNearby'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.24"
+      },
+      "Trigger Dialog with Cooldown": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:Trigger Dialog with Cooldown'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.53"
+      },
+      "SFX_RootSightlineDamaged": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:SFX_RootSightlineDamaged'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.41"
+      },
+      "SFX_TargetDamaged": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:SFX_TargetDamaged'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.42"
+      },
+      "ModifyDamage": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:ModifyDamage'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.30"
+      },
+      "FilterIncomingDamage": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:FilterIncomingDamage'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.26"
+      },
+      "CREATEDELEGATE_PROXYFUNCTION_0": {
+        "ObjectName": "Function'Char_Pan_Sightline_Aberration_C:CREATEDELEGATE_PROXYFUNCTION_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.22"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "Interfaces": [
+      {
+        "Class": {
+          "ObjectName": "Class'WorldResetInterface'",
+          "ObjectPath": "/Script/Remnant"
+        },
+        "PointerOffset": 0,
+        "bImplementedByK2": true
+      }
+    ],
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Char_Pan_Sightline_Aberration_C'Default__Char_Pan_Sightline_Aberration_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.8"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal",
+      "ImplementedInterfaces": "((Interface=/Script/CoreUObject.Class'\"/Script/Remnant.WorldResetInterface\"'))"
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "PlayerDetect_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Properties": {
+      "BoxExtent": {
+        "X": 500.0,
+        "Y": 500.0,
+        "Z": 500.0
+      },
+      "AreaClassOverride": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "BodyInstance": {
+        "CollisionProfileName": "OverlapOnlyPawn",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "BossPawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 200.0,
+        "Y": 2.2737368E-13,
+        "Z": -5.330853E-07
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__Char_Pan_Sightline_C:CollisionCylinder'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.9"
+    }
+  },
+  {
+    "Type": "Char_Pan_Sightline_Aberration_C",
+    "Name": "Default__Char_Pan_Sightline_Aberration_C",
+    "Class": "BlueprintGeneratedClass'/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.Char_Pan_Sightline_Aberration_C'",
+    "Template": {
+      "ObjectName": "Char_Pan_Sightline_C'Default__Char_Pan_Sightline_C'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.10"
+    },
+    "Properties": {
+      "UberGraphFrame": {},
+      "StartingMeshLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -125.0
+      },
+      "TimerGlitchMesh": {
+        "Handle": 0
+      },
+      "SpeakingCheckTimer": {
+        "Handle": 0
+      },
+      "CD_Time_PlayerDeath": 2.0,
+      "CD_Time_PlayerLowHealth": 10.0,
+      "CD_Time_PlayerDamaged": 20.0,
+      "CD_Time_RSLowHleath": 40.0,
+      "SFX_TrackVocalLoop": {
+        "AudioComponent": null
+      },
+      "AllowTalkVFX": true,
+      "BreakableObject": {
+        "AssetPathName": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/BP_Breakable_SightlineAberration_Death.BP_Breakable_SightlineAberration_Death_C",
+        "SubPathString": ""
+      },
+      "DissolveTime": 3.0,
+      "DelayToDissolve": 1.0,
+      "DissolveSoundFX": {
+        "SoundObject": {
+          "ObjectName": "AkAudioEvent'Creature_Dissolve_Aberration'",
+          "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_Shared/Creature_Dissolve/Creature_Dissolve_Aberration.1"
+        }
+      },
+      "Type": "MonsterType::NewEnumerator5",
+      "ModTable": {
+        "ObjectName": "SpawnTable'Pan_Sightline_Aberration_Mod_Exluded'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Pan_Sightline_Aberration_Mod_Exluded.0"
+      },
+      "AlertSound": {
+        "SoundObject": {
+          "ObjectName": "AkAudioEvent'DLC2_Voc_Pan_Sightline_Aberration_Alert_BP'",
+          "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_Alert_BP/Alert_DLC2/DLC2_Voc_Pan_Sightline_Aberration_Alert_BP.1"
+        }
+      },
+      "CombatClass": {
+        "ObjectName": "BlueprintGeneratedClass'CombatClass_Aberration_C'",
+        "ObjectPath": "/Game/_Core/CombatClasses/CombatClass_Aberration.0"
+      },
+      "StatsComp": {
+        "ObjectName": "StatsComponent'Default__Char_Pan_Sightline_Aberration_C:StatsComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.91"
+      },
+      "ActionComp": {
+        "ObjectName": "ActionComponent'Default__Char_Pan_Sightline_Aberration_C:ActionComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.0"
+      },
+      "WeaponPhantomProviderComp": {
+        "ObjectName": "WeaponPhantomComponent'Default__Char_Pan_Sightline_Aberration_C:WeaponPhantomProviderComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.95"
+      },
+      "HitLogComp": {
+        "ObjectName": "HitLogComponent'Default__Char_Pan_Sightline_Aberration_C:HitLogComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.64"
+      },
+      "ReplicatedMovementComp": {
+        "ObjectName": "ReplicatedMovementComponent'Default__Char_Pan_Sightline_Aberration_C:ReplicatedMovement'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.72"
+      },
+      "Data": {
+        "DataTable": {
+          "ObjectName": "DataTable'Stats_Character_DLC2'",
+          "ObjectPath": "/Game/World_DLC2/Stats/Stats_Character_DLC2.0"
+        },
+        "RowName": "Pan_Sightline_Aberration"
+      },
+      "Faction": {
+        "ObjectName": "BlueprintGeneratedClass'Faction_NPC_C'",
+        "ObjectPath": "/Game/_Core/Blueprints/Factions/Faction_NPC.0"
+      },
+      "ImpactDescriptorSet": {
+        "DefaultImpact": {
+          "Effect": {
+            "ImpactEffectName": "IE_Weapon_Blunt_Medium"
+          }
+        }
+      },
+      "ActiveRagdollInfo": {
+        "FoleySound": {
+          "SoundObject": {
+            "ObjectName": "AkAudioEvent'Pan_Sightline_Foley_Stone_Crunch'",
+            "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_Jungle/Pan_Sightline/Pan_Sightline_Foley_Stone_Crunch.1"
+          }
+        },
+        "DeathVocalization": {
+          "SoundObject": {
+            "ObjectName": "AkAudioEvent'Voc_DLC2_Pan_Sightline_Death'",
+            "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_DLC2/DLC2_Pan_Sightline/Voc_DLC2_Pan_Sightline_Death.1"
+          }
+        },
+        "DeathVocalizationSocketName": "Bone_PS_Head"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_Pan_Sightline_Aberration_C:CharacterMesh0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.88"
+      },
+      "CharacterMovement": {
+        "ObjectName": "CharacterMovementComponentGunfire'Default__Char_Pan_Sightline_Aberration_C:CharMoveComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.9"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Pan_Sightline_Aberration_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.7"
+      },
+      "AIControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'Char_Pan_Sightline_Aberration_AIController_C'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration_AIController.0"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Pan_Sightline_Aberration_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.7"
+      },
+      "Tags": [
+        "NoMark",
+        "DelayPersistentVFX"
+      ]
+    }
+  },
+  {
+    "Type": "CharacterMovementComponentGunfire",
+    "Name": "CharMoveComp",
+    "Outer": "Default__Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'CharacterMovementComponentGunfire'",
+    "Template": {
+      "ObjectName": "CharacterMovementComponentGunfire'Default__Char_Pan_Sightline_C:CharMoveComp'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.11"
+    }
+  },
+  {
+    "Type": "ComponentDelegateBinding",
+    "Name": "ComponentDelegateBinding_0",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'ComponentDelegateBinding'",
+    "Properties": {
+      "ComponentDelegateBindings": [
+        {
+          "ComponentPropertyName": "PlayerDetect",
+          "DelegatePropertyName": "OnComponentEndOverlap",
+          "FunctionNameToBind": "BndEvt__Char_Pan_Sightline_Aberration_PlayerDetect_K2Node_ComponentBoundEvent_1_ComponentEndOverlapSignature__DelegateSignature"
+        },
+        {
+          "ComponentPropertyName": "PlayerDetect",
+          "DelegatePropertyName": "OnComponentBeginOverlap",
+          "FunctionNameToBind": "BndEvt__Char_Pan_Sightline_Aberration_PlayerDetect_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "ContextualDialogComponent",
+    "Name": "ContextualDialog_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'ContextualDialogComponent'",
+    "Properties": {
+      "DialogSet": {
+        "ObjectName": "ContextualDialogSet'ContextualDialog_Enemy'",
+        "ObjectPath": "/Game/_Core/ContextualDialog/ContextualDialog_Enemy.97"
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_1",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.0,
+            "Value": 0.3,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.375,
+            "Value": 1.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.75,
+            "Value": 0.3,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_1_2",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.0,
+            "Value": 0.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.0,
+            "Value": 1.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "DisplayInfoComponent_C",
+    "Name": "DisplayInfoComponent_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "BlueprintGeneratedClass'/Game/_Core/Blueprints/Base/DisplayInfoComponent.DisplayInfoComponent_C'",
+    "Template": {
+      "ObjectName": "DisplayInfoComponent_C'BP_Monster_C:DisplayInfoComponent_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.10"
+    },
+    "Properties": {
+      "Label": {
+        "Namespace": "",
+        "Key": "AAB14284472CD0AB5FDF638E84218B8A",
+        "SourceString": "The Emissary",
+        "LocalizedString": "The Emissary"
+      }
+    }
+  },
+  {
+    "Type": "DissolveComponent",
+    "Name": "Dissolve_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'DissolveComponent'",
+    "Template": {
+      "ObjectName": "DissolveComponent'BP_Monster_C:Dissolve_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.11"
+    },
+    "Properties": {
+      "Materials": [
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Sightline_Base'",
+            "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Materials/M_Pan_Sightline_Base.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Sightline_Base_Dis'",
+            "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Materials/M_Pan_Sightline_Base_Dis.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Sightline_Crystal_Break'",
+            "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Materials/M_Pan_Sightline_Crystal_Break.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Sightline_Crystal_Break_Dis'",
+            "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Materials/M_Pan_Sightline_Crystal_Break_Dis.0"
+          }
+        }
+      ],
+      "DissolveFX": {
+        "ObjectName": "NiagaraSystem'NS_Dissolve_Aberration'",
+        "ObjectPath": "/Game/VFX/Global_Particles/Creature/Dissolve/NS_Dissolve_Aberration.23"
+      }
+    }
+  },
+  {
+    "Type": "ExplorableMinimapComponent",
+    "Name": "ExplorableMinimap_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'ExplorableMinimapComponent'",
+    "Template": {
+      "ObjectName": "ExplorableMinimapComponent'BP_Monster_C:ExplorableMinimap_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.12"
+    },
+    "Properties": {
+      "ActorClass": {
+        "ObjectName": "BlueprintGeneratedClass'MiniMap_Icon_Character_NPC_C'",
+        "ObjectPath": "/Game/UI/MiniMap/MiniMapActors/MiniMap_Icon_Character_NPC.1"
+      },
+      "bFaceCamera": false,
+      "RequiredTags": []
+    }
+  },
+  {
+    "Type": "FactionComponent",
+    "Name": "Faction1_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'FactionComponent'"
+  },
+  {
+    "Type": "Function",
+    "Name": "BndEvt__Char_Pan_Sightline_Aberration_PlayerDetect_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "OverlappedComponent",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "OtherActor",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "OtherComp",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "OtherBodyIndex",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "bFromSweep",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "SweepResult",
+        "Flags": "RF_Public",
+        "ElementSize": 240,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_HasOutParms | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BndEvt__Char_Pan_Sightline_Aberration_PlayerDetect_K2Node_ComponentBoundEvent_1_ComponentEndOverlapSignature__DelegateSignature",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "OverlappedComponent",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "OtherActor",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "OtherComp",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "OtherBodyIndex",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "CheckIfSpeaking",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "CombatEnter",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_Monster_Base_C:CombatEnter'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.11"
+    },
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "CREATEDELEGATE_PROXYFUNCTION_0",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "DamageInfo",
+        "Flags": "RF_Public",
+        "ElementSize": 528,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'DamageInfo'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "EndGlitch",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "EvaluatePlayerNearby",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_GetOverlappingActors_OverlappingActors",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "CallFunc_GetOverlappingActors_OverlappingActors",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Actor'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Greater_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_Char_Pan_Sightline_Aberration",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioAttachParams",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioAttachParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioStopParams",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioStopParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Temp_name_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | ReferenceParm",
+        "Inner": {
+          "Type": "NameProperty",
+          "Name": "Temp_name_Variable",
+          "Flags": "RF_Public",
+          "ElementSize": 12
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSound2D_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate",
+        "Flags": "RF_Public",
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "Class'TimerDynamicDelegate__DelegateSignature'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Multiply_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetTimerDelegate_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'TimerHandle'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioStopParams_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioStopParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Has_Been_Initd_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_IsClosed_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Has_Been_Initd_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_TriggerDialogResponse_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_TriggerDialogResponse_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Has_Been_Initd_Variable_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnSystemAttached_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_IsClosed_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetTimer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'TimerHandle'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsActionTypeRunning_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SoftDestroyActor_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'FxActorDestroyerComponent'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_ComponentBoundEvent_OverlappedComponent_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_ComponentBoundEvent_OtherActor_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_ComponentBoundEvent_OtherComp_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "K2Node_ComponentBoundEvent_OtherBodyIndex_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_ComponentBoundEvent_bFromSweep",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_ComponentBoundEvent_SweepResult",
+        "Flags": "RF_Public",
+        "ElementSize": 240,
+        "PropertyFlags": "ConstParm | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_ComponentBoundEvent_OverlappedComponent",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_ComponentBoundEvent_OtherActor",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_ComponentBoundEvent_OtherComp",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "K2Node_ComponentBoundEvent_OtherBodyIndex",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CheckTag_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_IsClosed_Variable_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioStopParams_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioStopParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSoundAttached_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_2",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_3",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioAttachParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSoundAttached_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_Reason",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": null
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'CharacterGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Cause",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_Event_DamageInfo",
+        "Flags": "RF_Public",
+        "ElementSize": 528,
+        "PropertyFlags": "ConstParm | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'DamageInfo'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_K2_IsTimerActiveHandle_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Multiply_DoubleDouble_B_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetRTPCValue_Value_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_K2_SetTimer_Time_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "FilterIncomingDamage",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_Pan_Sightline_C:FilterIncomingDamage'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.25"
+    },
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "DamageInfo",
+        "Flags": "RF_Public",
+        "ElementSize": 528,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'DamageInfo'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "DamageOut",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "Parm | OutParm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "ShouldApplyDamage",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_FilterIncomingDamage_DamageOut",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_FilterIncomingDamage_ShouldApplyDamage",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BreakHitResult_bBlockingHit",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BreakHitResult_bInitialOverlap",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_BreakHitResult_Time",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_BreakHitResult_Distance",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_BreakHitResult_Location",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_BreakHitResult_ImpactPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_BreakHitResult_Normal",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_BreakHitResult_ImpactNormal",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_BreakHitResult_PhysMat",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'PhysicalMaterial'",
+          "ObjectPath": "/Script/PhysicsCore"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_BreakHitResult_HitActor",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_BreakHitResult_HitComponent",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_BreakHitResult_HitBoneName",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_BreakHitResult_BoneName",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_BreakHitResult_HitItem",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_BreakHitResult_ElementIndex",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_BreakHitResult_FaceIndex",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_BreakHitResult_TraceStart",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_BreakHitResult_TraceEnd",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ObjectObject_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CheckTag_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "GlitchMesh",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "GlitchSound",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioAttachParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioPlayParams",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSoundAttached_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CheckCooldown_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "GlitchVisual",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ModifyDamage",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'DamageSourceInterface:ModifyDamage'",
+      "ObjectPath": "/Script/GunfireRuntime"
+    },
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "Info",
+        "Flags": "RF_Public",
+        "ElementSize": 528,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'DamageInfo'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate",
+        "Flags": "RF_Public",
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "Class'DamageEventDelegate__DelegateSignature'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsRemnant_Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'RemnantCharacter'",
+          "ObjectPath": "/Script/Remnant"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnDead_Event",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_Monster_C:OnDead_Event'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.23"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "Reason",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": null
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'CharacterGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Cause",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnNotifyAllWorldReset",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnNotifyTakeDamage_Event",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_Monster_Base_C:OnNotifyTakeDamage_Event'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.33"
+    },
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "DamageInfo",
+        "Flags": "RF_Public",
+        "ElementSize": 528,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'DamageInfo'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnWorldReset",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "PlayDeathStinger",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_Monster_Base_C:PlayDeathStinger'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.39"
+    },
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "RandomizeMeshLocation",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_X",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_Y",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_Z",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Add_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Add_DoubleDouble_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Add_DoubleDouble_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetRelativeLocation_SweepHitResult",
+        "Flags": "RF_Public",
+        "ElementSize": 240,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_Pan_Sightline_C:ReceiveBeginPlay'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.28"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveDestroyed",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_Pan_Sightline_C:ReceiveDestroyed'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.29"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "RestoreMeshLocation",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetRelativeLocation_SweepHitResult",
+        "Flags": "RF_Public",
+        "ElementSize": 240,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetUpAberration",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SFX_RootSightlineDamaged",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "DamageInfo",
+        "Flags": "RF_Public",
+        "ElementSize": 528,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'DamageInfo'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetHealthPercentage_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Greater_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Greater_DoubleDouble_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Greater_DoubleDouble_A_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Greater_DoubleDouble_A_ImplicitCast_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SFX_TargetDamaged",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "DamageInfo",
+        "Flags": "RF_Public",
+        "ElementSize": 528,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'DamageInfo'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsCharacter_Gunfire",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'CharacterGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetHealthPercentage_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Greater_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Greater_DoubleDouble_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ObjectObject_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Greater_DoubleDouble_A_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Greater_DoubleDouble_A_ImplicitCast_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SFX_VocalLoop_Start",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SFX_VocalLoop_Stop",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Speaking_DarkToLightTL__FinishedFunc",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Speaking_DarkToLightTL__UpdateFunc",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Speaking_LightToDarkTL__FinishedFunc",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Speaking_LightToDarkTL__UpdateFunc",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "StartSpeakingCheckTimer",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "StopSpeakingCheckTimer",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "StopTalkVFXLight",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "TestStopPersistingAction",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Trigger Dialog with Cooldown",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "NameProperty",
+        "Name": "Trigger",
+        "Flags": "RF_Public",
+        "ElementSize": 12,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CooldownTime",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CheckCooldown_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_TriggerDialogResponse_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetCooldown_Time_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "TurnOffSpeakingVFX",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "TurnStencilOff",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "TurnStencilOn",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "VO_RootSightline_Death",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "VO_RootSightline_GeneralTaunt",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "VO_RootSightline_IntroBark",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "VO_RootSightline_LowHealth",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "VO_RootSightline_PlayerDamaged",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "VO_RootSightline_PlayerDeath",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "VO_RootSightline_PlayerLowHealth",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "HitLogComponent",
+    "Name": "HitLogComp",
+    "Outer": "Default__Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'HitLogComponent'",
+    "Template": {
+      "ObjectName": "HitLogComponent'Default__Char_Pan_Sightline_C:HitLogComp'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.34"
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_Pan_Sightline_Aberration_C:VFX_Movement_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.68"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_Pan_Sightline_C'",
+              "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.3"
+            },
+            "SCSVariableName": "VFX_Movement",
+            "AssociatedGuid": "DE23FF2C-4BA71FBF-328DA08F-0C44E2A4"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_Pan_Sightline_Aberration_C:VFX_Crystal_Shatter_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.67"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_Pan_Sightline_C'",
+              "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.3"
+            },
+            "SCSVariableName": "VFX_Crystal_Shatter",
+            "AssociatedGuid": "7819E794-4AA42C2E-9234758F-F8377976"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'DisplayInfoComponent_C'",
+            "ObjectPath": "/Game/_Core/Blueprints/Base/DisplayInfoComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "DisplayInfoComponent_C'Char_Pan_Sightline_Aberration_C:DisplayInfoComponent_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.14"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "DisplayInfoComponent",
+            "AssociatedGuid": "9D516F77-47F7A864-60CD9289-9CBD107C"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'ActorCustomizationComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "ActorCustomizationComponent'Char_Pan_Sightline_Aberration_C:Visual_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.1"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_Base_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.3"
+            },
+            "SCSVariableName": "Visual",
+            "AssociatedGuid": "88E8F05F-499F34E6-178F9CA8-75D39337"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'DissolveComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "DissolveComponent'Char_Pan_Sightline_Aberration_C:Dissolve_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.15"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "Dissolve",
+            "AssociatedGuid": "63F89BCB-4D3243A5-A96E8C83-1826967D"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'StateMachineComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "StateMachineComponent'Char_Pan_Sightline_Aberration_C:StateMachine_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.90"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "StateMachine",
+            "AssociatedGuid": "1226ECA4-48F65379-CC82D286-262B8701"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'TargetableComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "TargetableComponent'Char_Pan_Sightline_Aberration_C:Targetable_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.92"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "Targetable",
+            "AssociatedGuid": "98AB25CD-467F77CE-B6B6D0B4-85EAED9A"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'SoundSetComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "SoundSetComponent'Char_Pan_Sightline_Aberration_C:SoundSet_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.89"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "SoundSet",
+            "AssociatedGuid": "5B85C075-472CBB69-861FEA8F-8A8CDCA4"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'AkComponent'",
+            "ObjectPath": "/Script/AkAudio"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "AkComponent'Char_Pan_Sightline_Aberration_C:Ak_VisSet_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.3"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_Base_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.3"
+            },
+            "SCSVariableName": "Ak_VisSet",
+            "AssociatedGuid": "8E4EEA47-43F8F142-71A094AC-F51AE463"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'ExplorableMinimapComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "ExplorableMinimapComponent'Char_Pan_Sightline_Aberration_C:ExplorableMinimap_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.16"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "ExplorableMinimap",
+            "AssociatedGuid": "2CA79B6A-41CF250E-97235FA4-5E927519"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "NamedActorComponent",
+    "Name": "Name_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'NamedActorComponent'",
+    "Properties": {
+      "NameID": "Pan_Sightline_Aberration"
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "VFX_Crystal_Shatter_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_Pan_Sightline_C:VFX_Crystal_Shatter_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.36"
+    },
+    "Properties": {
+      "OverrideParameters": {}
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "VFX_Movement_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_Pan_Sightline_C:VFX_Movement_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.37"
+    },
+    "Properties": {
+      "OverrideParameters": {}
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "VFX_Sightline_Talk_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_Sightline_Aberration_Talking'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/VFX/NS_Sightline_Aberration_Talking.12"
+      },
+      "OverrideParameters": {
+        "UserParameterRedirects": [
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Color",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Color",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "SphereScale",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.SphereScale",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Actor",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraDataInterfaceSkeletalMesh'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 1,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Actor",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraDataInterfaceSkeletalMesh'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 1,
+                "Flags": 0
+              }
+            }
+          }
+        ],
+        "SortedParameterOffsets": [
+          {
+            "Offset": 0,
+            "Name": "User.Actor",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraDataInterfaceSkeletalMesh'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 1,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 0,
+            "Name": "User.Color",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 16,
+            "Name": "User.SphereScale",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          }
+        ],
+        "ParameterData": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          128,
+          63,
+          86,
+          214,
+          98,
+          63,
+          0,
+          0,
+          128,
+          63,
+          154,
+          153,
+          89,
+          63
+        ],
+        "DataInterfaces": [
+          {
+            "ObjectName": "NiagaraDataInterfaceSkeletalMesh'Char_Pan_Sightline_Aberration_C:VFX_Sightline_Talk_GEN_VARIABLE.NiagaraDataInterfaceSkeletalMesh_0'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.70"
+          }
+        ]
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": -4.0826995E-12,
+        "Z": 0.0
+      },
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "NiagaraDataInterfaceSkeletalMesh",
+    "Name": "NiagaraDataInterfaceSkeletalMesh_0",
+    "Outer": "VFX_Sightline_Talk_GEN_VARIABLE",
+    "Class": "UScriptClass'NiagaraDataInterfaceSkeletalMesh'"
+  },
+  {
+    "Type": "NPCDialogueComponent_C",
+    "Name": "Dialogue_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "BlueprintGeneratedClass'/Game/_Core/Blueprints/Base/NPCDialogueComponent.NPCDialogueComponent_C'",
+    "Template": {
+      "ObjectName": "NPCDialogueComponent_C'Default__NPCDialogueComponent_C'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/NPCDialogueComponent.13"
+    },
+    "Properties": {
+      "EventTree": {
+        "ObjectName": "EventTree'EventTree_RootSightline_DLC2'",
+        "ObjectPath": "/Game/World_DLC2/EventTrees/EventTree_RootSightline_DLC2.41"
+      },
+      "SpeakerID": "NPC",
+      "DefaultAudioAttachSocket": "Bone_PS_Head"
+    }
+  },
+  {
+    "Type": "ReplicatedMovementComponent",
+    "Name": "ReplicatedMovement",
+    "Outer": "Default__Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'ReplicatedMovementComponent'",
+    "Template": {
+      "ObjectName": "ReplicatedMovementComponent'Default__Char_Pan_Sightline_C:ReplicatedMovement'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.38"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "Interact_Node_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": -1.0540864,
+        "Y": 43.3425,
+        "Z": -2.305778
+      },
+      "RelativeRotation": {
+        "Pitch": -6.9473475E-07,
+        "Yaw": -540.0,
+        "Roll": 540.0
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "LookAt_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_Pan_Sightline_Aberration_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.73"
+      },
+      "VariableGuid": "4A9FB88A-43CEF37A-459830B5-551C11CB",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'BoxComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent'Char_Pan_Sightline_Aberration_C:PlayerDetect_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.6"
+      },
+      "ParentComponentOrVariableName": "CollisionCylinder",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "389788F4-47D51D41-9DFDBEBA-37EE3563",
+      "InternalVariableName": "PlayerDetect"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_Pan_Sightline_Aberration_C:LookAt_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.75"
+      },
+      "AttachToName": "Bone_PS_Spine2",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "46852436-4002B4AB-DC5662B5-39D4CCB5",
+      "InternalVariableName": "LookAt"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NamedActorComponent'",
+        "ObjectPath": "/Script/GunfireRuntime"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NamedActorComponent'Char_Pan_Sightline_Aberration_C:Name_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.66"
+      },
+      "VariableGuid": "7A51B5C3-4B10B5A3-C5451685-E90B28D4",
+      "InternalVariableName": "Name"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'Char_Pan_Sightline_Aberration_C:VFX_Sightline_Talk_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.69"
+      },
+      "AttachToName": "VFX_Crystal",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.86"
+        }
+      ],
+      "VariableGuid": "0A39ECF6-49F8DE79-2C4CC290-6661C03A",
+      "InternalVariableName": "VFX_Sightline_Talk"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'FactionComponent'",
+        "ObjectPath": "/Script/GunfireRuntime"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "FactionComponent'Char_Pan_Sightline_Aberration_C:Faction1_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.17"
+      },
+      "VariableGuid": "A52E7005-4D1AAD90-E2E96F8F-4C409BD4",
+      "InternalVariableName": "Faction1"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'NPCDialogueComponent_C'",
+        "ObjectPath": "/Game/_Core/Blueprints/Base/NPCDialogueComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NPCDialogueComponent_C'Char_Pan_Sightline_Aberration_C:Dialogue_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.71"
+      },
+      "VariableGuid": "56107D48-4FE7E251-B49F6491-91CF6A85",
+      "InternalVariableName": "Dialogue"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_Pan_Sightline_Aberration_C:Interact_Node_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.74"
+      },
+      "AttachToName": "Bone_PS_Head",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.84"
+        }
+      ],
+      "VariableGuid": "F0F5240B-4CFF0837-38E2ECB9-F9492EBA",
+      "InternalVariableName": "Interact_Node"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'ArrowComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ArrowComponent'Char_Pan_Sightline_Aberration_C:Arrow1_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.4"
+      },
+      "VariableGuid": "16CC3B2C-42D16C76-27DA58BD-02F59AE1",
+      "InternalVariableName": "Arrow1"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'ContextualDialogComponent'",
+        "ObjectPath": "/Script/GunfireRuntime"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ContextualDialogComponent'Char_Pan_Sightline_Aberration_C:ContextualDialog_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.11"
+      },
+      "VariableGuid": "343BEA5E-4B09A111-945001B6-1AE9764E",
+      "InternalVariableName": "ContextualDialog"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AkComponent'",
+        "ObjectPath": "/Script/AkAudio"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AkComponent'Char_Pan_Sightline_Aberration_C:Ak_PlayLocation_Crystal_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.2"
+      },
+      "VariableGuid": "B23560C1-42FBE44A-DE797D89-3037820E",
+      "InternalVariableName": "Ak_PlayLocation_Crystal"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.79"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.77"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.81"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.82"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.83"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.80"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.85"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.78"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.79"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.77"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.81"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.82"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.83"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.84"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.80"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.85"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.86"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.78"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Char_Pan_Sightline_Aberration_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.76"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponentBudgeted",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'SkeletalMeshComponentBudgeted'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_Pan_Sightline_C:CharacterMesh0'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.54"
+    },
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'Char_Pan_Sightline_Aberration_AnimBP_C'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration_AnimBP.0"
+      },
+      "AnimationData": {
+        "AnimToPlay": {
+          "ObjectName": "AnimSequence'Pan_Sightline_Throne_Idle'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Animations/Pan_Sightline_Throne_Idle.0"
+        }
+      },
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Pan_Sightline_Aberration_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.7"
+      }
+    }
+  },
+  {
+    "Type": "SoundSetComponent",
+    "Name": "SoundSet_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'SoundSetComponent'",
+    "Template": {
+      "ObjectName": "SoundSetComponent'BP_Monster_C:SoundSet_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.54"
+    },
+    "Properties": {
+      "SoundSet": {
+        "ObjectName": "SoundSet'Char_RootSightline_Soundset_DLC2'",
+        "ObjectPath": "/Game/World_DLC2/EventTrees/Char_RootSightline_Soundset_DLC2.45"
+      },
+      "SoundTags": [
+        "VO_RootSightline"
+      ]
+    }
+  },
+  {
+    "Type": "StateMachineComponent",
+    "Name": "StateMachine_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'StateMachineComponent'",
+    "Template": {
+      "ObjectName": "StateMachineComponent'Char_Pan_Sightline_C:StateMachine_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.55"
+    },
+    "Properties": {
+      "StateMachine": {
+        "ObjectName": "StateMachine'Char_Pan_Sightline_Aberration_StateMachine'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration_StateMachine.2195"
+      },
+      "StartState": "NPC_Throne_Behavior_Idle"
+    }
+  },
+  {
+    "Type": "StatsComponent",
+    "Name": "StatsComp",
+    "Outer": "Default__Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'StatsComponent'",
+    "Template": {
+      "ObjectName": "StatsComponent'Default__Char_Pan_Sightline_C:StatsComp'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.56"
+    }
+  },
+  {
+    "Type": "TargetableComponent",
+    "Name": "Targetable_GEN_VARIABLE",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'TargetableComponent'",
+    "Template": {
+      "ObjectName": "TargetableComponent'Char_Pan_Sightline_C:Targetable_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.57"
+    },
+    "Properties": {
+      "RelativeLocation": {
+        "X": 52.74612,
+        "Y": 2.842171E-14,
+        "Z": 132.16302
+      }
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "Speaking_DarkToLightTL_Template",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Properties": {
+      "TimelineLength": 0.75,
+      "bLoop": true,
+      "bIgnoreTimeDilation": true,
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'Char_Pan_Sightline_Aberration_C:CurveFloat_1'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.12"
+          },
+          "PropertyName": "Speaking_DarkToLightTL_delta_F37679904AEC2F8FE7FF588ADAB58E6D",
+          "TrackName": "delta",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "F3767990-4AEC2F8F-E7FF588A-DAB58E6D",
+      "VariableName": "Speaking_DarkToLightTL",
+      "DirectionPropertyName": "Speaking_DarkToLightTL__Direction_F37679904AEC2F8FE7FF588ADAB58E6D",
+      "UpdateFunctionName": "Speaking_DarkToLightTL__UpdateFunc",
+      "FinishedFunctionName": "Speaking_DarkToLightTL__FinishedFunc"
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "Speaking_LightToDarkTL_Template",
+    "Outer": "Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Properties": {
+      "TimelineLength": 1.0,
+      "bIgnoreTimeDilation": true,
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'Char_Pan_Sightline_Aberration_C:CurveFloat_1_2'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Sightline/Blueprints/Aberration/Char_Pan_Sightline_Aberration.13"
+          },
+          "PropertyName": "Speaking_LightToDarkTL_delta_3F25C451496AACCC00A5548025285C5F",
+          "TrackName": "delta",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "3F25C451-496AACCC-00A55480-25285C5F",
+      "VariableName": "Speaking_LightToDarkTL",
+      "DirectionPropertyName": "Speaking_LightToDarkTL__Direction_3F25C451496AACCC00A5548025285C5F",
+      "UpdateFunctionName": "Speaking_LightToDarkTL__UpdateFunc",
+      "FinishedFunctionName": "Speaking_LightToDarkTL__FinishedFunc"
+    }
+  },
+  {
+    "Type": "WeaponPhantomComponent",
+    "Name": "WeaponPhantomProviderComp",
+    "Outer": "Default__Char_Pan_Sightline_Aberration_C",
+    "Class": "UScriptClass'WeaponPhantomComponent'",
+    "Template": {
+      "ObjectName": "WeaponPhantomComponent'Default__Char_Pan_Sightline_C:WeaponPhantomProviderComp'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Pan_Sightline/Blueprints/Char_Pan_Sightline.60"
+    }
+  }
+]

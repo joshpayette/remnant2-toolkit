@@ -1,0 +1,1154 @@
+[
+  {
+    "Type": "ActionComponent",
+    "Name": "ActionComp",
+    "Outer": "Default__Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'ActionComponent'",
+    "Template": {
+      "ObjectName": "ActionComponent'Default__Char_LS_SS_Base_C:ActionComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.0"
+    }
+  },
+  {
+    "Type": "ActorCustomizationComponent",
+    "Name": "Visual_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'ActorCustomizationComponent'",
+    "Template": {
+      "ObjectName": "ActorCustomizationComponent'Char_LS_SS_Base_C:Visual_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.1"
+    },
+    "Properties": {
+      "Slots": [
+        {
+          "NameID": "Default",
+          "DefaultCustomizationID": "Pickaxe",
+          "CustomizationID": "Pickaxe",
+          "IsTransient": false
+        },
+        {
+          "NameID": "StatusEffects",
+          "DefaultCustomizationID": "None",
+          "CustomizationID": "None",
+          "IsTransient": true
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'Char_LS_SS_Base_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.4"
+    },
+    "Properties": {
+      "DynamicBindingObjects": [
+        {
+          "ObjectName": "ComponentDelegateBinding'Char_LS_SS_Pickaxe_C:ComponentDelegateBinding_0'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.10"
+        }
+      ],
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Char_LS_SS_Pickaxe_C:SimpleConstructionScript_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.29"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'Char_LS_SS_Pickaxe_C:InheritableComponentHandler'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.20"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_C:ExecuteUbergraph_Char_LS_SS_Pickaxe'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.17"
+      }
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_C:Begin_MiningTimer'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.11"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_C:End_MiningTimer'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.16"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_C:Enable_Mining'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.15"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_C:Disable_Mining'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.14"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.18"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_C:BndEvt__Char_LS_SS_Pickaxe_WaterFX_K2Node_ComponentBoundEvent_0_WaterOverlapEvent__DelegateSignature'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.12"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_C:BndEvt__Char_LS_SS_Pickaxe_WaterFX_K2Node_ComponentBoundEvent_1_WaterOverlapEvent__DelegateSignature'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.13"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_C:ExecuteUbergraph_Char_LS_SS_Pickaxe'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.17"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WP_ArmL_2",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'BoxComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WP_ArmL_1",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'BoxComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WP_Pickaxe_1",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'BoxComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WP_Pickaxe_2",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'BoxComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Debug_Slash",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | ExposeOnSpawn",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Debug_Slam",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | ExposeOnSpawn",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Timer_Mining",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Struct": {
+          "ObjectName": "Class'TimerHandle'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CanMine",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "InitialMine",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Debug_Evolved_Stab",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | ExposeOnSpawn",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Debug_Evolved_SpinSlash",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | ExposeOnSpawn",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_Char_LS_SS_Pickaxe": {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_C:ExecuteUbergraph_Char_LS_SS_Pickaxe'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.17"
+      },
+      "BndEvt__Char_LS_SS_Pickaxe_WaterFX_K2Node_ComponentBoundEvent_1_WaterOverlapEvent__DelegateSignature": {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_C:BndEvt__Char_LS_SS_Pickaxe_WaterFX_K2Node_ComponentBoundEvent_1_WaterOverlapEvent__DelegateSignature'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.13"
+      },
+      "BndEvt__Char_LS_SS_Pickaxe_WaterFX_K2Node_ComponentBoundEvent_0_WaterOverlapEvent__DelegateSignature": {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_C:BndEvt__Char_LS_SS_Pickaxe_WaterFX_K2Node_ComponentBoundEvent_0_WaterOverlapEvent__DelegateSignature'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.12"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.18"
+      },
+      "Disable_Mining": {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_C:Disable_Mining'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.14"
+      },
+      "Enable_Mining": {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_C:Enable_Mining'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.15"
+      },
+      "End_MiningTimer": {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_C:End_MiningTimer'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.16"
+      },
+      "Begin_MiningTimer": {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_C:Begin_MiningTimer'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.11"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Char_LS_SS_Pickaxe_C'Default__Char_LS_SS_Pickaxe_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.8"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "WP_ArmL_1_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Properties": {
+      "BoxExtent": {
+        "X": 20.0,
+        "Y": 5.0,
+        "Z": 5.0
+      },
+      "bGenerateOverlapEvents": false,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel6",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "WeaponPhantom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Window",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "BossPawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 29.160082,
+        "Y": 1.2081991E-12,
+        "Z": -4.6462084E-08
+      }
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "WP_ArmL_2_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Properties": {
+      "BoxExtent": {
+        "X": 30.0,
+        "Y": 5.0,
+        "Z": 5.0
+      },
+      "bGenerateOverlapEvents": false,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel6",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "WeaponPhantom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Window",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "BossPawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 33.912743,
+        "Y": -4.7680565E-14,
+        "Z": 7.0868225E-08
+      }
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "WP_Pickaxe_1_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Properties": {
+      "BoxExtent": {
+        "X": 70.0,
+        "Y": 5.0,
+        "Z": 5.0
+      },
+      "bGenerateOverlapEvents": false,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel6",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "WeaponPhantom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Window",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "BossPawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 40.00001,
+        "Y": 2.1510554E-16,
+        "Z": 2.0261566E-15
+      },
+      "RelativeRotation": {
+        "Pitch": 2.98177E-15,
+        "Yaw": 0.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "WP_Pickaxe_2_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Properties": {
+      "BoxExtent": {
+        "X": 10.0,
+        "Y": 55.0,
+        "Z": 5.0
+      },
+      "bGenerateOverlapEvents": false,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel6",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "WeaponPhantom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Window",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "BossPawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 19.375683,
+        "Y": 7.1095915,
+        "Z": -7.1095915
+      },
+      "RelativeRotation": {
+        "Pitch": 10.545291,
+        "Yaw": -10.728583,
+        "Roll": 44.007027
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__Char_LS_SS_Base_C:CollisionCylinder'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.6"
+    }
+  },
+  {
+    "Type": "Char_LS_SS_Pickaxe_C",
+    "Name": "Default__Char_LS_SS_Pickaxe_C",
+    "Class": "BlueprintGeneratedClass'/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.Char_LS_SS_Pickaxe_C'",
+    "Template": {
+      "ObjectName": "Char_LS_SS_Base_C'Default__Char_LS_SS_Base_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.7"
+    },
+    "Properties": {
+      "UberGraphFrame": {},
+      "Debug_Slash": true,
+      "Debug_Slam": true,
+      "Timer_Mining": {
+        "Handle": 0
+      },
+      "InitialMine": true,
+      "Debug_Evolved_Stab": true,
+      "Debug_Evolved_SpinSlash": true,
+      "Debug_Evolved": false,
+      "EvolvedCustomization": "Pickaxe_Evolved",
+      "StatsComp": {
+        "ObjectName": "StatsComponent'Default__Char_LS_SS_Pickaxe_C:StatsComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.32"
+      },
+      "ActionComp": {
+        "ObjectName": "ActionComponent'Default__Char_LS_SS_Pickaxe_C:ActionComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.0"
+      },
+      "WeaponPhantomProviderComp": {
+        "ObjectName": "WeaponPhantomComponent'Default__Char_LS_SS_Pickaxe_C:WeaponPhantomProviderComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.33"
+      },
+      "HitLogComp": {
+        "ObjectName": "HitLogComponent'Default__Char_LS_SS_Pickaxe_C:HitLogComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.19"
+      },
+      "ReplicatedMovementComp": {
+        "ObjectName": "ReplicatedMovementComponent'Default__Char_LS_SS_Pickaxe_C:ReplicatedMovement'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.22"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_LS_SS_Pickaxe_C:CharacterMesh0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.30"
+      },
+      "CharacterMovement": {
+        "ObjectName": "CharacterMovementComponentGunfire'Default__Char_LS_SS_Pickaxe_C:CharMoveComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.9"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_SS_Pickaxe_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.7"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_SS_Pickaxe_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.7"
+      },
+      "Tags": [
+        "CanActivateWP",
+        "NoBleed",
+        "BaseVFX"
+      ]
+    }
+  },
+  {
+    "Type": "CharacterMovementComponentGunfire",
+    "Name": "CharMoveComp",
+    "Outer": "Default__Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'CharacterMovementComponentGunfire'",
+    "Template": {
+      "ObjectName": "CharacterMovementComponentGunfire'Default__Char_LS_SS_Base_C:CharMoveComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.8"
+    }
+  },
+  {
+    "Type": "ComponentDelegateBinding",
+    "Name": "ComponentDelegateBinding_0",
+    "Outer": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'ComponentDelegateBinding'",
+    "Properties": {
+      "ComponentDelegateBindings": [
+        {
+          "ComponentPropertyName": "WaterFX",
+          "DelegatePropertyName": "OnExitWater",
+          "FunctionNameToBind": "BndEvt__Char_LS_SS_Pickaxe_WaterFX_K2Node_ComponentBoundEvent_1_WaterOverlapEvent__DelegateSignature"
+        },
+        {
+          "ComponentPropertyName": "WaterFX",
+          "DelegatePropertyName": "OnEnterWater",
+          "FunctionNameToBind": "BndEvt__Char_LS_SS_Pickaxe_WaterFX_K2Node_ComponentBoundEvent_0_WaterOverlapEvent__DelegateSignature"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "Begin_MiningTimer",
+    "Outer": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BndEvt__Char_LS_SS_Pickaxe_WaterFX_K2Node_ComponentBoundEvent_0_WaterOverlapEvent__DelegateSignature",
+    "Outer": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BndEvt__Char_LS_SS_Pickaxe_WaterFX_K2Node_ComponentBoundEvent_1_WaterOverlapEvent__DelegateSignature",
+    "Outer": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Disable_Mining",
+    "Outer": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Enable_Mining",
+    "Outer": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "End_MiningTimer",
+    "Outer": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_Char_LS_SS_Pickaxe",
+    "Outer": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate",
+        "Flags": "RF_Public",
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "Class'TimerDynamicDelegate__DelegateSignature'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_SelectFloat_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetTimerDelegate_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'TimerHandle'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_K2_SetTimerDelegate_Time_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_LS_SS_Base_C:ReceiveBeginPlay'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.40"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "HitLogComponent",
+    "Name": "HitLogComp",
+    "Outer": "Default__Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'HitLogComponent'",
+    "Template": {
+      "ObjectName": "HitLogComponent'Default__Char_LS_SS_Base_C:HitLogComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.63"
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'StateMachineComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "StateMachineComponent'Char_LS_SS_Pickaxe_C:StateMachine_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.31"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "StateMachine",
+            "AssociatedGuid": "1226ECA4-48F65379-CC82D286-262B8701"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'ActorCustomizationComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "ActorCustomizationComponent'Char_LS_SS_Pickaxe_C:Visual_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.1"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_Base_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.3"
+            },
+            "SCSVariableName": "Visual",
+            "AssociatedGuid": "88E8F05F-499F34E6-178F9CA8-75D39337"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_SS_Pickaxe_C:VFX_Idle_Sand_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.21"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_SS_Base_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.4"
+            },
+            "SCSVariableName": "VFX_Idle_Sand",
+            "AssociatedGuid": "C66B7687-4F1736F9-692B8F99-C422D4D3"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "VFX_Idle_Sand_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_SS_Base_C:VFX_Idle_Sand_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.65"
+    },
+    "Properties": {
+      "OverrideParameters": {}
+    }
+  },
+  {
+    "Type": "ReplicatedMovementComponent",
+    "Name": "ReplicatedMovement",
+    "Outer": "Default__Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'ReplicatedMovementComponent'",
+    "Template": {
+      "ObjectName": "ReplicatedMovementComponent'Default__Char_LS_SS_Base_C:ReplicatedMovement'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.66"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_LS_SS_Pickaxe_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.23"
+      },
+      "VariableGuid": "0D0DD639-48BAD380-29ED6F96-931B075C",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'BoxComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent'Char_LS_SS_Pickaxe_C:WP_Pickaxe_1_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.5"
+      },
+      "AttachToName": "Bone_SS_Weapon_Axe",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "D81C0661-4026706C-B2FA7E99-2276AEDE",
+      "InternalVariableName": "WP_Pickaxe_1"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'BoxComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent'Char_LS_SS_Pickaxe_C:WP_Pickaxe_2_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.6"
+      },
+      "AttachToName": "Bone_SS_Weapon_Head_Axe",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "5AC27BC4-493B8AFC-68C9398F-100E4AF6",
+      "InternalVariableName": "WP_Pickaxe_2"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'BoxComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent'Char_LS_SS_Pickaxe_C:WP_ArmL_1_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.3"
+      },
+      "AttachToName": "Bone_SS_UpperArm_L",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "27EA732D-4FBAA9D3-0F6AF0B8-DCCA8FFF",
+      "InternalVariableName": "WP_ArmL_1"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'BoxComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent'Char_LS_SS_Pickaxe_C:WP_ArmL_2_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.4"
+      },
+      "AttachToName": "Bone_SS_ForeArm_L",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "7AAAAE26-439AA95F-17AA0D87-7BAAFCD3",
+      "InternalVariableName": "WP_ArmL_2"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_LS_SS_Pickaxe_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.26"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_LS_SS_Pickaxe_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.25"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_LS_SS_Pickaxe_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.27"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_LS_SS_Pickaxe_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.28"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_LS_SS_Pickaxe_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.26"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_LS_SS_Pickaxe_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.25"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_LS_SS_Pickaxe_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.27"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_LS_SS_Pickaxe_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.28"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Char_LS_SS_Pickaxe_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.24"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponentBudgeted",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'SkeletalMeshComponentBudgeted'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_LS_SS_Base_C:CharacterMesh0'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.75"
+    },
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'Char_LS_SS_Pickaxe_AnimBP_C'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe_AnimBP.0"
+      },
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'Pan_LivingStone_SS_Pickaxe'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Mesh/Pan_LivingStone_SS_Pickaxe.0"
+      },
+      "SkinnedAsset": {
+        "ObjectName": "SkeletalMesh'Pan_LivingStone_SS_Pickaxe'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Mesh/Pan_LivingStone_SS_Pickaxe.0"
+      },
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_SS_Pickaxe_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe.7"
+      }
+    }
+  },
+  {
+    "Type": "StateMachineComponent",
+    "Name": "StateMachine_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'StateMachineComponent'",
+    "Template": {
+      "ObjectName": "StateMachineComponent'Char_LS_SS_Base_C:StateMachine_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.77"
+    },
+    "Properties": {
+      "StateMachine": {
+        "ObjectName": "StateMachine'Char_LS_SS_Pickaxe_StateMachine'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Char_LS_SS_Pickaxe_StateMachine.2421"
+      }
+    }
+  },
+  {
+    "Type": "StatsComponent",
+    "Name": "StatsComp",
+    "Outer": "Default__Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'StatsComponent'",
+    "Template": {
+      "ObjectName": "StatsComponent'Default__Char_LS_SS_Base_C:StatsComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.78"
+    }
+  },
+  {
+    "Type": "WeaponPhantomComponent",
+    "Name": "WeaponPhantomProviderComp",
+    "Outer": "Default__Char_LS_SS_Pickaxe_C",
+    "Class": "UScriptClass'WeaponPhantomComponent'",
+    "Template": {
+      "ObjectName": "WeaponPhantomComponent'Default__Char_LS_SS_Base_C:WeaponPhantomProviderComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.85"
+    }
+  }
+]

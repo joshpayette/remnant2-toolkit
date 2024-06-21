@@ -1,0 +1,508 @@
+[
+  {
+    "Type": "ActionComponent",
+    "Name": "ActionComp",
+    "Outer": "Default__Char_Root_Infected_Jungle_DLC_C",
+    "Class": "UScriptClass'ActionComponent'",
+    "Template": {
+      "ObjectName": "ActionComponent'Default__Character_Root_Infected_Jungle_C:ActionComp'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Root_Infected/Blueprints/Jungle/Character_Root_Infected_Jungle.0"
+    }
+  },
+  {
+    "Type": "ActorCustomizationComponent",
+    "Name": "Visual_GEN_VARIABLE",
+    "Outer": "Char_Root_Infected_Jungle_DLC_C",
+    "Class": "UScriptClass'ActorCustomizationComponent'",
+    "Template": {
+      "ObjectName": "ActorCustomizationComponent'Character_Root_Infected_Base_C:Visual_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Root_Infected/Blueprints/Character_Root_Infected_Base.1"
+    },
+    "Properties": {
+      "CustomizationSet": {
+        "ObjectName": "ActorCustomizationSet'Char_Root_Infected_Jungle_DLC_VisualSet'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC_VisualSet.15"
+      },
+      "Slots": [
+        {
+          "NameID": "Default",
+          "DefaultCustomizationID": "Default",
+          "CustomizationID": "Default",
+          "IsTransient": false
+        },
+        {
+          "NameID": "StatusEffects",
+          "DefaultCustomizationID": "None",
+          "CustomizationID": "None",
+          "IsTransient": true
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Char_Root_Infected_Jungle_DLC_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'Character_Root_Infected_Jungle_C'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Root_Infected/Blueprints/Jungle/Character_Root_Infected_Jungle.1"
+    },
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Char_Root_Infected_Jungle_DLC_C:SimpleConstructionScript_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.14"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'Char_Root_Infected_Jungle_DLC_C:InheritableComponentHandler'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.10"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'Char_Root_Infected_Jungle_DLC_C:ExecuteUbergraph_Char_Root_Infected_Jungle_DLC'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.7"
+      }
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'Char_Root_Infected_Jungle_DLC_C:ShootSpit'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.8"
+      },
+      {
+        "ObjectName": "Function'Char_Root_Infected_Jungle_DLC_C:ExecuteUbergraph_Char_Root_Infected_Jungle_DLC'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.7"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_Char_Root_Infected_Jungle_DLC": {
+        "ObjectName": "Function'Char_Root_Infected_Jungle_DLC_C:ExecuteUbergraph_Char_Root_Infected_Jungle_DLC'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.7"
+      },
+      "ShootSpit": {
+        "ObjectName": "Function'Char_Root_Infected_Jungle_DLC_C:ShootSpit'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.8"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Char_Root_Infected_Jungle_DLC_C'Default__Char_Root_Infected_Jungle_DLC_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.4"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__Char_Root_Infected_Jungle_DLC_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__Character_Root_Infected_Jungle_C:CollisionCylinder'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Root_Infected/Blueprints/Jungle/Character_Root_Infected_Jungle.4"
+    }
+  },
+  {
+    "Type": "Char_Root_Infected_Jungle_DLC_C",
+    "Name": "Default__Char_Root_Infected_Jungle_DLC_C",
+    "Class": "BlueprintGeneratedClass'/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.Char_Root_Infected_Jungle_DLC_C'",
+    "Template": {
+      "ObjectName": "Character_Root_Infected_Jungle_C'Default__Character_Root_Infected_Jungle_C'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Root_Infected/Blueprints/Jungle/Character_Root_Infected_Jungle.5"
+    },
+    "Properties": {
+      "UberGraphFrame": {},
+      "StatsComp": {
+        "ObjectName": "StatsComponent'Default__Char_Root_Infected_Jungle_DLC_C:StatsComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.16"
+      },
+      "ActionComp": {
+        "ObjectName": "ActionComponent'Default__Char_Root_Infected_Jungle_DLC_C:ActionComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.0"
+      },
+      "WeaponPhantomProviderComp": {
+        "ObjectName": "WeaponPhantomComponent'Default__Char_Root_Infected_Jungle_DLC_C:WeaponPhantomProviderComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.17"
+      },
+      "HitLogComp": {
+        "ObjectName": "HitLogComponent'Default__Char_Root_Infected_Jungle_DLC_C:HitLogComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.9"
+      },
+      "ReplicatedMovementComp": {
+        "ObjectName": "ReplicatedMovementComponent'Default__Char_Root_Infected_Jungle_DLC_C:ReplicatedMovement'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.11"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_Root_Infected_Jungle_DLC_C:CharacterMesh0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.15"
+      },
+      "CharacterMovement": {
+        "ObjectName": "CharacterMovementComponentGunfire'Default__Char_Root_Infected_Jungle_DLC_C:CharMoveComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.5"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Root_Infected_Jungle_DLC_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.3"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Root_Infected_Jungle_DLC_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.3"
+      },
+      "Tags": [
+        "Infected",
+        "Ranged",
+        "JungleRoot"
+      ]
+    }
+  },
+  {
+    "Type": "CharacterMovementComponentGunfire",
+    "Name": "CharMoveComp",
+    "Outer": "Default__Char_Root_Infected_Jungle_DLC_C",
+    "Class": "UScriptClass'CharacterMovementComponentGunfire'",
+    "Template": {
+      "ObjectName": "CharacterMovementComponentGunfire'Default__Character_Root_Infected_Jungle_C:CharMoveComp'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Root_Infected/Blueprints/Jungle/Character_Root_Infected_Jungle.6"
+    }
+  },
+  {
+    "Type": "DissolveComponent",
+    "Name": "Dissolve_GEN_VARIABLE",
+    "Outer": "Char_Root_Infected_Jungle_DLC_C",
+    "Class": "UScriptClass'DissolveComponent'",
+    "Template": {
+      "ObjectName": "DissolveComponent'Character_Root_Infected_Base_C:Dissolve_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Root_Infected/Blueprints/Character_Root_Infected_Base.13"
+    },
+    "Properties": {
+      "Materials": [
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Root_Infected_Rootiped_Foliage_Body'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Material/M_Root_Infected_Rootiped_Foliage_Body.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Root_Infected_Rootiped_Foliage_Body_Dissolve'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Material/M_Root_Infected_Rootiped_Foliage_Body_Dissolve.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Root_Infected_Rootiped_Foliage_Eyes'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Material/M_Root_Infected_Rootiped_Foliage_Eyes.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Root_Infected_Rootiped_Foliage_Eyes_Dissolve'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Material/M_Root_Infected_Rootiped_Foliage_Eyes_Dissolve.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Root_Infected_Rootiped_Foliage_Head'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Material/M_Root_Infected_Rootiped_Foliage_Head.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Root_Infected_Rootiped_Foliage_Head_Dissolve'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Material/M_Root_Infected_Rootiped_Foliage_Head_Dissolve.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'MI_Root_Infected_Rootipied_Foliage_Ginger_Plant'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Material/MI_Root_Infected_Rootipied_Foliage_Ginger_Plant.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'MI_Root_Infected_Rootipied_Foliage_Ginger_Plant_Dissolve'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Material/MI_Root_Infected_Rootipied_Foliage_Ginger_Plant_Dissolve.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'MI_Root_Infected_Rootipied_Foliage_Lilypad_A_DLC2'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Material/MI_Root_Infected_Rootipied_Foliage_Lilypad_A_DLC2.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'MI_Root_Infected_Rootipied_Foliage_Lilypad_A_DLC2_Dissolve'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Material/MI_Root_Infected_Rootipied_Foliage_Lilypad_A_DLC2_Dissolve.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Root_Infected_Rootiped_Foliage_Virus'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Material/M_Root_Infected_Rootiped_Foliage_Virus.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Root_Infected_Rootiped_Foliage_Virus_Dissolve'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Material/M_Root_Infected_Rootiped_Foliage_Virus_Dissolve.0"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_Char_Root_Infected_Jungle_DLC",
+    "Outer": "Char_Root_Infected_Jungle_DLC_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetTarget_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetSocketLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetActorLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsServer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_ProjectileParams",
+        "Flags": "RF_Public",
+        "ElementSize": 144,
+        "Struct": {
+          "ObjectName": "Class'ProjectileParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_FireProjectile_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Projectile_Root_Infected_Spit_Jungle_C'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/BP_Projectile_Root_Infected_Spit_Jungle.1"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "ShootSpit",
+    "Outer": "Char_Root_Infected_Jungle_DLC_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Character_Root_Infected_Jungle_C:ShootSpit'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Root_Infected/Blueprints/Jungle/Character_Root_Infected_Jungle.8"
+    },
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "HitLogComponent",
+    "Name": "HitLogComp",
+    "Outer": "Default__Char_Root_Infected_Jungle_DLC_C",
+    "Class": "UScriptClass'HitLogComponent'",
+    "Template": {
+      "ObjectName": "HitLogComponent'Default__Character_Root_Infected_Jungle_C:HitLogComp'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Root_Infected/Blueprints/Jungle/Character_Root_Infected_Jungle.9"
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "Char_Root_Infected_Jungle_DLC_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'ActorCustomizationComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "ActorCustomizationComponent'Char_Root_Infected_Jungle_DLC_C:Visual_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.1"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_Base_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.3"
+            },
+            "SCSVariableName": "Visual",
+            "AssociatedGuid": "88E8F05F-499F34E6-178F9CA8-75D39337"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'DissolveComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "DissolveComponent'Char_Root_Infected_Jungle_DLC_C:Dissolve_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.6"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "Dissolve",
+            "AssociatedGuid": "63F89BCB-4D3243A5-A96E8C83-1826967D"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "ReplicatedMovementComponent",
+    "Name": "ReplicatedMovement",
+    "Outer": "Default__Char_Root_Infected_Jungle_DLC_C",
+    "Class": "UScriptClass'ReplicatedMovementComponent'",
+    "Template": {
+      "ObjectName": "ReplicatedMovementComponent'Default__Character_Root_Infected_Jungle_C:ReplicatedMovement'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Root_Infected/Blueprints/Jungle/Character_Root_Infected_Jungle.11"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "Char_Root_Infected_Jungle_DLC_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_Root_Infected_Jungle_DLC_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.12"
+      },
+      "VariableGuid": "6D1F5079-4AABEA49-F4A3A38E-7B1A1115",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "Char_Root_Infected_Jungle_DLC_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Char_Root_Infected_Jungle_DLC_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.13"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponentBudgeted",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__Char_Root_Infected_Jungle_DLC_C",
+    "Class": "UScriptClass'SkeletalMeshComponentBudgeted'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponentBudgeted'Default__Character_Root_Infected_Jungle_C:CharacterMesh0'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Root_Infected/Blueprints/Jungle/Character_Root_Infected_Jungle.15"
+    },
+    "Properties": {
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'Root_Infected_Rootiped_Foliage'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Mesh/Root_Infected_Rootiped_Foliage.0"
+      },
+      "SkinnedAsset": {
+        "ObjectName": "SkeletalMesh'Root_Infected_Rootiped_Foliage'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Mesh/Root_Infected_Rootiped_Foliage.0"
+      },
+      "OverrideMaterials": [
+        {
+          "ObjectName": "MaterialInstanceConstant'M_Root_Infected_Rootiped_Foliage_Head'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Material/M_Root_Infected_Rootiped_Foliage_Head.0"
+        }
+      ],
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Root_Infected_Jungle_DLC_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Root_Infected_Rootiped/Blueprints/Char_Root_Infected_Jungle_DLC.3"
+      }
+    }
+  },
+  {
+    "Type": "StatsComponent",
+    "Name": "StatsComp",
+    "Outer": "Default__Char_Root_Infected_Jungle_DLC_C",
+    "Class": "UScriptClass'StatsComponent'",
+    "Template": {
+      "ObjectName": "StatsComponent'Default__Character_Root_Infected_Jungle_C:StatsComp'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Root_Infected/Blueprints/Jungle/Character_Root_Infected_Jungle.17"
+    }
+  },
+  {
+    "Type": "WeaponPhantomComponent",
+    "Name": "WeaponPhantomProviderComp",
+    "Outer": "Default__Char_Root_Infected_Jungle_DLC_C",
+    "Class": "UScriptClass'WeaponPhantomComponent'",
+    "Template": {
+      "ObjectName": "WeaponPhantomComponent'Default__Character_Root_Infected_Jungle_C:WeaponPhantomProviderComp'",
+      "ObjectPath": "/Game/World_Jungle/Characters/Root_Infected/Blueprints/Jungle/Character_Root_Infected_Jungle.18"
+    }
+  }
+]
