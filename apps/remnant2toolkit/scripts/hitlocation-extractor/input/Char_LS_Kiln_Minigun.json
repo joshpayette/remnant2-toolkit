@@ -1,0 +1,910 @@
+[
+  {
+    "Type": "ActionComponent",
+    "Name": "ActionComp",
+    "Outer": "Default__Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'ActionComponent'",
+    "Template": {
+      "ObjectName": "ActionComponent'Default__Char_LS_Kiln_C:ActionComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.0"
+    }
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'Char_LS_Kiln_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.3"
+    },
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Char_LS_Kiln_Minigun_C:SimpleConstructionScript_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.22"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'Char_LS_Kiln_Minigun_C:InheritableComponentHandler'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.9"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'Char_LS_Kiln_Minigun_C:ExecuteUbergraph_Char_LS_Kiln_Minigun'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.6"
+      }
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'Char_LS_Kiln_Minigun_C:ToggleCoreLit'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.7"
+      },
+      {
+        "ObjectName": "Function'Char_LS_Kiln_Minigun_C:ExecuteUbergraph_Char_LS_Kiln_Minigun'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.6"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_Char_LS_Kiln_Minigun": {
+        "ObjectName": "Function'Char_LS_Kiln_Minigun_C:ExecuteUbergraph_Char_LS_Kiln_Minigun'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.6"
+      },
+      "ToggleCoreLit": {
+        "ObjectName": "Function'Char_LS_Kiln_Minigun_C:ToggleCoreLit'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.7"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Char_LS_Kiln_Minigun_C'Default__Char_LS_Kiln_Minigun_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.4"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "WindowCapsule_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Char_LS_Kiln_C:WindowCapsule_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.11"
+    },
+    "Properties": {
+      "BodyInstance": {
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__Char_LS_Kiln_C:CollisionCylinder'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.12"
+    }
+  },
+  {
+    "Type": "Char_LS_Kiln_Minigun_C",
+    "Name": "Default__Char_LS_Kiln_Minigun_C",
+    "Class": "BlueprintGeneratedClass'/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.Char_LS_Kiln_Minigun_C'",
+    "Template": {
+      "ObjectName": "Char_LS_Kiln_C'Default__Char_LS_Kiln_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.13"
+    },
+    "Properties": {
+      "UberGraphFrame": {},
+      "StatsComp": {
+        "ObjectName": "StatsComponent'Default__Char_LS_Kiln_Minigun_C:StatsComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.26"
+      },
+      "ActionComp": {
+        "ObjectName": "ActionComponent'Default__Char_LS_Kiln_Minigun_C:ActionComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.0"
+      },
+      "WeaponPhantomProviderComp": {
+        "ObjectName": "WeaponPhantomComponent'Default__Char_LS_Kiln_Minigun_C:WeaponPhantomProviderComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.27"
+      },
+      "HitLogComp": {
+        "ObjectName": "HitLogComponent'Default__Char_LS_Kiln_Minigun_C:HitLogComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.8"
+      },
+      "ReplicatedMovementComp": {
+        "ObjectName": "ReplicatedMovementComponent'Default__Char_LS_Kiln_Minigun_C:ReplicatedMovement'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.19"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_LS_Kiln_Minigun_C:CharacterMesh0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.23"
+      },
+      "CharacterMovement": {
+        "ObjectName": "CharacterMovementComponentGunfire'Default__Char_LS_Kiln_Minigun_C:CharMoveComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.5"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_Kiln_Minigun_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.3"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_Kiln_Minigun_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.3"
+      }
+    }
+  },
+  {
+    "Type": "CharacterMovementComponentGunfire",
+    "Name": "CharMoveComp",
+    "Outer": "Default__Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'CharacterMovementComponentGunfire'",
+    "Template": {
+      "ObjectName": "CharacterMovementComponentGunfire'Default__Char_LS_Kiln_C:CharMoveComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.14"
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_Char_LS_Kiln_Minigun",
+    "Outer": "Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_On_Off",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "ToggleCoreLit",
+    "Outer": "Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_LS_Kiln_C:ToggleCoreLit'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.102"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "On/Off",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "HitLogComponent",
+    "Name": "HitLogComp",
+    "Outer": "Default__Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'HitLogComponent'",
+    "Template": {
+      "ObjectName": "HitLogComponent'Default__Char_LS_Kiln_C:HitLogComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.111"
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_Kiln_Minigun_C:NS_Kiln_InteriorLight_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.14"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_Kiln_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.3"
+            },
+            "SCSVariableName": "NS_Kiln_InteriorLight",
+            "AssociatedGuid": "A5CEADBD-43A0ED38-D928669D-091EAF0A"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_Kiln_Minigun_C:NS_Kiln_PreEmerge_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.15"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_Kiln_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.3"
+            },
+            "SCSVariableName": "NS_Kiln_PreEmerge",
+            "AssociatedGuid": "AAE91727-4F56759E-C32E4694-14709143"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_Kiln_Minigun_C:Niagara_Flames_Side_2_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.11"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_Kiln_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.3"
+            },
+            "SCSVariableName": "Niagara_Flames_Side_2",
+            "AssociatedGuid": "8FE98B57-487D4507-1FA55FB4-FCD57DE7"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'StateMachineComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "StateMachineComponent'Char_LS_Kiln_Minigun_C:StateMachine_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.25"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "StateMachine",
+            "AssociatedGuid": "1226ECA4-48F65379-CC82D286-262B8701"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_Kiln_Minigun_C:Niagara_Flames_Side_1_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.10"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_Kiln_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.3"
+            },
+            "SCSVariableName": "Niagara_Flames_Side_1",
+            "AssociatedGuid": "8F65E2AF-43987D50-F8453E80-F41B7FCC"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_Kiln_Minigun_C:Niagara_Flames_Top_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.12"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_Kiln_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.3"
+            },
+            "SCSVariableName": "Niagara_Flames_Top",
+            "AssociatedGuid": "D08F11AB-4005EAF9-EE77C7A9-A1D846FA"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'StateMachineComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "StateMachineComponent'Char_LS_Kiln_Minigun_C:StateMachine_Attacks_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.24"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_Kiln_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.3"
+            },
+            "SCSVariableName": "StateMachine_Attacks",
+            "AssociatedGuid": "95DC66B6-44A81A86-ADEC4296-D51F4544"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_Kiln_Minigun_C:VFX_BoltCharge_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.16"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_Kiln_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.3"
+            },
+            "SCSVariableName": "VFX_BoltCharge",
+            "AssociatedGuid": "B5DEEECD-49F8BCE7-16AD0292-45BFE768"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_Kiln_Minigun_C:NS_Kiln_Exhaust_Spray_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.13"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_Kiln_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.3"
+            },
+            "SCSVariableName": "NS_Kiln_Exhaust_Spray",
+            "AssociatedGuid": "5189626C-48CEA335-EFEC42AD-BFBB2E2A"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'CapsuleComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "CapsuleComponent'Char_LS_Kiln_Minigun_C:WindowCapsule_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.2"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "WindowCapsule",
+            "AssociatedGuid": "3FCCD0B8-4FAE2074-DF333D9F-87A449A1"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "Niagara_Flames_Side_1_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_Kiln_C:Niagara_Flames_Side_1_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.113"
+    },
+    "Properties": {
+      "OverrideParameters": {}
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "Niagara_Flames_Side_2_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_Kiln_C:Niagara_Flames_Side_2_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.114"
+    },
+    "Properties": {
+      "OverrideParameters": {}
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "Niagara_Flames_Top_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_Kiln_C:Niagara_Flames_Top_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.115"
+    },
+    "Properties": {
+      "OverrideParameters": {}
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_Kiln_Exhaust_Spray_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_Kiln_C:NS_Kiln_Exhaust_Spray_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.116"
+    },
+    "Properties": {
+      "OverrideParameters": {
+        "DataInterfaces": [
+          {
+            "ObjectName": "NiagaraDataInterfaceCurve'Char_LS_Kiln_Minigun_C:NS_Kiln_Exhaust_Spray_GEN_VARIABLE.NiagaraDataInterfaceCurve_0'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.17"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_Kiln_InteriorLight_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_Kiln_C:NS_Kiln_InteriorLight_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.117"
+    },
+    "Properties": {
+      "OverrideParameters": {}
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_Kiln_PreEmerge_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_Kiln_C:NS_Kiln_PreEmerge_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.118"
+    },
+    "Properties": {
+      "OverrideParameters": {
+        "SortedParameterOffsets": [
+          {
+            "Offset": 24,
+            "Name": "User.Blue",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraBool'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 0,
+            "Name": "User.NumberOfPoints",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraInt32'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 4,
+            "Name": "User.ParticleLifetime",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 8,
+            "Name": "User.Radius",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 0,
+            "Name": "User.SpinAmountOverLifetime",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraDataInterfaceCurve'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 1,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 12,
+            "Name": "User.SpriteSize",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 16,
+            "Name": "User.SystemLifetime",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 20,
+            "Name": "User.Velocity",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          }
+        ],
+        "DataInterfaces": [
+          {
+            "ObjectName": "NiagaraDataInterfaceCurve'Char_LS_Kiln_Minigun_C:NS_Kiln_PreEmerge_GEN_VARIABLE.NiagaraDataInterfaceCurve_0'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.18"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "VFX_BoltCharge_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_Kiln_C:VFX_BoltCharge_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.119"
+    },
+    "Properties": {
+      "OverrideParameters": {
+        "SortedParameterOffsets": [
+          {
+            "Offset": 0,
+            "Name": "User.Blue",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraBool'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 4,
+            "Name": "User.Color",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          }
+        ],
+        "ParameterData": [
+          255,
+          255,
+          255,
+          255,
+          160,
+          166,
+          38,
+          63,
+          232,
+          244,
+          244,
+          62,
+          177,
+          168,
+          168,
+          62,
+          0,
+          0,
+          128,
+          63
+        ]
+      }
+    }
+  },
+  {
+    "Type": "NiagaraDataInterfaceCurve",
+    "Name": "NiagaraDataInterfaceCurve_0",
+    "Outer": "NS_Kiln_Exhaust_Spray_GEN_VARIABLE",
+    "Class": "UScriptClass'NiagaraDataInterfaceCurve'",
+    "Template": {
+      "ObjectName": "NiagaraDataInterfaceCurve'Char_LS_Kiln_C:NS_Kiln_Exhaust_Spray_GEN_VARIABLE.NiagaraDataInterfaceCurve_0'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.120"
+    },
+    "Properties": {
+      "Curve": {
+        "Keys": []
+      }
+    }
+  },
+  {
+    "Type": "NiagaraDataInterfaceCurve",
+    "Name": "NiagaraDataInterfaceCurve_0",
+    "Outer": "NS_Kiln_PreEmerge_GEN_VARIABLE",
+    "Class": "UScriptClass'NiagaraDataInterfaceCurve'",
+    "Template": {
+      "ObjectName": "NiagaraDataInterfaceCurve'Char_LS_Kiln_C:NS_Kiln_PreEmerge_GEN_VARIABLE.NiagaraDataInterfaceCurve_0'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.121"
+    },
+    "Properties": {
+      "Curve": {
+        "Keys": []
+      }
+    }
+  },
+  {
+    "Type": "ReplicatedMovementComponent",
+    "Name": "ReplicatedMovement",
+    "Outer": "Default__Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'ReplicatedMovementComponent'",
+    "Template": {
+      "ObjectName": "ReplicatedMovementComponent'Default__Char_LS_Kiln_C:ReplicatedMovement'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.122"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_LS_Kiln_Minigun_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.20"
+      },
+      "VariableGuid": "4E50CE09-4489C04E-4D2A8FBB-67BA2BED",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Char_LS_Kiln_Minigun_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.21"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponentBudgeted",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'SkeletalMeshComponentBudgeted'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_LS_Kiln_C:CharacterMesh0'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.164"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_Kiln_Minigun_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun.3"
+      }
+    }
+  },
+  {
+    "Type": "StateMachineComponent",
+    "Name": "StateMachine_Attacks_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'StateMachineComponent'",
+    "Template": {
+      "ObjectName": "StateMachineComponent'Char_LS_Kiln_C:StateMachine_Attacks_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.166"
+    },
+    "Properties": {
+      "StateMachine": {
+        "ObjectName": "StateMachine'Char_LS_Kiln_Minigun_Attacks_StateMachine'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun_Attacks_StateMachine.67"
+      }
+    }
+  },
+  {
+    "Type": "StateMachineComponent",
+    "Name": "StateMachine_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'StateMachineComponent'",
+    "Template": {
+      "ObjectName": "StateMachineComponent'Char_LS_Kiln_C:StateMachine_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.167"
+    },
+    "Properties": {
+      "StateMachine": {
+        "ObjectName": "StateMachine'Char_LS_Kiln_Minigun_StateMachine'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Kiln_Minigun/Char_LS_Kiln_Minigun_StateMachine.2246"
+      }
+    }
+  },
+  {
+    "Type": "StatsComponent",
+    "Name": "StatsComp",
+    "Outer": "Default__Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'StatsComponent'",
+    "Template": {
+      "ObjectName": "StatsComponent'Default__Char_LS_Kiln_C:StatsComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.170"
+    }
+  },
+  {
+    "Type": "WeaponPhantomComponent",
+    "Name": "WeaponPhantomProviderComp",
+    "Outer": "Default__Char_LS_Kiln_Minigun_C",
+    "Class": "UScriptClass'WeaponPhantomComponent'",
+    "Template": {
+      "ObjectName": "WeaponPhantomComponent'Default__Char_LS_Kiln_C:WeaponPhantomProviderComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.179"
+    }
+  }
+]

@@ -2,6 +2,10 @@
 
 This file walks you through setting up the project locally.
 
+## NOTE These steps are currently broken
+
+I just converted this project to a monorepo and have not yet updated these local instructions.
+
 ## Requirements
 
 ### Installing Software

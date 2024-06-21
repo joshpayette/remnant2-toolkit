@@ -1,0 +1,741 @@
+[
+  {
+    "Type": "ActionComponent",
+    "Name": "ActionComp",
+    "Outer": "Default__Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'ActionComponent'",
+    "Template": {
+      "ObjectName": "ActionComponent'Default__Char_LS_Howitzer_C:ActionComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Char_LS_Howitzer.0"
+    }
+  },
+  {
+    "Type": "ActorCustomizationComponent",
+    "Name": "Visual_GEN_VARIABLE",
+    "Outer": "Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'ActorCustomizationComponent'",
+    "Template": {
+      "ObjectName": "ActorCustomizationComponent'Char_LS_Howitzer_C:Visual_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Char_LS_Howitzer.1"
+    },
+    "Properties": {
+      "Slots": [
+        {
+          "NameID": "Default",
+          "DefaultCustomizationID": "Default",
+          "CustomizationID": "Default",
+          "IsTransient": false
+        },
+        {
+          "NameID": "StatusEffects",
+          "DefaultCustomizationID": "None",
+          "CustomizationID": "None",
+          "IsTransient": true
+        },
+        {
+          "NameID": "Weakpoint",
+          "DefaultCustomizationID": "None",
+          "CustomizationID": "None",
+          "IsTransient": true
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'Char_LS_Howitzer_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Char_LS_Howitzer.2"
+    },
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Char_LS_Howitzer_Aberration_C:SimpleConstructionScript_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.20"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'Char_LS_Howitzer_Aberration_C:InheritableComponentHandler'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.12"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'Char_LS_Howitzer_Aberration_C:ExecuteUbergraph_Char_LS_Howitzer_Aberration'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.8"
+      }
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'Char_LS_Howitzer_Aberration_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.10"
+      },
+      {
+        "ObjectName": "Function'Char_LS_Howitzer_Aberration_C:PlayDeathStinger'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.9"
+      },
+      {
+        "ObjectName": "Function'Char_LS_Howitzer_Aberration_C:ExecuteUbergraph_Char_LS_Howitzer_Aberration'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.8"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Name",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NamedActorComponent'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_Char_LS_Howitzer_Aberration": {
+        "ObjectName": "Function'Char_LS_Howitzer_Aberration_C:ExecuteUbergraph_Char_LS_Howitzer_Aberration'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.8"
+      },
+      "PlayDeathStinger": {
+        "ObjectName": "Function'Char_LS_Howitzer_Aberration_C:PlayDeathStinger'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.9"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'Char_LS_Howitzer_Aberration_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.10"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Char_LS_Howitzer_Aberration_C'Default__Char_LS_Howitzer_Aberration_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.4"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__Char_LS_Howitzer_C:CollisionCylinder'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Char_LS_Howitzer.10"
+    }
+  },
+  {
+    "Type": "Char_LS_Howitzer_Aberration_C",
+    "Name": "Default__Char_LS_Howitzer_Aberration_C",
+    "Class": "BlueprintGeneratedClass'/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.Char_LS_Howitzer_Aberration_C'",
+    "Template": {
+      "ObjectName": "Char_LS_Howitzer_C'Default__Char_LS_Howitzer_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Char_LS_Howitzer.11"
+    },
+    "Properties": {
+      "UberGraphFrame": {},
+      "DissolveSoundFX": {
+        "SoundObject": {
+          "ObjectName": "AkAudioEvent'Creature_Dissolve_Aberration'",
+          "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_Shared/Creature_Dissolve/Creature_Dissolve_Aberration.1"
+        }
+      },
+      "Type": "MonsterType::NewEnumerator5",
+      "ModTable": {
+        "ObjectName": "SpawnTable'Char_LS_Howitzer_Aberration_ModTable'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration_ModTable.0"
+      },
+      "AlertSound": {
+        "SoundObject": {
+          "ObjectName": "AkAudioEvent'Voc_DLC2_Howitzer_Aberration_Alert_BP'",
+          "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_Alert_BP/Alert_DLC2/Voc_DLC2_Howitzer_Aberration_Alert_BP.1"
+        }
+      },
+      "CombatClass": {
+        "ObjectName": "BlueprintGeneratedClass'CombatClass_Aberration_C'",
+        "ObjectPath": "/Game/_Core/CombatClasses/CombatClass_Aberration.0"
+      },
+      "StatsComp": {
+        "ObjectName": "StatsComponent'Default__Char_LS_Howitzer_Aberration_C:StatsComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.22"
+      },
+      "ActionComp": {
+        "ObjectName": "ActionComponent'Default__Char_LS_Howitzer_Aberration_C:ActionComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.0"
+      },
+      "WeaponPhantomProviderComp": {
+        "ObjectName": "WeaponPhantomComponent'Default__Char_LS_Howitzer_Aberration_C:WeaponPhantomProviderComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.23"
+      },
+      "HitLogComp": {
+        "ObjectName": "HitLogComponent'Default__Char_LS_Howitzer_Aberration_C:HitLogComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.11"
+      },
+      "ReplicatedMovementComp": {
+        "ObjectName": "ReplicatedMovementComponent'Default__Char_LS_Howitzer_Aberration_C:ReplicatedMovement'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.16"
+      },
+      "Data": {
+        "RowName": "Pan_Howitzer_Aberration"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_LS_Howitzer_Aberration_C:CharacterMesh0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.21"
+      },
+      "CharacterMovement": {
+        "ObjectName": "CharacterMovementComponentGunfire'Default__Char_LS_Howitzer_Aberration_C:CharMoveComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.5"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_Howitzer_Aberration_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.3"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_Howitzer_Aberration_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.3"
+      },
+      "Tags": [
+        "CanActivateWP",
+        "NoBleed",
+        "NoMark"
+      ]
+    }
+  },
+  {
+    "Type": "CharacterMovementComponentGunfire",
+    "Name": "CharMoveComp",
+    "Outer": "Default__Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'CharacterMovementComponentGunfire'",
+    "Template": {
+      "ObjectName": "CharacterMovementComponentGunfire'Default__Char_LS_Howitzer_C:CharMoveComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Char_LS_Howitzer.12"
+    }
+  },
+  {
+    "Type": "DisplayInfoComponent_C",
+    "Name": "DisplayInfoComponent_GEN_VARIABLE",
+    "Outer": "Char_LS_Howitzer_Aberration_C",
+    "Class": "BlueprintGeneratedClass'/Game/_Core/Blueprints/Base/DisplayInfoComponent.DisplayInfoComponent_C'",
+    "Template": {
+      "ObjectName": "DisplayInfoComponent_C'BP_Monster_C:DisplayInfoComponent_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.10"
+    },
+    "Properties": {
+      "Label": {
+        "Namespace": "",
+        "Key": "79E52C084421B5521E8AEBB5D6BFA700",
+        "SourceString": "Stonewing Lurker",
+        "LocalizedString": "Stonewing Lurker"
+      }
+    }
+  },
+  {
+    "Type": "DissolveComponent",
+    "Name": "Dissolve_GEN_VARIABLE",
+    "Outer": "Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'DissolveComponent'",
+    "Template": {
+      "ObjectName": "DissolveComponent'Char_LS_Howitzer_C:Dissolve_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Char_LS_Howitzer.17"
+    },
+    "Properties": {
+      "DissolveFX": {
+        "ObjectName": "NiagaraSystem'NS_Dissolve_Aberration'",
+        "ObjectPath": "/Game/VFX/Global_Particles/Creature/Dissolve/NS_Dissolve_Aberration.23"
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_Char_LS_Howitzer_Aberration",
+    "Outer": "Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioAttachParams",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioAttachParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioStopParams",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioStopParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSound2D_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSoundAttached_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "PlayDeathStinger",
+    "Outer": "Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_Monster_Base_C:PlayDeathStinger'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.39"
+    },
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_LS_Howitzer_C:ReceiveBeginPlay'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Char_LS_Howitzer.42"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "HitLogComponent",
+    "Name": "HitLogComp",
+    "Outer": "Default__Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'HitLogComponent'",
+    "Template": {
+      "ObjectName": "HitLogComponent'Default__Char_LS_Howitzer_C:HitLogComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Char_LS_Howitzer.76"
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'DisplayInfoComponent_C'",
+            "ObjectPath": "/Game/_Core/Blueprints/Base/DisplayInfoComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "DisplayInfoComponent_C'Char_LS_Howitzer_Aberration_C:DisplayInfoComponent_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.6"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "DisplayInfoComponent",
+            "AssociatedGuid": "9D516F77-47F7A864-60CD9289-9CBD107C"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'DissolveComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "DissolveComponent'Char_LS_Howitzer_Aberration_C:Dissolve_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.7"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "Dissolve",
+            "AssociatedGuid": "63F89BCB-4D3243A5-A96E8C83-1826967D"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_Howitzer_Aberration_C:NS_Howitzer_Wings_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.15"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_Howitzer_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Char_LS_Howitzer.2"
+            },
+            "SCSVariableName": "NS_Howitzer_Wings",
+            "AssociatedGuid": "AE26C0D4-4063ECD1-5F07A994-9962B500"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_Howitzer_Aberration_C:NS_Howitzer_Weakpoint_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.14"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_Howitzer_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Char_LS_Howitzer.2"
+            },
+            "SCSVariableName": "NS_Howitzer_Weakpoint",
+            "AssociatedGuid": "569B8E4C-47B05984-6E20299B-9C2EE4B2"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'ActorCustomizationComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "ActorCustomizationComponent'Char_LS_Howitzer_Aberration_C:Visual_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.1"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_Base_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.3"
+            },
+            "SCSVariableName": "Visual",
+            "AssociatedGuid": "88E8F05F-499F34E6-178F9CA8-75D39337"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "NamedActorComponent",
+    "Name": "Name_GEN_VARIABLE",
+    "Outer": "Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'NamedActorComponent'",
+    "Properties": {
+      "NameID": "Pan_LS_Howitzer"
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_Howitzer_Weakpoint_GEN_VARIABLE",
+    "Outer": "Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_Howitzer_C:NS_Howitzer_Weakpoint_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Char_LS_Howitzer.78"
+    },
+    "Properties": {
+      "OverrideParameters": {
+        "SortedParameterOffsets": [
+          {
+            "Offset": 0,
+            "Name": "User.BeatSpeed",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 4,
+            "Name": "User.Color",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 20,
+            "Name": "User.Contrast",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 24,
+            "Name": "User.FadeOut",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 28,
+            "Name": "User.Radius",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_Howitzer_Wings_GEN_VARIABLE",
+    "Outer": "Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_Howitzer_C:NS_Howitzer_Wings_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Char_LS_Howitzer.79"
+    },
+    "Properties": {
+      "OverrideParameters": {
+        "SortedParameterOffsets": [
+          {
+            "Offset": 0,
+            "Name": "User.Color",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "ReplicatedMovementComponent",
+    "Name": "ReplicatedMovement",
+    "Outer": "Default__Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'ReplicatedMovementComponent'",
+    "Template": {
+      "ObjectName": "ReplicatedMovementComponent'Default__Char_LS_Howitzer_C:ReplicatedMovement'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Char_LS_Howitzer.80"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_LS_Howitzer_Aberration_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.17"
+      },
+      "VariableGuid": "94464C49-474ED71D-D420918A-233C26AE",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NamedActorComponent'",
+        "ObjectPath": "/Script/GunfireRuntime"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NamedActorComponent'Char_LS_Howitzer_Aberration_C:Name_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.13"
+      },
+      "VariableGuid": "F63FF29F-44D08E76-36ACD198-227B276C",
+      "InternalVariableName": "Name"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_LS_Howitzer_Aberration_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.19"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_LS_Howitzer_Aberration_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.19"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Char_LS_Howitzer_Aberration_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.18"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponentBudgeted",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'SkeletalMeshComponentBudgeted'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_LS_Howitzer_C:CharacterMesh0'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Char_LS_Howitzer.103"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_Howitzer_Aberration_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Aberration/Char_LS_Howitzer_Aberration.3"
+      }
+    }
+  },
+  {
+    "Type": "StatsComponent",
+    "Name": "StatsComp",
+    "Outer": "Default__Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'StatsComponent'",
+    "Template": {
+      "ObjectName": "StatsComponent'Default__Char_LS_Howitzer_C:StatsComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Char_LS_Howitzer.107"
+    }
+  },
+  {
+    "Type": "WeaponPhantomComponent",
+    "Name": "WeaponPhantomProviderComp",
+    "Outer": "Default__Char_LS_Howitzer_Aberration_C",
+    "Class": "UScriptClass'WeaponPhantomComponent'",
+    "Template": {
+      "ObjectName": "WeaponPhantomComponent'Default__Char_LS_Howitzer_C:WeaponPhantomProviderComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Howitzer/Blueprints/Char_LS_Howitzer.113"
+    }
+  }
+]

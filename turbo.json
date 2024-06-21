@@ -1,0 +1,59 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^db:generate"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env.production.local",
+        ".env.local",
+        ".env.production",
+        ".env"
+      ],
+      "outputs": [".next/**", "!.next/cache/**","dist/**"],
+      "env": [
+        "CRON_SECRET",
+        "DATABASE_URL",
+        "DISCORD_CLIENT_ID",
+        "DISCORD_CLIENT_SECRET",
+        "IMAGEKIT_CLIENT_ID",
+        "IMAGEKIT_CLIENT_SECRET",
+        "LOADOUT_AUTH_TOKEN",
+        "LOADOUT_PARSER_URL",
+        "NEXTAUTH_SECRET",
+        "NEXTAUTH_URL",
+        "NEXT_PUBLIC_IMAGE_URL",
+        "PATREON_CREATOR_ACCESS_TOKEN",
+        "PATREON_CREATOR_REFRESH_TOKEN",
+        "REDDIT_CLIENT_ID",
+        "REDDIT_CLIENT_SECRET",
+        "WEBHOOK_BUG_REPORT",
+        "WEBHOOK_MOD_QUEUE",
+        "WEBHOOK_AUDIT_LOG",
+        "WEBHOOK_CRON_LOGS",
+        "WEBHOOK_NEW_BUILD_FEED",
+        "WEBHOOK_WIKI_SCRAPER_FEED"
+      ]
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env.development.local",
+        ".env.local",
+        ".env.development",
+        ".env"
+      ]
+    },
+    "db:generate": {
+      "cache": false
+    },
+    "db:push": {
+      "cache": false
+    }
+  }
+}

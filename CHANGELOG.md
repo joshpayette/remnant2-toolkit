@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-06-21
+
+### Broke
+
+- The Docker instructions in LOCALSETUP.md are no longer working after the changes to the project structure. I'll work to get this sorted out in the future.
+
+### Fixed
+
+- Removed all variations of `arse` from the bad words list.
+
 ## 2024-06-19
 
 ### Changed
