@@ -25,7 +25,7 @@ export const PlayingDisplay = React.memo(
         id="item-name-container"
         className="mb-8 flex flex-col items-center justify-center"
       >
-        <h3 className="text-xl font-bold text-primary-500">Item to Find:</h3>
+        <h3 className="text-primary-500 text-xl font-bold">Item to Find:</h3>
         <p className="text-lg text-gray-200">{correctItemName}</p>
       </div>
 
@@ -55,12 +55,15 @@ export const PlayingDisplay = React.memo(
             }
           }
 
+          const question = questionsForUI[index]
+          if (!question) return null
+
           return (
-            <div key={questionsForUI[index].id} className={cn(cssOrder)}>
+            <div key={question.id} className={cn(cssOrder)}>
               <QuizItemButton
-                item={questionsForUI[index]}
+                item={question}
                 itemIndex={index}
-                onClick={() => onAnswerQuestion(questionsForUI[index].id)}
+                onClick={() => onAnswerQuestion(question.id)}
               />
             </div>
           )
@@ -77,34 +80,50 @@ export const PlayingDisplay = React.memo(
       >
         {/** Left arrow or 3 Key */}
         <div className="col-span-1 flex w-full items-center justify-center">
-          <QuizItemButton
-            item={questionsForUI[3]}
-            itemIndex={3}
-            onClick={() => onAnswerQuestion(questionsForUI[3].id)}
-          />
+          {questionsForUI[3] && (
+            <QuizItemButton
+              item={questionsForUI[3]}
+              itemIndex={3}
+              onClick={() =>
+                onAnswerQuestion((questionsForUI[3] as QuizItem).id)
+              }
+            />
+          )}
         </div>
         {/** Up arrow or 1 key */}
         <div className="col-span-1 flex flex-col items-center justify-center gap-y-4">
-          <QuizItemButton
-            item={questionsForUI[0]}
-            itemIndex={0}
-            onClick={() => onAnswerQuestion(questionsForUI[0].id)}
-          />
+          {questionsForUI[0] && (
+            <QuizItemButton
+              item={questionsForUI[0]}
+              itemIndex={0}
+              onClick={() =>
+                onAnswerQuestion((questionsForUI[0] as QuizItem).id)
+              }
+            />
+          )}
           {/** Down arrow or 3 key */}
-          <QuizItemButton
-            item={questionsForUI[2]}
-            itemIndex={2}
-            onClick={() => onAnswerQuestion(questionsForUI[2].id)}
-          />
+          {questionsForUI[2] && (
+            <QuizItemButton
+              item={questionsForUI[2]}
+              itemIndex={2}
+              onClick={() =>
+                onAnswerQuestion((questionsForUI[2] as QuizItem).id)
+              }
+            />
+          )}
         </div>
         {/** Right arrow or 2 key */}
 
         <div className="col-span-1 flex w-full items-center justify-center">
-          <QuizItemButton
-            item={questionsForUI[1]}
-            itemIndex={1}
-            onClick={() => onAnswerQuestion(questionsForUI[1].id)}
-          />
+          {questionsForUI[1] && (
+            <QuizItemButton
+              item={questionsForUI[1]}
+              itemIndex={1}
+              onClick={() =>
+                onAnswerQuestion((questionsForUI[1] as QuizItem).id)
+              }
+            />
+          )}
         </div>
       </div>
     </>

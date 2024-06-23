@@ -152,7 +152,7 @@ export function useUrlBuildState() {
       const params = searchParams.get(itemCategory)
 
       switch (itemCategory) {
-        case 'helm':
+        case 'helm': {
           if (!params) {
             buildState.items[itemCategory] = null
             break
@@ -160,7 +160,8 @@ export function useUrlBuildState() {
           const armorItem = ArmorItem.fromParams(params)
           if (armorItem) buildState.items[itemCategory] = armorItem
           break
-        case 'torso':
+        }
+        case 'torso': {
           if (!params) {
             buildState.items[itemCategory] = null
             break
@@ -168,7 +169,8 @@ export function useUrlBuildState() {
           const torsoItem = ArmorItem.fromParams(params)
           if (torsoItem) buildState.items[itemCategory] = torsoItem
           break
-        case 'legs':
+        }
+        case 'legs': {
           if (!params) {
             buildState.items[itemCategory] = null
             break
@@ -176,7 +178,8 @@ export function useUrlBuildState() {
           const legsItem = ArmorItem.fromParams(params)
           if (legsItem) buildState.items[itemCategory] = legsItem
           break
-        case 'gloves':
+        }
+        case 'gloves': {
           if (!params) {
             buildState.items[itemCategory] = null
             break
@@ -184,7 +187,8 @@ export function useUrlBuildState() {
           const glovesItem = ArmorItem.fromParams(params)
           if (glovesItem) buildState.items[itemCategory] = glovesItem
           break
-        case 'relic':
+        }
+        case 'relic': {
           if (!params) {
             buildState.items.relic = null
             break
@@ -192,7 +196,8 @@ export function useUrlBuildState() {
           const relicItem = RelicItem.fromParams(params)
           if (relicItem) buildState.items.relic = relicItem
           break
-        case 'amulet':
+        }
+        case 'amulet': {
           if (!params) {
             buildState.items.amulet = null
             break
@@ -200,7 +205,8 @@ export function useUrlBuildState() {
           const amuletItem = AmuletItem.fromParams(params)
           if (amuletItem) buildState.items.amulet = amuletItem
           break
-        case 'weapon':
+        }
+        case 'weapon': {
           if (!params) {
             buildState.items.weapon = []
             break
@@ -208,7 +214,8 @@ export function useUrlBuildState() {
           const weaponItems = WeaponItem.fromParams(params)
           if (weaponItems) buildState.items.weapon = weaponItems
           break
-        case 'archetype':
+        }
+        case 'archetype': {
           if (!params) {
             buildState.items.archetype = []
             break
@@ -216,7 +223,8 @@ export function useUrlBuildState() {
           const archetypeItems = ArchetypeItem.fromParams(params)
           if (archetypeItems) buildState.items.archetype = archetypeItems
           break
-        case 'concoction':
+        }
+        case 'concoction': {
           if (!params) {
             buildState.items.concoction = []
             break
@@ -224,7 +232,8 @@ export function useUrlBuildState() {
           const concoctionItems = ConcoctionItem.fromParams(params)
           if (concoctionItems) buildState.items.concoction = concoctionItems
           break
-        case 'consumable':
+        }
+        case 'consumable': {
           if (!params) {
             buildState.items.consumable = []
             break
@@ -232,7 +241,8 @@ export function useUrlBuildState() {
           const consumableItems = ConsumableItem.fromParams(params)
           if (consumableItems) buildState.items.consumable = consumableItems
           break
-        case 'mod':
+        }
+        case 'mod': {
           if (!params) {
             buildState.items.mod = []
             break
@@ -240,7 +250,8 @@ export function useUrlBuildState() {
           const modItems = ModItem.fromParams(params)
           if (modItems) buildState.items.mod = modItems
           break
-        case 'mutator':
+        }
+        case 'mutator': {
           if (!params) {
             buildState.items.mutator = []
             break
@@ -248,7 +259,8 @@ export function useUrlBuildState() {
           const mutatorItems = MutatorItem.fromParams(params)
           if (mutatorItems) buildState.items.mutator = mutatorItems
           break
-        case 'relicfragment':
+        }
+        case 'relicfragment': {
           if (!params) {
             buildState.items.relicfragment = []
             break
@@ -257,7 +269,8 @@ export function useUrlBuildState() {
           if (relicFragmentItems)
             buildState.items.relicfragment = relicFragmentItems
           break
-        case 'ring':
+        }
+        case 'ring': {
           if (!params) {
             buildState.items.ring = []
             break
@@ -265,7 +278,8 @@ export function useUrlBuildState() {
           const ringItems = RingItem.fromParams(params)
           if (ringItems) buildState.items.ring = ringItems
           break
-        case 'skill':
+        }
+        case 'skill': {
           if (!params) {
             buildState.items.skill = []
             break
@@ -273,7 +287,8 @@ export function useUrlBuildState() {
           const skillItems = SkillItem.fromParams(params)
           if (skillItems) buildState.items.skill = skillItems
           break
-        case 'trait':
+        }
+        case 'trait': {
           if (!params) {
             buildState.items.trait = []
             break
@@ -281,7 +296,8 @@ export function useUrlBuildState() {
           const traitItems = TraitItem.fromParams(params)
           if (traitItems) buildState.items.trait = traitItems
           break
-        case 'perk':
+        }
+        case 'perk': {
           if (!params) {
             buildState.items.perk = []
             break
@@ -289,6 +305,7 @@ export function useUrlBuildState() {
           const perkItems = PerkItem.fromParams(params)
           if (perkItems) buildState.items.perk = perkItems
           break
+        }
         default: {
           console.error(`Unhandled item category: ${itemCategory}`)
           break

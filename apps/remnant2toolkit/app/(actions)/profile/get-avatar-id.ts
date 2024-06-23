@@ -1,7 +1,8 @@
 'use server'
 
+import { prisma } from '@repo/db'
+
 import { getServerSession } from '@/app/(utils)/auth'
-import { prisma } from '@/app/(utils)/db'
 
 export default async function getAvatarId(): Promise<{
   avatarId: string | null
@@ -18,9 +19,9 @@ export default async function getAvatarId(): Promise<{
       where: { userId },
       select: { avatarId: true },
     })
-  
+
     return { avatarId: profile?.avatarId ?? null }
-  } catch(e) {
+  } catch (e) {
     console.error(e)
     return { avatarId: null }
   }

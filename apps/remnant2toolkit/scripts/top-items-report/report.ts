@@ -1,3 +1,4 @@
+import { prisma } from '@repo/db'
 import { writeFile } from 'fs'
 import path from 'path'
 
@@ -18,7 +19,6 @@ import { traitItems } from '@/app/(data)/items/trait-items'
 import { Item } from '@/app/(data)/items/types'
 import { weaponItems } from '@/app/(data)/items/weapon-items'
 import { ItemCategory } from '@/app/(types)/builds'
-import { prisma } from '@/app/(utils)/db/index'
 
 type Result = {
   id: string

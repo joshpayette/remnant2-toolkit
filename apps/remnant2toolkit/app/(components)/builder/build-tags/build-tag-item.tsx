@@ -6,7 +6,6 @@ function itemClasses({
   tag,
   isActive,
   isEditable,
-  isScreenshotMode,
 }: {
   tag: BuildTag
   isActive: boolean

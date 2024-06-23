@@ -3,7 +3,7 @@ import { GAME_ITEM_CATEGORIES, TOTAL_CHOICES } from '@/app/item-quiz/constants'
 import { QuizQuestion } from '@/app/item-quiz/types'
 
 export function getQuestion(history: QuizQuestion[]): QuizQuestion {
-  let question: QuizQuestion = {
+  const question: QuizQuestion = {
     correctItem: {
       id: '',
       name: '',
@@ -22,6 +22,8 @@ export function getQuestion(history: QuizQuestion[]): QuizQuestion {
         GAME_ITEM_CATEGORIES[
           Math.floor(Math.random() * GAME_ITEM_CATEGORIES.length)
         ]
+
+      if (!category) continue
 
       const itemsInCategory = getItemsInCategory(category)
 
@@ -49,6 +51,9 @@ export function getQuestion(history: QuizQuestion[]): QuizQuestion {
 
     const wrongItem =
       itemsInCategory[Math.floor(Math.random() * itemsInCategory.length)]
+
+    if (!wrongItem) continue
+
     const itemNotTheAnswer = wrongItem.id !== question.correctItem.id
     const itemNotInQuestion = !question.wrongItems.some(
       (item) => item.id === wrongItem.id,

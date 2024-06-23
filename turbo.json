@@ -10,7 +10,7 @@
         ".env.production",
         ".env"
       ],
-      "outputs": [".next/**", "!.next/cache/**","dist/**"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"],
       "env": [
         "CRON_SECRET",
         "DATABASE_URL",
@@ -32,7 +32,8 @@
         "WEBHOOK_AUDIT_LOG",
         "WEBHOOK_CRON_LOGS",
         "WEBHOOK_NEW_BUILD_FEED",
-        "WEBHOOK_WIKI_SCRAPER_FEED"
+        "WEBHOOK_WIKI_SCRAPER_FEED",
+        "NODE_ENV"
       ]
     },
     "lint": {

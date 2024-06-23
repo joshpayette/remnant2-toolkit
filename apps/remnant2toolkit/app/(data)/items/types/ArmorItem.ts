@@ -59,7 +59,7 @@ export class ArmorItem extends BaseItem implements BaseArmorItem {
 
   static fromParams(params: string): ArmorItem | null {
     const itemIds = params.split(',')
-    if (!itemIds) return null
+    if (!itemIds || !itemIds[0]) return null
 
     const optional = itemIds[0].includes(OPTIONAL_ITEM_SYMBOL)
     const itemId = itemIds[0].replace(OPTIONAL_ITEM_SYMBOL, '')

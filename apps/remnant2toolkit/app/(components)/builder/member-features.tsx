@@ -14,7 +14,6 @@ import {
 } from '@/app/(components)/_base/fieldset'
 import { BaseInput } from '@/app/(components)/_base/input'
 import { BaseSwitch } from '@/app/(components)/_base/switch'
-import { BaseText } from '@/app/(components)/_base/text'
 import { BaseTextarea } from '@/app/(components)/_base/textarea'
 import { BuildDescriptionTemplateAlert } from '@/app/(components)/alerts/build-description-template-alert'
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
@@ -78,7 +77,7 @@ export function MemberFeatures({
         <div className="flex flex-col">
           {description && description.length > 0 && (
             <>
-              <h3 className="text-md mb-2 font-bold text-primary-500">
+              <h3 className="text-md text-primary-500 mb-2 font-bold">
                 Build Description
               </h3>
               <div
@@ -150,7 +149,7 @@ Watch the build in action: [insert Youtube link here]
                 className="flex flex-col items-center justify-start text-sm underline sm:flex-row"
                 onClick={() => setBuildTagsDialogOpen(true)}
               >
-                <MdOutlineGeneratingTokens className="h-4 w-4 text-surface-solid" />
+                <MdOutlineGeneratingTokens className="text-surface-solid h-4 w-4" />
                 Description Tokens
               </BaseButton>
 
@@ -159,7 +158,7 @@ Watch the build in action: [insert Youtube link here]
                 className="flex flex-col items-center justify-start text-sm underline sm:flex-row"
                 onClick={() => setBuildDescriptionAlertOpen(true)}
               >
-                <IoDocumentTextSharp className="h-4 w-4 text-surface-solid" />{' '}
+                <IoDocumentTextSharp className="text-surface-solid h-4 w-4" />{' '}
                 Description Template
               </BaseButton>
             </div>
@@ -201,7 +200,7 @@ Watch the build in action: [insert Youtube link here]
         <>
           {isEditable ? (
             <div className="flex flex-col items-start justify-start gap-x-8 gap-y-2 sm:flex-row sm:items-center sm:justify-start">
-              <div className="flex flex-row items-center justify-start text-sm text-primary-500">
+              <div className="text-primary-500 flex flex-row items-center justify-start text-sm">
                 <BaseField className="flex flex-row items-end">
                   <BaseLabel className="mr-2">Public Build?</BaseLabel>
                   <BaseSwitch
@@ -211,14 +210,14 @@ Watch the build in action: [insert Youtube link here]
                   <a
                     href="https://github.com/joshpayette/remnant2-toolkit/blob/main/CODE_OF_CONDUCT.md"
                     target="_blank"
-                    className="mb-1 ml-2 text-xs text-secondary-500 underline"
+                    className="text-secondary-500 mb-1 ml-2 text-xs underline"
                   >
                     Code of Conduct
                   </a>
                 </BaseField>
               </div>
 
-              <div className="flex flex-row items-center justify-start text-sm text-primary-500">
+              <div className="text-primary-500 flex flex-row items-center justify-start text-sm">
                 <BaseField className="flex flex-row items-end">
                   <BaseLabel className="mr-2">
                     Mark as Patch Affected?
@@ -233,7 +232,7 @@ Watch the build in action: [insert Youtube link here]
           ) : (
             <div className="flex items-center justify-start gap-x-8 gap-y-2">
               <div className="flex flex-col">
-                <div className="text-md my-2 font-bold text-primary-500">
+                <div className="text-md text-primary-500 my-2 font-bold">
                   Build Visibility
                 </div>
                 <div className="text-md text-gray-200">
@@ -241,7 +240,7 @@ Watch the build in action: [insert Youtube link here]
                 </div>
               </div>
               <div className="flex flex-col">
-                <div className="text-md my-2 font-bold text-primary-500">
+                <div className="text-md text-primary-500 my-2 font-bold">
                   Patch Affected?
                 </div>
                 <div className="text-md text-gray-200">

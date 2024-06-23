@@ -1,6 +1,6 @@
 'use server'
 
-import { prisma } from '@/app/(utils)/db'
+import { prisma } from '@repo/db'
 
 export default async function getSitemapData() {
   const [builds, profiles] = await Promise.all([

@@ -22,7 +22,7 @@ export function NavBar() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  const { data: session, status } = useSession()
+  const { status } = useSession()
 
   // Close the navmenu on route change
   // * useEffect is necessary to close the menu on route change
@@ -35,7 +35,7 @@ export function NavBar() {
       {/* DESKTOP */}
       <nav
         className={cn(
-          'fixed mx-auto flex max-h-[80px] w-full max-w-7xl items-center justify-between bg-background px-4 py-6',
+          'bg-background fixed mx-auto flex max-h-[80px] w-full max-w-7xl items-center justify-between px-4 py-6',
           ZINDEXES.NAVBAR,
         )}
         aria-label="Global"
@@ -57,7 +57,7 @@ export function NavBar() {
         </div>
         <div className="hidden items-center justify-between lg:flex lg:flex-grow lg:gap-x-12">
           <Menu as="div" className="relative">
-            <Menu.Button className="text-md flex bg-background font-semibold text-surface-solid hover:text-primary-500">
+            <Menu.Button className="text-md bg-background text-surface-solid hover:text-primary-500 flex font-semibold">
               {({ active }) => (
                 <div className="flex items-center justify-center gap-1">
                   <span className="absolute -inset-1.5" />
@@ -80,7 +80,7 @@ export function NavBar() {
             >
               <Menu.Items
                 className={cn(
-                  'absolute left-0 mt-2 w-[290px] origin-top-left rounded-md bg-background-solid p-2 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none',
+                  'bg-background-solid absolute left-0 mt-2 w-[290px] origin-top-left rounded-md p-2 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none',
                   ZINDEXES.NAVBAR_MENU_ITEMS,
                 )}
               >
@@ -94,11 +94,11 @@ export function NavBar() {
                       }
                       className={cn(
                         active ? 'bg-gray-800' : '',
-                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-surface-solid',
+                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
                       )}
                     >
                       <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.createBuild.icon className="h-5 w-5 text-primary-600" />
+                        <NAV_ITEMS.createBuild.icon className="text-primary-600 h-5 w-5" />
                       </div>
                       <div className="flex flex-col items-start justify-start gap-y-1">
                         {NAV_ITEMS.createBuild.label}
@@ -115,11 +115,11 @@ export function NavBar() {
                       href={NAV_ITEMS.featuredBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
-                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-surface-solid',
+                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
                       )}
                     >
                       <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.featuredBuilds.icon className="h-5 w-5 text-primary-600" />
+                        <NAV_ITEMS.featuredBuilds.icon className="text-primary-600 h-5 w-5" />
                       </div>
                       <div className="flex flex-col items-start justify-start gap-y-1">
                         {NAV_ITEMS.featuredBuilds.label}
@@ -136,11 +136,11 @@ export function NavBar() {
                       href={NAV_ITEMS.beginnerBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
-                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-surface-solid',
+                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
                       )}
                     >
                       <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.beginnerBuilds.icon className="h-5 w-5 text-primary-600" />
+                        <NAV_ITEMS.beginnerBuilds.icon className="text-primary-600 h-5 w-5" />
                       </div>
                       <div className="flex flex-col items-start justify-start gap-y-1">
                         {NAV_ITEMS.beginnerBuilds.label}
@@ -157,11 +157,11 @@ export function NavBar() {
                       href={NAV_ITEMS.communityBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
-                        'flex w-full flex-row items-start justify-start p-2 text-sm font-semibold text-surface-solid',
+                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
                       )}
                     >
                       <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.communityBuilds.icon className="h-5 w-5 text-primary-600" />
+                        <NAV_ITEMS.communityBuilds.icon className="text-primary-600 h-5 w-5" />
                       </div>
                       <div className="flex flex-col items-start justify-start gap-y-1">
                         {NAV_ITEMS.communityBuilds.label}
@@ -179,7 +179,7 @@ export function NavBar() {
           <Link
             href={NAV_ITEMS.itemLookup.href}
             className={cn(
-              'text-md flex flex-row items-center justify-start font-semibold text-surface-solid hover:text-primary-500',
+              'text-md text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start font-semibold',
             )}
           >
             {NAV_ITEMS.itemLookup.label}
@@ -188,7 +188,7 @@ export function NavBar() {
           <Link
             href={NAV_ITEMS.itemTracker.href}
             className={cn(
-              'text-md flex flex-row items-center justify-start font-semibold text-surface-solid hover:text-primary-500',
+              'text-md text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start font-semibold',
             )}
           >
             {NAV_ITEMS.itemTracker.label}
@@ -197,7 +197,7 @@ export function NavBar() {
           <Link
             href={NAV_ITEMS.itemQuiz.href}
             className={cn(
-              'text-md flex flex-row items-center justify-start font-semibold text-surface-solid hover:text-primary-500',
+              'text-md text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start font-semibold',
             )}
           >
             {NAV_ITEMS.itemQuiz.label}
@@ -206,7 +206,7 @@ export function NavBar() {
           <Link
             href={NAV_ITEMS.resources.href}
             className={cn(
-              'text-md flex flex-row items-center justify-start font-semibold text-surface-solid hover:text-primary-500',
+              'text-md text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start font-semibold',
             )}
           >
             {NAV_ITEMS.resources.label}
@@ -215,7 +215,7 @@ export function NavBar() {
           <Link
             href={NAV_ITEMS.supportR2TK.href}
             className={cn(
-              'text-md flex flex-row items-center justify-start font-semibold text-accent1-500 hover:text-accent1-300',
+              'text-md text-accent1-500 hover:text-accent1-300 flex flex-row items-center justify-start font-semibold',
             )}
           >
             {NAV_ITEMS.supportR2TK.label}
@@ -236,7 +236,7 @@ export function NavBar() {
         <div className={cn('fixed inset-0', ZINDEXES.DIALOG_BACKDROP)} />
         <Dialog.Panel
           className={cn(
-            'fixed inset-y-0 right-0 w-full overflow-y-auto bg-background-solid px-6 py-6 text-surface-solid sm:max-w-sm sm:ring-1 sm:ring-secondary-900/10',
+            'bg-background-solid text-surface-solid sm:ring-secondary-900/10 fixed inset-y-0 right-0 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1',
             ZINDEXES.DIALOG,
           )}
         >
@@ -264,7 +264,7 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.createBuild.icon
-                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    className="text-primary-600 mr-2 h-7 w-5 flex-none"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -281,7 +281,7 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.featuredBuilds.icon
-                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    className="text-primary-600 mr-2 h-7 w-5 flex-none"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -298,7 +298,7 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.beginnerBuilds.icon
-                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    className="text-primary-600 mr-2 h-7 w-5 flex-none"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -315,7 +315,7 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.communityBuilds.icon
-                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    className="text-primary-600 mr-2 h-7 w-5 flex-none"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -334,7 +334,7 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.itemLookup.icon
-                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    className="text-primary-600 mr-2 h-7 w-5 flex-none"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -351,7 +351,7 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.itemTracker.icon
-                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    className="text-primary-600 mr-2 h-7 w-5 flex-none"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -368,7 +368,7 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.itemQuiz.icon
-                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    className="text-primary-600 mr-2 h-7 w-5 flex-none"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -385,7 +385,7 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.resources.icon
-                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    className="text-primary-600 mr-2 h-7 w-5 flex-none"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -404,7 +404,7 @@ export function NavBar() {
                   className="flex flex-row items-center justify-start"
                 >
                   <NAV_ITEMS.supportR2TK.icon
-                    className="mr-2 h-7 w-5 flex-none text-primary-600"
+                    className="text-primary-600 mr-2 h-7 w-5 flex-none"
                     aria-hidden="true"
                   />
                   <div className="flex flex-col items-start justify-start px-3 py-2">

@@ -49,7 +49,6 @@ export function useDBBuildState(initialBuildState: BuildState) {
   function updateDBBuildState({
     category,
     value,
-    scroll = false,
   }: {
     category: string
     value: string | Array<string | undefined> | BuildTags[]

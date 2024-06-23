@@ -1,5 +1,6 @@
 'use server'
 
+import { type BuildTags, prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
 import {
@@ -12,7 +13,6 @@ import { getServerSession } from '@/app/(utils)/auth'
 import { badWordFilter } from '@/app/(utils)/bad-word-filter'
 import { buildStateToBuildItems } from '@/app/(utils)/builds/build-state-to-build-items'
 import { isPermittedBuilder } from '@/app/(utils)/builds/permitted-builders'
-import { prisma } from '@/app/(utils)/db'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 import { isValidYoutubeUrl } from '@/app/(utils)/youtube'
 import { validateBuildState } from '@/app/(validators)/validate-build-state'
@@ -42,10 +42,10 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
       ? new Date(unvalidatedData.buildLinkUpdatedAt)
       : null,
     buildTags: unvalidatedData.buildTags
-      ? unvalidatedData.buildTags.map((tag: any) => ({
+      ? unvalidatedData.buildTags.map((tag: BuildTags) => ({
           ...tag,
           createdAt: tag.createdAt ? new Date(tag.createdAt) : new Date(),
-          updatedAt: tag.updatedat ? new Date(tag.updatedAt) : null,
+          updatedAt: tag.updatedAt ? new Date(tag.updatedAt) : null,
         }))
       : null,
   }

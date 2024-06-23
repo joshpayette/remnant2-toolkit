@@ -1,6 +1,7 @@
 'use server'
 
 import { Prisma } from '@repo/db'
+import { prisma } from '@repo/db'
 
 import { BuildVisibility } from '@/app/(components)/filters/builds/secondary-filters/build-visibility-filter/use-build-visibility-filter'
 import { OrderBy } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
@@ -44,7 +45,6 @@ import {
 } from '@/app/(queries)/build-filters/segments/limit-by-weapons'
 import { DBBuild } from '@/app/(types)/builds'
 import { bigIntFix } from '@/app/(utils)/big-int-fix'
-import { prisma } from '@/app/(utils)/db'
 import { PaginationResponse } from '@/app/(utils)/pagination/use-pagination'
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes'
@@ -170,7 +170,7 @@ export async function getCreatedBuilds({
     build.buildTags = buildTags
   }
 
-  const totalBuildCount = totalBuildsCountResponse[0].totalBuildCount
+  const totalBuildCount = totalBuildsCountResponse[0]?.totalBuildCount ?? 0
 
   return bigIntFix({
     items: builds,

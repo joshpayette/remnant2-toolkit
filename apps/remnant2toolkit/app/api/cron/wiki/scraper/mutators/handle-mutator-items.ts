@@ -16,7 +16,7 @@ export async function handleMutatorItems() {
 
     // get the item slug from the url
     // ex: https://remnant.wiki/Nebula -> Nebula
-    const pageSlug = item.wikiLinks?.[0].split('wiki/').pop()
+    const pageSlug = item.wikiLinks?.[0]?.split('wiki/').pop()
     if (!pageSlug) {
       console.error(`Failed to get page slug for ${item.name}`)
       continue
@@ -86,7 +86,7 @@ export async function handleMutatorItems() {
             console.error('Error in sending build webhook to Discord!')
           }
         } else {
-          console.info(params.embeds[0].fields)
+          console.info(params.embeds[0]?.fields)
         }
       }
     } catch (e) {

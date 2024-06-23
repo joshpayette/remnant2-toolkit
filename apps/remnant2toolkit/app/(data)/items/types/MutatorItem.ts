@@ -56,7 +56,7 @@ export class MutatorItem extends BaseItem implements BaseMutatorItem {
   static fromDBValue(buildItems: BuildItems[]): Array<MutatorItem | null> {
     if (!buildItems) return []
 
-    let mutatorValues: Array<MutatorItem | null> = []
+    const mutatorValues: Array<MutatorItem | null> = []
     for (const buildItem of buildItems) {
       const item = mutatorItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue

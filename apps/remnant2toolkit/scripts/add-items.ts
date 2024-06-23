@@ -1,5 +1,6 @@
-import { Item } from '../app/(data)/items/types'
-import { prisma } from '../app/(utils)/db'
+import { prisma } from '@repo/db'
+
+import { Item } from '@/app/(data)/items/types'
 
 const items = [
   {

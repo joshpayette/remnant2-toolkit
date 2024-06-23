@@ -91,12 +91,14 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
     if (!itemIds) return []
 
     const items: TraitItem[] = []
-    itemIds.forEach((itemId, index) => {
+    itemIds.forEach((itemId, _index) => {
       // We need to split the trait id at the ; to get the amount
-      let [traitId, amount] = itemId.split(';')
+      const [originalTraitId, amount] = itemId.split(';')
 
-      const optional = traitId.includes(OPTIONAL_ITEM_SYMBOL)
-      traitId = traitId.replace(OPTIONAL_ITEM_SYMBOL, '')
+      if (!originalTraitId) return
+
+      const optional = originalTraitId.includes(OPTIONAL_ITEM_SYMBOL)
+      const traitId = originalTraitId.replace(OPTIONAL_ITEM_SYMBOL, '')
 
       const item = traitItems.find((i) => i.id === traitId)
       if (!item) return []
@@ -146,8 +148,8 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
   static fromDBValue(buildItems: BuildItems[]): Array<TraitItem> {
     if (!buildItems) return []
 
-    let traitValues: Array<TraitItem> = []
-    let archtypeValues: Array<BaseItem> = []
+    const traitValues: Array<TraitItem> = []
+    const archtypeValues: Array<BaseItem> = []
     for (const buildItem of buildItems) {
       const item = allItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
@@ -185,6 +187,8 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
     // Add the archtype items to the trait items
     for (let i = 0; i < archtypeValues.length; i++) {
       const archtypeItem = archtypeValues[i]
+      if (!archtypeItem) continue
+
       // if the archtype is primary, get all linked items
       // if the archtype is secondary, get only the main trait
       const linkedTraits =

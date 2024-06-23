@@ -1,6 +1,5 @@
 import { Item } from '@/app/(data)/items/types'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
-import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { EXTERNAL_TOKENS, INLINE_TOKENS } from '@/app/(types)/tokens'
 
 export function itemMatchesSearchText({

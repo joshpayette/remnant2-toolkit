@@ -1,6 +1,6 @@
 'use server'
 
-import { prisma } from '@/app/(utils)/db'
+import { prisma } from '@repo/db'
 
 /** Used to show the # of builds an item is used in */
 export type ItemBuildStats = {

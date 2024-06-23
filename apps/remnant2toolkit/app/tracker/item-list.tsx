@@ -137,7 +137,7 @@ export function ItemList({
       <div className="w-full">
         {!areFiltersApplied && (
           <div className="flex flex-col items-center justify-center gap-y-2">
-            <h2 className="mt-4 text-center text-2xl font-bold text-primary-400">
+            <h2 className="text-primary-400 mt-4 text-center text-2xl font-bold">
               Apply a filter, or...
             </h2>
             <BaseButton onClick={() => setAreFiltersApplied(true)}>
@@ -146,7 +146,7 @@ export function ItemList({
           </div>
         )}
         {filteredItems.length > 0 && areFiltersApplied && (
-          <h2 className="my-4 w-full text-center text-2xl font-bold text-primary-400">
+          <h2 className="text-primary-400 my-4 w-full text-center text-2xl font-bold">
             Filtered Items ({filteredItems.length} Results)
           </h2>
         )}
@@ -161,7 +161,7 @@ export function ItemList({
                   <div className="flex w-full">
                     <button
                       className={cn(
-                        'text-md text-center font-bold sm:text-lg flex items-center justify-center bg-background hover:bg-background-solid border-b border-secondary-700 hover:border-primary-400',
+                        'text-md bg-background hover:bg-background-solid border-secondary-700 hover:border-primary-400 flex items-center justify-center border-b text-center font-bold sm:text-lg',
                       )}
                       onClick={() => {
                         setCurrentFilteredItems(
@@ -173,11 +173,11 @@ export function ItemList({
                         setItemLocationsDialogOpen(true)
                       }}
                     >
-                      <IoInformationCircleSharp className="h-4 w-4 text-accent1-500" />
+                      <IoInformationCircleSharp className="text-accent1-500 h-4 w-4" />
                     </button>
                     <Disclosure.Button
                       onClick={() => handleCategoryToggle(itemCategory)}
-                      className="flex w-full justify-start border-b border-secondary-700 p-4 text-left hover:border-primary-400 hover:bg-background-solid focus:outline-none focus-visible:ring focus-visible:ring-primary-500/75"
+                      className="border-secondary-700 hover:border-primary-400 hover:bg-background-solid focus-visible:ring-primary-500/75 flex w-full justify-start border-b p-4 text-left focus:outline-none focus-visible:ring"
                     >
                       <div className="w-full">
                         <h2 className="text-lg font-semibold">
@@ -193,7 +193,7 @@ export function ItemList({
                       </div>
                       <ChevronDownIcon
                         className={cn(
-                          'h-5 w-5 text-surface-solid',
+                          'text-surface-solid h-5 w-5',
                           open ? 'rotate-180 transform' : '',
                         )}
                       />

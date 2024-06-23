@@ -130,7 +130,7 @@ export function parseUrlFilters(
   }
 
   // Validate the provided search text
-  let searchText =
+  const searchText =
     parsedParams.get(BUILD_FILTER_KEYS.SEARCHTEXT) || defaultFilters.searchText
 
   // Validate the patchAffected filter

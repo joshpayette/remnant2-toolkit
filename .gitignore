@@ -18,6 +18,7 @@ node_modules
 
 # production
 /build
+dist
 
 # misc
 .DS_Store
@@ -34,11 +35,14 @@ yarn-error.log*
 # vercel
 .vercel
 
+# Turborepo
+.turbo
+
 # typescript
 *.tsbuildinfo
-next-env.d.ts
 
-.vercel
+# env
+next-env.d.ts
 .env*.local
 .env.db
 
@@ -49,5 +53,3 @@ UPGRADE.md
 convertedSave.txt
 /src/scripts/hitlocation-extractor/**/*.json
 /src/scripts/hitlocation-extractor/**/*.csv
-# Turborepo
-.turbo

@@ -56,7 +56,7 @@ export class RelicFragmentItem
   ): Array<RelicFragmentItem | null> {
     if (!buildItems) return []
 
-    let relicFragmentValues: Array<RelicFragmentItem | null> = []
+    const relicFragmentValues: Array<RelicFragmentItem | null> = []
     for (const buildItem of buildItems) {
       const item = relicFragmentItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue

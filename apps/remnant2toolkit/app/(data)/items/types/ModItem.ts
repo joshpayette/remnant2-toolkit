@@ -49,7 +49,7 @@ export class ModItem extends BaseItem implements BaseModItem {
   static fromDBValue(buildItems: BuildItems[]): Array<ModItem | null> {
     if (!buildItems) return []
 
-    let modValues: Array<ModItem | null> = []
+    const modValues: Array<ModItem | null> = []
     for (const buildItem of buildItems) {
       const item = modItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue

@@ -1,10 +1,11 @@
 'use server'
 
+import { prisma } from '@repo/db'
+
 import { DBBuild } from '@/app/(types)/builds'
 import { ErrorResponse } from '@/app/(types)/error-response'
 import { getServerSession } from '@/app/(utils)/auth'
 import { bigIntFix } from '@/app/(utils)/big-int-fix'
-import { prisma } from '@/app/(utils)/db'
 import { DEFAULT_DISPLAY_NAME } from '@/app/profile/[userId]/(lib)/constants'
 
 export async function getBuild(

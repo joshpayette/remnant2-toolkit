@@ -378,7 +378,7 @@ export function Builder({
   }
 
   const primePerkName =
-    buildState.items.archetype[0]?.linkedItems?.perks?.[0].name
+    buildState.items.archetype[0]?.linkedItems?.perks?.[0]?.name
   const primePerk = perkItems.find((i) => i.name === primePerkName)
 
   // #region Render
@@ -409,11 +409,11 @@ export function Builder({
       <div
         id="build-container"
         className={cn(
-          'relative w-full grow rounded border-2 bg-background-solid p-4',
+          'bg-background-solid relative w-full grow rounded border-2 p-4',
           !buildState.isMember && 'border-primary-500',
           buildState.isMember &&
             !isScreenshotMode &&
-            'border-accent1-300 shadow-lg shadow-accent1-600',
+            'border-accent1-300 shadow-accent1-600 shadow-lg',
           buildState.isMember && isScreenshotMode && 'border-primary-500',
           isScreenshotMode && 'pb-[70px]',
         )}
@@ -421,7 +421,7 @@ export function Builder({
         <div
           id="build-header"
           className={cn(
-            'relative mb-4 border-b border-b-primary-900',
+            'border-b-primary-900 relative mb-4 border-b',
             (isPopular || isNew || buildState.isFeaturedBuild) && 'mb-10 pb-6',
           )}
         >
@@ -431,7 +431,7 @@ export function Builder({
                 id="build-name"
                 type="text"
                 onChange={(e) => handleChangeBuildName(e.target.value)}
-                className="block w-full rounded-md border-2 border-secondary-900 bg-surface-solid/5 py-2 text-center text-2xl text-surface-solid shadow-sm ring-1 ring-inset ring-surface-solid/10 focus:ring-2 focus:ring-inset focus:ring-secondary-500"
+                className="border-secondary-900 bg-surface-solid/5 text-surface-solid ring-surface-solid/10 focus:ring-secondary-500 block w-full rounded-md border-2 py-2 text-center text-2xl shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset"
                 placeholder="My Build"
                 value={buildState.name}
               />
@@ -441,7 +441,7 @@ export function Builder({
                 <h2
                   aria-hidden="true"
                   className={cn(
-                    'whitespace-normal text-center text-2xl font-bold text-surface-solid sm:text-4xl',
+                    'text-surface-solid whitespace-normal text-center text-2xl font-bold sm:text-4xl',
                     isScreenshotMode && 'text-4xl',
                   )}
                 >
@@ -465,14 +465,14 @@ export function Builder({
               </span>
               <Link
                 href={`/profile/${buildState.createdById}/created-builds`}
-                className="ml-1 text-primary-500 underline"
+                className="text-primary-500 ml-1 underline"
               >
                 {buildState.createdByDisplayName}
               </Link>
               <div className="ml-2 flex flex-row text-sm">
                 <StarIcon
                   className={cn(
-                    'mr-0.5 h-4 w-4 text-accent1-500',
+                    'text-accent1-500 mr-0.5 h-4 w-4',
                     isScreenshotMode ? 'mt-[1.5px]' : 'mt-0.5',
                   )}
                 />
@@ -556,7 +556,7 @@ export function Builder({
                   )}
                 >
                   <ItemButton
-                    item={buildState.items.archetype[archetypeIndex]}
+                    item={buildState.items.archetype[archetypeIndex] || null}
                     isEditable={isEditable}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
@@ -569,7 +569,7 @@ export function Builder({
                     unoptimized={isScreenshotMode}
                   />
                   <ItemButton
-                    item={buildState.items.skill[archetypeIndex]}
+                    item={buildState.items.skill[archetypeIndex] || null}
                     isEditable={isEditable}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
@@ -670,7 +670,7 @@ export function Builder({
                     className="absolute left-[66px] top-0 flex w-[160px] flex-col items-start justify-start"
                   >
                     <ItemButton
-                      item={buildState.items.relicfragment[0]}
+                      item={buildState.items.relicfragment[0] || null}
                       isEditable={isEditable}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
@@ -682,7 +682,7 @@ export function Builder({
                       variant="relic-fragment"
                     />
                     <ItemButton
-                      item={buildState.items.relicfragment[1]}
+                      item={buildState.items.relicfragment[1] || null}
                       isEditable={isEditable}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
@@ -694,7 +694,7 @@ export function Builder({
                       variant="relic-fragment"
                     />
                     <ItemButton
-                      item={buildState.items.relicfragment[2]}
+                      item={buildState.items.relicfragment[2] || null}
                       isEditable={isEditable}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
@@ -732,7 +732,7 @@ export function Builder({
                 {getArrayOfLength(4).map((ringIndex) => (
                   <ItemButton
                     key={`ring-${ringIndex}`}
-                    item={buildState.items.ring[ringIndex]}
+                    item={buildState.items.ring[ringIndex] || null}
                     isEditable={isEditable}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
@@ -767,7 +767,7 @@ export function Builder({
                   )}
                 >
                   <ItemButton
-                    item={buildState.items.weapon[weaponIndex]}
+                    item={buildState.items.weapon[weaponIndex] || null}
                     isEditable={isEditable}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
@@ -785,7 +785,7 @@ export function Builder({
                       <div className="h-[66px] w-[66px]" />
                     ) : (
                       <ItemButton
-                        item={buildState.items.mod[weaponIndex]}
+                        item={buildState.items.mod[weaponIndex] || null}
                         isEditable={isEditable}
                         isScreenshotMode={isScreenshotMode}
                         manualWordBreaks={true}
@@ -808,7 +808,7 @@ export function Builder({
                     )}
 
                     <ItemButton
-                      item={buildState.items.mutator[weaponIndex]}
+                      item={buildState.items.mutator[weaponIndex] || null}
                       isEditable={isEditable}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}
@@ -852,7 +852,7 @@ export function Builder({
                   )}
                 >
                   <ItemButton
-                    item={buildState.items.concoction[0]}
+                    item={buildState.items.concoction[0] || null}
                     isEditable={isEditable}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
@@ -868,7 +868,9 @@ export function Builder({
                     return (
                       <ItemButton
                         key={`concoction-${concoctionIndex}`}
-                        item={buildState.items.concoction[concoctionIndex]}
+                        item={
+                          buildState.items.concoction[concoctionIndex] || null
+                        }
                         isEditable={isEditable}
                         isScreenshotMode={isScreenshotMode}
                         manualWordBreaks={true}
@@ -897,7 +899,9 @@ export function Builder({
                   {getArrayOfLength(4).map((consumableIndex) => (
                     <ItemButton
                       key={`consumable-${consumableIndex}`}
-                      item={buildState.items.consumable[consumableIndex]}
+                      item={
+                        buildState.items.consumable[consumableIndex] || null
+                      }
                       isEditable={isEditable}
                       isScreenshotMode={isScreenshotMode}
                       manualWordBreaks={true}

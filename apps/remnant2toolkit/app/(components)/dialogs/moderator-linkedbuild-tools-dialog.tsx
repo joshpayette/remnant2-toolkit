@@ -51,7 +51,7 @@ export function ModeratorLinkedBuildToolsDialog({
     buildName === buildToModerate.name &&
     buildDescription === buildToModerate.description &&
     buildItems.every((item, index) => {
-      return item.label === localBuild.linkedBuildItems[index].label
+      return item.label === localBuild.linkedBuildItems[index]?.label
     })
 
   return (

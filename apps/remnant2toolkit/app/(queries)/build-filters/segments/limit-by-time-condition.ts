@@ -12,15 +12,17 @@ function getTimeCondition(timeRange: TimeRange) {
   const allTime = new Date(2023, 0, 1)
 
   switch (timeRange) {
-    case 'day':
+    case 'day': {
       const oneDayAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000)
       timeCondition = `${formatDateToMySQL(oneDayAgo)}`
       break
-    case 'week':
+    }
+    case 'week': {
       const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000)
       timeCondition = `${formatDateToMySQL(oneWeekAgo)}`
       break
-    case 'month':
+    }
+    case 'month': {
       const oneMonthAgo = new Date(
         now.getFullYear(),
         now.getMonth() - 1,
@@ -28,11 +30,15 @@ function getTimeCondition(timeRange: TimeRange) {
       )
       timeCondition = `${formatDateToMySQL(oneMonthAgo)}`
       break
-    case 'all-time':
-      timeCondition = `${formatDateToMySQL(allTime)}`
-    default:
+    }
+    case 'all-time': {
       timeCondition = `${formatDateToMySQL(allTime)}`
       break
+    }
+    default: {
+      timeCondition = `${formatDateToMySQL(allTime)}`
+      break
+    }
   }
 
   return timeCondition

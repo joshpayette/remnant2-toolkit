@@ -29,11 +29,9 @@ export const DEFAULT_WORLD_SAVE_FILTERS = {
   releases: VALID_RELEASE_KEYS,
 } as const satisfies Filters
 
-interface Props {}
-
 // #region Component
 
-export function WorldSaveFilters({}: Props) {
+export function WorldSaveFilters() {
   const searchParams = useSearchParams()
   const filters = parseUrlFilters(searchParams)
 

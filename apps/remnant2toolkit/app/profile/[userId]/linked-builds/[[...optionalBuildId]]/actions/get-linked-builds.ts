@@ -1,9 +1,9 @@
 'use server'
 
 import type { Build } from '@repo/db'
+import { prisma } from '@repo/db'
 
 import type { LinkedBuildState } from '@/app/(types)/linked-builds'
-import { prisma } from '@/app/(utils)/db'
 import { DEFAULT_DISPLAY_NAME } from '@/app/profile/[userId]/(lib)/constants'
 
 export default async function getLinkedBuilds({
@@ -142,7 +142,7 @@ export default async function getLinkedBuilds({
     }
 
     const createdByDisplayName =
-      linkedBuilds[0].createdBy?.displayName ?? DEFAULT_DISPLAY_NAME
+      linkedBuilds[0]?.createdBy?.displayName ?? DEFAULT_DISPLAY_NAME
 
     // Find out whether the user has upvoted the build
     const upvotes: Array<{ buildId: string; upvoted: boolean }> = []

@@ -675,7 +675,7 @@ export const ringItems: RingItem[] = [
     description:
       'For every 10% of Health missing [Max 50%], gain 10% chance to not consume Relic and 5% increased Relic Efficacy on next use.',
     wikiLinks: [`https://remnant.wiki/Conservation_Seal`],
-    location: { world: `N\'Erud`, dungeon: 'World Drop' },
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
     dlc: 'base',
   },
   {

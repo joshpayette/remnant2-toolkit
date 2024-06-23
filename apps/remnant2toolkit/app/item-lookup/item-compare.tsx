@@ -10,12 +10,9 @@ import {
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage'
 import { cn } from '@/app/(utils)/classnames'
-import { getArrayOfLength } from '@/app/(utils)/get-array-of-length'
 
-interface Props {}
-
-export function ItemCompareList({}: Props) {
-  const [itemsToCompare, setItemsToCompare] = useLocalStorage<string[]>(
+export function ItemCompareList() {
+  const [itemsToCompare, _setItemsToCompare] = useLocalStorage<string[]>(
     LOCALSTORAGE_KEY.ITEM_COMPARE,
     DEFAULT_ITEM_COMPARE_LIST,
     { initializeWithValue: false },
@@ -36,7 +33,7 @@ export function ItemCompareList({}: Props) {
         onClose={() => setSelectedItem(null)}
       />
 
-      <h2 className="mt-4 text-center text-2xl font-bold text-primary-500">
+      <h2 className="text-primary-500 mt-4 text-center text-2xl font-bold">
         Item Comparison
       </h2>
       <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
@@ -67,7 +64,7 @@ function EmptyItemCard() {
   return (
     <div
       className={cn(
-        'col-span-1 flex h-full min-h-[300px] flex-col items-center justify-start rounded-lg border-4 border-dashed border-gray-500 bg-background-solid text-center shadow',
+        'bg-background-solid col-span-1 flex h-full min-h-[300px] flex-col items-center justify-start rounded-lg border-4 border-dashed border-gray-500 text-center shadow',
       )}
     >
       <p className="mt-8 p-4 text-2xl font-semibold text-gray-700">

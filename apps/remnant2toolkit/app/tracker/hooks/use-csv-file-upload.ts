@@ -26,15 +26,22 @@ export function useCsvFileUpload({
     }
 
     try {
-      Papa.parse(csvFileInputRef.current.files[0], {
+      const file = csvFileInputRef.current.files[0]
+      if (!file) {
+        csvFileInputRef.current = null
+        setImportCsvDialogOpen(false)
+        return
+      }
+
+      Papa.parse<string[]>(file, {
         complete: function (results) {
           const newCsvItemIds: string[] = []
 
           results.data.forEach(
-            (value: any, index: number, array: unknown[]) => {
+            (value: string[], _index: number, _array: unknown[]) => {
               const itemId = value[0]
               const discovered =
-                value[value.length - 1].toLowerCase() === 'true'
+                value[value.length - 1]?.toLowerCase() === 'true'
 
               if (!discovered) return
 

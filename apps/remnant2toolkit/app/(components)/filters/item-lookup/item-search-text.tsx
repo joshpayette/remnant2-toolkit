@@ -18,7 +18,7 @@ interface Props {
   autoFocus?: boolean
   onChange: (value: string) => void
   onKeyDown?: () => void
-  items: Array<{ id: string; name: String }>
+  items: Array<{ id: string; name: string }>
   value: string
   showLabel?: boolean
 }
@@ -77,7 +77,7 @@ export function ItemSearchText({
     >
       <Combobox.Label
         className={cn(
-          'block text-sm font-bold leading-6 text-primary-500',
+          'text-primary-500 block text-sm font-bold leading-6',
           showLabel && 'sr-only',
         )}
       >
@@ -99,14 +99,16 @@ export function ItemSearchText({
           />
         </Combobox.Button>
 
-        <Combobox.Options className="absolute z-20 mt-1 max-h-60 w-full overflow-auto rounded-md bg-gray-900 py-1 text-base shadow-lg ring-1 ring-background-solid ring-opacity-5 focus:outline-none sm:text-sm">
+        <Combobox.Options className="ring-background-solid absolute z-20 mt-1 max-h-60 w-full overflow-auto rounded-md bg-gray-900 py-1 text-base shadow-lg ring-1 ring-opacity-5 focus:outline-none sm:text-sm">
           {value.length > 0 && (
             <Combobox.Option
               value={{ id: null, name: value }}
               className={({ active }) =>
                 cn(
                   'relative cursor-default select-none py-2 pl-3 pr-9',
-                  active ? 'bg-secondary-600 text-surface-solid' : 'text-gray-300',
+                  active
+                    ? 'bg-secondary-600 text-surface-solid'
+                    : 'text-gray-300',
                 )
               }
             >
@@ -121,7 +123,9 @@ export function ItemSearchText({
               className={({ active }) =>
                 cn(
                   'relative cursor-default select-none py-2 pl-3 pr-9',
-                  active ? 'bg-secondary-600 text-surface-solid' : 'text-gray-300',
+                  active
+                    ? 'bg-secondary-600 text-surface-solid'
+                    : 'text-gray-300',
                 )
               }
             >

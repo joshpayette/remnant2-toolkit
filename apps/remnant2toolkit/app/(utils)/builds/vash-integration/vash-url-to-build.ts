@@ -29,8 +29,11 @@ import { weaponItems } from '@/app/(data)/items/weapon-items'
 export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
   if (typeof window === 'undefined') return null
 
+  const baseUrl = window.location.href.split('?')[0]
+  if (!baseUrl) return null
+
   const buildState = INITIAL_BUILD_STATE
-  let newBuildUrl = `${new URL(window.location.href.split('?')[0])}?`
+  let newBuildUrl = `${new URL(baseUrl)}?`
 
   // Parse the traits
   const traitString = searchParams.get('trait')
@@ -135,7 +138,7 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
       const mainWeaponItem = weaponItems.find(
         (item) =>
           item.name.toLowerCase() ===
-          mainWeapon[0].replace('+', ' ').toLowerCase(),
+          mainWeapon[0]?.replace('+', ' ').toLowerCase(),
       )
       if (mainWeaponItem) {
         buildState.items.weapon[0] = mainWeaponItem
@@ -146,7 +149,7 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
       const mainWeaponMutator = mutatorItems.find(
         (item) =>
           item.name.toLowerCase() ===
-          mainWeapon[1].replace('+', ' ').toLowerCase(),
+          mainWeapon[1]?.replace('+', ' ').toLowerCase(),
       )
       if (mainWeaponMutator) {
         buildState.items.mutator[0] = mainWeaponMutator
@@ -157,7 +160,7 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
       const mainWeaponMod = modItems.find(
         (item) =>
           item.name.toLowerCase() ===
-          mainWeapon[2].replace('+', ' ').toLowerCase(),
+          mainWeapon[2]?.replace('+', ' ').toLowerCase(),
       )
       if (mainWeaponMod) {
         buildState.items.mod[0] = mainWeaponMod
@@ -174,7 +177,7 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
       const meleeWeaponItem = weaponItems.find(
         (item) =>
           item.name.toLowerCase() ===
-          meleeWeapon[0].replace('+', ' ').toLowerCase(),
+          meleeWeapon[0]?.replace('+', ' ').toLowerCase(),
       )
       if (meleeWeaponItem) {
         buildState.items.weapon[1] = meleeWeaponItem
@@ -185,7 +188,7 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
       const meleeWeaponMutator = mutatorItems.find(
         (item) =>
           item.name.toLowerCase() ===
-          meleeWeapon[1].replace('+', ' ').toLowerCase(),
+          meleeWeapon[1]?.replace('+', ' ').toLowerCase(),
       )
       if (meleeWeaponMutator) {
         buildState.items.mutator[1] = meleeWeaponMutator
@@ -196,7 +199,7 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
       const meleeWeaponMod = modItems.find(
         (item) =>
           item.name.toLowerCase() ===
-          meleeWeapon[2].replace('+', ' ').toLowerCase(),
+          meleeWeapon[2]?.replace('+', ' ').toLowerCase(),
       )
       if (meleeWeaponMod) {
         buildState.items.mod[1] = meleeWeaponMod
@@ -213,7 +216,7 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
       const pistolWeaponItem = weaponItems.find(
         (item) =>
           item.name.toLowerCase() ===
-          pistolWeapon[0].replace('+', ' ').toLowerCase(),
+          pistolWeapon[0]?.replace('+', ' ').toLowerCase(),
       )
       if (pistolWeaponItem) {
         buildState.items.weapon[2] = pistolWeaponItem
@@ -224,7 +227,7 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
       const pistolWeaponMutator = mutatorItems.find(
         (item) =>
           item.name.toLowerCase() ===
-          pistolWeapon[1].replace('+', ' ').toLowerCase(),
+          pistolWeapon[1]?.replace('+', ' ').toLowerCase(),
       )
       if (pistolWeaponMutator) {
         buildState.items.mutator[2] = pistolWeaponMutator
@@ -235,7 +238,7 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
       const pistolWeaponMod = modItems.find(
         (item) =>
           item.name.toLowerCase() ===
-          pistolWeapon[2].replace('+', ' ').toLowerCase(),
+          pistolWeapon[2]?.replace('+', ' ').toLowerCase(),
       )
       if (pistolWeaponMod) {
         buildState.items.mod[2] = pistolWeaponMod
@@ -252,7 +255,7 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
       const amuletItem = amuletItems.find(
         (item) =>
           item.name.toLowerCase() ===
-          accessories[0].replace('+', ' ').toLowerCase(),
+          accessories[0]?.replace('+', ' ').toLowerCase(),
       )
       if (amuletItem) {
         buildState.items.amulet = amuletItem
@@ -263,7 +266,7 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
       const ringItem = ringItems.find(
         (item) =>
           item.name.toLowerCase() ===
-          accessories[1].replace('+', ' ').toLowerCase(),
+          accessories[1]?.replace('+', ' ').toLowerCase(),
       )
       if (ringItem) {
         buildState.items.ring[0] = ringItem
@@ -274,7 +277,7 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
       const ringItem = ringItems.find(
         (item) =>
           item.name.toLowerCase() ===
-          accessories[2].replace('+', ' ').toLowerCase(),
+          accessories[2]?.replace('+', ' ').toLowerCase(),
       )
       if (ringItem) {
         buildState.items.ring[1] = ringItem
@@ -285,7 +288,7 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
       const ringItem = ringItems.find(
         (item) =>
           item.name.toLowerCase() ===
-          accessories[3].replace('+', ' ').toLowerCase(),
+          accessories[3]?.replace('+', ' ').toLowerCase(),
       )
       if (ringItem) {
         buildState.items.ring[2] = ringItem
@@ -296,7 +299,7 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
       const ringItem = ringItems.find(
         (item) =>
           item.name.toLowerCase() ===
-          accessories[4].replace('+', ' ').toLowerCase(),
+          accessories[4]?.replace('+', ' ').toLowerCase(),
       )
       if (ringItem) {
         buildState.items.ring[3] = ringItem
@@ -312,7 +315,8 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
     if (relics[0]) {
       const relicItem = relicItems.find(
         (item) =>
-          item.name.toLowerCase() === relics[0].replace('+', ' ').toLowerCase(),
+          item.name.toLowerCase() ===
+          relics[0]?.replace('+', ' ').toLowerCase(),
       )
       if (relicItem) {
         buildState.items.relic = relicItem
@@ -322,7 +326,8 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
     if (relics[1]) {
       const relicFragmentItem = relicFragmentItems.find(
         (item) =>
-          item.name.toLowerCase() === relics[1].replace('+', ' ').toLowerCase(),
+          item.name.toLowerCase() ===
+          relics[1]?.replace('+', ' ').toLowerCase(),
       )
       if (relicFragmentItem) {
         buildState.items.relicfragment[0] = relicFragmentItem
@@ -332,7 +337,8 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
     if (relics[2]) {
       const relicFragmentItem = relicFragmentItems.find(
         (item) =>
-          item.name.toLowerCase() === relics[2].replace('+', ' ').toLowerCase(),
+          item.name.toLowerCase() ===
+          relics[2]?.replace('+', ' ').toLowerCase(),
       )
       if (relicFragmentItem) {
         buildState.items.relicfragment[1] = relicFragmentItem
@@ -342,7 +348,8 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
     if (relics[3]) {
       const relicFragmentItem = relicFragmentItems.find(
         (item) =>
-          item.name.toLowerCase() === relics[3].replace('+', ' ').toLowerCase(),
+          item.name.toLowerCase() ===
+          relics[3]?.replace('+', ' ').toLowerCase(),
       )
       if (relicFragmentItem) {
         buildState.items.relicfragment[2] = relicFragmentItem
@@ -359,7 +366,7 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
       const concoctionItem = concoctionItems.find(
         (item) =>
           item.name.toLowerCase() ===
-          consumables[i].replace('+', ' ').toLowerCase(),
+          consumables[i]?.replace('+', ' ').toLowerCase(),
       )
       if (concoctionItem) {
         buildState.items.concoction[i] = concoctionItem
@@ -370,7 +377,7 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
       const consumableItem = consumableItems.find(
         (item) =>
           item.name.toLowerCase() ===
-          consumables[i + 7].replace('+', ' ').toLowerCase(),
+          consumables[i + 7]?.replace('+', ' ').toLowerCase(),
       )
       if (consumableItem) {
         buildState.items.consumable[i] = consumableItem

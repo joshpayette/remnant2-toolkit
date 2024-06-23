@@ -49,7 +49,7 @@ export class RingItem extends BaseItem implements BaseRingItem {
   static fromDBValue(buildItems: BuildItems[]): Array<RingItem | null> {
     if (!buildItems) return []
 
-    let ringValues: Array<RingItem | null> = []
+    const ringValues: Array<RingItem | null> = []
     for (const buildItem of buildItems) {
       const item = ringItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue

@@ -39,9 +39,11 @@ function videoUrlToVideoId(videoUrl: string): string | undefined {
   // remove the ?t=XXX part of the url
   const videoUrlWithoutParams = videoUrl
     .split('?si=')[0]
-    .split('&si=')[0]
-    .split('?t=')[0]
-    .split('&t=')[0]
+    ?.split('&si=')[0]
+    ?.split('?t=')[0]
+    ?.split('&t=')[0]
+
+  if (!videoUrlWithoutParams) return undefined
 
   if (videoUrlType === 'watch') {
     return videoUrlWithoutParams.split('v=')[1]

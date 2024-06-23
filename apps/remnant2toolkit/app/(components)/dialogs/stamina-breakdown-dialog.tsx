@@ -8,7 +8,6 @@ import { ListItem } from '@/app/(components)/builder/stats/list-item'
 import { Section } from '@/app/(components)/builder/stats/section'
 import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
-import { BuildState } from '@/app/(types)/builds'
 
 function getStaminaStepLabel(
   item: TraitItem,
@@ -19,7 +18,7 @@ function getStaminaStepLabel(
 
   return (
     <>
-      <span className="font-bold text-surface-solid">{item.name}</span>{' '}
+      <span className="text-surface-solid font-bold">{item.name}</span>{' '}
       <span className="text-gray-300">
         {`(${traitAmount * (item.staminaStep ?? 0)})`}
       </span>
@@ -30,7 +29,7 @@ function getStaminaStepLabel(
 function getStaminaIncreaseLabel(item: Item) {
   return (
     <>
-      <span className="font-bold text-surface-solid">{item.name}</span>{' '}
+      <span className="text-surface-solid font-bold">{item.name}</span>{' '}
       <span className="text-gray-300">({item.stamina})</span>
     </>
   )
@@ -39,7 +38,7 @@ function getStaminaIncreaseLabel(item: Item) {
 function getStaminaPercentLabel(item: Item) {
   return (
     <>
-      <span className="font-bold text-surface-solid">
+      <span className="text-surface-solid font-bold">
         {item.name}{' '}
         {item.category === 'relicfragment' && 'Mythic Relic Fragment'}
       </span>{' '}
@@ -60,7 +59,7 @@ function getStaminaStepPercentLabel(
 
   return (
     <>
-      <span className="font-bold text-surface-solid">{item.name}</span>{' '}
+      <span className="text-surface-solid font-bold">{item.name}</span>{' '}
       <span className="text-gray-300">
         {`(${traitAmount * (item.staminaStepPercent ?? 0) * 100}%)`}
       </span>
@@ -92,9 +91,9 @@ export function StaminaBreakdownDialog({ open, breakdown, onClose }: Props) {
       </BaseDialogDescription>
       <BaseDialogBody>
         <div className="text-left text-sm">
-          <h3 className="text-md col-span-full my-2 font-semibold text-surface-solid">
+          <h3 className="text-md text-surface-solid col-span-full my-2 font-semibold">
             Base Stamina{' '}
-            <span className="text-md font-bold text-surface-solid">100</span>
+            <span className="text-md text-surface-solid font-bold">100</span>
           </h3>
           {(breakdown.equippedStaminaIncreaseItems.length > 0 ||
             breakdown.equippedStaminaStepItems.length > 0) && (

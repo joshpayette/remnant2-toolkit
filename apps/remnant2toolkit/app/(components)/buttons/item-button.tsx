@@ -125,7 +125,9 @@ export function ItemButton({
     !isEnemy(item) &&
     isToggled === undefined
 
-  let buttonClickAction = clickShowsInfo ? () => onItemInfoClick(item) : onClick
+  const buttonClickAction = clickShowsInfo
+    ? () => onItemInfoClick(item)
+    : onClick
 
   return (
     <div
@@ -161,7 +163,7 @@ export function ItemButton({
           >
             <IoInformationCircleSharp
               className={cn(
-                'h-4 w-4 text-accent1-500',
+                'text-accent1-500 h-4 w-4',
                 (variant === 'large' || variant === 'boss-tracker') &&
                   'h-5 w-5',
               )}
@@ -185,14 +187,14 @@ export function ItemButton({
             onClick={() => onToggleOptional(item, !item.optional)}
             aria-label="Toggle item as optional"
           >
-            <TbHttpOptions className="h-4 w-4 text-accent1-500" />
+            <TbHttpOptions className="text-accent1-500 h-4 w-4" />
           </button>
         </Tooltip>
       )}
       <button
         onClick={buttonClickAction}
         className={cn(
-          'relative z-0 flex items-center justify-center overflow-hidden border-2 border-secondary-900',
+          'border-secondary-900 relative z-0 flex items-center justify-center overflow-hidden border-2',
           `bg-background-solid`,
           // if the button is editable, give it a hover effect
           isEditable && 'border-secondary-900 hover:border-secondary-500',
@@ -203,7 +205,7 @@ export function ItemButton({
           item &&
             !isEnemy(item) &&
             item.optional &&
-            'border-b-0 border-dashed border-secondary-400',
+            'border-secondary-400 border-b-0 border-dashed',
           // if the item is optional and the size is small, remove the right border and add a bottom border
           item &&
             !isEnemy(item) &&
@@ -243,7 +245,7 @@ export function ItemButton({
       {item?.name && (
         <div
           className={cn(
-            'flex items-center justify-center border-2 border-secondary-900 bg-secondary-900 px-1 py-0.5 text-center text-[10px] text-gray-100',
+            'border-secondary-900 bg-secondary-900 flex items-center justify-center border-2 px-1 py-0.5 text-center text-[10px] text-gray-100',
             MANUAL_ITEM_NAME_TEXT_TRANSFORMS.some(
               (i) => i.name === item.name,
             ) && 'text-[9px]',

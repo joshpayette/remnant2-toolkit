@@ -1,6 +1,6 @@
 'use server'
 
-import { prisma } from '@/app/(utils)/db'
+import { prisma } from '@repo/db'
 
 export async function getTotalBuildCount() {
   const count = await prisma.build.count({

@@ -8,7 +8,6 @@ import { ListItem } from '@/app/(components)/builder/stats/list-item'
 import { Section } from '@/app/(components)/builder/stats/section'
 import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
-import { BuildState } from '@/app/(types)/builds'
 
 function getArmorStepLabel(
   item: TraitItem,
@@ -19,7 +18,7 @@ function getArmorStepLabel(
 
   return (
     <>
-      <span className="font-bold text-surface-solid">{item.name}</span>{' '}
+      <span className="text-surface-solid font-bold">{item.name}</span>{' '}
       <span className="text-gray-300">
         {`(${traitAmount * (item.armorStep ?? 0)})`}
       </span>
@@ -30,7 +29,7 @@ function getArmorStepLabel(
 function getArmorIncreaseLabel(item: Item) {
   return (
     <>
-      <span className="font-bold text-surface-solid">{item.name}</span>{' '}
+      <span className="text-surface-solid font-bold">{item.name}</span>{' '}
       <span className="text-gray-300">({item.armor})</span>
     </>
   )
@@ -39,7 +38,7 @@ function getArmorIncreaseLabel(item: Item) {
 function getArmorPercentLabel(item: Item) {
   return (
     <>
-      <span className="font-bold text-surface-solid">
+      <span className="text-surface-solid font-bold">
         {item.name}{' '}
         {item.category === 'relicfragment' && 'Mythic Relic Fragment'}
       </span>{' '}
@@ -59,7 +58,7 @@ function getArmorStepPercentLabel(
 
   return (
     <>
-      <span className="font-bold text-surface-solid">{item.name}</span>{' '}
+      <span className="text-surface-solid font-bold">{item.name}</span>{' '}
       <span className="text-gray-300">
         {`(${traitAmount * (item.armorStepPercent ?? 0) * 100}%)`}
       </span>

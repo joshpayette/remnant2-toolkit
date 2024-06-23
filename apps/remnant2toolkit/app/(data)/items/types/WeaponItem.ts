@@ -86,7 +86,7 @@ export class WeaponItem extends BaseItem implements BaseWeaponItem {
   static fromDBValue(buildItems: BuildItems[]): Array<WeaponItem | null> {
     if (!buildItems) return []
 
-    let weaponValues: Array<WeaponItem | null> = []
+    const weaponValues: Array<WeaponItem | null> = []
     for (const buildItem of buildItems) {
       const item = weaponItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue

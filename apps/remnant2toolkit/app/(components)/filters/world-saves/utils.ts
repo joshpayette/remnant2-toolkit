@@ -63,7 +63,7 @@ export function parseUrlFilters(
 }
 
 export function getDownloadUrl(bossName: string, bossAffixes: string[]) {
-  let url = getImageUrl(`/world-save-archive/`)
+  const url = getImageUrl(`/world-save-archive/`)
 
   const cleanBossName = bossName
     // replace apostrophes with empty string

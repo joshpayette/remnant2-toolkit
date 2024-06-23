@@ -1,8 +1,9 @@
 'use server'
 
+import { prisma } from '@repo/db'
+
 import { getServerSession } from '@/app/(utils)/auth'
 import { badWordFilter } from '@/app/(utils)/bad-word-filter'
-import { prisma } from '@/app/(utils)/db'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 
 export async function saveProfile({

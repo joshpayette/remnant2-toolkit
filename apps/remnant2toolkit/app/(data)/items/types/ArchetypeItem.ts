@@ -48,7 +48,7 @@ export class ArchetypeItem extends BaseItem implements BaseArchetypeItem {
   static fromDBValue(buildItems: BuildItems[]): Array<ArchetypeItem | null> {
     if (!buildItems) return []
 
-    let archetypeValues: Array<ArchetypeItem | null> = []
+    const archetypeValues: Array<ArchetypeItem | null> = []
     for (const buildItem of buildItems) {
       const item = archetypeItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue

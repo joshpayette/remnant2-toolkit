@@ -1,6 +1,5 @@
 import { XCircleIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
-import { IoInformationCircleSharp } from 'react-icons/io5'
 import { TbHttpOptions } from 'react-icons/tb'
 
 import { BaseButton } from '@/app/(components)/_base/button'
@@ -146,7 +145,7 @@ export function Traits({
         )}
       >
         {!isScreenshotMode && (
-          <div className="col-span-full mx-auto mb-2 max-w-[300px] border border-secondary-800 p-2 text-center text-xs text-gray-300">
+          <div className="border-secondary-800 col-span-full mx-auto mb-2 max-w-[300px] border p-2 text-center text-xs text-gray-300">
             <span
               className={cn(
                 'text-lg font-bold',
@@ -169,7 +168,7 @@ export function Traits({
               'flex items-center border text-sm',
               traitItem.optional
                 ? 'border-dashed'
-                : 'border-transparent border-b-surface-solid',
+                : 'border-b-surface-solid border-l-transparent border-r-transparent border-t-transparent',
               isArchetypeTrait(traitItem) && 'border-b-accent1-500',
               isArchetypeTrait(traitItem) &&
                 traitItem.optional &&
@@ -207,7 +206,7 @@ export function Traits({
 
                     if (value.trim() === '') return
 
-                    let amount = Number(value)
+                    const amount = Number(value)
 
                     setEditingTraitItem(
                       new TraitItem({
@@ -222,7 +221,7 @@ export function Traits({
                     setEditingTraitItem(null)
                   }}
                   autoFocus
-                  className="w-12 border border-primary-500 bg-transparent p-1 text-center"
+                  className="border-primary-500 w-12 border bg-transparent p-1 text-center"
                 />
               ) : (
                 <BaseButton
@@ -275,7 +274,7 @@ export function Traits({
                     }
                     aria-label="Toggle item as optional"
                   >
-                    <TbHttpOptions className="h-5 w-5 text-accent1-500" />
+                    <TbHttpOptions className="text-accent1-500 h-5 w-5" />
                   </BaseButton>
                 </Tooltip>
               )}
@@ -300,7 +299,7 @@ export function Traits({
         <button
           onClick={onAddTrait}
           aria-label="Add Trait"
-          className="mx-auto mt-4 flex max-w-[250px] items-center justify-center rounded border border-secondary-700 px-4 py-2 text-xs font-bold text-surface-solid hover:border-secondary-400 hover:bg-secondary-500"
+          className="border-secondary-700 text-surface-solid hover:border-secondary-400 hover:bg-secondary-500 mx-auto mt-4 flex max-w-[250px] items-center justify-center rounded border px-4 py-2 text-xs font-bold"
         >
           Add Trait
         </button>

@@ -112,7 +112,7 @@ export default function Page() {
     if (!state.currentQuestion) return []
     if (!state.currentQuestion.correctItem.position) return []
 
-    let questions: QuizItem[] = [...state.currentQuestion.wrongItems]
+    const questions: QuizItem[] = [...state.currentQuestion.wrongItems]
     // Insert the correct question at the specified position
     questions.splice(
       state.currentQuestion.correctItem.position - 1,
@@ -122,8 +122,6 @@ export default function Page() {
 
     return questions
   }, [state.currentQuestion])
-
-  const containerRef = useRef<HTMLDivElement>(null)
 
   // Countdown timer
   useEffect(() => {
@@ -204,89 +202,107 @@ export default function Page() {
 
       if (state.status === 'playing') {
         switch (event.key) {
-          case 'ArrowUp':
-            handleAnswerQuestion(questionsForUI[ARROW_TO_INDEX.ArrowUp - 1].id)
+          case 'ArrowUp': {
+            const question = questionsForUI[ARROW_TO_INDEX.ArrowUp - 1]
+            if (!question) return
+            handleAnswerQuestion(question.id)
             // Prevent the page scroll of the arrow key
             event.preventDefault()
             break
-          case 'ArrowRight':
-            handleAnswerQuestion(
-              questionsForUI[ARROW_TO_INDEX.ArrowRight - 1].id,
-            )
+          }
+          case 'ArrowRight': {
+            const question = questionsForUI[ARROW_TO_INDEX.ArrowRight - 1]
+            if (!question) return
+            handleAnswerQuestion(question.id)
             event.preventDefault()
             break
-          case 'ArrowDown':
-            handleAnswerQuestion(
-              questionsForUI[ARROW_TO_INDEX.ArrowDown - 1].id,
-            )
+          }
+          case 'ArrowDown': {
+            const question = questionsForUI[ARROW_TO_INDEX.ArrowDown - 1]
+            if (!question) return
+            handleAnswerQuestion(question.id)
             event.preventDefault()
             break
-          case 'ArrowLeft':
-            handleAnswerQuestion(
-              questionsForUI[ARROW_TO_INDEX.ArrowLeft - 1].id,
-            )
+          }
+          case 'ArrowLeft': {
+            const question = questionsForUI[ARROW_TO_INDEX.ArrowLeft - 1]
+            if (!question) return
+            handleAnswerQuestion(question.id)
             event.preventDefault()
             break
+          }
           // Map the number keys to the choices
-          case '1':
-            handleAnswerQuestion(
-              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['1']] - 1].id,
-            )
+          case '1': {
+            const question = questionsForUI[ARROW_TO_INDEX.ArrowUp - 1]
+            if (!question) return
+            handleAnswerQuestion(question.id)
             event.preventDefault()
             break
+          }
           // Map the number keys to the choices
-          case '2':
-            handleAnswerQuestion(
-              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['2']] - 1].id,
-            )
+          case '2': {
+            const question = questionsForUI[ARROW_TO_INDEX.ArrowLeft - 1]
+            if (!question) return
+            handleAnswerQuestion(question.id)
             event.preventDefault()
             break
+          }
           // Map the number keys to the choices
-          case '3':
-            handleAnswerQuestion(
-              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['3']] - 1].id,
-            )
+          case '3': {
+            const question = questionsForUI[ARROW_TO_INDEX.ArrowRight - 1]
+            if (!question) return
+            handleAnswerQuestion(question.id)
             event.preventDefault()
             break
+          }
           // Map the number keys to the choices
-          case '4':
-            handleAnswerQuestion(
-              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['4']] - 1].id,
-            )
+          case '4': {
+            const question = questionsForUI[ARROW_TO_INDEX.ArrowDown - 1]
+            if (!question) return
+            handleAnswerQuestion(question.id)
             event.preventDefault()
             break
+          }
           // Map the WASD keys to the choices
           case 'W':
-          case 'w':
-            handleAnswerQuestion(
-              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['W']] - 1].id,
-            )
+          case 'w': {
+            const question =
+              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['W']] - 1]
+            if (!question) return
+            handleAnswerQuestion(question.id)
             event.preventDefault()
             break
+          }
           // Map the WASD keys to the choices
           case 'A':
-          case 'a':
-            handleAnswerQuestion(
-              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['A']] - 1].id,
-            )
+          case 'a': {
+            const question =
+              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['A']] - 1]
+            if (!question) return
+            handleAnswerQuestion(question.id)
             event.preventDefault()
             break
+          }
           // Map the WASD keys to the choices
           case 'S':
-          case 's':
-            handleAnswerQuestion(
-              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['S']] - 1].id,
-            )
+          case 's': {
+            const question =
+              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['S']] - 1]
+            if (!question) return
+            handleAnswerQuestion(question.id)
             event.preventDefault()
             break
+          }
           // Map the WASD keys to the choices
           case 'D':
-          case 'd':
-            handleAnswerQuestion(
-              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['D']] - 1].id,
-            )
+          case 'd': {
+            const question =
+              questionsForUI[ARROW_TO_INDEX[KEY_TO_ARROW['D']] - 1]
+            if (!question) return
+            handleAnswerQuestion(question.id)
             event.preventDefault()
             break
+          }
           default:
             break
         }
@@ -310,7 +326,9 @@ export default function Page() {
   }, [state.status, state.score, session?.user?.id, topScore])
 
   function handleStartGame() {
-    containerRef.current?.scrollIntoView({ behavior: 'instant' })
+    // Scroll to top of the page
+    window.scrollTo(0, 0)
+
     dispatch(initializeGame())
   }
 
@@ -319,10 +337,7 @@ export default function Page() {
   }
 
   return (
-    <div
-      className="flex w-full max-w-4xl flex-col items-center justify-center pt-2"
-      ref={containerRef}
-    >
+    <div className="flex w-full max-w-4xl flex-col items-center justify-center pt-2">
       {state.status === 'idle' ? (
         <IdleDisplay
           showTopScore={Boolean(session?.user?.id)}
