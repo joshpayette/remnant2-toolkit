@@ -1,6 +1,7 @@
 'use server'
 
 import { Prisma } from '@repo/db'
+import { prisma } from '@repo/db'
 
 import { OrderBy } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
 import { TimeRange } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
@@ -43,7 +44,6 @@ import {
 import { DBBuild } from '@/app/(types)/builds'
 import { getServerSession } from '@/app/(utils)/auth'
 import { bigIntFix } from '@/app/(utils)/big-int-fix'
-import { prisma } from '@/app/(utils)/db'
 import { PaginationResponse } from '@/app/(utils)/pagination/use-pagination'
 
 export async function getBeginnerBuilds({
@@ -127,7 +127,7 @@ export async function getBeginnerBuilds({
 
   if (!builds) return { items: [], totalItemCount: 0 }
 
-  const totalBuilds = totalBuildCountResponse[0].totalBuildCount
+  const totalBuilds = totalBuildCountResponse[0]?.totalBuildCount ?? 0
 
   // Find all build items for each build
   for (const build of builds) {

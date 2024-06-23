@@ -14,7 +14,6 @@ import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { MasonryItemList } from '@/app/(components)/masonry-item-list'
 import { allItems } from '@/app/(data)/items/all-items'
 import { Item } from '@/app/(data)/items/types'
-import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
@@ -210,9 +209,7 @@ function getFilteredItems(
   return filteredItems
 }
 
-interface Props {}
-
-export function ItemList({}: Props) {
+export function ItemList() {
   const searchParams = useSearchParams()
   const [filters, setFilters] = useState(parseUrlFilters(searchParams))
 
@@ -240,7 +237,7 @@ export function ItemList({}: Props) {
   )
   const { discoveredItemIds } = tracker
 
-  let filteredItems = getFilteredItems(filters, discoveredItemIds)
+  const filteredItems = getFilteredItems(filters, discoveredItemIds)
 
   const isClient = useIsClient()
 
@@ -248,7 +245,7 @@ export function ItemList({}: Props) {
 
   return !areFiltersApplied || !isClient ? (
     <div className="flex flex-col items-center justify-center gap-y-2">
-      <h2 className="mt-4 text-center text-2xl font-bold text-primary-500">
+      <h2 className="text-primary-500 mt-4 text-center text-2xl font-bold">
         Apply a filter, or...
       </h2>
       <BaseButton onClick={() => setAreFiltersApplied(true)}>

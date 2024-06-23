@@ -49,7 +49,7 @@ export class ConsumableItem extends BaseItem implements BaseConsumableItem {
   static fromDBValue(buildItems: BuildItems[]): Array<ConsumableItem | null> {
     if (!buildItems) return []
 
-    let consumableValues: Array<ConsumableItem | null> = []
+    const consumableValues: Array<ConsumableItem | null> = []
     for (const buildItem of buildItems) {
       const item = consumableItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue

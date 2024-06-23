@@ -1,5 +1,3 @@
-import { permanentRedirect } from 'next/navigation'
-
 import { PageHeader } from '@/app/(components)/page-header'
 
 export default async function Page() {

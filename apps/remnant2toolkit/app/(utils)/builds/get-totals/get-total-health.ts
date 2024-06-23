@@ -50,7 +50,7 @@ export function getTotalHealth(buildState: BuildState): {
 
   const baseHealthAmount = 100
 
-  let totalHealth =
+  const totalHealth =
     (baseHealthAmount + totalHealthIncrease + totalHealthStep) *
     (1 + totalHealthPercent + totalHealthStepPercent)
 

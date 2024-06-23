@@ -27,9 +27,9 @@ export function mutatorDataParse(
       .replaceAll('[sic]', '')
 
     // The description is everything before the two line breaks and the text Level 10
-    const description = wholeDescription.split('Level 10:')[0].trim()
+    const description = wholeDescription.split('Level 10:')[0]?.trim() || ''
     // The maxLevelBonus is everything starting with the Level 10 text
-    const maxLevelBonus = wholeDescription.split('Level 10:')[1].trim()
+    const maxLevelBonus = wholeDescription.split('Level 10:')[1]?.trim() || ''
 
     return {
       description,
@@ -56,14 +56,14 @@ export function mutatorDataParse(
   // The description is everything before the two line breaks and the text Level 10
   const standardDescription = standardWholeDescription
     .split('Level 10:')[0]
-    .trim()
+    ?.trim()
   // The maxLevelBonus is everything starting with the Level 10 text
   const standardMaxLevelBonus = standardWholeDescription
     .split('Level 10:')[1]
-    .trim()
+    ?.trim()
 
-  const bowDescription = bowWholeDescription.split('Level 10:')[0].trim()
-  const bowMaxLevelBonus = bowWholeDescription.split('Level 10:')[1].trim()
+  const bowDescription = bowWholeDescription.split('Level 10:')[0]?.trim()
+  const bowMaxLevelBonus = bowWholeDescription.split('Level 10:')[1]?.trim()
 
   const description =
     standardDescription === bowDescription
@@ -76,7 +76,7 @@ export function mutatorDataParse(
       : `${standardMaxLevelBonus}\n\nBows: ${bowMaxLevelBonus}`
 
   return {
-    description,
-    maxLevelBonus,
+    description: description || '',
+    maxLevelBonus: maxLevelBonus || '',
   }
 }

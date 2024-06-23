@@ -62,7 +62,7 @@ export function BaseAvatar({
       {src && <img src={src} alt={alt} />}
       {/* Add an inset border that sits on top of the image */}
       <span
-        className="ring-1 ring-inset ring-surface-solid/5 forced-colors:outline"
+        className="ring-surface-solid/5 ring-1 ring-inset forced-colors:outline"
         aria-hidden="true"
       />
     </span>
@@ -81,7 +81,7 @@ export const BaseAvatarButton = React.forwardRef(function AvatarButton(
     (HeadlessButtonProps | React.ComponentPropsWithoutRef<typeof Link>),
   ref: React.ForwardedRef<HTMLElement>,
 ) {
-  let classes = clsx(
+  const classes = clsx(
     className,
     square ? 'rounded-lg' : 'rounded-full',
     'relative focus:outline-none data-[focus]:outline data-[focus]:outline-2 data-[focus]:outline-offset-2 data-[focus]:outline-blue-500',

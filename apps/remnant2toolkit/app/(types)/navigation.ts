@@ -5,7 +5,6 @@ import {
   BookOpenIcon,
   CalculatorIcon,
   CircleStackIcon,
-  Cog6ToothIcon,
   DocumentCheckIcon,
   DocumentTextIcon,
   HeartIcon,

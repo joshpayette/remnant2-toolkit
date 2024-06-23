@@ -1,12 +1,12 @@
 'use server'
 
+import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
 import type { AdminToolResponse } from '@/app/(actions)/builds/admin/types'
 import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
 import type { LinkedBuildState } from '@/app/(types)/linked-builds'
 import { getServerSession } from '@/app/(utils)/auth'
-import { prisma } from '@/app/(utils)/db'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 
 export default async function updateLinkedBuild(

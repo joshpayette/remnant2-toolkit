@@ -74,7 +74,7 @@ export function weaponDataParse(
       .eq(0)
       .find('span.infobox-substats-accuracy')
       .attr('style')
-    accuracy = parseInt(styleValue?.split(':')[1].split('%')[0] ?? '0')
+    accuracy = parseInt(styleValue?.split(':')[1]?.split('%')[0] ?? '0')
   }
 
   let ideal = 0

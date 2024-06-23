@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * API endpoint for reconciling Patreon memberships with the database
  * This script is run on a cron job to ensure that the database is up to date
@@ -5,10 +6,9 @@
  * It also adds a build vote for each user in PaidUsers from the toolkit account
  */
 
+import { prisma } from '@repo/db'
 import type { NextRequest } from 'next/server'
 import { patreon as patreonAPI } from 'patreon'
-
-import { prisma } from '@/app/(utils)/db'
 
 const toolkitUserId = 'clql3zq8k0000a6m41vtnvldq'
 
@@ -213,7 +213,7 @@ export async function GET(request: NextRequest) {
       ],
     }
 
-    const res = await fetch(`${process.env.WEBHOOK_CRON_LOGS}`, {
+    const _res = await fetch(`${process.env.WEBHOOK_CRON_LOGS}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

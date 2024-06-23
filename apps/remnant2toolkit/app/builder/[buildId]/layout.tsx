@@ -11,7 +11,7 @@ import { isErrorResponse } from '@/app/(utils)/is-error-response'
 
 export async function generateMetadata(
   { params: { buildId } }: { params: { buildId: string } },
-  parent: ResolvingMetadata,
+  _parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const buildData = await getBuild(buildId)
   if (isErrorResponse(buildData)) {

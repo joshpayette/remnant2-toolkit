@@ -45,7 +45,7 @@ const csvItems = allItems
     return 0
   })
 export default function Page() {
-  const [itemsToCompare, setItemsToCompare] = useLocalStorage<string[]>(
+  const [itemsToCompare, _setItemsToCompare] = useLocalStorage<string[]>(
     LOCALSTORAGE_KEY.ITEM_COMPARE,
     DEFAULT_ITEM_COMPARE_LIST,
     { initializeWithValue: false },
@@ -86,7 +86,7 @@ export default function Page() {
 
           <div className="mt-6 flex w-full flex-col items-center justify-center">
             <div className="max-w-[200px]">
-              <hr className="mb-4 w-full border-t border-primary-500" />
+              <hr className="border-primary-500 mb-4 w-full border-t" />
               <ToCsvButton
                 data={csvItems}
                 filename="remnant2toolkit_iteminfo"

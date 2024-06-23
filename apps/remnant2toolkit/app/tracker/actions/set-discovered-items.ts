@@ -1,9 +1,9 @@
 'use server'
 
+import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
 import { getServerSession } from '@/app/(utils)/auth'
-import { prisma } from '@/app/(utils)/db'
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
 
 export async function setDiscoveredItems(

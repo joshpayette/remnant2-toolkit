@@ -15,7 +15,7 @@ export function getOrderBySegment(
     ORDER BY TRIM(Build.name) ASC
     `
   } else if (orderBy === 'newest') {
-    if (Boolean(isFeaturedBuilds)) {
+    if (isFeaturedBuilds) {
       orderBySegment = Prisma.sql`
     ORDER BY dateFeatured DESC
     `

@@ -1,10 +1,10 @@
 import { Prisma } from '@repo/db'
+import { prisma } from '@repo/db'
 
 import {
   CommunityBuildQueryResponse,
   CommunityBuildTotalCount,
 } from '@/app/(types)/builds'
-import { prisma } from '@/app/(utils)/db'
 
 function userReportedBuildSegment(userId: string | undefined) {
   return Prisma.sql`

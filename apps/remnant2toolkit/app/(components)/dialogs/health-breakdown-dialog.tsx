@@ -8,7 +8,6 @@ import { ListItem } from '@/app/(components)/builder/stats/list-item'
 import { Section } from '@/app/(components)/builder/stats/section'
 import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
-import { BuildState } from '@/app/(types)/builds'
 
 function getHealthStepLabel(
   item: TraitItem,
@@ -19,7 +18,7 @@ function getHealthStepLabel(
 
   return (
     <>
-      <span className="font-bold text-surface-solid">{item.name}</span>{' '}
+      <span className="text-surface-solid font-bold">{item.name}</span>{' '}
       <span className="text-gray-300">{`(${
         traitAmount * (item.healthStep ?? 0)
       })`}</span>
@@ -30,7 +29,7 @@ function getHealthStepLabel(
 function getHealthIncreaseLabel(item: Item) {
   return (
     <>
-      <span className="font-bold text-surface-solid">{item.name}</span>{' '}
+      <span className="text-surface-solid font-bold">{item.name}</span>{' '}
       <span className="text-gray-300">({item.health})</span>
     </>
   )
@@ -39,7 +38,7 @@ function getHealthIncreaseLabel(item: Item) {
 function getHealthPercentLabel(item: Item) {
   return (
     <>
-      <span className="font-bold text-surface-solid">
+      <span className="text-surface-solid font-bold">
         {item.category === 'relicfragment'
           ? `Mythic ${item.name} Relic Fragment`
           : item.name}
@@ -61,7 +60,7 @@ function ggetHealthStepPercentLabel(
 
   return (
     <>
-      <span className="font-bold text-surface-solid">{item.name}</span>{' '}
+      <span className="text-surface-solid font-bold">{item.name}</span>{' '}
       <span className="text-gray-300">
         {`(${traitAmount * (item.healthStepPercent ?? 0) * 100}%)`}
       </span>
@@ -72,7 +71,7 @@ function ggetHealthStepPercentLabel(
 function getHealthCapLabel(item: Item) {
   return (
     <>
-      <span className="font-bold text-surface-solid">{item.name}</span>{' '}
+      <span className="text-surface-solid font-bold">{item.name}</span>{' '}
       <span className="text-gray-300">
         ({(item.healthCap ?? 0) * 100 * -1}%)
       </span>
@@ -106,10 +105,10 @@ export function HealthBreakdownDialog({ open, breakdown, onClose }: Props) {
       </BaseDialogDescription>
 
       <BaseDialogBody>
-        <div className="text-sm text-left">
-          <h3 className="my-2 font-semibold text-md col-span-full text-surface-solid">
+        <div className="text-left text-sm">
+          <h3 className="text-md text-surface-solid col-span-full my-2 font-semibold">
             Base Health{' '}
-            <span className="font-bold text-md text-surface-solid">100</span>
+            <span className="text-md text-surface-solid font-bold">100</span>
           </h3>
 
           {(breakdown.equippedHealthIncreaseItems.length > 0 ||

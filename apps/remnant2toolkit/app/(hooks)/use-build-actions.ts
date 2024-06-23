@@ -39,9 +39,9 @@ function getRandomItem(
     index?: number // Used for slots that can have multiple items, such as rings
   },
 ): Item {
-  let items = getItemListForSlot(buildState, selectedItem)
+  const items = getItemListForSlot(buildState, selectedItem)
   const randomIndex = Math.floor(Math.random() * items.length)
-  const randomItem = items[randomIndex]
+  const randomItem = items[randomIndex] as Item
   return randomItem
 }
 
@@ -162,7 +162,8 @@ export function useBuildActions() {
         useCORS: true,
         allowTaint: true,
         logging: false,
-        onclone: (clonedDoc) => clonedDoc.documentElement.dataset.theme = "dark"
+        onclone: (clonedDoc) =>
+          (clonedDoc.documentElement.dataset.theme = 'dark'),
       })
 
       const base64Image = canvas.toDataURL('image/png', 1.0).split(',')[1]
@@ -341,6 +342,8 @@ export function useBuildActions() {
       const randomTrait =
         allTraits[Math.floor(Math.random() * allTraits.length)]
 
+      if (!randomTrait) throw new Error('Could not find random trait')
+
       randomTrait.amount = 10
       if (totalTraitPoints + randomTrait.amount > 110) {
         randomTrait.amount = 110 - totalTraitPoints
@@ -357,6 +360,9 @@ export function useBuildActions() {
         const traitIndex = randomBuild.items.trait.findIndex(
           (trait: TraitItem) => trait.name === randomTrait.name,
         )
+        if (!randomBuild.items.trait[traitIndex]) {
+          throw new Error(`Could not find trait at index ${traitIndex}`)
+        }
         randomBuild.items.trait[traitIndex].amount = randomTrait.amount
       }
 

@@ -62,7 +62,7 @@ export function importedLoadoutToBuildState({
 }: {
   loadout: ParsedLoadoutItem[]
 }): BuildState {
-  let buildState: BuildState = {
+  const buildState: BuildState = {
     buildId: null,
     name: 'Placeholder',
     createdAt: new Date(),
@@ -187,6 +187,7 @@ export function importedLoadoutToBuildState({
         }
 
         buildState.items.weapon[inventorySlot] = item
+        break
       }
       case 'mod': {
         if (!ModItem.isModItem(item)) break
@@ -208,6 +209,7 @@ export function importedLoadoutToBuildState({
         }
 
         buildState.items.mod[inventorySlot] = item
+        break
       }
       case 'mutator': {
         if (!MutatorItem.isMutatorItem(item)) break
@@ -229,6 +231,7 @@ export function importedLoadoutToBuildState({
         }
 
         buildState.items.mutator[inventorySlot] = item
+        break
       }
       case 'ring': {
         if (!RingItem.isRingItem(item)) break
@@ -254,6 +257,7 @@ export function importedLoadoutToBuildState({
         }
 
         buildState.items.ring[inventorySlot] = item
+        break
       }
       case 'archetype': {
         if (!ArchetypeItem.isArchetypeItem(item)) break
@@ -273,6 +277,7 @@ export function importedLoadoutToBuildState({
         }
 
         buildState.items.archetype[inventorySlot] = item
+        break
       }
       case 'skill': {
         if (!SkillItem.isSkillItem(item)) break
@@ -292,10 +297,12 @@ export function importedLoadoutToBuildState({
         }
 
         buildState.items.skill[inventorySlot] = item
+        break
       }
       case 'relicfragment': {
         if (!RelicFragmentItem.isRelicFragmentItem(item)) break
         buildState.items.relicfragment.push(item)
+        break
       }
       case 'trait': {
         if (!TraitItem.isTraitItem(item)) break
@@ -304,6 +311,7 @@ export function importedLoadoutToBuildState({
           ...item,
           amount: parseInt(loadoutItem.level),
         })
+        break
       }
     }
   }
@@ -331,6 +339,7 @@ export function importedLoadoutToBuildState({
           amount: coreTraitPoint.amount,
         })
       } else {
+        if (!buildState.items.trait[existingTraitIndex]) continue
         buildState.items.trait[existingTraitIndex].amount +=
           coreTraitPoint.amount
       }

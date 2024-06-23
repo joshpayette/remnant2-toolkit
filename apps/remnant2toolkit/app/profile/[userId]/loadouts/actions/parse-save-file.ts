@@ -22,7 +22,7 @@ type ParsedLoadoutResponse = Array<ParsedLoadoutItem>
  * Parse the data from the Remnant 2 save file
  */
 export async function parseSaveFile(
-  prevState: any,
+  _prevState: unknown,
   formData: FormData,
 ): Promise<{ status: 'success' | 'error'; message: string }> {
   const session = await getServerSession()
@@ -51,8 +51,8 @@ export async function parseSaveFile(
     formData.append('characterSlot', '1')
   }
 
-  let loadoutsToReplace: number[] = []
-  for (let [key, value] of formData.entries()) {
+  const loadoutsToReplace: number[] = []
+  for (const [key, value] of formData.entries()) {
     if (key.startsWith('loadoutsToReplace')) {
       loadoutsToReplace.push(parseInt(value.toString()))
     }
@@ -152,7 +152,7 @@ export async function parseSaveFile(
       })
     }
 
-    const updatedLoadoutsResponse = await Promise.all([
+    const _updatedLoadoutsResponse = await Promise.all([
       ...loadoutsToUpdate.map((loadout) =>
         addBuildToLoadout(loadout.buildId, loadout.slot),
       ),

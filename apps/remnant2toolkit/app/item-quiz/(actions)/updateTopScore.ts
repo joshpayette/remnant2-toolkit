@@ -1,9 +1,9 @@
 'use server'
 
+import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
 import { getServerSession } from '@/app/(utils)/auth'
-import { prisma } from '@/app/(utils)/db'
 
 export async function updateTopScore({
   userId,

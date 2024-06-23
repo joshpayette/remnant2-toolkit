@@ -10,7 +10,7 @@ type WeightClassResponse = WeightClass & { label: keyof typeof WEIGHT_CLASSES }
 export function getWeightClass(buildState: BuildState): WeightClassResponse {
   const combinedWeightThreshold = Number(getWeightThreshold(buildState))
 
-  let totalWeight = Number(getTotalWeight(buildState))
+  const totalWeight = Number(getTotalWeight(buildState))
 
   let weightClass: WeightClassResponse = {
     ...WEIGHT_CLASSES.LIGHT,

@@ -57,7 +57,7 @@ function parseStringForToken({
   let replacedText = reactStringReplace(
     description,
     allDescriptionTokensRegex,
-    (match, i) => {
+    (match, _i) => {
       const inlineToken = INLINE_TOKENS.find((tag) => tag.token === match)
       const externalToken = EXTERNAL_TOKENS.find((tag) => tag.token === match)
 
@@ -118,7 +118,7 @@ function parseStringForToken({
     replacedText = reactStringReplace(
       replacedText,
       allItemNamesRegex,
-      (match, i) => {
+      (match, _i) => {
         const itemName = allItemNames.find(
           (itemName) => itemName.toLowerCase() === match.toLowerCase(),
         )
@@ -158,7 +158,7 @@ function parseStringForToken({
     replacedText = reactStringReplace(
       replacedText,
       allBuildTagsRegex,
-      (match, i) => {
+      (match, _i) => {
         const tag = ALL_BUILD_TAGS.find((tag) => tag.label === match)
         if (!tag) return match
         return (

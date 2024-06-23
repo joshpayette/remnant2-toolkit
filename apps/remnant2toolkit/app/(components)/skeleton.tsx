@@ -11,7 +11,7 @@ export function Skeleton({
   width?: string
   height?: string
   className?: string
-  [key: string]: any
+  [key: string]: unknown
 }) {
   const styles = clsx('rounded animate-pulse bg-gray-800', className)
 

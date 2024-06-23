@@ -49,7 +49,7 @@ export class ConcoctionItem extends BaseItem implements BaseConcoctionItem {
   static fromDBValue(buildItems: BuildItems[]): Array<ConcoctionItem | null> {
     if (!buildItems) return []
 
-    let concoctionValues: Array<ConcoctionItem | null> = []
+    const concoctionValues: Array<ConcoctionItem | null> = []
     for (const buildItem of buildItems) {
       const item = concoctionItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue

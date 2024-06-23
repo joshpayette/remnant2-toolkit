@@ -7,7 +7,6 @@ import { Fragment, useEffect, useState } from 'react'
 import getAvatarId from '@/app/(actions)/profile/get-avatar-id'
 import { Link } from '@/app/(components)/_base/link'
 import { PlaceHolderIcon } from '@/app/(components)/placeholder-icon'
-import { ZINDEXES } from '@/app/(components)/z-indexes'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { cn } from '@/app/(utils)/classnames'
 import { getImageUrl } from '@/app/(utils)/get-image-url'
@@ -40,7 +39,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.profile.icon
-              className="mr-2 h-7 w-5 flex-none text-primary-500"
+              className="text-primary-500 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -60,7 +59,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.myBuilds.icon
-              className="mr-2 h-7 w-5 flex-none text-primary-500"
+              className="text-primary-500 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -80,7 +79,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.favoritedBuilds.icon
-              className="mr-2 h-7 w-5 flex-none text-primary-500"
+              className="text-primary-500 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -99,7 +98,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.loadouts.icon
-              className="mr-2 h-7 w-5 flex-none text-primary-500"
+              className="text-primary-500 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -118,7 +117,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.linkedBuilds.icon
-              className="mr-2 h-7 w-5 flex-none text-primary-500"
+              className="text-primary-500 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -137,7 +136,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.signin.icon
-              className="mr-2 h-7 w-5 flex-none text-primary-500"
+              className="text-primary-500 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2 text-sm">
@@ -150,7 +149,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.signout.icon
-              className="mr-2 h-7 w-5 flex-none text-primary-500"
+              className="text-primary-500 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -166,24 +165,24 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
     <Link
       href={NAV_ITEMS.signin.href}
       className={cn(
-        'hidden flex-row items-center justify-start rounded-lg bg-secondary-700 p-2 text-xs font-semibold text-surface-solid hover:bg-secondary-500 lg:flex',
+        'bg-secondary-700 text-surface-solid hover:bg-secondary-500 hidden flex-row items-center justify-start rounded-lg p-2 text-xs font-semibold lg:flex',
       )}
     >
       {NAV_ITEMS.signin.label}
     </Link>
   ) : (
     <Menu as="div" className="relative hidden lg:block">
-      <Menu.Button className="flex h-[56px] w-[56px] rounded-full bg-background text-sm focus:outline-none focus:ring-2 focus:ring-surface-solid focus:ring-offset-2 focus:ring-offset-gray-800">
+      <Menu.Button className="bg-background focus:ring-surface-solid flex h-[56px] w-[56px] rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800">
         <span className="absolute -inset-1.5" />
         <span className="sr-only">Open user menu</span>
         {session?.user?.image ? (
           <img
             src={profileImage}
-            className="h-[56px] w-[56px] overflow-hidden rounded-full border border-secondary-700 p-1"
+            className="border-secondary-700 h-[56px] w-[56px] overflow-hidden rounded-full border p-1"
             alt={`${session?.user.name} Avatar`}
           />
         ) : (
-          <span className="h-[56px] w-[56px] overflow-hidden rounded-full border border-secondary-700 bg-gray-100 p-1">
+          <span className="border-secondary-700 h-[56px] w-[56px] overflow-hidden rounded-full border bg-gray-100 p-1">
             <PlaceHolderIcon />
           </span>
         )}
@@ -199,7 +198,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
       >
         <Menu.Items
           className={cn(
-            'absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-background-solid py-1 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none',
+            'bg-background-solid absolute right-0 mt-2 w-48 origin-top-right rounded-md py-1 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none',
           )}
         >
           {session?.user?.id ? (
@@ -212,7 +211,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                     'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
                   )}
                 >
-                  <NAV_ITEMS.profile.icon className="mr-1 h-4 w-4 text-primary-600" />
+                  <NAV_ITEMS.profile.icon className="text-primary-600 mr-1 h-4 w-4" />
                   {NAV_ITEMS.profile.label}
                 </Link>
               )}
@@ -228,7 +227,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                     'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
                   )}
                 >
-                  <NAV_ITEMS.myBuilds.icon className="mr-1 h-4 w-4 text-primary-600" />
+                  <NAV_ITEMS.myBuilds.icon className="text-primary-600 mr-1 h-4 w-4" />
                   {NAV_ITEMS.myBuilds.label}
                 </Link>
               )}
@@ -245,7 +244,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                     'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300',
                   )}
                 >
-                  <NAV_ITEMS.linkedBuilds.icon className="mr-1 h-4 w-4 text-primary-600" />
+                  <NAV_ITEMS.linkedBuilds.icon className="text-primary-600 mr-1 h-4 w-4" />
                   {NAV_ITEMS.linkedBuilds.label}
                 </Link>
               )}
@@ -262,7 +261,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                     'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300',
                   )}
                 >
-                  <NAV_ITEMS.favoritedBuilds.icon className="mr-1 h-4 w-4 text-primary-600" />
+                  <NAV_ITEMS.favoritedBuilds.icon className="text-primary-600 mr-1 h-4 w-4" />
                   {NAV_ITEMS.favoritedBuilds.label}
                 </Link>
               )}
@@ -279,7 +278,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                     'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300',
                   )}
                 >
-                  <NAV_ITEMS.loadouts.icon className="mr-1 h-4 w-4 text-primary-600" />
+                  <NAV_ITEMS.loadouts.icon className="text-primary-600 mr-1 h-4 w-4" />
                   {NAV_ITEMS.loadouts.label}
                 </Link>
               )}
@@ -294,7 +293,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
                   'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
                 )}
               >
-                <NAV_ITEMS.signout.icon className="mr-1 h-4 w-4 text-primary-600" />
+                <NAV_ITEMS.signout.icon className="text-primary-600 mr-1 h-4 w-4" />
                 {NAV_ITEMS.signout.label}
               </Link>
             )}

@@ -55,6 +55,8 @@
   },
   "devDependencies": {
     "@prisma/nextjs-monorepo-workaround-plugin": "5.15.0",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@tailwindcss/forms": "0.5.7",
     "@testing-library/jest-dom": "6.1.2",
     "@testing-library/react": "14.0.0",
@@ -87,6 +89,6 @@
     "ts-node": "10.9.1",
     "tsconfig-paths": "^4.2.0",
     "turbo": "2.0.4",
-    "typescript": "5.4.5"
+    "typescript": "5.5.2"
   }
 }

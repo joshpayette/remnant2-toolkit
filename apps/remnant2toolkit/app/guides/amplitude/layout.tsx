@@ -1,4 +1,4 @@
-import { Metadata, ResolvingMetadata } from 'next'
+import { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = 'Amplitude vs Resonance Guide - Remnant2Toolkit'

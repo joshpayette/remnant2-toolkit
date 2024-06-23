@@ -64,9 +64,7 @@ function getFilteredBossList(
   return filteredBosses
 }
 
-interface Props {}
-
-export function BossList({}: Props) {
+export function BossList() {
   const searchParams = useSearchParams()
   const [filters, setFilters] = useState(parseUrlFilters(searchParams))
 
@@ -148,7 +146,7 @@ export function BossList({}: Props) {
             <>
               <Disclosure.Button
                 onClick={() => handleCategoryToggle(bossCategory.category)}
-                className="flex w-full justify-start border-b border-secondary-700 p-4 text-left hover:border-primary-400 hover:bg-background-solid focus:outline-none focus-visible:ring focus-visible:ring-primary-500/75"
+                className="border-secondary-700 hover:border-primary-400 hover:bg-background-solid focus-visible:ring-primary-500/75 flex w-full justify-start border-b p-4 text-left focus:outline-none focus-visible:ring"
               >
                 <div className="w-full">
                   <h2 className="text-lg font-semibold">
@@ -167,7 +165,7 @@ export function BossList({}: Props) {
                 </div>
                 <ChevronDownIcon
                   className={cn(
-                    'h-5 w-5 text-surface-solid',
+                    'text-surface-solid h-5 w-5',
                     open ? 'rotate-180 transform' : '',
                   )}
                 />

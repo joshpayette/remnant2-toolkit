@@ -30,6 +30,7 @@ export class BadWordFilter {
   constructor(options: Partial<FilterOptions>) {
     this.badWordList = badWords
     this.placeHolder = options.placeHolder || '*'
+    // eslint-disable-next-line no-useless-escape
     this.regex = options.regex || /[^a-zA-Z0-9|\$|\@]|\^/g
     this.splitRegex = options.splitRegex || /\b/
     this.replaceRegex = options.replaceRegex || /\w/g

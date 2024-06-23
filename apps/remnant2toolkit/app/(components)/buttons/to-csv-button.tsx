@@ -3,7 +3,7 @@ import { BaseButton } from '@/app/(components)/_base/button'
 /**
  * Converts an array of objects to a CSV file and starts the download
  */
-export function toCsv<T extends {}>(data: T[], filename: string) {
+export function toCsv<T extends object>(data: T[], filename: string) {
   let csvContent = 'data:text/csv;charset=utf-8,'
   if (!data[0]) return []
   // Add header row with keys
@@ -23,7 +23,7 @@ export function toCsv<T extends {}>(data: T[], filename: string) {
 }
 
 interface ToCsvProps {
-  data: any[]
+  data: object[]
   filename: string
   label?: string
 }

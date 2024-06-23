@@ -15,7 +15,6 @@ interface Props {
 export default function GenericDialog({
   children,
   open,
-  size = 'md',
   title,
   onClose,
 }: Props) {

@@ -7,7 +7,6 @@ import { toast } from 'react-toastify'
 import { BaseButton } from '@/app/(components)/_base/button'
 import { ImportLoadoutsDialog } from '@/app/(components)/dialogs/import-loadouts-dialog'
 import type { DBBuild } from '@/app/(types)/builds'
-import { importedLoadoutToBuildState } from '@/app/(utils)/builds/imported-loadout-to-build-state'
 import { parseSaveFile } from '@/app/profile/[userId]/loadouts/actions/parse-save-file'
 
 interface Props {

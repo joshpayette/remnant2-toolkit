@@ -6,8 +6,6 @@
 
 'use server'
 
-import fs from 'fs'
-import path from 'path'
 import zlib from 'zlib'
 
 import { allItems } from '@/app/(data)/items/all-items'
@@ -31,7 +29,7 @@ function readChunkHeader(buffer: Buffer) {
 /**
  * Helper function for parsing save file
  */
-function decompressSave(fileBuffer: any) {
+function decompressSave(fileBuffer: Buffer) {
   const memstream = []
   let offset = 0xc
 
@@ -56,7 +54,7 @@ function decompressSave(fileBuffer: any) {
  * Parse the data from the Remnant 2 save file
  */
 export async function parseSaveFile(
-  prevState: any,
+  _prevState: unknown,
   formData: FormData,
 ): Promise<{ saveFileDiscoveredItemIds: string[] | null; error?: string }> {
   const saveFile = formData.get('saveFile') as File | null

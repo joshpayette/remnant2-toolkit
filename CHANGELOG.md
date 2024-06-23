@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-06-23
+
+### Fixed
+
+- Fixed issue on the Item Quiz where number labels were not matching up with keystroke detection. Not sure if this was an issue before I started refactoring or if I introduced and then fixed it before you all saw it, but either way it's not a problem now!
+
 ## 2024-06-21
 
 ### Broke

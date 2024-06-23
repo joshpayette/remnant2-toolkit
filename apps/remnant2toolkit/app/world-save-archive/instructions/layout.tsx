@@ -1,9 +1,6 @@
-import { Metadata, ResolvingMetadata } from 'next'
+import { Metadata } from 'next'
 
-export async function generateMetadata(
-  { params: { itemName } }: { params: { itemName: string } },
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const title = 'World Save Archive Instructions - Remnant2Toolkit'
   const description =
     'Instructions on using the World Save Archive files provided by the Remnant 2 Toolkit.'

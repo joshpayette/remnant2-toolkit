@@ -30,7 +30,7 @@ export function parseUrlFilters(
   }
 
   // validate the provided searchText
-  let searchText = parsedParams.get(BOSS_TRACKER_KEYS.SEARCHTEXT) || ''
+  const searchText = parsedParams.get(BOSS_TRACKER_KEYS.SEARCHTEXT) || ''
 
   return {
     categories,

@@ -17,7 +17,7 @@ export function getBuildDescriptionParams({
     ignoreCase: true,
   })
 
-  let content = diff
+  const content = diff
     ?.map((part) => {
       if (part.added) {
         return `${part.value.replace(/\n/g, '')}`.trim()

@@ -36,7 +36,7 @@ export function getArchetypeComboName({
 
   const primePerkName = archetypeItems.find(
     (item) => item.name.toLowerCase() === archetype1,
-  )?.linkedItems?.perks?.[0].name
+  )?.linkedItems?.perks?.[0]?.name
 
   if (!primePerkName) {
     return ''

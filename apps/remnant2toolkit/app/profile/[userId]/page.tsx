@@ -1,10 +1,9 @@
 import { Prisma } from '@repo/db'
+import { prisma } from '@repo/db'
 
 import { BuildCard } from '@/app/(components)/cards/build-card'
 import { communityBuildsQuery } from '@/app/(queries)/build-filters/community-builds'
-import { getServerSession } from '@/app/(utils)/auth'
 import { bigIntFix } from '@/app/(utils)/big-int-fix'
-import { prisma } from '@/app/(utils)/db'
 
 async function getCreatedBuilds(userId: string) {
   const itemsToFetch = 4
@@ -77,15 +76,13 @@ export default async function Page({
 }: {
   params: { userId: string }
 }) {
-  const session = await getServerSession()
-
   const { topBuildsAllTime, topBuildsCurrent } = await getCreatedBuilds(userId)
 
   return (
     <>
       {topBuildsCurrent.length > 0 && (
         <div>
-          <div className="mb-4 flex w-full flex-row items-center justify-center border-b border-b-primary-500 py-2">
+          <div className="border-b-primary-500 mb-4 flex w-full flex-row items-center justify-center border-b py-2">
             <h2 className="flex w-full items-center justify-start text-2xl">
               Top Created Builds (Current)
             </h2>
@@ -103,7 +100,7 @@ export default async function Page({
         </div>
       )}
       <div>
-        <div className="mb-4 flex w-full flex-row items-center justify-center border-b border-b-primary-500 py-2">
+        <div className="border-b-primary-500 mb-4 flex w-full flex-row items-center justify-center border-b py-2">
           <h2 className="flex w-full items-center justify-start text-2xl">
             Top Created Builds (All Time)
           </h2>

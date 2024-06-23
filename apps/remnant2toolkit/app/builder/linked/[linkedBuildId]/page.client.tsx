@@ -31,7 +31,10 @@ import { ImageDownloadInfoDialog } from '@/app/(components)/dialogs/image-downlo
 import { LoadoutDialog } from '@/app/(components)/dialogs/loadout-dialog'
 import { ModeratorLinkedBuildToolsDialog } from '@/app/(components)/dialogs/moderator-linkedbuild-tools-dialog'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
-import type { LinkedBuildState } from '@/app/(types)/linked-builds'
+import type {
+  LinkedBuildItem,
+  LinkedBuildState,
+} from '@/app/(types)/linked-builds'
 import { buildStateToCsvData } from '@/app/(utils)/builds/build-state-to-csv-data'
 import { cleanUpBuildState } from '@/app/(utils)/builds/clean-up-build-state'
 import { dbBuildToBuildState } from '@/app/(utils)/builds/db-build-to-build-state'
@@ -44,8 +47,8 @@ interface Props {
 
 export function PageClient({ linkedBuildState }: Props) {
   const { linkedBuildItems } = linkedBuildState
-  const [currentLinkedBuild, setCurrentLinkedBuild] = useState(
-    linkedBuildItems[0],
+  const [currentLinkedBuild, setCurrentLinkedBuild] = useState<LinkedBuildItem>(
+    linkedBuildItems[0] as LinkedBuildItem,
   )
 
   const buildState = cleanUpBuildState(
@@ -109,7 +112,7 @@ export function PageClient({ linkedBuildState }: Props) {
       />
       <div className="height-full flex w-full flex-col items-center justify-center">
         <div className="mb-8 w-full max-w-lg">
-          <h2 className="mb-2 border-b border-b-primary-500 pb-2 text-center text-2xl font-bold">
+          <h2 className="border-b-primary-500 mb-2 border-b pb-2 text-center text-2xl font-bold">
             {linkedBuildState.name}
           </h2>
           <div className="mb-2 flex flex-col">

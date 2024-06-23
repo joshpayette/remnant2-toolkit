@@ -52,7 +52,7 @@ function getItemDescription(items: Item[], label: string): string | null {
 
 export async function generateMetadata(
   { params: { tagName } }: { params: { tagName: string } },
-  parent: ResolvingMetadata,
+  _parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const items = getItemsFromTagParam(tagName)
 

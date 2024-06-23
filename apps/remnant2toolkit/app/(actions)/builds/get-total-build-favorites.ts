@@ -1,7 +1,8 @@
 'use server'
 
+import { prisma } from '@repo/db'
+
 import { getServerSession } from '@/app/(utils)/auth'
-import { prisma } from '@/app/(utils)/db'
 
 export async function getTotalBuildFavorites(userId?: string) {
   const session = await getServerSession()

@@ -1,10 +1,10 @@
+import { prisma } from '@repo/db'
 import { Metadata, ResolvingMetadata } from 'next'
 import { revalidatePath } from 'next/cache'
 
 import { getIsLoadoutPublic } from '@/app/(actions)/loadouts/get-is-loadout-public'
 import { PageHeader } from '@/app/(components)/page-header'
 import { getServerSession } from '@/app/(utils)/auth'
-import { prisma } from '@/app/(utils)/db'
 import { ProfileHeader } from '@/app/profile/[userId]/(components)/profile-header'
 import { ProfileNavbar } from '@/app/profile/[userId]/(components)/profile-navbar'
 import { ProfileStats } from '@/app/profile/[userId]/(components)/profile-stats'
@@ -16,7 +16,7 @@ import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id'
 
 export async function generateMetadata(
   { params: { userId } }: { params: { userId: string } },
-  parent: ResolvingMetadata,
+  _parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const userData = await prisma.user.findUnique({
     where: {
@@ -174,7 +174,7 @@ export default async function Layout({
 
         <ProfileStats userId={userId} isEditable={isEditable} />
       </header>
-      <div className="border-t border-surface-solid/10 pt-4">{children}</div>
+      <div className="border-surface-solid/10 border-t pt-4">{children}</div>
     </div>
   )
 }

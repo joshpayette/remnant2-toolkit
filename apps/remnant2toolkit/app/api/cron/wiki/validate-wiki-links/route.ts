@@ -34,6 +34,10 @@ export async function GET(request: NextRequest) {
       continue
     }
     const wikiLink = item.wikiLinks[0]
+    if (!wikiLink) {
+      noWikiLinks.push(item.name)
+      continue
+    }
     try {
       const response = await fetch(wikiLink)
       if (!response.ok) {

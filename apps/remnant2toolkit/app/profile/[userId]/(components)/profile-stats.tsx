@@ -1,6 +1,7 @@
 'use server'
 
-import { prisma } from '@/app/(utils)/db'
+import { prisma } from '@repo/db'
+
 import { DiscoveredItemsStatBox } from '@/app/profile/[userId]/(components)/discovered-items-stat-box'
 import { StatBox } from '@/app/profile/[userId]/(components)/stat-box'
 import { TOTAL_TRACKABLE_ITEM_COUNT } from '@/app/tracker/constants'

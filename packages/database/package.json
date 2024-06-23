@@ -1,17 +1,21 @@
 {
   "name": "@repo/db",
+  "type": "module",
   "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
     "db:generate": "prisma generate",
     "db:push": "prisma db push --skip-generate"
   },
   "exports": {
-    ".": "./index.ts"
+    ".": "./src/index.ts"
   },
   "dependencies": {
     "@prisma/client": "5.15.0"
   },
   "devDependencies": {
-    "typescript": "latest",
+    "@repo/typescript-config": "workspace:*",
+    "typescript": "5.5.2",
     "prisma": "5.15.0"
   }
 }

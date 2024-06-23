@@ -49,7 +49,7 @@ export class SkillItem extends BaseItem implements BaseSkillItem {
   static fromDBValue(buildItems: BuildItems[]): Array<SkillItem | null> {
     if (!buildItems) return []
 
-    let skillValues: Array<SkillItem | null> = []
+    const skillValues: Array<SkillItem | null> = []
     for (const buildItem of buildItems) {
       const item = skillItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue

@@ -67,7 +67,8 @@ export const ColorThemes: ColorThemeProps[] = [
 ] as const
 export type ColorTheme = (typeof ColorThemes)[number]
 
-let colorThemes: Record<string, string> = {}
+const colorThemes: Record<string, string> = {}
+
 ColorThemes.forEach(
   ({ key, baseTheme, customThemes }) =>
     (colorThemes[key] = [baseTheme, ...customThemes].join(' ')),

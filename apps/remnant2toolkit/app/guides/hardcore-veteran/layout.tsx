@@ -1,9 +1,6 @@
-import { Metadata, ResolvingMetadata } from 'next'
+import { Metadata } from 'next'
 
-export async function generateMetadata(
-  { params: { itemName } }: { params: { itemName: string } },
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const title = 'Hardcore Veteran Guide - Remnant2Toolkit'
   const description =
     'This guide is intended to help players who have some experience with the game, but are new to hardcore. It is not a complete guide to the game, nor is it an exhaustive list of the many strategies you can use to clear hardcore veteran. It is intended to be an opinionated guide to best help you complete your hardcore veteran run.'

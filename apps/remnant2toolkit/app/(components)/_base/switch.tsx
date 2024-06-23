@@ -151,7 +151,7 @@ type Color = keyof typeof colors
 export function BaseSwitch({
   color = 'dark/zinc',
   className,
-  children,
+  children: _children,
   ...props
 }: {
   color?: Color
@@ -174,7 +174,7 @@ export function BaseSwitch({
         'forced-colors:outline forced-colors:[--switch-bg:Highlight]',
 
         // Unchecked
-        'bg-surface-solid/5 ring-1 ring-inset ring-surface-solid/15',
+        'bg-surface-solid/5 ring-surface-solid/15 ring-1 ring-inset',
 
         // Checked
         'data-[checked]:bg-[--switch-bg] data-[checked]:ring-[--switch-bg-ring]',
@@ -183,7 +183,7 @@ export function BaseSwitch({
         'focus:outline-none data-[focus]:outline data-[focus]:outline-2 data-[focus]:outline-offset-2 data-[focus]:outline-blue-500',
 
         // Hover
-        'data-[hover]:data-[checked]:ring-[--switch-bg-ring] data-[hover]:ring-surface-solid/25',
+        'data-[hover]:ring-surface-solid/25 data-[hover]:data-[checked]:ring-[--switch-bg-ring]',
 
         // Disabled
         'data-[disabled]:bg-surface-solid/15 data-[disabled]:data-[checked]:bg-surface-solid/15 data-[disabled]:data-[checked]:ring-surface-solid/15 data-[disabled]:opacity-50 ',
@@ -206,14 +206,14 @@ export function BaseSwitch({
           'border border-transparent',
 
           // Unchecked
-          'bg-surface-solid shadow ring-1 ring-background-solid/5',
+          'bg-surface-solid ring-background-solid/5 shadow ring-1',
 
           // Checked
           'group-data-[checked]:bg-[--switch] group-data-[checked]:shadow-[--switch-shadow] group-data-[checked]:ring-[--switch-ring]',
           'group-data-[checked]:translate-x-4 sm:group-data-[checked]:translate-x-3',
 
           // Disabled
-          'group-data-[disabled]:group-data-[checked]:bg-surface-solid group-data-[disabled]:group-data-[checked]:shadow group-data-[disabled]:group-data-[checked]:ring-background-solid/5',
+          'group-data-[disabled]:group-data-[checked]:bg-surface-solid group-data-[disabled]:group-data-[checked]:ring-background-solid/5 group-data-[disabled]:group-data-[checked]:shadow',
         )}
       />
     </HeadlessSwitch>

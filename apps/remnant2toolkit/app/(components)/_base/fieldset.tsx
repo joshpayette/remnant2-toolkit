@@ -35,7 +35,7 @@ export function BaseLegend({ ...props }: HeadlessLegendProps) {
       data-slot="legend"
       className={clsx(
         props.className,
-        'text-base/6 font-semibold text-surface-solid data-[disabled]:opacity-50 sm:text-sm/6',
+        'text-surface-solid text-base/6 font-semibold data-[disabled]:opacity-50 sm:text-sm/6',
       )}
     />
   )
@@ -81,7 +81,7 @@ export function BaseLabel({
       data-slot="label"
       className={clsx(
         className,
-        'select-none text-base/6 text-surface-solid data-[disabled]:opacity-50 sm:text-sm/6',
+        'text-surface-solid select-none text-base/6 data-[disabled]:opacity-50 sm:text-sm/6',
       )}
     />
   )
@@ -89,7 +89,7 @@ export function BaseLabel({
 
 export function BaseDescription({
   className,
-  disabled,
+  disabled: _disabled,
   ...props
 }: { className?: string; disabled?: boolean } & HeadlessDescriptionProps) {
   return (
@@ -106,7 +106,7 @@ export function BaseDescription({
 
 export function BaseErrorMessage({
   className,
-  disabled,
+  disabled: _disabled,
   ...props
 }: { className?: string; disabled?: boolean } & HeadlessDescriptionProps) {
   return (

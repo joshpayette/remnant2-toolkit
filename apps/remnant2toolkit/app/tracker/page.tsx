@@ -5,8 +5,6 @@ import { Suspense } from 'react'
 import { useIsClient } from 'usehooks-ts'
 
 import { BaseButton } from '@/app/(components)/_base/button'
-import { BaseDialogDescription } from '@/app/(components)/_base/dialog'
-import { BaseCode } from '@/app/(components)/_base/text'
 import { ImportCsvDialog } from '@/app/(components)/dialogs/import-csv-dialog'
 import { ImportItemsDialog } from '@/app/(components)/dialogs/import-items-dialog'
 import { ItemTrackerFilters } from '@/app/(components)/filters/item-tracker/item-tracker-filters'
@@ -110,9 +108,9 @@ export default function Page() {
       </div>
 
       <div className="relative flex w-full flex-col items-center justify-center">
-        <div className="mb-2 flex flex-col items-center justify-center text-2xl font-bold text-primary-400">
+        <div className="text-primary-400 mb-2 flex flex-col items-center justify-center text-2xl font-bold">
           <h2 className="text-2xl font-bold">Progress</h2>
-          <div className="text-xl font-bold text-surface-solid">
+          <div className="text-surface-solid text-xl font-bold">
             {isClient ? totalProgress : 'Calculating...'}
           </div>
           <div className="w-full max-w-3xl">

@@ -53,7 +53,7 @@ export class PerkItem extends BaseItem implements BasePerkItem {
   static fromDBValue(buildItems: BuildItems[]): Array<PerkItem | null> {
     if (!buildItems) return []
 
-    let perkValues: Array<PerkItem | null> = []
+    const perkValues: Array<PerkItem | null> = []
     for (const buildItem of buildItems) {
       const item = perkItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
