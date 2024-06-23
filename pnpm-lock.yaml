@@ -169,12 +169,14 @@ importers:
     specifiers:
       '@prisma/client': 5.15.0
       '@repo/typescript-config': workspace:*
+      '@types/node': '20'
       prisma: 5.15.0
       typescript: 5.5.2
     dependencies:
       '@prisma/client': 5.15.0_prisma@5.15.0
     devDependencies:
       '@repo/typescript-config': link:../typescript-config
+      '@types/node': 20.14.7
       prisma: 5.15.0
       typescript: 5.5.2
 
