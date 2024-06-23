@@ -1,13 +1,8 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+import type { Config } from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+const config: Omit<Config, 'content'> = {
   darkMode: ['selector', '[data-theme~="dark"]'],
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
   theme: {
     extend: {
       keyframes: {
@@ -118,3 +113,5 @@ module.exports = {
   },
   plugins: [require('@tailwindcss/forms')],
 }
+
+export default config

@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed issue on the Item Quiz where number labels were not matching up with keystroke detection. Not sure if this was an issue before I started refactoring or if I introduced and then fixed it before you all saw it, but either way it's not a problem now!
+- A number of rings and amulets introduced with the second DLC, but not requiring the DLC, were listed as DLC specific items. The no longer show as DLC 2 specific items in filtering.
 
 ## 2024-06-21
 
