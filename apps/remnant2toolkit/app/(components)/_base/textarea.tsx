@@ -19,7 +19,7 @@ export const BaseTextarea = forwardRef<
         'relative block w-full',
 
         // Background color + shadow applied to inset pseudo element, so shadow blends with border in light mode
-        'before:absolute before:inset-px before:rounded-[calc(theme(borderRadius.lg)-1px)] before:bg-surface-solid before:shadow',
+        'before:bg-surface-solid before:absolute before:inset-px before:rounded-[calc(theme(borderRadius.lg)-1px)] before:shadow',
 
         // Background color is moved to control and shadow is removed in dark mode so hide `before` pseudo
         'before:hidden',
@@ -38,13 +38,13 @@ export const BaseTextarea = forwardRef<
           'relative block h-full w-full appearance-none rounded-lg px-[calc(theme(spacing[3.5])-1px)] py-[calc(theme(spacing[2.5])-1px)] sm:px-[calc(theme(spacing.3)-1px)] sm:py-[calc(theme(spacing[1.5])-1px)]',
 
           // Typography
-          'text-base/6 text-surface-solid placeholder:text-zinc-500 sm:text-sm/6',
+          'text-surface-solid text-base/6 placeholder:text-zinc-500 sm:text-sm/6',
 
           // Border
-          'border border-surface-solid/10 data-[hover]:border-surface-solid/20',
+          'border-surface-solid/10 data-[hover]:border-surface-solid/20 border',
 
           // Background color
-          'bg-transparent bg-surface-solid/5',
+          'bg-surface-solid/5',
 
           // Hide default focus styles
           'focus:outline-none',

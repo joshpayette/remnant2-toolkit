@@ -2,14 +2,7 @@
 
 import { createAction, createReducer } from '@reduxjs/toolkit'
 import { useSession } from 'next-auth/react'
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useReducer,
-  useRef,
-  useState,
-} from 'react'
+import { useCallback, useEffect, useMemo, useReducer, useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { getTopScore } from '@/app/item-quiz/(actions)/getTopScore'

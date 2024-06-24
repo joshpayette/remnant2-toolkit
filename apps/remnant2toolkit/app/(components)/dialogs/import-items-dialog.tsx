@@ -1,3 +1,4 @@
+import { BaseInput } from '@repo/ui/base/input'
 import type React from 'react'
 
 import { BaseButton } from '@/app/(components)/_base/button'
@@ -9,7 +10,6 @@ import {
   BaseDialogTitle,
 } from '@/app/(components)/_base/dialog'
 import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
-import { BaseInput } from '@/app/(components)/_base/input'
 import { BaseCode } from '@/app/(components)/_base/text'
 import LocatingProfileSav from '@/app/(components)/dialogs/partial/locating-profile-sav'
 import { ImportSaveSubmitButton } from '@/app/tracker/import-save-submit-button'

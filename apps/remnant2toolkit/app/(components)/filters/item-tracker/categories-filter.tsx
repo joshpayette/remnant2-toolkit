@@ -1,9 +1,10 @@
-import { BaseButton } from '@/app/(components)/_base/button'
 import {
   BaseCheckbox,
   BaseCheckboxField,
   BaseCheckboxGroup,
-} from '@/app/(components)/_base/checkbox'
+} from '@repo/ui/base/checkbox'
+
+import { BaseButton } from '@/app/(components)/_base/button'
 import {
   BaseFieldset,
   BaseLabel,

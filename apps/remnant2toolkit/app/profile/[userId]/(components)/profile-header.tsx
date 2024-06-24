@@ -1,12 +1,12 @@
 'use client'
 
 import { PencilIcon } from '@heroicons/react/24/solid'
+import { BaseInput } from '@repo/ui/base/input'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { BaseButton } from '@/app/(components)/_base/button'
 import { BaseField } from '@/app/(components)/_base/fieldset'
-import { BaseInput } from '@/app/(components)/_base/input'
 import { BaseTextarea } from '@/app/(components)/_base/textarea'
 import { AvatarSelectDialog } from '@/app/(components)/dialogs/avatar-select-dialog'
 import { saveProfile } from '@/app/profile/[userId]/(actions)/save-profile'
@@ -77,7 +77,7 @@ export function ProfileHeader({
             />
           ) : (
             <h1 className="flex gap-x-3 text-2xl leading-7">
-              <span className="font-semibold text-surface-solid">
+              <span className="text-surface-solid font-semibold">
                 {newDisplayName}
               </span>
             </h1>

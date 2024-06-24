@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import { cn } from '@/app/(utils)/classnames'
 export { metadata } from './metadata'
 import './globals.css'
+import '@repo/ui/styles.css'
 import 'react-toastify/dist/ReactToastify.min.css'
 
 import { Analytics } from '@vercel/analytics/react'

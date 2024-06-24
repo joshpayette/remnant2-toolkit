@@ -10,7 +10,7 @@ import { getCreatedBuilds } from '@/app/(actions)/builds/get-created-builds'
 import updateLinkedBuild from '@/app/(actions)/builds/update-linked-build'
 import { BaseButton } from '@/app/(components)/_base/button'
 import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
-import { BaseInput } from '@/app/(components)/_base/input'
+import { BaseInput } from '@repo/ui/base/input'
 import { BaseTextarea } from '@/app/(components)/_base/textarea'
 import { BuildList } from '@/app/(components)/build-list'
 import { BuildCard } from '@/app/(components)/cards/build-card'
@@ -184,7 +184,7 @@ export default function PageClient({ currentLinkedBuildState, userId }: Props) {
           className="h-[175px] w-full max-w-[500px]"
         />
       </BaseField>
-      <div className="flex w-full flex-col items-start justify-start border-b border-b-primary-500 py-2">
+      <div className="border-b-primary-500 flex w-full flex-col items-start justify-start border-b py-2">
         <ul
           role="list"
           className="my-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4"
