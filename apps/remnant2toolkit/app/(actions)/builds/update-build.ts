@@ -91,6 +91,9 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
   const descriptionBadWordCheck = badWordFilter.isProfane(
     buildState.description ?? '',
   )
+  const referenceLinkBadWordCheck = badWordFilter.isProfane(
+    buildState.buildLink ?? '',
+  )
 
   if (nameBadWordCheck.isProfane) {
     buildState.isPublic = false
@@ -164,6 +167,45 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     return {
       errors: [
         `Build description contains profanity: ${descriptionBadWordCheck.badWords.join(
+          ', ',
+        )}`,
+      ],
+    }
+  }
+
+  if (referenceLinkBadWordCheck.isProfane) {
+    buildState.isPublic = false
+
+    // Send webhook to #action-log
+    await sendWebhook({
+      webhook: 'auditLog',
+      params: {
+        embeds: [
+          {
+            title: `Bad Word Filter Tripped`,
+            color: 0xff0000,
+            fields: [
+              {
+                name: 'Action',
+                value: 'Update Build, Build Reference Link',
+              },
+              {
+                name: 'User',
+                value: session.user.displayName,
+              },
+              {
+                name: 'Bad Words',
+                value: referenceLinkBadWordCheck.badWords.join(', '),
+              },
+            ],
+          },
+        ],
+      },
+    })
+
+    return {
+      errors: [
+        `Build reference link contains profanity: ${referenceLinkBadWordCheck.badWords.join(
           ', ',
         )}`,
       ],
