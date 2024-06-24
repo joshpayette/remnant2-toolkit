@@ -1,5 +1,6 @@
 'use client'
 
+import { BaseInput } from '@repo/ui/base/input'
 import { useState } from 'react'
 
 import {
@@ -10,7 +11,6 @@ import {
   BaseAlertTitle,
 } from '@/app/(components)/_base/alert'
 import { BaseButton } from '@/app/(components)/_base/button'
-import { BaseInput } from '@/app/(components)/_base/input'
 
 interface Props {
   open: boolean

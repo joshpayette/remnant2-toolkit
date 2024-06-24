@@ -1,6 +1,7 @@
 'use client'
 
 import { BuildTags } from '@repo/db'
+import { BaseInput } from '@repo/ui/base/input'
 import { useSession } from 'next-auth/react'
 import { useState } from 'react'
 import { IoDocumentTextSharp } from 'react-icons/io5'
@@ -12,7 +13,6 @@ import {
   BaseFieldset,
   BaseLabel,
 } from '@/app/(components)/_base/fieldset'
-import { BaseInput } from '@/app/(components)/_base/input'
 import { BaseSwitch } from '@/app/(components)/_base/switch'
 import { BaseTextarea } from '@/app/(components)/_base/textarea'
 import { BuildDescriptionTemplateAlert } from '@/app/(components)/alerts/build-description-template-alert'

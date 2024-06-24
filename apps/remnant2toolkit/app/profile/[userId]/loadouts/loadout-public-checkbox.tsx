@@ -1,9 +1,9 @@
 'use client'
 
+import { BaseCheckbox } from '@repo/ui/base/checkbox'
 import { toast } from 'react-toastify'
 
 import { setIsLoadoutPublic } from '@/app/(actions)/loadouts/set-is-loadout-public'
-import { BaseCheckbox } from '@/app/(components)/_base/checkbox'
 import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
 
 interface Props {
