@@ -26,8 +26,6 @@ export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
       <span
         data-slot="control"
         className={clsx([
-          className,
-
           // Basic layout
           'ui-relative ui-block ui-w-full',
 
@@ -45,6 +43,8 @@ export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
 
           // Invalid state
           'before:has-[[data-invalid]]:ui-shadow-red-500/10',
+
+          className,
         ])}
       >
         <HeadlessInput
