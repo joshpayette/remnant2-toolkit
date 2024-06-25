@@ -3,7 +3,7 @@
 import { Metadata } from 'next'
 import React from 'react'
 
-import { Link } from '@/app/(components)/_base/link'
+import { Link } from '@repo/ui/base/link'
 import { ZINDEXES } from '@/app/(components)/z-indexes'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { getServerSession } from '@/app/(utils)/auth'
@@ -51,7 +51,7 @@ export default async function Layout({
           <div
             id="disabled-overlay"
             className={cn(
-              'absolute inset-0 h-full bg-background-solid/90',
+              'bg-background-solid/90 absolute inset-0 h-full',
               ZINDEXES.BUILD_FEATURES_DISABLED,
             )}
           />

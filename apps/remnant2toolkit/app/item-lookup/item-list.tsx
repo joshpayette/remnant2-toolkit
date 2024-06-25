@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 import { v4 as uuidv4 } from 'uuid'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { DEFAULT_ITEM_LOOKUP_FILTERS } from '@/app/(components)/filters/item-lookup/item-lookup-filters'
 import { ItemLookupFilters } from '@/app/(components)/filters/item-lookup/types'
 import { parseUrlFilters } from '@/app/(components)/filters/item-lookup/utils'

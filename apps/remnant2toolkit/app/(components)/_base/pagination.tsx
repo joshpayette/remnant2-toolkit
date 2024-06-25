@@ -1,7 +1,6 @@
+import { BaseButton } from '@repo/ui/base/button'
 import clsx from 'clsx'
 import type React from 'react'
-
-import { BaseButton } from './button'
 
 export function Pagination({
   'aria-label': ariaLabel = 'Page navigation',
@@ -124,7 +123,7 @@ export function BasePaginationGap() {
   return (
     <div
       aria-hidden="true"
-      className="w-[2.25rem] select-none text-center text-sm/6 font-semibold text-surface-solid"
+      className="text-surface-solid w-[2.25rem] select-none text-center text-sm/6 font-semibold"
     >
       &hellip;
     </div>

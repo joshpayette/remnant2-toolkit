@@ -9,8 +9,11 @@
   ],
   "exports": {
     "./styles.css": "./dist/index.css",
+    "./base/avatar": "./src/base/avatar.tsx",
+    "./base/button": "./src/base/button.tsx",
+    "./base/checkbox": "./src/base/checkbox.tsx",
     "./base/input": "./src/base/input.tsx",
-    "./base/checkbox": "./src/base/checkbox.tsx"
+    "./base/link": "./src/base/link.tsx"
   },
   "license": "MIT",
   "scripts": {
@@ -25,7 +28,8 @@
   "dependencies": {
     "@headlessui/react": "2.0.0-alpha.4",
     "@heroicons/react": "2.0.18",
-    "clsx": "2.0.0"
+    "clsx": "2.0.0",
+    "next": "14.2.3"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

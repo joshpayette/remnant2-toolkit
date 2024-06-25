@@ -11,7 +11,7 @@ import unapproveVideo from '@/app/(actions)/builds/admin/unapprove-video'
 import unfeatureBuild from '@/app/(actions)/builds/admin/unfeature-build'
 import unlockBuild from '@/app/(actions)/builds/admin/unlock-build'
 import updateBuild from '@/app/(actions)/builds/admin/update-build'
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseDialog,
   BaseDialogActions,

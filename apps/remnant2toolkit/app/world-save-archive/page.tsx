@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 
-import { Link } from '@/app/(components)/_base/link'
+import { Link } from '@repo/ui/base/link'
 import { WorldSaveFilters } from '@/app/(components)/filters/world-saves/world-save-filters'
 import { PageHeader } from '@/app/(components)/page-header'
 import { Skeleton } from '@/app/(components)/skeleton'
@@ -15,7 +15,7 @@ export default function Page() {
         subtitle={`A collection of ${worldSaves.length} curated world saves for apocalypse bosses with specific affixes.`}
       />
       <div className="flex max-w-xl flex-col items-start justify-center">
-        <p className="text-md mb-2 text-surface-solid">
+        <p className="text-md text-surface-solid mb-2">
           Before you start, it is important to understand how to back up your
           own world saves, and how to install the world saves provided by the
           Remnant 2 Toolkit.{' '}
@@ -25,10 +25,10 @@ export default function Page() {
           restoring a backup save should fix this, at least one user stated it
           did not.
         </p>
-        <p className="text-md mb-4 font-bold text-surface-solid">
+        <p className="text-md text-surface-solid mb-4 font-bold">
           <Link
             href="/world-save-archive/instructions"
-            className="text-accent1-500 underline hover:text-accent1-300"
+            className="text-accent1-500 hover:text-accent1-300 underline"
           >
             Please click here for complete instructions.
           </Link>

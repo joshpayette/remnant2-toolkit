@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 
 interface Props {
   countdownTimer: number
@@ -10,12 +10,12 @@ interface Props {
 export const StartingDisplay = React.memo(
   ({ countdownTimer, onSkipCountdown }: Props) => (
     <div className="flex w-full flex-col items-center justify-center">
-      <h2 className="mb-2 text-2xl font-bold text-primary-500">
+      <h2 className="text-primary-500 mb-2 text-2xl font-bold">
         Game Starting
       </h2>
       <p className="text-lg text-gray-200">
         Get ready! The game will start in{' '}
-        <span className="font-bold text-accent1-500">{countdownTimer + 1}</span>{' '}
+        <span className="text-accent1-500 font-bold">{countdownTimer + 1}</span>{' '}
         seconds
       </p>
       <BaseButton

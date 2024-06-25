@@ -11,7 +11,7 @@ import dynamic from 'next/dynamic'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { BugReportPrompt } from '@/app/(components)/alerts/bug-report-prompt'
 import { ReportBug } from '@/app/(components)/buttons/global-action-buttons/actions'
 import { ZINDEXES } from '@/app/(components)/z-indexes'
@@ -44,7 +44,7 @@ export function GlobalActionButtons() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="isolate inline-flex min-w-[140px] gap-x-1 rounded-md bg-background-solid shadow-sm"
+            className="bg-background-solid isolate inline-flex min-w-[140px] gap-x-1 rounded-md shadow-sm"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 50 }}

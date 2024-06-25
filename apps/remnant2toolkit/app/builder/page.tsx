@@ -3,7 +3,7 @@
 import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
 
-import { Link } from '@/app/(components)/_base/link'
+import { Link } from '@repo/ui/base/link'
 import { LongUrlAlert } from '@/app/(components)/alerts/long-url-alert'
 import { BuilderContainer } from '@/app/(components)/builder/builder-container'
 import { DetailedViewButton } from '@/app/(components)/buttons/builder-buttons/detailed-view-button'
@@ -58,7 +58,7 @@ export default function Page() {
       {sessionStatus === 'loading' ? (
         <Skeleton />
       ) : session?.user ? (
-        <div className="my-4 max-w-lg rounded-md border border-red-500 px-2 py-1 text-left text-surface-solid">
+        <div className="text-surface-solid my-4 max-w-lg rounded-md border border-red-500 px-2 py-1 text-left">
           <h3 className="text-center text-2xl font-bold">
             Features limited on this page!
           </h3>
@@ -80,7 +80,7 @@ export default function Page() {
             <li>
               <Link
                 href="/builder/create"
-                className="font-bold text-accent1-500 underline hover:text-accent1-300"
+                className="text-accent1-500 hover:text-accent1-300 font-bold underline"
               >
                 Click here to visit the enhanced version of the Builder
                 directly.
@@ -89,7 +89,7 @@ export default function Page() {
           </ul>
         </div>
       ) : (
-        <div className="mb-2 rounded-md border border-red-500 px-2 py-1 text-left text-surface-solid">
+        <div className="text-surface-solid mb-2 rounded-md border border-red-500 px-2 py-1 text-left">
           <h3 className="text-center text-lg font-bold">
             You are not signed in, so your features are limited.
           </h3>

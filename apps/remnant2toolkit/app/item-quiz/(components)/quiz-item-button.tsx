@@ -1,7 +1,7 @@
 import { ArrowUpIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { cn } from '@/app/(utils)/classnames'
 import { getImageUrl } from '@/app/(utils)/get-image-url'
 import { ARROW_TO_INDEX } from '@/app/item-quiz/constants'
@@ -37,25 +37,25 @@ export function QuizItemButton({ item, itemIndex, onClick }: Props) {
   switch (arrowIndex) {
     case ARROW_TO_INDEX.ArrowUp:
       arrowIcon = (
-        <ArrowUpIcon className="h-3 w-3 text-background-solid md:h-4 md:w-4" />
+        <ArrowUpIcon className="text-background-solid h-3 w-3 md:h-4 md:w-4" />
       )
       numberLabel = '1'
       break
     case ARROW_TO_INDEX.ArrowRight:
       arrowIcon = (
-        <ArrowUpIcon className="h-3 w-3 rotate-90 transform text-background-solid md:h-4 md:w-4" />
+        <ArrowUpIcon className="text-background-solid h-3 w-3 rotate-90 transform md:h-4 md:w-4" />
       )
       numberLabel = '3'
       break
     case ARROW_TO_INDEX.ArrowDown:
       arrowIcon = (
-        <ArrowUpIcon className="h-3 w-3 rotate-180 transform text-background-solid md:h-4 md:w-4" />
+        <ArrowUpIcon className="text-background-solid h-3 w-3 rotate-180 transform md:h-4 md:w-4" />
       )
       numberLabel = '4'
       break
     case ARROW_TO_INDEX.ArrowLeft:
       arrowIcon = (
-        <ArrowUpIcon className="h-3 w-3 -rotate-90 transform text-background-solid md:h-4 md:w-4" />
+        <ArrowUpIcon className="text-background-solid h-3 w-3 -rotate-90 transform md:h-4 md:w-4" />
       )
       numberLabel = '2'
       break
@@ -71,10 +71,10 @@ export function QuizItemButton({ item, itemIndex, onClick }: Props) {
       plain
     >
       <div className="absolute bottom-0 right-0 hidden sm:flex sm:gap-x-0.5">
-        <div className="md:text-md flex h-4 w-4 items-center justify-center bg-secondary-200 text-xs text-background-solid md:h-6 md:w-6">
+        <div className="md:text-md bg-secondary-200 text-background-solid flex h-4 w-4 items-center justify-center text-xs md:h-6 md:w-6">
           {numberLabel}
         </div>
-        <div className="md:text-md flex h-4 w-4 items-center justify-center bg-secondary-200 text-xs text-background-solid md:h-6 md:w-6">
+        <div className="md:text-md bg-secondary-200 text-background-solid flex h-4 w-4 items-center justify-center text-xs md:h-6 md:w-6">
           {arrowIcon}
         </div>
       </div>

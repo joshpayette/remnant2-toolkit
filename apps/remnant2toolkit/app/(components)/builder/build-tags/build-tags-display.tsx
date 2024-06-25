@@ -1,6 +1,6 @@
 import { BuildTags } from '@repo/db'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { BaseFieldset, BaseLabel } from '@/app/(components)/_base/fieldset'
 import { MAX_BUILD_TAGS } from '@/app/(data)/builds/constants'
 import { cn } from '@/app/(utils)/classnames'

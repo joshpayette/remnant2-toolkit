@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useFormState } from 'react-dom'
 import { toast } from 'react-toastify'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { ImportLoadoutsDialog } from '@/app/(components)/dialogs/import-loadouts-dialog'
 import type { DBBuild } from '@/app/(types)/builds'
 import { parseSaveFile } from '@/app/profile/[userId]/loadouts/actions/parse-save-file'

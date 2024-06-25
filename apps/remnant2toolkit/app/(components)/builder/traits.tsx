@@ -2,7 +2,7 @@ import { XCircleIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 import { TbHttpOptions } from 'react-icons/tb'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { Tooltip } from '@/app/(components)/tooltip'
 import { ZINDEXES } from '@/app/(components)/z-indexes'
 import {

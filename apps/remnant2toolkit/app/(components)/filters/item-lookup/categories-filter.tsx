@@ -4,7 +4,7 @@ import {
   BaseCheckboxGroup,
 } from '@repo/ui/base/checkbox'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseFieldset,
   BaseLabel,

@@ -8,7 +8,7 @@ import { toast } from 'react-toastify'
 
 import { getCreatedBuilds } from '@/app/(actions)/builds/get-created-builds'
 import updateLinkedBuild from '@/app/(actions)/builds/update-linked-build'
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
 import { BaseInput } from '@repo/ui/base/input'
 import { BaseTextarea } from '@/app/(components)/_base/textarea'

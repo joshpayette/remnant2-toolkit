@@ -1,4 +1,4 @@
-import { Link } from '@/app/(components)/_base/link'
+import { Link } from '@repo/ui/base/link'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { cn } from '@/app/(utils)/classnames'
 
@@ -120,7 +120,7 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
               <p className="flex items-center justify-start text-xs">Mod</p>
               <Link
                 href={`/item-lookup?searchText=${item.linkedItems.mod.name}`}
-                className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
                 target="_blank"
               >
                 {item.linkedItems.mod.name}

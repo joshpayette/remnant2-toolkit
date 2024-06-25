@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 
 import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list'
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { Skeleton } from '@/app/(components)/skeleton'
 import { DBBuild } from '@/app/(types)/builds'
 
@@ -29,7 +29,7 @@ export function LoadoutManagementButton({ buildId, onClick }: Props) {
 
   if (loading) {
     return (
-      <Skeleton className="col-span-1 flex h-full min-h-[36px] w-[150px] flex-col items-center justify-start rounded-lg border-4 border-dashed border-gray-500 bg-background-solid text-center shadow" />
+      <Skeleton className="bg-background-solid col-span-1 flex h-full min-h-[36px] w-[150px] flex-col items-center justify-start rounded-lg border-4 border-dashed border-gray-500 text-center shadow" />
     )
   }
 

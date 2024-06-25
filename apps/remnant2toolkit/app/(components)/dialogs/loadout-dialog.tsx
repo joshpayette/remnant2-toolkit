@@ -3,7 +3,7 @@ import { toast } from 'react-toastify'
 
 import { addBuildToLoadout } from '@/app/(actions)/loadouts/add-build-to-loadout'
 import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list'
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseDialog,
   BaseDialogBody,
@@ -99,7 +99,7 @@ export function LoadoutDialog({ open, buildId, isEditable, onClose }: Props) {
               return (
                 <Skeleton
                   key={index}
-                  className="col-span-1 flex h-full min-h-[350px] flex-col items-center justify-start rounded-lg border-4 border-dashed border-gray-500 bg-background-solid text-center shadow"
+                  className="bg-background-solid col-span-1 flex h-full min-h-[350px] flex-col items-center justify-start rounded-lg border-4 border-dashed border-gray-500 text-center shadow"
                 />
               )
             }

@@ -3,7 +3,7 @@ import { BuildTags } from '@repo/db'
 import { BaseInput } from '@repo/ui/base/input'
 import { useCallback, useMemo, useState } from 'react'
 
-import { Link } from '@/app/(components)/_base/link'
+import { Link } from '@repo/ui/base/link'
 import { FeaturedBuildBadge } from '@/app/(components)/builder/badges/featured-build-badge'
 import { NewBuildBadge } from '@/app/(components)/builder/badges/new-build-badge'
 import { PopularBuildBadge } from '@/app/(components)/builder/badges/popular-build-badge'

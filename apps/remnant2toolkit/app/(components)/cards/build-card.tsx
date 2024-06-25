@@ -8,8 +8,8 @@ import {
   VideoCameraIcon,
 } from '@heroicons/react/24/solid'
 
-import { BaseButton } from '@/app/(components)/_base/button'
-import { Link } from '@/app/(components)/_base/link'
+import { BaseButton } from '@repo/ui/base/button'
+import { Link } from '@repo/ui/base/link'
 import { ArchetypeLabel } from '@/app/(components)/builder/archetype-label'
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
 import { Skeleton } from '@/app/(components)/skeleton'
@@ -61,10 +61,10 @@ export function BuildCard({
       ) : (
         <div
           className={cn(
-            'relative col-span-1 flex h-full flex-col rounded-lg border border-secondary-500 bg-background-solid shadow',
+            'border-secondary-500 bg-background-solid relative col-span-1 flex h-full flex-col rounded-lg border shadow',
             buildState.isMember &&
               memberFrameEnabled &&
-              'border-2 border-accent1-300 shadow-lg shadow-accent1-600',
+              'border-accent1-300 shadow-accent1-600 border-2 shadow-lg',
           )}
         >
           {(isPopular || build.isFeaturedBuild || isNew) && (
@@ -80,7 +80,7 @@ export function BuildCard({
             <div className="flex w-full flex-col items-start justify-start">
               <Link
                 href={`/builder/${build.id}`}
-                className="w-full text-surface-solid hover:text-gray-200 hover:underline"
+                className="text-surface-solid w-full hover:text-gray-200 hover:underline"
               >
                 <h3
                   className={cn(
@@ -97,7 +97,7 @@ export function BuildCard({
                   by{' '}
                   <Link
                     href={`/profile/${build.createdById}/created-builds`}
-                    className="text-primary-500 underline hover:text-primary-300"
+                    className="text-primary-500 hover:text-primary-300 underline"
                   >
                     {build.createdByDisplayName ?? build.createdByName}
                   </Link>
@@ -106,7 +106,7 @@ export function BuildCard({
                   <Tooltip content="Total Favorites">
                     {/** Not changing this to the new button */}
                     <button
-                      className="flex items-center justify-end text-right text-accent1-500"
+                      className="text-accent1-500 flex items-center justify-end text-right"
                       aria-label="Total build favorites"
                     >
                       <StarIcon className="mr-1 h-4 w-4" /> {build.totalUpvotes}

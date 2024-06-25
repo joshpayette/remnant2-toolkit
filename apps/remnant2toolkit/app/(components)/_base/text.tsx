@@ -1,6 +1,5 @@
+import { Link } from '@repo/ui/base/link'
 import { clsx } from 'clsx'
-
-import { Link } from './link'
 
 export function BaseText({
   className,
@@ -10,7 +9,7 @@ export function BaseText({
     <p
       {...props}
       data-slot="text"
-      className={clsx(className, 'text-base/6 text-surface-solid sm:text-sm/6')}
+      className={clsx(className, 'text-surface-solid text-base/6 sm:text-sm/6')}
     />
   )
 }
@@ -24,7 +23,7 @@ export function BaseTextLink({
       {...props}
       className={clsx(
         className,
-        'text-surface-solid underline decoration-surface-solid/50 data-[hover]:decoration-surface-solid',
+        'text-surface-solid decoration-surface-solid/50 data-[hover]:decoration-surface-solid underline',
       )}
     />
   )
@@ -37,7 +36,7 @@ export function BaseStrong({
   return (
     <strong
       {...props}
-      className={clsx(className, 'font-medium text-surface-solid')}
+      className={clsx(className, 'text-surface-solid font-medium')}
     />
   )
 }
@@ -51,7 +50,7 @@ export function BaseCode({
       {...props}
       className={clsx(
         className,
-        'rounded border border-surface-solid/20 bg-surface-solid/5 px-0.5 text-sm font-medium text-surface-solid sm:text-[0.8125rem]',
+        'border-surface-solid/20 bg-surface-solid/5 text-surface-solid rounded border px-0.5 text-sm font-medium sm:text-[0.8125rem]',
       )}
     />
   )

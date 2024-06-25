@@ -7,7 +7,7 @@ import { useState } from 'react'
 import { IoDocumentTextSharp } from 'react-icons/io5'
 import { MdOutlineGeneratingTokens } from 'react-icons/md'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseField,
   BaseFieldset,

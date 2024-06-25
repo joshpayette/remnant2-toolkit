@@ -1,6 +1,6 @@
 'use client'
 
-import { Link } from '@/app/(components)/_base/link'
+import { Link } from '@repo/ui/base/link'
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
 import { Skeleton } from '@/app/(components)/skeleton'
 import type { LinkedBuildState } from '@/app/(types)/linked-builds'
@@ -28,14 +28,14 @@ export function LinkedBuildCard({
       ) : (
         <div
           className={cn(
-            'relative col-span-1 flex h-full flex-col rounded-lg border border-secondary-500 bg-background-solid shadow',
+            'border-secondary-500 bg-background-solid relative col-span-1 flex h-full flex-col rounded-lg border shadow',
           )}
         >
           <div className="flex w-full flex-1 items-start justify-start p-4 pb-0">
             <div className="flex w-full flex-col items-start justify-start">
               <Link
                 href={`/builder/linked/${linkedBuildState.id}`}
-                className="w-full text-surface-solid hover:text-gray-200 hover:underline"
+                className="text-surface-solid w-full hover:text-gray-200 hover:underline"
               >
                 <h3 className={cn('text-md whitespace-pre-wrap font-medium')}>
                   {linkedBuildState.name}
@@ -46,7 +46,7 @@ export function LinkedBuildCard({
                   by{' '}
                   <Link
                     href={`/profile/${linkedBuildState.createdById}/linked-builds`}
-                    className="text-primary-500 underline hover:text-primary-300"
+                    className="text-primary-500 hover:text-primary-300 underline"
                   >
                     {linkedBuildState.createdByDisplayName}
                   </Link>

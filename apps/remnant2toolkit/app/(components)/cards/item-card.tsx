@@ -12,8 +12,8 @@ import { useLocalStorage } from 'usehooks-ts'
 import getItemBuildStats, {
   ItemBuildStats,
 } from '@/app/(actions)/items/get-item-build-stats'
-import { BaseButton } from '@/app/(components)/_base/button'
-import { Link } from '@/app/(components)/_base/link'
+import { BaseButton } from '@repo/ui/base/button'
+import { Link } from '@repo/ui/base/link'
 import { ArmorInfo } from '@/app/(components)/armor-info'
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
 import { Tooltip } from '@/app/(components)/tooltip'
@@ -114,7 +114,7 @@ export function ItemCard({
   // #region Render
 
   return (
-    <div className="col-span-1 flex flex-col divide-y divide-primary-800 rounded-lg border border-primary-500 bg-background-solid text-center shadow">
+    <div className="divide-primary-800 border-primary-500 bg-background-solid col-span-1 flex flex-col divide-y rounded-lg border text-center shadow">
       <div className="flex flex-1 flex-col p-4">
         {allowItemCompare ? (
           <div className="flex w-full items-center justify-center">
@@ -256,7 +256,7 @@ export function ItemCard({
               </p>
               <Link
                 href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
-                className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
                 target="_blank"
               >
                 {item.linkedItems.archetype.name}
@@ -272,7 +272,7 @@ export function ItemCard({
               </p>
               <Link
                 href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
-                className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
                 target="_blank"
               >
                 {item.linkedItems.archetype.name}
@@ -288,7 +288,7 @@ export function ItemCard({
               </p>
               <Link
                 href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
-                className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
                 target="_blank"
               >
                 {item.linkedItems.archetype.name}
@@ -302,7 +302,7 @@ export function ItemCard({
               <p className="flex items-center justify-start text-xs">Weapon</p>
               <Link
                 href={`/item-lookup?searchText=${item.linkedItems.weapon.name}`}
-                className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
                 target="_blank"
               >
                 {item.linkedItems.weapon.name}
@@ -323,7 +323,7 @@ export function ItemCard({
                 <p className="flex items-center justify-start text-xs">Perk</p>
                 <Link
                   href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${perk.name}`}
-                  className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                  className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
                   target="_blank"
                 >
                   {perk.name}
@@ -343,7 +343,7 @@ export function ItemCard({
                 <p className="flex items-center justify-start text-xs">Skill</p>
                 <Link
                   href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${skill.name}`}
-                  className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                  className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
                   target="_blank"
                 >
                   {skill.name}
@@ -363,7 +363,7 @@ export function ItemCard({
                 <p className="flex items-center justify-start text-xs">Trait</p>
                 <Link
                   href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${trait.name}`}
-                  className="flex items-center justify-end text-right text-xs font-bold text-secondary-500 underline"
+                  className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
                   target="_blank"
                 >
                   {trait.name}
@@ -373,7 +373,7 @@ export function ItemCard({
           ))}
       </div>
       <div>
-        <div className="-mt-px grid grid-cols-2 divide-x divide-primary-800">
+        <div className="divide-primary-800 -mt-px grid grid-cols-2 divide-x">
           <BaseButton
             plain
             className="relative flex items-center justify-center"

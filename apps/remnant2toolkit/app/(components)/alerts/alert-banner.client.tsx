@@ -3,7 +3,7 @@
 import { XMarkIcon } from '@heroicons/react/24/solid'
 import { useLocalStorage } from 'usehooks-ts'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { BaseText } from '@/app/(components)/_base/text'
 import { ZINDEXES } from '@/app/(components)/z-indexes'
 import { cn } from '@/app/(utils)/classnames'
@@ -26,7 +26,7 @@ export default function AlertBanner({
   return (
     <div
       className={cn(
-        'fixed w-full animate-slideIn p-1 text-sm',
+        'animate-slideIn fixed w-full p-1 text-sm',
         bgColor,
         ZINDEXES.ALERT_BANNER,
       )}

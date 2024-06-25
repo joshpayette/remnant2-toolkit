@@ -6,7 +6,7 @@ import isEqual from 'lodash.isequal'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useState } from 'react'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { BaseFieldGroup, BaseFieldset } from '@/app/(components)/_base/fieldset'
 import { BaseText, BaseTextLink } from '@/app/(components)/_base/text'
 import { BossNameFilter } from '@/app/(components)/filters/boss-name-filter'
@@ -152,7 +152,7 @@ export function WorldSaveFilters() {
     <Disclosure defaultOpen={true}>
       {({ open }) => (
         <div className="w-full">
-          <div className="flex w-full flex-row items-end justify-end border-b border-b-primary-500 py-2">
+          <div className="border-b-primary-500 flex w-full flex-row items-end justify-end border-b py-2">
             <div className="w-full pr-4">
               <BossNameFilter
                 value={unappliedFilters.bossName}
@@ -166,9 +166,9 @@ export function WorldSaveFilters() {
           </div>
           <Disclosure.Panel
             className={cn(
-              'mt-2 w-full border border-primary-500 bg-gray-950 p-4',
+              'border-primary-500 mt-2 w-full border bg-gray-950 p-4',
               areAnyFiltersActive &&
-                'border-accent1-300 shadow-xl shadow-accent1-600',
+                'border-accent1-300 shadow-accent1-600 shadow-xl',
             )}
           >
             <BaseFieldset>

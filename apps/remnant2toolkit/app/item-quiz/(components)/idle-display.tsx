@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { MobileLayoutToggle } from '@/app/item-quiz/(components)/mobile-layout-toggle'
 import { LayoutPreference } from '@/app/item-quiz/types'
 
@@ -23,12 +23,12 @@ export const IdleDisplay = React.memo(
     <div className="flex flex-col items-center justify-center">
       {showTopScore ? (
         <div className="mb-4 flex flex-col items-center justify-center">
-          <h2 className="text-xl font-bold text-accent1-500">Top Score</h2>
+          <h2 className="text-accent1-500 text-xl font-bold">Top Score</h2>
           <p className="mb-2 text-left text-4xl text-gray-200">{topScore}</p>
         </div>
       ) : null}
       <div className="mb-12 text-center">
-        <h2 className="text-xl font-bold text-primary-500">Rules</h2>
+        <h2 className="text-primary-500 text-xl font-bold">Rules</h2>
         <p className="text-md mb-2 text-left text-gray-200">
           You will be shown four items and an item name. You must select the
           item that matches the name. The game ends when the timer runs out or
