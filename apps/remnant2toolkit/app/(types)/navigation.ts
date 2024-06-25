@@ -42,7 +42,7 @@ export const NAV_ITEMS = {
   bossTracker: {
     label: 'Boss Tracker',
     description:
-      'A Remnant 2 boss tracker to track which bosses you have defeated, and the ones you still need to defeat.',
+      'A Remnant 2 boss tracker to keep tabs on which bosses you have defeated, and the bosses that are still escaping your grasp.',
     href: '/boss-tracker',
     icon: ShieldCheckIcon,
   },
