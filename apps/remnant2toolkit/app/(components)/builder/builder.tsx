@@ -1,5 +1,6 @@
 import { StarIcon } from '@heroicons/react/24/solid'
 import { BuildTags } from '@repo/db'
+import { BaseInput } from '@repo/ui/base/input'
 import { useCallback, useMemo, useState } from 'react'
 
 import { Link } from '@/app/(components)/_base/link'
@@ -427,11 +428,11 @@ export function Builder({
         >
           <div className="relative flex w-full flex-col items-center justify-center gap-2">
             {isEditable && !isScreenshotMode ? (
-              <input
+              <BaseInput
                 id="build-name"
                 type="text"
                 onChange={(e) => handleChangeBuildName(e.target.value)}
-                className="border-secondary-900 bg-surface-solid/5 text-surface-solid ring-surface-solid/10 focus:ring-secondary-500 block w-full rounded-md border-2 py-2 text-center text-2xl shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset"
+                className="mb-2 w-full text-center "
                 placeholder="My Build"
                 value={buildState.name}
               />
