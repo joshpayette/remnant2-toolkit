@@ -1,4 +1,4 @@
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 
 interface Props {
   onClick: () => void

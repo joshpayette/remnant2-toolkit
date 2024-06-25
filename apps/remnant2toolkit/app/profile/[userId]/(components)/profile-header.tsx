@@ -5,7 +5,7 @@ import { BaseInput } from '@repo/ui/base/input'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { BaseField } from '@/app/(components)/_base/fieldset'
 import { BaseTextarea } from '@/app/(components)/_base/textarea'
 import { AvatarSelectDialog } from '@/app/(components)/dialogs/avatar-select-dialog'

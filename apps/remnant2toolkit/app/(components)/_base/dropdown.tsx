@@ -20,12 +20,11 @@ import {
   type MenuSeparatorProps as HeadlessMenuSeparatorProps,
   Transition as HeadlessTransition,
 } from '@headlessui/react'
+import { BaseButton } from '@repo/ui/base/button'
+import { Link } from '@repo/ui/base/link'
 import clsx from 'clsx'
 import type React from 'react'
 import { Fragment } from 'react'
-
-import { BaseButton } from './button'
-import { Link } from './link'
 
 export function Dropdown(props: HeadlessMenuProps) {
   return <HeadlessMenu {...props} />
@@ -62,7 +61,7 @@ export function DropdownMenu({
           props.className,
 
           // Anchor positioning
-          '[--anchor-gap:theme(spacing.2)] [--anchor-padding:theme(spacing.3)] data-[anchor~=start]:[--anchor-offset:-4px] data-[anchor~=end]:[--anchor-offset:4px]',
+          '[--anchor-gap:theme(spacing.2)] [--anchor-padding:theme(spacing.3)] data-[anchor~=end]:[--anchor-offset:4px] data-[anchor~=start]:[--anchor-offset:-4px]',
 
           // Base styles
           'isolate w-max rounded-xl p-1',
@@ -77,7 +76,7 @@ export function DropdownMenu({
           'bg-zinc-800/75 backdrop-blur-xl',
 
           // Shadows
-          'shadow-lg ring-1 ring-surface-solid/10 ring-inset',
+          'ring-surface-solid/10 shadow-lg ring-1 ring-inset',
 
           // Define grid at the menu level if subgrid is supported
           'supports-[grid-template-columns:subgrid]:grid supports-[grid-template-columns:subgrid]:grid-cols-[auto_1fr_1.5rem_0.5rem_auto]',
@@ -102,10 +101,10 @@ export function BaseDropdownItem(
         'group cursor-default rounded-lg px-3.5 py-2.5 focus:outline-none sm:px-3 sm:py-1.5',
 
         // Text styles
-        'text-left text-base/6 text-surface-solid sm:text-sm/6 forced-colors:text-[CanvasText]',
+        'text-surface-solid forced-colors:text-[CanvasText] text-left text-base/6 sm:text-sm/6',
 
         // Focus
-        'data-[focus]:bg-blue-500 data-[focus]:text-surface-solid',
+        'data-[focus]:text-surface-solid data-[focus]:bg-blue-500',
 
         // Disabled state
         'data-[disabled]:opacity-50',
@@ -114,11 +113,11 @@ export function BaseDropdownItem(
         'forced-color-adjust-none forced-colors:data-[focus]:bg-[Highlight] forced-colors:data-[focus]:text-[HighlightText] forced-colors:[&>[data-slot=icon]]:data-[focus]:text-[HighlightText]',
 
         // Use subgrid when available but fallback to an explicit grid layout if not
-        'col-span-full grid grid-cols-[auto_1fr_1.5rem_0.5rem_auto] items-center supports-[grid-template-columns:subgrid]:grid-cols-subgrid',
+        'supports-[grid-template-columns:subgrid]:grid-cols-subgrid col-span-full grid grid-cols-[auto_1fr_1.5rem_0.5rem_auto] items-center',
 
         // Icon
-        '[&>[data-slot=icon]]:col-start-1 [&>[data-slot=icon]]:row-start-1 [&>[data-slot=icon]]:mr-2.5 [&>[data-slot=icon]]:size-5 sm:[&>[data-slot=icon]]:mr-2 [&>[data-slot=icon]]:sm:size-4',
-        '[&>[data-slot=icon]]:text-zinc-500 [&>[data-slot=icon]]:data-[focus]:text-surface-solid',
+        '[&>[data-slot=icon]]:size-5 [&>[data-slot=icon]]:sm:size-4 [&>[data-slot=icon]]:col-start-1 [&>[data-slot=icon]]:row-start-1 [&>[data-slot=icon]]:mr-2.5 sm:[&>[data-slot=icon]]:mr-2',
+        '[&>[data-slot=icon]]:data-[focus]:text-surface-solid [&>[data-slot=icon]]:text-zinc-500',
       )}
     />
   )
@@ -176,7 +175,7 @@ export function BaseDropdownSeparator({
       {...props}
       className={clsx(
         className,
-        'col-span-full mx-3.5 my-1 h-px border-0 bg-surface-solid/10 sm:mx-3 forced-colors:bg-[CanvasText]',
+        'bg-surface-solid/10 forced-colors:bg-[CanvasText] col-span-full mx-3.5 my-1 h-px border-0 sm:mx-3',
       )}
     />
   )
@@ -203,7 +202,7 @@ export function BaseDropdownDescription({
       {...props}
       className={clsx(
         className,
-        'col-span-2 col-start-2 row-start-2 text-sm/5 text-zinc-400 group-data-[focus]:text-surface-solid sm:text-xs/5 forced-colors:group-data-[focus]:text-[HighlightText]',
+        'group-data-[focus]:text-surface-solid forced-colors:group-data-[focus]:text-[HighlightText] col-span-2 col-start-2 row-start-2 text-sm/5 text-zinc-400 sm:text-xs/5',
       )}
     />
   )
@@ -227,7 +226,7 @@ export function BaseDropdownShortcut({
         <kbd
           key={index}
           className={clsx([
-            'min-w-[2ch] text-center font-sans capitalize text-zinc-400 group-data-[focus]:text-surface-solid forced-colors:group-data-[focus]:text-[HighlightText]',
+            'group-data-[focus]:text-surface-solid forced-colors:group-data-[focus]:text-[HighlightText] min-w-[2ch] text-center font-sans capitalize text-zinc-400',
 
             // Make sure key names that are longer than one character (like "Tab") have extra space
             index > 0 && char.length > 1 && 'pl-1',

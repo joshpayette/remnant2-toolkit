@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { MobileLayoutToggle } from '@/app/item-quiz/(components)/mobile-layout-toggle'
 import { QuizItemButton } from '@/app/item-quiz/(components)/quiz-item-button'
 import { LayoutPreference, QuizItem, QuizQuestion } from '@/app/item-quiz/types'
@@ -32,20 +32,20 @@ export const FinishedDisplay = React.memo(
       <div className="mb-8 flex flex-col items-center justify-center">
         <p className="mb-2 text-lg text-gray-200">
           Your final score is{' '}
-          <span className="font-bold text-accent1-500">{score}</span>
+          <span className="text-accent1-500 font-bold">{score}</span>
         </p>
         {gameTimer >= 0 ? (
           <p className="text-lg text-gray-200">
             The time remaining was{' '}
-            <span className="font-bold text-accent1-500">{gameTimer}</span>{' '}
+            <span className="text-accent1-500 font-bold">{gameTimer}</span>{' '}
             seconds
           </p>
         ) : null}
       </div>
       {gameTimer >= 0 ? (
         <>
-          <hr className="mb-8 w-full border border-primary-500" />
-          <h3 className="mb-2 text-xl font-bold text-primary-500">
+          <hr className="border-primary-500 mb-8 w-full border" />
+          <h3 className="text-primary-500 mb-2 text-xl font-bold">
             The correct answer was:
           </h3>
           <p className="mb-2 text-lg font-bold text-gray-200">
@@ -65,9 +65,9 @@ export const FinishedDisplay = React.memo(
       {/** List the history of correct answers */}
       {history.length > 0 ? (
         <>
-          <hr className="mb-8 w-full border border-primary-500" />
+          <hr className="border-primary-500 mb-8 w-full border" />
           <div className="mb-8 flex w-full flex-col items-center justify-center">
-            <h3 className="mb-2 text-xl font-bold text-primary-500">
+            <h3 className="text-primary-500 mb-2 text-xl font-bold">
               Correct Answers
             </h3>
             <ol className="text-md grid w-full list-decimal grid-cols-2 text-gray-200">
@@ -81,7 +81,7 @@ export const FinishedDisplay = React.memo(
         </>
       ) : null}
 
-      <hr className="mb-8 w-full border border-primary-500" />
+      <hr className="border-primary-500 mb-8 w-full border" />
       <div className="flex w-full flex-col items-center justify-center bg-gray-900 p-4">
         <MobileLayoutToggle
           layoutPreference={layoutPreference}

@@ -31,12 +31,12 @@ export function BaseAvatar({
         className,
 
         // Basic layout
-        'inline-grid align-middle *:col-start-1 *:row-start-1',
+        '*:col-start-1 *:row-start-1 inline-grid align-middle',
 
         // Add the correct border radius
         square
-          ? 'rounded-[20%] *:rounded-[20%]'
-          : 'rounded-full *:rounded-full',
+          ? '*:rounded-[20%] rounded-[20%]'
+          : '*:rounded-full rounded-full',
       )}
       {...props}
     >
@@ -62,7 +62,7 @@ export function BaseAvatar({
       {src && <img src={src} alt={alt} />}
       {/* Add an inset border that sits on top of the image */}
       <span
-        className="ring-surface-solid/5 ring-1 ring-inset forced-colors:outline"
+        className="ring-surface-solid/5 forced-colors:outline ring-1 ring-inset"
         aria-hidden="true"
       />
     </span>

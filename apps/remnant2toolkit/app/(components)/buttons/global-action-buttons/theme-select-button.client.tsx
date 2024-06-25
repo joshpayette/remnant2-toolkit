@@ -3,7 +3,7 @@ import { useTheme } from 'next-themes'
 import { useState } from 'react'
 import { useReadLocalStorage } from 'usehooks-ts'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseDialog,
   BaseDialogBody,

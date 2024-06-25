@@ -4,7 +4,7 @@ import isEqual from 'lodash.isequal'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { WorldSaveCard } from '@/app/(components)/cards/world-save-card'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import {

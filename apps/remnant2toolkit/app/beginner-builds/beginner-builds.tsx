@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import { getBeginnerBuilds } from '@/app/(actions)/builds/get-beginner-builds'
-import { Link } from '@/app/(components)/_base/link'
+import { Link } from '@repo/ui/base/link'
 import { BuildList } from '@/app/(components)/build-list'
 import { BuildCard } from '@/app/(components)/cards/build-card'
 import { BuildSecondaryFilters } from '@/app/(components)/filters/builds/secondary-filters'
@@ -117,7 +117,7 @@ export function BeginnerBuilds({ itemsPerPage = 8 }: Props) {
                   <Tooltip content="View Build">
                     <Link
                       href={`/builder/${build.id}`}
-                      className="flex flex-col items-center gap-x-3 rounded-br-lg border border-transparent px-4 py-2 text-xs font-semibold text-primary-500 hover:text-primary-300 hover:underline"
+                      className="text-primary-500 hover:text-primary-300 flex flex-col items-center gap-x-3 rounded-br-lg border border-transparent px-4 py-2 text-xs font-semibold hover:underline"
                     >
                       <EyeIcon className="h-4 w-4" /> View
                     </Link>

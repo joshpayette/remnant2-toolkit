@@ -1,7 +1,7 @@
 import { BaseInput } from '@repo/ui/base/input'
 import type React from 'react'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseDialog,
   BaseDialogActions,

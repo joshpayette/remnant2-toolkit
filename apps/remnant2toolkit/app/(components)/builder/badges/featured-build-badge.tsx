@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { Tooltip } from '@/app/(components)/tooltip'
 import { getImageUrl } from '@/app/(utils)/get-image-url'
 

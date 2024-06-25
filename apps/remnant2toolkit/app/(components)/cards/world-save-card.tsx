@@ -2,7 +2,7 @@ import { ArrowDownTrayIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import { v4 as uuidv4 } from 'uuid'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { FilteredWorldSave } from '@/app/(components)/filters/world-saves/types'
 import { getDownloadUrl } from '@/app/(components)/filters/world-saves/utils'
 import { Tooltip } from '@/app/(components)/tooltip'
@@ -16,7 +16,7 @@ interface Props {
 
 export function WorldSaveCard({ saveItem }: Props) {
   return (
-    <div className="flex w-[200px] max-w-[200px] flex-col items-center justify-center border-2 border-primary-700">
+    <div className="border-primary-700 flex w-[200px] max-w-[200px] flex-col items-center justify-center border-2">
       <Image
         src={getImageUrl(saveItem.imagePath)}
         alt={saveItem.bossName}
@@ -25,7 +25,7 @@ export function WorldSaveCard({ saveItem }: Props) {
       />
       <div className="flex h-full w-full flex-col items-center justify-between gap-y-2 bg-gray-900 py-2">
         <div className="px-2">
-          <h3 className="mb-2 text-center text-lg font-bold text-surface-solid">
+          <h3 className="text-surface-solid mb-2 text-center text-lg font-bold">
             {saveItem.bossName}
           </h3>
           <div className="mb-2 flex items-center justify-center gap-x-2">
@@ -38,7 +38,7 @@ export function WorldSaveCard({ saveItem }: Props) {
                   )?.description
                 }
               >
-                <button className="rounded-sm bg-accent1-500 px-2 py-1 text-xs text-background-solid">
+                <button className="bg-accent1-500 text-background-solid rounded-sm px-2 py-1 text-xs">
                   {affix}
                 </button>
               </Tooltip>

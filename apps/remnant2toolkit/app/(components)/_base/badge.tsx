@@ -2,11 +2,10 @@ import {
   Button as HeadlessButton,
   type ButtonProps as HeadlessButtonProps,
 } from '@headlessui/react'
+import { TouchTarget } from '@repo/ui/base/button'
+import { Link } from '@repo/ui/base/link'
 import clsx from 'clsx'
 import React from 'react'
-
-import { TouchTarget } from './button'
-import { Link } from './link'
 
 const colors = {
   red: 'bg-red-500/15 text-red-700 group-data-[hover]:bg-red-500/25 dark:bg-red-500/10 dark:text-red-400 dark:group-data-[hover]:bg-red-500/20',
@@ -50,7 +49,7 @@ export function BaseBadge({
       {...props}
       className={clsx(
         className,
-        'inline-flex items-center gap-x-1.5 rounded-md px-1.5 py-0.5 text-sm/5 font-medium sm:text-xs/5 forced-colors:outline',
+        'forced-colors:outline inline-flex items-center gap-x-1.5 rounded-md px-1.5 py-0.5 text-sm/5 font-medium sm:text-xs/5',
         colors[color],
       )}
     />

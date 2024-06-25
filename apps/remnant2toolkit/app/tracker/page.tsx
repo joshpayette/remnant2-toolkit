@@ -4,7 +4,7 @@ import { useSession } from 'next-auth/react'
 import { Suspense } from 'react'
 import { useIsClient } from 'usehooks-ts'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { ImportCsvDialog } from '@/app/(components)/dialogs/import-csv-dialog'
 import { ImportItemsDialog } from '@/app/(components)/dialogs/import-items-dialog'
 import { ItemTrackerFilters } from '@/app/(components)/filters/item-tracker/item-tracker-filters'

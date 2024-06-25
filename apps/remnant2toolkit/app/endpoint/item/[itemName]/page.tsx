@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { Item } from '@/app/(data)/items/types'
 

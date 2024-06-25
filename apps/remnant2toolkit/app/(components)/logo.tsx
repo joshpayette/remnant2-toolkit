@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { Link } from '@/app/(components)/_base/link'
+import { Link } from '@repo/ui/base/link'
 import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 export function Logo({
@@ -23,7 +23,7 @@ export function Logo({
         unoptimized={unoptimized}
       />
       <div className="flex flex-col gap-0">
-        <span className="text-md mb-0 pb-0 font-semibold text-surface-solid">
+        <span className="text-md text-surface-solid mb-0 pb-0 font-semibold">
           Remnant2Toolkit
         </span>
         {showUrl && (

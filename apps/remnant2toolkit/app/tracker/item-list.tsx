@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 import { IoInformationCircleSharp } from 'react-icons/io5'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { ItemTrackerCard } from '@/app/(components)/cards/item-tracker-card'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { DEFAULT_ITEM_TRACKER_FILTERS } from '@/app/(components)/filters/item-tracker/item-tracker-filters'

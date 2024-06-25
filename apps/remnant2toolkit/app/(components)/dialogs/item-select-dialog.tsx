@@ -2,7 +2,7 @@ import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/solid'
 import { useCallback, useEffect, useState } from 'react'
 import { useDebounceValue, useLocalStorage } from 'usehooks-ts'
 
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseDialog,
   BaseDialogBody,
@@ -162,7 +162,7 @@ export function ItemSelectDialog({
           </div>
         </div>
 
-        <hr className="mb-8 mt-4 border-primary-500" />
+        <hr className="border-primary-500 mb-8 mt-4" />
 
         <ul
           role="list"

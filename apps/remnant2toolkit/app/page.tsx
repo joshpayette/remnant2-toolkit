@@ -1,5 +1,5 @@
 import { getTotalBuildCount } from '@/app/(actions)/builds/get-total-build-count'
-import { Link } from '@/app/(components)/_base/link'
+import { Link } from '@repo/ui/base/link'
 import { LandingPageCard } from '@/app/(components)/cards/landing-page-card'
 import { LandingPageContainer } from '@/app/(components)/landing-page-container'
 import { NAV_ITEMS } from '@/app/(types)/navigation'

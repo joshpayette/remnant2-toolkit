@@ -1,4 +1,4 @@
-import { BaseButton } from '@/app/(components)/_base/button'
+import { BaseButton } from '@repo/ui/base/button'
 import { LoadingButton } from '@/app/(components)/buttons/builder-buttons/loading-button'
 
 interface Props {
