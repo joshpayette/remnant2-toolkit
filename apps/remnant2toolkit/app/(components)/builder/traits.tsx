@@ -1,8 +1,9 @@
 import { XCircleIcon } from '@heroicons/react/24/solid'
+import { BaseButton } from '@repo/ui/base/button'
+import { BaseInput } from '@repo/ui/base/input'
 import { useState } from 'react'
 import { TbHttpOptions } from 'react-icons/tb'
 
-import { BaseButton } from '@repo/ui/base/button'
 import { Tooltip } from '@/app/(components)/tooltip'
 import { ZINDEXES } from '@/app/(components)/z-indexes'
 import {
@@ -182,11 +183,11 @@ export function Traits({
                 'border-secondary-500',
             )}
           >
-            <div className="flex items-center text-lg font-bold ">
+            <div className="flex items-center text-lg font-bold">
               {traitItem.name === editingTraitItem?.name &&
               isEditable &&
               shouldAllowEdit(editingTraitItem) ? (
-                <input
+                <BaseInput
                   type="number"
                   min={1}
                   max={10}
@@ -221,7 +222,7 @@ export function Traits({
                     setEditingTraitItem(null)
                   }}
                   autoFocus
-                  className="border-primary-500 w-12 border bg-transparent p-1 text-center"
+                  style={{ width: '60px' }}
                 />
               ) : (
                 <BaseButton
