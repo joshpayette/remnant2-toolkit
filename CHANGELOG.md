@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added bad word filter check to the build link field.
 
+### Fixed
+
+- Increased size of sign in button on mobile to match the other links.
+
 ## 2024-06-23
 
 ### Fixed

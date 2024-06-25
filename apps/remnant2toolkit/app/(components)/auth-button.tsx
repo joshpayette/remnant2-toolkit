@@ -1,11 +1,11 @@
 'use client'
 
 import { Menu, Transition } from '@headlessui/react'
+import { Link } from '@repo/ui/base/link'
 import { useSession } from 'next-auth/react'
 import { Fragment, useEffect, useState } from 'react'
 
 import getAvatarId from '@/app/(actions)/profile/get-avatar-id'
-import { Link } from '@repo/ui/base/link'
 import { PlaceHolderIcon } from '@/app/(components)/placeholder-icon'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { cn } from '@/app/(utils)/classnames'
@@ -139,7 +139,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
               className="text-primary-500 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
-            <div className="flex flex-col items-start justify-start px-3 py-2 text-sm">
+            <div className="flex flex-col items-start justify-start px-3 py-2">
               {NAV_ITEMS.signin.label}
             </div>
           </Link>
