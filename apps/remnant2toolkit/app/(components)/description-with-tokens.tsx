@@ -13,23 +13,12 @@ import { EXTERNAL_TOKENS, INLINE_TOKENS } from '@/app/(types)/tokens'
 import { cn } from '@/app/(utils)/classnames'
 import { stripUnicode } from '@/app/(utils)/strip-unicode'
 
-import { ItemCategory } from '../(types)/builds'
-
 // Start with all description tokens, which are always included
 export const ALL_DESCRIPTION_TOKENS: string[] = [
   ...INLINE_TOKENS.map((tag) => tag.token).sort((a, b) => b.length - a.length), // Sort in descending order of length,
   ...EXTERNAL_TOKENS.map((tag) => tag.token).sort(
     (a, b) => b.length - a.length,
   ), // Sort in descending order of length,
-]
-
-const tooltipSupportedCategories: ItemCategory[] = [
-  'amulet',
-  'concoction',
-  'consumable',
-  'ring',
-  'relic',
-  'trait',
 ]
 
 function parseStringForToken({
@@ -133,10 +122,11 @@ function parseStringForToken({
           </button>
         )
 
-        return item &&
-          item.description &&
-          tooltipSupportedCategories.includes(item.category) ? (
-          <Tooltip key={uuidv4()} content={item.description}>
+        return item && item.description ? (
+          <Tooltip
+            key={uuidv4()}
+            content={item.description.substring(0, 200) + '...'}
+          >
             {itemNameButton}
           </Tooltip>
         ) : (

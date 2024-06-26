@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-06-25
 
+### Changed
+
+- Tooltips in build descriptions were limited to a subset of item categories. This inconsistent behavior has been fixed so that all item categories will show a tooltip. To offset the potential super long descriptions creating an unwieldy tooltip, the descriptions are capped at 200 characters. Clicking the item name will still reveal a dialog with full item info.
+
 ### Fixed
 
 - Fixed issue where input box for editing traits in a build was white and unreadable.
