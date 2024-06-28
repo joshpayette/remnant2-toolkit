@@ -105,6 +105,7 @@ export const amuletItems: AmuletItem[] = [
       '\n' +
       'CALL OF THE DOE: Increases Movement Speed by 4% per stack. When CALL OF THE DOE expires, regain 1 Relic Charge per stack.',
     wikiLinks: [`https://remnant.wiki/Cervine_Keepsake`],
+    externalTokens: [`Misty Step`],
     location: {
       world: 'Yaesha',
       biome: 'Floating Forests',
@@ -190,6 +191,7 @@ export const amuletItems: AmuletItem[] = [
     description:
       'Gain 15% to All Damage when Health is not completely full. When below 50% Health, gain an additional 10% bonus to All Damage and HASTE.',
     wikiLinks: [`https://remnant.wiki/Death's_Embrace`],
+    externalTokens: [`Misty Step`],
     location: { world: 'Yaesha', dungeon: ['Ancient Canopy', 'Luminous Vale'] },
   },
   {
@@ -384,6 +386,7 @@ export const amuletItems: AmuletItem[] = [
     description:
       'Ranged damage Lifesteals 3% Base Damage dealt. At full health, Ranged damage is increased by 25%.',
     wikiLinks: [`https://remnant.wiki/Full_Moon_Circlet`],
+    externalTokens: [`Misty Step`],
     location: { world: 'Yaesha', dungeon: ['Imperial Gardens'] },
   },
   {
@@ -705,6 +708,7 @@ export const amuletItems: AmuletItem[] = [
     tags: ['Grey Health', 'Mod Power'],
     description: `Increases Grey Health conversion by an additional 100%. When Grey Health Conversion triggers, gain 5x the amount as Mod Power.`,
     wikiLinks: [`https://remnant.wiki/Necklace_of_Flowing_Life`],
+    externalTokens: [`Misty Step`],
     location: {
       world: 'Yaesha',
       biome: 'Undead Tombs',
@@ -854,6 +858,7 @@ export const amuletItems: AmuletItem[] = [
     tags: ['All Damage'],
     description: `Increases all damage dealt to BLEEDING targets by 20%. Bonus increases to 30% for targets with 50% or lower Health.`,
     wikiLinks: [`https://remnant.wiki/Ravager's_Mark`],
+    externalTokens: [`Misty Step`],
     location: { world: `Yaesha`, dungeon: [`Ravager's Lair`] },
   },
   {
@@ -866,6 +871,7 @@ export const amuletItems: AmuletItem[] = [
     tags: ['Healing Effectiveness'],
     description: `Increases Relic Healing Effectiveness by 30% which doubles when the wearer's Health is below 50%.`,
     wikiLinks: [`https://remnant.wiki/Red_Doe_Sigil`],
+    externalTokens: [`Misty Step`],
     location: { world: 'Yaesha', dungeon: ['The Red Throne'] },
   },
   {
@@ -1043,6 +1049,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     description: 'Increases FIRE damage by 25% and BURNING damage by 50%.',
     wikiLinks: [`https://remnant.wiki/Talisman_of_the_Sun`],
+    externalTokens: [`Misty Step`],
     location: {
       world: 'Yaesha',
       biome: 'Floating Forests',
