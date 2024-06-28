@@ -454,6 +454,12 @@ export const EXTERNAL_TOKENS = [
       'Counts as a debuff making it multiplicative with different sources of damage.',
   },
   {
+    token: 'Misty Step',
+    color: 'text-neutral-500 text-neutral-900',
+    description:
+      'Grants Misty Step evade when worn in combination with other Misty Step items.',
+  },
+  {
     token: 'Bug',
     color: 'text-[#5e6600] dark:text-[#ecff00]',
     description:

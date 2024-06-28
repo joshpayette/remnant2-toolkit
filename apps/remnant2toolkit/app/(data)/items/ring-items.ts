@@ -1868,6 +1868,7 @@ export const ringItems: RingItem[] = [
     tags: ['Grey Health', 'Stamina'],
     description: `Evades cost 15% Max Health as Grey Health instead of Stamina.`,
     wikiLinks: [`https://remnant.wiki/Ring_of_Omens`],
+    externalTokens: [`Misty Step`],
     dlc: 'base',
     location: { world: 'Yaesha', dungeon: ['Cathedral of Omens'] },
   },
