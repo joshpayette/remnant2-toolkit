@@ -455,7 +455,7 @@ export const EXTERNAL_TOKENS = [
   },
   {
     token: 'Misty Step',
-    color: 'text-neutral-500 text-neutral-900',
+    color: 'dark:text-neutral-500 text-neutral-900',
     description:
       'Grants Misty Step evade when worn in combination with other Misty Step items.',
   },
