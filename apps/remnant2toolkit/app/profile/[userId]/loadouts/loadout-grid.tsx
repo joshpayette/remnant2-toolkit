@@ -1,9 +1,10 @@
 'use server'
 
+import { getArrayOfLength } from '@repo/utils/get-array-of-length'
+
 import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list'
 import { EmptyLoadoutCard } from '@/app/(components)/cards/empty-loadout-card'
 import { LoadoutCard } from '@/app/(components)/cards/loadout-card'
-import { getArrayOfLength } from '@/app/(utils)/get-array-of-length'
 
 interface Props {
   isEditable: boolean

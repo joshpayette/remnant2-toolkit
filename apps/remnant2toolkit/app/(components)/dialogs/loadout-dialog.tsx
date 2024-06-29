@@ -5,6 +5,7 @@ import {
   BaseDialogDescription,
   BaseDialogTitle,
 } from '@repo/ui/base/dialog'
+import { getArrayOfLength } from '@repo/utils/get-array-of-length'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
@@ -14,7 +15,6 @@ import { EmptyLoadoutCard } from '@/app/(components)/cards/empty-loadout-card'
 import { LoadoutCard } from '@/app/(components)/cards/loadout-card'
 import { Skeleton } from '@/app/(components)/skeleton'
 import { DBBuild } from '@/app/(types)/builds'
-import { getArrayOfLength } from '@/app/(utils)/get-array-of-length'
 
 interface Props {
   open: boolean

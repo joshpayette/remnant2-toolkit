@@ -19,6 +19,7 @@ module.exports = {
   },
   env: {
     browser: true,
+    node: true,
   },
   settings: {
     'import/resolver': {

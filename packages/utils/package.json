@@ -1,0 +1,19 @@
+{
+  "name": "@repo/utils",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "exports": {
+    "./capitalize": "./src/capitalize.ts",
+    "./get-array-of-length": "./src/get-array-of-length.ts",
+    "./strip-unicode": "./src/strip-unicode.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "20",
+    "typescript": "5.5.2"
+  }
+}

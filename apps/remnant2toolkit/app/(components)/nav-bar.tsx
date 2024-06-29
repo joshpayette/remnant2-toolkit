@@ -9,13 +9,13 @@ import {
 import { BaseButton } from '@repo/ui/base/button'
 import { Link } from '@repo/ui/base/link'
 import { cn } from '@repo/ui/classnames'
+import { Logo } from '@repo/ui/logo'
 import { ZINDEXES } from '@repo/ui/zindexes'
 import { usePathname } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import { Fragment, useEffect, useState } from 'react'
 
 import { AuthButton } from '@/app/(components)/auth-button'
-import { Logo } from '@/app/(components)/logo'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 
 export function NavBar() {
@@ -41,7 +41,7 @@ export function NavBar() {
         aria-label="Global"
       >
         <div className="flex min-w-[250px]">
-          <Logo />
+          <Logo variant="remnant2toolkit" />
         </div>
         <div className="flex w-full justify-end lg:hidden">
           <BaseButton
@@ -241,7 +241,7 @@ export function NavBar() {
           )}
         >
           <div className="flex items-center justify-between">
-            <Logo />
+            <Logo variant="remnant2toolkit" />
             <BaseButton
               plain
               aria-label="Close menu"

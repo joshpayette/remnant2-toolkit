@@ -25,6 +25,7 @@ import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { weaponItems } from '@/app/(data)/items/weapon-items'
+import { MAX_CONCOCTIONS, MAX_CONSUMABLES } from '@/app/(types)/builds'
 
 export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
   if (typeof window === 'undefined') return null
@@ -360,29 +361,43 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
   // concoctions and consumables
   const consumableString = searchParams.get('consumable')
   if (consumableString) {
-    const consumables = consumableString.split(',')
+    const parsedConsumableItems: ConsumableItem[] = []
+    const parsedConcoctionItems: ConcoctionItem[] = []
 
-    for (let i = 0; i < 7; i++) {
-      const concoctionItem = concoctionItems.find(
-        (item) =>
-          item.name.toLowerCase() ===
-          consumables[i]?.replace('+', ' ').toLowerCase(),
-      )
-      if (concoctionItem) {
-        buildState.items.concoction[i] = concoctionItem
-      }
-    }
+    const consumablesOrConcoctions = consumableString.split(',')
 
-    for (let i = 0; i < 4; i++) {
+    for (const consumableOrConcoction of consumablesOrConcoctions) {
       const consumableItem = consumableItems.find(
         (item) =>
           item.name.toLowerCase() ===
-          consumables[i + 7]?.replace('+', ' ').toLowerCase(),
+          consumableOrConcoction?.replace('+', ' ').toLowerCase(),
       )
+
       if (consumableItem) {
-        buildState.items.consumable[i] = consumableItem
+        parsedConsumableItems.push(consumableItem)
+        continue
+      }
+
+      const concoctionItem = concoctionItems.find(
+        (item) =>
+          item.name.toLowerCase() ===
+          consumableOrConcoction?.replace('+', ' ').toLowerCase(),
+      )
+
+      if (concoctionItem) {
+        parsedConcoctionItems.push(concoctionItem)
+        continue
       }
     }
+
+    buildState.items.consumable = parsedConsumableItems.slice(
+      0,
+      MAX_CONSUMABLES,
+    )
+    buildState.items.concoction = parsedConcoctionItems.slice(
+      0,
+      MAX_CONCOCTIONS,
+    )
   }
 
   buildState.isPublic = false

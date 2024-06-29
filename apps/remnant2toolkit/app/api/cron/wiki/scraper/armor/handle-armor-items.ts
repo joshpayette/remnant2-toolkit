@@ -1,7 +1,7 @@
+import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import * as cheerio from 'cheerio'
 
 import { armorItems } from '@/app/(data)/items/armor-items'
-import { getImageUrl } from '@/app/(utils)/get-image-url'
 import { validateEnv } from '@/app/(validators)/validate-env'
 import { armorDataCompare } from '@/app/api/cron/wiki/scraper/armor/compare'
 import { armorDataParse } from '@/app/api/cron/wiki/scraper/armor/parse'

@@ -14,11 +14,11 @@ import {
   BaseListboxOption,
 } from '@repo/ui/base/listbox'
 import { BaseCode } from '@repo/ui/base/text'
+import { getArrayOfLength } from '@repo/utils/get-array-of-length'
 import type React from 'react'
 
 import LocatingProfileSav from '@/app/(components)/dialogs/partial/locating-profile-sav'
 import type { DBBuild } from '@/app/(types)/builds'
-import { getArrayOfLength } from '@/app/(utils)/get-array-of-length'
 import { ImportSaveSubmitButton } from '@/app/tracker/import-save-submit-button'
 
 interface Props {

@@ -1,7 +1,6 @@
 import { cn } from '@repo/ui/classnames'
+import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import Image from 'next/image'
-
-import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 import { DISCORD_INVITE_URL, NAV_ITEMS } from '../(types)/navigation'
 

@@ -3,6 +3,9 @@ import { BuildTags } from '@repo/db'
 import { BaseInput } from '@repo/ui/base/input'
 import { Link } from '@repo/ui/base/link'
 import { cn } from '@repo/ui/classnames'
+import { Logo } from '@repo/ui/logo'
+import { getArrayOfLength } from '@repo/utils/get-array-of-length'
+import { stripUnicode } from '@repo/utils/strip-unicode'
 import { useCallback, useMemo, useState } from 'react'
 
 import { FeaturedBuildBadge } from '@/app/(components)/builder/badges/featured-build-badge'
@@ -11,7 +14,6 @@ import { PopularBuildBadge } from '@/app/(components)/builder/badges/popular-bui
 import { ItemButton } from '@/app/(components)/buttons/item-button'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { ItemSelectDialog } from '@/app/(components)/dialogs/item-select-dialog'
-import { Logo } from '@/app/(components)/logo'
 import {
   DEFAULT_TRAIT_AMOUNT,
   MAX_BUILD_TAGS,
@@ -30,8 +32,6 @@ import { getConcoctionSlotCount } from '@/app/(utils)/builds/get-concoction-slot
 import { getItemListForSlot } from '@/app/(utils)/builds/get-item-list-for-slot'
 import { isBuildNew } from '@/app/(utils)/builds/is-build-new'
 import { isBuildPopular } from '@/app/(utils)/builds/is-build-popular'
-import { getArrayOfLength } from '@/app/(utils)/get-array-of-length'
-import { stripUnicode } from '@/app/(utils)/strip-unicode'
 
 import { MemberFeatures } from './member-features'
 import { Stats } from './stats/stats'
@@ -945,7 +945,11 @@ export function Builder({
 
         {isScreenshotMode && (
           <div className="absolute bottom-[10px] right-[10px]">
-            <Logo showUrl unoptimized={isScreenshotMode} />
+            <Logo
+              variant="remnant2toolkit"
+              showUrl
+              unoptimized={isScreenshotMode}
+            />
           </div>
         )}
       </div>

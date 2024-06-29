@@ -1,4 +1,5 @@
 import { BaseButton } from '@repo/ui/base/button'
+import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import Image from 'next/image'
 
 import { Tooltip } from '@/app/(components)/tooltip'
@@ -6,7 +7,6 @@ import {
   POPULAR_VOTE_THRESHOLD1,
   POPULAR_VOTE_THRESHOLD2,
 } from '@/app/(data)/builds/constants'
-import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 export function PopularBuildBadge({
   level,

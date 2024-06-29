@@ -1,3 +1,5 @@
+import { getArrayOfLength } from '@repo/utils/get-array-of-length'
+
 import { perkItems } from '@/app/(data)/items/perk-items'
 import { Item } from '@/app/(data)/items/types'
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
@@ -7,8 +9,6 @@ import { RingItem } from '@/app/(data)/items/types/RingItem'
 import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { BuildState } from '@/app/(types)/builds'
-
-import { getArrayOfLength } from '../get-array-of-length'
 
 export function buildStateToMasonryItems(build: BuildState): Item[] {
   const masonryItems: Item[] = []

@@ -1,3 +1,4 @@
+import { capitalize } from '@repo/utils/capitalize'
 import { ReadonlyURLSearchParams } from 'next/navigation'
 
 import { VALID_DISCOVERED_FILTERS } from '@/app/(components)/filters/discovered-filter'
@@ -20,7 +21,6 @@ import {
   ROOT_EARTH_DUNGEONS,
   YAESHA_DUNGEONS,
 } from '@/app/(types)/locations'
-import { capitalize } from '@/app/(utils)/capitalize'
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
 import { ItemTrackerCategory } from '@/app/tracker/types'
 
@@ -152,11 +152,11 @@ export function getCategoryProgressLabel({
   filteredItems: Item[]
   discoveredItemIds: string[]
 }) {
-  const {discoveredCount, undiscoveredCount, filteredItemsCount} = getCategoryProgressStats({filteredItems, discoveredItemIds})
-  return `${(
-    (discoveredCount / filteredItemsCount) *
-    100
-  ).toFixed(2)}% (${undiscoveredCount} undiscovered)`
+  const { discoveredCount, undiscoveredCount, filteredItemsCount } =
+    getCategoryProgressStats({ filteredItems, discoveredItemIds })
+  return `${((discoveredCount / filteredItemsCount) * 100).toFixed(
+    2,
+  )}% (${undiscoveredCount} undiscovered)`
 }
 
 export function getFilteredItemList(

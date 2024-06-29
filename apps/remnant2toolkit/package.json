@@ -59,6 +59,7 @@
     "@repo/tailwind-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@repo/ui": "workspace:*",
+    "@repo/utils": "workspace:*",
     "@tailwindcss/forms": "0.5.7",
     "@testing-library/jest-dom": "6.1.2",
     "@testing-library/react": "14.0.0",

@@ -6,6 +6,8 @@ import {
 import { BaseButton } from '@repo/ui/base/button'
 import { Link } from '@repo/ui/base/link'
 import { cn } from '@repo/ui/classnames'
+import { getImageUrl } from '@repo/ui/utils/get-image-url'
+import { capitalize } from '@repo/utils/capitalize'
 import copy from 'clipboard-copy'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -33,9 +35,7 @@ import {
   DEFAULT_ITEM_COMPARE_LIST,
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage'
-import { capitalize } from '@/app/(utils)/capitalize'
 import { itemShareEndpoint } from '@/app/(utils)/clean-item-name'
-import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 interface Props {
   allowItemCompare?: boolean
