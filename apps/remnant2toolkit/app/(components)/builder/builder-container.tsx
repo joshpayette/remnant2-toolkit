@@ -1,8 +1,8 @@
 import { BuildTags } from '@repo/db'
+import { cn } from '@repo/ui/classnames'
 import { ReactNode, RefObject } from 'react'
 
 import { BuildState } from '@/app/(types)/builds'
-import { cn } from '@/app/(utils)/classnames'
 
 import { Builder } from './builder'
 
@@ -53,7 +53,7 @@ export function BuilderContainer({
         <div
           ref={buildContainerRef}
           className={cn(
-            'w-full grow bg-background-solid',
+            'bg-background-solid w-full grow',
             isScreenshotMode && 'min-h-[731px] min-w-[994px]',
           )}
         >

@@ -1,13 +1,14 @@
 import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/solid'
-import { useCallback, useEffect, useState } from 'react'
-import { useDebounceValue, useLocalStorage } from 'usehooks-ts'
-
 import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogTitle,
-} from '@/app/(components)/_base/dialog'
+} from '@repo/ui/base/dialog'
+import { cn } from '@repo/ui/classnames'
+import { useCallback, useEffect, useState } from 'react'
+import { useDebounceValue, useLocalStorage } from 'usehooks-ts'
+
 import { ItemButton } from '@/app/(components)/buttons/item-button'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { ItemSearchText } from '@/app/(components)/filters/item-lookup/item-search-text'
@@ -17,7 +18,6 @@ import { ItemCategory } from '@/app/(types)/builds'
 import { SortingPreference } from '@/app/(types)/localstorage'
 import { ITEM_TOKENS } from '@/app/(types)/tokens'
 import { capitalize } from '@/app/(utils)/capitalize'
-import { cn } from '@/app/(utils)/classnames'
 import { itemMatchesSearchText } from '@/app/(utils)/items/item-matches-search-text'
 
 function buildSearchTextOptions(): Array<{ id: string; name: string }> {

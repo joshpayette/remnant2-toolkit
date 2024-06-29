@@ -1,9 +1,9 @@
 'use client'
 
 import { PencilIcon } from '@heroicons/react/24/solid'
+import { BaseButton } from '@repo/ui/base/button'
 import { useRouter } from 'next/navigation'
 
-import { BaseButton } from '@repo/ui/base/button'
 import { Tooltip } from '@/app/(components)/tooltip'
 
 export function EditBuildButton({ buildId }: { buildId: string }) {

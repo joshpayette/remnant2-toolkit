@@ -1,9 +1,10 @@
-import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
+import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
 import {
   BaseListbox,
   BaseListboxLabel,
   BaseListboxOption,
-} from '@/app/(components)/_base/listbox'
+} from '@repo/ui/base/listbox'
+
 import { relicItems } from '@/app/(data)/items/relic-items'
 
 interface Props {

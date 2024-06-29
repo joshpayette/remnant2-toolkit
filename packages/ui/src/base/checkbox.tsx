@@ -4,8 +4,9 @@ import {
   Field as HeadlessField,
   type FieldProps as HeadlessFieldProps,
 } from '@headlessui/react'
-import { clsx } from 'clsx'
 import type React from 'react'
+
+import { cn } from '../classnames'
 
 export function BaseCheckboxGroup({
   className,
@@ -15,7 +16,7 @@ export function BaseCheckboxGroup({
     <div
       data-slot="control"
       {...props}
-      className={clsx(
+      className={cn(
         className,
 
         // Basic groups
@@ -33,7 +34,7 @@ export function BaseCheckboxField({ className, ...props }: HeadlessFieldProps) {
     <HeadlessField
       data-slot="field"
       {...props}
-      className={clsx(
+      className={cn(
         className,
 
         // Base layout
@@ -140,13 +141,10 @@ export function BaseCheckbox({
   return (
     <HeadlessCheckbox
       data-slot="control"
-      className={clsx(
-        className,
-        'ui-group ui-inline-flex focus:ui-outline-none',
-      )}
+      className={cn(className, 'ui-group ui-inline-flex focus:ui-outline-none')}
       {...props}
     >
-      <span className={clsx([base, colors[color]])}>
+      <span className={cn([base, colors[color]])}>
         <svg
           className="ui-size-4 ui-stroke-[--checkbox-check] ui-opacity-0 group-data-[checked]:ui-opacity-100 sm:ui-h-3.5 sm:ui-w-3.5"
           viewBox="0 0 14 14"

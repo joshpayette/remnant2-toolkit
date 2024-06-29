@@ -1,6 +1,6 @@
+import { Link } from '@repo/ui/base/link'
 import Image from 'next/image'
 
-import { Link } from '@repo/ui/base/link'
 import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 export function Logo({

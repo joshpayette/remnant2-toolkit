@@ -3,7 +3,7 @@ import {
   BaseAlertActions,
   BaseAlertDescription,
   BaseAlertTitle,
-} from '@/app/(components)/_base/alert'
+} from '@repo/ui/base/alert'
 import { BaseButton } from '@repo/ui/base/button'
 
 interface Props {

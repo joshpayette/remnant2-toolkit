@@ -1,13 +1,13 @@
 'use client'
 
 import { PencilIcon } from '@heroicons/react/24/solid'
+import { BaseButton } from '@repo/ui/base/button'
+import { BaseField } from '@repo/ui/base/fieldset'
 import { BaseInput } from '@repo/ui/base/input'
+import { BaseTextarea } from '@repo/ui/base/textarea'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { BaseButton } from '@repo/ui/base/button'
-import { BaseField } from '@/app/(components)/_base/fieldset'
-import { BaseTextarea } from '@/app/(components)/_base/textarea'
 import { AvatarSelectDialog } from '@/app/(components)/dialogs/avatar-select-dialog'
 import { saveProfile } from '@/app/profile/[userId]/(actions)/save-profile'
 import { AvatarBox } from '@/app/profile/[userId]/(components)/avatar-box'

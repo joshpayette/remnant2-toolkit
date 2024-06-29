@@ -7,9 +7,10 @@ import {
   StarIcon,
   VideoCameraIcon,
 } from '@heroicons/react/24/solid'
-
 import { BaseButton } from '@repo/ui/base/button'
 import { Link } from '@repo/ui/base/link'
+import { cn } from '@repo/ui/classnames'
+
 import { ArchetypeLabel } from '@/app/(components)/builder/archetype-label'
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
 import { Skeleton } from '@/app/(components)/skeleton'
@@ -23,7 +24,6 @@ import {
 } from '@/app/(utils)/builds/get-archetype-combo-name'
 import { isBuildNew } from '@/app/(utils)/builds/is-build-new'
 import { isBuildPopular } from '@/app/(utils)/builds/is-build-popular'
-import { cn } from '@/app/(utils)/classnames'
 import { isValidYoutubeUrl } from '@/app/(utils)/youtube'
 
 import { FeaturedBuildBadge } from '../builder/badges/featured-build-badge'

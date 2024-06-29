@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { BaseButton } from '@repo/ui/base/button'
+import React from 'react'
 
 interface Props {
   countdownTimer: number

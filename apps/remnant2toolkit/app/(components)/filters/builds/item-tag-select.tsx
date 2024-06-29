@@ -2,7 +2,8 @@ import {
   BaseListbox,
   BaseListboxLabel,
   BaseListboxOption,
-} from '@/app/(components)/_base/listbox'
+} from '@repo/ui/base/listbox'
+
 import { ItemTokenWithDefault } from '@/app/(components)/dialogs/item-tag-suggestion-dialog'
 
 interface Props {

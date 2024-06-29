@@ -2,7 +2,8 @@ import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogTitle,
-} from '@/app/(components)/_base/dialog'
+} from '@repo/ui/base/dialog'
+
 import { Skeleton } from '@/app/(components)/skeleton'
 
 interface Props {

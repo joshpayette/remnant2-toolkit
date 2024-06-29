@@ -1,11 +1,11 @@
 'use client'
 
 import { EyeIcon } from '@heroicons/react/24/solid'
+import { Link } from '@repo/ui/base/link'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import { getCommunityBuilds } from '@/app/(actions)/builds/get-community-builds'
-import { Link } from '@repo/ui/base/link'
 import { BuildList } from '@/app/(components)/build-list'
 import { BuildCard } from '@/app/(components)/cards/build-card'
 import { BuildSecondaryFilters } from '@/app/(components)/filters/builds/secondary-filters'

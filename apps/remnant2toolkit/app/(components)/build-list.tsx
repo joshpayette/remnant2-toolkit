@@ -1,5 +1,6 @@
+import { cn } from '@repo/ui/classnames'
+
 import { Pagination } from '@/app/(components)/pagination'
-import { cn } from '@/app/(utils)/classnames'
 
 interface Props {
   children: React.ReactNode
@@ -34,7 +35,7 @@ export function BuildList({
 }: Props) {
   return (
     <div className={cn(isLoading ? 'min-h-[1000px]' : 'min-h-0')}>
-      <div className="flex w-full flex-row items-end justify-center border-b border-b-primary-500 py-2">
+      <div className="border-b-primary-500 flex w-full flex-row items-end justify-center border-b py-2">
         {label ? <div className="w-full text-xl">{label}</div> : null}
         {headerActions}
       </div>

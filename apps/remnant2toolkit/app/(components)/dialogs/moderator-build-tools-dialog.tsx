@@ -1,4 +1,15 @@
+import { BaseButton } from '@repo/ui/base/button'
+import {
+  BaseDialog,
+  BaseDialogActions,
+  BaseDialogBody,
+  BaseDialogDescription,
+  BaseDialogTitle,
+} from '@repo/ui/base/dialog'
+import { BaseDivider } from '@repo/ui/base/divider'
+import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
 import { BaseInput } from '@repo/ui/base/input'
+import { BaseTextarea } from '@repo/ui/base/textarea'
 import { useSession } from 'next-auth/react'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
@@ -11,17 +22,6 @@ import unapproveVideo from '@/app/(actions)/builds/admin/unapprove-video'
 import unfeatureBuild from '@/app/(actions)/builds/admin/unfeature-build'
 import unlockBuild from '@/app/(actions)/builds/admin/unlock-build'
 import updateBuild from '@/app/(actions)/builds/admin/update-build'
-import { BaseButton } from '@repo/ui/base/button'
-import {
-  BaseDialog,
-  BaseDialogActions,
-  BaseDialogBody,
-  BaseDialogDescription,
-  BaseDialogTitle,
-} from '@/app/(components)/_base/dialog'
-import { BaseDivider } from '@/app/(components)/_base/divider'
-import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
-import { BaseTextarea } from '@/app/(components)/_base/textarea'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
 import type { BuildState } from '@/app/(types)/builds'
 

@@ -20,10 +20,10 @@ export function BaseRadioGroup({
         className,
 
         // Basic groups
-        'space-y-3 [&_[data-slot=label]]:font-normal',
+        'ui-space-y-3 [&_[data-slot=label]]:ui-font-normal',
 
         // With descriptions
-        'has-[[data-slot=description]]:space-y-6 [&_[data-slot=label]]:has-[[data-slot=description]]:font-medium',
+        'has-[[data-slot=description]]:ui-space-y-6 [&_[data-slot=label]]:has-[[data-slot=description]]:ui-font-medium',
       )}
     />
   )
@@ -38,19 +38,19 @@ export function BaseRadioField({ className, ...props }: HeadlessFieldProps) {
         className,
 
         // Base layout
-        'grid grid-cols-[1.125rem_1fr] items-center gap-x-4 gap-y-1 sm:grid-cols-[1rem_1fr]',
+        'ui-grid ui-grid-cols-[1.125rem_1fr] ui-items-center ui-gap-x-4 ui-gap-y-1 sm:ui-grid-cols-[1rem_1fr]',
 
         // Control layout
-        '[&>[data-slot=control]]:col-start-1 [&>[data-slot=control]]:row-start-1 [&>[data-slot=control]]:justify-self-center',
+        '[&>[data-slot=control]]:ui-col-start-1 [&>[data-slot=control]]:ui-row-start-1 [&>[data-slot=control]]:ui-justify-self-center',
 
         // Label layout
-        '[&>[data-slot=label]]:col-start-2 [&>[data-slot=label]]:row-start-1 [&>[data-slot=label]]:justify-self-start',
+        '[&>[data-slot=label]]:ui-col-start-2 [&>[data-slot=label]]:ui-row-start-1 [&>[data-slot=label]]:ui-justify-self-start',
 
         // Description layout
-        '[&>[data-slot=description]]:col-start-2 [&>[data-slot=description]]:row-start-2',
+        '[&>[data-slot=description]]:ui-col-start-2 [&>[data-slot=description]]:ui-row-start-2',
 
         // With description
-        '[&_[data-slot=label]]:has-[[data-slot=description]]:font-medium',
+        '[&_[data-slot=label]]:has-[[data-slot=description]]:ui-font-medium',
       )}
     />
   )
@@ -58,35 +58,35 @@ export function BaseRadioField({ className, ...props }: HeadlessFieldProps) {
 
 const base = [
   // Basic layout
-  'relative isolate flex size-[1.1875rem] shrink-0 rounded-full sm:size-[1.0625rem]',
+  'ui-relative ui-isolate ui-flex ui-size-[1.1875rem] ui-shrink-0 ui-rounded-full sm:ui-size-[1.0625rem]',
 
   // Background color + shadow applied to inset pseudo element, so shadow blends with border in light mode
-  'before:absolute before:inset-0 before:-z-10 before:rounded-full before:bg-surface-solid before:shadow',
+  'before:ui-absolute before:ui-inset-0 before:-ui-z-10 before:ui-rounded-full before:ui-bg-surface-solid before:ui-shadow',
 
   // Background color when checked
-  'before:group-data-[checked]:bg-[--radio-checked-bg]',
+  'before:group-data-[checked]:ui-bg-[--radio-checked-bg]',
 
   // Background color is moved to control and shadow is removed in dark mode so hide `before` pseudo
-  'before:hidden',
+  'before:ui-hidden',
 
   // Background color applied to control in dark mode
-  'bg-surface-solid/5 group-data-[checked]:bg-[--radio-checked-bg]',
+  'ui-bg-surface-solid/5 group-data-[checked]:ui-bg-[--radio-checked-bg]',
 
   // Border
-  'border border-surface-solid/15 group-data-[checked]:border-surface-solid/5 group-data-[checked]:group-data-[hover]:border-surface-solid/5 group-data-[hover]:border-surface-solid/30 group-data-[checked]:bg-[--radio-checked-border]',
+  'ui-border ui-border-surface-solid/15 group-data-[checked]:ui-border-surface-solid/5 group-data-[checked]:group-data-[hover]:ui-border-surface-solid/5 group-data-[hover]:ui-border-surface-solid/30 group-data-[checked]:ui-bg-[--radio-checked-border]',
 
   // Inner highlight shadow
-  'after:absolute after:-inset-px after:hidden after:rounded-full group-data-[checked]:after:block after:shadow-[inset_0_1px_theme(colors.surface.solid/15%)]',
+  'after:ui-absolute after:-ui-inset-px after:ui-hidden after:ui-rounded-full group-data-[checked]:after:ui-block after:ui-shadow-[inset_0_1px_theme(colors.surface.solid/15%)]',
 
   // Indicator color
   'group-data-[checked]:group-data-[hover]:[--radio-indicator:var(--radio-checked-indicator)] group-data-[hover]:[--radio-indicator:theme(colors.zinc.700)]',
 
   // Focus ring
-  'group-data-[focus]:outline group-data-[focus]:outline-2 group-data-[focus]:outline-offset-2 group-data-[focus]:outline-blue-500',
+  'group-data-[focus]:ui-outline group-data-[focus]:ui-outline-2 group-data-[focus]:ui-outline-offset-2 group-data-[focus]:ui-outline-blue-500',
 
   // Disabled state
-  'group-data-[disabled]:opacity-50',
-  'group-data-[disabled]:border-surface-solid/20 group-data-[disabled]:bg-surface-solid/[2.5%] group-data-[disabled]:[--radio-checked-indicator:theme(colors.surface.solid/50%)] group-data-[disabled]:before:bg-transparent group-data-[disabled]:group-data-[checked]:after:hidden',
+  'group-data-[disabled]:ui-opacity-50',
+  'group-data-[disabled]:ui-border-surface-solid/20 group-data-[disabled]:ui-bg-surface-solid/[2.5%] group-data-[disabled]:[--radio-checked-indicator:theme(colors.surface.solid/50%)] group-data-[disabled]:before:ui-bg-transparent group-data-[disabled]:group-data-[checked]:after:ui-hidden',
 ]
 
 const colors = {
@@ -139,15 +139,18 @@ export function BaseRadio({
     <HeadlessRadio
       data-slot="control"
       {...props}
-      className={clsx(className, 'group inline-flex focus:outline-none')}
+      className={clsx(
+        className,
+        'ui-group ui-inline-flex focus:ui-outline-none',
+      )}
     >
       <span className={clsx([base, colors[color]])}>
         <span
           className={clsx(
-            'size-full rounded-full border-[4.5px] border-transparent bg-[--radio-indicator] bg-clip-padding',
+            'ui-size-full ui-rounded-full ui-border-[4.5px] ui-border-transparent ui-bg-[--radio-indicator] ui-bg-clip-padding',
 
             // Forced colors mode
-            'forced-colors:border-[Canvas] forced-colors:group-data-[checked]:border-[Highlight]',
+            'forced-colors:ui-border-[Canvas] forced-colors:group-data-[checked]:ui-border-[Highlight]',
           )}
         />
       </span>

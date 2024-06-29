@@ -1,15 +1,11 @@
+import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseCheckbox,
   BaseCheckboxField,
   BaseCheckboxGroup,
 } from '@repo/ui/base/checkbox'
+import { BaseFieldset, BaseLabel, BaseLegend } from '@repo/ui/base/fieldset'
 
-import { BaseButton } from '@repo/ui/base/button'
-import {
-  BaseFieldset,
-  BaseLabel,
-  BaseLegend,
-} from '@/app/(components)/_base/fieldset'
 import {
   ALL_RELEASE_KEYS,
   RELEASE_TO_NAME,

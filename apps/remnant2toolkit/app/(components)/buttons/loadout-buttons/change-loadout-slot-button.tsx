@@ -1,11 +1,11 @@
 'use client'
 
 import { ArrowPathRoundedSquareIcon } from '@heroicons/react/24/solid'
+import { BaseButton } from '@repo/ui/base/button'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { changeLoadoutSlot } from '@/app/(actions)/loadouts/change-loadout-slot'
-import { BaseButton } from '@repo/ui/base/button'
 import { ChangeLoadoutSlotPrompt } from '@/app/(components)/alerts/change-loadout-slot-prompt'
 import { Tooltip } from '@/app/(components)/tooltip'
 

@@ -1,8 +1,8 @@
 'use client'
 
+import { BaseButton } from '@repo/ui/base/button'
 import { useEffect } from 'react'
 
-import { BaseButton } from '@repo/ui/base/button'
 import { PageHeader } from '@/app/(components)/page-header'
 
 export function Error({

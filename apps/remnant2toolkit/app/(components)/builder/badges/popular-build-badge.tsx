@@ -1,6 +1,6 @@
+import { BaseButton } from '@repo/ui/base/button'
 import Image from 'next/image'
 
-import { BaseButton } from '@repo/ui/base/button'
 import { Tooltip } from '@/app/(components)/tooltip'
 import {
   POPULAR_VOTE_THRESHOLD1,

@@ -1,6 +1,6 @@
+import { BaseText, BaseTextLink } from '@repo/ui/base/text'
 import { Metadata, ResolvingMetadata } from 'next'
 
-import { BaseText, BaseTextLink } from '@/app/(components)/_base/text'
 import { allItems } from '@/app/(data)/items/all-items'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'

@@ -1,7 +1,12 @@
+import {
+  BaseDialog,
+  BaseDialogBody,
+  BaseDialogTitle,
+} from '@repo/ui/base/dialog'
+
 import { Item } from '@/app/(data)/items/types'
 import { groupBy } from '@/app/(utils)/object-utils'
 
-import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '../_base/dialog'
 import { getCategoryProgressStats } from '../filters/item-tracker/utils'
 
 interface Props {
@@ -67,9 +72,9 @@ export function ItemLocationsDialog({
               </div>
             ))}
           </ol>
-          <h3 className="text-md col-span-full my-2 font-semibold text-surface-solid">
+          <h3 className="text-md text-surface-solid col-span-full my-2 font-semibold">
             Total:{' '}
-            <span className="text-md font-bold text-surface-solid">
+            <span className="text-md text-surface-solid font-bold">
               {total.toFixed(0)}
             </span>
           </h3>

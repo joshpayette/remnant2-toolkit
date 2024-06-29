@@ -1,5 +1,3 @@
-import { BaseInput } from '@repo/ui/base/input'
-
 import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseDialog,
@@ -7,8 +5,10 @@ import {
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@/app/(components)/_base/dialog'
-import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
+} from '@repo/ui/base/dialog'
+import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
+import { BaseInput } from '@repo/ui/base/input'
+
 import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
 import { CsvItem } from '@/app/(types)/csv'
 

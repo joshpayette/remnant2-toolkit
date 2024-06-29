@@ -2,9 +2,9 @@ import {
   Button as HeadlessButton,
   type ButtonProps as HeadlessButtonProps,
 } from '@headlessui/react'
-import clsx from 'clsx'
 import React from 'react'
 
+import { cn } from '../classnames'
 import { TouchTarget } from './button'
 import { Link } from './link'
 
@@ -27,7 +27,7 @@ export function BaseAvatar({
   return (
     <span
       data-slot="avatar"
-      className={clsx(
+      className={cn(
         className,
 
         // Basic layout
@@ -81,7 +81,7 @@ export const BaseAvatarButton = React.forwardRef(function AvatarButton(
     (HeadlessButtonProps | React.ComponentPropsWithoutRef<typeof Link>),
   ref: React.ForwardedRef<HTMLElement>,
 ) {
-  const classes = clsx(
+  const classes = cn(
     className,
     square ? 'rounded-lg' : 'rounded-full',
     'relative focus:outline-none data-[focus]:outline data-[focus]:outline-2 data-[focus]:outline-offset-2 data-[focus]:outline-blue-500',

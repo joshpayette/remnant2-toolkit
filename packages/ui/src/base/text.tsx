@@ -1,5 +1,6 @@
 import { Link } from '@repo/ui/base/link'
-import { clsx } from 'clsx'
+
+import { cn } from '../classnames'
 
 export function BaseText({
   className,
@@ -9,7 +10,10 @@ export function BaseText({
     <p
       {...props}
       data-slot="text"
-      className={clsx(className, 'text-surface-solid text-base/6 sm:text-sm/6')}
+      className={cn(
+        className,
+        'ui-text-surface-solid ui-text-base/6 sm:ui-text-sm/6',
+      )}
     />
   )
 }
@@ -21,9 +25,9 @@ export function BaseTextLink({
   return (
     <Link
       {...props}
-      className={clsx(
+      className={cn(
         className,
-        'text-surface-solid decoration-surface-solid/50 data-[hover]:decoration-surface-solid underline',
+        'ui-text-surface-solid ui-decoration-surface-solid/50 data-[hover]:ui-decoration-surface-solid ui-underline',
       )}
     />
   )
@@ -36,7 +40,7 @@ export function BaseStrong({
   return (
     <strong
       {...props}
-      className={clsx(className, 'text-surface-solid font-medium')}
+      className={cn(className, 'ui-text-surface-solid ui-font-medium')}
     />
   )
 }
@@ -48,9 +52,9 @@ export function BaseCode({
   return (
     <code
       {...props}
-      className={clsx(
+      className={cn(
         className,
-        'border-surface-solid/20 bg-surface-solid/5 text-surface-solid rounded border px-0.5 text-sm font-medium sm:text-[0.8125rem]',
+        'ui-border-surface-solid/20 ui-bg-surface-solid/5 ui-text-surface-solid ui-rounded ui-border ui-px-0.5 ui-text-sm ui-font-medium sm:ui-text-[0.8125rem]',
       )}
     />
   )

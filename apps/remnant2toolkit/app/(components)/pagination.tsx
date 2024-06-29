@@ -4,8 +4,7 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from '@heroicons/react/24/solid'
-
-import { cn } from '@/app/(utils)/classnames'
+import { cn } from '@repo/ui/classnames'
 
 interface Props {
   currentPage: number
@@ -33,13 +32,13 @@ export function Pagination({
   onSpecificPage,
 }: Props) {
   return (
-    <div className="flex w-full items-center justify-between bg-background-solid bg-opacity-40 px-4 py-4 sm:px-6">
+    <div className="bg-background-solid flex w-full items-center justify-between bg-opacity-40 px-4 py-4 sm:px-6">
       {/** Mobile */}
       <div className="flex flex-1 items-center justify-between gap-x-1 sm:hidden">
         <button
           onClick={onPreviousPage}
           aria-label="Previous page"
-          className="relative inline-flex items-center rounded-md border border-primary-300 bg-primary-500 px-4 py-2 text-sm font-medium text-surface-solid hover:bg-primary-300"
+          className="border-primary-300 bg-primary-500 text-surface-solid hover:bg-primary-300 relative inline-flex items-center rounded-md border px-4 py-2 text-sm font-medium"
         >
           Previous
         </button>
@@ -63,7 +62,7 @@ export function Pagination({
         <button
           onClick={onNextPage}
           aria-label="Next page"
-          className="relative ml-3 inline-flex items-center rounded-md border border-primary-300 bg-primary-500 px-4 py-2 text-sm font-medium text-surface-solid hover:bg-primary-300"
+          className="border-primary-300 bg-primary-500 text-surface-solid hover:bg-primary-300 relative ml-3 inline-flex items-center rounded-md border px-4 py-2 text-sm font-medium"
         >
           Next
         </button>
@@ -97,7 +96,7 @@ export function Pagination({
               <button
                 onClick={() => onSpecificPage(1)}
                 aria-label="First page"
-                className="relative inline-flex w-[45px] items-center justify-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-primary-500 hover:bg-gray-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
+                className="ring-primary-500 relative inline-flex w-[45px] items-center justify-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset hover:bg-gray-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
               >
                 <span className="sr-only">First</span>
                 <ChevronDoubleLeftIcon className="h-5 w-5" aria-hidden="true" />
@@ -105,7 +104,7 @@ export function Pagination({
               <button
                 onClick={onPreviousPage}
                 aria-label="Previous page"
-                className="relative inline-flex w-[45px] items-center justify-center px-2 py-2 text-gray-400 ring-1 ring-inset ring-primary-500 hover:bg-gray-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
+                className="ring-primary-500 relative inline-flex w-[45px] items-center justify-center px-2 py-2 text-gray-400 ring-1 ring-inset hover:bg-gray-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
               >
                 <span className="sr-only">Previous</span>
                 <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
@@ -116,9 +115,9 @@ export function Pagination({
                   aria-label={`Goto page ${pageNumber}`}
                   aria-current="page"
                   className={cn(
-                    'relative inline-flex w-[45px] items-center justify-center px-4 py-2 text-sm font-semibold text-gray-200 ring-1 ring-inset ring-primary-500 hover:bg-primary-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0',
+                    'ring-primary-500 hover:bg-primary-50 relative inline-flex w-[45px] items-center justify-center px-4 py-2 text-sm font-semibold text-gray-200 ring-1 ring-inset hover:text-gray-800 focus:z-20 focus:outline-offset-0',
                     currentPage === pageNumber &&
-                      'relative z-10 inline-flex bg-primary-600 px-4 py-2 text-sm font-semibold text-surface-solid focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600',
+                      'bg-primary-600 text-surface-solid focus-visible:outline-primary-600 relative z-10 inline-flex px-4 py-2 text-sm font-semibold focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
                   )}
                   onClick={() => onSpecificPage(pageNumber)}
                 >
@@ -129,7 +128,7 @@ export function Pagination({
               <button
                 onClick={onNextPage}
                 aria-label="Next page"
-                className="relative inline-flex h-[36px] w-[45px] items-center justify-center px-2 py-2 text-gray-400 ring-1 ring-inset ring-primary-500 hover:bg-primary-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
+                className="ring-primary-500 hover:bg-primary-50 relative inline-flex h-[36px] w-[45px] items-center justify-center px-2 py-2 text-gray-400 ring-1 ring-inset hover:text-gray-800 focus:z-20 focus:outline-offset-0"
               >
                 <span className="sr-only">Next</span>
                 <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
@@ -137,7 +136,7 @@ export function Pagination({
               <button
                 onClick={() => onSpecificPage(totalPages)}
                 aria-label="Last page"
-                className="relative inline-flex w-[45px] items-center justify-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-primary-500 hover:bg-primary-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
+                className="ring-primary-500 hover:bg-primary-50 relative inline-flex w-[45px] items-center justify-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset hover:text-gray-800 focus:z-20 focus:outline-offset-0"
               >
                 <span className="sr-only">Last</span>
                 <ChevronDoubleRightIcon

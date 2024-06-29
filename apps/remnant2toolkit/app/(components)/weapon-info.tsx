@@ -1,6 +1,7 @@
 import { Link } from '@repo/ui/base/link'
+import { cn } from '@repo/ui/classnames'
+
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-import { cn } from '@/app/(utils)/classnames'
 
 interface Props {
   item: WeaponItem

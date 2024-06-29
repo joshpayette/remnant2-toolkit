@@ -1,7 +1,7 @@
 import { Squares2X2Icon } from '@heroicons/react/24/solid'
 import { BaseCheckbox } from '@repo/ui/base/checkbox'
+import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
 
-import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
 import { LayoutPreference } from '@/app/item-quiz/types'
 
 interface Props {

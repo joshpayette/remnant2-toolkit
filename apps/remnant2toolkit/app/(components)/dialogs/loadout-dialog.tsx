@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
-
-import { addBuildToLoadout } from '@/app/(actions)/loadouts/add-build-to-loadout'
-import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list'
 import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@/app/(components)/_base/dialog'
+} from '@repo/ui/base/dialog'
+import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
+
+import { addBuildToLoadout } from '@/app/(actions)/loadouts/add-build-to-loadout'
+import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list'
 import { EmptyLoadoutCard } from '@/app/(components)/cards/empty-loadout-card'
 import { LoadoutCard } from '@/app/(components)/cards/loadout-card'
 import { Skeleton } from '@/app/(components)/skeleton'

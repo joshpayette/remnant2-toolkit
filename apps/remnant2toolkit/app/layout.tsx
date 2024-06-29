@@ -1,17 +1,16 @@
+import { cn } from '@repo/ui/classnames'
 import { Inter } from 'next/font/google'
-
-import { cn } from '@/app/(utils)/classnames'
 export { metadata } from './metadata'
 import './globals.css'
 import '@repo/ui/styles.css'
 import 'react-toastify/dist/ReactToastify.min.css'
 
+import { BaseTextLink } from '@repo/ui/base/text'
 import { Analytics } from '@vercel/analytics/react'
 import { Viewport } from 'next'
 import dynamic from 'next/dynamic'
 import { ToastContainer } from 'react-toastify'
 
-import { BaseTextLink } from '@/app/(components)/_base/text'
 import { GlobalActionButtons } from '@/app/(components)/buttons/global-action-buttons/global-action-buttons'
 import { Footer } from '@/app/(components)/footer'
 import { NavBar } from '@/app/(components)/nav-bar'

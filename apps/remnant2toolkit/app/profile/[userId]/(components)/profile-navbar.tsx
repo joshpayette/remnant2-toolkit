@@ -1,12 +1,12 @@
 'use client'
 
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/solid'
+import { cn } from '@repo/ui/classnames'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useIsClient } from 'usehooks-ts'
 
 import { NAV_ITEMS } from '@/app/(types)/navigation'
-import { cn } from '@/app/(utils)/classnames'
 
 interface Props {
   isEditable: boolean
@@ -89,7 +89,7 @@ export function ProfileNavbar({
   }
 
   return (
-    <nav className="flex border-b border-surface-solid/10 py-4">
+    <nav className="border-surface-solid/10 flex border-b py-4">
       <ul
         role="list"
         className="flex min-w-full flex-wrap items-center justify-center gap-x-6 gap-y-2 px-4 text-sm font-semibold leading-6 text-gray-400 sm:px-6 md:items-start md:justify-start md:gap-y-0 lg:px-8"
@@ -100,7 +100,7 @@ export function ProfileNavbar({
               <Link
                 href={item.href}
                 className={cn(
-                  'flex items-center justify-center hover:text-primary-300 hover:underline',
+                  'hover:text-primary-300 flex items-center justify-center hover:underline',
                   item.current ? 'text-primary-400' : '',
                 )}
               >

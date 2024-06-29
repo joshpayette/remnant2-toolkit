@@ -1,11 +1,3 @@
-import { BaseInput } from '@repo/ui/base/input'
-import { useSession } from 'next-auth/react'
-import { useState } from 'react'
-import { toast } from 'react-toastify'
-
-import lockLinkedBuild from '@/app/(actions)/builds/admin/lock-linked-build'
-import unlockLinkedBuild from '@/app/(actions)/builds/admin/unlock-linked-build'
-import updateLinkedBuild from '@/app/(actions)/builds/admin/update-linked-build'
 import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseDialog,
@@ -13,10 +5,18 @@ import {
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@/app/(components)/_base/dialog'
-import { BaseDivider } from '@/app/(components)/_base/divider'
-import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
-import { BaseTextarea } from '@/app/(components)/_base/textarea'
+} from '@repo/ui/base/dialog'
+import { BaseDivider } from '@repo/ui/base/divider'
+import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
+import { BaseInput } from '@repo/ui/base/input'
+import { BaseTextarea } from '@repo/ui/base/textarea'
+import { useSession } from 'next-auth/react'
+import { useState } from 'react'
+import { toast } from 'react-toastify'
+
+import lockLinkedBuild from '@/app/(actions)/builds/admin/lock-linked-build'
+import unlockLinkedBuild from '@/app/(actions)/builds/admin/unlock-linked-build'
+import updateLinkedBuild from '@/app/(actions)/builds/admin/update-linked-build'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
 import type { LinkedBuildState } from '@/app/(types)/linked-builds'
 

@@ -1,9 +1,9 @@
 import { BuildTags } from '@repo/db'
-
 import { BaseButton } from '@repo/ui/base/button'
-import { BaseFieldset, BaseLabel } from '@/app/(components)/_base/fieldset'
+import { BaseFieldset, BaseLabel } from '@repo/ui/base/fieldset'
+import { cn } from '@repo/ui/classnames'
+
 import { MAX_BUILD_TAGS } from '@/app/(data)/builds/constants'
-import { cn } from '@/app/(utils)/classnames'
 
 import { BuildTagItem } from './build-tag-item'
 import { ALL_BUILD_TAGS } from './constants'

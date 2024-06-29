@@ -1,12 +1,11 @@
 'use client'
 
 import { XMarkIcon } from '@heroicons/react/24/solid'
-import { useLocalStorage } from 'usehooks-ts'
-
 import { BaseButton } from '@repo/ui/base/button'
-import { BaseText } from '@/app/(components)/_base/text'
-import { ZINDEXES } from '@/app/(components)/z-indexes'
-import { cn } from '@/app/(utils)/classnames'
+import { BaseText } from '@repo/ui/base/text'
+import { cn } from '@repo/ui/classnames'
+import { ZINDEXES } from '@repo/ui/zindexes'
+import { useLocalStorage } from 'usehooks-ts'
 
 interface Props {
   bgColor?: string

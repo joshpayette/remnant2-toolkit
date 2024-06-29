@@ -2,12 +2,13 @@
 
 import { Disclosure } from '@headlessui/react'
 import { FunnelIcon, TrashIcon } from '@heroicons/react/24/solid'
+import { BaseButton } from '@repo/ui/base/button'
+import { BaseFieldGroup, BaseFieldset } from '@repo/ui/base/fieldset'
+import { cn } from '@repo/ui/classnames'
 import isEqual from 'lodash.isequal'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useRef, useState } from 'react'
 
-import { BaseButton } from '@repo/ui/base/button'
-import { BaseFieldGroup, BaseFieldset } from '@/app/(components)/_base/fieldset'
 import {
   DiscoveredFilter,
   VALID_DISCOVERED_FILTERS,
@@ -30,7 +31,6 @@ import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { WorldFilter } from '@/app/(components)/filters/world-filter'
 import { allItems } from '@/app/(data)/items/all-items'
 import { ITEM_TOKENS } from '@/app/(types)/tokens'
-import { cn } from '@/app/(utils)/classnames'
 
 function buildItemSearchTextItems() {
   {

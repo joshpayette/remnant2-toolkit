@@ -2,7 +2,8 @@ import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogTitle,
-} from '@/app/(components)/_base/dialog'
+} from '@repo/ui/base/dialog'
+
 import { MINIMUM_QUALITY_DESCRIPTION_LENGTH } from '@/app/(components)/filters/builds/build-misc-filter'
 
 interface Props {

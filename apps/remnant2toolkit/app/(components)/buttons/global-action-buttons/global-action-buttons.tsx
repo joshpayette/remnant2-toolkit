@@ -6,17 +6,17 @@ import {
   Cog6ToothIcon,
   PaintBrushIcon,
 } from '@heroicons/react/24/solid'
+import { BaseButton } from '@repo/ui/base/button'
+import { cn } from '@repo/ui/classnames'
+import { ZINDEXES } from '@repo/ui/zindexes'
 import { AnimatePresence, motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { BaseButton } from '@repo/ui/base/button'
 import { BugReportPrompt } from '@/app/(components)/alerts/bug-report-prompt'
 import { ReportBug } from '@/app/(components)/buttons/global-action-buttons/actions'
-import { ZINDEXES } from '@/app/(components)/z-indexes'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
-import { cn } from '@/app/(utils)/classnames'
 
 // Lazy-load the theme toggle, since it relies on client context
 const ThemeSelectButton = dynamic(
