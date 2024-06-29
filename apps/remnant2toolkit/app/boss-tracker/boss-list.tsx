@@ -2,6 +2,7 @@
 
 import { Disclosure } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
+import { cn } from '@repo/ui/classnames'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
@@ -20,7 +21,6 @@ import {
   BossTrackerLocalStorage,
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage'
-import { cn } from '@/app/(utils)/classnames'
 import { BossTrackerCategory } from '@/app/boss-tracker/types'
 import { getTrackerProgress } from '@/app/boss-tracker/utils'
 

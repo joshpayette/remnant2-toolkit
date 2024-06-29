@@ -1,16 +1,15 @@
 'use client'
 
-import { useState } from 'react'
-
 import {
   BaseAlert,
   BaseAlertActions,
   BaseAlertBody,
   BaseAlertDescription,
   BaseAlertTitle,
-} from '@/app/(components)/_base/alert'
+} from '@repo/ui/base/alert'
 import { BaseButton } from '@repo/ui/base/button'
-import { BaseTextarea } from '@/app/(components)/_base/textarea'
+import { BaseTextarea } from '@repo/ui/base/textarea'
+import { useState } from 'react'
 
 interface Props {
   open: boolean

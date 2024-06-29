@@ -1,6 +1,6 @@
+import { cn } from '@repo/ui/classnames'
 import Image from 'next/image'
 
-import { cn } from '@/app/(utils)/classnames'
 import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 import { DISCORD_INVITE_URL, NAV_ITEMS } from '../(types)/navigation'
@@ -9,7 +9,7 @@ const aClass = 'text-gray-300 hover:text-primary-400 underline'
 
 export function Footer() {
   return (
-    <footer className="mt-8 flex w-full items-center justify-center border-t border-secondary-900 bg-background-solid p-4 text-left text-sm text-gray-400">
+    <footer className="border-secondary-900 bg-background-solid mt-8 flex w-full items-center justify-center border-t p-4 text-left text-sm text-gray-400">
       <div className="max-w-2xl gap-2">
         <div className="flex w-full flex-row items-center justify-center gap-4 p-2">
           <a
@@ -129,7 +129,7 @@ export function Footer() {
           </a>
           .
         </p>
-        <div className="h-[50px] w-full bg-background-solid sm:hidden">
+        <div className="bg-background-solid h-[50px] w-full sm:hidden">
           {/* Spacer for the back to top button on mobile */}
           &nbsp;
         </div>

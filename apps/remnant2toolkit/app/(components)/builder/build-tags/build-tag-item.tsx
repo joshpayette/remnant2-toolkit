@@ -1,4 +1,4 @@
-import { cn } from '@/app/(utils)/classnames'
+import { cn } from '@repo/ui/classnames'
 
 import { BuildTag } from './types'
 

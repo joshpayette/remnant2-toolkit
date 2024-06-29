@@ -3,7 +3,8 @@ import {
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@/app/(components)/_base/dialog'
+} from '@repo/ui/base/dialog'
+
 import { ListItem } from '@/app/(components)/builder/stats/list-item'
 import { Section } from '@/app/(components)/builder/stats/section'
 import { Item } from '@/app/(data)/items/types'

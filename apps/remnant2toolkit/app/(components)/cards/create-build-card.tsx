@@ -1,7 +1,7 @@
+import { Link } from '@repo/ui/base/link'
+import { cn } from '@repo/ui/classnames'
 import Image from 'next/image'
 
-import { Link } from '@repo/ui/base/link'
-import { cn } from '@/app/(utils)/classnames'
 import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 export function CreateBuildCard() {

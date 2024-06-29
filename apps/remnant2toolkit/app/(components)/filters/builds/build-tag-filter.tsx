@@ -1,15 +1,11 @@
+import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseCheckbox,
   BaseCheckboxField,
   BaseCheckboxGroup,
 } from '@repo/ui/base/checkbox'
+import { BaseFieldset, BaseLabel, BaseLegend } from '@repo/ui/base/fieldset'
 
-import { BaseButton } from '@repo/ui/base/button'
-import {
-  BaseFieldset,
-  BaseLabel,
-  BaseLegend,
-} from '@/app/(components)/_base/fieldset'
 import { ALL_BUILD_TAGS } from '@/app/(components)/builder/build-tags/constants'
 
 export const VALID_BUILD_TAGS = ALL_BUILD_TAGS.map((item) => item.label)

@@ -1,11 +1,12 @@
 import { XCircleIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
 import { BaseInput } from '@repo/ui/base/input'
+import { cn } from '@repo/ui/classnames'
+import { ZINDEXES } from '@repo/ui/zindexes'
 import { useState } from 'react'
 import { TbHttpOptions } from 'react-icons/tb'
 
 import { Tooltip } from '@/app/(components)/tooltip'
-import { ZINDEXES } from '@/app/(components)/z-indexes'
 import {
   DEFAULT_TRAIT_AMOUNT,
   MAX_TRAIT_AMOUNT,
@@ -13,7 +14,6 @@ import {
 import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { BuildState } from '@/app/(types)/builds'
-import { cn } from '@/app/(utils)/classnames'
 
 export function Traits({
   buildState,

@@ -1,5 +1,5 @@
 import { BaseButton } from '@repo/ui/base/button'
-import { cn } from '@/app/(utils)/classnames'
+import { cn } from '@repo/ui/classnames'
 
 interface Props<T> {
   areFiltersApplied: boolean

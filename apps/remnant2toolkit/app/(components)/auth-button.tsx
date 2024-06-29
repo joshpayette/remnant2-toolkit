@@ -2,13 +2,13 @@
 
 import { Menu, Transition } from '@headlessui/react'
 import { Link } from '@repo/ui/base/link'
+import { cn } from '@repo/ui/classnames'
 import { useSession } from 'next-auth/react'
 import { Fragment, useEffect, useState } from 'react'
 
 import getAvatarId from '@/app/(actions)/profile/get-avatar-id'
 import { PlaceHolderIcon } from '@/app/(components)/placeholder-icon'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
-import { cn } from '@/app/(utils)/classnames'
 import { getImageUrl } from '@/app/(utils)/get-image-url'
 import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id'
 

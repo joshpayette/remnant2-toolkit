@@ -2,7 +2,7 @@ import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogTitle,
-} from '@/app/(components)/_base/dialog'
+} from '@repo/ui/base/dialog'
 
 interface Props {
   children: React.ReactNode

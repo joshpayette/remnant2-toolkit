@@ -1,15 +1,19 @@
-import { useEffect, useState } from 'react'
-
 import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@/app/(components)/_base/dialog'
+} from '@repo/ui/base/dialog'
+import {
+  BaseListbox,
+  BaseListboxLabel,
+  BaseListboxOption,
+} from '@repo/ui/base/listbox'
+import { useEffect, useState } from 'react'
+
 import { ArmorSuggestionCard } from '@/app/(components)/cards/armor-suggestion-card'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
-import { WeightClassSelect } from '@/app/(components)/form-fields/selects/weight-class-select'
 import { Pagination } from '@/app/(components)/pagination'
 import { Item } from '@/app/(data)/items/types'
 import {
@@ -50,9 +54,6 @@ function ArmorInfoContainer({
       </BaseDialogDescription>
       <BaseDialogBody>
         <div className="flex flex-col items-center justify-start sm:pr-4">
-          <h2 className="text-secondary-500 mb-4 text-2xl font-semibold">
-            Armor Suggestions
-          </h2>
           {children}
         </div>
       </BaseDialogBody>
@@ -129,6 +130,7 @@ export function ArmorSuggestionDialog({
   function handleWeightClassChange(weightClass: WeightClassKeysWithDefault) {
     if (weightClass === 'CHOOSE') {
       setArmorSuggestions([])
+      setDesiredWeightClass(weightClass)
       return
     }
     setDesiredWeightClass(weightClass)
@@ -176,18 +178,24 @@ export function ArmorSuggestionDialog({
     <ArmorInfoContainer {...armorInfoProps}>
       <div className="flex w-full flex-row items-end justify-center gap-x-2 text-left">
         <div className="flex w-full max-w-md items-end justify-center gap-x-2">
-          <WeightClassSelect
+          <BaseListbox
+            key={desiredWeightClass}
+            name="weight-class"
             value={desiredWeightClass}
             onChange={handleWeightClassChange}
-            options={[
+          >
+            {[
               { label: 'Choose', value: 'CHOOSE' },
               { label: 'Light', value: 'LIGHT' },
               { label: 'Medium', value: 'MEDIUM' },
               { label: 'Heavy', value: 'HEAVY' },
               { label: 'Ultra', value: 'ULTRA' },
-            ]}
-          />
-
+            ].map(({ label, value }) => (
+              <BaseListboxOption key={value} value={value}>
+                <BaseListboxLabel>{label}</BaseListboxLabel>
+              </BaseListboxOption>
+            ))}
+          </BaseListbox>
           <BaseButton
             color="red"
             className="mt-4"

@@ -1,10 +1,11 @@
 'use client'
 
 import { Link } from '@repo/ui/base/link'
+import { cn } from '@repo/ui/classnames'
+
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
 import { Skeleton } from '@/app/(components)/skeleton'
 import type { LinkedBuildState } from '@/app/(types)/linked-builds'
-import { cn } from '@/app/(utils)/classnames'
 
 interface Props {
   linkedBuildState: LinkedBuildState

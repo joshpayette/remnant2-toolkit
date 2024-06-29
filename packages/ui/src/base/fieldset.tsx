@@ -22,7 +22,7 @@ export function BaseFieldset({
       {...props}
       className={clsx(
         className,
-        '[&>*+[data-slot=control]]:mt-2 [&>[data-slot=text]]:mt-1',
+        '[&>*+[data-slot=control]]:ui-mt-2 [&>[data-slot=text]]:ui-mt-1',
       )}
     />
   )
@@ -35,7 +35,7 @@ export function BaseLegend({ ...props }: HeadlessLegendProps) {
       data-slot="legend"
       className={clsx(
         props.className,
-        'text-surface-solid text-base/6 font-semibold data-[disabled]:opacity-50 sm:text-sm/6',
+        'ui-text-surface-solid ui-text-base/6 ui-font-semibold data-[disabled]:ui-opacity-50 sm:ui-text-sm/6',
       )}
     />
   )
@@ -49,7 +49,7 @@ export function BaseFieldGroup({
     <div
       {...props}
       data-slot="control"
-      className={clsx(className, 'space-y-8')}
+      className={clsx(className, 'ui-space-y-8')}
     />
   )
 }
@@ -59,12 +59,12 @@ export function BaseField({ className, ...props }: HeadlessFieldProps) {
     <HeadlessField
       className={clsx(
         className,
-        '[&>[data-slot=label]+[data-slot=control]]:mt-3',
-        '[&>[data-slot=label]+[data-slot=description]]:mt-1',
-        '[&>[data-slot=description]+[data-slot=control]]:mt-3',
-        '[&>[data-slot=control]+[data-slot=description]]:mt-3',
-        '[&>[data-slot=control]+[data-slot=error]]:mt-3',
-        '[&>[data-slot=label]]:font-medium',
+        '[&>[data-slot=label]+[data-slot=control]]:ui-mt-3',
+        '[&>[data-slot=label]+[data-slot=description]]:ui-mt-1',
+        '[&>[data-slot=description]+[data-slot=control]]:ui-mt-3',
+        '[&>[data-slot=control]+[data-slot=description]]:ui-mt-3',
+        '[&>[data-slot=control]+[data-slot=error]]:ui-mt-3',
+        '[&>[data-slot=label]]:ui-font-medium',
       )}
       {...props}
     />
@@ -81,7 +81,7 @@ export function BaseLabel({
       data-slot="label"
       className={clsx(
         className,
-        'text-surface-solid select-none text-base/6 data-[disabled]:opacity-50 sm:text-sm/6',
+        'ui-text-surface-solid ui-select-none ui-text-base/6 data-[disabled]:ui-opacity-50 sm:ui-text-sm/6',
       )}
     />
   )
@@ -98,7 +98,7 @@ export function BaseDescription({
       data-slot="description"
       className={clsx(
         className,
-        'text-base/6 text-zinc-400 data-[disabled]:opacity-50 sm:text-sm/6',
+        'ui-text-base/6 ui-text-zinc-400 data-[disabled]:ui-opacity-50 sm:ui-text-sm/6',
       )}
     />
   )
@@ -115,7 +115,7 @@ export function BaseErrorMessage({
       data-slot="error"
       className={clsx(
         className,
-        'text-base/6 text-red-500 data-[disabled]:opacity-50 sm:text-sm/6',
+        'ui-text-base/6 ui-text-red-500 data-[disabled]:ui-opacity-50 sm:ui-text-sm/6',
       )}
     />
   )

@@ -1,9 +1,8 @@
 import { XMarkIcon } from '@heroicons/react/24/solid'
+import { BaseButton } from '@repo/ui/base/button'
 import { BaseInput, BaseInputProps } from '@repo/ui/base/input'
 
-import { BaseButton } from '@repo/ui/base/button'
-
-export function Input({
+export function InputWithClear({
   onChange,
   onClear,
   onKeyDown,

@@ -1,12 +1,9 @@
-import {
-  BaseDialogBody,
-  BaseDialogTitle,
-} from '@/app/(components)/_base/dialog'
-import { BaseCode, BaseText, BaseTextLink } from '@/app/(components)/_base/text'
+import { BaseDialogBody, BaseDialogTitle } from '@repo/ui/base/dialog'
+import { BaseCode, BaseText, BaseTextLink } from '@repo/ui/base/text'
 
 export default function LocatingProfileSav() {
   return (
-    <div className="mt-2 bg-background p-4">
+    <div className="bg-background mt-2 p-4">
       <BaseDialogTitle>Locating Your Save</BaseDialogTitle>
       <BaseDialogBody>
         Steam

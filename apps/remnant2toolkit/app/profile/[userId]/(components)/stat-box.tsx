@@ -1,4 +1,4 @@
-import { cn } from '@/app/(utils)/classnames'
+import { cn } from '@repo/ui/classnames'
 
 interface Props {
   stat: { name: string; value: number; unit?: string }
@@ -16,12 +16,12 @@ export function StatBox({ stat, index, footer }: Props) {
           : index === 2 || index === 4
             ? 'sm:border-l'
             : '',
-        'flex flex-col items-center justify-between border-t border-surface-solid/5 px-4 py-6 sm:px-6',
+        'border-surface-solid/5 flex flex-col items-center justify-between border-t px-4 py-6 sm:px-6',
       )}
     >
       <p className="text-sm font-medium leading-6 text-gray-400">{stat.name}</p>
       <p className="mt-2 flex items-baseline justify-center gap-x-2">
-        <span className="text-4xl font-semibold tracking-tight text-surface-solid">
+        <span className="text-surface-solid text-4xl font-semibold tracking-tight">
           {stat.value}
         </span>
         {stat.unit ? (

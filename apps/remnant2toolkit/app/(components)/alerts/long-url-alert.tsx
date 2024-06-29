@@ -1,13 +1,13 @@
-import copy from 'clipboard-copy'
-import { toast } from 'react-toastify'
-
 import {
   BaseAlert,
   BaseAlertActions,
   BaseAlertDescription,
   BaseAlertTitle,
-} from '@/app/(components)/_base/alert'
+} from '@repo/ui/base/alert'
 import { BaseButton } from '@repo/ui/base/button'
+import copy from 'clipboard-copy'
+import { toast } from 'react-toastify'
+
 import { urlNoCache } from '@/app/(utils)/url-no-cache'
 
 interface Props {

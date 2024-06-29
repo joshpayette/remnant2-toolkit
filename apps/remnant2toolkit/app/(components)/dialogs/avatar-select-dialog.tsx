@@ -4,7 +4,8 @@ import {
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@/app/(components)/_base/dialog'
+} from '@repo/ui/base/dialog'
+
 import { AvatarBox } from '@/app/profile/[userId]/(components)/avatar-box'
 import { AVATARS } from '@/app/profile/[userId]/(lib)/constants'
 

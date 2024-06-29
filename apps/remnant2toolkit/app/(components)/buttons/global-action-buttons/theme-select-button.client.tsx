@@ -1,20 +1,20 @@
 import { PaintBrushIcon } from '@heroicons/react/24/solid'
-import { useTheme } from 'next-themes'
-import { useState } from 'react'
-import { useReadLocalStorage } from 'usehooks-ts'
-
 import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogTitle,
-} from '@/app/(components)/_base/dialog'
-import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
+} from '@repo/ui/base/dialog'
+import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
 import {
   BaseListbox,
   BaseListboxLabel,
   BaseListboxOption,
-} from '@/app/(components)/_base/listbox'
+} from '@repo/ui/base/listbox'
+import { useTheme } from 'next-themes'
+import { useState } from 'react'
+import { useReadLocalStorage } from 'usehooks-ts'
+
 import { ColorThemes } from '@/app/(components)/theme-selection.client'
 
 const Modes = ['All', 'Dark', 'Light'] as const

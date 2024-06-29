@@ -3,7 +3,8 @@ import {
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@/app/(components)/_base/dialog'
+} from '@repo/ui/base/dialog'
+
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
 import { INLINE_TOKENS } from '@/app/(types)/tokens'
 

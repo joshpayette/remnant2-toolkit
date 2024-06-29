@@ -1,6 +1,3 @@
-import { BaseInput } from '@repo/ui/base/input'
-import type React from 'react'
-
 import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseDialog,
@@ -8,14 +5,17 @@ import {
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@/app/(components)/_base/dialog'
-import { BaseField, BaseLabel } from '@/app/(components)/_base/fieldset'
+} from '@repo/ui/base/dialog'
+import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
+import { BaseInput } from '@repo/ui/base/input'
 import {
   BaseListbox,
   BaseListboxLabel,
   BaseListboxOption,
-} from '@/app/(components)/_base/listbox'
-import { BaseCode } from '@/app/(components)/_base/text'
+} from '@repo/ui/base/listbox'
+import { BaseCode } from '@repo/ui/base/text'
+import type React from 'react'
+
 import LocatingProfileSav from '@/app/(components)/dialogs/partial/locating-profile-sav'
 import type { DBBuild } from '@/app/(types)/builds'
 import { getArrayOfLength } from '@/app/(utils)/get-array-of-length'

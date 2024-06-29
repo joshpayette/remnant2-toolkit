@@ -2,7 +2,8 @@ import {
   BaseListbox,
   BaseListboxLabel,
   BaseListboxOption,
-} from '@/app/(components)/_base/listbox'
+} from '@repo/ui/base/listbox'
+
 import { useBuildVisibilityFilter } from '@/app/(components)/filters/builds/secondary-filters/build-visibility-filter/use-build-visibility-filter'
 
 interface Props {

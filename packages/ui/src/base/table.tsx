@@ -1,9 +1,10 @@
 'use client'
 
 import { Link } from '@repo/ui/base/link'
-import { clsx } from 'clsx'
 import type React from 'react'
 import { createContext, useContext, useState } from 'react'
+
+import { cn } from '../classnames'
 
 const TableContext = createContext<{
   bleed: boolean
@@ -42,18 +43,20 @@ export function BaseTable({
       <div className="flow-root">
         <div
           {...props}
-          className={clsx(
+          className={cn(
             className,
-            '-mx-[--gutter] overflow-x-auto whitespace-nowrap',
+            '-ui-mx-[--gutter] ui-overflow-x-auto ui-whitespace-nowrap',
           )}
         >
           <div
-            className={clsx(
-              'inline-block min-w-full align-middle',
-              !bleed && 'sm:px-[--gutter]',
+            className={cn(
+              'ui-inline-block ui-min-w-full ui-align-middle',
+              !bleed && 'sm:ui-px-[--gutter]',
             )}
           >
-            <table className="min-w-full text-left text-sm/6">{children}</table>
+            <table className="ui-min-w-full ui-text-left ui-text-sm/6">
+              {children}
+            </table>
           </div>
         </div>
       </div>
@@ -65,7 +68,7 @@ export function BaseTableHead({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<'thead'>) {
-  return <thead className={clsx(className, 'text-zinc-400')} {...props} />
+  return <thead className={cn(className, 'ui-text-zinc-400')} {...props} />
 }
 
 export function BaseTableBody(props: React.ComponentPropsWithoutRef<'tbody'>) {
@@ -104,13 +107,13 @@ export function BaseTableRow({
     >
       <tr
         {...props}
-        className={clsx(
+        className={cn(
           className,
           href &&
-            'focus-within:bg-surface-solid/[2.5%] has-[[data-row-link][data-focus]]:outline has-[[data-row-link][data-focus]]:outline-2 has-[[data-row-link][data-focus]]:-outline-offset-2 has-[[data-row-link][data-focus]]:outline-blue-500',
-          striped && 'even:bg-surface-solid/[2.5%]',
-          href && striped && 'hover:bg-surface-solid/5',
-          href && !striped && 'hover:bg-surface-solid/[2.5%]',
+            'focus-within:ui-bg-surface-solid/[2.5%] has-[[data-row-link][data-focus]]:ui-outline has-[[data-row-link][data-focus]]:ui-outline-2 has-[[data-row-link][data-focus]]:-ui-outline-offset-2 has-[[data-row-link][data-focus]]:ui-outline-blue-500',
+          striped && 'even:ui-bg-surface-solid/[2.5%]',
+          href && striped && 'hover:ui-bg-surface-solid/5',
+          href && !striped && 'hover:ui-bg-surface-solid/[2.5%]',
         )}
       >
         {children}
@@ -128,11 +131,11 @@ export function BaseTableHeader({
   return (
     <th
       {...props}
-      className={clsx(
+      className={cn(
         className,
-        'border-b-surface-solid/10 border-b px-4 py-2 font-medium first:pl-[var(--gutter,theme(spacing.2))] last:pr-[var(--gutter,theme(spacing.2))]',
-        grid && 'border-l-surface-solid/5 border-l first:border-l-0',
-        !bleed && 'sm:first:pl-2 sm:last:pr-2',
+        'ui-border-b-surface-solid/10 ui-border-b ui-px-4 ui-py-2 ui-font-medium first:ui-pl-[var(--gutter,theme(spacing.2))] last:ui-pr-[var(--gutter,theme(spacing.2))]',
+        grid && 'ui-border-l-surface-solid/5 ui-border-l first:ui-border-l-0',
+        !bleed && 'sm:first:ui-pl-2 sm:last:ui-pr-2',
       )}
     />
   )
@@ -151,13 +154,13 @@ export function BaseTableCell({
     <td
       ref={href ? setCellRef : undefined}
       {...props}
-      className={clsx(
+      className={cn(
         className,
-        'relative px-4 first:pl-[var(--gutter,theme(spacing.2))] last:pr-[var(--gutter,theme(spacing.2))]',
-        !striped && 'border-surface-solid/5 border-b',
-        grid && 'border-l-surface-solid/5 border-l first:border-l-0',
-        dense ? 'py-2.5' : 'py-4',
-        !bleed && 'sm:first:pl-2 sm:last:pr-2',
+        'ui-relative ui-px-4 first:ui-pl-[var(--gutter,theme(spacing.2))] last:ui-pr-[var(--gutter,theme(spacing.2))]',
+        !striped && 'ui-border-surface-solid/5 ui-border-b',
+        grid && 'ui-border-l-surface-solid/5 ui-border-l first:ui-border-l-0',
+        dense ? 'ui-py-2.5' : 'ui-py-4',
+        !bleed && 'sm:first:ui-pl-2 sm:last:ui-pr-2',
       )}
     >
       {href && (
@@ -167,7 +170,7 @@ export function BaseTableCell({
           target={target}
           aria-label={title}
           tabIndex={cellRef?.previousElementSibling === null ? 0 : -1}
-          className="absolute inset-0 focus:outline-none"
+          className="ui-absolute ui-inset-0 focus:ui-outline-none"
         />
       )}
       {children}

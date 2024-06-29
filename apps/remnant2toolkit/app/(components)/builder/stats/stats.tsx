@@ -1,3 +1,5 @@
+import { cn } from '@repo/ui/classnames'
+import { ZINDEXES } from '@repo/ui/zindexes'
 import Image from 'next/image'
 import { useState } from 'react'
 import { IoInformationCircleSharp } from 'react-icons/io5'
@@ -6,7 +8,6 @@ import { ArmorBreakdownDialog } from '@/app/(components)/dialogs/armor-breakdown
 import { HealthBreakdownDialog } from '@/app/(components)/dialogs/health-breakdown-dialog'
 import { StaminaBreakdownDialog } from '@/app/(components)/dialogs/stamina-breakdown-dialog'
 import { Tooltip } from '@/app/(components)/tooltip'
-import { ZINDEXES } from '@/app/(components)/z-indexes'
 import { BuildState } from '@/app/(types)/builds'
 import { getTotalArmor } from '@/app/(utils)/builds/get-totals/get-total-armor'
 import { getTotalHealth } from '@/app/(utils)/builds/get-totals/get-total-health'
@@ -15,7 +16,6 @@ import { getTotalStamina } from '@/app/(utils)/builds/get-totals/get-total-stami
 import { getTotalWeight } from '@/app/(utils)/builds/get-totals/get-total-weight'
 import { getWeightClass } from '@/app/(utils)/builds/get-totals/get-weight-class'
 import { buildToVashUrl } from '@/app/(utils)/builds/vash-integration/build-to-vash-url'
-import { cn } from '@/app/(utils)/classnames'
 import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 interface Props {
@@ -64,55 +64,55 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
       <div className="flex w-full flex-grow flex-col justify-start">
         <div className="flex w-full flex-row items-center justify-start">
           <div className="flex w-full flex-col items-start justify-start sm:max-w-[275px]">
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+            <div className="border-b-primary-500 relative grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Health</p>
               {/** Not updating to new button component */}
               <button
                 className={cn(
-                  'text-md flex items-center justify-end rounded-full border-transparent bg-background-solid text-right font-bold sm:text-lg',
+                  'text-md bg-background-solid flex items-center justify-end rounded-full border-transparent text-right font-bold sm:text-lg',
                   isScreenshotMode && 'text-lg',
                 )}
                 onClick={() => setHealthInfoOpen(true)}
               >
                 {totalHealth}
                 {!isScreenshotMode && (
-                  <IoInformationCircleSharp className="h-4 w-4 text-accent1-500" />
+                  <IoInformationCircleSharp className="text-accent1-500 h-4 w-4" />
                 )}
               </button>
             </div>
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+            <div className="border-b-primary-500 relative grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Stamina</p>
               {/** Not updating to new button component */}
               <button
                 className={cn(
-                  'text-md flex items-center justify-end rounded-full border-transparent bg-background-solid text-right font-bold sm:text-lg',
+                  'text-md bg-background-solid flex items-center justify-end rounded-full border-transparent text-right font-bold sm:text-lg',
                   isScreenshotMode && 'text-lg',
                 )}
                 onClick={() => setStaminaInfoOpen(true)}
               >
                 {totalStamina}
                 {!isScreenshotMode && (
-                  <IoInformationCircleSharp className="h-4 w-4 text-accent1-500" />
+                  <IoInformationCircleSharp className="text-accent1-500 h-4 w-4" />
                 )}
               </button>
             </div>
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+            <div className="border-b-primary-500 relative grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Armor</p>
               {/** Not updating to new button component */}
               <button
                 className={cn(
-                  'text-md flex items-center justify-end rounded-full border-transparent bg-background-solid text-right font-bold sm:text-lg',
+                  'text-md bg-background-solid flex items-center justify-end rounded-full border-transparent text-right font-bold sm:text-lg',
                   isScreenshotMode && 'text-lg',
                 )}
                 onClick={() => setArmorInfoOpen(true)}
               >
                 {totalArmor}
                 {!isScreenshotMode && (
-                  <IoInformationCircleSharp className="h-4 w-4 text-accent1-500" />
+                  <IoInformationCircleSharp className="text-accent1-500 h-4 w-4" />
                 )}
               </button>
             </div>
-            <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+            <div className="border-b-primary-500 relative grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
               <p className="flex items-center justify-start">Weight</p>
               <span
                 className={cn(
@@ -142,7 +142,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               </span>
             </div>
             <div className="grid w-full grid-cols-2 gap-x-2">
-              <div className="relative grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+              <div className="border-b-primary-500 relative grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
                 <Image
                   src={getImageUrl(`/status/bleed_resistance.png`)}
                   alt="Bleed Resistance"
@@ -161,7 +161,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                   {totalBleedResistance}
                 </span>
               </div>
-              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+              <div className="border-b-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
                 <Image
                   src={getImageUrl(`/status/fire_resistance.png`)}
                   alt="Fire Resistance"
@@ -180,7 +180,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                   {totalFireResistance}
                 </span>
               </div>
-              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+              <div className="border-b-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
                 <Image
                   src={getImageUrl(`/status/shock_resistance.png`)}
                   alt="Shock Resistance"
@@ -199,7 +199,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                   {totalShockResistance}
                 </span>
               </div>
-              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+              <div className="border-b-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
                 <Image
                   src={getImageUrl(`/status/toxin_resistance.png`)}
                   alt="Toxin Resistance"
@@ -218,7 +218,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                   {totalToxinResistance}
                 </span>
               </div>
-              <div className="grid w-full grid-cols-2 gap-2 border border-transparent border-b-primary-500 text-left text-sm text-gray-300">
+              <div className="border-b-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
                 <Image
                   src={getImageUrl(`/status/blight_resistance.png`)}
                   alt="Blight Resistance"
@@ -248,7 +248,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 <a
                   href={buildToVashUrl(buildState)}
                   target="_blank"
-                  className="flex items-center justify-center rounded-lg border border-gray-500 bg-gray-800 p-2 text-xs text-surface-solid hover:bg-gray-700"
+                  className="text-surface-solid flex items-center justify-center rounded-lg border border-gray-500 bg-gray-800 p-2 text-xs hover:bg-gray-700"
                 >
                   Export to Loadout Calculator
                   <Image

@@ -2,8 +2,9 @@ import {
   Input as HeadlessInput,
   type InputProps as HeadlessInputProps,
 } from '@headlessui/react'
-import { clsx } from 'clsx'
 import { forwardRef } from 'react'
+
+import { cn } from '../classnames'
 
 const dateTypes = ['date', 'datetime-local', 'month', 'time', 'week']
 type DateType = (typeof dateTypes)[number]
@@ -25,7 +26,7 @@ export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
     return (
       <span
         data-slot="control"
-        className={clsx([
+        className={cn([
           // Basic layout
           'ui-relative ui-block ui-w-full',
 
@@ -49,7 +50,7 @@ export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
       >
         <HeadlessInput
           ref={ref}
-          className={clsx([
+          className={cn([
             // Date classes
             props.type &&
               dateTypes.includes(props.type) && [

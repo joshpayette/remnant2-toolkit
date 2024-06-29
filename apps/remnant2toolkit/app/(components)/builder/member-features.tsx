@@ -1,26 +1,22 @@
 'use client'
 
 import { BuildTags } from '@repo/db'
+import { BaseButton } from '@repo/ui/base/button'
+import { BaseField, BaseFieldset, BaseLabel } from '@repo/ui/base/fieldset'
 import { BaseInput } from '@repo/ui/base/input'
+import { BaseSwitch } from '@repo/ui/base/switch'
+import { BaseTextarea } from '@repo/ui/base/textarea'
+import { cn } from '@repo/ui/classnames'
 import { useSession } from 'next-auth/react'
 import { useState } from 'react'
 import { IoDocumentTextSharp } from 'react-icons/io5'
 import { MdOutlineGeneratingTokens } from 'react-icons/md'
 
-import { BaseButton } from '@repo/ui/base/button'
-import {
-  BaseField,
-  BaseFieldset,
-  BaseLabel,
-} from '@/app/(components)/_base/fieldset'
-import { BaseSwitch } from '@/app/(components)/_base/switch'
-import { BaseTextarea } from '@/app/(components)/_base/textarea'
 import { BuildDescriptionTemplateAlert } from '@/app/(components)/alerts/build-description-template-alert'
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
 import DescriptionTokenDialog from '@/app/(components)/dialogs/description-token-dialog'
 import { Skeleton } from '@/app/(components)/skeleton'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
-import { cn } from '@/app/(utils)/classnames'
 
 import { BuildTagsDisplay } from './build-tags/build-tags-display'
 

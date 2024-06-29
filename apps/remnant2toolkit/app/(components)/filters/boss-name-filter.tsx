@@ -1,9 +1,10 @@
-import { BaseField } from '@/app/(components)/_base/fieldset'
+import { BaseField } from '@repo/ui/base/fieldset'
 import {
   BaseListbox,
   BaseListboxLabel,
   BaseListboxOption,
-} from '@/app/(components)/_base/listbox'
+} from '@repo/ui/base/listbox'
+
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { ALL_BOSSES } from '@/app/(data)/world-saves/constants'
 

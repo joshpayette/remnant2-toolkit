@@ -1,12 +1,12 @@
-import { useState } from 'react'
-
 import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@/app/(components)/_base/dialog'
+} from '@repo/ui/base/dialog'
+import { useState } from 'react'
+
 import { ItemButton } from '@/app/(components)/buttons/item-button'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { ItemTagSelect } from '@/app/(components)/filters/builds/item-tag-select'

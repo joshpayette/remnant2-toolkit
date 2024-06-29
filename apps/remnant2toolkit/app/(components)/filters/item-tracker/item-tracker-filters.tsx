@@ -2,16 +2,13 @@
 
 import { Disclosure } from '@headlessui/react'
 import { FunnelIcon } from '@heroicons/react/24/solid'
+import { BaseButton } from '@repo/ui/base/button'
+import { BaseField, BaseFieldGroup, BaseFieldset } from '@repo/ui/base/fieldset'
+import { cn } from '@repo/ui/classnames'
 import isEqual from 'lodash.isequal'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useState } from 'react'
 
-import { BaseButton } from '@repo/ui/base/button'
-import {
-  BaseField,
-  BaseFieldGroup,
-  BaseFieldset,
-} from '@/app/(components)/_base/fieldset'
 import {
   DiscoveredFilter,
   VALID_DISCOVERED_FILTERS,
@@ -29,8 +26,7 @@ import {
 } from '@/app/(components)/filters/releases-filter'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { WorldFilter } from '@/app/(components)/filters/world-filter'
-import { Input } from '@/app/(components)/form-fields/input'
-import { cn } from '@/app/(utils)/classnames'
+import { InputWithClear } from '@/app/(components)/input-with-clear'
 
 export const DEFAULT_ITEM_TRACKER_FILTERS = {
   categories: VALID_ITEM_CATEGORIES,
@@ -232,7 +228,7 @@ export function ItemTrackerFilters() {
             <div className="w-full pr-4">
               <BaseField className="col-span-full sm:col-span-2">
                 <div className="w-full max-w-[600px]">
-                  <Input
+                  <InputWithClear
                     type="text"
                     value={unappliedFilters.searchText}
                     placeholder="Item name..."

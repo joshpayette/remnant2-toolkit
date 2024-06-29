@@ -19,10 +19,10 @@ export function BaseSwitchGroup({
         className,
 
         // Basic groups
-        'space-y-3 [&_[data-slot=label]]:font-normal',
+        'ui-space-y-3 [&_[data-slot=label]]:ui-font-normal',
 
         // With descriptions
-        'has-[[data-slot=description]]:space-y-6 [&_[data-slot=label]]:has-[[data-slot=description]]:font-medium',
+        'has-[[data-slot=description]]:ui-space-y-6 [&_[data-slot=label]]:has-[[data-slot=description]]:ui-font-medium',
       )}
     />
   )
@@ -37,19 +37,19 @@ export function BaseSwitchField({ className, ...props }: HeadlessFieldProps) {
         className,
 
         // Base layout
-        'grid grid-cols-[1fr_auto] items-center gap-x-8 gap-y-1 sm:grid-cols-[1fr_auto]',
+        'ui-grid ui-grid-cols-[1fr_auto] ui-items-center ui-gap-x-8 ui-gap-y-1 sm:ui-grid-cols-[1fr_auto]',
 
         // Control layout
-        '[&>[data-slot=control]]:col-start-2 [&>[data-slot=control]]:self-center',
+        '[&>[data-slot=control]]:ui-col-start-2 [&>[data-slot=control]]:ui-self-center',
 
         // Label layout
-        '[&>[data-slot=label]]:col-start-1 [&>[data-slot=label]]:row-start-1 [&>[data-slot=label]]:justify-self-start',
+        '[&>[data-slot=label]]:ui-col-start-1 [&>[data-slot=label]]:ui-row-start-1 [&>[data-slot=label]]:ui-justify-self-start',
 
         // Description layout
-        '[&>[data-slot=description]]:col-start-1 [&>[data-slot=description]]:row-start-2',
+        '[&>[data-slot=description]]:ui-col-start-1 [&>[data-slot=description]]:ui-row-start-2',
 
         // With description
-        '[&_[data-slot=label]]:has-[[data-slot=description]]:font-medium',
+        '[&_[data-slot=label]]:has-[[data-slot=description]]:ui-font-medium',
       )}
     />
   )
@@ -165,28 +165,28 @@ export function BaseSwitch({
         className,
 
         // Base styles
-        'group relative isolate inline-flex h-6 w-10 cursor-default rounded-full p-[3px] sm:h-5 sm:w-8',
+        'ui-group ui-relative ui-isolate ui-inline-flex ui-h-6 ui-w-10 ui-cursor-default ui-rounded-full ui-p-[3px] sm:ui-h-5 sm:ui-w-8',
 
         // Transitions
-        'transition duration-0 ease-in-out data-[changing]:duration-200',
+        'ui-transition ui-duration-0 ui-ease-in-out data-[changing]:ui-duration-200',
 
         // Outline and background color in forced-colors mode so switch is still visible
-        'forced-colors:outline forced-colors:[--switch-bg:Highlight]',
+        'forced-colors:ui-outline forced-colors:ui-[--switch-bg:Highlight]',
 
         // Unchecked
-        'bg-surface-solid/5 ring-surface-solid/15 ring-1 ring-inset',
+        'ui-bg-surface-solid/5 ui-ring-surface-solid/15 ui-ring-1 ui-ring-inset',
 
         // Checked
-        'data-[checked]:bg-[--switch-bg] data-[checked]:ring-[--switch-bg-ring]',
+        'data-[checked]:ui-bg-[--switch-bg] data-[checked]:ui-ring-[--switch-bg-ring]',
 
         // Focus
-        'focus:outline-none data-[focus]:outline data-[focus]:outline-2 data-[focus]:outline-offset-2 data-[focus]:outline-blue-500',
+        'focus:ui-outline-none data-[focus]:ui-outline-2 data-[focus]:ui-outline-offset-2 data-[focus]:ui-outline-blue-500 data-[focus]:outline',
 
         // Hover
-        'data-[hover]:ring-surface-solid/25 data-[hover]:data-[checked]:ring-[--switch-bg-ring]',
+        'data-[hover]:ui-ring-surface-solid/25 data-[hover]:data-[checked]:ui-ring-[--switch-bg-ring]',
 
         // Disabled
-        'data-[disabled]:bg-surface-solid/15 data-[disabled]:data-[checked]:bg-surface-solid/15 data-[disabled]:data-[checked]:ring-surface-solid/15 data-[disabled]:opacity-50 ',
+        'data-[disabled]:ui-bg-surface-solid/15 data-[disabled]:data-[checked]:ui-bg-surface-solid/15 data-[disabled]:data-[checked]:ui-ring-surface-solid/15 data-[disabled]:ui-opacity-50',
 
         // Color specific styles
         colors[color],
@@ -197,23 +197,23 @@ export function BaseSwitch({
         aria-hidden="true"
         className={clsx(
           // Basic layout
-          'pointer-events-none relative inline-block size-[1.125rem] rounded-full sm:size-3.5',
+          'ui-size-[1.125rem] sm:ui-size-3.5 ui-pointer-events-none ui-relative ui-inline-block ui-rounded-full',
 
           // Transition
-          'translate-x-0 transition duration-200 ease-in-out',
+          'ui-translate-x-0 ui-transition ui-duration-200 ui-ease-in-out',
 
           // Invisible border so the switch is still visible in forced-colors mode
-          'border border-transparent',
+          'ui-border ui-border-transparent',
 
           // Unchecked
-          'bg-surface-solid ring-background-solid/5 shadow ring-1',
+          'ui-bg-surface-solid ui-ring-background-solid/5 ui-shadow ui-ring-1',
 
           // Checked
-          'group-data-[checked]:bg-[--switch] group-data-[checked]:shadow-[--switch-shadow] group-data-[checked]:ring-[--switch-ring]',
-          'group-data-[checked]:translate-x-4 sm:group-data-[checked]:translate-x-3',
+          'group-data-[checked]:ui-bg-[--switch] group-data-[checked]:ui-shadow-[--switch-shadow] group-data-[checked]:ui-ring-[--switch-ring]',
+          'group-data-[checked]:ui-translate-x-4 sm:group-data-[checked]:ui-translate-x-3',
 
           // Disabled
-          'group-data-[disabled]:group-data-[checked]:bg-surface-solid group-data-[disabled]:group-data-[checked]:ring-background-solid/5 group-data-[disabled]:group-data-[checked]:shadow',
+          'group-data-[disabled]:group-data-[checked]:ui-bg-surface-solid group-data-[disabled]:group-data-[checked]:ui-ring-background-solid/5 group-data-[disabled]:group-data-[checked]:ui-shadow',
         )}
       />
     </HeadlessSwitch>

@@ -1,16 +1,17 @@
-import copy from 'clipboard-copy'
-import Image from 'next/image'
-import { toast } from 'react-toastify'
-
 import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@/app/(components)/_base/dialog'
+} from '@repo/ui/base/dialog'
 import { Link } from '@repo/ui/base/link'
-import { BaseTextLink } from '@/app/(components)/_base/text'
+import { BaseTextLink } from '@repo/ui/base/text'
+import { cn } from '@repo/ui/classnames'
+import copy from 'clipboard-copy'
+import Image from 'next/image'
+import { toast } from 'react-toastify'
+
 import { ArmorInfo } from '@/app/(components)/armor-info'
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
 import { WeaponInfo } from '@/app/(components)/weapon-info'
@@ -25,7 +26,6 @@ import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { BIOMES, ItemLocation } from '@/app/(types)/locations'
 import { capitalize } from '@/app/(utils)/capitalize'
-import { cn } from '@/app/(utils)/classnames'
 import { itemShareEndpoint } from '@/app/(utils)/clean-item-name'
 import { getImageUrl } from '@/app/(utils)/get-image-url'
 

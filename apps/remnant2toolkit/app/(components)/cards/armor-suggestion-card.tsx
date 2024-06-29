@@ -1,9 +1,9 @@
+import { cn } from '@repo/ui/classnames'
 import Image from 'next/image'
 
 import { ItemButton } from '@/app/(components)/buttons/item-button'
 import { WEIGHT_CLASSES } from '@/app/(data)/items/constants'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
-import { cn } from '@/app/(utils)/classnames'
 import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 import {
@@ -29,7 +29,7 @@ export function ArmorSuggestionCard({
       <div className="mb-2 flex w-full flex-row items-center justify-center gap-x-8">
         <div className="flex flex-col items-center justify-center">
           <div className="text-md font-semibold">Armor</div>
-          <div className="text-2xl font-bold text-primary-500">
+          <div className="text-primary-500 text-2xl font-bold">
             {suggestion.totalArmor}
           </div>
         </div>

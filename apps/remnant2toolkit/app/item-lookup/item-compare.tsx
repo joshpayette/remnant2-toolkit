@@ -1,3 +1,4 @@
+import { cn } from '@repo/ui/classnames'
 import { useState } from 'react'
 import { useLocalStorage } from 'usehooks-ts'
 
@@ -9,7 +10,6 @@ import {
   DEFAULT_ITEM_COMPARE_LIST,
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage'
-import { cn } from '@/app/(utils)/classnames'
 
 export function ItemCompareList() {
   const [itemsToCompare, _setItemsToCompare] = useLocalStorage<string[]>(

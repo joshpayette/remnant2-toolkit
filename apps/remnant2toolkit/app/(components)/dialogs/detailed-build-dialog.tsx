@@ -1,12 +1,12 @@
 'use client'
 
-import { useState } from 'react'
-
 import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogTitle,
-} from '@/app/(components)/_base/dialog'
+} from '@repo/ui/base/dialog'
+import { useState } from 'react'
+
 import { ItemCard } from '@/app/(components)/cards/item-card'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { Item } from '@/app/(data)/items/types'

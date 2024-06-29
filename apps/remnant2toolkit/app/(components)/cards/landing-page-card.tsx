@@ -1,5 +1,4 @@
 import { ArrowRightIcon } from '@heroicons/react/24/solid'
-
 import { Link } from '@repo/ui/base/link'
 
 interface Props {
