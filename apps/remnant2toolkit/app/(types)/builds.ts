@@ -129,3 +129,6 @@ export type SuccessResponse = {
   totalUpvotes?: number
 }
 export type BuildActionResponse = ErrorResponse | SuccessResponse
+
+export const MAX_CONSUMABLES = 4
+export const MAX_CONCOCTIONS = 7
