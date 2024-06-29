@@ -1,7 +1,7 @@
 import { cn } from '@repo/ui/classnames'
+import { getArrayOfLength } from '@repo/utils/get-array-of-length'
 import React from 'react'
 
-import { getArrayOfLength } from '@/app/(utils)/get-array-of-length'
 import { QuizItemButton } from '@/app/item-quiz/(components)/quiz-item-button'
 import { TOTAL_CHOICES } from '@/app/item-quiz/constants'
 import { LayoutPreference, QuizItem } from '@/app/item-quiz/types'

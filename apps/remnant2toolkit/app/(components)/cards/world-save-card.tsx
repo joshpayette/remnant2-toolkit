@@ -1,5 +1,6 @@
 import { ArrowDownTrayIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
+import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import Image from 'next/image'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -8,7 +9,6 @@ import { getDownloadUrl } from '@/app/(components)/filters/world-saves/utils'
 import { Tooltip } from '@/app/(components)/tooltip'
 import { RELEASE_TO_NAME } from '@/app/(data)/releases/constants'
 import { ALL_BOSS_AFFIXES } from '@/app/(data)/world-saves/constants'
-import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 interface Props {
   saveItem: FilteredWorldSave

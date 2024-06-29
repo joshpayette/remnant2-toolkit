@@ -1,6 +1,7 @@
 'use client'
 
 import { BaseButton } from '@repo/ui/base/button'
+import { capitalize } from '@repo/utils/capitalize'
 import isEqual from 'lodash.isequal'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -22,7 +23,6 @@ import {
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage'
 import { BIOMES } from '@/app/(types)/locations'
-import { capitalize } from '@/app/(utils)/capitalize'
 import { itemMatchesSearchText } from '@/app/(utils)/items/item-matches-search-text'
 
 const allItemsWithDiscovered = allItems.map((item) => ({

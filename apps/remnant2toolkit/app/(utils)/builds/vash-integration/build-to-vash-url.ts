@@ -1,5 +1,6 @@
+import { getArrayOfLength } from '@repo/utils/get-array-of-length'
+
 import { BuildState } from '@/app/(types)/builds'
-import { getArrayOfLength } from '@/app/(utils)/get-array-of-length'
 
 export function buildToVashUrl(buildState: BuildState) {
   const { items } = buildState

@@ -1,6 +1,5 @@
+import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import Image from 'next/image'
-
-import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 import { ArmorItem } from '../(data)/items/types/ArmorItem'
 

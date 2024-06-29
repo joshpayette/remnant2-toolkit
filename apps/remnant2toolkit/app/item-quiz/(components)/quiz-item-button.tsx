@@ -1,9 +1,9 @@
 import { ArrowUpIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
 import { cn } from '@repo/ui/classnames'
+import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import Image from 'next/image'
 
-import { getImageUrl } from '@/app/(utils)/get-image-url'
 import { ARROW_TO_INDEX } from '@/app/item-quiz/constants'
 import { QuizItem } from '@/app/item-quiz/types'
 

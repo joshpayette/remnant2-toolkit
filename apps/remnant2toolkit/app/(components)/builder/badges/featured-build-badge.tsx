@@ -1,8 +1,8 @@
 import { BaseButton } from '@repo/ui/base/button'
+import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import Image from 'next/image'
 
 import { Tooltip } from '@/app/(components)/tooltip'
-import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 export function FeaturedBuildBadge({
   unoptimized = false,

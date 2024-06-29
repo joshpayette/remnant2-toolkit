@@ -4,6 +4,7 @@ import { Disclosure } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
 import { cn } from '@repo/ui/classnames'
+import { capitalize } from '@repo/utils/capitalize'
 import isEqual from 'lodash.isequal'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -25,7 +26,6 @@ import {
   ItemTrackerLocalStorage,
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage'
-import { capitalize } from '@/app/(utils)/capitalize'
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
 import { ItemTrackerCategory } from '@/app/tracker/types'
 

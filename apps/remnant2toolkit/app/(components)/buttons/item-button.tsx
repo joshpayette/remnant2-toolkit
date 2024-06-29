@@ -1,6 +1,7 @@
 'use client'
 
 import { cn } from '@repo/ui/classnames'
+import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import { ZINDEXES } from '@repo/ui/zindexes'
 import Image from 'next/image'
 import { IoInformationCircleSharp } from 'react-icons/io5'
@@ -10,7 +11,6 @@ import { Tooltip } from '@/app/(components)/tooltip'
 import { Enemy, isEnemy } from '@/app/(data)/enemies/types'
 import { Item } from '@/app/(data)/items/types'
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
-import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 /**
  * Some words are too long to fit in the item label on the builder

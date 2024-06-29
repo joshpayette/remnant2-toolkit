@@ -1,10 +1,10 @@
 import { cn } from '@repo/ui/classnames'
+import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import Image from 'next/image'
 
 import { ItemButton } from '@/app/(components)/buttons/item-button'
 import { WEIGHT_CLASSES } from '@/app/(data)/items/constants'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
-import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 import {
   ArmorSuggestion,

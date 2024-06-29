@@ -6,6 +6,7 @@ import {
   BaseDialogTitle,
 } from '@repo/ui/base/dialog'
 import { cn } from '@repo/ui/classnames'
+import { capitalize } from '@repo/utils/capitalize'
 import { useCallback, useEffect, useState } from 'react'
 import { useDebounceValue, useLocalStorage } from 'usehooks-ts'
 
@@ -17,7 +18,6 @@ import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { ItemCategory } from '@/app/(types)/builds'
 import { SortingPreference } from '@/app/(types)/localstorage'
 import { ITEM_TOKENS } from '@/app/(types)/tokens'
-import { capitalize } from '@/app/(utils)/capitalize'
 import { itemMatchesSearchText } from '@/app/(utils)/items/item-matches-search-text'
 
 function buildSearchTextOptions(): Array<{ id: string; name: string }> {

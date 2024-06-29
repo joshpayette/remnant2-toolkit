@@ -8,6 +8,8 @@ import {
 import { Link } from '@repo/ui/base/link'
 import { BaseTextLink } from '@repo/ui/base/text'
 import { cn } from '@repo/ui/classnames'
+import { getImageUrl } from '@repo/ui/utils/get-image-url'
+import { capitalize } from '@repo/utils/capitalize'
 import copy from 'clipboard-copy'
 import Image from 'next/image'
 import { toast } from 'react-toastify'
@@ -25,9 +27,7 @@ import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { BIOMES, ItemLocation } from '@/app/(types)/locations'
-import { capitalize } from '@/app/(utils)/capitalize'
 import { itemShareEndpoint } from '@/app/(utils)/clean-item-name'
-import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 function generateDungeonLabel(location: ItemLocation) {
   let label = `${location.world} - `

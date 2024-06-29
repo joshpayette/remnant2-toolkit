@@ -1,4 +1,5 @@
 import { cn } from '@repo/ui/classnames'
+import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import { ZINDEXES } from '@repo/ui/zindexes'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -16,7 +17,6 @@ import { getTotalStamina } from '@/app/(utils)/builds/get-totals/get-total-stami
 import { getTotalWeight } from '@/app/(utils)/builds/get-totals/get-total-weight'
 import { getWeightClass } from '@/app/(utils)/builds/get-totals/get-weight-class'
 import { buildToVashUrl } from '@/app/(utils)/builds/vash-integration/build-to-vash-url'
-import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 interface Props {
   buildState: BuildState

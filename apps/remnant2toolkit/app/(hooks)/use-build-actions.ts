@@ -1,3 +1,4 @@
+import { getArrayOfLength } from '@repo/utils/get-array-of-length'
 import html2canvas from 'html2canvas'
 import cloneDeep from 'lodash.clonedeep'
 import { useRouter } from 'next/navigation'
@@ -23,7 +24,6 @@ import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { BuildState, ItemCategory } from '@/app/(types)/builds'
 import { getConcoctionSlotCount } from '@/app/(utils)/builds/get-concoction-slot-count'
 import { getItemListForSlot } from '@/app/(utils)/builds/get-item-list-for-slot'
-import { getArrayOfLength } from '@/app/(utils)/get-array-of-length'
 import { isErrorResponse } from '@/app/(utils)/is-error-response'
 
 import { addVoteForBuild } from '../(actions)/builds/add-vote-for-build'

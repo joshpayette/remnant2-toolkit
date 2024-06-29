@@ -1,7 +1,7 @@
+import { getArrayOfLength } from '@repo/utils/get-array-of-length'
 import { useState } from 'react'
 
 import { DBBuild } from '@/app/(types)/builds'
-import { getArrayOfLength } from '@/app/(utils)/get-array-of-length'
 import { DEFAULT_ITEMS_PER_PAGE } from '@/app/(utils)/pagination/constants'
 
 interface State {

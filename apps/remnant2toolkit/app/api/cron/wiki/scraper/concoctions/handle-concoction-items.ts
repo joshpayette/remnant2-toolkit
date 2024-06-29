@@ -1,7 +1,7 @@
+import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import * as cheerio from 'cheerio'
 
 import { concoctionItems } from '@/app/(data)/items/concoction-items'
-import { getImageUrl } from '@/app/(utils)/get-image-url'
 import { validateEnv } from '@/app/(validators)/validate-env'
 import { concoctionDataCompare } from '@/app/api/cron/wiki/scraper/concoctions/compare'
 import { concoctionDataParse } from '@/app/api/cron/wiki/scraper/concoctions/parse'

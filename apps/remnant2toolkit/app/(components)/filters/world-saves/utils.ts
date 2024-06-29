@@ -1,3 +1,4 @@
+import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import { ReadonlyURLSearchParams } from 'next/navigation'
 
 import { VALID_RELEASE_KEYS } from '@/app/(components)/filters/releases-filter'
@@ -7,7 +8,6 @@ import {
   WorldSaveFilters,
 } from '@/app/(components)/filters/world-saves/types'
 import { ALL_BOSSES } from '@/app/(data)/world-saves/constants'
-import { getImageUrl } from '@/app/(utils)/get-image-url'
 
 export function parseUrlFilters(
   searchParams: ReadonlyURLSearchParams,

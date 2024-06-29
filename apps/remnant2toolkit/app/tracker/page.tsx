@@ -1,6 +1,7 @@
 'use client'
 
 import { BaseButton } from '@repo/ui/base/button'
+import { capitalize } from '@repo/utils/capitalize'
 import { useSession } from 'next-auth/react'
 import { Suspense } from 'react'
 import { useIsClient } from 'usehooks-ts'
@@ -11,7 +12,6 @@ import { ItemTrackerFilters } from '@/app/(components)/filters/item-tracker/item
 import { PageHeader } from '@/app/(components)/page-header'
 import { Skeleton } from '@/app/(components)/skeleton'
 import { useDiscoveredItems } from '@/app/(hooks)/use-discovered-items'
-import { capitalize } from '@/app/(utils)/capitalize'
 import { getTrackerProgressLabel } from '@/app/(utils)/tracker/get-tracker-progress-label'
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
 import { useCsvFileUpload } from '@/app/tracker/hooks/use-csv-file-upload'
