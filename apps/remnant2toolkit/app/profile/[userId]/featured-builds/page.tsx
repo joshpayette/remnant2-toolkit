@@ -19,7 +19,7 @@ export default function Page({
   const [loadingResults, setLoadingResults] = useState(false)
 
   const handleToggleLoadingResults = useCallback(
-    () => setLoadingResults((prev) => !prev),
+    (isLoading: boolean) => setLoadingResults(isLoading),
     [],
   )
 

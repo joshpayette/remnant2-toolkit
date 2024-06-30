@@ -19,7 +19,7 @@ import { usePagination } from '@/app/(utils)/pagination/use-pagination'
 
 interface Props {
   itemsPerPage?: number
-  onToggleLoadingResults: () => void
+  onToggleLoadingResults: (isLoading: boolean) => void
 }
 
 export function CommunityBuilds({
@@ -57,7 +57,7 @@ export function CommunityBuilds({
   // Fetch data
   useEffect(() => {
     const getItemsAsync = async () => {
-      onToggleLoadingResults()
+      onToggleLoadingResults(true)
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getCommunityBuilds({
         itemsPerPage,
@@ -66,7 +66,7 @@ export function CommunityBuilds({
         orderBy,
         buildListFilters,
       })
-      onToggleLoadingResults()
+      onToggleLoadingResults(false)
       setBuildListState((prevState) => ({
         ...prevState,
         isLoading: false,

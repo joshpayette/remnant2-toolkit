@@ -17,7 +17,7 @@ import { getFavoritedBuilds } from '@/app/profile/[userId]/favorited-builds/acti
 
 interface Props {
   buildFiltersOverrides?: Partial<BuildListFilters>
-  onToggleLoadingResults: () => void
+  onToggleLoadingResults: (isLoading: boolean) => void
 }
 
 export function FavoritedBuilds({
@@ -62,7 +62,7 @@ export function FavoritedBuilds({
 
   useEffect(() => {
     const getItemsAsync = async () => {
-      onToggleLoadingResults()
+      onToggleLoadingResults(true)
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getFavoritedBuilds({
         buildListFilters,
@@ -71,7 +71,7 @@ export function FavoritedBuilds({
         pageNumber: currentPage,
         timeRange,
       })
-      onToggleLoadingResults()
+      onToggleLoadingResults(false)
       setBuildListState((prevState) => ({
         ...prevState,
         isLoading: false,

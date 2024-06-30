@@ -21,7 +21,7 @@ interface Props {
   isEditable: boolean
   userId: string
   buildFiltersOverrides?: Partial<BuildListFilters>
-  onToggleLoadingResults: () => void
+  onToggleLoadingResults: (isLoading: boolean) => void
 }
 
 export function FeaturedBuilds({
@@ -68,7 +68,7 @@ export function FeaturedBuilds({
 
   useEffect(() => {
     const getItemsAsync = async () => {
-      onToggleLoadingResults()
+      onToggleLoadingResults(true)
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getCreatedBuilds({
         buildListFilters,
@@ -81,7 +81,7 @@ export function FeaturedBuilds({
         isEditable,
         buildVisibility: 'all',
       })
-      onToggleLoadingResults()
+      onToggleLoadingResults(false)
       setBuildListState((prevState) => ({
         ...prevState,
         isLoading: false,
