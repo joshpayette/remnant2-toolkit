@@ -5,7 +5,7 @@ import { bigIntFix } from '@repo/utils/big-int-fix'
 
 import { DBBuild } from '@/app/(types)/builds'
 import { ErrorResponse } from '@/app/(types)/error-response'
-import { getServerSession } from '@/app/(utils)/auth'
+import { getServerSession } from '@/app/(features)/auth'
 import { DEFAULT_DISPLAY_NAME } from '@/app/profile/[userId]/(lib)/constants'
 
 export async function getBuild(

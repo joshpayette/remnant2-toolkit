@@ -1,4 +1,4 @@
-import { getServerSession } from '@/app/(utils)/auth'
+import { getServerSession } from '@/app/(features)/auth'
 import { PageClient } from '@/app/profile/[userId]/linked-builds/[[...optionalBuildId]]/page.client'
 
 export default async function Page({

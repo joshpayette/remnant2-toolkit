@@ -3,7 +3,7 @@
 import { prisma } from '@repo/db'
 
 import type { LinkedBuildState } from '@/app/(types)/linked-builds'
-import { getServerSession } from '@/app/(utils)/auth'
+import { getServerSession } from '@/app/(features)/auth'
 import { DEFAULT_DISPLAY_NAME } from '@/app/profile/[userId]/(lib)/constants'
 
 export default async function getLinkedBuild(linkedBuildId: string): Promise<{

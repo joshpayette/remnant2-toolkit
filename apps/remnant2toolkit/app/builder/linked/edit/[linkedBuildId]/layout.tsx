@@ -6,7 +6,7 @@ import React from 'react'
 import getLinkedBuild from '@/app/(actions)/builds/get-linked-build'
 import { PageHeader } from '@/app/(components)/page-header'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
-import { getServerSession } from '@/app/(utils)/auth'
+import { getServerSession } from '@/app/(features)/auth'
 import { isErrorResponse } from '@/app/(utils)/is-error-response'
 
 export async function generateMetadata(): Promise<Metadata> {

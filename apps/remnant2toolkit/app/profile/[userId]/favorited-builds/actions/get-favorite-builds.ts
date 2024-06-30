@@ -44,7 +44,7 @@ import {
   weaponFiltersToIds,
 } from '@/app/(queries)/build-filters/segments/limit-by-weapons'
 import { DBBuild } from '@/app/(types)/builds'
-import { getServerSession } from '@/app/(utils)/auth'
+import { getServerSession } from '@/app/(features)/auth'
 import { PaginationResponse } from '@/app/(utils)/pagination/use-pagination'
 
 export async function getFavoritedBuilds({

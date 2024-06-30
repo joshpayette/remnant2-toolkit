@@ -9,7 +9,7 @@ import {
   MAX_PROFILE_SAV_SIZE,
   type ParsedLoadoutItem,
 } from '@/app/(types)/sav-file'
-import { getServerSession } from '@/app/(utils)/auth'
+import { getServerSession } from '@/app/(features)/auth'
 import { importedLoadoutToBuildState } from '@/app/(utils)/builds/imported-loadout-to-build-state'
 import { isErrorResponse } from '@/app/(utils)/is-error-response'
 import { validateEnv } from '@/app/(validators)/validate-env'

@@ -4,7 +4,7 @@ import { revalidatePath } from 'next/cache'
 
 import { getIsLoadoutPublic } from '@/app/(actions)/loadouts/get-is-loadout-public'
 import { PageHeader } from '@/app/(components)/page-header'
-import { getServerSession } from '@/app/(utils)/auth'
+import { getServerSession } from '@/app/(features)/auth'
 import { ProfileHeader } from '@/app/profile/[userId]/(components)/profile-header'
 import { ProfileNavbar } from '@/app/profile/[userId]/(components)/profile-navbar'
 import { ProfileStats } from '@/app/profile/[userId]/(components)/profile-stats'

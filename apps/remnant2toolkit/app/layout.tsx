@@ -16,7 +16,7 @@ import { ToastContainer } from 'react-toastify'
 
 import { Footer } from '@/app/(components)/footer'
 import { Navbar } from '@/app/(components)/navbar'
-import { getServerSession } from '@/app/(utils)/auth'
+import { getServerSession } from '@/app/(features)/auth'
 
 const inter = Inter({ subsets: ['latin'] })
 

@@ -7,7 +7,7 @@ import { Metadata } from 'next'
 import React from 'react'
 
 import { NAV_ITEMS } from '@/app/(types)/navigation'
-import { getServerSession } from '@/app/(utils)/auth'
+import { getServerSession } from '@/app/(features)/auth'
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Build Creation Tool - Remnant 2 Toolkit`

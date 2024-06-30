@@ -4,7 +4,7 @@ import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
 import type { AdminToolResponse } from '@/app/(actions)/builds/admin/types'
-import { getServerSession } from '@/app/(utils)/auth'
+import { getServerSession } from '@/app/(features)/auth'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 
 export default async function unfeatureBuild(
