@@ -20,7 +20,7 @@ import {
   UserIcon,
   UsersIcon,
 } from '@heroicons/react/24/solid'
-import { CHANGELOG_URL, DISCORD_INVITE_URL } from '@repo/ui/constants'
+import { CHANGELOG_URL, DISCORD_INVITE_URL } from '@repo/constants'
 import ChangeLogIcon from '@repo/ui/icons/changelog'
 import DiscordIcon from '@repo/ui/icons/discord'
 

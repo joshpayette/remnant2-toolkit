@@ -10,7 +10,6 @@
   "exports": {
     "./styles.css": "./dist/index.css",
     "./classnames": "./src/classnames.ts",
-    "./constants": "./src/constants.ts",
     "./zindexes": "./src/zindexes.ts",
     "./alert-banner": "./src/alert-banner.tsx",
     "./bug-report-prompt": "./src/bug-report/bug-report-prompt.tsx",
@@ -55,6 +54,7 @@
   "dependencies": {
     "@headlessui/react": "2.0.0-alpha.4",
     "@heroicons/react": "2.0.18",
+    "@repo/constants": "workspace:*",
     "clsx": "2.0.0",
     "framer-motion": "11.2.6",
     "next": "14.2.3",

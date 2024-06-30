@@ -3,8 +3,8 @@
 import type { Build } from '@repo/db'
 import { prisma } from '@repo/db'
 
+import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile'
 import type { LinkedBuildState } from '@/app/(types)/linked-builds'
-import { DEFAULT_DISPLAY_NAME } from '@/app/profile/[userId]/(lib)/constants'
 
 export default async function getLinkedBuilds({
   buildId,

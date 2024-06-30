@@ -1,4 +1,4 @@
-import { DISCORD_INVITE_URL } from '@repo/ui/constants'
+import { DISCORD_INVITE_URL } from '@repo/constants'
 import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import Image from 'next/image'
 import type React from 'react'

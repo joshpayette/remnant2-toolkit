@@ -6,8 +6,8 @@ import {
   BaseDialogTitle,
 } from '@repo/ui/base/dialog'
 
+import { AVATARS } from '@/app/(constants)/profile'
 import { AvatarBox } from '@/app/profile/[userId]/(components)/avatar-box'
-import { AVATARS } from '@/app/profile/[userId]/(lib)/constants'
 
 interface Props {
   open: boolean

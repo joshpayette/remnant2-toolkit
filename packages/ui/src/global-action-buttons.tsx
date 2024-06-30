@@ -6,10 +6,10 @@ import {
   Cog6ToothIcon,
   PaintBrushIcon,
 } from '@heroicons/react/24/solid'
+import { CHANGELOG_URL } from '@repo/constants'
 import { BaseButton } from '@repo/ui/base/button'
 import { BugReportPrompt } from '@repo/ui/bug-report-prompt'
 import { cn } from '@repo/ui/classnames'
-import { CHANGELOG_URL } from '@repo/ui/constants'
 import ChangeLogIcon from '@repo/ui/icons/changelog'
 import { ZINDEXES } from '@repo/ui/zindexes'
 import { AnimatePresence, motion } from 'framer-motion'

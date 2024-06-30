@@ -1,8 +1,8 @@
+import { DEFAULT_BIO } from '@repo/constants'
 import { prisma } from '@repo/db'
 import { Metadata } from 'next'
 
 import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list'
-import { DEFAULT_BIO } from '@/app/profile/[userId]/(lib)/constants'
 import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id'
 
 export async function generateMetadata({
