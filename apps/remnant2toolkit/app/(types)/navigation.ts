@@ -22,8 +22,8 @@ import {
   UsersIcon,
 } from '@heroicons/react/24/solid'
 import { DISCORD_INVITE_URL } from '@repo/ui/constants'
+import DiscordIcon from '@repo/ui/discord-icon'
 
-import DiscordIcon from '../(components)/images/discord-icon'
 import VashIcon from '../(components)/images/vash-icon'
 import WikiIcon from '../(components)/images/wiki-icon'
 

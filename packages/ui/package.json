@@ -13,6 +13,7 @@
     "./constants": "./src/constants.ts",
     "./zindexes": "./src/zindexes.ts",
     "./alert-banner": "./src/alert-banner.tsx",
+    "./discord-icon": "./src/discord-icon.tsx",
     "./footer-container": "./src/footer-container.tsx",
     "./logo": "./src/logo.tsx",
     "./navbar-container": "./src/navbar-container.tsx",

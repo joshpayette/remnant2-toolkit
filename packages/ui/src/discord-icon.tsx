@@ -1,5 +1,5 @@
-import * as React from "react"
-import { SVGProps } from "react"
+import * as React from 'react'
+import { SVGProps } from 'react'
 const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -11,8 +11,8 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
     <path
       d="M3.175.083A3.092 3.092 0 0 0 .083 3.175a3.092 3.092 0 0 0 3.092 3.092 3.092 3.092 0 0 0 3.092-3.092A3.092 3.092 0 0 0 3.175.083Zm.58 1.597c.3.07.566.15.822.261.46.703.679 1.474.584 2.3-.263.223-.633.397-.993.523a1.713 1.713 0 0 1-.229-.359 1.49 1.49 0 0 0 .348-.164l-.084-.067c-.76.352-1.507.264-2.009-.01l-.093.08c.084.054.206.112.339.16-.05.129-.135.257-.214.361a3.475 3.475 0 0 1-1.002-.522c-.086-.792.13-1.57.585-2.298.244-.108.506-.186.825-.263l.11.227c.308-.053.592-.043.907-.004zM2.532 2.97c-.45 0-.494.753-.02.816.171.024.352-.146.376-.349.02-.172-.052-.451-.334-.466h-.022zm1.327 0c-.45 0-.494.753-.02.816.171.024.352-.146.376-.349.02-.172-.052-.451-.334-.466H3.86z"
       style={{
-        display: "inline",
-        stroke: "none",
+        display: 'inline',
+        stroke: 'none',
         strokeWidth: 0.105253,
         strokeMiterlimit: 40,
         strokeOpacity: 1,
