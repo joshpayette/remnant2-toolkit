@@ -1,18 +1,33 @@
+'use client'
+
+import { useSession } from 'next-auth/react'
+import { useCallback, useState } from 'react'
+
 import { BuildFilters } from '@/app/(components)/filters/builds/build-filters'
 import { BuildListFilters } from '@/app/(components)/filters/builds/types'
-import { getServerSession } from '@/app/(utils)/auth'
-import { PageClient } from '@/app/profile/[userId]/created-builds/page.client'
+import { CreatedBuilds } from '@/app/profile/[userId]/created-builds/created-builds'
 
-export default async function Page({
+const buildFilters: Partial<BuildListFilters> = {
+  patchAffected: true,
+}
+
+export default function Page({
   params: { userId },
 }: {
   params: { userId: string }
 }) {
-  const session = await getServerSession()
+  const [loadingResults, setLoadingResults] = useState(false)
+
+  const handleToggleLoadingResults = useCallback(
+    () => setLoadingResults((prev) => !prev),
+    [],
+  )
+
+  const { data: session, status } = useSession()
   const isEditable = session?.user?.id === userId
 
-  const buildFilters: Partial<BuildListFilters> = {
-    patchAffected: true,
+  if (status === 'loading') {
+    return <p>Loading...</p>
   }
 
   return (
@@ -21,13 +36,15 @@ export default async function Page({
         <BuildFilters
           key="user-created-builds-filters"
           buildFiltersOverrides={buildFilters}
+          loadingResults={loadingResults}
         />
       </div>
       <div className="mb-4 grid w-full grid-cols-1 gap-2">
-        <PageClient
+        <CreatedBuilds
           isEditable={isEditable}
           userId={userId}
           buildFiltersOverrides={buildFilters}
+          onToggleLoadingResults={handleToggleLoadingResults}
         />
       </div>
     </>

@@ -1,23 +1,38 @@
+'use client'
+
+import { useSession } from 'next-auth/react'
+import { useCallback, useState } from 'react'
+
 import { BuildFilters } from '@/app/(components)/filters/builds/build-filters'
 import { BuildListFilters } from '@/app/(components)/filters/builds/types'
-import { getServerSession } from '@/app/(utils)/auth'
-import { PageClient } from '@/app/profile/[userId]/favorited-builds/page.client'
+import { FavoritedBuilds } from '@/app/profile/[userId]/favorited-builds/favorited-builds'
 
-export default async function Page({
+const buildFilters: Partial<BuildListFilters> = {
+  patchAffected: true,
+}
+
+export default function Page({
   params: { userId },
 }: {
   params: { userId: string }
 }) {
-  const session = await getServerSession()
+  const [loadingResults, setLoadingResults] = useState(false)
 
-  if (session?.user?.id !== userId) {
+  const handleToggleLoadingResults = useCallback(
+    () => setLoadingResults((prev) => !prev),
+    [],
+  )
+
+  const { data: session, status } = useSession()
+
+  if (status === 'loading') {
+    return <p>Loading...</p>
+  }
+
+  if (session?.user?.id !== userId || status === 'unauthenticated') {
     return (
       <p className="text-red-500">You are not authorized to view this page.</p>
     )
-  }
-
-  const buildFilters: Partial<BuildListFilters> = {
-    patchAffected: true,
   }
 
   return (
@@ -26,10 +41,14 @@ export default async function Page({
         <BuildFilters
           key="user-favorited-builds-filters"
           buildFiltersOverrides={buildFilters}
+          loadingResults={loadingResults}
         />
       </div>
       <div className="mb-4 grid w-full grid-cols-1 gap-2">
-        <PageClient buildFiltersOverrides={buildFilters} />
+        <FavoritedBuilds
+          buildFiltersOverrides={buildFilters}
+          onToggleLoadingResults={handleToggleLoadingResults}
+        />
       </div>
     </>
   )

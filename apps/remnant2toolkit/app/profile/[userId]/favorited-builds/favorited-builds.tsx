@@ -17,9 +17,13 @@ import { getFavoritedBuilds } from '@/app/profile/[userId]/favorited-builds/acti
 
 interface Props {
   buildFiltersOverrides?: Partial<BuildListFilters>
+  onToggleLoadingResults: () => void
 }
 
-export function PageClient({ buildFiltersOverrides }: Props) {
+export function FavoritedBuilds({
+  buildFiltersOverrides,
+  onToggleLoadingResults,
+}: Props) {
   const defaultFilters = useMemo(() => {
     return buildFiltersOverrides
       ? { ...DEFAULT_BUILD_FILTERS, ...buildFiltersOverrides }
@@ -58,6 +62,7 @@ export function PageClient({ buildFiltersOverrides }: Props) {
 
   useEffect(() => {
     const getItemsAsync = async () => {
+      onToggleLoadingResults()
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getFavoritedBuilds({
         buildListFilters,
@@ -66,6 +71,7 @@ export function PageClient({ buildFiltersOverrides }: Props) {
         pageNumber: currentPage,
         timeRange,
       })
+      onToggleLoadingResults()
       setBuildListState((prevState) => ({
         ...prevState,
         isLoading: false,
@@ -79,6 +85,7 @@ export function PageClient({ buildFiltersOverrides }: Props) {
     currentPage,
     itemsPerPage,
     orderBy,
+    onToggleLoadingResults,
     setBuildListState,
     timeRange,
   ])
