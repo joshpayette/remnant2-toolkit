@@ -11,11 +11,10 @@ import {
   BaseListboxLabel,
   BaseListboxOption,
 } from '@repo/ui/base/listbox'
+import { ColorThemes } from '@repo/ui/theme/theme-selection'
 import { useTheme } from 'next-themes'
 import { useState } from 'react'
 import { useReadLocalStorage } from 'usehooks-ts'
-
-import { ColorThemes } from '@/app/(components)/theme-selection.client'
 
 const Modes = ['All', 'Dark', 'Light'] as const
 type Mode = (typeof Modes)[number]
