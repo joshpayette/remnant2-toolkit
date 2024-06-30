@@ -6,6 +6,7 @@ import '@repo/ui/styles.css'
 import 'react-toastify/dist/ReactToastify.min.css'
 
 import { BaseTextLink } from '@repo/ui/base/text'
+import { GlobalActionButtons } from '@repo/ui/global-action-buttons'
 import { PreloadResources } from '@repo/ui/preload-resources'
 import { SessionProvider } from '@repo/ui/session-provider'
 import { Analytics } from '@vercel/analytics/react'
@@ -13,9 +14,9 @@ import { Viewport } from 'next'
 import dynamic from 'next/dynamic'
 import { ToastContainer } from 'react-toastify'
 
-import { GlobalActionButtons } from '@/app/(components)/buttons/global-action-buttons/global-action-buttons'
 import { Footer } from '@/app/(components)/footer'
 import { Navbar } from '@/app/(components)/navbar'
+import { getServerSession } from '@/app/(utils)/auth'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -34,6 +35,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const session = await getServerSession()
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
@@ -46,7 +49,9 @@ export default async function RootLayout({
         <PreloadResources />
         <SessionProvider>
           <ThemeSelection>
-            <GlobalActionButtons />
+            <GlobalActionButtons
+              username={session?.user?.name || 'Unknown User'}
+            />
             <AlertBanner localStorageKey="support-r2tk-alert">
               If you enjoy using R2TK, please consider supporting the site{' '}
               <BaseTextLink href="/support-r2tk">here</BaseTextLink>. The

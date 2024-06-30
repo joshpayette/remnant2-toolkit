@@ -2,7 +2,6 @@ import {
   ArchiveBoxArrowDownIcon,
   ArchiveBoxIcon,
   ArrowLeftOnRectangleIcon,
-  BookOpenIcon,
   CalculatorIcon,
   CircleStackIcon,
   DocumentCheckIcon,
@@ -21,8 +20,9 @@ import {
   UserIcon,
   UsersIcon,
 } from '@heroicons/react/24/solid'
-import { DISCORD_INVITE_URL } from '@repo/ui/constants'
-import DiscordIcon from '@repo/ui/discord-icon'
+import { CHANGELOG_URL, DISCORD_INVITE_URL } from '@repo/ui/constants'
+import ChangeLogIcon from '@repo/ui/icons/changelog'
+import DiscordIcon from '@repo/ui/icons/discord'
 
 import VashIcon from '../(components)/images/vash-icon'
 import WikiIcon from '../(components)/images/wiki-icon'
@@ -49,8 +49,8 @@ export const NAV_ITEMS = {
     label: 'Change Log',
     description:
       'A running log of all additions, changes, and fixes to the toolkit.',
-    href: 'https://github.com/joshpayette/remnant2-toolkit/blob/main/CHANGELOG.md',
-    icon: BookOpenIcon,
+    href: CHANGELOG_URL,
+    icon: ChangeLogIcon,
   },
   collectionBuilds: {
     label: 'Builds by Collection',
