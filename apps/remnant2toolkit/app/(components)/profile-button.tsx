@@ -12,7 +12,11 @@ import { PlaceHolderIcon } from '@/app/(components)/placeholder-icon'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id'
 
-function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
+function ProfileButtonComponent({
+  variant,
+}: {
+  variant: 'mobile' | 'desktop'
+}) {
   const { data: session, status } = useSession()
 
   const [profileImage, setProfileImage] = useState<string | undefined>(
@@ -304,7 +308,7 @@ function AuthButtonComponent({ variant }: { variant: 'mobile' | 'desktop' }) {
   )
 }
 
-export const AuthButton = {
-  Desktop: () => <AuthButtonComponent variant="desktop" />,
-  Mobile: () => <AuthButtonComponent variant="mobile" />,
+export const ProfileButton = {
+  Desktop: () => <ProfileButtonComponent variant="desktop" />,
+  Mobile: () => <ProfileButtonComponent variant="mobile" />,
 }

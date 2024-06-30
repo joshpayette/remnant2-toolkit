@@ -1,6 +1,6 @@
 import { getIsLoadoutPublic } from '@/app/(actions)/loadouts/get-is-loadout-public'
 import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list'
-import { getServerSession } from '@/app/(utils)/auth'
+import { getServerSession } from '@/app/(features)/auth'
 import ImportLoadouts from '@/app/profile/[userId]/loadouts/import-loadouts'
 import { LoadoutGrid } from '@/app/profile/[userId]/loadouts/loadout-grid'
 import { LoadoutPublicCheckbox } from '@/app/profile/[userId]/loadouts/loadout-public-checkbox'
@@ -24,7 +24,7 @@ export default async function Page({
   return (
     <>
       <div className="mb-4 flex w-full flex-col items-center justify-center">
-        <div className="flex w-full flex-row items-center justify-center border-b border-b-primary-500 py-2">
+        <div className="border-b-primary-500 flex w-full flex-row items-center justify-center border-b py-2">
           <h2 className="flex w-full items-center justify-start text-2xl">
             Loadouts
           </h2>

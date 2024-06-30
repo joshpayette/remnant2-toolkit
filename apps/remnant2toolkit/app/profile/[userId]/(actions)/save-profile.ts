@@ -2,7 +2,7 @@
 
 import { prisma } from '@repo/db'
 
-import { getServerSession } from '@/app/(utils)/auth'
+import { getServerSession } from '@/app/(features)/auth'
 import { badWordFilter } from '@/app/(utils)/bad-word-filter'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 

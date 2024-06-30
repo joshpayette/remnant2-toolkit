@@ -1,7 +1,4 @@
-import {
-  AVATARS,
-  DEFAULT_AVATAR_ID,
-} from '@/app/profile/[userId]/(lib)/constants'
+import { AVATARS, DEFAULT_AVATAR_ID } from '@/app/(constants)/profile'
 import { Avatar } from '@/app/profile/[userId]/(lib)/types'
 
 export function getAvatarById(avatarId: string): Avatar {

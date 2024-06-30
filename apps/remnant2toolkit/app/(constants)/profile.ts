@@ -232,16 +232,6 @@ export const AVATARS = [
 export const DEFAULT_AVATAR_ID = '2zr34P' // Gorge
 
 /**
- * The maximum characters allowed in a profile bio
- */
-export const MAX_PROFILE_BIO_LENGTH = 1000
-
-/**
  * The initial display name for a user if none is set
  */
 export const DEFAULT_DISPLAY_NAME = 'Traveler'
-
-/**
- * The default bio for a user if none is set
- */
-export const DEFAULT_BIO = 'No bio is set yet.'

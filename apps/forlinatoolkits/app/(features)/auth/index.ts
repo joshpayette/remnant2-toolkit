@@ -11,7 +11,7 @@ import { type Adapter, AdapterUser } from 'next-auth/adapters'
 import DiscordProvider from 'next-auth/providers/discord'
 import RedditProvider from 'next-auth/providers/reddit'
 
-import { DEFAULT_DISPLAY_NAME } from '@/app/profile/[userId]/(lib)/constants'
+import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile'
 
 export const authOptions: NextAuthOptions = {
   callbacks: {

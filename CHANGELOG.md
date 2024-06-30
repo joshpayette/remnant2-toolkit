@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Fixed
 
-- Fixed issue where if you applied new build filters before the first set of results returned, it would cause results to display outdated info.
+- Fixed issue where if you applied new build filters before the first set of results returned, it would cause results to display outdated info. I'm still seeing some issues of stale results coming back, but to a far lesser degree.
 
 ## 2024-06-28
 

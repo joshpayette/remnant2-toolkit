@@ -3,7 +3,7 @@
 import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
-import { getServerSession } from '@/app/(utils)/auth'
+import { getServerSession } from '@/app/(features)/auth'
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
 
 export async function setDiscoveredItems(

@@ -7,7 +7,7 @@ import { z } from 'zod'
 
 import { BUILD_REVALIDATE_PATHS } from '@/app/(data)/builds/constants'
 import { BuildActionResponse } from '@/app/(types)/builds'
-import { getServerSession } from '@/app/(utils)/auth'
+import { getServerSession } from '@/app/(features)/auth'
 
 export async function addVoteForBuild(
   data: string,

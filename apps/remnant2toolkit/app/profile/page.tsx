@@ -1,7 +1,7 @@
 import { permanentRedirect } from 'next/navigation'
 
 import { PageHeader } from '@/app/(components)/page-header'
-import { getServerSession } from '@/app/(utils)/auth'
+import { getServerSession } from '@/app/(features)/auth'
 
 export default async function Page() {
   const session = await getServerSession()

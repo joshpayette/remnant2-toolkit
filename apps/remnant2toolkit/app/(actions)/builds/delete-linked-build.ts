@@ -2,7 +2,7 @@
 
 import { prisma } from '@repo/db'
 
-import { getServerSession } from '@/app/(utils)/auth'
+import { getServerSession } from '@/app/(features)/auth'
 
 export async function deleteLinkedBuild(linkedBuildId: string) {
   // session validation

@@ -13,7 +13,7 @@ import {
 import { getOrderBySegment } from '@/app/(queries)/build-filters/segments/get-order-by'
 import { limitByTimeConditionSegment } from '@/app/(queries)/build-filters/segments/limit-by-time-condition'
 import { DBBuild } from '@/app/(types)/builds'
-import { getServerSession } from '@/app/(utils)/auth'
+import { getServerSession } from '@/app/(features)/auth'
 import { PaginationResponse } from '@/app/(utils)/pagination/use-pagination'
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes'

@@ -14,7 +14,7 @@ interface Props {
 }
 
 export default function AlertBanner({
-  bgColor = 'bg-primary-900',
+  bgColor = 'ui-bg-primary-900',
   localStorageKey,
   children,
 }: Props) {
@@ -25,18 +25,18 @@ export default function AlertBanner({
   return (
     <div
       className={cn(
-        'animate-slideIn fixed w-full p-1 text-sm',
+        'ui-animate-slideIn ui-fixed ui-w-full ui-p-1 ui-text-sm',
         bgColor,
         ZINDEXES.ALERT_BANNER,
       )}
     >
-      <div className="absolute right-0 top-0">
+      <div className="ui-absolute ui-right-0 ui-top-0">
         <BaseButton onClick={() => setShowBanner(false)} plain>
-          <XMarkIcon className="h-5 w-5" />
+          <XMarkIcon className="ui-h-5 ui-w-5" />
         </BaseButton>
       </div>
-      <div className="flex w-full items-center justify-center text-center">
-        <div className="max-w-[80%] md:max-w-[800px]">
+      <div className="ui-flex ui-w-full ui-items-center ui-justify-center ui-text-center">
+        <div className="ui-max-w-[80%] md:ui-max-w-[800px]">
           <BaseText>{children}</BaseText>
         </div>
       </div>

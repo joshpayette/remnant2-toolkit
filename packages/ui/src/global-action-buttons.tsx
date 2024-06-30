@@ -6,21 +6,22 @@ import {
   Cog6ToothIcon,
   PaintBrushIcon,
 } from '@heroicons/react/24/solid'
+import { CHANGELOG_URL } from '@repo/constants'
 import { BaseButton } from '@repo/ui/base/button'
+import { BugReportPrompt } from '@repo/ui/bug-report-prompt'
 import { cn } from '@repo/ui/classnames'
+import ChangeLogIcon from '@repo/ui/icons/changelog'
 import { ZINDEXES } from '@repo/ui/zindexes'
 import { AnimatePresence, motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { BugReportPrompt } from '@/app/(components)/alerts/bug-report-prompt'
-import { ReportBug } from '@/app/(components)/buttons/global-action-buttons/actions'
-import { NAV_ITEMS } from '@/app/(types)/navigation'
+import { ReportBug } from './bug-report/report-bug'
 
 // Lazy-load the theme toggle, since it relies on client context
 const ThemeSelectButton = dynamic(
-  () => import('@repo/ui/theme/theme-select-button'),
+  () => import('@repo/ui/theme/theme-select-button' as any),
   {
     ssr: false,
     loading: () => (
@@ -31,39 +32,43 @@ const ThemeSelectButton = dynamic(
   },
 )
 
-export function GlobalActionButtons() {
+interface Props {
+  username: string
+}
+
+export function GlobalActionButtons({ username }: Props) {
   const [open, setOpen] = useState(false)
 
   return (
     <div
       className={cn(
-        'fixed bottom-[8px] right-[8px] flex items-center justify-center gap-x-1',
+        'ui-fixed ui-bottom-[8px] ui-right-[8px] ui-flex ui-items-center ui-justify-center ui-gap-x-1',
         ZINDEXES.GLOBAL_ACTION_BUTTONS,
       )}
     >
       <AnimatePresence>
         {open && (
           <motion.div
-            className="bg-background-solid isolate inline-flex min-w-[140px] gap-x-1 rounded-md shadow-sm"
+            className="ui-bg-background-solid ui-isolate ui-inline-flex ui-min-w-[140px] ui-gap-x-1 ui-rounded-md ui-shadow-sm"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 50 }}
             transition={{ duration: 0.5 }}
           >
             <div>
-              <span className="sr-only">Theme Select</span>
+              <span className="ui-sr-only">Theme Select</span>
               <ThemeSelectButton />
             </div>
             <div>
-              <span className="sr-only">Report Bug</span>
-              <ReportBugButton />
+              <span className="ui-sr-only">Report Bug</span>
+              <ReportBugButton username={username} />
             </div>
             <div>
-              <span className="sr-only">Change Log</span>
+              <span className="ui-sr-only">Change Log</span>
               <ChangeLogButton />
             </div>
             <div>
-              <span className="sr-only">Back to Top</span>
+              <span className="ui-sr-only">Back to Top</span>
               <BackToTopButton />
             </div>
           </motion.div>
@@ -78,7 +83,7 @@ export function GlobalActionButtons() {
 function SettingsButton({ onToggle }: { onToggle: () => void }) {
   return (
     <BaseButton color="yellow" onClick={onToggle}>
-      <Cog6ToothIcon className="h-5 w-5" />
+      <Cog6ToothIcon className="ui-h-5 ui-w-5" />
     </BaseButton>
   )
 }
@@ -90,20 +95,20 @@ function BackToTopButton() {
 
   return (
     <BaseButton onClick={handleBackToTopClick} color="cyan">
-      <ArrowUpIcon className="h-5 w-5" />
+      <ArrowUpIcon className="ui-h-5 ui-w-5" />
     </BaseButton>
   )
 }
 
 function ChangeLogButton() {
   return (
-    <BaseButton href={NAV_ITEMS.changeLog.href} target="_blank" color="violet">
-      <NAV_ITEMS.changeLog.icon className="h-5 w-5" />
+    <BaseButton href={CHANGELOG_URL} target="_blank" color="violet">
+      <ChangeLogIcon className="ui-h-5 ui-w-5" />
     </BaseButton>
   )
 }
 
-function ReportBugButton() {
+function ReportBugButton({ username }: { username: string }) {
   const [open, setOpen] = useState(false)
 
   async function handleReportBug(report: string) {
@@ -112,7 +117,7 @@ function ReportBugButton() {
       toast.error('Please provide a bug report')
       return
     }
-    const { message } = await ReportBug(report)
+    const { message } = await ReportBug({ report, username })
     toast.success(message)
     setOpen(false)
   }
@@ -126,7 +131,7 @@ function ReportBugButton() {
         onClose={() => setOpen(false)}
       />
       <BaseButton color="green" onClick={() => setOpen(true)}>
-        <BugAntIcon className="h-5 w-5" />
+        <BugAntIcon className="ui-h-5 ui-w-5" />
       </BaseButton>
     </>
   )
