@@ -10,8 +10,14 @@
   "exports": {
     "./styles.css": "./dist/index.css",
     "./classnames": "./src/classnames.ts",
+    "./constants": "./src/constants.ts",
     "./zindexes": "./src/zindexes.ts",
+    "./alert-banner": "./src/alert-banner.tsx",
+    "./footer-container": "./src/footer-container.tsx",
     "./logo": "./src/logo.tsx",
+    "./navbar-container": "./src/navbar-container.tsx",
+    "./preload-resources": "./src/preload-resources.tsx",
+    "./session-provider": "./src/session-provider.tsx",
     "./base/alert": "./src/base/alert.tsx",
     "./base/avatar": "./src/base/avatar.tsx",
     "./base/badge": "./src/base/badge.tsx",
@@ -47,7 +53,9 @@
     "@heroicons/react": "2.0.18",
     "clsx": "2.0.0",
     "next": "14.2.3",
+    "next-auth": "4.24.7",
     "next-themes": "0.3.0",
+    "react-dom": "18.3.1",
     "usehooks-ts": "2.14.0"
   },
   "devDependencies": {
@@ -56,6 +64,7 @@
     "@repo/typescript-config": "workspace:*",
     "@types/node": "20",
     "@types/react": "^18.2.61",
+    "@types/react-dom": "18",
     "autoprefixer": "10.4.18",
     "postcss": "8.4.35",
     "tailwind-merge": "2.0.0",

@@ -21,12 +21,11 @@ import {
   UserIcon,
   UsersIcon,
 } from '@heroicons/react/24/solid'
+import { DISCORD_INVITE_URL } from '@repo/ui/constants'
 
 import DiscordIcon from '../(components)/images/discord-icon'
 import VashIcon from '../(components)/images/vash-icon'
 import WikiIcon from '../(components)/images/wiki-icon'
-
-export const DISCORD_INVITE_URL = 'https://discord.gg/kgVaU3zAQ7'
 
 /**
  * The base pages for the site
