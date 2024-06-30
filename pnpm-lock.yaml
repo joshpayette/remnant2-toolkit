@@ -95,9 +95,6 @@ importers:
       next-auth:
         specifier: 4.24.7
         version: 4.24.7(next@14.2.3(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      next-themes:
-        specifier: 0.3.0
-        version: 0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       papaparse:
         specifier: 5.4.1
         version: 5.4.1
@@ -321,9 +318,15 @@ importers:
       next:
         specifier: 14.2.3
         version: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next-themes:
+        specifier: 0.3.0
+        version: 0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.2.0
         version: 18.3.1
+      usehooks-ts:
+        specifier: 2.14.0
+        version: 2.14.0(react@18.3.1)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*

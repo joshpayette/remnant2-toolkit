@@ -20,7 +20,7 @@ import { NAV_ITEMS } from '@/app/(types)/navigation'
 
 // Lazy-load the theme toggle, since it relies on client context
 const ThemeSelectButton = dynamic(
-  () => import('./theme-select-button.client'),
+  () => import('@repo/ui/theme/theme-select-button'),
   {
     ssr: false,
     loading: () => (

@@ -28,6 +28,8 @@
     "./base/table": "./src/base/table.tsx",
     "./base/text": "./src/base/text.tsx",
     "./base/textarea": "./src/base/textarea.tsx",
+    "./theme/theme-selection": "./src/theme/theme-selection.tsx",
+    "./theme/theme-select-button": "./src/theme/theme-select-button.tsx",
     "./utils/get-image-url": "./src/utils/get-image-url.ts"
   },
   "license": "MIT",
@@ -44,7 +46,9 @@
     "@headlessui/react": "2.0.0-alpha.4",
     "@heroicons/react": "2.0.18",
     "clsx": "2.0.0",
-    "next": "14.2.3"
+    "next": "14.2.3",
+    "next-themes": "0.3.0",
+    "usehooks-ts": "2.14.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

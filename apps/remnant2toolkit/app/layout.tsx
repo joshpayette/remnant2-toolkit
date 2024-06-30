@@ -29,12 +29,9 @@ const AlertBanner = dynamic(
   },
 )
 
-const ThemeSelection = dynamic(
-  () => import('@/app/(components)/theme-selection.client'),
-  {
-    ssr: false,
-  },
-)
+const ThemeSelection = dynamic(() => import('@repo/ui/theme/theme-selection'), {
+  ssr: false,
+})
 
 export default async function RootLayout({
   children,
