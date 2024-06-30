@@ -2,6 +2,7 @@
 
 import { Prisma } from '@repo/db'
 import { prisma } from '@repo/db'
+import { bigIntFix } from '@repo/utils/big-int-fix'
 
 import { BuildVisibility } from '@/app/(components)/filters/builds/secondary-filters/build-visibility-filter/use-build-visibility-filter'
 import { OrderBy } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
@@ -44,7 +45,6 @@ import {
   weaponFiltersToIds,
 } from '@/app/(queries)/build-filters/segments/limit-by-weapons'
 import { DBBuild } from '@/app/(types)/builds'
-import { bigIntFix } from '@/app/(utils)/big-int-fix'
 import { PaginationResponse } from '@/app/(utils)/pagination/use-pagination'
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes'

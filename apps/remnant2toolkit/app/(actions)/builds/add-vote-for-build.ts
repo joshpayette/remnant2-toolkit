@@ -1,13 +1,13 @@
 'use server'
 
 import { prisma } from '@repo/db'
+import { bigIntFix } from '@repo/utils/big-int-fix'
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 
 import { BUILD_REVALIDATE_PATHS } from '@/app/(data)/builds/constants'
 import { BuildActionResponse } from '@/app/(types)/builds'
 import { getServerSession } from '@/app/(utils)/auth'
-import { bigIntFix } from '@/app/(utils)/big-int-fix'
 
 export async function addVoteForBuild(
   data: string,

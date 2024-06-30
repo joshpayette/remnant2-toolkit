@@ -1,11 +1,12 @@
 import { getImageUrl } from '@repo/ui/utils/get-image-url'
+import { cleanItemName } from '@repo/utils/clean-item-name'
 import { Metadata, ResolvingMetadata } from 'next'
 
 import { allItems } from '@/app/(data)/items/all-items'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-import { cleanItemName, itemEndpoint } from '@/app/(utils)/clean-item-name'
+import { itemEndpoint } from '@/app/(utils)/get-item-endpoint'
 
 import ItemPage from './page'
 

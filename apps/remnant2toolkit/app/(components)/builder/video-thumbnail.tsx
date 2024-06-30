@@ -1,11 +1,11 @@
-import Image from 'next/image'
-
-import { BuildState } from '@/app/(types)/builds'
 import {
   isValidYoutubeUrl,
   videoUrlToThumbnailUrl,
   videoUrlToWatchUrl,
-} from '@/app/(utils)/youtube'
+} from '@repo/utils/youtube'
+import Image from 'next/image'
+
+import { BuildState } from '@/app/(types)/builds'
 
 interface Props {
   buildState: BuildState
@@ -40,7 +40,7 @@ export default function VideoThumbnail({ buildState }: Props) {
               alt={`${buildState.name} video thumbnail`}
               unoptimized={true}
             />
-            <span className="mb-4 text-sm text-surface-solid underline">
+            <span className="text-surface-solid mb-4 text-sm underline">
               See build description and breakdown on YouTube
             </span>
           </a>
@@ -59,7 +59,7 @@ export default function VideoThumbnail({ buildState }: Props) {
                 alt={`${buildState.name} video thumbnail`}
                 unoptimized={true}
               />
-              <span className="mb-4 text-sm text-surface-solid underline">
+              <span className="text-surface-solid mb-4 text-sm underline">
                 See build description and breakdown on YouTube
               </span>
             </a>

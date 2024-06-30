@@ -1,6 +1,5 @@
+import { urlNoCache } from '@repo/utils/url-no-cache'
 import { diffTrimmedLines } from 'diff'
-
-import { urlNoCache } from '@/app/(utils)/url-no-cache'
 
 import { DiscordWebhookParams } from './types'
 

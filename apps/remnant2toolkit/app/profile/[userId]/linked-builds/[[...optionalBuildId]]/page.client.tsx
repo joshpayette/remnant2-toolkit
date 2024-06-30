@@ -8,6 +8,7 @@ import {
 } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
 import { Link } from '@repo/ui/base/link'
+import { urlNoCache } from '@repo/utils/url-no-cache'
 import copy from 'clipboard-copy'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -21,7 +22,6 @@ import { Skeleton } from '@/app/(components)/skeleton'
 import { Tooltip } from '@/app/(components)/tooltip'
 import type { LinkedBuildState } from '@/app/(types)/linked-builds'
 import { usePagination } from '@/app/(utils)/pagination/use-pagination'
-import { urlNoCache } from '@/app/(utils)/url-no-cache'
 import getLinkedBuilds from '@/app/profile/[userId]/linked-builds/[[...optionalBuildId]]/actions/get-linked-builds'
 
 interface Props {

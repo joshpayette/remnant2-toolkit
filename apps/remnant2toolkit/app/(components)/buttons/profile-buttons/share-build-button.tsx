@@ -2,11 +2,11 @@
 
 import { ShareIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
+import { urlNoCache } from '@repo/utils/url-no-cache'
 import copy from 'clipboard-copy'
 import { toast } from 'react-toastify'
 
 import { Tooltip } from '@/app/(components)/tooltip'
-import { urlNoCache } from '@/app/(utils)/url-no-cache'
 
 export function ShareBuildButton({ buildId }: { buildId: string }) {
   function handleCopyBuild() {

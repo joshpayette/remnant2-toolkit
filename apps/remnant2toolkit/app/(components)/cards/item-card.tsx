@@ -35,7 +35,7 @@ import {
   DEFAULT_ITEM_COMPARE_LIST,
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage'
-import { itemShareEndpoint } from '@/app/(utils)/clean-item-name'
+import { itemShareEndpoint } from '@/app/(utils)/get-item-endpoint'
 
 interface Props {
   allowItemCompare?: boolean

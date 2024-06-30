@@ -1,8 +1,5 @@
-import { urlNoCache } from '@/app/(utils)/url-no-cache'
-
-export function cleanItemName(itemName: string) {
-  return itemName.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
-}
+import { cleanItemName } from '@repo/utils/clean-item-name'
+import { urlNoCache } from '@repo/utils/url-no-cache'
 
 /**
  * Builds a link to the provided item's endpoint.

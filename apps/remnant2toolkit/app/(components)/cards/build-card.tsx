@@ -10,6 +10,7 @@ import {
 import { BaseButton } from '@repo/ui/base/button'
 import { Link } from '@repo/ui/base/link'
 import { cn } from '@repo/ui/classnames'
+import { isValidYoutubeUrl } from '@repo/utils/youtube'
 
 import { ArchetypeLabel } from '@/app/(components)/builder/archetype-label'
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
@@ -24,7 +25,6 @@ import {
 } from '@/app/(utils)/builds/get-archetype-combo-name'
 import { isBuildNew } from '@/app/(utils)/builds/is-build-new'
 import { isBuildPopular } from '@/app/(utils)/builds/is-build-popular'
-import { isValidYoutubeUrl } from '@/app/(utils)/youtube'
 
 import { FeaturedBuildBadge } from '../builder/badges/featured-build-badge'
 import { NewBuildBadge } from '../builder/badges/new-build-badge'

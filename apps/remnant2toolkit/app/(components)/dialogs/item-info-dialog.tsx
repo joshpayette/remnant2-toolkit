@@ -27,7 +27,7 @@ import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { BIOMES, ItemLocation } from '@/app/(types)/locations'
-import { itemShareEndpoint } from '@/app/(utils)/clean-item-name'
+import { itemShareEndpoint } from '@/app/(utils)/get-item-endpoint'
 
 function generateDungeonLabel(location: ItemLocation) {
   let label = `${location.world} - `

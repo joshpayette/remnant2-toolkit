@@ -1,9 +1,9 @@
 import { Prisma } from '@repo/db'
 import { prisma } from '@repo/db'
+import { bigIntFix } from '@repo/utils/big-int-fix'
 
 import { BuildCard } from '@/app/(components)/cards/build-card'
 import { communityBuildsQuery } from '@/app/(queries)/build-filters/community-builds'
-import { bigIntFix } from '@/app/(utils)/big-int-fix'
 
 async function getCreatedBuilds(userId: string) {
   const itemsToFetch = 4

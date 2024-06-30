@@ -3,9 +3,9 @@ import {
   BaseDialogBody,
   BaseDialogTitle,
 } from '@repo/ui/base/dialog'
+import { groupBy } from '@repo/utils/object-utils'
 
 import { Item } from '@/app/(data)/items/types'
-import { groupBy } from '@/app/(utils)/object-utils'
 
 import { getCategoryProgressStats } from '../filters/item-tracker/utils'
 
