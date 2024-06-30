@@ -5,10 +5,9 @@ import {
   BaseAlertTitle,
 } from '@repo/ui/base/alert'
 import { BaseButton } from '@repo/ui/base/button'
+import { urlNoCache } from '@repo/utils/url-no-cache'
 import copy from 'clipboard-copy'
 import { toast } from 'react-toastify'
-
-import { urlNoCache } from '@/app/(utils)/url-no-cache'
 
 interface Props {
   open: boolean

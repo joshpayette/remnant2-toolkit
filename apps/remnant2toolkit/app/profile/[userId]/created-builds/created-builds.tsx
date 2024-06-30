@@ -24,12 +24,14 @@ interface Props {
   isEditable: boolean
   userId: string
   buildFiltersOverrides?: Partial<BuildListFilters>
+  onToggleLoadingResults: (isLoading: boolean) => void
 }
 
-export function PageClient({
+export function CreatedBuilds({
   buildFiltersOverrides,
   isEditable,
   userId,
+  onToggleLoadingResults,
 }: Props) {
   const defaultFilters = useMemo(() => {
     return buildFiltersOverrides
@@ -71,6 +73,7 @@ export function PageClient({
 
   useEffect(() => {
     const getItemsAsync = async () => {
+      onToggleLoadingResults(true)
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getCreatedBuilds({
         buildListFilters,
@@ -83,6 +86,7 @@ export function PageClient({
         isEditable,
         buildVisibility,
       })
+      onToggleLoadingResults(false)
       setBuildListState((prevState) => ({
         ...prevState,
         isLoading: false,
@@ -98,6 +102,7 @@ export function PageClient({
     isEditable,
     itemsPerPage,
     orderBy,
+    onToggleLoadingResults,
     setBuildListState,
     timeRange,
     userId,

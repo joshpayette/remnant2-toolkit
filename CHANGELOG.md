@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-06-30
+
+### Fixed
+
+- Fixed issue where if you applied new build filters before the first set of results returned, it would cause results to display outdated info.
+
 ## 2024-06-28
 
 ### Added

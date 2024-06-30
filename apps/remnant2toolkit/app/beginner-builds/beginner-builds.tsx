@@ -19,9 +19,13 @@ import { usePagination } from '@/app/(utils)/pagination/use-pagination'
 
 interface Props {
   itemsPerPage?: number
+  onToggleLoadingResults: (isLoading: boolean) => void
 }
 
-export function BeginnerBuilds({ itemsPerPage = 8 }: Props) {
+export function BeginnerBuilds({
+  itemsPerPage = 8,
+  onToggleLoadingResults,
+}: Props) {
   const searchParams = useSearchParams()
   const [buildListFilters, setBuildListFilters] = useState(
     parseUrlFilters(searchParams),
@@ -53,6 +57,7 @@ export function BeginnerBuilds({ itemsPerPage = 8 }: Props) {
   // Fetch data
   useEffect(() => {
     const getItemsAsync = async () => {
+      onToggleLoadingResults(true)
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getBeginnerBuilds({
         buildListFilters,
@@ -67,6 +72,7 @@ export function BeginnerBuilds({ itemsPerPage = 8 }: Props) {
         builds: response.items,
         totalBuildCount: response.totalItemCount,
       }))
+      onToggleLoadingResults(false)
     }
     getItemsAsync()
   }, [
@@ -75,6 +81,7 @@ export function BeginnerBuilds({ itemsPerPage = 8 }: Props) {
     itemsPerPage,
     orderBy,
     timeRange,
+    onToggleLoadingResults,
     setBuildListState,
   ])
 

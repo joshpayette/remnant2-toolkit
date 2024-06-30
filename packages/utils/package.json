@@ -6,9 +6,14 @@
     "build": "tsc"
   },
   "exports": {
+    "./big-int-fix": "./src/big-int-fix.ts",
     "./capitalize": "./src/capitalize.ts",
+    "./clean-item-name": "./src/clean-item-name.ts",
     "./get-array-of-length": "./src/get-array-of-length.ts",
-    "./strip-unicode": "./src/strip-unicode.ts"
+    "./object-utils": "./src/object-utils.ts",
+    "./strip-unicode": "./src/strip-unicode.ts",
+    "./url-no-cache": "./src/url-no-cache.ts",
+    "./youtube": "./src/youtube.ts"
   },
   "dependencies": {},
   "devDependencies": {

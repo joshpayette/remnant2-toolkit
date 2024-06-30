@@ -57,11 +57,12 @@ export const DEFAULT_BUILD_FILTERS = {
 
 interface Props {
   buildFiltersOverrides?: Partial<BuildListFilters>
+  loadingResults: boolean
 }
 
 // #region Component
 
-export function BuildFilters({ buildFiltersOverrides }: Props) {
+export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
   const [qualityBuildDialogOpen, setQualityBuildDialogOpen] = useState(false)
 
   const defaultFilters = useMemo(() => {
@@ -96,7 +97,10 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
 
   const pathname = usePathname()
   const router = useRouter()
+
   function applyUrlFilters(filtersToApply: BuildListFilters) {
+    if (loadingResults) return
+
     let url = `${pathname}?t=${Date.now()}&`
 
     // Add the amulet filter
@@ -350,6 +354,7 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
               <BaseField className="col-span-full sm:col-span-2">
                 <div className="w-full max-w-[600px]">
                   <InputWithClear
+                    disabled={loadingResults}
                     type="text"
                     value={unappliedFilters.searchText}
                     placeholder="Build name, description, or creator"
@@ -517,6 +522,7 @@ export function BuildFilters({ buildFiltersOverrides }: Props) {
                     color="green"
                     onClick={() => applyUrlFilters(unappliedFilters)}
                     className={cn(!areFiltersApplied && 'animate-pulse')}
+                    disabled={loadingResults}
                   >
                     Apply Filters
                   </BaseButton>

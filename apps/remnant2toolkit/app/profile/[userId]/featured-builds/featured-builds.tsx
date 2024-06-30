@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from 'react'
 
 import { BuildList } from '@/app/(components)/build-list'
 import { BuildCard } from '@/app/(components)/cards/build-card'
+import { CreateBuildCard } from '@/app/(components)/cards/create-build-card'
 import { DEFAULT_BUILD_FILTERS } from '@/app/(components)/filters/builds/build-filters'
 import { BuildSecondaryFilters } from '@/app/(components)/filters/builds/secondary-filters'
 import { useOrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
@@ -13,13 +14,22 @@ import { BuildListFilters } from '@/app/(components)/filters/builds/types'
 import { parseUrlFilters } from '@/app/(components)/filters/builds/utils'
 import { useBuildListState } from '@/app/(utils)/builds/hooks/use-build-list-state'
 import { usePagination } from '@/app/(utils)/pagination/use-pagination'
-import { getFavoritedBuilds } from '@/app/profile/[userId]/favorited-builds/actions/get-favorite-builds'
+import { CreatedBuildCardActions } from '@/app/profile/[userId]/(components)/created-build-card-actions'
+import { getCreatedBuilds } from '@/app/profile/[userId]/created-builds/actions/get-created-builds'
 
 interface Props {
+  isEditable: boolean
+  userId: string
   buildFiltersOverrides?: Partial<BuildListFilters>
+  onToggleLoadingResults: (isLoading: boolean) => void
 }
 
-export function PageClient({ buildFiltersOverrides }: Props) {
+export function FeaturedBuilds({
+  buildFiltersOverrides,
+  isEditable,
+  userId,
+  onToggleLoadingResults,
+}: Props) {
   const defaultFilters = useMemo(() => {
     return buildFiltersOverrides
       ? { ...DEFAULT_BUILD_FILTERS, ...buildFiltersOverrides }
@@ -37,7 +47,7 @@ export function PageClient({ buildFiltersOverrides }: Props) {
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
 
-  const itemsPerPage = 16
+  const itemsPerPage = isEditable ? 15 : 16
 
   const { orderBy, handleOrderByChange } = useOrderByFilter('newest')
   const { timeRange, handleTimeRangeChange } = useTimeRangeFilter('all-time')
@@ -58,14 +68,20 @@ export function PageClient({ buildFiltersOverrides }: Props) {
 
   useEffect(() => {
     const getItemsAsync = async () => {
+      onToggleLoadingResults(true)
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
-      const response = await getFavoritedBuilds({
+      const response = await getCreatedBuilds({
         buildListFilters,
+        featuredBuildsOnly: true,
         itemsPerPage,
         orderBy,
         pageNumber: currentPage,
         timeRange,
+        userId,
+        isEditable,
+        buildVisibility: 'all',
       })
+      onToggleLoadingResults(false)
       setBuildListState((prevState) => ({
         ...prevState,
         isLoading: false,
@@ -77,10 +93,13 @@ export function PageClient({ buildFiltersOverrides }: Props) {
   }, [
     buildListFilters,
     currentPage,
+    isEditable,
     itemsPerPage,
     orderBy,
+    onToggleLoadingResults,
     setBuildListState,
     timeRange,
+    userId,
   ])
 
   return (
@@ -88,7 +107,7 @@ export function PageClient({ buildFiltersOverrides }: Props) {
       <BuildList
         currentPage={currentPage}
         isLoading={isLoading}
-        label="Favorited Builds"
+        label="Featured builds"
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}
         totalPages={totalPages}
@@ -110,12 +129,30 @@ export function PageClient({ buildFiltersOverrides }: Props) {
           role="list"
           className="mb-4 mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4"
         >
+          {isEditable ? <CreateBuildCard /> : null}
+
           {builds.map((build) => (
             <div key={build.id} className="w-full">
               <BuildCard
                 build={build}
                 isLoading={isLoading}
-                footerActions={undefined}
+                showBuildVisibility={isEditable}
+                footerActions={
+                  isEditable ? (
+                    <CreatedBuildCardActions
+                      build={build}
+                      onDelete={(buildId: string) => {
+                        setBuildListState((prevState) => ({
+                          ...prevState,
+                          builds: prevState.builds.filter(
+                            (b) => b.id !== buildId,
+                          ),
+                          totalBuildCount: prevState.totalBuildCount - 1,
+                        }))
+                      }}
+                    />
+                  ) : undefined
+                }
               />
             </div>
           ))}
