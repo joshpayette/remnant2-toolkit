@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-07-01
+
+### Added
+
+- Added `Lodestone Set` token.
+- Added `Navigator's Set` token.
+
 ## 2024-06-30
 
 ### Fixed
