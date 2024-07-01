@@ -50,6 +50,9 @@
         ".env"
       ]
     },
+    "test": {
+      "cache": false
+    },
     "db:generate": {
       "cache": false
     },
