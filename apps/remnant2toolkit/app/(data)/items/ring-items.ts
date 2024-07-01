@@ -1429,6 +1429,7 @@ export const ringItems: RingItem[] = [
     tags: ['All Damage'],
     description: `Increases all damage dealt against illuminated enemies by 5%.`,
     wikiLinks: [`https://remnant.wiki/Lodestone_Ring`],
+    externalTokens: [`Lodestone Set`],
     location: { world: 'Yaesha', dungeon: ['The Forbidden Grove'] },
     dlc: 'base',
   },

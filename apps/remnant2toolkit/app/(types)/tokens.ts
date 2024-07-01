@@ -455,9 +455,21 @@ export const EXTERNAL_TOKENS = [
   },
   {
     token: 'Misty Step',
-    color: 'dark:text-neutral-500 text-neutral-900',
+    color: 'text-[#6d6650] dark:text-[#fff1bc]',
     description:
       'Grants Misty Step evade when worn in combination with other Misty Step items.',
+  },
+  {
+    token: 'Lodestone Set',
+    color: 'text-[#6d6650] dark:text-[#fff1bc]',
+    description:
+      'Wearing the Lodestone Ring with the Lodestone Crown will grant immunity to all BLIGHT Status Effects. ',
+  },
+  {
+    token: `Navigator's Set`,
+    color: 'text-[#6d6650] dark:text-[#fff1bc]',
+    description:
+      `Wearing either Navigator's Pendant alongside the Navigator's Helm gives +15 BLIGHT resistance.`,
   },
   {
     token: 'Bug',
