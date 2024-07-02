@@ -96,27 +96,6 @@ export function Navbar() {
                 <Menu.Item>
                   {({ active }) => (
                     <Link
-                      href={NAV_ITEMS.beginnerBuilds.href}
-                      className={cn(
-                        active ? 'bg-gray-800' : '',
-                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
-                      )}
-                    >
-                      <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.beginnerBuilds.icon className="text-primary-600 h-5 w-5" />
-                      </div>
-                      <div className="flex flex-col items-start justify-start gap-y-1">
-                        {NAV_ITEMS.beginnerBuilds.label}
-                        <p className="text-xs font-normal text-gray-400">
-                          {NAV_ITEMS.beginnerBuilds.description}
-                        </p>
-                      </div>
-                    </Link>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <Link
                       href={NAV_ITEMS.communityBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
@@ -147,14 +126,6 @@ export function Navbar() {
             {NAV_ITEMS.itemLookup.label}
           </Link>
           <Link
-            href={NAV_ITEMS.itemTracker.href}
-            className={cn(
-              'text-md text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start font-semibold',
-            )}
-          >
-            {NAV_ITEMS.itemTracker.label}
-          </Link>
-          <Link
             href={NAV_ITEMS.itemQuiz.href}
             className={cn(
               'text-md text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start font-semibold',
@@ -171,12 +142,12 @@ export function Navbar() {
             {NAV_ITEMS.resources.label}
           </Link>
           <Link
-            href={NAV_ITEMS.supportR2TK.href}
+            href={NAV_ITEMS.supportHades2TK.href}
             className={cn(
               'text-md text-accent1-500 hover:text-accent1-300 flex flex-row items-center justify-start font-semibold',
             )}
           >
-            {NAV_ITEMS.supportR2TK.label}
+            {NAV_ITEMS.supportHades2TK.label}
           </Link>
         </>
       }
@@ -221,23 +192,6 @@ export function Navbar() {
           </Link>
 
           <Link
-            href={NAV_ITEMS.beginnerBuilds.href}
-            className="flex flex-row items-center justify-start"
-          >
-            <NAV_ITEMS.beginnerBuilds.icon
-              className="text-primary-600 mr-2 h-7 w-5 flex-none"
-              aria-hidden="true"
-            />
-            <div className="flex flex-col items-start justify-start px-3 py-2">
-              {NAV_ITEMS.beginnerBuilds.label}
-
-              <p className="text-xs text-gray-400">
-                {NAV_ITEMS.beginnerBuilds.description}
-              </p>
-            </div>
-          </Link>
-
-          <Link
             href={NAV_ITEMS.communityBuilds.href}
             className="flex flex-row items-center justify-start"
           >
@@ -269,23 +223,6 @@ export function Navbar() {
 
               <p className="text-xs text-gray-400">
                 {NAV_ITEMS.itemLookup.description}
-              </p>
-            </div>
-          </Link>
-
-          <Link
-            href={NAV_ITEMS.itemTracker.href}
-            className="flex flex-row items-center justify-start"
-          >
-            <NAV_ITEMS.itemTracker.icon
-              className="text-primary-600 mr-2 h-7 w-5 flex-none"
-              aria-hidden="true"
-            />
-            <div className="flex flex-col items-start justify-start px-3 py-2">
-              {NAV_ITEMS.itemTracker.label}
-
-              <p className="text-xs text-gray-400">
-                {NAV_ITEMS.itemTracker.description}
               </p>
             </div>
           </Link>
@@ -327,18 +264,18 @@ export function Navbar() {
           <hr className="border-secondary-900" />
 
           <Link
-            href={NAV_ITEMS.supportR2TK.href}
+            href={NAV_ITEMS.supportHades2TK.href}
             className="flex flex-row items-center justify-start"
           >
-            <NAV_ITEMS.supportR2TK.icon
+            <NAV_ITEMS.supportHades2TK.icon
               className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
-              {NAV_ITEMS.supportR2TK.label}
+              {NAV_ITEMS.supportHades2TK.label}
 
               <p className="text-xs text-gray-400">
-                {NAV_ITEMS.supportR2TK.description}
+                {NAV_ITEMS.supportHades2TK.description}
               </p>
             </div>
           </Link>
