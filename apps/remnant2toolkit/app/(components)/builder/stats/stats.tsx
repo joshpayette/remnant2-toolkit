@@ -252,7 +252,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 >
                   Export to Loadout Calculator
                   <Image
-                    src={getImageUrl(`/cowaii.webp`)}
+                    src={getImageUrl(`/remnant2/misc/cowaii.webp`)}
                     alt="Vash Cowaii's Loadout Calculator"
                     width={20}
                     height={20}

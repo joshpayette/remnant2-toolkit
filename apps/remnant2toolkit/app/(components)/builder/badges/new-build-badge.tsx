@@ -16,7 +16,7 @@ export function NewBuildBadge({
         plain
       >
         <Image
-          src={getImageUrl(`/badges/new_build_badge1.png`)}
+          src={getImageUrl(`/remnant2/badges/new_build_badge1.png`)}
           width={50}
           height={50}
           alt="image denoting the build was created in the past 24 hours"

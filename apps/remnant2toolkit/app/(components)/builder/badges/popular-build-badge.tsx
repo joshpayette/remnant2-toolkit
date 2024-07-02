@@ -19,15 +19,15 @@ export function PopularBuildBadge({
   let voteThreshold = 0
   switch (level) {
     case 1:
-      src = getImageUrl(`/badges/popular_badge_tier1.png`)
+      src = getImageUrl(`/remnant2/badges/popular_badge_tier1.png`)
       voteThreshold = POPULAR_VOTE_THRESHOLD1
       break
     case 2:
-      src = getImageUrl(`/badges/popular_badge_tier2.png`)
+      src = getImageUrl(`/remnant2/badges/popular_badge_tier2.png`)
       voteThreshold = POPULAR_VOTE_THRESHOLD2
       break
     default:
-      src = getImageUrl(`/badges/popular_badge_tier1.png`)
+      src = getImageUrl(`/remnant2/badges/popular_badge_tier1.png`)
       voteThreshold = POPULAR_VOTE_THRESHOLD1
   }
 
