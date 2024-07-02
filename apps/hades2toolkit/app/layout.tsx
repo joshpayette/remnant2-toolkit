@@ -52,9 +52,9 @@ export default async function RootLayout({
               username={session?.user?.displayName ?? 'Unknown User'}
             />
             <AlertBanner localStorageKey="support-r2tk-alert">
-              If you enjoy using Hades2TK, please consider supporting the site{' '}
-              <BaseTextLink href="/support-hades2tk">here</BaseTextLink>. The
-              majority of monthly costs are paid out of pocket.
+              If you enjoy using Hades2Toolkit, please consider supporting the
+              site <BaseTextLink href="/support-hades2tk">here</BaseTextLink>.
+              The majority of monthly costs are paid out of pocket.
             </AlertBanner>
             <div className="flex h-full w-full max-w-7xl grow flex-col items-start justify-start">
               <header className="w-full">
