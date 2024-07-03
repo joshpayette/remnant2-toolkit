@@ -14,7 +14,7 @@ export function CreateBuildCard() {
       <Image
         width={100}
         height={102}
-        src={getImageUrl(`/toolkit/plus-icon.png`)}
+        src={getImageUrl(`/remnant2/misc/plus-icon.png`)}
         alt="Create a New Build"
         className="mb-4"
       />

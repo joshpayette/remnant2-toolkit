@@ -128,7 +128,7 @@ export async function generateMetadata(
       url: `https://remnant2toolkit.com/endpoint/tag/${tagName}`,
       images: [
         {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',
+          url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
           width: 150,
           height: 150,
         },
@@ -141,7 +141,7 @@ export async function generateMetadata(
       card: 'summary',
       images: [
         {
-          url: `https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg`,
+          url: `https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg`,
           width: 150,
           height: 150,
         },

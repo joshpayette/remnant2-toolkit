@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: title,
     images: [
       {
-        url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/forlina-sm.jpg',
+        url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/forlina-sm.jpg',
         width: 150,
         height: 150,
       },
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     creatorId: '1696952720974888960',
     images: [
       {
-        url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/forlina-sm.jpg',
+        url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/forlina-sm.jpg',
         width: 150,
         height: 150,
       },

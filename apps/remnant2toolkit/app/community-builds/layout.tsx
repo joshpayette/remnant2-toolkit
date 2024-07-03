@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
       url: `https://remnant2toolkit.com/community-builds`,
       images: [
         {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',
+          url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
           width: 150,
           height: 150,
         },
@@ -48,7 +48,7 @@ export default async function Layout({
           subtitle={
             <span>
               Search from{' '}
-              <span className="text-2xl font-bold text-primary-500">
+              <span className="text-primary-500 text-2xl font-bold">
                 {await getTotalBuildCount()}
               </span>{' '}
               community submitted builds!
