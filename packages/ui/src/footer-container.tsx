@@ -17,7 +17,7 @@ export function FooterContainer({ children }: Props) {
             target="_blank"
           >
             <Image
-              src={getImageUrl(`/toolkit/github.png`)}
+              src={getImageUrl(`/remnant2/misc/github.png`)}
               alt="Remnant 2 Toolkit on GitHub"
               width={32}
               height={32}
@@ -30,7 +30,7 @@ export function FooterContainer({ children }: Props) {
             target="_blank"
           >
             <Image
-              src={getImageUrl(`/toolkit/patreon.png`)}
+              src={getImageUrl(`/remnant2/misc/patreon.png`)}
               alt="Support on Patreon"
               width={32}
               height={32}
@@ -40,7 +40,7 @@ export function FooterContainer({ children }: Props) {
           </a>
           <a href={DISCORD_INVITE_URL} target="_blank">
             <Image
-              src={getImageUrl(`/toolkit/discord.png`)}
+              src={getImageUrl(`/remnant2/misc/discord.png`)}
               alt="Join the Remnant 2 Toolkit Discord"
               width={32}
               height={32}
@@ -50,7 +50,7 @@ export function FooterContainer({ children }: Props) {
           </a>
           <a href="https://twitter.com/Remnant2Toolkit" target="_blank">
             <Image
-              src={getImageUrl(`/toolkit/twitter.png`)}
+              src={getImageUrl(`/remnant2/misc/twitter.png`)}
               alt="Remnant 2 Toolkit on Twitter"
               width={32}
               height={32}
