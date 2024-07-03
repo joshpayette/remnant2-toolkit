@@ -6,7 +6,7 @@ type Variant = 'remnant2toolkit'
 
 const variants = {
   remnant2toolkit: {
-    imageUrl: '/toolkit/toolkit-logo.png',
+    imageUrl: '/remnant2/misc/toolkit-logo.png',
     alt: 'Remnant 2 Toolkit logo, a purple and yellow toolbox.',
     text: 'Remnant2Toolkit',
     url: 'remnant2toolkit.com',
