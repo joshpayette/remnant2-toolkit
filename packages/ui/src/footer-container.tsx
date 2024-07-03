@@ -40,7 +40,7 @@ export function FooterContainer({ children }: Props) {
           </a>
           <a href={DISCORD_INVITE_URL} target="_blank">
             <Image
-              src={getImageUrl(`/remnant2/misc/discord.png`)}
+              src={getImageUrl(`/remnant2/misc/discord1.png`)}
               alt="Join the Remnant 2 Toolkit Discord"
               width={32}
               height={32}
