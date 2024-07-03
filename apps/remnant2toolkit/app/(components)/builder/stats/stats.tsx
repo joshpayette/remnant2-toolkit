@@ -144,7 +144,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
             <div className="grid w-full grid-cols-2 gap-x-2">
               <div className="border-b-primary-500 relative grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
                 <Image
-                  src={getImageUrl(`/status/bleed_resistance.png`)}
+                  src={getImageUrl(`/remnant2/status/bleed_resistance.png`)}
                   alt="Bleed Resistance"
                   width={32}
                   height={32}
@@ -163,7 +163,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               </div>
               <div className="border-b-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
                 <Image
-                  src={getImageUrl(`/status/fire_resistance.png`)}
+                  src={getImageUrl(`/remnant2/status/fire_resistance.png`)}
                   alt="Fire Resistance"
                   width={32}
                   height={32}
@@ -182,7 +182,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               </div>
               <div className="border-b-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
                 <Image
-                  src={getImageUrl(`/status/shock_resistance.png`)}
+                  src={getImageUrl(`/remnant2/status/shock_resistance.png`)}
                   alt="Shock Resistance"
                   width={32}
                   height={32}
@@ -201,7 +201,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               </div>
               <div className="border-b-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
                 <Image
-                  src={getImageUrl(`/status/toxin_resistance.png`)}
+                  src={getImageUrl(`/remnant2/status/toxin_resistance.png`)}
                   alt="Toxin Resistance"
                   width={32}
                   height={32}
@@ -220,7 +220,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               </div>
               <div className="border-b-primary-500 grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
                 <Image
-                  src={getImageUrl(`/status/blight_resistance.png`)}
+                  src={getImageUrl(`/remnant2/status/blight_resistance.png`)}
                   alt="Blight Resistance"
                   width={32}
                   height={32}
