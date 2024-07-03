@@ -6,8 +6,8 @@ import { ZINDEXES } from '@repo/ui/zindexes'
 import { Metadata } from 'next'
 import React from 'react'
 
-import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { getServerSession } from '@/app/(features)/auth'
+import { NAV_ITEMS } from '@/app/(types)/navigation'
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Build Creation Tool - Remnant 2 Toolkit`
@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
       url: `https://remnant2toolkit.com/builder/create`,
       images: [
         {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',
+          url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
           width: 150,
           height: 150,
         },

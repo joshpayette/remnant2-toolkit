@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     siteName: title,
     images: [
       {
-        url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',
+        url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
         width: 150,
         height: 150,
       },
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     creatorId: '1696952720974888960',
     images: [
       {
-        url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',
+        url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
         width: 150,
         height: 150,
       },

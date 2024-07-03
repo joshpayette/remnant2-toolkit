@@ -36,7 +36,7 @@ export async function generateMetadata(
         url: `https://remnant2toolkit.com/profile/${userId}`,
         images: [
           {
-            url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',
+            url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
             width: 150,
             height: 150,
           },

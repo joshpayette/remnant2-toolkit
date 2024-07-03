@@ -5,8 +5,8 @@ import React from 'react'
 
 import { getBuild } from '@/app/(actions)/builds/get-build'
 import { PageHeader } from '@/app/(components)/page-header'
-import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { getServerSession } from '@/app/(features)/auth'
+import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { isErrorResponse } from '@/app/(utils)/is-error-response'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
       url: `https://remnant2toolkit.com/builder/linked/create`,
       images: [
         {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/toolkit/og-image-sm.jpg',
+          url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
           width: 150,
           height: 150,
         },
