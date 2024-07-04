@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-07-04
+
+### Fixed
+
+- Rewrote the LOCALSETUP.md instructions that should work with the new monorepo structure of this project.
+- Updated the ARCHITECTURE.md file to reflect the new monorepo structure of this project.
+
 ## 2024-07-01
 
 ### Added
