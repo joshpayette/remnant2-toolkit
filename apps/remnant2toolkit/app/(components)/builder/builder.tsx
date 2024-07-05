@@ -1,4 +1,4 @@
-import { StarIcon } from '@heroicons/react/24/solid'
+import { EyeIcon, StarIcon } from '@heroicons/react/24/solid'
 import { BuildTags } from '@repo/db'
 import { BaseInput } from '@repo/ui/base/input'
 import { Link } from '@repo/ui/base/link'
@@ -7,6 +7,7 @@ import { Logo } from '@repo/ui/logo'
 import { getArrayOfLength } from '@repo/utils/get-array-of-length'
 import { stripUnicode } from '@repo/utils/strip-unicode'
 import { useCallback, useMemo, useState } from 'react'
+import { HiOutlineDuplicate as DuplicateIcon } from 'react-icons/hi'
 
 import { FeaturedBuildBadge } from '@/app/(components)/builder/badges/featured-build-badge'
 import { NewBuildBadge } from '@/app/(components)/builder/badges/new-build-badge'
@@ -14,6 +15,7 @@ import { PopularBuildBadge } from '@/app/(components)/builder/badges/popular-bui
 import { ItemButton } from '@/app/(components)/buttons/item-button'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { ItemSelectDialog } from '@/app/(components)/dialogs/item-select-dialog'
+import { Tooltip } from '@/app/(components)/tooltip'
 import {
   DEFAULT_TRAIT_AMOUNT,
   MAX_BUILD_TAGS,
@@ -452,39 +454,57 @@ export function Builder({
             )}
           </div>
           {showCreatedBy && (
-            <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
-              <span>
-                {`${getArchetypeComboName({
-                  archetype1:
-                    (buildState.items.archetype[0]?.name.toLowerCase() as ArchetypeName) ||
-                    null,
-                  archetype2:
-                    (buildState.items.archetype[1]?.name.toLowerCase() as ArchetypeName) ||
-                    null,
-                })}`}{' '}
-                Build by{' '}
-              </span>
-              <Link
-                href={`/profile/${buildState.createdById}/created-builds`}
-                className="text-primary-500 ml-1 underline"
-              >
-                {buildState.createdByDisplayName}
-              </Link>
-              <div className="ml-2 flex flex-row text-sm">
-                <StarIcon
-                  className={cn(
-                    'text-accent1-500 mr-0.5 h-4 w-4',
-                    isScreenshotMode ? 'mt-[1.5px]' : 'mt-0.5',
-                  )}
-                />
-                <span
-                  className={cn(
-                    'text-surface-solid',
-                    isScreenshotMode ? 'mb-[2px]' : 'mb-0.5',
-                  )}
-                >
-                  {buildState.totalUpvotes}
+            <div className="mb-1">
+              <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
+                <span>
+                  {`${getArchetypeComboName({
+                    archetype1:
+                      (buildState.items.archetype[0]?.name.toLowerCase() as ArchetypeName) ||
+                      null,
+                    archetype2:
+                      (buildState.items.archetype[1]?.name.toLowerCase() as ArchetypeName) ||
+                      null,
+                  })}`}{' '}
+                  Build by{' '}
                 </span>
+                <Link
+                  href={`/profile/${buildState.createdById}/created-builds`}
+                  className="text-primary-500 ml-1 underline"
+                >
+                  {buildState.createdByDisplayName}
+                </Link>
+              </div>
+              <div className="flex w-full flex-row items-center justify-center gap-x-4 text-sm text-gray-400">
+                <Tooltip content={`${buildState.totalUpvotes} Favorites`}>
+                  <button className="flex flex-row items-center justify-center gap-x-1">
+                    <StarIcon
+                      className={cn('text-accent1-500 mr-0.5 h-4 w-4')}
+                    />
+                    <span className={cn('text-surface-solid')}>
+                      {buildState.totalUpvotes}
+                    </span>
+                  </button>
+                </Tooltip>
+                <Tooltip content={`${buildState.viewCount} Views`}>
+                  <button className="flex flex-row items-center justify-center gap-x-1">
+                    <EyeIcon
+                      className={cn('text-primary-500 mr-0.5 h-4 w-4')}
+                    />
+                    <span className={cn('text-surface-solid')}>
+                      {buildState.viewCount}
+                    </span>
+                  </button>
+                </Tooltip>
+                <Tooltip content={`${buildState.duplicateCount} Views`}>
+                  <button className="flex flex-row items-center justify-center gap-x-1">
+                    <DuplicateIcon
+                      className={cn('text-primary-500 mr-0.5 h-4 w-4')}
+                    />
+                    <span className={cn('text-surface-solid')}>
+                      {buildState.duplicateCount}
+                    </span>
+                  </button>
+                </Tooltip>
               </div>
             </div>
           )}

@@ -48,6 +48,8 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
           updatedAt: tag.updatedAt ? new Date(tag.updatedAt) : null,
         }))
       : null,
+    viewCount: 0,
+    duplicateCount: 0,
   }
 
   const validatedData = validateBuildState(unvalidatedData)

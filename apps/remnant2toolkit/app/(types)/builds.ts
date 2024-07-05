@@ -42,6 +42,8 @@ export interface BuildState {
   description: string | null
   upvoted: boolean
   totalUpvotes: number
+  viewCount: number
+  duplicateCount: number
   reported: boolean
   items: {
     helm: ArmorItem | null
@@ -94,6 +96,8 @@ export interface DBBuild {
   reported: boolean
   upvoted: boolean
   totalUpvotes: number
+  viewCount: number
+  duplicateCount: number
   buildItems: BuildItems[]
   buildTags: BuildTags[]
 }

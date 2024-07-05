@@ -111,6 +111,8 @@ export function validateBuildState(buildState: unknown) {
     videoUrl: z.string().nullable(),
     buildLinkUpdatedAt: z.date().nullable(),
     totalUpvotes: z.number(),
+    viewCount: z.number(),
+    duplicateCount: z.number(),
     reported: z.boolean(),
     items: z.object({
       helm: armorItemSchema.nullable(),
