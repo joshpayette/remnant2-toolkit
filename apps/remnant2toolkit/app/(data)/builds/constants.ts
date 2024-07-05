@@ -59,6 +59,8 @@ export const INITIAL_BUILD_STATE: BuildState = {
   createdById: null,
   upvoted: false,
   totalUpvotes: 0,
+  viewCount: 0,
+  duplicateCount: 0,
   reported: false,
   items: {
     helm: null,

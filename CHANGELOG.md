@@ -8,9 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Added
 
-- Started tracking the number of times a build has been duplicated.
-- Started tracking the number of times a build has been viewed.
-  - The goal is to add these stats to the build itself to give creators another metric other than favorites to gauge the popularity of their build.
+- Builds now display the total view count. This excludes the builder's views of their own build.
+- Builds now display the total duplicate count. This is the number of times the build has been copied by other users.
+  - **Note**: This is not retroactive - sorry!
+  - **Note**: These counts are not used for any ranking or sorting purposes. They are just another way for builders to see the impact of their builds on the community.
 
 ## 2024-07-04
 

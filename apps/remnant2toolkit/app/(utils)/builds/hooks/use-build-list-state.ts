@@ -38,6 +38,8 @@ const DEFAULT_STATE: State = {
     reported: false,
     upvoted: false,
     totalUpvotes: 0,
+    viewCount: 0,
+    duplicateCount: 0,
     buildItems: [],
   })),
   totalBuildCount: 0,

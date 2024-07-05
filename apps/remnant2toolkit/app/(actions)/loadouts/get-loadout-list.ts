@@ -79,6 +79,8 @@ export async function getLoadoutList(userId?: string) {
           reported: false,
           upvoted: true,
           totalUpvotes: buildVotesCounts.shift() || 0,
+          viewCount: loadout.build.viewCount,
+          duplicateCount: loadout.build.duplicateCount,
           buildItems: loadout.build.BuildItems,
           slot: loadout.slot,
         }
@@ -110,6 +112,8 @@ export async function getLoadoutList(userId?: string) {
           reported: false,
           upvoted: true,
           totalUpvotes: 0,
+          viewCount: 0,
+          duplicateCount: 0,
           buildItems: [],
           slot: loadout.slot,
         },

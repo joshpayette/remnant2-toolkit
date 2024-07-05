@@ -3,8 +3,8 @@ import { Link } from '@repo/ui/base/link'
 import { getTotalBuildCount } from '@/app/(actions)/builds/get-total-build-count'
 import { LandingPageCard } from '@/app/(components)/cards/landing-page-card'
 import { LandingPageContainer } from '@/app/(components)/landing-page-container'
-import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { getServerSession } from '@/app/(features)/auth'
+import { NAV_ITEMS } from '@/app/(types)/navigation'
 
 export default async function Page() {
   const session = await getServerSession()

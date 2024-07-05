@@ -120,6 +120,8 @@ export default async function getLinkedBuild(linkedBuildId: string): Promise<{
                 (upvote) => upvote.buildId === build.id && upvote.upvoted,
               ),
               totalUpvotes: build.BuildVotes.length,
+              viewCount: build.viewCount,
+              duplicateCount: build.duplicateCount,
               reported: false,
               buildItems: build.BuildItems,
             },

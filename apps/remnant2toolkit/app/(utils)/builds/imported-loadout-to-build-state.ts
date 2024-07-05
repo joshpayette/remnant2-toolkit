@@ -85,6 +85,8 @@ export function importedLoadoutToBuildState({
     description: `Placeholder`,
     upvoted: false,
     totalUpvotes: 0,
+    viewCount: 0,
+    duplicateCount: 0,
     reported: false,
     items: {
       helm: null,

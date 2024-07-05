@@ -40,6 +40,8 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
     buildTags: dbBuild.buildTags,
     upvoted: dbBuild.upvoted,
     totalUpvotes: dbBuild.totalUpvotes,
+    viewCount: dbBuild.viewCount,
+    duplicateCount: dbBuild.duplicateCount,
     reported: dbBuild.reported,
     items: {
       helm: ArmorItem.fromDBValue(buildItems, 'helm'),
