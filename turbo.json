@@ -56,10 +56,11 @@
     "test:ci": {
       "cache": false
     },
-    "db:generate": {
+    "db:push": {
+      "dependsOn": ["^db:generate"],
       "cache": false
     },
-    "db:push": {
+    "db:generate": {
       "cache": false
     },
     "clean": {

@@ -1,20 +1,8 @@
 # Local Setup
 
-This file walks you through setting up the project locally.
+This file walks you through setting up the project locally. I just converted this project to a monorepo, and did my best to update these instructions. If anything doesn't work, please contact `remnant2toolkit` on Discord and I will help get these updated.
 
-## NOTE These steps are currently broken
-
-I just converted this project to a monorepo and have not yet updated these local instructions.
-
-## Requirements
-
-### Installing Software
-
-- [Git](https://git-scm.com/downloads) - Allows you to run `git` commands in your terminal.
-- [VSCode](https://code.visualstudio.com/download) is what I use, but you can use whatever code editor you want.
-- [Docker Desktop](https://www.docker.com/products/docker-desktop) to run and deploy the dev environment.
-
-### Understanding the guide
+## Understanding the guide
 
 This guide assumes you are using a terminal to run commands.
 
@@ -28,6 +16,32 @@ When you see a command like this, this is instructing you to run the command in 
 npm run dev
 ```
 
+## Requirements
+
+### Installing Software
+
+- [Git](https://git-scm.com/downloads) - Allows you to run `git` commands in your terminal.
+- [NVM for Windows](https://github.com/coreybutler/nvm-windows/releases) - Allows you to install and swap between different versions of Node.js.
+- [VSCode](https://code.visualstudio.com/download) is what I use, but you can use whatever code editor you want.
+- [Docker Desktop](https://www.docker.com/products/docker-desktop) to run a local MySQL database.
+
+#### NVM for Windows
+
+Once you have installed NVM for Windows, activate NodeJS v18.17.0 by running the following command in your terminal:
+
+```bash
+nvm install 18.17.0
+nvm use 18.17.0
+```
+
+#### Install PNPM
+
+This project uses PNPM as the package manager. You can install it by running the following command in your terminal:
+
+```bash
+npm install -g pnpm
+```
+
 ## First-time Setup
 
 ### Clone the repository
@@ -39,15 +53,23 @@ git clone https://github.com/joshpayette/remnant2-toolkit.git
 cd remnant2-toolkit
 ```
 
-### Setup the .env file
+### Install the dependencies
 
-#### Initialize the .env file
+Run the following command to install the dependencies for the project:
 
 ```bash
-cp .env.example .env
+pnpm install
 ```
 
-Open the `.env` file and set the following environment variables per the below instructions.
+### Setup the .env.local file
+
+#### Initialize the root .env.local file
+
+```bash
+cp .env.local.example .env.local
+```
+
+Open the `.env.local` file and set the following environment variables per the below instructions.
 
 #### `MYSQL_` Environment Variables
 
@@ -61,8 +83,30 @@ If you change these values after the first-time setup, you will need to delete t
 The `DATABASE_URL` environment variable is used by Prisma to connect to the database. There is a sample value in the `.env` file. You will need to replace `{{ PASSWORD HERE }}` with the value you set for `MYSQL_PASSWORD` in the previous step.
 
 ```bash
-DATABASE_URL="mysql://r2tkuser:password@db:3306/r2tkdb"
+DATABASE_URL="mysql://forlinauser:password@localhost:3306/forlinadb"
 ```
+
+**Use this same database URL in every other `.env` file where the `DATABASE_URL` field exists.**
+
+### Setup the `packages/database` .env file
+
+```bash
+cp ./packages/database/.env.example ./packages/database/.env
+```
+
+#### `DATABASE_URL` environment variable
+
+Copy the `DATABASE_URL` value from the root `.env.local` file and paste it into the `packages/database/.env` file.
+
+### Setup the `apps/remnant2toolkit` .env file
+
+```bash
+cp ./apps/remnant2toolkit/.env.example ./apps/remnant2toolkit/.env
+```
+
+#### `DATABASE_URL` environment variable
+
+Copy the `DATABASE_URL` value from the root `.env.local` file and paste it into the `apps/remnant2toolkit/.env.local` file.
 
 #### Allowing sign-in with Discord/Reddit
 
@@ -126,74 +170,39 @@ These are unnecessary in local development. This is only used for automated sche
 
 This is used to reference the Toolkit's Cloudfront distribution for images. You can leave this as the default value for local development to use the Toolkit's cache. However, you can update it to any URL you want to use for local development if you want to use a different source for images.
 
-### Setup Docker
-
-#### Create the network
+## Run the database container
 
 ```bash
-docker network create remnant2-toolkit
-```
-
-#### Build the dev environment
-
-```bash
-docker compose -f docker-compose.dev.yml build
-```
-
-#### Run the dev environment
-
-```bash
-docker compose -f docker-compose.dev.yml up
+docker compose -f docker-compose.dev.yml --env-file=./packages/database/.env.local up
 ```
 
 Wait about 2 minutes at this step to allow the database to spin up. In the console, you should see something like this in the logs:
 
 ```bash
-Creating database r2tkdb
-Creating user r2tkuser
-Giving user r2tkuser access to schema r2tkdb
+Creating database forlinadb
+Creating user forlinauser
+Giving user forlinauser access to schema forlinadb
 ```
 
 ### Initialize the database
 
-1. In Docker Desktop, click on Containers on the left.
-2. Expand the `remnant2-toolkit` container. You should see two services: `db-1` and `remnant2-toolkit`.
-3. Click on the `remnant2-toolkit` service.
-4. Click the `Exec` tab.
-5. Run the following commands to initialize the database.
+Run the following command from the root (top-most) folder to generate the initial (empty) database schema:
 
 ```bash
-npx prisma generate
+npx turbo db:push
 ```
 
-```bash
-npx prisma db push
-```
-
-Restart the `remnant2-toolkit` service. The site should now be available at [http://localhost:3000](http://localhost:3000).
+**This will also need to be done any time you modify any files in `packages/database/prisma/schema` to apply the changes.**.
 
 ## Running the Dev Environment
 
-These instructions are how to run the dev environment after the first-time setup.
+To run all of the web applications (found in the `apps` folder), you can run the following command from the root (top-most) folder:
 
 ```bash
-docker compose -f docker-compose.dev.yml up
+npx turbo dev
 ```
 
 The site should now be available at [http://localhost:3000](http://localhost:3000).
-
-## Stopping the Dev Environment
-
-```bash
-docker compose -f docker-compose.dev.yml down
-```
-
-## Restarting the Dev Environment
-
-```bash
-docker compose -f docker-compose.dev.yml down
-docker compose -f docker-compose.dev.yml up
-```
 
 ## Ensuring your changes will build in production
 
@@ -212,27 +221,43 @@ npm run build
 
 If the build is successful, you can push your changes. Otherwise, you will see errors to give an idea of what needs to be fixed.
 
+## Running tests
+
+There are not many tests in this project yet, which is a source of great shame. However, you can run the tests we do have by running:
+
+```bash
+npx turbo test
+```
+
 ## FAQ
 
 ### Connecting to the database
 
-If you want to connect to the database and view records, open a terminal and do the following:
+If you want to connect to the database and view records:
 
-1. Open a terminal and run the following command to connect to mysql:
+1. Open a terminal and run the following command to connect to MySQL:
 
 ```bash
 mysql -u root -p
 ```
 
 2. Enter the password you set for `MYSQL_ROOT_PASSWORD` in the `.env` file.
-3. Run the following command to connect to the `r2tkdb` database:
+3. Run the following command to connect to the `forlinadb` database:
 
 ```bash
-use r2tkdb;
+use forlinadb;
 ```
 
-You are now able to run SQL queries against the database.
+You are now able to run SQL queries against the database. For example, view all tables:
+
+```bash
+show tables;
+```
 
 ### Updating .env vars
 
 If you make updates to the `.env` file, you will need to restart the dev environment (if it's running) for the changes to take effect.
+
+```bash
+npx turbo dev
+```

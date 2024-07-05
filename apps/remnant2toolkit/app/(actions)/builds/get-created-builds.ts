@@ -6,6 +6,7 @@ import { bigIntFix } from '@repo/utils/big-int-fix'
 
 import { OrderBy } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
 import { TimeRange } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
+import { getServerSession } from '@/app/(features)/auth'
 import {
   communityBuildsCountQuery,
   communityBuildsQuery,
@@ -13,7 +14,6 @@ import {
 import { getOrderBySegment } from '@/app/(queries)/build-filters/segments/get-order-by'
 import { limitByTimeConditionSegment } from '@/app/(queries)/build-filters/segments/limit-by-time-condition'
 import { DBBuild } from '@/app/(types)/builds'
-import { getServerSession } from '@/app/(features)/auth'
 import { PaginationResponse } from '@/app/(utils)/pagination/use-pagination'
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes'

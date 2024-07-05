@@ -17,6 +17,8 @@ model Build {
   thumbnailUrl        String?
   buildLink           String?
   buildLinkUpdatedAt  DateTime?
+  viewCount           Int                @default(0)
+  duplicateCount      Int                @default(0)
   BuildVotes          BuildVoteCounts[]
   BuildReports        BuildReports[]
   BuildItems          BuildItems[]

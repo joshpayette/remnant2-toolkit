@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
+import { incrementDuplicateCount } from '@/app/(actions)/builds/increment-duplicate-count'
 import { modItems } from '@/app/(data)/items/mod-items'
 import { traitItems } from '@/app/(data)/items/trait-items'
 import { Item } from '@/app/(data)/items/types'
@@ -88,6 +89,9 @@ export function useBuildActions() {
   }
 
   async function handleDuplicateBuild(buildState: BuildState) {
+    // Update the build to add to the duplicate count
+    await incrementDuplicateCount({ buildId: buildState.buildId as string })
+
     const newBuildState = cloneDeep(buildState)
     newBuildState.name = `${buildState.name} (copy)`
     newBuildState.isPublic = false

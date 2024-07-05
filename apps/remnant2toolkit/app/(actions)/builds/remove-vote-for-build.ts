@@ -6,8 +6,8 @@ import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 
 import { BUILD_REVALIDATE_PATHS } from '@/app/(data)/builds/constants'
-import { BuildActionResponse } from '@/app/(types)/builds'
 import { getServerSession } from '@/app/(features)/auth'
+import { BuildActionResponse } from '@/app/(types)/builds'
 
 export async function removeVoteForBuild(
   data: string,
