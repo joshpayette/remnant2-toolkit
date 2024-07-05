@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-07-05
+
+### Added
+
+- Started tracking the number of times a build has been duplicated.
+- Started tracking the number of times a build has been viewed.
+  - The goal is to add these stats to the build itself to give creators another metric other than favorites to gauge the popularity of their build.
+
 ## 2024-07-04
 
 ### Fixed
