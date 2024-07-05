@@ -3,15 +3,16 @@
 import { prisma } from '@repo/db'
 import { bigIntFix } from '@repo/utils/big-int-fix'
 import { revalidatePath } from 'next/cache'
-import { z } from 'zod'
 
 import { BUILD_REVALIDATE_PATHS } from '@/app/(data)/builds/constants'
 import { getServerSession } from '@/app/(features)/auth'
 import { BuildActionResponse } from '@/app/(types)/builds'
 
-export async function addVoteForBuild(
-  data: string,
-): Promise<BuildActionResponse> {
+export async function addVoteForBuild({
+  buildId,
+}: {
+  buildId: string
+}): Promise<BuildActionResponse> {
   // session validation
   const session = await getServerSession()
   if (!session || !session.user) {
@@ -19,21 +20,6 @@ export async function addVoteForBuild(
       message: 'You must be logged in.',
     }
   }
-
-  // build validation
-  const unvalidatedData = JSON.parse(data)
-  const validatedData = z
-    .object({
-      buildId: z.string(),
-    })
-    .safeParse(unvalidatedData)
-  if (!validatedData.success) {
-    console.error('Error in data!', validatedData.error)
-    return {
-      errors: [validatedData.error.flatten().fieldErrors],
-    }
-  }
-  const { buildId } = validatedData.data
 
   if (!buildId) {
     return {

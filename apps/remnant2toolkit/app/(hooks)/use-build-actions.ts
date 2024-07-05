@@ -89,9 +89,6 @@ export function useBuildActions() {
   }
 
   async function handleDuplicateBuild(buildState: BuildState) {
-    // Update the build to add to the duplicate count
-    await incrementDuplicateCount({ buildId: buildState.buildId as string })
-
     const newBuildState = cloneDeep(buildState)
     newBuildState.name = `${buildState.name} (copy)`
     newBuildState.isPublic = false
@@ -102,13 +99,16 @@ export function useBuildActions() {
         ? 0
         : newBuildState.totalUpvotes
     newBuildState.reported = Boolean(newBuildState.reported)
-    const response = await createBuild(JSON.stringify(newBuildState))
-    if (isErrorResponse(response)) {
-      console.error(response.errors)
+    const [createBuildResponse, _incrementResponse] = await Promise.all([
+      createBuild(JSON.stringify(newBuildState)),
+      incrementDuplicateCount({ buildId: buildState.buildId as string }),
+    ])
+    if (isErrorResponse(createBuildResponse)) {
+      console.error(createBuildResponse.errors)
       toast.error('Error duplicating build. Please try again later.')
     } else {
-      toast.success(response.message)
-      router.push(`/builder/${response.buildId}`)
+      toast.success(createBuildResponse.message)
+      router.push(`/builder/${createBuildResponse.buildId}`)
     }
   }
 
@@ -117,6 +117,7 @@ export function useBuildActions() {
     userId: string | undefined,
   ) {
     if (!userId) return
+    if (!buildState.buildId) return
 
     if (buildState.createdById === userId) {
       toast.error('You cannot vote/unvote for your own build.')
@@ -126,10 +127,8 @@ export function useBuildActions() {
     const newVote = !buildState.upvoted
 
     const response = newVote
-      ? await addVoteForBuild(JSON.stringify({ buildId: buildState.buildId }))
-      : await removeVoteForBuild(
-          JSON.stringify({ buildId: buildState.buildId }),
-        )
+      ? await addVoteForBuild({ buildId: buildState.buildId })
+      : await removeVoteForBuild({ buildId: buildState.buildId })
 
     if (isErrorResponse(response)) {
       console.error(response.errors)
