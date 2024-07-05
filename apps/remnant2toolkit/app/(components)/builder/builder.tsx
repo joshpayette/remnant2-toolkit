@@ -478,17 +478,9 @@ export function Builder({
                 <Tooltip content={`${buildState.totalUpvotes} Favorites`}>
                   <button className="flex flex-row items-center justify-center gap-x-1">
                     <StarIcon
-                      className={cn(
-                        'text-accent1-500 mr-0.5 h-4 w-4',
-                        isScreenshotMode ? 'mt-[1.5px]' : 'mt-0.5',
-                      )}
+                      className={cn('text-accent1-500 mr-0.5 h-4 w-4')}
                     />
-                    <span
-                      className={cn(
-                        'text-surface-solid',
-                        isScreenshotMode ? 'mb-[2px]' : 'mb-0.5',
-                      )}
-                    >
+                    <span className={cn('text-surface-solid')}>
                       {buildState.totalUpvotes}
                     </span>
                   </button>
@@ -496,17 +488,9 @@ export function Builder({
                 <Tooltip content={`${buildState.viewCount} Views`}>
                   <button className="flex flex-row items-center justify-center gap-x-1">
                     <EyeIcon
-                      className={cn(
-                        'text-primary-500 mr-0.5 h-4 w-4',
-                        isScreenshotMode ? 'mt-[1.5px]' : 'mt-0.5',
-                      )}
+                      className={cn('text-primary-500 mr-0.5 h-4 w-4')}
                     />
-                    <span
-                      className={cn(
-                        'text-surface-solid',
-                        isScreenshotMode ? 'mb-[2px]' : 'mb-0.5',
-                      )}
-                    >
+                    <span className={cn('text-surface-solid')}>
                       {buildState.viewCount}
                     </span>
                   </button>
@@ -514,17 +498,9 @@ export function Builder({
                 <Tooltip content={`${buildState.duplicateCount} Views`}>
                   <button className="flex flex-row items-center justify-center gap-x-1">
                     <DuplicateIcon
-                      className={cn(
-                        'text-primary-500 mr-0.5 h-4 w-4',
-                        isScreenshotMode ? 'mt-[1.5px]' : 'mt-0.5',
-                      )}
+                      className={cn('text-primary-500 mr-0.5 h-4 w-4')}
                     />
-                    <span
-                      className={cn(
-                        'text-surface-solid',
-                        isScreenshotMode ? 'mb-[2px]' : 'mb-0.5',
-                      )}
-                    >
+                    <span className={cn('text-surface-solid')}>
                       {buildState.duplicateCount}
                     </span>
                   </button>
