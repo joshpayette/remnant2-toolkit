@@ -495,7 +495,7 @@ export function Builder({
                     </span>
                   </button>
                 </Tooltip>
-                <Tooltip content={`${buildState.duplicateCount} Views`}>
+                <Tooltip content={`${buildState.duplicateCount} Duplicates`}>
                   <button className="flex flex-row items-center justify-center gap-x-1">
                     <DuplicateIcon
                       className={cn('text-primary-500 mr-0.5 h-4 w-4')}

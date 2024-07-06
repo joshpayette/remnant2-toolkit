@@ -141,6 +141,7 @@ export async function GET(request: NextRequest) {
       const builds = await prisma.build.findMany({
         where: {
           createdById: paidUser.userId,
+          isPublic: true,
         },
       })
       for (const build of builds) {

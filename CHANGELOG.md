@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Builds now display the total duplicate count. This is the number of times the build has been copied by other users.
   - **Note**: This is not retroactive - sorry!
   - **Note**: These counts are not used for any ranking or sorting purposes. They are just another way for builders to see the impact of their builds on the community.
+- Quality Build feed added to home page, which will automatically update with new quality builds as they are created.
 
 ## 2024-07-04
 
