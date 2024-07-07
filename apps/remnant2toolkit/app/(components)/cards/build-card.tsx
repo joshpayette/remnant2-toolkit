@@ -50,6 +50,9 @@ export function BuildCard({
   const { isPopular, popularLevel } = isBuildPopular(build.totalUpvotes)
   const isNew = isBuildNew(buildState.createdAt)
 
+  console.info('build', build)
+  console.info('buildState', buildState)
+
   return (
     <div
       key={build.id}

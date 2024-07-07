@@ -2,6 +2,7 @@
 
 import { Prisma } from '@repo/db'
 import { prisma } from '@repo/db'
+import { bigIntFix } from '@repo/utils/big-int-fix'
 
 import { getServerSession } from '@/app/(features)/auth'
 import { limitToQualityBuilds } from '@/app/(queries)/build-filters/segments/limit-by-quality'
@@ -75,7 +76,7 @@ export async function getQualityBuildFeed(): Promise<{ builds: DBBuild[] }> {
     build.buildTags = buildTags
   }
 
-  return {
+  return bigIntFix({
     builds,
-  }
+  })
 }
