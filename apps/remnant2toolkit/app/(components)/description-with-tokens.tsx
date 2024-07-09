@@ -125,7 +125,11 @@ function parseStringForToken({
         return item && item.description ? (
           <Tooltip
             key={uuidv4()}
-            content={item.description.substring(0, 200) + '...'}
+            content={
+              item.description.length >= 200
+                ? item.description.substring(0, 200) + '...'
+                : item.description
+            }
           >
             {itemNameButton}
           </Tooltip>
