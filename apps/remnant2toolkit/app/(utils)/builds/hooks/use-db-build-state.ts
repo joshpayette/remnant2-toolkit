@@ -252,7 +252,6 @@ export function useDBBuildState(initialBuildState: BuildState) {
 
   function setNewBuildState(buildState: BuildState) {
     const cleanBuildState = cleanUpBuildState(buildState)
-    console.info('cleanBuildState', cleanBuildState)
     setDBBuildState(cleanBuildState)
     //setLocalBuildState(cleanBuildState)
   }

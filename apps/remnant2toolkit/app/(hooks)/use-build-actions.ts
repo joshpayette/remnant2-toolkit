@@ -23,6 +23,7 @@ import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { BuildState, ItemCategory } from '@/app/(types)/builds'
+import { cleanUpBuildState } from '@/app/(utils)/builds/clean-up-build-state'
 import { getConcoctionSlotCount } from '@/app/(utils)/builds/get-concoction-slot-count'
 import { getItemListForSlot } from '@/app/(utils)/builds/get-item-list-for-slot'
 import { isErrorResponse } from '@/app/(utils)/is-error-response'
@@ -198,7 +199,7 @@ export function useBuildActions() {
   }, [isScreenshotMode, router])
 
   function handleRandomBuild(): BuildState {
-    const randomBuild: BuildState = JSON.parse(
+    let randomBuild: BuildState = JSON.parse(
       JSON.stringify(INITIAL_BUILD_STATE),
     )
 
@@ -317,33 +318,18 @@ export function useBuildActions() {
       randomBuild.items.ring[index] = randomRing
     })
     // Traits
-    // First assign the primary archtype traits
-    const primaryArchetype = randomBuild.items.archetype[0] as ArchetypeItem
-    primaryArchetype.linkedItems?.traits?.forEach((trait, index) => {
-      const traitItem = traitItems.find(
-        (item) => item.name === trait.name,
-      ) as TraitItem
-      if (!traitItem) {
-        throw new Error(`Could not find trait ${trait.name}`)
-      }
-      randomBuild.items.trait[index] = {
-        ...traitItem,
-        amount: trait.amount,
-      }
-    })
+    // assign the archetype traits first
+    randomBuild = cleanUpBuildState(randomBuild)
+
     // Keep assigning traits until we have 110 total points
     let totalTraitPoints = randomBuild.items.trait.reduce(
       (acc: number, currentValue: TraitItem) => acc + currentValue.amount,
       0,
     )
 
-    const allTraits = traitItems.filter(
-      (item) => item.category === 'trait',
-    ) as TraitItem[]
-
     while (totalTraitPoints < 110) {
       const randomTrait =
-        allTraits[Math.floor(Math.random() * allTraits.length)]
+        traitItems[Math.floor(Math.random() * traitItems.length)]
 
       if (!randomTrait) throw new Error('Could not find random trait')
 
@@ -351,6 +337,7 @@ export function useBuildActions() {
       if (totalTraitPoints + randomTrait.amount > 110) {
         randomTrait.amount = 110 - totalTraitPoints
       }
+
       // if the trait is not already in the build, add it
       // otherwise we will just increase the amount
       if (
@@ -366,7 +353,7 @@ export function useBuildActions() {
         if (!randomBuild.items.trait[traitIndex]) {
           throw new Error(`Could not find trait at index ${traitIndex}`)
         }
-        randomBuild.items.trait[traitIndex].amount = randomTrait.amount
+        randomBuild.items.trait[traitIndex].amount += randomTrait.amount
       }
 
       totalTraitPoints = randomBuild.items.trait.reduce(
@@ -396,7 +383,7 @@ export function useBuildActions() {
       },
     )
 
-    return randomBuild
+    return cleanUpBuildState(randomBuild)
   }
 
   return {

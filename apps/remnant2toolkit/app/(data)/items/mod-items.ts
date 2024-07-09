@@ -5,7 +5,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Abrasive Rounds',
     saveFileSlug: 'Mod_AbrasiveRounds_C',
-    imagePath: '/items/mods/abrasiverounds.png',
+    imagePath: '/remnant2/items/mods/abrasiverounds.png',
     id: 'h9k5pd',
     dlc: 'dlc2',
     description:
@@ -19,7 +19,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: '77 79 68',
     saveFileSlug: 'Mod_Polyactuator_C',
-    imagePath: '/items/mods/polygun.png',
+    imagePath: '/remnant2/items/mods/polygun.png',
     dlc: 'dlc2',
     id: '777968',
     description: 'TOGGLE COMBAT FIRING MODESTOGGLE COMBAT FIRING MODES',
@@ -35,7 +35,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Accelerator',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/atomsmasher.png',
+    imagePath: '/remnant2/items/mods/atomsmasher.png',
     id: 'h9k5pl',
     dlc: 'base',
     description: `Charge Melee Attacks increase the speed of all Melee Attacks by 10% for 5s.`,
@@ -51,7 +51,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Astral Burst',
     saveFileSlug: 'Mod_AstralBurst_C',
-    imagePath: '/items/mods/astralburst.png',
+    imagePath: '/remnant2/items/mods/astralburst.png',
     id: 'mqta6g',
     dlc: 'base',
     description:
@@ -65,7 +65,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Awakening',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/awakening.png',
+    imagePath: '/remnant2/items/mods/awakening.png',
     dlc: 'dlc1',
     id: 'wszjeu',
     description: `Incoming damage grants Awakening which increases Melee Damage by 5% per stack for 10s. Max 10 stacks.`,
@@ -81,7 +81,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Banish',
     saveFileSlug: 'Mod_Banish_C',
-    imagePath: '/items/mods/banish.png',
+    imagePath: '/remnant2/items/mods/banish.png',
     id: 'k7z7r2',
     dlc: 'base',
     description:
@@ -102,7 +102,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Beta Ray',
-    imagePath: '/items/mods/betaray.png',
+    imagePath: '/remnant2/items/mods/betaray.png',
     saveFileSlug: 'Mod_BetaRay_C',
     id: '5ke493',
     dlc: 'base',
@@ -125,7 +125,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Beyond the Veil',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/beyondtheveil.png',
+    imagePath: '/remnant2/items/mods/beyondtheveil.png',
     id: 'puif17',
     dlc: 'base',
     description: `Neutral Evade turns to mist, granting Nightshade 5% base damage as Lifesteal for 5s. Perfect Dodge doubles duration.`,
@@ -141,7 +141,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Big Bang',
     saveFileSlug: 'Mod_BigBang_C',
-    imagePath: '/items/mods/bigbang.png',
+    imagePath: '/remnant2/items/mods/bigbang.png',
     id: 's7ozpe',
     dlc: 'base',
     description:
@@ -163,7 +163,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Blaze',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/blaze.png',
+    imagePath: '/remnant2/items/mods/blaze.png',
     id: 'gdY2uZ',
     dlc: 'base',
     description:
@@ -180,7 +180,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Blood Draw',
     saveFileSlug: 'Mod_BloodDraw_C',
-    imagePath: '/items/mods/blooddraw.png',
+    imagePath: '/remnant2/items/mods/blooddraw.png',
     id: 'ss7zwt',
     dlc: 'base',
     description:
@@ -195,7 +195,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Bloodline',
     saveFileSlug: 'Mod_Bloodline_C',
-    imagePath: '/items/mods/bloodline.png',
+    imagePath: '/remnant2/items/mods/bloodline.png',
     id: 'yxxajn',
     dlc: 'base',
     description:
@@ -216,7 +216,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Bloodshot',
     saveFileSlug: 'Mod_Bloodshot_C',
-    imagePath: '/items/mods/bloodshot.png',
+    imagePath: '/remnant2/items/mods/bloodshot.png',
     id: 'tw8tbh',
     dlc: 'base',
     description:
@@ -235,7 +235,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Bloodthirst',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/bloodthirst.png',
+    imagePath: '/remnant2/items/mods/bloodthirst.png',
     id: '1rw0kk',
     dlc: 'base',
     description: `Attacks from behind enemies always count as Weakspots. Charge Attacks deal 200 - 600 BLEEDING damage over 10s.`,
@@ -251,7 +251,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Bore',
     saveFileSlug: 'Mod_Bore_C',
-    imagePath: '/items/mods/bore.png',
+    imagePath: '/remnant2/items/mods/bore.png',
     id: 'iq4wjy',
     dlc: 'base',
     tags: ['Critical Chance', 'Weakspot Damage'],
@@ -267,7 +267,7 @@ export const modItems: ModItem[] = [
     name: 'Chain of Command',
     saveFileSlug: undefined,
     dlc: 'dlc1',
-    imagePath: '/items/mods/chainofcommand.png',
+    imagePath: '/remnant2/items/mods/chainofcommand.png',
     id: 'lxt1j0',
     description:
       'Harpoon Mode: Fire Harpoon to mark target causing primary fire to become Homing Rounds dealing 15% reduced damage. Enemies hit by Homing Rounds build Influence. Recasting exits Mode.\n' +
@@ -285,7 +285,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Chaos Driver',
     saveFileSlug: 'Mod_ChaosDriver_C',
-    imagePath: '/items/mods/chaosdriver.png',
+    imagePath: '/remnant2/items/mods/chaosdriver.png',
     id: 'dxnd9s',
     dlc: 'base',
     description:
@@ -307,7 +307,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Concussive Shot',
     saveFileSlug: 'Mod_ConcussiveShot_C',
-    imagePath: '/items/mods/concussiveshot.png',
+    imagePath: '/remnant2/items/mods/concussiveshot.png',
     id: 'an140h',
     dlc: 'base',
     description:
@@ -322,7 +322,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Corrosive Rounds',
     saveFileSlug: 'Mod_CorrosiveRounds_C',
-    imagePath: '/items/mods/corrosiverounds.png',
+    imagePath: '/remnant2/items/mods/corrosiverounds.png',
     id: 'hr3g7o',
     dlc: 'base',
     tags: ['Critical Chance'],
@@ -337,7 +337,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Creeping Mist',
     saveFileSlug: 'Mod_CreepingMist_C',
-    imagePath: '/items/mods/creepingmist.png',
+    imagePath: '/remnant2/items/mods/creepingmist.png',
     dlc: 'dlc1',
     id: 'a3ctlf',
     description:
@@ -354,7 +354,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Cube Room',
     saveFileSlug: 'Mod_CubeRoom_C',
-    imagePath: '/items/mods/cuberoom.png',
+    imagePath: '/remnant2/items/mods/cuberoom.png',
     id: '2nMTRG',
     dlc: 'base',
     description:
@@ -374,7 +374,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Cube Shield',
     saveFileSlug: 'Mod_CubeShield_C', // todo test this on loadout import
-    imagePath: '/items/mods/cubeshield.png',
+    imagePath: '/remnant2/items/mods/cubeshield.png',
     id: '1bfanq',
     dlc: 'base',
     description:
@@ -395,7 +395,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Cyclone',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/cyclone.png',
+    imagePath: '/remnant2/items/mods/cyclone.png',
     id: '1bfadq',
     dlc: 'dlc2',
     description: `Maintaining an overhead Charged Melee forms a 5m sand cyclone, dealing 35 damage per second and pulls enemies towards the wielder. Each Cyclone hit applies EXPOSED for 3s. Max 15s.`,
@@ -411,7 +411,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Deadpoint',
     saveFileSlug: 'Mod_Mortar_C',
-    imagePath: '/items/mods/corrupted_deadpoint.png',
+    imagePath: '/remnant2/items/mods/corrupted_deadpoint.png',
     id: 'ysz4fw',
     dlc: 'base',
     description:
@@ -431,7 +431,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Deadwood',
     saveFileSlug: 'Mod_Deadwood_C',
-    imagePath: '/items/mods/deadwood.png',
+    imagePath: '/remnant2/items/mods/deadwood.png',
     id: 'k7z7rz',
     dlc: 'dlc2',
     description:
@@ -452,7 +452,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Death Brand',
     saveFileSlug: 'Mod_DeathBrand_C',
-    imagePath: '/items/mods/corrupted_deathbrand.png',
+    imagePath: '/remnant2/items/mods/corrupted_deathbrand.png',
     id: 'd3q99g',
     dlc: 'base',
     description:
@@ -474,7 +474,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Death Sentence',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/feraljudgement.png',
+    imagePath: '/remnant2/items/mods/feraljudgement.png',
     id: 'wilhsl',
     dlc: 'base',
     description:
@@ -493,7 +493,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Defrag',
     saveFileSlug: 'Mod_Defrag_C',
-    imagePath: '/items/mods/defrag.png',
+    imagePath: '/remnant2/items/mods/defrag.png',
     id: '3hqdob',
     dlc: 'base',
     description:
@@ -511,7 +511,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Dreadwalker',
     saveFileSlug: 'Mod_Dreadwalker_C',
-    imagePath: '/items/mods/dreadwalker.png',
+    imagePath: '/remnant2/items/mods/dreadwalker.png',
     id: 'ybej3w',
     dlc: 'base',
     description:
@@ -532,7 +532,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Dreamwave',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/dreamwave.png',
+    imagePath: '/remnant2/items/mods/dreamwave.png',
     id: 'dwmc70',
     dlc: 'base',
     tags: ['Status Effect'],
@@ -553,7 +553,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Dying Breath',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/dyingbreath.png',
+    imagePath: '/remnant2/items/mods/dyingbreath.png',
     id: '22nk8x',
     dlc: 'base',
     description: `When Infused, Neutral Backdash Charge Attack explodes in a 3m AOE and leaves an ACID Cloud which lasts for 15s.`,
@@ -569,7 +569,7 @@ export const modItems: ModItem[] = [
   {
     category: 'mod',
     name: 'Energy Wall',
-    imagePath: '/items/mods/energywall.png',
+    imagePath: '/remnant2/items/mods/energywall.png',
     saveFileSlug: 'Mod_EnergyWall_C', // todo test this on loadout import
     id: '8uluwc',
     dlc: 'base',
@@ -584,7 +584,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Energy Wave',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/energywave.png',
+    imagePath: '/remnant2/items/mods/energywave.png',
     id: '7ztoh8',
     dlc: 'base',
     description:
@@ -601,7 +601,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Eulogy',
     saveFileSlug: 'Mod_Eulogy_C',
-    imagePath: '/items/mods/eulogy.png',
+    imagePath: '/remnant2/items/mods/eulogy.png',
     id: '3xf7i2',
     dlc: 'base',
     description:
@@ -623,7 +623,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Explosive Shot',
     saveFileSlug: 'Mod_ExplosiveShot_C',
-    imagePath: '/items/mods/explosiveshot.png',
+    imagePath: '/remnant2/items/mods/explosiveshot.png',
     id: 'hpfdzp',
     dlc: 'base',
     description:
@@ -643,7 +643,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Familiar',
     saveFileSlug: 'Mod_Familiar_C',
-    imagePath: '/items/mods/familiar.png',
+    imagePath: '/remnant2/items/mods/familiar.png',
     id: 'sccdmt',
     dlc: 'base',
     description:
@@ -658,7 +658,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Fargazer',
     saveFileSlug: 'Mod_Fargazer_C',
-    imagePath: '/items/mods/fargazer.png',
+    imagePath: '/remnant2/items/mods/fargazer.png',
     id: 'yedqs6',
     dlc: 'base',
     description:
@@ -672,7 +672,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Fathomless Deep',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/fathomlessdeep.png',
+    imagePath: '/remnant2/items/mods/fathomlessdeep.png',
     dlc: 'dlc1',
     id: 'o1zwol',
     description:
@@ -689,7 +689,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Faultline',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/faultline.png',
+    imagePath: '/remnant2/items/mods/faultline.png',
     id: '5mlisj',
     dlc: 'base',
     description:
@@ -706,7 +706,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Firestorm',
     saveFileSlug: 'Mod_Firestorm_C',
-    imagePath: '/items/mods/firestorm.png',
+    imagePath: '/remnant2/items/mods/firestorm.png',
     id: 'snlx8w',
     dlc: 'base',
     description:
@@ -721,7 +721,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Fission Strike',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/fissionstrike.png',
+    imagePath: '/remnant2/items/mods/fissionstrike.png',
     id: 'd490vt',
     dlc: 'base',
     description:
@@ -740,7 +740,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Flying Bomb Trap',
     saveFileSlug: 'Mod_FlyingBombTrap_C',
-    imagePath: '/items/mods/flyingbombtrap.png',
+    imagePath: '/remnant2/items/mods/flyingbombtrap.png',
     id: '2GWpcL',
     dlc: 'dlc2',
     description:
@@ -758,7 +758,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Fracture',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/fracture.png',
+    imagePath: '/remnant2/items/mods/fracture.png',
     id: 'x8vmra',
     dlc: 'base',
     description:
@@ -775,7 +775,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Fusion Cannon',
     saveFileSlug: 'Mod_FusionCannon_C',
-    imagePath: '/items/mods/fusioncannon.png',
+    imagePath: '/remnant2/items/mods/fusioncannon.png',
     id: 'D8obdv',
     dlc: 'base',
     description:
@@ -796,7 +796,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Gravity Core',
     saveFileSlug: 'Mod_GravityCore_C',
-    imagePath: '/items/mods/gravitycore.png',
+    imagePath: '/remnant2/items/mods/gravitycore.png',
     id: 'kep3kb',
     dlc: 'base',
     description:
@@ -818,7 +818,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: "Guardian's Call",
     saveFileSlug: 'Mod_GuardiansCall_C',
-    imagePath: '/items/mods/guardianscall.png',
+    imagePath: '/remnant2/items/mods/guardianscall.png',
     id: 'anhbhf',
     dlc: 'base',
     description:
@@ -840,7 +840,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: `Guardian's Fury`,
     saveFileSlug: 'Mod_GuardiansVigil_C',
-    imagePath: '/items/mods/guardiansfury.png',
+    imagePath: '/remnant2/items/mods/guardiansfury.png',
     id: 'WzXG4x',
     dlc: 'base',
     description:
@@ -860,7 +860,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Heatwave',
     saveFileSlug: 'Mod_Heatwave_C',
-    imagePath: '/items/mods/heatwave.png',
+    imagePath: '/remnant2/items/mods/heatwave.png',
     dlc: 'dlc2',
     id: 'vc3s1n',
     description:
@@ -874,7 +874,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Healing Shot',
     saveFileSlug: 'Mod_HealingShot_C',
-    imagePath: '/items/mods/healingshot.png',
+    imagePath: '/remnant2/items/mods/healingshot.png',
     id: 'vc361n',
     dlc: 'base',
     description:
@@ -888,7 +888,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Heat Sink',
     saveFileSlug: 'Mod_HeatSink_C',
-    imagePath: '/items/mods/heatsink.png',
+    imagePath: '/remnant2/items/mods/heatsink.png',
     id: 's49h0c',
     dlc: 'base',
     description:
@@ -907,7 +907,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Helix',
     saveFileSlug: 'Mod_Helix_C',
-    imagePath: '/items/mods/helix.png',
+    imagePath: '/remnant2/items/mods/helix.png',
     id: '1mtqkk',
     dlc: 'base',
     description:
@@ -921,7 +921,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Horizon Strike',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/horizonstrike.png',
+    imagePath: '/remnant2/items/mods/horizonstrike.png',
     id: '2fjw9q',
     dlc: 'base',
     description:
@@ -938,7 +938,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Hot Shot',
     saveFileSlug: 'Mod_Hotshot_C',
-    imagePath: '/items/mods/hotshot.png',
+    imagePath: '/remnant2/items/mods/hotshot.png',
     id: '9vzb9r',
     dlc: 'base',
     description:
@@ -952,7 +952,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Javelin',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/athibar.png',
+    imagePath: '/remnant2/items/mods/athibar.png',
     id: '29kz6t',
     dlc: 'base',
     description: `Charge attacks use 25 stamina to throw the spear, which returns to the wielder's hand.`,
@@ -968,7 +968,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Knight Guard',
     saveFileSlug: 'Mod_KnightGuard_C',
-    imagePath: '/items/mods/knightguard.png',
+    imagePath: '/remnant2/items/mods/knightguard.png',
     dlc: 'dlc1',
     id: 'e4n1w4',
     description:
@@ -982,7 +982,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Krell Edge',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/krelledge.png',
+    imagePath: '/remnant2/items/mods/krelledge.png',
     id: '38rncx',
     dlc: 'base',
     description:
@@ -1001,7 +1001,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Lifeline',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/lifeline.png',
+    imagePath: '/remnant2/items/mods/lifeline.png',
     id: '4zqfhu',
     dlc: 'base',
     description:
@@ -1018,7 +1018,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Loathe the Weak',
     saveFileSlug: 'Mod_LoathTheWeak_C',
-    imagePath: '/items/mods/loaththeweak.png',
+    imagePath: '/remnant2/items/mods/loaththeweak.png',
     dlc: 'dlc1',
     id: 'aobtw7',
     description:
@@ -1037,7 +1037,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Micronova',
     saveFileSlug: 'Mod_Micronova_C',
-    imagePath: '/items/mods/corrupted_micronova.png',
+    imagePath: '/remnant2/items/mods/corrupted_micronova.png',
     id: '8izb2g',
     dlc: 'base',
     description:
@@ -1061,7 +1061,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Moonlight Barrage',
     saveFileSlug: 'Mod_MoonlightBarrage_C',
-    imagePath: '/items/mods/moonlightbarrage.png',
+    imagePath: '/remnant2/items/mods/moonlightbarrage.png',
     id: 'wfak3h',
     dlc: 'base',
     description:
@@ -1082,7 +1082,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Nano Phase',
     saveFileSlug: 'Mod_NanoPhase_C',
-    imagePath: '/items/mods/nanophase.png',
+    imagePath: '/remnant2/items/mods/nanophase.png',
     id: 'WARGv3',
     dlc: 'base',
     description:
@@ -1102,7 +1102,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Nano Swarm',
     saveFileSlug: 'Mod_NanoSwarm_C',
-    imagePath: '/items/mods/nanoswarm.png',
+    imagePath: '/remnant2/items/mods/nanoswarm.png',
     id: '8ko9zz',
     dlc: 'base',
     description:
@@ -1121,7 +1121,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Ouroboros',
     saveFileSlug: 'Mod_Ouroboros_C',
-    imagePath: '/items/mods/ouroboros.png',
+    imagePath: '/remnant2/items/mods/ouroboros.png',
     id: 'czgb8w',
     dlc: 'base',
     description:
@@ -1142,7 +1142,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Overflow',
     saveFileSlug: 'Mod_Overflow_C',
-    imagePath: '/items/mods/overflow.png',
+    imagePath: '/remnant2/items/mods/overflow.png',
     id: 'tya9an',
     dlc: 'base',
     description:
@@ -1159,7 +1159,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Power Stone',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/powerstone.png',
+    imagePath: '/remnant2/items/mods/powerstone.png',
     id: '2JimAt',
     dlc: 'dlc2',
     tags: ['Status Effect'],
@@ -1180,7 +1180,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Prismatic Driver',
     saveFileSlug: 'Mod_PrismaticDriver_C', // todo test this on loadout import
-    imagePath: '/items/mods/prismaticdriver.png',
+    imagePath: '/remnant2/items/mods/prismaticdriver.png',
     id: 'vtcg3o',
     dlc: 'base',
     description:
@@ -1195,7 +1195,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Reaver',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/reaver.png',
+    imagePath: '/remnant2/items/mods/reaver.png',
     dlc: 'dlc1',
     id: 'geb8ho',
     description: `Increases Melee Damage by 10% if the target is suffering from a Negative Status Effect.`,
@@ -1211,7 +1211,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Ring of Spears',
     saveFileSlug: 'Mod_RingOfSpears_C',
-    imagePath: '/items/mods/ringofspears.png',
+    imagePath: '/remnant2/items/mods/ringofspears.png',
     dlc: 'dlc1',
     id: '4rdl8r',
     description:
@@ -1230,7 +1230,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Rootlash',
     saveFileSlug: 'Mod_Rootlash_C',
-    imagePath: '/items/mods/rootlash.png',
+    imagePath: '/remnant2/items/mods/rootlash.png',
     id: 'nfw6ja',
     dlc: 'base',
     description:
@@ -1244,7 +1244,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Rotted Arrow',
     saveFileSlug: 'Mod_RottedArrow_C',
-    imagePath: '/items/mods/rottedarrow.png',
+    imagePath: '/remnant2/items/mods/rottedarrow.png',
     id: 'vgin4w',
     dlc: 'base',
     description:
@@ -1259,7 +1259,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Sandstorm',
     saveFileSlug: 'Mod_Sandstorm_C',
-    imagePath: '/items/mods/sandstorm.png',
+    imagePath: '/remnant2/items/mods/sandstorm.png',
     dlc: 'dlc2',
     id: 'ozNPv9',
     tags: [],
@@ -1280,7 +1280,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Scrap Shot',
     saveFileSlug: 'Mod_ScrapShot_C',
-    imagePath: '/items/mods/scrapshot.png',
+    imagePath: '/remnant2/items/mods/scrapshot.png',
     id: 'hcv400',
     dlc: 'base',
     tags: ['Status Effect'],
@@ -1296,7 +1296,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Screamer',
     saveFileSlug: 'Mod_Screamer_C',
-    imagePath: '/items/mods/screamer.png',
+    imagePath: '/remnant2/items/mods/screamer.png',
     id: '4aeebu',
     dlc: 'base',
     description:
@@ -1316,7 +1316,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Shatterstar',
     saveFileSlug: 'Mod_Shatterstar_C',
-    imagePath: '/items/mods/shatterstar.png',
+    imagePath: '/remnant2/items/mods/shatterstar.png',
     id: 'z9e8qq',
     dlc: 'base',
     description:
@@ -1337,7 +1337,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Skewer 2.0',
     saveFileSlug: 'Mod_Skewer_C',
-    imagePath: '/items/mods/skewer.png',
+    imagePath: '/remnant2/items/mods/skewer.png',
     id: 'cpvech',
     dlc: 'base',
     description:
@@ -1352,7 +1352,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Song of Eafir',
     saveFileSlug: 'Mod_SongOfEafir_C',
-    imagePath: '/items/mods/songofeafir.png',
+    imagePath: '/remnant2/items/mods/songofeafir.png',
     id: 'edm644',
     dlc: 'base',
     tags: ['Status Effect', 'Damage Reduction'],
@@ -1370,7 +1370,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Soul Brand',
     saveFileSlug: 'Mod_Soulbrand_C',
-    imagePath: '/items/mods/soulbrand.png',
+    imagePath: '/remnant2/items/mods/soulbrand.png',
     id: 'imk8xh',
     dlc: 'base',
     description:
@@ -1392,7 +1392,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Soulbinder',
     saveFileSlug: 'Mod_Soulbinder_C',
-    imagePath: '/items/mods/soulbinder.png',
+    imagePath: '/remnant2/items/mods/soulbinder.png',
     id: '5bb0mv',
     dlc: 'base',
     description:
@@ -1407,7 +1407,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Space Crabs',
     saveFileSlug: 'Mod_SpaceCrabs_C',
-    imagePath: '/items/mods/spacecrabs.png',
+    imagePath: '/remnant2/items/mods/spacecrabs.png',
     id: '4wd3gm',
     dlc: 'base',
     description:
@@ -1421,7 +1421,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Spore Shot',
     saveFileSlug: 'Mod_SporeShot_C',
-    imagePath: '/items/mods/sporeshot.png',
+    imagePath: '/remnant2/items/mods/sporeshot.png',
     id: '9fi67v',
     dlc: 'base',
     tags: ['Status Effect'],
@@ -1441,7 +1441,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Starfall',
     saveFileSlug: 'Mod_Starfall_C',
-    imagePath: '/items/mods/starfall.png',
+    imagePath: '/remnant2/items/mods/starfall.png',
     id: 'j9wkb3',
     dlc: 'base',
     description:
@@ -1461,7 +1461,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Stasis Beam',
     saveFileSlug: 'Mod_StasisBeam_C',
-    imagePath: '/items/mods/stasisbeam.png',
+    imagePath: '/remnant2/items/mods/stasisbeam.png',
     id: 'rer73h',
     dlc: 'base',
     tags: ['Status Effect'],
@@ -1476,7 +1476,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Supernova',
     saveFileSlug: 'Mod_Supernova_C',
-    imagePath: '/items/mods/supernova.png',
+    imagePath: '/remnant2/items/mods/supernova.png',
     id: '9rxk65',
     dlc: 'base',
     tags: ['Status Effect'],
@@ -1501,7 +1501,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Time Lapse',
     saveFileSlug: 'Mod_TimeLapse_C',
-    imagePath: '/items/mods/timelapse.png',
+    imagePath: '/remnant2/items/mods/timelapse.png',
     id: 'nn1q6k',
     dlc: 'base',
     tags: ['Status Effect'],
@@ -1518,7 +1518,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Tremor',
     saveFileSlug: 'Mod_Tremor_C',
-    imagePath: '/items/mods/tremor.png',
+    imagePath: '/remnant2/items/mods/tremor.png',
     id: 'g6glpj',
     dlc: 'base',
     description:
@@ -1533,7 +1533,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Voltaic Rondure',
     saveFileSlug: 'Mod_VoltaicRondure_C',
-    imagePath: '/items/mods/voltaicrondure.png',
+    imagePath: '/remnant2/items/mods/voltaicrondure.png',
     id: 'wjopwy',
     dlc: 'base',
     tags: ['Status Effect'],
@@ -1549,7 +1549,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Whirlwind',
     saveFileSlug: undefined,
-    imagePath: '/items/mods/whirlwind.png',
+    imagePath: '/remnant2/items/mods/whirlwind.png',
     id: '2y6xm7',
     dlc: 'base',
     description:
@@ -1566,7 +1566,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Will of the Wisp',
     saveFileSlug: 'Mod_WillOfTheWisp_C',
-    imagePath: '/items/mods/willofthewisp.png',
+    imagePath: '/remnant2/items/mods/willofthewisp.png',
     id: '9jwTXR',
     dlc: 'base',
     description:
@@ -1585,7 +1585,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Windfall',
     saveFileSlug: 'Mod_Windfall_C',
-    imagePath: '/items/mods/corrupted_windfall.png',
+    imagePath: '/remnant2/items/mods/corrupted_windfall.png',
     id: '82v8kz',
     dlc: 'base',
     description:
@@ -1606,7 +1606,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Witchfire',
     saveFileSlug: 'Mod_Witchfire_C',
-    imagePath: '/items/mods/witchfire.png',
+    imagePath: '/remnant2/items/mods/witchfire.png',
     id: 'ggf5qe',
     dlc: 'base',
     description:
