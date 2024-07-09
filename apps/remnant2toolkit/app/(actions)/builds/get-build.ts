@@ -27,6 +27,7 @@ export async function getBuild(
       BuildVotes: true,
       BuildItems: true,
       BuildTags: true,
+      BuildValidatedViews: true,
     },
   })
 
@@ -62,6 +63,7 @@ export async function getBuild(
     upvoted: false,
     totalUpvotes: build.BuildVotes.length,
     viewCount: build.viewCount,
+    validatedViewCount: build.BuildValidatedViews.length,
     duplicateCount: build.duplicateCount,
     reported: false,
     buildItems: build.BuildItems,

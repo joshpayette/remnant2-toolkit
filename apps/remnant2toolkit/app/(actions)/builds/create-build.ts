@@ -49,6 +49,7 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
         }))
       : null,
     viewCount: 0,
+    validatedViewCount: 0,
     duplicateCount: 0,
   }
 

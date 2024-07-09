@@ -45,28 +45,29 @@ enum UserRole {
 }
 
 model User {
-  id                String            @id @default(cuid())
-  name              String?
-  displayName       String?
-  email             String?           @unique
-  emailVerified     DateTime?
-  image             String?
-  role              UserRole          @default(user)
-  createdAt         DateTime          @default(now())
-  updatedAt         DateTime          @default(now()) @updatedAt
-  accounts          Account[]
-  sessions          Session[]
-  Build             Build[]
-  BuildVotes        BuildVoteCounts[]
-  BuildReports      BuildReports[]
-  BannedUsers       BannedUsers[]
-  PaidUsers         PaidUsers[]
-  UserProfile       UserProfile?
-  UserLoadouts      UserLoadouts[]
-  UserItems         UserItems[]
-  LinkedBuild       LinkedBuild[]
-  AuditLogUser      AuditLog[]        @relation(name: "user")
-  AuditLogModerator AuditLog[]        @relation(name: "moderator")
+  id                  String                @id @default(cuid())
+  name                String?
+  displayName         String?
+  email               String?               @unique
+  emailVerified       DateTime?
+  image               String?
+  role                UserRole              @default(user)
+  createdAt           DateTime              @default(now())
+  updatedAt           DateTime              @default(now()) @updatedAt
+  accounts            Account[]
+  sessions            Session[]
+  Build               Build[]
+  BuildVotes          BuildVoteCounts[]
+  BuildReports        BuildReports[]
+  BannedUsers         BannedUsers[]
+  PaidUsers           PaidUsers[]
+  UserProfile         UserProfile?
+  UserLoadouts        UserLoadouts[]
+  UserItems           UserItems[]
+  LinkedBuild         LinkedBuild[]
+  AuditLogUser        AuditLog[]            @relation(name: "user")
+  AuditLogModerator   AuditLog[]            @relation(name: "moderator")
+  BuildValidatedViews BuildValidatedViews[]
 }
 
 model VerificationToken {

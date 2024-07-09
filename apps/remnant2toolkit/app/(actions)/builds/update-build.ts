@@ -49,6 +49,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
         }))
       : null,
     viewCount: unvalidatedData.viewCount ?? 0,
+    validatedViewCount: unvalidatedData.validatedViewCount ?? 0,
     duplicateCount: unvalidatedData.duplicateCount ?? 0,
   }
 
