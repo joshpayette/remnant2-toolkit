@@ -32,7 +32,10 @@ import { addVoteForBuild } from '../(actions)/builds/add-vote-for-build'
 import { createBuild } from '../(actions)/builds/create-build'
 import { deleteBuild } from '../(actions)/builds/delete-build'
 import { removeVoteForBuild } from '../(actions)/builds/remove-vote-for-build'
-import { INITIAL_BUILD_STATE } from '../(data)/builds/constants'
+import {
+  INITIAL_BUILD_STATE,
+  MAX_TRAIT_AMOUNT,
+} from '../(data)/builds/constants'
 
 function getRandomItem(
   buildState: BuildState,
@@ -354,6 +357,9 @@ export function useBuildActions() {
           throw new Error(`Could not find trait at index ${traitIndex}`)
         }
         randomBuild.items.trait[traitIndex].amount += randomTrait.amount
+        if (randomBuild.items.trait[traitIndex].amount >= MAX_TRAIT_AMOUNT) {
+          randomBuild.items.trait[traitIndex].amount = MAX_TRAIT_AMOUNT
+        }
       }
 
       totalTraitPoints = randomBuild.items.trait.reduce(
