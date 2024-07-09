@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-07-09
+
+### Fixed
+
+- Fixed issue preventing mod images from loading correctly.
+- Fixed issue where randomizing a build would yield more than 110 trait points.
+
 ## 2024-07-08
 
 ### Added
