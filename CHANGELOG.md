@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-07-08
 
+### Added
+
+- Started tracking "validated views". These work similar to view count, except it is only tracked 1 per authenticated user. Unauthenticated users are not counted. This value will be used to filter builds by "most viewed" in an upcoming update.
+
 ### Fixed
 
 - Fixed bug where "Create Build" menu link was always going to unauthenticated builder.
