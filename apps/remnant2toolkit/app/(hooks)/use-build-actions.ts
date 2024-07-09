@@ -356,11 +356,10 @@ export function useBuildActions() {
         if (!randomBuild.items.trait[traitIndex]) {
           throw new Error(`Could not find trait at index ${traitIndex}`)
         }
-        randomBuild.items.trait[traitIndex].amount += randomTrait.amount
-        if (randomBuild.items.trait[traitIndex].amount >= MAX_TRAIT_AMOUNT) {
-          randomBuild.items.trait[traitIndex].amount = MAX_TRAIT_AMOUNT
-        }
+        randomBuild.items.trait[traitIndex].amount = randomTrait.amount
       }
+
+      randomBuild = cleanUpBuildState(randomBuild)
 
       totalTraitPoints = randomBuild.items.trait.reduce(
         (acc: number, currentValue: TraitItem) => acc + currentValue.amount,
