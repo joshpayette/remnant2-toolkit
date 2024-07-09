@@ -39,6 +39,7 @@ const DEFAULT_STATE: State = {
     upvoted: false,
     totalUpvotes: 0,
     viewCount: 0,
+    validatedViewCount: 0,
     duplicateCount: 0,
     buildItems: [],
   })),

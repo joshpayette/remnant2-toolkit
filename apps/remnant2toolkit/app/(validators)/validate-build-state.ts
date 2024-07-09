@@ -112,6 +112,7 @@ export function validateBuildState(buildState: unknown) {
     buildLinkUpdatedAt: z.date().nullable(),
     totalUpvotes: z.number(),
     viewCount: z.number(),
+    validatedViewCount: z.number(),
     duplicateCount: z.number(),
     reported: z.boolean(),
     items: z.object({

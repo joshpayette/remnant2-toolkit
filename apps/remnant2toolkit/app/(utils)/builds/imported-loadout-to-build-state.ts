@@ -86,6 +86,7 @@ export function importedLoadoutToBuildState({
     upvoted: false,
     totalUpvotes: 0,
     viewCount: 0,
+    validatedViewCount: 0,
     duplicateCount: 0,
     reported: false,
     items: {

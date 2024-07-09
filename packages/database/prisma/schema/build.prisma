@@ -1,32 +1,33 @@
 model Build {
-  id                  String             @id @default(cuid())
-  createdAt           DateTime           @default(now())
-  updatedAt           DateTime?          @updatedAt
-  createdBy           User               @relation(fields: [createdById], references: [id])
+  id                  String                @id @default(cuid())
+  createdAt           DateTime              @default(now())
+  updatedAt           DateTime?             @updatedAt
+  createdBy           User                  @relation(fields: [createdById], references: [id])
   createdById         String
-  isFeaturedBuild     Boolean            @default(false)
-  isBeginnerBuild     Boolean            @default(false)
-  isModeratorApproved Boolean            @default(false)
-  isModeratorLocked   Boolean            @default(false)
-  isPatchAffected     Boolean            @default(false)
-  isPublic            Boolean            @default(true)
+  isFeaturedBuild     Boolean               @default(false)
+  isBeginnerBuild     Boolean               @default(false)
+  isModeratorApproved Boolean               @default(false)
+  isModeratorLocked   Boolean               @default(false)
+  isPatchAffected     Boolean               @default(false)
+  isPublic            Boolean               @default(true)
   dateFeatured        DateTime?
   name                String
-  description         String?            @db.Text
+  description         String?               @db.Text
   videoUrl            String?
   thumbnailUrl        String?
   buildLink           String?
   buildLinkUpdatedAt  DateTime?
-  viewCount           Int                @default(0)
-  duplicateCount      Int                @default(0)
+  viewCount           Int                   @default(0)
+  duplicateCount      Int                   @default(0)
   BuildVotes          BuildVoteCounts[]
   BuildReports        BuildReports[]
   BuildItems          BuildItems[]
-  UserProfile         UserProfile?       @relation(fields: [userProfileId], references: [id])
+  UserProfile         UserProfile?          @relation(fields: [userProfileId], references: [id])
   userProfileId       String?
   UserLoadouts        UserLoadouts[]
   BuildTags           BuildTags[]
   LinkedBuildItems    LinkedBuildItems[]
+  BuildValidatedViews BuildValidatedViews[]
 
   @@index([createdById])
   @@index([userProfileId])
@@ -56,6 +57,19 @@ model BuildVoteCounts {
   build     Build     @relation(fields: [buildId], references: [id], onDelete: Cascade)
   buildId   String
   user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+
+  @@index([buildId])
+  @@index([userId])
+}
+
+model BuildValidatedViews {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  build     Build    @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId   String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String
 
   @@index([buildId])

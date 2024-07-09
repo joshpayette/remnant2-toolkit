@@ -33,6 +33,20 @@ export async function incrementViewCount({
       }
     }
 
+    // if the user is authenticated, add a BuildValidatedView count for the user and build if it doesn't exist
+    if (userId) {
+      await prisma.buildValidatedViews.upsert({
+        where: {
+          id: `${buildId}-${userId}`,
+        },
+        update: {},
+        create: {
+          id: `${buildId}-${userId}`,
+          buildId,
+          userId,
+        },
+      })
+    }
     await prisma.build.update({
       where: {
         id: buildId,

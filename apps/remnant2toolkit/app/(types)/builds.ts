@@ -43,6 +43,7 @@ export interface BuildState {
   upvoted: boolean
   totalUpvotes: number
   viewCount: number
+  validatedViewCount: number
   duplicateCount: number
   reported: boolean
   items: {
@@ -97,6 +98,7 @@ export interface DBBuild {
   upvoted: boolean
   totalUpvotes: number
   viewCount: number
+  validatedViewCount: number
   duplicateCount: number
   buildItems: BuildItems[]
   buildTags: BuildTags[]

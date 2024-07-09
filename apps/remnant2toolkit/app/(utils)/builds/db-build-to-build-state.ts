@@ -41,6 +41,7 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
     upvoted: dbBuild.upvoted,
     totalUpvotes: dbBuild.totalUpvotes,
     viewCount: dbBuild.viewCount,
+    validatedViewCount: dbBuild.validatedViewCount,
     duplicateCount: dbBuild.duplicateCount,
     reported: dbBuild.reported,
     items: {
