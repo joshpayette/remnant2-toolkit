@@ -131,8 +131,6 @@ ${limitToQualityBuilds(withQuality)}
     }),
   ])
 
-  console.info('builds', builds.length)
-
   // Then, for each Build, get the associated BuildItems
   for (const build of builds) {
     const buildItems = await prisma.buildItems.findMany({

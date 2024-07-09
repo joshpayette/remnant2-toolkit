@@ -7,12 +7,15 @@ import { cn } from '@repo/ui/classnames'
 import { Logo } from '@repo/ui/logo'
 import { NavbarContainer } from '@repo/ui/navbar-container'
 import { ZINDEXES } from '@repo/ui/zindexes'
+import { useSession } from 'next-auth/react'
 import { Fragment } from 'react'
 
 import { ProfileButton } from '@/app/(components)/profile-button'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 
 export function Navbar() {
+  const { status } = useSession()
+
   return (
     <NavbarContainer
       logo={<Logo variant="remnant2toolkit" />}
