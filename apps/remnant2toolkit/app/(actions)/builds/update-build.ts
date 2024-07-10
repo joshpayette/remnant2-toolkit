@@ -231,6 +231,11 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     },
   })
 
+  // Ensure the build link is less than 190 characters
+  if (buildState.buildLink && buildState.buildLink.length > 190) {
+    buildState.buildLink = buildState.buildLink?.slice(0, 190)
+  }
+
   // If the new buildLink doesn't match the existing buildLink, update the buildLinkUpdatedAt
   // If the user is a permitted builder, immediately validate the link by setting buildLinkUpdatedAt to yesterday
   if (

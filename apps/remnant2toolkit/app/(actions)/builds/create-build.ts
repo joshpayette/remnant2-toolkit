@@ -271,6 +271,11 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
       })
     }
 
+    // Ensure the build link is less than 190 characters
+    if (buildState.buildLink && buildState.buildLink.length > 190) {
+      buildState.buildLink = buildState.buildLink?.slice(0, 190)
+    }
+
     const dbResponse = await prisma.build.create({
       data: {
         name:
