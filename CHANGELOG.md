@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed issue preventing mod images from loading correctly.
 - Fixed issue where randomizing a build would yield more than 110 trait points.
 - Fixed an issue where tooltip text was adding `...` even if the text was not truncated.
+- Fixed a bug where a Build Reference Link over 190 characters would prevent a build from saving and crash the page.
 
 ## 2024-07-08
 
