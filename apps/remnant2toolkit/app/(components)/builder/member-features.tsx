@@ -179,11 +179,13 @@ Watch the build in action: [insert Youtube link here]
                     If you add a YouTube video URL, it will be embedded above
                     the build after 12 hours.{' '}
                   </li>
+                  <li className="ml-4">Max Length: 190 characters</li>
                 </ul>
                 <div className="flex w-full items-center justify-start">
                   <BaseInput
                     value={buildLink ?? ''}
                     onChange={(e) => onChangeBuildLink(e.target.value)}
+                    maxLength={190}
                   />
                 </div>
               </BaseFieldset>
