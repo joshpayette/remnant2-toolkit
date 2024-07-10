@@ -51,6 +51,7 @@ This project exists and thrives thanks to all the people who contribute.
 - Joelexion
 - [Mr. Nacho [\*] ](https://www.youtube.com/@Mr-Nacho420)
 - Newby
+- ρнιℓσмεηα
 - tehgreg
 - Savvra
 - Sk0oMa
