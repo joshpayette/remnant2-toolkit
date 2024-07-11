@@ -56,6 +56,7 @@ export function communityBuildsQuery({
   User.name as createdByName, 
   User.displayName as createdByDisplayName,
   (SELECT COUNT(*) FROM BuildVoteCounts WHERE BuildVoteCounts.buildId = Build.id) as totalUpvotes,
+  (SELECT COUNT(*) FROM BuildValidatedViews WHERE BuildValidatedViews.buildId = Build.id) as validatedViews,
   COUNT(BuildReports.id) as totalReports,
   ${userReportedBuildSegment(userId)},
   ${userUpvotedBuildSegment(userId)},

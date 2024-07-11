@@ -24,6 +24,10 @@ export function getOrderBySegment(
       ORDER BY createdAt DESC
       `
     }
+  } else if (orderBy === 'most viewed') {
+    orderBySegment = Prisma.sql`
+    ORDER BY validatedViews DESC
+    `
   }
 
   return orderBySegment

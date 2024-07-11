@@ -7,6 +7,7 @@ import { Logo } from '@repo/ui/logo'
 import { getArrayOfLength } from '@repo/utils/get-array-of-length'
 import { stripUnicode } from '@repo/utils/strip-unicode'
 import { useCallback, useMemo, useState } from 'react'
+import { FaRegEye } from 'react-icons/fa'
 import { HiOutlineDuplicate as DuplicateIcon } from 'react-icons/hi'
 
 import { FeaturedBuildBadge } from '@/app/(components)/builder/badges/featured-build-badge'
@@ -485,7 +486,19 @@ export function Builder({
                     </span>
                   </button>
                 </Tooltip>
-                <Tooltip content={`${buildState.viewCount} Views`}>
+                <Tooltip
+                  content={`${buildState.validatedViewCount} Validated Views`}
+                >
+                  <button className="flex flex-row items-center justify-center gap-x-1">
+                    <FaRegEye
+                      className={cn('text-accent1-500 mr-0.5 h-4 w-4')}
+                    />
+                    <span className={cn('text-surface-solid')}>
+                      {buildState.validatedViewCount}
+                    </span>
+                  </button>
+                </Tooltip>
+                <Tooltip content={`${buildState.viewCount} Total Views`}>
                   <button className="flex flex-row items-center justify-center gap-x-1">
                     <EyeIcon
                       className={cn('text-primary-500 mr-0.5 h-4 w-4')}
