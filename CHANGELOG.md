@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-07-10
+
+### Added
+
+- Builds now show validated views. These are views by authenticated users only, limited to 1 view per user.
+- You can now sort builds by validated views on the various build feeds.
+
 ## 2024-07-09
 
 ### Fixed
