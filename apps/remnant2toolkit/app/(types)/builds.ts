@@ -119,6 +119,7 @@ export type CommunityBuildQueryResponse = Array<
     totalUpvotes: number
     totalReports: number
     upvoted: boolean
+    validatedViews: number
   }
 >
 

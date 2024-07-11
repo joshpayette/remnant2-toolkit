@@ -57,7 +57,6 @@ export function CommunityBuilds({
   // Fetch data
   useEffect(() => {
     const getItemsAsync = async () => {
-      onToggleLoadingResults(true)
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getCommunityBuilds({
         itemsPerPage,
@@ -66,7 +65,6 @@ export function CommunityBuilds({
         orderBy,
         buildListFilters,
       })
-      onToggleLoadingResults(false)
       setBuildListState((prevState) => ({
         ...prevState,
         isLoading: false,
@@ -81,9 +79,12 @@ export function CommunityBuilds({
     itemsPerPage,
     orderBy,
     timeRange,
-    onToggleLoadingResults,
     setBuildListState,
   ])
+
+  useEffect(() => {
+    onToggleLoadingResults(isLoading)
+  }, [isLoading, onToggleLoadingResults])
 
   if (!buildListFilters) {
     return <Skeleton className="min-h-[1100px] w-full" />

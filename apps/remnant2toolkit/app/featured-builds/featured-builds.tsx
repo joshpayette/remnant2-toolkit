@@ -66,13 +66,13 @@ export function FeaturedBuilds({
         pageNumber: currentPage,
         timeRange,
       })
-      onToggleLoadingResults(false)
       setBuildListState((prevState) => ({
         ...prevState,
         isLoading: false,
         builds: response.items,
         totalBuildCount: response.totalItemCount,
       }))
+      onToggleLoadingResults(false)
     }
     getItemsAsync()
   }, [
