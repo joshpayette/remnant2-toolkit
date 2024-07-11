@@ -57,7 +57,6 @@ export function FeaturedBuilds({
   // Fetch data
   useEffect(() => {
     const getItemsAsync = async () => {
-      onToggleLoadingResults(true)
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getFeaturedBuilds({
         buildListFilters,
@@ -72,7 +71,6 @@ export function FeaturedBuilds({
         builds: response.items,
         totalBuildCount: response.totalItemCount,
       }))
-      onToggleLoadingResults(false)
     }
     getItemsAsync()
   }, [
@@ -81,9 +79,12 @@ export function FeaturedBuilds({
     itemsPerPage,
     orderBy,
     timeRange,
-    onToggleLoadingResults,
     setBuildListState,
   ])
+
+  useEffect(() => {
+    onToggleLoadingResults(isLoading)
+  }, [isLoading, onToggleLoadingResults])
 
   if (!buildListFilters) {
     return <Skeleton className="min-h-[1100px] w-full" />

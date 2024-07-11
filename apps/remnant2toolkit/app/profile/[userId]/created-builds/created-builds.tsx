@@ -73,7 +73,6 @@ export function CreatedBuilds({
 
   useEffect(() => {
     const getItemsAsync = async () => {
-      onToggleLoadingResults(true)
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getCreatedBuilds({
         buildListFilters,
@@ -86,7 +85,6 @@ export function CreatedBuilds({
         isEditable,
         buildVisibility,
       })
-      onToggleLoadingResults(false)
       setBuildListState((prevState) => ({
         ...prevState,
         isLoading: false,
@@ -102,11 +100,14 @@ export function CreatedBuilds({
     isEditable,
     itemsPerPage,
     orderBy,
-    onToggleLoadingResults,
     setBuildListState,
     timeRange,
     userId,
   ])
+
+  useEffect(() => {
+    onToggleLoadingResults(isLoading)
+  }, [isLoading, onToggleLoadingResults])
 
   return (
     <>

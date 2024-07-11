@@ -62,7 +62,6 @@ export function FavoritedBuilds({
 
   useEffect(() => {
     const getItemsAsync = async () => {
-      onToggleLoadingResults(true)
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getFavoritedBuilds({
         buildListFilters,
@@ -71,7 +70,6 @@ export function FavoritedBuilds({
         pageNumber: currentPage,
         timeRange,
       })
-      onToggleLoadingResults(false)
       setBuildListState((prevState) => ({
         ...prevState,
         isLoading: false,
@@ -85,10 +83,13 @@ export function FavoritedBuilds({
     currentPage,
     itemsPerPage,
     orderBy,
-    onToggleLoadingResults,
     setBuildListState,
     timeRange,
   ])
+
+  useEffect(() => {
+    onToggleLoadingResults(isLoading)
+  }, [isLoading, onToggleLoadingResults])
 
   return (
     <>

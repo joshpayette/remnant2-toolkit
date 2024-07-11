@@ -68,7 +68,6 @@ export function FeaturedBuilds({
 
   useEffect(() => {
     const getItemsAsync = async () => {
-      onToggleLoadingResults(true)
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getCreatedBuilds({
         buildListFilters,
@@ -81,7 +80,6 @@ export function FeaturedBuilds({
         isEditable,
         buildVisibility: 'all',
       })
-      onToggleLoadingResults(false)
       setBuildListState((prevState) => ({
         ...prevState,
         isLoading: false,
@@ -96,11 +94,14 @@ export function FeaturedBuilds({
     isEditable,
     itemsPerPage,
     orderBy,
-    onToggleLoadingResults,
     setBuildListState,
     timeRange,
     userId,
   ])
+
+  useEffect(() => {
+    onToggleLoadingResults(isLoading)
+  }, [isLoading, onToggleLoadingResults])
 
   return (
     <>
