@@ -487,7 +487,7 @@ export function Builder({
                   </button>
                 </Tooltip>
                 <Tooltip
-                  content={`${buildState.validatedViewCount} Validated Views`}
+                  content={`${buildState.validatedViewCount} Validated Views (Unique, authenticated users)`}
                 >
                   <button className="flex flex-row items-center justify-center gap-x-1">
                     <FaRegEye
