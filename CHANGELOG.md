@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-07-11
+
+### Fixed
+
+- Fixed (I believe) the issue on build list pages where changing a filter would return stale results after several seconds, followed by the real results several seconds after that. This was incredibly confusing and poor UX for the user, particularly since you couldn't tell the real results were returned at first.
+
 ## 2024-07-10
 
 ### Added
