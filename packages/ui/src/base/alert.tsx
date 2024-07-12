@@ -53,10 +53,6 @@ export function BaseAlert({
         </HeadlessTransitionChild>
 
         <HeadlessTransitionChild
-          className={cn(
-            'ui-fixed ui-inset-0 ui-w-screen ui-overflow-y-auto ui-pt-6 sm:ui-pt-0',
-            ZINDEXES.ALERT,
-          )}
           enter="ui-ease-out ui-duration-100"
           enterFrom="ui-opacity-0"
           enterTo="ui-opacity-100"
@@ -64,23 +60,30 @@ export function BaseAlert({
           leaveFrom="ui-opacity-100"
           leaveTo="ui-opacity-0"
         >
-          <div className="ui-grid ui-min-h-full ui-grid-rows-[1fr_auto_1fr] ui-justify-items-center ui-p-8 sm:ui-grid-rows-[1fr_auto_3fr] sm:ui-p-4">
-            <HeadlessTransitionChild
-              as={HeadlessDialogPanel}
-              className={clsx(
-                className,
-                sizes[size],
-                'ui-ring-surface-solid/10 forced-colors:ui-outline ui-row-start-2 ui-w-full ui-rounded-2xl ui-bg-zinc-900 ui-p-8 ui-shadow-lg ui-ring-1 sm:ui-rounded-2xl sm:ui-p-6',
-              )}
-              enter="ease-out duration-100"
-              enterFrom="scale-95"
-              enterTo="scale-100"
-              leave="ease-in duration-100"
-              leaveFrom="scale-100"
-              leaveTo="scale-100"
-            >
-              {children}
-            </HeadlessTransitionChild>
+          <div
+            className={cn(
+              'ui-fixed ui-inset-0 ui-w-screen ui-overflow-y-auto ui-pt-6 sm:ui-pt-0',
+              ZINDEXES.ALERT,
+            )}
+          >
+            <div className="ui-grid ui-min-h-full ui-grid-rows-[1fr_auto_1fr] ui-justify-items-center ui-p-8 sm:ui-grid-rows-[1fr_auto_3fr] sm:ui-p-4">
+              <HeadlessTransitionChild
+                as={HeadlessDialogPanel}
+                className={clsx(
+                  className,
+                  sizes[size],
+                  'ui-ring-surface-solid/10 forced-colors:ui-outline ui-row-start-2 ui-w-full ui-rounded-2xl ui-bg-zinc-900 ui-p-8 ui-shadow-lg ui-ring-1 sm:ui-rounded-2xl sm:ui-p-6',
+                )}
+                enter="ease-out duration-100"
+                enterFrom="scale-95"
+                enterTo="scale-100"
+                leave="ease-in duration-100"
+                leaveFrom="scale-100"
+                leaveTo="scale-100"
+              >
+                {children}
+              </HeadlessTransitionChild>
+            </div>
           </div>
         </HeadlessTransitionChild>
       </HeadlessDialog>

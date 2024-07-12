@@ -5,7 +5,6 @@ import './globals.css'
 import '@repo/ui/styles.css'
 import 'react-toastify/dist/ReactToastify.min.css'
 
-import { BaseTextLink } from '@repo/ui/base/text'
 import { GlobalActionButtons } from '@repo/ui/global-action-buttons'
 import { PreloadResources } from '@repo/ui/preload-resources'
 import { SessionProvider } from '@repo/ui/session-provider'
