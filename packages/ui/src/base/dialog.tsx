@@ -60,10 +60,6 @@ export function BaseDialog({
         </HeadlessTransitionChild>
 
         <HeadlessTransitionChild
-          className={cn(
-            'ui-fixed ui-inset-0 ui-w-screen ui-overflow-y-auto ui-pt-24 sm:ui-p-4',
-            ZINDEXES.DIALOG,
-          )}
           enter="ui-ease-out ui-duration-100"
           enterFrom="ui-opacity-0 ui-translate-y-12 sm:ui-translate-y-0"
           enterTo="ui-opacity-100 ui-translate-y-0"
@@ -71,23 +67,30 @@ export function BaseDialog({
           leaveFrom="ui-opacity-100 ui-translate-y-0"
           leaveTo="ui-opacity-0 ui-translate-y-12 sm:ui-translate-y-0"
         >
-          <div className="ui-grid ui-min-h-full ui-grid-rows-[1fr_auto] ui-justify-items-center sm:ui-grid-rows-[1fr_auto_3fr] sm:ui-p-4">
-            <HeadlessTransitionChild
-              as={HeadlessDialogPanel}
-              className={clsx(
-                className,
-                sizes[size],
-                'ui-ring-surface-solid/10 forced-colors:ui-outline ui-row-start-2 ui-w-full ui-min-w-0 ui-rounded-t-3xl ui-bg-zinc-900 ui-shadow-lg ui-ring-1 sm:ui-mb-auto sm:ui-rounded-2xl ui-p-[--gutter] [--gutter:theme(spacing.8)]',
-              )}
-              enter="ui-ease-out ui-duration-100"
-              enterFrom="sm:ui-scale-95"
-              enterTo="sm:ui-scale-100"
-              leave="ui-ease-in ui-duration-100"
-              leaveFrom="sm:ui-scale-100"
-              leaveTo="sm:ui-scale-100"
-            >
-              {children}
-            </HeadlessTransitionChild>
+          <div
+            className={cn(
+              'ui-fixed ui-inset-0 ui-w-screen ui-overflow-y-auto ui-pt-24 sm:ui-p-4',
+              ZINDEXES.DIALOG,
+            )}
+          >
+            <div className="ui-grid ui-min-h-full ui-grid-rows-[1fr_auto] ui-justify-items-center sm:ui-grid-rows-[1fr_auto_3fr] sm:ui-p-4">
+              <HeadlessTransitionChild
+                as={HeadlessDialogPanel}
+                className={clsx(
+                  className,
+                  sizes[size],
+                  'ui-ring-surface-solid/10 forced-colors:ui-outline ui-row-start-2 ui-w-full ui-min-w-0 ui-rounded-t-3xl ui-bg-zinc-900 ui-shadow-lg ui-ring-1 sm:ui-mb-auto sm:ui-rounded-2xl ui-p-[--gutter] [--gutter:theme(spacing.8)]',
+                )}
+                enter="ui-ease-out ui-duration-100"
+                enterFrom="sm:ui-scale-95"
+                enterTo="sm:ui-scale-100"
+                leave="ui-ease-in ui-duration-100"
+                leaveFrom="sm:ui-scale-100"
+                leaveTo="sm:ui-scale-100"
+              >
+                {children}
+              </HeadlessTransitionChild>
+            </div>
           </div>
         </HeadlessTransitionChild>
       </HeadlessDialog>
