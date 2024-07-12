@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Fixed
 
-- Fixed (I believe) the issue on build list pages where changing a filter would return stale results after several seconds, followed by the real results several seconds after that. This was incredibly confusing and poor UX for the user, particularly since you couldn't tell the real results were returned at first.
+- Fixed (I believe) the issue on build list pages where changing a filter would return stale results after several seconds, followed by the real results several seconds after that. This was incredibly confusing and poor UX for the user, particularly since you couldn't tell the real results were returned at first. This is a challenging issue to fix, and while I believe I have fixed it, I will continue to monitor to be sure.
 
 ## 2024-07-10
 
