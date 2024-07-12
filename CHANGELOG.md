@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-07-12
+
+### Fixed
+
+- Fixed issue where dialogs would pass clicks through to elements beneath them, causing unintended and frustrating behavior.
+
 ## 2024-07-11
 
 ### Fixed
