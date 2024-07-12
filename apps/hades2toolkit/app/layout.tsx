@@ -51,9 +51,10 @@ export default async function RootLayout({
             <GlobalActionButtons
               username={session?.user?.displayName ?? 'Unknown User'}
             />
-            <AlertBanner localStorageKey="view-count-banner">
-              Builds now track views and validated views, and can be filtered by
-              validated views. Try it out!
+            <AlertBanner localStorageKey="support-r2tk-alert">
+              If you enjoy using Hades2Toolkit, please consider supporting the
+              site <BaseTextLink href="/support-hades2tk">here</BaseTextLink>.
+              The majority of monthly costs are paid out of pocket.
             </AlertBanner>
             <div className="flex h-full w-full max-w-7xl grow flex-col items-start justify-start">
               <header className="w-full">
