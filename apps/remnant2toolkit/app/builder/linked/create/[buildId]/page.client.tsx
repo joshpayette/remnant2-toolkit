@@ -29,6 +29,8 @@ import {
 } from '@/app/builder/linked/constants'
 import { LinkedBuildItem } from '@/app/builder/linked/create/[buildId]/type'
 
+const ITEMS_PER_PAGE = 16
+
 interface Props {
   initialBuild: DBBuild
   userId: string
@@ -49,8 +51,6 @@ export default function PageClient({ initialBuild, userId }: Props) {
 
   const [saveInProgress, setSaveInProgress] = useState(false)
 
-  const itemsPerPage = 16
-
   const { orderBy, handleOrderByChange } = useOrderByFilter('newest')
   const { timeRange, handleTimeRangeChange } = useTimeRangeFilter('all-time')
 
@@ -65,14 +65,14 @@ export default function PageClient({ initialBuild, userId }: Props) {
     handlePreviousPageClick,
   } = usePagination({
     totalItemCount: totalBuildCount,
-    itemsPerPage,
+    itemsPerPage: ITEMS_PER_PAGE,
   })
 
   useEffect(() => {
     const getItemsAsync = async () => {
       setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
       const response = await getCreatedBuilds({
-        itemsPerPage,
+        itemsPerPage: ITEMS_PER_PAGE,
         orderBy,
         pageNumber: currentPage,
         timeRange,
@@ -86,7 +86,7 @@ export default function PageClient({ initialBuild, userId }: Props) {
       }))
     }
     getItemsAsync()
-  }, [currentPage, itemsPerPage, orderBy, setBuildListState, timeRange, userId])
+  }, [currentPage, orderBy, setBuildListState, timeRange, userId])
 
   function handleAddLinkedBuildItem(buildToAdd: DBBuild) {
     // If the build is already linked, don't add it again
@@ -255,12 +255,29 @@ export default function PageClient({ initialBuild, userId }: Props) {
           <div className="flex w-full flex-col items-end justify-end gap-x-2 gap-y-1 sm:flex-row sm:gap-y-0">
             <div className="w-full max-w-[250px]">
               <TimeRangeFilter
+                isLoading={isLoading}
                 value={timeRange}
-                onChange={handleTimeRangeChange}
+                onChange={(value) => {
+                  handleTimeRangeChange(value)
+                  setBuildListState((prevState) => ({
+                    ...prevState,
+                    isLoading: true,
+                  }))
+                }}
               />
             </div>
             <div className="w-full max-w-[250px]">
-              <OrderByFilter value={orderBy} onChange={handleOrderByChange} />
+              <OrderByFilter
+                isLoading={isLoading}
+                value={orderBy}
+                onChange={(value) => {
+                  handleOrderByChange(value)
+                  setBuildListState((prevState) => ({
+                    ...prevState,
+                    isLoading: true,
+                  }))
+                }}
+              />
             </div>
           </div>
         }

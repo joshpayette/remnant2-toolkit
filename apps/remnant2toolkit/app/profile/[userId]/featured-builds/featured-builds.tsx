@@ -12,6 +12,7 @@ import { useOrderByFilter } from '@/app/(components)/filters/builds/secondary-fi
 import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
 import { BuildListFilters } from '@/app/(components)/filters/builds/types'
 import { parseUrlFilters } from '@/app/(components)/filters/builds/utils'
+import { Skeleton } from '@/app/(components)/skeleton'
 import { useBuildListState } from '@/app/(utils)/builds/hooks/use-build-list-state'
 import { usePagination } from '@/app/(utils)/pagination/use-pagination'
 import { CreatedBuildCardActions } from '@/app/profile/[userId]/(components)/created-build-card-actions'
@@ -40,9 +41,6 @@ export function FeaturedBuilds({
   const [buildListFilters, setBuildListFilters] = useState(
     parseUrlFilters(searchParams, defaultFilters),
   )
-  useEffect(() => {
-    setBuildListFilters(parseUrlFilters(searchParams, defaultFilters))
-  }, [searchParams, defaultFilters])
 
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
@@ -67,8 +65,18 @@ export function FeaturedBuilds({
   })
 
   useEffect(() => {
+    setBuildListFilters(parseUrlFilters(searchParams, defaultFilters))
+    setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
+  }, [searchParams, defaultFilters, setBuildListState])
+
+  useEffect(() => {
+    onToggleLoadingResults(isLoading)
+  }, [isLoading, onToggleLoadingResults])
+
+  // Whenever loading is set to true, we should update the build items
+  useEffect(() => {
     const getItemsAsync = async () => {
-      setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
+      if (!isLoading) return
       const response = await getCreatedBuilds({
         buildListFilters,
         featuredBuildsOnly: true,
@@ -88,20 +96,12 @@ export function FeaturedBuilds({
       }))
     }
     getItemsAsync()
-  }, [
-    buildListFilters,
-    currentPage,
-    isEditable,
-    itemsPerPage,
-    orderBy,
-    setBuildListState,
-    timeRange,
-    userId,
-  ])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading])
 
-  useEffect(() => {
-    onToggleLoadingResults(isLoading)
-  }, [isLoading, onToggleLoadingResults])
+  if (!buildListFilters) {
+    return <Skeleton className="min-h-[1100px] w-full" />
+  }
 
   return (
     <>
@@ -119,8 +119,15 @@ export function FeaturedBuilds({
         onSpecificPage={handleSpecificPageClick}
         headerActions={
           <BuildSecondaryFilters
+            isLoading={isLoading}
             orderBy={orderBy}
-            onOrderByChange={handleOrderByChange}
+            onOrderByChange={(value) => {
+              handleOrderByChange(value)
+              setBuildListState((prevState) => ({
+                ...prevState,
+                isLoading: true,
+              }))
+            }}
             timeRange={timeRange}
             onTimeRangeChange={handleTimeRangeChange}
           />

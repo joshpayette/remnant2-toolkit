@@ -4,18 +4,28 @@ import {
   BaseListboxOption,
 } from '@repo/ui/base/listbox'
 
-import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
+import {
+  type TimeRange,
+  useTimeRangeFilter,
+} from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
 
 interface Props {
-  value: string
-  onChange: (value: string) => void
+  isLoading: boolean
+  value: TimeRange
+  onChange: (value: TimeRange) => void
 }
 
-export function TimeRangeFilter({ value, onChange }: Props) {
+export function TimeRangeFilter({ isLoading, value, onChange }: Props) {
   const { timeRangeOptions } = useTimeRangeFilter()
 
   return (
-    <BaseListbox key={value} name="timeRange" value={value} onChange={onChange}>
+    <BaseListbox
+      key={value}
+      name="timeRange"
+      value={value}
+      disabled={isLoading}
+      onChange={onChange}
+    >
       {timeRangeOptions.map(({ label, value }) => (
         <BaseListboxOption key={value} value={value}>
           <BaseListboxLabel>{label}</BaseListboxLabel>

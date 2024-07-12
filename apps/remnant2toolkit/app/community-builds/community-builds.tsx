@@ -30,9 +30,6 @@ export function CommunityBuilds({
   const [buildListFilters, setBuildListFilters] = useState(
     parseUrlFilters(searchParams),
   )
-  useEffect(() => {
-    setBuildListFilters(parseUrlFilters(searchParams))
-  }, [searchParams])
 
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
@@ -54,10 +51,19 @@ export function CommunityBuilds({
     itemsPerPage,
   })
 
-  // Fetch data
+  useEffect(() => {
+    setBuildListFilters(parseUrlFilters(searchParams))
+    setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
+  }, [searchParams, setBuildListState])
+
+  useEffect(() => {
+    onToggleLoadingResults(isLoading)
+  }, [isLoading, onToggleLoadingResults])
+
+  // Whenever loading is set to true, we should update the build items
   useEffect(() => {
     const getItemsAsync = async () => {
-      setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
+      if (!isLoading) return
       const response = await getCommunityBuilds({
         itemsPerPage,
         pageNumber: currentPage,
@@ -73,18 +79,8 @@ export function CommunityBuilds({
       }))
     }
     getItemsAsync()
-  }, [
-    buildListFilters,
-    currentPage,
-    itemsPerPage,
-    orderBy,
-    timeRange,
-    setBuildListState,
-  ])
-
-  useEffect(() => {
-    onToggleLoadingResults(isLoading)
-  }, [isLoading, onToggleLoadingResults])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading])
 
   if (!buildListFilters) {
     return <Skeleton className="min-h-[1100px] w-full" />
@@ -105,10 +101,23 @@ export function CommunityBuilds({
         onSpecificPage={handleSpecificPageClick}
         headerActions={
           <BuildSecondaryFilters
+            isLoading={isLoading}
             orderBy={orderBy}
-            onOrderByChange={handleOrderByChange}
+            onOrderByChange={(value) => {
+              handleOrderByChange(value)
+              setBuildListState((prevState) => ({
+                ...prevState,
+                isLoading: true,
+              }))
+            }}
             timeRange={timeRange}
-            onTimeRangeChange={handleTimeRangeChange}
+            onTimeRangeChange={(value) => {
+              handleTimeRangeChange(value)
+              setBuildListState((prevState) => ({
+                ...prevState,
+                isLoading: true,
+              }))
+            }}
           />
         }
       >
