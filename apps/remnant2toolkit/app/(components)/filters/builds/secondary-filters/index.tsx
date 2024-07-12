@@ -4,13 +4,15 @@ import { TimeRangeFilter } from '@/app/(components)/filters/builds/secondary-fil
 import { TimeRange } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
 
 interface Props {
+  isLoading: boolean
   orderBy: OrderBy
-  onOrderByChange: (orderBy: string) => void
+  onOrderByChange: (orderBy: OrderBy) => void
   timeRange: TimeRange
-  onTimeRangeChange: (timeRange: string) => void
+  onTimeRangeChange: (timeRange: TimeRange) => void
 }
 
 export function BuildSecondaryFilters({
+  isLoading,
   orderBy,
   timeRange,
   onOrderByChange,
@@ -19,10 +21,18 @@ export function BuildSecondaryFilters({
   return (
     <div className="flex w-full flex-col items-end justify-end gap-x-2 gap-y-1 sm:flex-row sm:gap-y-0">
       <div className="w-full max-w-[250px]">
-        <TimeRangeFilter value={timeRange} onChange={onTimeRangeChange} />
+        <TimeRangeFilter
+          value={timeRange}
+          onChange={onTimeRangeChange}
+          isLoading={isLoading}
+        />
       </div>
       <div className="w-full max-w-[250px]">
-        <OrderByFilter value={orderBy} onChange={onOrderByChange} />
+        <OrderByFilter
+          value={orderBy}
+          onChange={onOrderByChange}
+          isLoading={isLoading}
+        />
       </div>
     </div>
   )

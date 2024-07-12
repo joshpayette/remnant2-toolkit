@@ -32,10 +32,7 @@ import { addVoteForBuild } from '../(actions)/builds/add-vote-for-build'
 import { createBuild } from '../(actions)/builds/create-build'
 import { deleteBuild } from '../(actions)/builds/delete-build'
 import { removeVoteForBuild } from '../(actions)/builds/remove-vote-for-build'
-import {
-  INITIAL_BUILD_STATE,
-  MAX_TRAIT_AMOUNT,
-} from '../(data)/builds/constants'
+import { INITIAL_BUILD_STATE } from '../(data)/builds/constants'
 
 function getRandomItem(
   buildState: BuildState,

@@ -15,6 +15,8 @@ import { useBuildListState } from '@/app/(utils)/builds/hooks/use-build-list-sta
 import { usePagination } from '@/app/(utils)/pagination/use-pagination'
 import { getFavoritedBuilds } from '@/app/profile/[userId]/favorited-builds/actions/get-favorite-builds'
 
+const ITEMS_PER_PAGE = 16
+
 interface Props {
   buildFiltersOverrides?: Partial<BuildListFilters>
   onToggleLoadingResults: (isLoading: boolean) => void
@@ -34,14 +36,9 @@ export function FavoritedBuilds({
   const [buildListFilters, setBuildListFilters] = useState(
     parseUrlFilters(searchParams, defaultFilters),
   )
-  useEffect(() => {
-    setBuildListFilters(parseUrlFilters(searchParams, defaultFilters))
-  }, [searchParams, defaultFilters])
 
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
-
-  const itemsPerPage = 16
 
   const { orderBy, handleOrderByChange } = useOrderByFilter('newest')
   const { timeRange, handleTimeRangeChange } = useTimeRangeFilter('all-time')
@@ -57,15 +54,25 @@ export function FavoritedBuilds({
     handlePreviousPageClick,
   } = usePagination({
     totalItemCount: totalBuildCount,
-    itemsPerPage,
+    itemsPerPage: ITEMS_PER_PAGE,
   })
 
   useEffect(() => {
+    setBuildListFilters(parseUrlFilters(searchParams, defaultFilters))
+    setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
+  }, [searchParams, defaultFilters, setBuildListState])
+
+  useEffect(() => {
+    onToggleLoadingResults(isLoading)
+  }, [isLoading, onToggleLoadingResults])
+
+  // Whenever loading is set to true, we should update the build items
+  useEffect(() => {
     const getItemsAsync = async () => {
-      setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
+      if (!isLoading) return
       const response = await getFavoritedBuilds({
         buildListFilters,
-        itemsPerPage,
+        itemsPerPage: ITEMS_PER_PAGE,
         orderBy,
         pageNumber: currentPage,
         timeRange,
@@ -78,18 +85,8 @@ export function FavoritedBuilds({
       }))
     }
     getItemsAsync()
-  }, [
-    buildListFilters,
-    currentPage,
-    itemsPerPage,
-    orderBy,
-    setBuildListState,
-    timeRange,
-  ])
-
-  useEffect(() => {
-    onToggleLoadingResults(isLoading)
-  }, [isLoading, onToggleLoadingResults])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading])
 
   return (
     <>
@@ -107,10 +104,23 @@ export function FavoritedBuilds({
         onSpecificPage={handleSpecificPageClick}
         headerActions={
           <BuildSecondaryFilters
+            isLoading={isLoading}
             orderBy={orderBy}
-            onOrderByChange={handleOrderByChange}
+            onOrderByChange={(value) => {
+              handleOrderByChange(value)
+              setBuildListState((prevState) => ({
+                ...prevState,
+                isLoading: true,
+              }))
+            }}
             timeRange={timeRange}
-            onTimeRangeChange={handleTimeRangeChange}
+            onTimeRangeChange={(value) => {
+              handleTimeRangeChange(value)
+              setBuildListState((prevState) => ({
+                ...prevState,
+                isLoading: true,
+              }))
+            }}
           />
         }
       >

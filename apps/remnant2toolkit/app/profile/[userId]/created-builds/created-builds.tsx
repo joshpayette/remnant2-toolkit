@@ -43,9 +43,6 @@ export function CreatedBuilds({
   const [buildListFilters, setBuildListFilters] = useState(
     parseUrlFilters(searchParams, defaultFilters),
   )
-  useEffect(() => {
-    setBuildListFilters(parseUrlFilters(searchParams, defaultFilters))
-  }, [searchParams, defaultFilters])
 
   const { buildListState, setBuildListState } = useBuildListState()
   const { builds, totalBuildCount, isLoading } = buildListState
@@ -72,8 +69,18 @@ export function CreatedBuilds({
   })
 
   useEffect(() => {
+    setBuildListFilters(parseUrlFilters(searchParams, defaultFilters))
+    setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
+  }, [searchParams, defaultFilters, setBuildListState])
+
+  useEffect(() => {
+    onToggleLoadingResults(isLoading)
+  }, [isLoading, onToggleLoadingResults])
+
+  // Whenever loading is set to true, we should update the build items
+  useEffect(() => {
     const getItemsAsync = async () => {
-      setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
+      if (!isLoading) return
       const response = await getCreatedBuilds({
         buildListFilters,
         featuredBuildsOnly: false,
@@ -93,21 +100,8 @@ export function CreatedBuilds({
       }))
     }
     getItemsAsync()
-  }, [
-    buildListFilters,
-    buildVisibility,
-    currentPage,
-    isEditable,
-    itemsPerPage,
-    orderBy,
-    setBuildListState,
-    timeRange,
-    userId,
-  ])
-
-  useEffect(() => {
-    onToggleLoadingResults(isLoading)
-  }, [isLoading, onToggleLoadingResults])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading])
 
   return (
     <>
@@ -127,18 +121,36 @@ export function CreatedBuilds({
           <div className="flex w-full flex-col items-end justify-end gap-x-2 gap-y-1 sm:flex-row sm:gap-y-0">
             <div className="w-full max-w-[250px]">
               <TimeRangeFilter
+                isLoading={isLoading}
                 value={timeRange}
-                onChange={handleTimeRangeChange}
+                onChange={(value) => {
+                  handleTimeRangeChange(value)
+                  setBuildListState((prevState) => ({
+                    ...prevState,
+                    isLoading: true,
+                  }))
+                }}
               />
             </div>
             <div className="w-full max-w-[250px]">
-              <OrderByFilter value={orderBy} onChange={handleOrderByChange} />
+              <OrderByFilter
+                isLoading={isLoading}
+                value={orderBy}
+                onChange={(value) => {
+                  handleOrderByChange(value)
+                  setBuildListState((prevState) => ({
+                    ...prevState,
+                    isLoading: true,
+                  }))
+                }}
+              />
             </div>
             {isEditable ? (
               <div className="w-full max-w-[250px]">
                 <BuildVisibilityFilter
                   value={buildVisibility}
                   onChange={handleBuildVisibilityChange}
+                  isLoading={isLoading}
                 />
               </div>
             ) : null}

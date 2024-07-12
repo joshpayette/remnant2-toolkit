@@ -8,13 +8,13 @@ export type OrderBy =
 
 export function useOrderByFilter(defaultOrderBy: OrderBy = 'most favorited') {
   const [orderBy, setOrderBy] = useState<OrderBy>(defaultOrderBy)
-  const orderByOptions: Array<{ label: OrderBy; value: string }> = [
+  const orderByOptions: Array<{ label: string; value: OrderBy }> = [
     { label: 'alphabetical', value: 'alphabetical' },
     { label: 'most favorited', value: 'most favorited' },
     { label: 'most viewed', value: 'most viewed' },
     { label: 'newest', value: 'newest' },
   ]
-  function handleOrderByChange(orderBy: string) {
+  function handleOrderByChange(orderBy: OrderBy) {
     setOrderBy(orderBy as OrderBy)
   }
 
