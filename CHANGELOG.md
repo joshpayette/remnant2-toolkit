@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed an issue where incrementing the build's view count would also update the "last updated at" value. Unfortunately, there is no way to reverse this for builds that have already been viewed but not actually updated, but this will even out in about a week or so.
+- Fixed a bug where view count was sometimes not incrementing due to caching.
 
 ## 2024-07-12
 
