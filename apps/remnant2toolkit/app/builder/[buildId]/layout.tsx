@@ -1,7 +1,6 @@
 import { Metadata, ResolvingMetadata } from 'next'
 
 import { getBuild } from '@/app/(actions)/builds/get-build'
-import { incrementViewCount } from '@/app/(actions)/builds/increment-view-count'
 import { PageHeader } from '@/app/(components)/page-header'
 import { dbBuildToBuildState } from '@/app/(utils)/builds/db-build-to-build-state'
 import {
@@ -116,10 +115,8 @@ export default async function Layout({
   params: { buildId: string }
   children: React.ReactNode
 }) {
-  const [buildData, _viewCountResponse] = await Promise.all([
-    getBuild(buildId),
-    incrementViewCount({ buildId }),
-  ])
+  const buildData = await getBuild(buildId)
+
   if (isErrorResponse(buildData)) {
     console.info(buildData.errors)
     return (
