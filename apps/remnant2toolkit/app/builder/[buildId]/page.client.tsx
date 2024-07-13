@@ -4,9 +4,10 @@ import { urlNoCache } from '@repo/utils/url-no-cache'
 import copy from 'clipboard-copy'
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { toast } from 'react-toastify'
 
+import { incrementViewCount } from '@/app/(actions)/builds/increment-view-count'
 import { BuilderContainer } from '@/app/(components)/builder/builder-container'
 import VideoThumbnail from '@/app/(components)/builder/video-thumbnail'
 import { DeleteBuildButton } from '@/app/(components)/buttons/builder-buttons/delete-build-button'
@@ -63,6 +64,17 @@ export function PageClient({ build }: Props) {
 
   const buildContainerRef = useRef<HTMLDivElement>(null)
 
+  useEffect(() => {
+    async function asyncViewCountUpdate() {
+      const response = await incrementViewCount({ buildId: build.id })
+      if (response.viewCount !== -1) {
+        build.viewCount = response.viewCount
+        buildState.viewCount = response.viewCount
+      }
+    }
+    asyncViewCountUpdate()
+  })
+
   // Need to convert the build data to a format that the BuildPage component can use
   if (!session?.user) {
     buildState.upvoted = false
@@ -71,6 +83,8 @@ export function PageClient({ build }: Props) {
 
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
   const csvBuildData = buildStateToCsvData(buildState)
+
+  // #region RENDER
 
   return (
     <div className="flex w-full flex-col items-center">

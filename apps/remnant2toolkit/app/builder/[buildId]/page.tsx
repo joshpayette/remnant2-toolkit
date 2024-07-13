@@ -8,6 +8,7 @@ export default async function Page({
   params: { buildId: string }
 }) {
   const buildData = await getBuild(buildId)
+
   if (isErrorResponse(buildData)) {
     console.info(buildData.errors)
     return (

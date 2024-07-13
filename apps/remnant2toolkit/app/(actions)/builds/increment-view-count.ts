@@ -9,7 +9,7 @@ export async function incrementViewCount({
   buildId,
 }: {
   buildId: string
-}): Promise<BuildActionResponse> {
+}): Promise<BuildActionResponse & { viewCount: number }> {
   const session = await getServerSession()
   const userId = session?.user?.id
 
@@ -21,12 +21,14 @@ export async function incrementViewCount({
       select: {
         createdById: true,
         updatedAt: true,
+        viewCount: true,
       },
     })
 
     if (!build) {
       return {
         errors: ['Build not found!'],
+        viewCount: -1,
       }
     }
 
@@ -36,6 +38,7 @@ export async function incrementViewCount({
         return {
           message:
             'View count not incremented as the build is created by the user!',
+          viewCount: build.viewCount,
         }
       }
     }
@@ -69,11 +72,13 @@ export async function incrementViewCount({
 
     return {
       message: 'View count incremented!',
+      viewCount: build.viewCount + 1,
     }
   } catch (e) {
     console.error(`Error in incrementing view count for build ${buildId}!`)
     return {
       errors: ['Error in incrementing view count!'],
+      viewCount: -1,
     }
   }
 }
