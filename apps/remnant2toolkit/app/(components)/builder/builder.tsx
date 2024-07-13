@@ -498,7 +498,10 @@ export function Builder({
                     </span>
                   </button>
                 </Tooltip>
-                <Tooltip content={`${buildState.viewCount} Total Views`}>
+                <Tooltip
+                  key={buildState.viewCount}
+                  content={`${buildState.viewCount} Total Views`}
+                >
                   <button className="flex flex-row items-center justify-center gap-x-1">
                     <EyeIcon
                       className={cn('text-primary-500 mr-0.5 h-4 w-4')}
