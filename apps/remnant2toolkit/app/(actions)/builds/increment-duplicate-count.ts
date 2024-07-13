@@ -14,17 +14,24 @@ export async function incrementDuplicateCount({
   const userId = session?.user?.id
 
   try {
+    const build = await prisma.build.findUnique({
+      where: {
+        id: buildId,
+      },
+      select: {
+        createdById: true,
+        updatedAt: true,
+      },
+    })
+
+    if (!build) {
+      return {
+        errors: ['Build not found!'],
+      }
+    }
+
     // If the build is created by the user, do not add a count
     if (userId) {
-      const build = await prisma.build.findUnique({
-        where: {
-          id: buildId,
-        },
-        select: {
-          createdById: true,
-        },
-      })
-
       if (build?.createdById === userId) {
         return {
           message:
@@ -41,6 +48,7 @@ export async function incrementDuplicateCount({
         duplicateCount: {
           increment: 1,
         },
+        updatedAt: build.updatedAt,
       },
     })
 
