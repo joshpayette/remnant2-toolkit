@@ -58,7 +58,7 @@ export async function incrementViewCount({
       })
     }
 
-    await prisma.build.update({
+    const updatedBuild = await prisma.build.update({
       where: {
         id: buildId,
       },
@@ -72,7 +72,7 @@ export async function incrementViewCount({
 
     return {
       message: 'View count incremented!',
-      viewCount: build.viewCount + 1,
+      viewCount: updatedBuild.viewCount,
     }
   } catch (e) {
     console.error(`Error in incrementing view count for build ${buildId}!`)
