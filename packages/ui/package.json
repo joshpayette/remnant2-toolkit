@@ -37,6 +37,7 @@
     "./base/textarea": "./src/base/textarea.tsx",
     "./icons/changelog": "./src/icons/changelog.tsx",
     "./icons/discord": "./src/icons/discord.tsx",
+    "./pages/root-layout": "./src/pages/root-layout.tsx",
     "./theme/theme-selection": "./src/theme/theme-selection.tsx",
     "./theme/theme-select-button": "./src/theme/theme-select-button.tsx",
     "./utils/get-image-url": "./src/utils/get-image-url.ts"
