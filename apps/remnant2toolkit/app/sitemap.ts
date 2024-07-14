@@ -1,6 +1,5 @@
+import { prisma } from '@repo/db'
 import { MetadataRoute } from 'next'
-
-import getSitemapData from '@/app/(actions)/get-sitemap-data'
 
 const baseUrl = 'https://remnant2toolkit.com'
 const currentDate = new Date().toISOString().split('T')[0]
@@ -70,6 +69,20 @@ const staticRoutes = [
     changeFrequency: 'weekly' as ChangeFrequency,
   },
 ] as const satisfies MetadataRoute.Sitemap
+
+async function getSitemapData() {
+  const [builds, profiles] = await Promise.all([
+    await prisma.build.findMany({
+      where: { isPublic: true },
+    }),
+    await prisma.userProfile.findMany(),
+  ])
+
+  return {
+    buildIds: builds.map((build) => build.id),
+    profileUserIds: profiles.map((profile) => profile.userId),
+  }
+}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const { buildIds, profileUserIds } = await getSitemapData()
