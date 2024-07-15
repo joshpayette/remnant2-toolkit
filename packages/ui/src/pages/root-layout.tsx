@@ -35,7 +35,7 @@ export async function RootLayout({
       <head />
       <body
         className={cn(
-          'relative flex min-h-fit flex-col items-center justify-start',
+          'ui-relative ui-flex ui-min-h-fit ui-flex-col ui-items-center ui-justify-start',
           inter.className,
         )}
       >
@@ -45,10 +45,10 @@ export async function RootLayout({
             <ToastContainer theme="dark" pauseOnFocusLoss={false} />
             {alertBanner}
 
-            <div className="flex h-full w-full max-w-7xl grow flex-col items-start justify-start">
-              <header className="w-full">{navbar}</header>
+            <div className="ui-h-full ui-w-full ui-justify-start ui-items-start ui-flex-col ui-flex ui-max-w-7xl ui-grow">
+              <header className="ui-w-full">{navbar}</header>
 
-              <main className="mt-[80px] flex h-full min-h-screen w-full grow flex-col items-center justify-start p-4 pt-0">
+              <main className="ui-mt-[80px] ui-flex ui-h-full ui-min-h-screen ui-w-full ui-grow ui-flex-col ui-items-center ui-justify-start ui-p-4 ui-pt-0">
                 {children}
               </main>
             </div>

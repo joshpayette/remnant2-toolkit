@@ -18,8 +18,6 @@ export default function AlertBanner({
   localStorageKey,
   children,
 }: Props) {
-  console.info('localStorageKey', localStorageKey)
-
   const [showBanner, setShowBanner] = useLocalStorage(localStorageKey, true)
 
   if (!showBanner) return null
