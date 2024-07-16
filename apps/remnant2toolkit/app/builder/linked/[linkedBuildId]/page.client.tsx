@@ -1,5 +1,7 @@
 'use client'
 
+import { BaseDivider } from '@repo/ui/base/divider'
+import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
 import {
   BaseListbox,
   BaseListboxLabel,
@@ -133,15 +135,16 @@ export function PageClient({ linkedBuildState }: Props) {
                 </div>
               )}
           </div>
-          <div className="sm:hidden">
+
+          <BaseDivider className="my-4 sm:my-0 sm:hidden" />
+
+          <BaseField className="sm:hidden">
+            <BaseLabel>
+              <div className="mb-2 w-full text-center">Linked Builds</div>
+            </BaseLabel>
             <BaseListbox
               name="linkedBuilds"
-              defaultValue={
-                linkedBuildItems.find(
-                  (linkedBuildItem) =>
-                    linkedBuildItem.build.id === currentLinkedBuild.build.id,
-                )?.label
-              }
+              value={currentLinkedBuild.label}
               onChange={(value) => {
                 const linkedBuild = linkedBuildItems.find(
                   (linkedBuildItem) => linkedBuildItem.label === value,
@@ -160,7 +163,7 @@ export function PageClient({ linkedBuildState }: Props) {
                 </BaseListboxOption>
               ))}
             </BaseListbox>
-          </div>
+          </BaseField>
           <div className="hidden sm:block">
             <nav
               className="isolate flex divide-x divide-gray-700 rounded-lg shadow"

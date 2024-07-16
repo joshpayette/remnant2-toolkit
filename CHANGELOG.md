@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed issue where top of build was getting cut off.
+- Fixed bug where select menus were not allowing you to change values with mouse clicks.
 
 ## 2024-07-13
 
