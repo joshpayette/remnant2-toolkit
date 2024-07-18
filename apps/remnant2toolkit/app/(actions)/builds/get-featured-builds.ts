@@ -118,6 +118,7 @@ export async function getFeaturedBuilds({
       orderBySegment,
       whereConditions,
       searchText: trimmedSearchText,
+      limitToQualityBuilds: withQuality,
     }),
     communityBuildsCountQuery({
       whereConditions,
