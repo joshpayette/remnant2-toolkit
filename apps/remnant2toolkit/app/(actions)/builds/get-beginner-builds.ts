@@ -118,6 +118,7 @@ export async function getBeginnerBuilds({
       orderBySegment,
       whereConditions,
       searchText: trimmedSearchText,
+      limitToQualityBuilds: withQuality,
     }),
     communityBuildsCountQuery({
       whereConditions,

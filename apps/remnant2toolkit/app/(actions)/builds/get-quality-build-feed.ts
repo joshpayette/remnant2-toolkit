@@ -52,6 +52,7 @@ export async function getQualityBuildFeed(): Promise<{ builds: DBBuild[] }> {
     GROUP BY BuildItems.buildId
   ) as ItemCounts ON Build.id = ItemCounts.buildId
   WHERE Build.isPublic = true
+  AND Build.isPatchAffected = false
   ${limitToQualityBuilds(true)}
   GROUP BY Build.id, User.id
   ORDER BY createdAt DESC
