@@ -41,7 +41,6 @@ type Props = {
   whereConditions: Prisma.Sql
   orderBySegment: Prisma.Sql
   searchText: string
-  limitToQualityBuilds: boolean
 }
 
 export function communityBuildsQuery({
@@ -51,8 +50,9 @@ export function communityBuildsQuery({
   orderBySegment,
   whereConditions,
   searchText,
-  limitToQualityBuilds,
 }: Props): Prisma.PrismaPromise<CommunityBuildQueryResponse> {
+  // TODO Quality Builds
+
   const query = Prisma.sql`
   SELECT Build.*, 
   User.name as createdByName, 
@@ -69,9 +69,7 @@ LEFT JOIN User on Build.createdById = User.id
 LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${userId}
 LEFT JOIN PaidUsers on User.id = PaidUsers.userId
 LEFT JOIN BuildTags on Build.id = BuildTags.buildId
-${
-  limitToQualityBuilds
-    ? Prisma.sql`LEFT JOIN (
+LEFT JOIN (
   SELECT 
       BuildItems.buildId,
       SUM(CASE WHEN BuildItems.category = 'archtype' THEN 1 ELSE 0 END) as archtypeCount,
@@ -90,9 +88,7 @@ ${
       SUM(CASE WHEN BuildItems.category = 'trait' THEN BuildItems.amount ELSE 0 END) as traitSum
   FROM BuildItems
   GROUP BY BuildItems.buildId
-) as ItemCounts ON Build.id = ItemCounts.buildId`
-    : Prisma.empty
-}
+) as ItemCounts ON Build.id = ItemCounts.buildId
 ${whereConditions}
 ${
   searchText !== ''

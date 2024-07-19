@@ -29,7 +29,6 @@ async function getCreatedBuilds(userId: string) {
       orderBySegment,
       whereConditions: whereConditionsAllTime,
       searchText: '',
-      limitToQualityBuilds: false,
     }),
     communityBuildsQuery({
       userId,
@@ -38,7 +37,6 @@ async function getCreatedBuilds(userId: string) {
       orderBySegment,
       whereConditions: whereConditionsCurrent,
       searchText: '',
-      limitToQualityBuilds: false,
     }),
   ])
 
