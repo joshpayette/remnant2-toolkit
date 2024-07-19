@@ -27,9 +27,9 @@ export default async function Layout({
   return (
     <RootLayout
       alertBanner={
-        <AlertBanner localStorageKey="view-count-alert">
-          Builds now track views and validated views, and can be filtered by
-          validated views. Try it out!
+        <AlertBanner localStorageKey="quality-build-disabled-alert">
+          Filtering by quality builds is currently disabled due to a technical
+          issue. Working to resolve this ASAP.
         </AlertBanner>
       }
       footer={<Footer />}

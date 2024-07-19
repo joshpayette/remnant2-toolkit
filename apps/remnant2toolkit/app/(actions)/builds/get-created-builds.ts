@@ -56,7 +56,6 @@ export async function getCreatedBuilds({
       orderBySegment,
       whereConditions,
       searchText: '',
-      limitToQualityBuilds: false,
     }),
     communityBuildsCountQuery({
       whereConditions,
