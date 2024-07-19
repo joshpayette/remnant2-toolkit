@@ -504,15 +504,14 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
                       ]}
                       onChange={handleMiscFilterChange}
                     />
-                    {/** TODO Quality Builds */}
-                    {/* <div className="flex items-center justify-end">
+                    <div className="flex items-center justify-end">
                       <BaseButton
                         plain
                         onClick={() => setQualityBuildDialogOpen(true)}
                       >
                         What makes a Quality Build?
                       </BaseButton>
-                    </div> */}
+                    </div>
                   </div>
                 </div>
                 <div className="flex w-full items-center justify-end gap-x-4">
