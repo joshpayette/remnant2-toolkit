@@ -78,14 +78,6 @@ export async function getBuild(
     })
     returnedBuild.upvoted = Boolean(voteResult)
 
-    const buildReported = await prisma.buildReports.findFirst({
-      where: {
-        buildId,
-        userId: session?.user?.id,
-      },
-    })
-    returnedBuild.reported = Boolean(buildReported)
-
     const isPaidUser = await prisma.paidUsers.findFirst({
       where: {
         userId: build.createdById,

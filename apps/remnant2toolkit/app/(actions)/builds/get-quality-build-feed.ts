@@ -17,8 +17,9 @@ export async function getQualityBuildFeed(): Promise<{ builds: DBBuild[] }> {
   User.name as createdByName, 
   User.displayName as createdByDisplayName,
   (SELECT COUNT(*) FROM BuildVoteCounts WHERE BuildVoteCounts.buildId = Build.id) as totalUpvotes,
-  COUNT(BuildReports.id) as totalReports,
-    CASE WHEN EXISTS (
+  0 as totalReports,
+  FALSE as reported,
+  CASE WHEN EXISTS (
     SELECT 1
     FROM BuildVoteCounts
     WHERE BuildVoteCounts.buildId = Build.id
@@ -28,7 +29,6 @@ export async function getQualityBuildFeed(): Promise<{ builds: DBBuild[] }> {
   FROM Build
   LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
   LEFT JOIN User on Build.createdById = User.id
-  LEFT JOIN BuildReports on Build.id = BuildReports.buildId AND BuildReports.userId = ${userId}
   LEFT JOIN PaidUsers on User.id = PaidUsers.userId
   LEFT JOIN BuildTags on Build.id = BuildTags.buildId
   LEFT JOIN (
