@@ -74,13 +74,10 @@ export async function getCommunityBuilds({
     releases,
     relic,
     patchAffected,
-    // withQuality,
+    withQuality,
     withVideo,
     withReference,
   } = buildListFilters
-
-  // TODO Quality Builds
-  const withQuality = false
 
   if (releases.length === 0) return { items: [], totalItemCount: 0 }
 

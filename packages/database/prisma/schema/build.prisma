@@ -20,7 +20,6 @@ model Build {
   viewCount           Int                   @default(0)
   duplicateCount      Int                   @default(0)
   BuildVotes          BuildVoteCounts[]
-  BuildReports        BuildReports[]
   BuildItems          BuildItems[]
   UserProfile         UserProfile?          @relation(fields: [userProfileId], references: [id])
   userProfileId       String?
@@ -47,6 +46,7 @@ model BuildItems {
 
   @@index([buildId])
   @@index([itemId])
+  @@index([category])
 }
 
 // TODO Make this non-plural
@@ -71,21 +71,6 @@ model BuildValidatedViews {
   buildId   String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String
-
-  @@index([buildId])
-  @@index([userId])
-}
-
-// TODO Make this non-plural
-model BuildReports {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  build     Build    @relation(fields: [buildId], references: [id], onDelete: Cascade)
-  buildId   String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId    String
-  reason    String
 
   @@index([buildId])
   @@index([userId])

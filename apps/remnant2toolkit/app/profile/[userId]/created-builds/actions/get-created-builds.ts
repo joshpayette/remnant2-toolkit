@@ -84,11 +84,8 @@ export async function getCreatedBuilds({
     patchAffected,
     withVideo,
     withReference,
-    // withQuality,
+    withQuality,
   } = buildListFilters
-
-  // TODO Quality Builds
-  const withQuality = false
 
   if (releases.length === 0) return { items: [], totalItemCount: 0 }
 

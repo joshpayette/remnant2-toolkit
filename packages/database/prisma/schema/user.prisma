@@ -58,7 +58,6 @@ model User {
   sessions            Session[]
   Build               Build[]
   BuildVotes          BuildVoteCounts[]
-  BuildReports        BuildReports[]
   BannedUsers         BannedUsers[]
   PaidUsers           PaidUsers[]
   UserProfile         UserProfile?
