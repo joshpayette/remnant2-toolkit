@@ -136,7 +136,7 @@ export const ringItems: RingItem[] = [
     id: 'ez01nk',
     tags: ['Critical Chance', 'Grey Health'], // The damage it causes is grey health
     description:
-      'Self-inflicts BLEEDING Status upon the wearer, causing 1.1 BLEED damage per second. Increases Critical Chance by 5%.',
+      'Self-inflicts BLEEDING Status upon the wearer, causing 0.55 BLEED damage per second. Increases Critical Chance by 5%.',
     wikiLinks: [`https://remnant.wiki/Atonement_Fold`],
     location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
@@ -1114,7 +1114,7 @@ export const ringItems: RingItem[] = [
     id: 'j13xrf',
     tags: ['Perfect Dodge'],
     description:
-      'Perfect Dodge triggers a 3m AOE blast that deals 55-155 SHOCK Damage and applies OVERLOADED which deals 55-155 SHOCK damage every 5s.',
+      'Perfect Dodge triggers a 3m AOE blast that deals 55 - 155 SHOCK Damage and applies OVERLOADED which deals 55 - 155 SHOCK damage every 5s.',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Feedback_Loop`],
     location: { world: `N'Erud`, dungeon: 'World Drop' },
