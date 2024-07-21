@@ -91,6 +91,7 @@ export const consumableItems: ConsumableItem[] = [
     imagePath: '/remnant2/items/consumables/blacktar.png',
     saveFileSlug: 'Consumable_BlackTar_C',
     tags: ['Grenade'],
+    externalTokens: ['Amplitude'],
     id: 'nrdcko',
     dlc: 'base',
     description:

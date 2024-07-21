@@ -743,6 +743,7 @@ export const modItems: ModItem[] = [
     imagePath: '/remnant2/items/mods/flyingbombtrap.png',
     id: '2GWpcL',
     dlc: 'dlc2',
+    externalTokens: ['Amplitude'],
     description:
       'Fires a projectile that deploys up to 5 traps after contacting the ground.\n' +
       '\n' +
@@ -863,6 +864,7 @@ export const modItems: ModItem[] = [
     imagePath: '/remnant2/items/mods/heatwave.png',
     dlc: 'dlc2',
     id: 'vc3s1n',
+    externalTokens: ['Amplitude'],
     description:
       'Activates a 15m aura of sweltering heat, causing enemies inside the aura for 3s to begin BURNING for 250 FIRE Damage over 5s. Lasts 30s.\n' +
       '\n' +

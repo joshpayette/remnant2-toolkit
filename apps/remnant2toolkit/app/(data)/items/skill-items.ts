@@ -243,6 +243,7 @@ export const skillItems: SkillItem[] = [
     id: 'ufkx9q',
     dlc: 'base',
     tags: ['Ranged Damage', 'Melee Damage', 'Critical Chance', 'Melee Hit'],
+    externalTokens: ['Amplitude'],
     description:
       'Hunter becomes Shrouded, reducing enemy awareness and making them harder to hit while moving. Attacking or activating a Mod or Skill will instantly exit Shroud.\n' +
       '\n' +
