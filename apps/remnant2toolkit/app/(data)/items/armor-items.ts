@@ -429,7 +429,7 @@ export const armorItems: ArmorItem[] = [
     bleedResistance: -1,
     fireResistance: -1,
     shockResistance: 2,
-    blightResistance: 1,
+    blightResistance: -1,
     toxinResistance: 3,
     description: `It's hard to imagine someone piloting an entire world, but that's who this helm was for. The sockets allowed them to speak with N'Erud directly. N'Erud had dozens of pilots, all working in concert-both with each other and with the world itself. `,
     wikiLinks: [`https://remnant.wiki/Navigator's_Helm`],

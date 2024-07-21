@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-07-20
+
+### Changed
+
+- Amplitude token added to Black Tar (Vash)
+- Amplitude token added to Hunter's Shroud (Vash)
+- Amplitude token added to Flying Bomb Trap (Vash)
+- Amplitude token added to Vampire Blade (Vash)
+- Amplitude token added to Heatwave (Vash)
+
+### Fixed
+
+- Navigator's Helm Blight Resistance 1 -> -1.
+- Atonement Fold damage numbers in description updated.
+
 ## 2024-07-19
 
 ### Changed

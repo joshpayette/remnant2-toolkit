@@ -898,6 +898,7 @@ export const mutatorItems: MutatorItem[] = [
     id: 'dhwqt4',
     dlc: 'base',
     tags: ['Melee Damage', 'Lifesteal'],
+    externalTokens: ['Amplitude'],
     description:
       'Increases Melee Damage by 10% - 30% while within 10m of a BLEEDING entity.', //No info whether its R or A
     maxLevelBonus: `Melee Hits vs BLEEDING targets will Lifesteal 3% of base damage dealt.`,
