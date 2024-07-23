@@ -10,7 +10,7 @@ export const traitItems: TraitItem[] = [
     imagePath: '/remnant2/items/traits/affliction.png',
     saveFileSlug: 'Trait_Affliction_C',
     id: 'dj8zx4',
-    dlc: 'base',
+    dlc: 'dlc1',
     tags: ['Status Effect', 'Status Duration'],
     description:
       'Increases STATUS EFFECT duration against enemies by 10 - 100%.\n' +
@@ -144,7 +144,7 @@ export const traitItems: TraitItem[] = [
     imagePath: '/remnant2/items/traits/darkpact.png',
     saveFileSlug: 'Trait_DarkPact_C',
     id: 'mjkf4t',
-    dlc: 'base',
+    dlc: 'dlc1',
     tags: ['Grey Health'],
     description: 'Increases Grey Health Conversion Rate by 3 - 30%.',
     wikiLinks: [`https://remnant.wiki/Dark_Pact`],
@@ -434,7 +434,7 @@ export const traitItems: TraitItem[] = [
     imagePath: '/remnant2/items/traits/resolute.png',
     saveFileSlug: 'Trait_Resolute_C',
     id: '7z3ejd',
-    dlc: 'base',
+    dlc: 'dlc2',
     tags: ['Stagger'],
     description: 'Reduces Hit Reaction Time by 2.5% - 25%.',
     wikiLinks: [`https://remnant.wiki/Resolute`],
