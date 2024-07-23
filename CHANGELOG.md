@@ -8,7 +8,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Fixed
 
-- Reclassified `Chakra` and `Leech` as base game items. They were erroneously marked as DLC2 items, causing builds to not show up with some release-specific filters.
+- Multiple traits were erroneously attributed to certain releases, causing builds to not show up with some release-specific filters. The below traits have been updated:
+  - Reclassified `Chakra` and `Leech` as base game items.
+  - Reclassified `Afflication` as DLC 1 item.
+  - Reclassified `Dark Pact` as DLC 1 item.
+  - Reclassified `Resolute` as a DLC 2 item.
 
 ## 2024-07-20
 
