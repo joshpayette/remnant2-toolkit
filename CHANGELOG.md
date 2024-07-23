@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-07-23
+
+### Fixed
+
+- Reclassified `Chakra` and `Leech` as base game items. They were erroneously marked as DLC2 items, causing builds to not show up with some release-specific filters.
+
 ## 2024-07-20
 
 ### Changed

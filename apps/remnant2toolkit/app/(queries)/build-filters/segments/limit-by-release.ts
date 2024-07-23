@@ -6,6 +6,7 @@ export function limitByReleasesSegment(releases: string[]) {
   if (releases[0] === DEFAULT_FILTER) return Prisma.empty
   if (releases.length === 0) return Prisma.empty
 
+
   return Prisma.sql`AND NOT EXISTS (
       SELECT 1
       FROM BuildItems
