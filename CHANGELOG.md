@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-07-23
 
+### Added
+
+- Brand new "Base Game Builds" link added to the Builds menu. This will showcase a curated list of builds that do not require any DLC to play.
+
 ### Fixed
 
 - Fixed major bug affecting the filtering of builds by release. When fixing a number of world drop items that I erroneously set as requiring a specific DLC, I only fixed it in the front-end and never fixed it in the database itself. If a build contained one of these mischaracterized items, and a user filtered for specific releases, the build may not have been returned in the results. While I'm pretty sour that this bug happened in the first place, the fix does list many more builds for the base game, which is a win.
