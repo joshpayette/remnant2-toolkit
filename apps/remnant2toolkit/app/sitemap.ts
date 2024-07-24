@@ -19,6 +19,11 @@ const staticRoutes = [
     changeFrequency: 'daily' as ChangeFrequency,
   },
   {
+    url: `${baseUrl}/base-game-builds`,
+    lastModified: currentDate,
+    changeFrequency: 'daily' as ChangeFrequency,
+  },
+  {
     url: `${baseUrl}/beginner-builds`,
     lastModified: currentDate,
     changeFrequency: 'daily' as ChangeFrequency,

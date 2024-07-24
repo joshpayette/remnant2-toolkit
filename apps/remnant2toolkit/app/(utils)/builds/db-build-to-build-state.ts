@@ -31,6 +31,7 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
     isModeratorLocked: Boolean(dbBuild.isModeratorLocked),
     isFeaturedBuild: Boolean(dbBuild.isFeaturedBuild),
     isBeginnerBuild: Boolean(dbBuild.isBeginnerBuild),
+    isBaseGameBuild: Boolean(dbBuild.isBaseGameBuild),
     dateFeatured: dbBuild.dateFeatured,
     isPatchAffected: Boolean(dbBuild.isPatchAffected),
     thumbnailUrl: dbBuild.thumbnailUrl,

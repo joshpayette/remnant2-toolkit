@@ -1,12 +1,13 @@
 'use client'
 
+import { BaseText, BaseTextLink } from '@repo/ui/base/text'
 import { useCallback, useState } from 'react'
 
 import { BuildFilters } from '@/app/(components)/filters/builds/build-filters'
 import { PageHeader } from '@/app/(components)/page-header'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { DEFAULT_ITEMS_PER_PAGE } from '@/app/(utils)/pagination/constants'
-import { BeginnerBuilds } from '@/app/beginner-builds/beginner-builds'
+import { BaseGameBuilds } from '@/app/base-game-builds/base-game-builds'
 
 export default function Page() {
   const [loadingResults, setLoadingResults] = useState(false)
@@ -19,8 +20,18 @@ export default function Page() {
   return (
     <>
       <PageHeader
-        title="Beginner Builds"
-        subtitle={NAV_ITEMS.beginnerBuilds.description}
+        title="Base Game Builds"
+        subtitle={
+          <div className="flex flex-col">
+            <BaseText>{NAV_ITEMS.baseGameBuilds.description}</BaseText>
+            <BaseTextLink href="/community-builds?releases=base">
+              <span className="text-primary-500">
+                Want more? Click here to browse all community submitted base
+                game builds.
+              </span>
+            </BaseTextLink>
+          </div>
+        }
       />
 
       <div className="flex w-full items-center justify-center sm:mb-6">
@@ -30,7 +41,7 @@ export default function Page() {
         />
       </div>
       <div className="mb-2 grid w-full grid-cols-1 gap-2">
-        <BeginnerBuilds
+        <BaseGameBuilds
           itemsPerPage={DEFAULT_ITEMS_PER_PAGE}
           onToggleLoadingResults={handleToggleLoadingResults}
         />

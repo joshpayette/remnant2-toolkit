@@ -43,6 +43,7 @@ export async function getBuild(
       isMember: false,
       isFeaturedBuild: build.isFeaturedBuild,
       isBeginnerBuild: build.isBeginnerBuild,
+      isBaseGameBuild: build.isBaseGameBuild,
       dateFeatured: build.dateFeatured,
       isPatchAffected: build.isPatchAffected,
       isPublic: build.isPublic,

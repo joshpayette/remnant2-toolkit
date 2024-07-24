@@ -23,6 +23,7 @@ import {
 import { CHANGELOG_URL, DISCORD_INVITE_URL } from '@repo/constants'
 import ChangeLogIcon from '@repo/ui/icons/changelog'
 import DiscordIcon from '@repo/ui/icons/discord'
+import { RiOpenbaseLine as BaseGameBuildsIcon } from 'react-icons/ri'
 
 import VashIcon from '../(components)/images/vash-icon'
 import WikiIcon from '../(components)/images/wiki-icon'
@@ -31,10 +32,16 @@ import WikiIcon from '../(components)/images/wiki-icon'
  * The base pages for the site
  */
 export const NAV_ITEMS = {
+  baseGameBuilds: {
+    label: 'Base Game Builds',
+    description: `A curated list of Remnant 2 builds for players who don't own any DLCs.`,
+    href: '/base-game-builds',
+    icon: BaseGameBuildsIcon,
+  },
   beginnerBuilds: {
     label: 'Beginner Builds',
     description:
-      'A curated list of builds, intended as an item checklist for farming in the earlier hours of gameplay.',
+      'A curated list of Remnant 2 builds intended to be usable or targetable in the earlier hours of gameplay.',
     href: '/beginner-builds',
     icon: SparklesIcon,
   },
@@ -48,7 +55,7 @@ export const NAV_ITEMS = {
   changeLog: {
     label: 'Change Log',
     description:
-      'A running log of all additions, changes, and fixes to the toolkit.',
+      'A running log of all additions, changes, and fixes to the Remnant 2 Toolkit.',
     href: CHANGELOG_URL,
     icon: ChangeLogIcon,
   },
@@ -62,7 +69,7 @@ export const NAV_ITEMS = {
   communityBuilds: {
     label: 'Community Builds',
     description:
-      'Search a collection of Remnant 2 builds, submitted and ranked by the community.',
+      'Search a collection of Remnant 2 builds submitted and ranked by the community.',
     href: '/community-builds',
     icon: ListBulletIcon,
   },
@@ -82,14 +89,14 @@ export const NAV_ITEMS = {
   },
   favoritedBuilds: {
     label: 'Favorited Builds',
-    description: 'View and manage your favorited builds.',
+    description: 'View and manage your favorited Remnant 2 builds.',
     href: '/profile/favorited-builds',
     icon: StarIcon,
   },
   featuredBuilds: {
     label: 'Featured Builds',
     description:
-      'A curated list of unique and high-quality community submitted builds for Remnant 2.',
+      'A curated list of unique and high-quality community submitted Remnant 2 builds.',
     href: '/featured-builds',
     icon: StarIcon,
   },
@@ -110,7 +117,7 @@ export const NAV_ITEMS = {
   itemQuiz: {
     label: 'Item Quiz',
     description:
-      'Test your ability to recognize items from Remnant 2 by only their icons! How many can you get in 60 seconds?',
+      'Test your ability to recognize Remnant 2 items by only their icons! How many can you get in 60 seconds?',
     href: '/item-quiz',
     icon: PuzzlePieceIcon,
   },
@@ -137,13 +144,13 @@ export const NAV_ITEMS = {
   },
   myBuilds: {
     label: 'My Builds',
-    description: 'View and manage builds you created.',
+    description: 'View and manage Remnant 2 builds you created.',
     href: '/profile/created-builds',
     icon: DocumentTextIcon,
   },
   profile: {
     label: 'Profile',
-    description: 'View and manage your profile.',
+    description: 'View and manage your Remnant 2 Toolkit profile.',
     href: '/profile',
     icon: UserIcon,
   },

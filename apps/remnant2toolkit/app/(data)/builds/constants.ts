@@ -43,6 +43,7 @@ export const INITIAL_BUILD_STATE: BuildState = {
   isMember: false,
   isFeaturedBuild: false,
   isBeginnerBuild: false,
+  isBaseGameBuild: false,
   dateFeatured: null,
   isPatchAffected: false,
   isModeratorApproved: false,

@@ -30,6 +30,7 @@ export interface BuildState {
   isPublic: boolean
   isFeaturedBuild: boolean
   isBeginnerBuild: boolean
+  isBaseGameBuild: boolean
   isModeratorApproved: boolean
   isModeratorLocked: boolean
   dateFeatured: Date | null
@@ -80,6 +81,7 @@ export interface DBBuild {
   isPublic: Build['isPublic']
   isFeaturedBuild: Build['isFeaturedBuild']
   isBeginnerBuild: Build['isBeginnerBuild']
+  isBaseGameBuild: Build['isBaseGameBuild']
   dateFeatured: Build['dateFeatured']
   isPatchAffected: Build['isPatchAffected']
   isMember: boolean
