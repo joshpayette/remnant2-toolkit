@@ -73,6 +73,7 @@ export function importedLoadoutToBuildState({
     isPublic: false,
     isFeaturedBuild: false,
     isBeginnerBuild: false,
+    isBaseGameBuild: false,
     isModeratorApproved: false,
     isModeratorLocked: false,
     dateFeatured: null,

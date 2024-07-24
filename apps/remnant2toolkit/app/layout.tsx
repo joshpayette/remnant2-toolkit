@@ -1,6 +1,5 @@
 import './globals.css'
 
-import { BaseTextLink } from '@repo/ui/base/text'
 import { GlobalActionButtons } from '@repo/ui/global-action-buttons'
 import { RootLayout } from '@repo/ui/pages/root-layout'
 import { Analytics } from '@vercel/analytics/react'

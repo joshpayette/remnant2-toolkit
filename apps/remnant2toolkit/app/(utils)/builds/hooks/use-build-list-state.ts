@@ -19,6 +19,7 @@ const DEFAULT_STATE: State = {
     buildUrl: '',
     isFeaturedBuild: false,
     isBeginnerBuild: false,
+    isBaseGameBuild: false,
     dateFeatured: new Date(),
     isPatchAffected: false,
     isPublic: true,

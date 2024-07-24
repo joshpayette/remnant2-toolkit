@@ -98,6 +98,7 @@ export function validateBuildState(buildState: unknown) {
     buildId: z.string().nullable(),
     isFeaturedBuild: z.boolean(),
     isBeginnerBuild: z.boolean(),
+    isBaseGameBuild: z.boolean(),
     dateFeatured: z.date().nullable(),
     isMember: z.boolean(),
     isModeratorApproved: z.boolean(),

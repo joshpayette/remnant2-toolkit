@@ -46,7 +46,7 @@ import {
 import { DBBuild } from '@/app/(types)/builds'
 import { PaginationResponse } from '@/app/(utils)/pagination/use-pagination'
 
-export async function getFeaturedBuilds({
+export async function getBaseGameBuilds({
   buildListFilters,
   itemsPerPage,
   orderBy,
@@ -69,10 +69,10 @@ export async function getFeaturedBuilds({
     handGun,
     longGun,
     melee,
-    relic,
     rings,
     searchText,
     releases,
+    relic,
     patchAffected,
     withVideo,
     withReference,
@@ -91,8 +91,7 @@ export async function getFeaturedBuilds({
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
   AND Build.isFeaturedBuild = true
-  AND Build.isBeginnerBuild = false
-  AND Build.isBaseGameBuild = false
+  AND Build.isBaseGameBuild = true
   ${limitByAmuletSegment(amuletId)}
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByBuildTagsSegment(tagValues)}

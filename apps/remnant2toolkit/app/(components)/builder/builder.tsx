@@ -6,7 +6,7 @@ import { cn } from '@repo/ui/classnames'
 import { Logo } from '@repo/ui/logo'
 import { getArrayOfLength } from '@repo/utils/get-array-of-length'
 import { stripUnicode } from '@repo/utils/strip-unicode'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { FaRegEye } from 'react-icons/fa'
 import { HiOutlineDuplicate as DuplicateIcon } from 'react-icons/hi'
 
