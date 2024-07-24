@@ -1,5 +1,6 @@
 import './globals.css'
 
+import { BaseTextLink } from '@repo/ui/base/text'
 import { GlobalActionButtons } from '@repo/ui/global-action-buttons'
 import { RootLayout } from '@repo/ui/pages/root-layout'
 import { Analytics } from '@vercel/analytics/react'
@@ -27,9 +28,10 @@ export default async function Layout({
   return (
     <RootLayout
       alertBanner={
-        <AlertBanner localStorageKey="build-filters-fix">
-          There was a build preventing some base game builds from being shown
-          when filtering by DLC. This has been fixed.
+        <AlertBanner localStorageKey="base-game-builds">
+          We just added a{' '}
+          <BaseTextLink href="/base-game-builds">Base Game Builds</BaseTextLink>{' '}
+          page for users without any DLC! Check it out.
         </AlertBanner>
       }
       footer={<Footer />}
