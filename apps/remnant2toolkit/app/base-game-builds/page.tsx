@@ -24,7 +24,7 @@ export default function Page() {
         subtitle={
           <div className="flex flex-col">
             <BaseText>{NAV_ITEMS.baseGameBuilds.description}</BaseText>
-            <BaseTextLink href="/community-builds?releases=base">
+            <BaseTextLink href="/community-builds?releases=base&withQuality=true">
               <span className="text-primary-500">
                 Want more? Click here to browse all community submitted base
                 game builds.
