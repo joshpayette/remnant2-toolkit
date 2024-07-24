@@ -28,12 +28,9 @@ export default async function Layout({
   return (
     <RootLayout
       alertBanner={
-        <AlertBanner localStorageKey="support-r2tk-alert2">
-          If you enjoy using Remnant2Toolkit, please consider{' '}
-          <BaseTextLink href="/support-r2tk">
-            supporting the site here
-          </BaseTextLink>
-          . The monthly costs are paid out of pocket by the developer.
+        <AlertBanner localStorageKey="build-filters-fix">
+          There was a build preventing some base game builds from being shown
+          when filtering by DLC. This has been fixed.
         </AlertBanner>
       }
       footer={<Footer />}
