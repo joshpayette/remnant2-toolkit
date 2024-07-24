@@ -94,8 +94,6 @@ export async function getCommunityBuilds({
   const tagValues = buildTagsFilterToValues(buildTags)
   const trimmedSearchText = searchText.trim()
 
-  console.info('releases', releases)
-
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
   ${limitByAmuletSegment(amuletId)}
