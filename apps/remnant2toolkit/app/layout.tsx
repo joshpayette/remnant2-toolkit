@@ -31,7 +31,7 @@ export default async function Layout({
         <AlertBanner localStorageKey="base-game-builds">
           We just added a{' '}
           <BaseTextLink href="/base-game-builds">Base Game Builds</BaseTextLink>{' '}
-          page for users without any DLC! Check it out.
+          page for users without any DLC. Check it out!
         </AlertBanner>
       }
       footer={<Footer />}
