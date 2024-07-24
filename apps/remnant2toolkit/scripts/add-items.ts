@@ -4,15 +4,19 @@ import { Item } from '@/app/(data)/items/types'
 
 const items = [
   {
-    category: 'consumable',
-    name: `Walker's Dream`,
-    imagePath: '/items/consumables/walkersdream.png',
-    saveFileSlug: 'Consumable_WalkersDream_C',
-    id: '5dUhG6',
-    dlc: 'base',
-    description: ``,
-    wikiLinks: [`https://remnant.wiki/Walker%27s_Dream`],
-    location: { world: 'Root Earth', dungeon: ['Corrupted Harbor'] },
+    category: 'trait',
+    type: 'trait',
+    inGameOrder: 31,
+    name: 'Resolute',
+    imagePath: '/remnant2/items/traits/resolute.png',
+    saveFileSlug: 'Trait_Resolute_C',
+    id: '7z3ejd',
+    dlc: 'dlc2',
+    tags: ['Stagger'],
+    description: 'Reduces Hit Reaction Time by 2.5% - 25%.',
+    wikiLinks: [`https://remnant.wiki/Resolute`],
+    amount: 10,
+    location: { world: 'Yaesha', dungeon: 'Quest' },
   },
 ] as const satisfies Item[]
 
