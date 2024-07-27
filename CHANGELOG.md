@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-07-27
+
+### Changed
+
+- Updated icons used throughout the site to be from a single source. I was previously using two different packages and wanted to consolidate to one.
+- Added information to Featured Builds page header about how to submit a build for consideration.
+- Added information to Beginner Builds page header about how to submit a build for consideration.
+
 ## 2024-07-23
 
 ### Added
