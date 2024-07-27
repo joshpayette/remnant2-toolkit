@@ -1,14 +1,14 @@
 'use client'
 
 import { Disclosure } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
 import { cn } from '@repo/ui/classnames'
+import { ChevronDownIcon } from '@repo/ui/icons/chevron-down'
+import { InfoCircleIcon } from '@repo/ui/icons/info-circle'
 import { capitalize } from '@repo/utils/capitalize'
 import isEqual from 'lodash.isequal'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { IoInformationCircleSharp } from 'react-icons/io5'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
 import { ItemTrackerCard } from '@/app/(components)/cards/item-tracker-card'
@@ -173,7 +173,7 @@ export function ItemList({
                         setItemLocationsDialogOpen(true)
                       }}
                     >
-                      <IoInformationCircleSharp className="text-accent1-500 h-4 w-4" />
+                      <InfoCircleIcon className="text-accent1-500 h-4 w-4" />
                     </button>
                     <Disclosure.Button
                       onClick={() => handleCategoryToggle(itemCategory)}

@@ -1,9 +1,9 @@
 'use client'
 
 import { Menu, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import { Link } from '@repo/ui/base/link'
 import { cn } from '@repo/ui/classnames'
+import { ChevronDownIcon } from '@repo/ui/icons/chevron-down'
 import { Logo } from '@repo/ui/logo'
 import { NavbarContainer } from '@repo/ui/navbar-container'
 import { ZINDEXES } from '@repo/ui/zindexes'

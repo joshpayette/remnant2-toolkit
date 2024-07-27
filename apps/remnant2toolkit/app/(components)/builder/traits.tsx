@@ -1,7 +1,7 @@
-import { XCircleIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
 import { BaseInput } from '@repo/ui/base/input'
 import { cn } from '@repo/ui/classnames'
+import { CloseCircleIcon } from '@repo/ui/icons/close-circle'
 import { ZINDEXES } from '@repo/ui/zindexes'
 import { useState } from 'react'
 import { TbHttpOptions } from 'react-icons/tb'
@@ -286,7 +286,7 @@ export function Traits({
                   onClick={() => onRemoveTrait(traitItem)}
                   aria-label="Remove Trait"
                 >
-                  <XCircleIcon
+                  <CloseCircleIcon
                     className="h-5 w-5 text-red-500"
                     aria-hidden="true"
                   />

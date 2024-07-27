@@ -1,9 +1,9 @@
 'use client'
 
-import { XMarkIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
 import { BaseText } from '@repo/ui/base/text'
 import { cn } from '@repo/ui/classnames'
+import { CloseIcon } from '@repo/ui/icons/close'
 import { ZINDEXES } from '@repo/ui/zindexes'
 import { useLocalStorage } from 'usehooks-ts'
 
@@ -32,7 +32,7 @@ export default function AlertBanner({
     >
       <div className="ui-absolute ui-right-0 ui-top-0">
         <BaseButton onClick={() => setShowBanner(false)} plain>
-          <XMarkIcon className="ui-h-5 ui-w-5" />
+          <CloseIcon className="ui-h-5 ui-w-5" />
         </BaseButton>
       </div>
       <div className="ui-flex ui-w-full ui-items-center ui-justify-center ui-text-center">

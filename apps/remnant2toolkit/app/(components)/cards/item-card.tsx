@@ -1,11 +1,9 @@
-import {
-  ChartBarSquareIcon,
-  MagnifyingGlassMinusIcon,
-  MagnifyingGlassPlusIcon,
-} from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
 import { Link } from '@repo/ui/base/link'
 import { cn } from '@repo/ui/classnames'
+import { MagnifyMinusIcon } from '@repo/ui/icons/magnify-minus'
+import { MagnifyPlusIcon } from '@repo/ui/icons/magnify-plus'
+import { StatsIcon } from '@repo/ui/icons/stats'
 import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import { capitalize } from '@repo/utils/capitalize'
 import copy from 'clipboard-copy'
@@ -151,7 +149,7 @@ export function ItemCard({
                       setItemBuildStats(response.stats)
                     }}
                   >
-                    <ChartBarSquareIcon className="h-5 w-5" />
+                    <StatsIcon className="h-5 w-5" />
                   </BaseButton>
                 </Tooltip>
               )}
@@ -160,13 +158,13 @@ export function ItemCard({
               {itemBeingCompared ? (
                 <Tooltip content="Remove from item comparison.">
                   <BaseButton outline onClick={handleRemoveItemFromCompare}>
-                    <MagnifyingGlassMinusIcon className="h-5 w-5" />
+                    <MagnifyPlusIcon className="h-5 w-5" />
                   </BaseButton>
                 </Tooltip>
               ) : (
                 <Tooltip content="Add to item comparison.">
                   <BaseButton outline onClick={handleAddItemToCompare}>
-                    <MagnifyingGlassPlusIcon className="h-5 w-5" />
+                    <MagnifyMinusIcon className="h-5 w-5" />
                   </BaseButton>
                 </Tooltip>
               )}

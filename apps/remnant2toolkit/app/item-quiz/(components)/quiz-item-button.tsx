@@ -1,6 +1,6 @@
-import { ArrowUpIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
 import { cn } from '@repo/ui/classnames'
+import { ArrowUpIcon } from '@repo/ui/icons/arrow-up'
 import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import Image from 'next/image'
 

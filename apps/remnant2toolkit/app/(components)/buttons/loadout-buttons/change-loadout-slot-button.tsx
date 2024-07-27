@@ -1,7 +1,7 @@
 'use client'
 
-import { ArrowPathRoundedSquareIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
+import { MoveIcon } from '@repo/ui/icons/move'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
@@ -67,7 +67,7 @@ export function ChangeLoadoutSlotButton({
           aria-label="Move to different loadout slot"
           onClick={() => setAlertOpen(true)}
         >
-          <ArrowPathRoundedSquareIcon className="h-5 w-5" />
+          <MoveIcon className="h-5 w-5" />
         </BaseButton>
       </Tooltip>
     </>

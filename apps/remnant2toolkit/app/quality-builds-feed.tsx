@@ -1,7 +1,7 @@
 'use client'
 
-import { EyeIcon } from '@heroicons/react/24/solid'
 import { Link } from '@repo/ui/base/link'
+import { EyeIcon } from '@repo/ui/icons/eye'
 import { useState } from 'react'
 
 import { BuildCard } from '@/app/(components)/cards/build-card'

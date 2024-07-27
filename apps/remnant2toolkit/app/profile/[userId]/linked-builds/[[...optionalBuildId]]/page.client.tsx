@@ -1,13 +1,11 @@
 'use client'
 
-import {
-  EyeIcon,
-  PencilIcon,
-  ShareIcon,
-  TrashIcon,
-} from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
 import { Link } from '@repo/ui/base/link'
+import { EditIcon } from '@repo/ui/icons/edit'
+import { EyeIcon } from '@repo/ui/icons/eye'
+import { ShareIcon } from '@repo/ui/icons/share'
+import { TrashIcon } from '@repo/ui/icons/trash'
 import { urlNoCache } from '@repo/utils/url-no-cache'
 import copy from 'clipboard-copy'
 import { useRouter } from 'next/navigation'
@@ -200,7 +198,7 @@ export function PageClient({
                               }
                               aria-label="Edit Linked Build"
                             >
-                              <PencilIcon className="h-4 w-4" />
+                              <EditIcon className="h-4 w-4" />
                             </BaseButton>
                           </Tooltip>
 

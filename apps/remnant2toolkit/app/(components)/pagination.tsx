@@ -1,10 +1,8 @@
-import {
-  ChevronDoubleLeftIcon,
-  ChevronDoubleRightIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-} from '@heroicons/react/24/solid'
 import { cn } from '@repo/ui/classnames'
+import { ChevronLeftIcon } from '@repo/ui/icons/chevron-left'
+import { ChevronRightIcon } from '@repo/ui/icons/chevron-right'
+import { ChevronsLeftIcon } from '@repo/ui/icons/chevrons-left'
+import { ChevronsRightIcon } from '@repo/ui/icons/chevrons-right'
 
 interface Props {
   currentPage: number
@@ -99,7 +97,7 @@ export function Pagination({
                 className="ring-primary-500 relative inline-flex w-[45px] items-center justify-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset hover:bg-gray-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
               >
                 <span className="sr-only">First</span>
-                <ChevronDoubleLeftIcon className="h-5 w-5" aria-hidden="true" />
+                <ChevronsLeftIcon className="h-5 w-5" aria-hidden="true" />
               </button>
               <button
                 onClick={onPreviousPage}
@@ -139,10 +137,7 @@ export function Pagination({
                 className="ring-primary-500 hover:bg-primary-50 relative inline-flex w-[45px] items-center justify-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset hover:text-gray-800 focus:z-20 focus:outline-offset-0"
               >
                 <span className="sr-only">Last</span>
-                <ChevronDoubleRightIcon
-                  className="h-5 w-5"
-                  aria-hidden="true"
-                />
+                <ChevronsRightIcon className="h-5 w-5" aria-hidden="true" />
               </button>
             </nav>
           </div>

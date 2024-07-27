@@ -1,4 +1,3 @@
-import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseDialog,
@@ -6,6 +5,7 @@ import {
   BaseDialogTitle,
 } from '@repo/ui/base/dialog'
 import { cn } from '@repo/ui/classnames'
+import { SortIcon } from '@repo/ui/icons/sort'
 import { capitalize } from '@repo/utils/capitalize'
 import { useCallback, useEffect, useState } from 'react'
 import { useDebounceValue, useLocalStorage } from 'usehooks-ts'
@@ -154,7 +154,7 @@ export function ItemSelectDialog({
                   aria-label="Toggle sorting preference"
                   onClick={handleSortingPreferenceToggle}
                 >
-                  <AdjustmentsHorizontalIcon className="mr-2 h-6 w-6" />
+                  <SortIcon className="mr-2 h-6 w-6" />
                   {capitalize(sortingPreference)}
                 </BaseButton>
               </div>

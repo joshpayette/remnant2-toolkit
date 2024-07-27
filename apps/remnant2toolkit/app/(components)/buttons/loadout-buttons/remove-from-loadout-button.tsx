@@ -1,5 +1,5 @@
-import { TrashIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
+import { TrashIcon } from '@repo/ui/icons/trash'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 

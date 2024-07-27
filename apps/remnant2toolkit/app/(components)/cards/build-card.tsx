@@ -1,15 +1,13 @@
 'use client'
 
-import {
-  EyeIcon,
-  EyeSlashIcon,
-  PaperClipIcon,
-  StarIcon,
-  VideoCameraIcon,
-} from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
 import { Link } from '@repo/ui/base/link'
 import { cn } from '@repo/ui/classnames'
+import { EyeIcon } from '@repo/ui/icons/eye'
+import { EyeSlashIcon } from '@repo/ui/icons/eyeslash'
+import { FavoriteIcon } from '@repo/ui/icons/favorite'
+import { PaperClipIcon } from '@repo/ui/icons/paperclip'
+import { VideoIcon } from '@repo/ui/icons/video'
 import { isValidYoutubeUrl } from '@repo/utils/youtube'
 
 import { ArchetypeLabel } from '@/app/(components)/builder/archetype-label'
@@ -109,7 +107,8 @@ export function BuildCard({
                       className="text-accent1-500 flex items-center justify-end text-right"
                       aria-label="Total build favorites"
                     >
-                      <StarIcon className="mr-1 h-4 w-4" /> {build.totalUpvotes}
+                      <FavoriteIcon className="mr-1 h-4 w-4" />{' '}
+                      {build.totalUpvotes}
                     </button>
                   </Tooltip>
                 </div>
@@ -201,7 +200,7 @@ export function BuildCard({
                   isValidYoutubeUrl(buildState.buildLink)) ? (
                   <Tooltip content="Build includes a video">
                     <BaseButton outline>
-                      <VideoCameraIcon className="h-4 w-4" />
+                      <VideoIcon className="h-4 w-4" />
                     </BaseButton>
                   </Tooltip>
                 ) : null}

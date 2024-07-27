@@ -1,7 +1,8 @@
 'use client'
 
-import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/solid'
 import { cn } from '@repo/ui/classnames'
+import { EyeIcon } from '@repo/ui/icons/eye'
+import { EyeSlashIcon } from '@repo/ui/icons/eyeslash'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useIsClient } from 'usehooks-ts'
