@@ -1,9 +1,10 @@
 'use client'
 
 import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
 import { cn } from '@repo/ui/classnames'
+import { BarsIcon } from '@repo/ui/icons/bars'
+import { CloseIcon } from '@repo/ui/icons/close'
 import { ZINDEXES } from '@repo/ui/zindexes'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -52,7 +53,7 @@ export function NavbarContainer({
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="ui-sr-only">Open main menu</span>
-            <Bars3Icon className="ui-h-6 ui-w-6" aria-hidden="true" />
+            <BarsIcon className="ui-h-6 ui-w-6" aria-hidden="true" />
           </BaseButton>
         </div>
         <div className="ui-hidden ui-items-center ui-justify-between lg:ui-flex lg:ui-flex-grow lg:ui-gap-x-12">
@@ -86,7 +87,7 @@ export function NavbarContainer({
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="ui-sr-only">Close menu</span>
-              <XMarkIcon className="ui-h-6 ui-w-6" aria-hidden="true" />
+              <CloseIcon className="ui-h-6 ui-w-6" aria-hidden="true" />
             </BaseButton>
           </div>
           <div className="ui-mt-6 ui-flow-root">

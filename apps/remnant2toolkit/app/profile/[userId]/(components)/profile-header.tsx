@@ -1,10 +1,10 @@
 'use client'
 
-import { PencilIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
 import { BaseField } from '@repo/ui/base/fieldset'
 import { BaseInput } from '@repo/ui/base/input'
 import { BaseTextarea } from '@repo/ui/base/textarea'
+import { EditIcon } from '@repo/ui/icons/edit'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
@@ -102,7 +102,7 @@ export function ProfileHeader({
             className="mt-4 flex items-center justify-center underline"
             onClick={() => setIsEditing(true)}
           >
-            <PencilIcon className="h-4 w-4" /> Edit Profile
+            <EditIcon className="h-4 w-4" /> Edit Profile
           </BaseButton>
         )}
         {isEditable && isEditing && (

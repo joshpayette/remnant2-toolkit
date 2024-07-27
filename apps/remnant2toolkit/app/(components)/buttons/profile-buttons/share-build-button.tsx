@@ -1,7 +1,7 @@
 'use client'
 
-import { ShareIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
+import { ShareIcon } from '@repo/ui/icons/share'
 import { urlNoCache } from '@repo/utils/url-no-cache'
 import copy from 'clipboard-copy'
 import { toast } from 'react-toastify'

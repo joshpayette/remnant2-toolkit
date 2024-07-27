@@ -1,7 +1,7 @@
 'use client'
 
-import { TrashIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
+import { TrashIcon } from '@repo/ui/icons/trash'
 import { useState } from 'react'
 
 import { DeleteBuildAlert } from '@/app/(components)/alerts/delete-build-alert'

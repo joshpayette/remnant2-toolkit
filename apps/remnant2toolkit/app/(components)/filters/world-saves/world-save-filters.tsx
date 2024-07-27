@@ -1,11 +1,11 @@
 'use client'
 
 import { Disclosure } from '@headlessui/react'
-import { FunnelIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
 import { BaseFieldGroup, BaseFieldset } from '@repo/ui/base/fieldset'
 import { BaseText, BaseTextLink } from '@repo/ui/base/text'
 import { cn } from '@repo/ui/classnames'
+import { FilterIcon } from '@repo/ui/icons/filter'
 import isEqual from 'lodash.isequal'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useState } from 'react'
@@ -160,7 +160,7 @@ export function WorldSaveFilters() {
               />
             </div>
             <Disclosure.Button as={BaseButton}>
-              <FunnelIcon className="h-4 w-4" />
+              <FilterIcon className="h-4 w-4" />
               {open ? 'Hide' : 'Show'}
             </Disclosure.Button>
           </div>

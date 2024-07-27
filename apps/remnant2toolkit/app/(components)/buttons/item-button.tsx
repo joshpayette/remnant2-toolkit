@@ -1,10 +1,10 @@
 'use client'
 
 import { cn } from '@repo/ui/classnames'
+import { InfoCircleIcon } from '@repo/ui/icons/info-circle'
 import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import { ZINDEXES } from '@repo/ui/zindexes'
 import Image from 'next/image'
-import { IoInformationCircleSharp } from 'react-icons/io5'
 import { TbHttpOptions } from 'react-icons/tb'
 
 import { Tooltip } from '@/app/(components)/tooltip'
@@ -161,7 +161,7 @@ export function ItemButton({
             }
             aria-label="Item Information"
           >
-            <IoInformationCircleSharp
+            <InfoCircleIcon
               className={cn(
                 'text-accent1-500 h-4 w-4',
                 (variant === 'large' || variant === 'boss-tracker') &&

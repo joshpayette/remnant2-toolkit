@@ -1,9 +1,10 @@
 'use client'
 
 import { Combobox } from '@headlessui/react'
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/solid'
 import { BaseInput } from '@repo/ui/base/input'
 import { cn } from '@repo/ui/classnames'
+import { CheckIcon } from '@repo/ui/icons/check'
+import { ChevronUpDownIcon } from '@repo/ui/icons/chevron-updown'
 import React, { useEffect, useState } from 'react'
 import { useIsClient, useMediaQuery } from 'usehooks-ts'
 

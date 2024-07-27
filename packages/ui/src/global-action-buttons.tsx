@@ -1,16 +1,13 @@
 'use client'
 
-import {
-  ArrowUpIcon,
-  BugAntIcon,
-  Cog6ToothIcon,
-  PaintBrushIcon,
-} from '@heroicons/react/24/solid'
 import { CHANGELOG_URL } from '@repo/constants'
 import { BaseButton } from '@repo/ui/base/button'
 import { BugReportPrompt } from '@repo/ui/bug-report-prompt'
 import { cn } from '@repo/ui/classnames'
-import ChangeLogIcon from '@repo/ui/icons/changelog'
+import { ArrowUpIcon } from '@repo/ui/icons/arrow-up'
+import { BugIcon } from '@repo/ui/icons/bug'
+import { ChangeLogIcon } from '@repo/ui/icons/changelog'
+import { SettingsIcon } from '@repo/ui/icons/settings'
 import { ZINDEXES } from '@repo/ui/zindexes'
 import { AnimatePresence, motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
@@ -18,6 +15,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { ReportBug } from './bug-report/report-bug'
+import { ThemeIcon } from './icons/theme'
 
 // Lazy-load the theme toggle, since it relies on client context
 const ThemeSelectButton = dynamic(
@@ -26,7 +24,7 @@ const ThemeSelectButton = dynamic(
     ssr: false,
     loading: () => (
       <BaseButton color="dark/white">
-        <PaintBrushIcon className="h-5 w-5" />
+        <ThemeIcon className="h-5 w-5" />
       </BaseButton>
     ),
   },
@@ -83,7 +81,7 @@ export function GlobalActionButtons({ username }: Props) {
 function SettingsButton({ onToggle }: { onToggle: () => void }) {
   return (
     <BaseButton color="yellow" onClick={onToggle}>
-      <Cog6ToothIcon className="ui-h-5 ui-w-5" />
+      <SettingsIcon className="ui-h-5 ui-w-5" />
     </BaseButton>
   )
 }
@@ -131,7 +129,7 @@ function ReportBugButton({ username }: { username: string }) {
         onClose={() => setOpen(false)}
       />
       <BaseButton color="green" onClick={() => setOpen(true)}>
-        <BugAntIcon className="ui-h-5 ui-w-5" />
+        <BugIcon className="ui-h-5 ui-w-5" />
       </BaseButton>
     </>
   )

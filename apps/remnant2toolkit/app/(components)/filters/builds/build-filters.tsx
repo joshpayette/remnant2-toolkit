@@ -1,10 +1,10 @@
 'use client'
 
 import { Disclosure } from '@headlessui/react'
-import { FunnelIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
 import { BaseField, BaseFieldGroup, BaseFieldset } from '@repo/ui/base/fieldset'
 import { cn } from '@repo/ui/classnames'
+import { FilterIcon } from '@repo/ui/icons/filter'
 import isEqual from 'lodash.isequal'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useState } from 'react'
@@ -378,7 +378,7 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
               </BaseField>
             </div>
             <Disclosure.Button as={BaseButton}>
-              <FunnelIcon className="h-4 w-4" />
+              <FilterIcon className="h-4 w-4" />
               {open ? 'Hide' : 'Show'}
             </Disclosure.Button>
           </div>

@@ -1,5 +1,5 @@
-import { ArrowDownTrayIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
+import { DownloadIcon } from '@repo/ui/icons/download'
 import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import Image from 'next/image'
 import { v4 as uuidv4 } from 'uuid'
@@ -49,7 +49,7 @@ export function WorldSaveCard({ saveItem }: Props) {
           color="cyan"
           href={getDownloadUrl(saveItem.bossName, saveItem.bossAffixes)}
         >
-          <ArrowDownTrayIcon className="h-5 w-5" />
+          <DownloadIcon className="h-5 w-5" />
           Download
         </BaseButton>
         <Tooltip

@@ -1,28 +1,26 @@
-import {
-  ArchiveBoxArrowDownIcon,
-  ArchiveBoxIcon,
-  ArrowLeftOnRectangleIcon,
-  CalculatorIcon,
-  CircleStackIcon,
-  DocumentCheckIcon,
-  DocumentTextIcon,
-  HeartIcon,
-  LinkIcon,
-  ListBulletIcon,
-  MagnifyingGlassIcon,
-  PlusIcon,
-  PuzzlePieceIcon,
-  QueueListIcon,
-  ShieldCheckIcon,
-  SparklesIcon,
-  StarIcon,
-  TableCellsIcon,
-  UserIcon,
-  UsersIcon,
-} from '@heroicons/react/24/solid'
 import { CHANGELOG_URL, DISCORD_INVITE_URL } from '@repo/constants'
-import ChangeLogIcon from '@repo/ui/icons/changelog'
-import DiscordIcon from '@repo/ui/icons/discord'
+import { ChangeLogIcon } from '@repo/ui/icons/changelog'
+import { CommunityBuildsIcon } from '@repo/ui/icons/community-builds'
+import { CreateBuildIcon } from '@repo/ui/icons/create-build'
+import { DiscordIcon } from '@repo/ui/icons/discord'
+import { FavoriteIcon } from '@repo/ui/icons/favorite'
+import { ItemLookupIcon } from '@repo/ui/icons/item-lookup'
+import { ItemTrackerIcon } from '@repo/ui/icons/item-tracker'
+import { MyBuildsIcon } from '@repo/ui/icons/my-builds'
+import { ProfileIcon } from '@repo/ui/icons/profile'
+import { ResourcesIcon } from '@repo/ui/icons/resources'
+import { SignInIcon } from '@repo/ui/icons/signin'
+import { SignOutIcon } from '@repo/ui/icons/signout'
+import { SupportIcon } from '@repo/ui/icons/support'
+import { FaStaylinked as LinkedBuildsIcon } from 'react-icons/fa'
+import { FaHandSparkles as BeginnerBuildsIcon } from 'react-icons/fa'
+import { GiChestArmor as ArmorGeneratorIcon } from 'react-icons/gi'
+import { GiBarbute as LoadoutIcon } from 'react-icons/gi'
+import { GiStrong as HardcoreVeteranIcon } from 'react-icons/gi'
+import { IoArchive as WorldSaveArchiveIcon } from 'react-icons/io5'
+import { IoShieldCheckmark as BossTrackerIcon } from 'react-icons/io5'
+import { MdQuiz as ItemQuizIcon } from 'react-icons/md'
+import { PiCubeFocus as FeaturedBuildsIcon } from 'react-icons/pi'
 import { RiOpenbaseLine as BaseGameBuildsIcon } from 'react-icons/ri'
 
 import VashIcon from '../(components)/images/vash-icon'
@@ -43,14 +41,14 @@ export const NAV_ITEMS = {
     description:
       'A curated list of Remnant 2 builds intended to be usable or targetable in the earlier hours of gameplay.',
     href: '/beginner-builds',
-    icon: SparklesIcon,
+    icon: BeginnerBuildsIcon,
   },
   bossTracker: {
     label: 'Boss Tracker',
     description:
       'A Remnant 2 boss tracker to keep tabs on which bosses you have defeated, and the bosses that are still escaping your grasp.',
     href: '/boss-tracker',
-    icon: ShieldCheckIcon,
+    icon: BossTrackerIcon,
   },
   changeLog: {
     label: 'Change Log',
@@ -59,26 +57,26 @@ export const NAV_ITEMS = {
     href: CHANGELOG_URL,
     icon: ChangeLogIcon,
   },
-  collectionBuilds: {
-    label: 'Builds by Collection',
-    description:
-      'View builds that you can create based on the Item Tracker data.',
-    href: '/community-builds/by-collection',
-    icon: CircleStackIcon,
-  },
+  // collectionBuilds: {
+  //   label: 'Builds by Collection',
+  //   description:
+  //     'View builds that you can create based on the Item Tracker data.',
+  //   href: '/community-builds/by-collection',
+  //   icon: CircleStackIcon,
+  // },
   communityBuilds: {
     label: 'Community Builds',
     description:
       'Search a collection of Remnant 2 builds submitted and ranked by the community.',
     href: '/community-builds',
-    icon: ListBulletIcon,
+    icon: CommunityBuildsIcon,
   },
   createBuild: {
     label: 'Create a Build',
     description:
       'Create and share your favorite Remnant 2 builds with your friends and the community.',
     href: '/builder/create',
-    icon: PlusIcon,
+    icon: CreateBuildIcon,
   },
   discordInvite: {
     label: 'Join the Toolkit Discord!',
@@ -91,102 +89,102 @@ export const NAV_ITEMS = {
     label: 'Favorited Builds',
     description: 'View and manage your favorited Remnant 2 builds.',
     href: '/profile/favorited-builds',
-    icon: StarIcon,
+    icon: FavoriteIcon,
   },
   featuredBuilds: {
     label: 'Featured Builds',
     description:
       'A curated list of unique and high-quality community submitted Remnant 2 builds.',
     href: '/featured-builds',
-    icon: StarIcon,
+    icon: FeaturedBuildsIcon,
   },
   hardcoreVeteran: {
     label: 'Hardcore Veteran Guide',
     description:
       'A guide on getting started with, and completing, your first hardcore veteran run.',
     href: '/guides/hardcore-veteran',
-    icon: TableCellsIcon,
+    icon: HardcoreVeteranIcon,
   },
   itemLookup: {
     label: 'Item Lookup',
     description:
       'A Remnant 2 item lookup tool to search for detailed item information, tags, and locations.',
     href: '/item-lookup',
-    icon: MagnifyingGlassIcon,
+    icon: ItemLookupIcon,
   },
   itemQuiz: {
     label: 'Item Quiz',
     description:
       'Test your ability to recognize Remnant 2 items by only their icons! How many can you get in 60 seconds?',
     href: '/item-quiz',
-    icon: PuzzlePieceIcon,
+    icon: ItemQuizIcon,
   },
   itemTracker: {
     label: 'Item Tracker',
     description:
       'A Remnant 2 item tracker to track which items you have collected, and the ones you still need to find.',
     href: '/tracker',
-    icon: DocumentCheckIcon,
+    icon: ItemTrackerIcon,
   },
   linkedBuilds: {
     label: 'Linked Builds',
     description:
       'Link multiple Remnant 2 builds together to share them as a single link. Great for alternate versions of the same build, coop builds meant to be played together, or budget alternatives!',
     href: '/profile/linked-builds',
-    icon: LinkIcon,
+    icon: LinkedBuildsIcon,
   },
   loadouts: {
     label: 'Loadouts',
     description:
       'Keep your Remnant 2 in-game loadouts and their toolkit build counterparts in sync.',
     href: '/profile/loadout-builds',
-    icon: ArchiveBoxIcon,
+    icon: LoadoutIcon,
   },
   myBuilds: {
     label: 'My Builds',
     description: 'View and manage Remnant 2 builds you created.',
     href: '/profile/created-builds',
-    icon: DocumentTextIcon,
+    icon: MyBuildsIcon,
   },
   profile: {
     label: 'Profile',
     description: 'View and manage your Remnant 2 Toolkit profile.',
     href: '/profile',
-    icon: UserIcon,
+    icon: ProfileIcon,
   },
   resources: {
     label: 'Resources',
     description:
       'A collection of helpful tools, detailed guides, and third-party projects for Remnant 2.',
     href: '/resources',
-    icon: QueueListIcon,
+    icon: ResourcesIcon,
   },
   r2ag: {
     label: 'Remnant 2 Armor Generator',
     description:
       'Find the perfect armor set for your build with the Remnant 2 Armor Generator.',
     href: 'https://scouthunter.github.io/R2AG/',
-    icon: CalculatorIcon,
+    icon: ArmorGeneratorIcon,
   },
   signin: {
     label: 'Sign In',
     description:
       'Sign into your Discord or Reddit account to access more features.',
     href: '/api/auth/signin',
-    icon: UsersIcon,
+    icon: SignInIcon,
   },
   signout: {
     label: 'Sign Out',
     description: 'Sign out of your account.',
     href: '/api/auth/signout',
-    icon: ArrowLeftOnRectangleIcon,
+    icon: SignOutIcon,
   },
   supportR2TK: {
     label: 'Support R2TK!',
     description:
       'Help with the costs of running the Toolkit and keeping it ad-free, plus get some small perks!',
     href: '/support-r2tk',
-    icon: HeartIcon,
+    icon: SupportIcon,
   },
   vashCalculator: {
     label: `Vash Cowaii's Loadout Calculator`,
@@ -206,6 +204,6 @@ export const NAV_ITEMS = {
     label: 'World Save Archive',
     description: `A collection of curated Remnant 2 world saves for apocalypse bosses with specific affixes.`,
     href: '/world-save-archive',
-    icon: ArchiveBoxArrowDownIcon,
+    icon: WorldSaveArchiveIcon,
   },
 }

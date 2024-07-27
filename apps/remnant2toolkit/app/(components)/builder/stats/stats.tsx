@@ -1,9 +1,9 @@
 import { cn } from '@repo/ui/classnames'
+import { InfoCircleIcon } from '@repo/ui/icons/info-circle'
 import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import { ZINDEXES } from '@repo/ui/zindexes'
 import Image from 'next/image'
 import { useState } from 'react'
-import { IoInformationCircleSharp } from 'react-icons/io5'
 
 import { ArmorBreakdownDialog } from '@/app/(components)/dialogs/armor-breakdown-dialog'
 import { HealthBreakdownDialog } from '@/app/(components)/dialogs/health-breakdown-dialog'
@@ -76,7 +76,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               >
                 {totalHealth}
                 {!isScreenshotMode && (
-                  <IoInformationCircleSharp className="text-accent1-500 h-4 w-4" />
+                  <InfoCircleIcon className="text-accent1-500 h-4 w-4" />
                 )}
               </button>
             </div>
@@ -92,7 +92,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               >
                 {totalStamina}
                 {!isScreenshotMode && (
-                  <IoInformationCircleSharp className="text-accent1-500 h-4 w-4" />
+                  <InfoCircleIcon className="text-accent1-500 h-4 w-4" />
                 )}
               </button>
             </div>
@@ -108,7 +108,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               >
                 {totalArmor}
                 {!isScreenshotMode && (
-                  <IoInformationCircleSharp className="text-accent1-500 h-4 w-4" />
+                  <InfoCircleIcon className="text-accent1-500 h-4 w-4" />
                 )}
               </button>
             </div>

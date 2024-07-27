@@ -1,8 +1,8 @@
 'use client'
 
 import { Disclosure } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import { cn } from '@repo/ui/classnames'
+import { ChevronDownIcon } from '@repo/ui/icons/chevron-down'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useIsClient, useLocalStorage } from 'usehooks-ts'

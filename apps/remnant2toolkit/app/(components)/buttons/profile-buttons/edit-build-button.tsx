@@ -1,7 +1,7 @@
 'use client'
 
-import { PencilIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
+import { EditIcon } from '@repo/ui/icons/edit'
 import { useRouter } from 'next/navigation'
 
 import { Tooltip } from '@/app/(components)/tooltip'
@@ -20,7 +20,7 @@ export function EditBuildButton({ buildId }: { buildId: string }) {
         onClick={handleEditBuild}
         aria-label="Edit Build"
       >
-        <PencilIcon className="h-4 w-4" />
+        <EditIcon className="h-4 w-4" />
       </BaseButton>
     </Tooltip>
   )

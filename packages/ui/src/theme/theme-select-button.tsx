@@ -1,4 +1,3 @@
-import { PaintBrushIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
 import {
   BaseDialog,
@@ -11,6 +10,7 @@ import {
   BaseListboxLabel,
   BaseListboxOption,
 } from '@repo/ui/base/listbox'
+import { ThemeIcon } from '@repo/ui/icons/theme'
 import { ColorThemes } from '@repo/ui/theme/theme-selection'
 import { useTheme } from 'next-themes'
 import { useState } from 'react'
@@ -40,7 +40,7 @@ export default function ThemeSelectButton() {
         onClick={() => setDialogOpen(!isDialogOpen)}
         color="dark/white"
       >
-        <PaintBrushIcon className="h-5 w-5" />
+        <ThemeIcon className="h-5 w-5" />
       </BaseButton>
       <BaseDialog open={isDialogOpen} onClose={() => setDialogOpen(false)}>
         <BaseDialogTitle>Select Color Theme</BaseDialogTitle>

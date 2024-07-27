@@ -1,8 +1,9 @@
-import { EyeIcon, StarIcon } from '@heroicons/react/24/solid'
 import { BuildTags } from '@repo/db'
 import { BaseInput } from '@repo/ui/base/input'
 import { Link } from '@repo/ui/base/link'
 import { cn } from '@repo/ui/classnames'
+import { EyeIcon } from '@repo/ui/icons/eye'
+import { FavoriteIcon } from '@repo/ui/icons/favorite'
 import { Logo } from '@repo/ui/logo'
 import { getArrayOfLength } from '@repo/utils/get-array-of-length'
 import { stripUnicode } from '@repo/utils/strip-unicode'
@@ -478,7 +479,7 @@ export function Builder({
               <div className="flex w-full flex-row items-center justify-center gap-x-4 text-sm text-gray-400">
                 <Tooltip content={`${buildState.totalUpvotes} Favorites`}>
                   <button className="flex flex-row items-center justify-center gap-x-1">
-                    <StarIcon
+                    <FavoriteIcon
                       className={cn('text-accent1-500 mr-0.5 h-4 w-4')}
                     />
                     <span className={cn('text-surface-solid')}>

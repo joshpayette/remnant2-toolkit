@@ -1,3 +1,1 @@
-import { BookOpenIcon as ChangeLogIcon } from '@heroicons/react/24/solid'
-
-export default ChangeLogIcon
+export { GrCatalog as ChangeLogIcon } from 'react-icons/gr'

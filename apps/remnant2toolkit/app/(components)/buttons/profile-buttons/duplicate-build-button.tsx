@@ -1,7 +1,7 @@
 'use client'
 
-import { DocumentDuplicateIcon } from '@heroicons/react/24/solid'
 import { BaseButton } from '@repo/ui/base/button'
+import { DuplicateIcon } from '@repo/ui/icons/duplicate'
 
 import { Tooltip } from '@/app/(components)/tooltip'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
@@ -19,7 +19,7 @@ export function DuplicateBuildButton({ build }: { build: DBBuild }) {
         onClick={() => handleDuplicateBuild(buildState)}
         aria-label="Duplicate Build"
       >
-        <DocumentDuplicateIcon className="h-4 w-4" />
+        <DuplicateIcon className="h-4 w-4" />
       </BaseButton>
     </Tooltip>
   )
