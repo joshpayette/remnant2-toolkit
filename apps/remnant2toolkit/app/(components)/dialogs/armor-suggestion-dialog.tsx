@@ -50,7 +50,7 @@ function ArmorInfoContainer({
       />
       <BaseDialogTitle>Armor Calculator</BaseDialogTitle>
       <BaseDialogDescription>
-        Get optimal armor values for the current build.
+        Get optimal armor values for the current build and equipped armor.
       </BaseDialogDescription>
       <BaseDialogBody>
         <div className="flex flex-col items-center justify-start sm:pr-4">
