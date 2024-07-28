@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-07-28
+
+### Changed
+
+- Small update to the subtitle text in the Armor Calculator to clarify that it takes your equipped armor into account.
+
 ## 2024-07-27
 
 ### Changed
