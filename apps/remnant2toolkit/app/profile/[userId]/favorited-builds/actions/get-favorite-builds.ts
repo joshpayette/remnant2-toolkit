@@ -108,7 +108,9 @@ ${limitByReferenceLink(withReference)}
 ${limitToBuildsWithVideo(withVideo)}
 ${limitByPatchAffected(patchAffected)}
 ${limitByFavorited(userId)}
-${limitToQualityBuilds(withQuality)}
+  ${limitToQualityBuilds(
+    userId === 'clql3zq8k0000a6m41vtnvldq' ? withQuality : false,
+  )}
 `
 
   const orderBySegment = getOrderBySegment(orderBy)

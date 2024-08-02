@@ -15,11 +15,12 @@ interface Props {
 export const MINIMUM_QUALITY_DESCRIPTION_LENGTH = 200
 
 export function BuildMiscFilter({ value, onChange }: Props) {
+  // TODO Quality builds temporarily disabled
   const options = [
-    {
-      label: `Only Quality Builds`,
-      value: BUILD_FILTER_KEYS.WITHQUALITY,
-    },
+    // {
+    //   label: `Only Quality Builds`,
+    //   value: BUILD_FILTER_KEYS.WITHQUALITY,
+    // },
     {
       label: 'Only Builds w/ Video',
       value: BUILD_FILTER_KEYS.WITHVIDEO,

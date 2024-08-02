@@ -56,14 +56,15 @@ export function QualityBuildsFeed({ builds }: Props) {
           </div>
         ))}
       </ul>
-      <div className="flex w-full flex-row items-end justify-end">
+      {/** TODO Quality builds */}
+      {/* <div className="flex w-full flex-row items-end justify-end">
         <Link
           href="/community-builds?withQuality=true"
           className="text-sm underline"
         >
           View more quality builds
         </Link>
-      </div>
+      </div> */}
     </>
   )
 }
