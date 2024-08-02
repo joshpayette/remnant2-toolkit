@@ -94,6 +94,7 @@ export async function getCommunityBuilds({
   const tagValues = buildTagsFilterToValues(buildTags)
   const trimmedSearchText = searchText.trim()
 
+  // TODO Temporarily disable quality builds for anyone not Remnant2Toolkit
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
   ${limitByAmuletSegment(amuletId)}
@@ -106,7 +107,9 @@ export async function getCommunityBuilds({
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReferenceLink(withReference)}
   ${limitToBuildsWithVideo(withVideo)}
-  ${limitToQualityBuilds(withQuality)}
+  ${limitToQualityBuilds(
+    userId === 'clql3zq8k0000a6m41vtnvldq' ? withQuality : false,
+  )}
   ${limitByPatchAffected(patchAffected)}
   `
 
