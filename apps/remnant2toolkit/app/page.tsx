@@ -85,7 +85,10 @@ export default async function Page() {
           />
         </div>
         <div className="col-span-full mt-8 hidden w-full sm:mt-0 md:block">
-          <QualityBuildsFeed builds={qualityBuilds.builds} />
+          <QualityBuildsFeed
+            builds={qualityBuilds.builds}
+            userId={session?.user?.id}
+          />
         </div>
         <div className="col-span-full mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
           <div className="md:hidden">
@@ -109,7 +112,10 @@ export default async function Page() {
             }
           />
           <div className="md:hidden">
-            <QualityBuildsFeed builds={qualityBuilds.builds} />
+            <QualityBuildsFeed
+              userId={session?.user?.id}
+              builds={qualityBuilds.builds}
+            />
           </div>
           <div className="md:hidden">
             <LandingPageCard

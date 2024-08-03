@@ -4,8 +4,10 @@ import {
   BaseListboxLabel,
   BaseListboxOption,
 } from '@repo/ui/base/listbox'
+import { useSession } from 'next-auth/react'
 
 import { BUILD_FILTER_KEYS } from '@/app/(components)/filters/builds/types'
+import { areQualityBuildsEnabled } from '@/app/(utils)/builds/are-quality-builds-enabled'
 
 interface Props {
   value: string[]
@@ -15,12 +17,17 @@ interface Props {
 export const MINIMUM_QUALITY_DESCRIPTION_LENGTH = 200
 
 export function BuildMiscFilter({ value, onChange }: Props) {
-  // TODO Quality builds temporarily disabled
+  // TODO Remove this once Quality Builds issue is fully resolved
+  const { data: sessionData } = useSession()
+
   const options = [
-    // {
-    //   label: `Only Quality Builds`,
-    //   value: BUILD_FILTER_KEYS.WITHQUALITY,
-    // },
+    // * This has to be in the first position for the
+    // * NEXT_PUBLIC_ENABLE_QUALITY_BUILDS check on the next lines
+    // * to work correctly
+    {
+      label: `Only Quality Builds`,
+      value: BUILD_FILTER_KEYS.WITHQUALITY,
+    },
     {
       label: 'Only Builds w/ Video',
       value: BUILD_FILTER_KEYS.WITHVIDEO,
@@ -34,6 +41,15 @@ export function BuildMiscFilter({ value, onChange }: Props) {
       value: BUILD_FILTER_KEYS.PATCHAFFECTED,
     },
   ]
+
+  if (
+    !areQualityBuildsEnabled({
+      userId: sessionData?.user?.id,
+      withQuality: true,
+    })
+  ) {
+    options.shift()
+  }
 
   return (
     <BaseField>
