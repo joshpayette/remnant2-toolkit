@@ -28,9 +28,13 @@ export default async function Layout({
   return (
     <RootLayout
       alertBanner={
-        <AlertBanner localStorageKey="quality-builds-disabled-again">
-          Quality build filter has been temporarily disabled. Sorry for the
-          inconvenience.
+        <AlertBanner localStorageKey="wiki-lore-cta">
+          Are you interested in Remnant lore?{' '}
+          <BaseTextLink href="https://remnant.wiki">Remnant.wiki</BaseTextLink>{' '}
+          needs people to contribute!{' '}
+          <BaseTextLink href="https://discord.com/invite/BEan7bgvuF">
+            Join the discord!
+          </BaseTextLink>
         </AlertBanner>
       }
       footer={<Footer />}
