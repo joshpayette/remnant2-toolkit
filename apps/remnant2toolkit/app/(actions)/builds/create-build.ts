@@ -1,6 +1,7 @@
 'use server'
 
 import { type BuildTags, prisma } from '@repo/db'
+import { urlNoCache } from '@repo/utils/url-no-cache'
 import { isValidYoutubeUrl } from '@repo/utils/youtube'
 import { revalidatePath } from 'next/cache'
 
@@ -330,9 +331,9 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
     // Trigger webhook to send build to Discord
     if (buildState.isPublic === true && process.env.NODE_ENV === 'production') {
       const params = {
-        content: `New build created! https://www.remnant2toolkit.com/builder/${
-          dbResponse.id
-        }?t=${Date.now()}`,
+        content: `New build created! ${urlNoCache(
+          `https://www.remnant2toolkit.com/builder/${dbResponse.id}`,
+        )}`,
       }
 
       // Send new build notification to the mod-queue

@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-08-03
 
+### Added
+
+- Created automated scripts that will check every 2 hours for certain milestones, and then send a message in the Discord when they are reached.
+  - Added a milestone notification for 3k total public builds.
+  - Added a milestone notification for a build reaching 25 favorites.
+
 ### Changed
 
 - Quality Builds filter enabled again. Unfortunately, this is expected to break again, but the data will help my host diagnose and try to resolve the issue, as it appears to be something on their end. If you see the quality builds filter fail, please use the bug report button to let me know. Thanks!
