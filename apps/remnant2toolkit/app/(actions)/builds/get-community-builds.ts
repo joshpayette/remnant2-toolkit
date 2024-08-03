@@ -44,6 +44,7 @@ import {
   weaponFiltersToIds,
 } from '@/app/(queries)/build-filters/segments/limit-by-weapons'
 import { DBBuild } from '@/app/(types)/builds'
+import { areQualityBuildsEnabled } from '@/app/(utils)/builds/are-quality-builds-enabled'
 import { PaginationResponse } from '@/app/(utils)/pagination/use-pagination'
 
 export async function getCommunityBuilds({
@@ -94,7 +95,8 @@ export async function getCommunityBuilds({
   const tagValues = buildTagsFilterToValues(buildTags)
   const trimmedSearchText = searchText.trim()
 
-  // TODO Temporarily disable quality builds for anyone not Remnant2Toolkit
+  const qualityBuildsEnabled = areQualityBuildsEnabled({ userId, withQuality })
+
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
   ${limitByAmuletSegment(amuletId)}
@@ -107,16 +109,14 @@ export async function getCommunityBuilds({
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReferenceLink(withReference)}
   ${limitToBuildsWithVideo(withVideo)}
-  ${limitToQualityBuilds(
-    userId === 'clql3zq8k0000a6m41vtnvldq' ? withQuality : false,
-  )}
+  ${limitToQualityBuilds(qualityBuildsEnabled)}
   ${limitByPatchAffected(patchAffected)}
   `
 
   const orderBySegment = getOrderBySegment(orderBy)
 
   // First, get the Builds
-  const [builds, totalBuildsCountResponse] = await prisma.$transaction([
+  const [builds, totalBuildsCountResponse] = await Promise.all([
     communityBuildsQuery({
       userId,
       itemsPerPage,

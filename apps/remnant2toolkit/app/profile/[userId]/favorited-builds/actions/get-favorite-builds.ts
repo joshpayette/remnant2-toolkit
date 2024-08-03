@@ -45,6 +45,7 @@ import {
   weaponFiltersToIds,
 } from '@/app/(queries)/build-filters/segments/limit-by-weapons'
 import { DBBuild } from '@/app/(types)/builds'
+import { areQualityBuildsEnabled } from '@/app/(utils)/builds/are-quality-builds-enabled'
 import { PaginationResponse } from '@/app/(utils)/pagination/use-pagination'
 
 export async function getFavoritedBuilds({
@@ -93,24 +94,24 @@ export async function getFavoritedBuilds({
   const relicId = relicFilterToId({ relic })
   const ringIds = ringsFilterToIds({ rings })
 
+  const qualityBuildsEnabled = areQualityBuildsEnabled({ userId, withQuality })
+
   const whereConditions = Prisma.sql`
-WHERE Build.isPublic = true
-AND Build.createdById != ${userId}
-${limitByAmuletSegment(amuletId)}
-${limitByArchetypesSegment(archetypeIds)}
-${limitByBuildTagsSegment(tagValues)}
-${limitByReleasesSegment(releases)}
-${limitByRelicSegment(relicId)}
-${limitByRingsSegment(ringIds)}
-${limitByTimeConditionSegment(timeRange)}
-${limitByWeaponsSegment(weaponIds)}
-${limitByReferenceLink(withReference)}
-${limitToBuildsWithVideo(withVideo)}
-${limitByPatchAffected(patchAffected)}
-${limitByFavorited(userId)}
-  ${limitToQualityBuilds(
-    userId === 'clql3zq8k0000a6m41vtnvldq' ? withQuality : false,
-  )}
+  WHERE Build.isPublic = true
+  AND Build.createdById != ${userId}
+  ${limitByAmuletSegment(amuletId)}
+  ${limitByArchetypesSegment(archetypeIds)}
+  ${limitByBuildTagsSegment(tagValues)}
+  ${limitByReleasesSegment(releases)}
+  ${limitByRelicSegment(relicId)}
+  ${limitByRingsSegment(ringIds)}
+  ${limitByTimeConditionSegment(timeRange)}
+  ${limitByWeaponsSegment(weaponIds)}
+  ${limitByReferenceLink(withReference)}
+  ${limitToBuildsWithVideo(withVideo)}
+  ${limitByPatchAffected(patchAffected)}
+  ${limitByFavorited(userId)}
+  ${limitToQualityBuilds(qualityBuildsEnabled)}
 `
 
   const orderBySegment = getOrderBySegment(orderBy)
@@ -118,7 +119,7 @@ ${limitByFavorited(userId)}
   const trimmedSearchText = searchText.trim()
 
   // First, get the Builds
-  const [builds, totalBuildsCountResponse] = await prisma.$transaction([
+  const [builds, totalBuildsCountResponse] = await Promise.all([
     communityBuildsQuery({
       userId,
       itemsPerPage,

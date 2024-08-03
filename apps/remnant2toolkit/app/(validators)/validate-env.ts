@@ -14,6 +14,7 @@ export function validateEnv() {
     LOADOUT_AUTH_TOKEN: z.string(),
     NEXTAUTH_SECRET: z.string(),
     NEXTAUTH_URL: z.string(),
+    NEXT_PUBLIC_ENABLE_QUALITY_BUILDS: z.string(),
     NEXT_PUBLIC_IMAGE_URL: z.string(),
     PATREON_CREATOR_ACCESS_TOKEN: z.string(),
     PATREON_CREATOR_REFRESH_TOKEN: z.string(),

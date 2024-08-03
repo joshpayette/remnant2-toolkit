@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-08-03
+
+### Changed
+
+- Quality Builds filter enabled again. Unfortunately, this is expected to break again, but the data will help my host diagnose and try to resolve the issue, as it appears to be something on their end. If you see the quality builds filter fail, please use the bug report button to let me know. Thanks!
+
 ## 2024-08-01
 
 ### Changed

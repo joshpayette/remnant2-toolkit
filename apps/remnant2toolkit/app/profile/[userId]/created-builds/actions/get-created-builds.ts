@@ -45,6 +45,7 @@ import {
   weaponFiltersToIds,
 } from '@/app/(queries)/build-filters/segments/limit-by-weapons'
 import { DBBuild } from '@/app/(types)/builds'
+import { areQualityBuildsEnabled } from '@/app/(utils)/builds/are-quality-builds-enabled'
 import { PaginationResponse } from '@/app/(utils)/pagination/use-pagination'
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes'
@@ -116,6 +117,8 @@ export async function getCreatedBuilds({
     }
   }
 
+  const qualityBuildsEnabled = areQualityBuildsEnabled({ userId, withQuality })
+
   const whereConditions = Prisma.sql`
   WHERE Build.createdById = ${userId}
   ${isPublicSegment}
@@ -130,9 +133,7 @@ export async function getCreatedBuilds({
   ${limitByReferenceLink(withReference)}
   ${limitToBuildsWithVideo(withVideo)}
   ${limitByPatchAffected(patchAffected)}
-  ${limitToQualityBuilds(
-    userId === 'clql3zq8k0000a6m41vtnvldq' ? withQuality : false,
-  )}
+  ${limitToQualityBuilds(qualityBuildsEnabled)}
   ${limitByFeatured(featuredBuildsOnly)}
   `
 
@@ -141,7 +142,7 @@ export async function getCreatedBuilds({
   const trimmedSearchText = searchText.trim()
 
   // First, get the Builds
-  const [builds, totalBuildsCountResponse] = await prisma.$transaction([
+  const [builds, totalBuildsCountResponse] = await Promise.all([
     communityBuildsQuery({
       userId,
       itemsPerPage,

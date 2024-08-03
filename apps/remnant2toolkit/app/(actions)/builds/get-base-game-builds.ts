@@ -44,6 +44,7 @@ import {
   weaponFiltersToIds,
 } from '@/app/(queries)/build-filters/segments/limit-by-weapons'
 import { DBBuild } from '@/app/(types)/builds'
+import { areQualityBuildsEnabled } from '@/app/(utils)/builds/are-quality-builds-enabled'
 import { PaginationResponse } from '@/app/(utils)/pagination/use-pagination'
 
 export async function getBaseGameBuilds({
@@ -88,6 +89,8 @@ export async function getBaseGameBuilds({
   const ringIds = ringsFilterToIds({ rings })
   const tagValues = buildTagsFilterToValues(buildTags)
 
+  const qualityBuildsEnabled = areQualityBuildsEnabled({ userId, withQuality })
+
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
   AND Build.isFeaturedBuild = true
@@ -103,16 +106,14 @@ export async function getBaseGameBuilds({
   ${limitByReferenceLink(withReference)}
   ${limitToBuildsWithVideo(withVideo)}
   ${limitByPatchAffected(patchAffected)}
-  ${limitToQualityBuilds(
-    userId === 'clql3zq8k0000a6m41vtnvldq' ? withQuality : false,
-  )}
+  ${limitToQualityBuilds(qualityBuildsEnabled)}
   `
 
   const orderBySegment = getOrderBySegment(orderBy, true)
 
   const trimmedSearchText = searchText.trim()
 
-  const [builds, totalBuildCountResponse] = await prisma.$transaction([
+  const [builds, totalBuildCountResponse] = await Promise.all([
     communityBuildsQuery({
       userId,
       itemsPerPage,
