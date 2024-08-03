@@ -20,6 +20,7 @@ model Build {
   buildLinkUpdatedAt  DateTime?
   viewCount           Int                   @default(0)
   duplicateCount      Int                   @default(0)
+  milestoneLogged     Boolean?              @default(false)
   BuildVotes          BuildVoteCounts[]
   BuildItems          BuildItems[]
   UserProfile         UserProfile?          @relation(fields: [userProfileId], references: [id])

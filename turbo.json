@@ -32,6 +32,7 @@
         "WEBHOOK_MOD_QUEUE",
         "WEBHOOK_AUDIT_LOG",
         "WEBHOOK_CRON_LOGS",
+        "WEBHOOK_MILESTONES",
         "WEBHOOK_NEW_BUILD_FEED",
         "WEBHOOK_WIKI_SCRAPER_FEED",
         "NODE_ENV"
