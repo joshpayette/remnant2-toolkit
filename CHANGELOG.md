@@ -16,6 +16,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Quality Builds filter enabled again. Unfortunately, this is expected to break again, but the data will help my host diagnose and try to resolve the issue, as it appears to be something on their end. If you see the quality builds filter fail, please use the bug report button to let me know. Thanks!
 
+### Fixed
+
+- Fixed a bug allowing some builds to be marked as "quality builds" even with empty item slots.
+
 ## 2024-08-01
 
 ### Changed

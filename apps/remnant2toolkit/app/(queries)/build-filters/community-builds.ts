@@ -47,20 +47,20 @@ export function communityBuildsQuery({
   LEFT JOIN (
     SELECT 
         BuildItems.buildId,
-        SUM(CASE WHEN BuildItems.category = 'archtype' THEN 1 ELSE 0 END) as archtypeCount,
-        SUM(CASE WHEN BuildItems.category = 'skill' THEN 1 ELSE 0 END) as skillCount,
-        SUM(CASE WHEN BuildItems.category = 'helm' THEN 1 ELSE 0 END) as helmCount,
-        SUM(CASE WHEN BuildItems.category = 'torso' THEN 1 ELSE 0 END) as torsoCount,
-        SUM(CASE WHEN BuildItems.category = 'gloves' THEN 1 ELSE 0 END) as glovesCount,
-        SUM(CASE WHEN BuildItems.category = 'legs' THEN 1 ELSE 0 END) as legsCount,
-        SUM(CASE WHEN BuildItems.category = 'relic' THEN 1 ELSE 0 END) as relicCount,
-        SUM(CASE WHEN BuildItems.category = 'relicfragment' THEN 1 ELSE 0 END) as relicfragmentCount,
-        SUM(CASE WHEN BuildItems.category = 'weapon' THEN 1 ELSE 0 END) as weaponCount,
+        SUM(CASE WHEN BuildItems.category = 'archtype' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as archtypeCount,
+        SUM(CASE WHEN BuildItems.category = 'skill' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as skillCount,
+        SUM(CASE WHEN BuildItems.category = 'helm' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as helmCount,
+        SUM(CASE WHEN BuildItems.category = 'torso' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as torsoCount,
+        SUM(CASE WHEN BuildItems.category = 'gloves' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as glovesCount,
+        SUM(CASE WHEN BuildItems.category = 'legs' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as legsCount,
+        SUM(CASE WHEN BuildItems.category = 'relic' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as relicCount,
+        SUM(CASE WHEN BuildItems.category = 'relicfragment' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as relicfragmentCount,
+        SUM(CASE WHEN BuildItems.category = 'weapon' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as weaponCount,
         SUM(CASE WHEN BuildItems.category = 'mod' THEN 1 ELSE 0 END) as modCount,
-        SUM(CASE WHEN BuildItems.category = 'mutator' THEN 1 ELSE 0 END) as mutatorCount,
-        SUM(CASE WHEN BuildItems.category = 'amulet' THEN 1 ELSE 0 END) as amuletCount,
-        SUM(CASE WHEN BuildItems.category = 'ring' THEN 1 ELSE 0 END) as ringCount,
-        SUM(CASE WHEN BuildItems.category = 'trait' THEN BuildItems.amount ELSE 0 END) as traitSum
+        SUM(CASE WHEN BuildItems.category = 'mutator' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as mutatorCount,
+        SUM(CASE WHEN BuildItems.category = 'amulet' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as amuletCount,
+        SUM(CASE WHEN BuildItems.category = 'ring' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as ringCount,
+        SUM(CASE WHEN BuildItems.category = 'trait' AND BuildItems.itemId <> '' THEN BuildItems.amount ELSE 0 END) as traitSum
     FROM BuildItems
     GROUP BY BuildItems.buildId
   ) as ItemCounts ON Build.id = ItemCounts.buildId
@@ -101,20 +101,20 @@ export function communityBuildsCountQuery({
   LEFT JOIN (
     SELECT 
         BuildItems.buildId,
-        SUM(CASE WHEN BuildItems.category = 'archtype' THEN 1 ELSE 0 END) as archtypeCount,
-        SUM(CASE WHEN BuildItems.category = 'skill' THEN 1 ELSE 0 END) as skillCount,
-        SUM(CASE WHEN BuildItems.category = 'helm' THEN 1 ELSE 0 END) as helmCount,
-        SUM(CASE WHEN BuildItems.category = 'torso' THEN 1 ELSE 0 END) as torsoCount,
-        SUM(CASE WHEN BuildItems.category = 'gloves' THEN 1 ELSE 0 END) as glovesCount,
-        SUM(CASE WHEN BuildItems.category = 'legs' THEN 1 ELSE 0 END) as legsCount,
-        SUM(CASE WHEN BuildItems.category = 'relic' THEN 1 ELSE 0 END) as relicCount,
-        SUM(CASE WHEN BuildItems.category = 'relicfragment' THEN 1 ELSE 0 END) as relicfragmentCount,
-        SUM(CASE WHEN BuildItems.category = 'weapon' THEN 1 ELSE 0 END) as weaponCount,
+        SUM(CASE WHEN BuildItems.category = 'archtype' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as archtypeCount,
+        SUM(CASE WHEN BuildItems.category = 'skill' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as skillCount,
+        SUM(CASE WHEN BuildItems.category = 'helm' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as helmCount,
+        SUM(CASE WHEN BuildItems.category = 'torso' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as torsoCount,
+        SUM(CASE WHEN BuildItems.category = 'gloves' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as glovesCount,
+        SUM(CASE WHEN BuildItems.category = 'legs' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as legsCount,
+        SUM(CASE WHEN BuildItems.category = 'relic' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as relicCount,
+        SUM(CASE WHEN BuildItems.category = 'relicfragment' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as relicfragmentCount,
+        SUM(CASE WHEN BuildItems.category = 'weapon' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as weaponCount,
         SUM(CASE WHEN BuildItems.category = 'mod' THEN 1 ELSE 0 END) as modCount,
-        SUM(CASE WHEN BuildItems.category = 'mutator' THEN 1 ELSE 0 END) as mutatorCount,
-        SUM(CASE WHEN BuildItems.category = 'amulet' THEN 1 ELSE 0 END) as amuletCount,
-        SUM(CASE WHEN BuildItems.category = 'ring' THEN 1 ELSE 0 END) as ringCount,
-        SUM(CASE WHEN BuildItems.category = 'trait' THEN BuildItems.amount ELSE 0 END) as traitSum
+        SUM(CASE WHEN BuildItems.category = 'mutator' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as mutatorCount,
+        SUM(CASE WHEN BuildItems.category = 'amulet' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as amuletCount,
+        SUM(CASE WHEN BuildItems.category = 'ring' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as ringCount,
+        SUM(CASE WHEN BuildItems.category = 'trait' AND BuildItems.itemId <> '' THEN BuildItems.amount ELSE 0 END) as traitSum
     FROM BuildItems
     GROUP BY BuildItems.buildId
   ) as ItemCounts ON Build.id = ItemCounts.buildId
