@@ -1,10 +1,9 @@
 import { BuildItems } from '@repo/db'
 
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
+import { ringItems } from '@/app/(data)/items/ring-items'
 import { Item } from '@/app/(data)/items/types'
-
-import { ringItems } from '../ring-items'
-import { BaseItem } from './BaseItem'
+import { BaseItem } from '@/app/(data)/items/types/BaseItem'
 
 interface BaseRingItem extends BaseItem {}
 

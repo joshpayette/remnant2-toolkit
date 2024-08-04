@@ -3,10 +3,10 @@
 import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 
 export async function changeLoadoutSlot(buildId: string, slot: number) {
-  const session = await getServerSession()
+  const session = await getSession()
   if (!session || !session.user) {
     return { success: false }
   }

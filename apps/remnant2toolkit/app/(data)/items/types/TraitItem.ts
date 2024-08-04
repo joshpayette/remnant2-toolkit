@@ -1,12 +1,11 @@
 import { BuildItems } from '@repo/db'
 
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(data)/builds/constants'
+import { archetypeItems } from '@/app/(data)/items/archetype-items'
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
+import { traitItems } from '@/app/(data)/items/trait-items'
 import { Item } from '@/app/(data)/items/types'
-
-import { archetypeItems } from '../archetype-items'
-import { traitItems } from '../trait-items'
-import { BaseItem } from './BaseItem'
+import { BaseItem } from '@/app/(data)/items/types/BaseItem'
 
 const allItems = [...traitItems, ...archetypeItems]
 

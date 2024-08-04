@@ -1,9 +1,8 @@
 import { BuildItems } from '@repo/db'
 
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
-
-import { relicItems } from '../relic-items'
-import { BaseItem } from './BaseItem'
+import { relicItems } from '@/app/(data)/items/relic-items'
+import { BaseItem } from '@/app/(data)/items/types/BaseItem'
 
 interface BaseRelicItem extends BaseItem {}
 

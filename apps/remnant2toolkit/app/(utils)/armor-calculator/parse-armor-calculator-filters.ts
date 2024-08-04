@@ -1,9 +1,9 @@
 import { ReadonlyURLSearchParams } from 'next/navigation'
 
-import {
+import type {
   ArmorCalculatorFilters,
   WeightClassKeysWithDefault,
-} from '../../(types)/armor-calculator'
+} from '@/app/(types)/armor-calculator'
 
 export function parseArmorCalculatorFilters(
   searchParams: ReadonlyURLSearchParams,

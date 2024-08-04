@@ -3,7 +3,7 @@
 import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 
 export async function updateTopScore({
   userId,
@@ -12,7 +12,7 @@ export async function updateTopScore({
   userId: string
   topScore: number
 }): Promise<{ success: boolean; message: string }> {
-  const session = await getServerSession()
+  const session = await getSession()
   if (!session || !session.user) {
     return {
       success: false,

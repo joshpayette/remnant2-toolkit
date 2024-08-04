@@ -5,9 +5,8 @@ import {
 } from '@repo/ui/base/dialog'
 import { groupBy } from '@repo/utils/object-utils'
 
+import { getCategoryProgressStats } from '@/app/(components)/filters/item-tracker/utils'
 import { Item } from '@/app/(data)/items/types'
-
-import { getCategoryProgressStats } from '../filters/item-tracker/utils'
 
 interface Props {
   open: boolean

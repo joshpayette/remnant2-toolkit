@@ -1,10 +1,9 @@
 import { BuildItems } from '@repo/db'
 
+import { archetypeItems } from '@/app/(data)/items/archetype-items'
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
 import { Item } from '@/app/(data)/items/types'
-
-import { archetypeItems } from '../archetype-items'
-import { BaseItem } from './BaseItem'
+import { BaseItem } from '@/app/(data)/items/types/BaseItem'
 
 interface BaseArchetypeItem extends BaseItem {}
 

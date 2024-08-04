@@ -1,12 +1,7 @@
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import { prisma } from '@repo/db'
-import type {
-  GetServerSidePropsContext,
-  NextApiRequest,
-  NextApiResponse,
-} from 'next'
 import { redirect } from 'next/navigation'
-import { getServerSession as auth, NextAuthOptions } from 'next-auth'
+import { NextAuthOptions } from 'next-auth'
 import { type Adapter, AdapterUser } from 'next-auth/adapters'
 import DiscordProvider from 'next-auth/providers/discord'
 import RedditProvider from 'next-auth/providers/reddit'
@@ -111,17 +106,4 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
-}
-
-/**
- * Helper function that wraps the next-auth
- * getServerSession with the correct options
- */
-export function getServerSession(
-  ...args:
-    | [GetServerSidePropsContext['req'], GetServerSidePropsContext['res']]
-    | [NextApiRequest, NextApiResponse]
-    | []
-) {
-  return auth(...args, authOptions)
 }

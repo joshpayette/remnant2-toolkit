@@ -1,10 +1,9 @@
 import { BuildItems } from '@repo/db'
 
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
+import { mutatorItems } from '@/app/(data)/items/mutator-items'
 import { Item } from '@/app/(data)/items/types'
-
-import { mutatorItems } from '../mutator-items'
-import { BaseItem } from './BaseItem'
+import { BaseItem } from '@/app/(data)/items/types/BaseItem'
 
 interface BaseMutatorItem extends BaseItem {
   maxLevelBonus: string

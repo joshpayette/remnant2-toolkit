@@ -4,7 +4,7 @@ import { prisma } from '@repo/db'
 import { bigIntFix } from '@repo/utils/big-int-fix'
 
 import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile'
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import { DBBuild } from '@/app/(types)/builds'
 import { ErrorResponse } from '@/app/(types)/error-response'
 
@@ -16,7 +16,7 @@ export async function getBuild(
     return { errors: ['No buildId provided!'] }
   }
 
-  const session = await getServerSession()
+  const session = await getSession()
 
   try {
     const build = await prisma.build.findUnique({

@@ -1,10 +1,9 @@
 import { BuildItems } from '@repo/db'
 
+import { concoctionItems } from '@/app/(data)/items/concoction-items'
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
 import { Item } from '@/app/(data)/items/types'
-
-import { concoctionItems } from '../concoction-items'
-import { BaseItem } from './BaseItem'
+import { BaseItem } from '@/app/(data)/items/types/BaseItem'
 
 interface BaseConcoctionItem extends BaseItem {}
 

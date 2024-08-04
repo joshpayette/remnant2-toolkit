@@ -6,7 +6,7 @@ import { revalidatePath } from 'next/cache'
 import { getIsLoadoutPublic } from '@/app/(actions)/loadouts/get-is-loadout-public'
 import { PageHeader } from '@/app/(components)/page-header'
 import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile'
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import { ProfileHeader } from '@/app/profile/[userId]/(components)/profile-header'
 import { ProfileNavbar } from '@/app/profile/[userId]/(components)/profile-navbar'
 import { ProfileStats } from '@/app/profile/[userId]/(components)/profile-stats'
@@ -108,7 +108,7 @@ export default async function Layout({
   children: React.ReactNode
   params: { userId: string }
 }) {
-  const session = await getServerSession()
+  const session = await getSession()
   const isEditable = session?.user?.id === userId
 
   const user = await prisma.user.findUnique({

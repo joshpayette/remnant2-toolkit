@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic'
 
 import { Footer } from '@/app/(components)/footer'
 import { Navbar } from '@/app/(components)/navbar'
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 
 export const viewport: Viewport = {}
 export { metadata } from './metadata'
@@ -23,7 +23,7 @@ export default async function Layout({
 }: {
   children: React.ReactNode
 }) {
-  const session = await getServerSession()
+  const session = await getSession()
 
   return (
     <RootLayout

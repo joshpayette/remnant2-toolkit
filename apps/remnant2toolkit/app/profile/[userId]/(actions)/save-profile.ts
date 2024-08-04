@@ -2,7 +2,7 @@
 
 import { prisma } from '@repo/db'
 
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import { badWordFilter } from '@/app/(utils)/bad-word-filter'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 
@@ -17,7 +17,7 @@ export async function saveProfile({
   newBio: string
   newAvatarId: string
 }): Promise<{ message: string; success: boolean }> {
-  const session = await getServerSession()
+  const session = await getSession()
   if (!session || !session.user) {
     throw new Error('You must be logged in to save a profile.')
   }

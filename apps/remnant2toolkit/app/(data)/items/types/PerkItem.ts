@@ -1,10 +1,9 @@
 import { BuildItems } from '@repo/db'
 
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
+import { perkItems } from '@/app/(data)/items/perk-items'
 import { Item } from '@/app/(data)/items/types'
-
-import { perkItems } from '../perk-items'
-import { BaseItem } from './BaseItem'
+import { BaseItem } from '@/app/(data)/items/types/BaseItem'
 
 interface BasePerkItem extends BaseItem {
   type: 'prime' | 'damage' | 'team' | 'utility' | 'relic'

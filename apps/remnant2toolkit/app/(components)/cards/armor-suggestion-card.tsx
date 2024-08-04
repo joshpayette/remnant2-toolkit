@@ -5,11 +5,10 @@ import Image from 'next/image'
 import { ItemButton } from '@/app/(components)/buttons/item-button'
 import { WEIGHT_CLASSES } from '@/app/(data)/items/constants'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
-
-import {
+import type {
   ArmorSuggestion,
   WeightClassKeysWithDefault,
-} from '../../(types)/armor-calculator'
+} from '@/app/(types)/armor-calculator'
 
 interface Props {
   desiredWeightClass: WeightClassKeysWithDefault

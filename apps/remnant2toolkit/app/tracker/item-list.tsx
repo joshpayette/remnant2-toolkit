@@ -13,6 +13,7 @@ import { useIsClient, useLocalStorage } from 'usehooks-ts'
 
 import { ItemTrackerCard } from '@/app/(components)/cards/item-tracker-card'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
+import { ItemLocationsDialog } from '@/app/(components)/dialogs/item-locations-dialog'
 import { DEFAULT_ITEM_TRACKER_FILTERS } from '@/app/(components)/filters/item-tracker/item-tracker-filters'
 import {
   getCategoryProgressLabel,
@@ -28,8 +29,6 @@ import {
 } from '@/app/(types)/localstorage'
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
 import { ItemTrackerCategory } from '@/app/tracker/types'
-
-import { ItemLocationsDialog } from '../(components)/dialogs/item-locations-dialog'
 
 interface Props {
   discoveredItemIds: string[]

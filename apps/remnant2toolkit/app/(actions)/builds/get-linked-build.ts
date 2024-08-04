@@ -3,7 +3,7 @@
 import { prisma } from '@repo/db'
 
 import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile'
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import type { LinkedBuildState } from '@/app/(types)/linked-builds'
 
 export default async function getLinkedBuild(linkedBuildId: string): Promise<{
@@ -11,7 +11,7 @@ export default async function getLinkedBuild(linkedBuildId: string): Promise<{
   message: string
   linkedBuildState?: LinkedBuildState
 }> {
-  const session = await getServerSession()
+  const session = await getSession()
   const userId = session?.user?.id
 
   try {

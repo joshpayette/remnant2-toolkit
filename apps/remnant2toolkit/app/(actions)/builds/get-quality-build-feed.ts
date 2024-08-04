@@ -4,12 +4,12 @@ import { Prisma } from '@repo/db'
 import { prisma } from '@repo/db'
 import { bigIntFix } from '@repo/utils/big-int-fix'
 
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import { limitToQualityBuilds } from '@/app/(queries)/build-filters/segments/limit-by-quality'
 import { type CommunityBuildQueryResponse, DBBuild } from '@/app/(types)/builds'
 
 export async function getQualityBuildFeed(): Promise<{ builds: DBBuild[] }> {
-  const session = await getServerSession()
+  const session = await getSession()
   const userId = session?.user?.id
 
   const query = Prisma.sql`

@@ -4,14 +4,14 @@ import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
 import { BUILD_REVALIDATE_PATHS } from '@/app/(data)/builds/constants'
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import { BuildActionResponse } from '@/app/(types)/builds'
 
 export async function deleteBuild(
   buildId: string,
 ): Promise<BuildActionResponse> {
   // session validation
-  const session = await getServerSession()
+  const session = await getSession()
   if (!session || !session.user) {
     return {
       errors: ['You must be logged in.'],

@@ -1,6 +1,6 @@
 import { getIsLoadoutPublic } from '@/app/(actions)/loadouts/get-is-loadout-public'
 import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list'
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import ImportLoadouts from '@/app/profile/[userId]/loadouts/import-loadouts'
 import { LoadoutGrid } from '@/app/profile/[userId]/loadouts/loadout-grid'
 import { LoadoutPublicCheckbox } from '@/app/profile/[userId]/loadouts/loadout-public-checkbox'
@@ -10,7 +10,7 @@ export default async function Page({
 }: {
   params: { userId: string }
 }) {
-  const session = await getServerSession()
+  const session = await getSession()
   const isLoadoutPublic = await getIsLoadoutPublic(userId)
   const existingLoadouts = await getLoadoutList(userId)
   const isEditable = session?.user?.id === userId

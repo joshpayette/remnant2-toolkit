@@ -2,7 +2,7 @@ import { DISCORD_INVITE_URL } from '@repo/constants'
 import { cn } from '@repo/ui/classnames'
 import { FooterContainer } from '@repo/ui/footer-container'
 
-import { NAV_ITEMS } from '../(types)/navigation'
+import { NAV_ITEMS } from '@/app/(types)/navigation'
 
 const aClass = 'text-gray-300 hover:text-primary-400 underline'
 

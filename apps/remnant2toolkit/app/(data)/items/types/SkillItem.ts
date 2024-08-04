@@ -1,10 +1,9 @@
 import { BuildItems } from '@repo/db'
 
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
+import { skillItems } from '@/app/(data)/items/skill-items'
 import { Item } from '@/app/(data)/items/types'
-
-import { skillItems } from '../skill-items'
-import { BaseItem } from './BaseItem'
+import { BaseItem } from '@/app/(data)/items/types/BaseItem'
 
 interface BaseSkillItem extends BaseItem {}
 

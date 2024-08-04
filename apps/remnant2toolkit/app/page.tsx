@@ -4,12 +4,12 @@ import { getQualityBuildFeed } from '@/app/(actions)/builds/get-quality-build-fe
 import { getTotalBuildCount } from '@/app/(actions)/builds/get-total-build-count'
 import { LandingPageCard } from '@/app/(components)/cards/landing-page-card'
 import { LandingPageContainer } from '@/app/(components)/landing-page-container'
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { QualityBuildsFeed } from '@/app/quality-builds-feed'
 
 export default async function Page() {
-  const session = await getServerSession()
+  const session = await getSession()
 
   const [totalBuildCount, qualityBuilds] = await Promise.all([
     getTotalBuildCount(),

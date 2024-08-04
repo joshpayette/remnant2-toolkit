@@ -5,7 +5,7 @@ import React from 'react'
 
 import getLinkedBuild from '@/app/(actions)/builds/get-linked-build'
 import { PageHeader } from '@/app/(components)/page-header'
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { isErrorResponse } from '@/app/(utils)/is-error-response'
 
@@ -44,7 +44,7 @@ export default async function Layout({
   children: React.ReactNode
   params: { linkedBuildId: string }
 }) {
-  const session = await getServerSession()
+  const session = await getSession()
 
   if (!session) {
     return (
