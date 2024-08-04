@@ -65,13 +65,21 @@ export function BuildCard({
               'border-accent1-300 shadow-accent1-600 border-2 shadow-lg',
           )}
         >
-          {(isPopular || build.isFeaturedBuild || isNew) && (
+          {(isPopular ||
+            isNew ||
+            build.isFeaturedBuild ||
+            build.isBaseGameBuild ||
+            build.isBeginnerBuild) && (
             <div className="absolute left-1/2 top-0 flex w-full -translate-x-1/2 -translate-y-1/2 transform items-center justify-center gap-x-2">
               {isNew ? <NewBuildBadge /> : null}
               {isPopular ? (
                 <PopularBuildBadge level={popularLevel} unoptimized={true} />
               ) : null}
-              {build.isFeaturedBuild ? <FeaturedBuildBadge /> : null}
+              {build.isFeaturedBuild ||
+              build.isBaseGameBuild ||
+              build.isBeginnerBuild ? (
+                <FeaturedBuildBadge />
+              ) : null}
             </div>
           )}
           <div className="flex w-full flex-1 items-start justify-start p-4 pb-0">
@@ -83,7 +91,11 @@ export function BuildCard({
                 <h3
                   className={cn(
                     'text-md whitespace-pre-wrap font-medium',
-                    (isPopular || isNew || buildState.isFeaturedBuild) &&
+                    (isPopular ||
+                      isNew ||
+                      buildState.isFeaturedBuild ||
+                      buildState.isBaseGameBuild ||
+                      buildState.isBeginnerBuild) &&
                       'mt-3',
                   )}
                 >

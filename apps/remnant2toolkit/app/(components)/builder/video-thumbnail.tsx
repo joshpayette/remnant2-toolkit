@@ -16,7 +16,9 @@ export default function VideoThumbnail({ buildState }: Props) {
   const canShowFeaturedVideo =
     buildState.videoUrl &&
     isValidYoutubeUrl(buildState.videoUrl) &&
-    buildState.isFeaturedBuild
+    (buildState.isFeaturedBuild ||
+      buildState.isBeginnerBuild ||
+      buildState.isBaseGameBuild)
 
   // if the video is not a featured build, show it if it was updated over 12 hours ago
   const twelveHoursAgo = new Date(new Date().getTime() - 1000 * 60 * 60 * 12)

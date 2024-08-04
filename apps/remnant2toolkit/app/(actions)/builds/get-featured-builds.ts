@@ -94,8 +94,6 @@ export async function getFeaturedBuilds({
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
   AND Build.isFeaturedBuild = true
-  AND Build.isBeginnerBuild = false
-  AND Build.isBaseGameBuild = false
   ${limitByAmuletSegment(amuletId)}
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByBuildTagsSegment(tagValues)}
