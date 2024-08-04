@@ -18,9 +18,13 @@ import approveVideo from '@/app/(actions)/builds/admin/approve-video'
 import featureBuild from '@/app/(actions)/builds/admin/feature-build'
 import lockBuild from '@/app/(actions)/builds/admin/lock-build'
 import privateBuild from '@/app/(actions)/builds/admin/private-build'
+import setBaseGameBuild from '@/app/(actions)/builds/admin/set-base-game-build'
+import setBeginnerBuild from '@/app/(actions)/builds/admin/set-beginner-build'
 import unapproveVideo from '@/app/(actions)/builds/admin/unapprove-video'
 import unfeatureBuild from '@/app/(actions)/builds/admin/unfeature-build'
 import unlockBuild from '@/app/(actions)/builds/admin/unlock-build'
+import unsetBaseGameBuild from '@/app/(actions)/builds/admin/unset-base-game-build'
+import unsetBeginnerBuild from '@/app/(actions)/builds/admin/unset-beginner-build'
 import updateBuild from '@/app/(actions)/builds/admin/update-build'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
 import type { BuildState } from '@/app/(types)/builds'
@@ -192,6 +196,64 @@ export function ModeratorBuildToolsDialog({
               }}
             >
               Feature Build
+            </BaseButton>
+          )}
+          {localBuild.isBeginnerBuild ? (
+            <BaseButton
+              onClick={async () => {
+                const response = await unsetBeginnerBuild(localBuild.buildId)
+                if (response.status === 'error') {
+                  toast.error(response.message)
+                  return
+                }
+                setLocalBuild({ ...localBuild, isBeginnerBuild: false })
+                toast.success(response.message)
+              }}
+            >
+              Unset Beginner Build
+            </BaseButton>
+          ) : (
+            <BaseButton
+              onClick={async () => {
+                const response = await setBeginnerBuild(localBuild.buildId)
+                if (response.status === 'error') {
+                  toast.error(response.message)
+                  return
+                }
+                setLocalBuild({ ...localBuild, isBeginnerBuild: true })
+                toast.success(response.message)
+              }}
+            >
+              Set Beginner Build
+            </BaseButton>
+          )}
+          {localBuild.isBaseGameBuild ? (
+            <BaseButton
+              onClick={async () => {
+                const response = await unsetBaseGameBuild(localBuild.buildId)
+                if (response.status === 'error') {
+                  toast.error(response.message)
+                  return
+                }
+                setLocalBuild({ ...localBuild, isBaseGameBuild: false })
+                toast.success(response.message)
+              }}
+            >
+              Unset Base Game Build
+            </BaseButton>
+          ) : (
+            <BaseButton
+              onClick={async () => {
+                const response = await setBaseGameBuild(localBuild.buildId)
+                if (response.status === 'error') {
+                  toast.error(response.message)
+                  return
+                }
+                setLocalBuild({ ...localBuild, isBaseGameBuild: true })
+                toast.success(response.message)
+              }}
+            >
+              Set Base Game Build
             </BaseButton>
           )}
           {localBuild.isModeratorApproved ? (

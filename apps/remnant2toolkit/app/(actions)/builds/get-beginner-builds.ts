@@ -93,7 +93,6 @@ export async function getBeginnerBuilds({
 
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
-  AND Build.isFeaturedBuild = true
   AND Build.isBeginnerBuild = true
   ${limitByAmuletSegment(amuletId)}
   ${limitByArchetypesSegment(archetypeIds)}

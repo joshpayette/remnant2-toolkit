@@ -551,7 +551,11 @@ export function Builder({
               </p>
             </div>
           )}
-          {(isPopular || isNew || buildState.isFeaturedBuild) && (
+          {(isPopular ||
+            isNew ||
+            buildState.isFeaturedBuild ||
+            buildState.isBaseGameBuild ||
+            buildState.isBeginnerBuild) && (
             <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center gap-x-2">
               {isNew ? <NewBuildBadge unoptimized={isScreenshotMode} /> : null}
               {isPopular ? (
@@ -560,7 +564,9 @@ export function Builder({
                   unoptimized={isScreenshotMode}
                 />
               ) : null}
-              {buildState.isFeaturedBuild ? (
+              {buildState.isFeaturedBuild ||
+              buildState.isBaseGameBuild ||
+              buildState.isBeginnerBuild ? (
                 <FeaturedBuildBadge unoptimized={isScreenshotMode} />
               ) : null}
             </div>
