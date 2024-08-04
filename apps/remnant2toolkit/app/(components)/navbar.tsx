@@ -100,6 +100,27 @@ export function Navbar() {
                 <Menu.Item>
                   {({ active }) => (
                     <Link
+                      href={NAV_ITEMS.communityBuilds.href}
+                      className={cn(
+                        active ? 'bg-gray-800' : '',
+                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
+                      )}
+                    >
+                      <div className="mr-4 w-[20px]">
+                        <NAV_ITEMS.communityBuilds.icon className="text-primary-600 h-5 w-5" />
+                      </div>
+                      <div className="flex flex-col items-start justify-start gap-y-1">
+                        {NAV_ITEMS.communityBuilds.label}
+                        <p className="text-xs font-normal text-gray-400">
+                          {NAV_ITEMS.communityBuilds.description}
+                        </p>
+                      </div>
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
                       href={NAV_ITEMS.baseGameBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
@@ -134,27 +155,6 @@ export function Navbar() {
                         {NAV_ITEMS.beginnerBuilds.label}
                         <p className="text-xs font-normal text-gray-400">
                           {NAV_ITEMS.beginnerBuilds.description}
-                        </p>
-                      </div>
-                    </Link>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <Link
-                      href={NAV_ITEMS.communityBuilds.href}
-                      className={cn(
-                        active ? 'bg-gray-800' : '',
-                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
-                      )}
-                    >
-                      <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.communityBuilds.icon className="text-primary-600 h-5 w-5" />
-                      </div>
-                      <div className="flex flex-col items-start justify-start gap-y-1">
-                        {NAV_ITEMS.communityBuilds.label}
-                        <p className="text-xs font-normal text-gray-400">
-                          {NAV_ITEMS.communityBuilds.description}
                         </p>
                       </div>
                     </Link>
@@ -246,6 +246,23 @@ export function Navbar() {
           </Link>
 
           <Link
+            href={NAV_ITEMS.communityBuilds.href}
+            className="flex flex-row items-center justify-start"
+          >
+            <NAV_ITEMS.communityBuilds.icon
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
+              aria-hidden="true"
+            />
+            <div className="flex flex-col items-start justify-start px-3 py-2">
+              {NAV_ITEMS.communityBuilds.label}
+
+              <p className="text-xs text-gray-400">
+                {NAV_ITEMS.communityBuilds.description}
+              </p>
+            </div>
+          </Link>
+
+          <Link
             href={NAV_ITEMS.baseGameBuilds.href}
             className="flex flex-row items-center justify-start"
           >
@@ -275,23 +292,6 @@ export function Navbar() {
 
               <p className="text-xs text-gray-400">
                 {NAV_ITEMS.beginnerBuilds.description}
-              </p>
-            </div>
-          </Link>
-
-          <Link
-            href={NAV_ITEMS.communityBuilds.href}
-            className="flex flex-row items-center justify-start"
-          >
-            <NAV_ITEMS.communityBuilds.icon
-              className="text-primary-600 mr-2 h-7 w-5 flex-none"
-              aria-hidden="true"
-            />
-            <div className="flex flex-col items-start justify-start px-3 py-2">
-              {NAV_ITEMS.communityBuilds.label}
-
-              <p className="text-xs text-gray-400">
-                {NAV_ITEMS.communityBuilds.description}
               </p>
             </div>
           </Link>

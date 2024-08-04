@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-08-04
+
+### Changed
+
+- Moved Community Builds higher up in the Builds menu.
+
 ## 2024-08-03
 
 ### Added
