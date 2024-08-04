@@ -65,11 +65,11 @@ export function BuildCard({
               'border-accent1-300 shadow-accent1-600 border-2 shadow-lg',
           )}
         >
-          {(isPopular ||
-            isNew ||
-            build.isFeaturedBuild ||
-            build.isBaseGameBuild ||
-            build.isBeginnerBuild) && (
+          {isPopular ||
+          isNew ||
+          build.isFeaturedBuild ||
+          build.isBaseGameBuild ||
+          build.isBeginnerBuild ? (
             <div className="absolute left-1/2 top-0 flex w-full -translate-x-1/2 -translate-y-1/2 transform items-center justify-center gap-x-2">
               {isNew ? <NewBuildBadge /> : null}
               {isPopular ? (
@@ -81,7 +81,7 @@ export function BuildCard({
                 <FeaturedBuildBadge />
               ) : null}
             </div>
-          )}
+          ) : null}
           <div className="flex w-full flex-1 items-start justify-start p-4 pb-0">
             <div className="flex w-full flex-col items-start justify-start">
               <Link
