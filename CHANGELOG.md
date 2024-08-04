@@ -6,9 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-08-04
 
+### Added
+
+- Item info dialog now shows which DLC the item is from. This information is found next to the information about where the item is found in the game.
+
 ### Changed
 
 - Moved Community Builds higher up in the Builds menu.
+
+### Fixed
+
+- Icons to add/remove items from comparison were swapped.
 
 ## 2024-08-03
 
