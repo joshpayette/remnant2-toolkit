@@ -2,7 +2,7 @@
 
 import { prisma } from '@repo/db'
 
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import type { BuildActionResponse } from '@/app/(types)/builds'
 
 export async function incrementViewCount({
@@ -10,7 +10,7 @@ export async function incrementViewCount({
 }: {
   buildId: string
 }): Promise<BuildActionResponse & { viewCount: number }> {
-  const session = await getServerSession()
+  const session = await getSession()
   const userId = session?.user?.id
 
   try {

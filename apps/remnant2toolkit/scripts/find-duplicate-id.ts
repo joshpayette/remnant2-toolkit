@@ -5,8 +5,8 @@
  * If there are, this script is run to identify the duplicate ids
  */
 
-import { remnantEnemies } from '../app/(data)/enemies/remnant-enemies'
-import { allItems } from '../app/(data)/items/all-items'
+import { remnantEnemies } from '@/app/(data)/enemies/remnant-enemies'
+import { allItems } from '@/app/(data)/items/all-items'
 
 // need to iterate over allItems to find the duplicate id
 // for each item, check if the id is already in the set

@@ -1,10 +1,9 @@
 import { BuildItems } from '@repo/db'
 
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
+import { consumableItems } from '@/app/(data)/items/consumable-items'
 import { Item } from '@/app/(data)/items/types'
-
-import { consumableItems } from '../consumable-items'
-import { BaseItem } from './BaseItem'
+import { BaseItem } from '@/app/(data)/items/types/BaseItem'
 
 interface BaseConsumableItem extends BaseItem {}
 

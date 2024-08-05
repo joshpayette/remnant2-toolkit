@@ -4,7 +4,7 @@ import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
 import type { AdminToolResponse } from '@/app/(actions)/builds/admin/types'
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 
 export default async function unlockBuild(
@@ -12,7 +12,7 @@ export default async function unlockBuild(
 ): Promise<AdminToolResponse> {
   if (!buildId) return { status: 'error', message: 'No buildId provided!' }
 
-  const session = await getServerSession()
+  const session = await getSession()
   if (!session || !session.user) {
     return {
       status: 'error',

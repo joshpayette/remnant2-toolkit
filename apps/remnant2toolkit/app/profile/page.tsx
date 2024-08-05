@@ -1,10 +1,10 @@
 import { permanentRedirect } from 'next/navigation'
 
 import { PageHeader } from '@/app/(components)/page-header'
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 
 export default async function Page() {
-  const session = await getServerSession()
+  const session = await getSession()
   if (!session || !session.user) {
     return (
       <PageHeader

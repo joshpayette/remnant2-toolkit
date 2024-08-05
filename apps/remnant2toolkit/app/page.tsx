@@ -1,15 +1,16 @@
 import { Link } from '@repo/ui/base/link'
+import { BaseTextLink } from '@repo/ui/base/text'
 
 import { getQualityBuildFeed } from '@/app/(actions)/builds/get-quality-build-feed'
 import { getTotalBuildCount } from '@/app/(actions)/builds/get-total-build-count'
 import { LandingPageCard } from '@/app/(components)/cards/landing-page-card'
 import { LandingPageContainer } from '@/app/(components)/landing-page-container'
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { QualityBuildsFeed } from '@/app/quality-builds-feed'
 
 export default async function Page() {
-  const session = await getServerSession()
+  const session = await getSession()
 
   const [totalBuildCount, qualityBuilds] = await Promise.all([
     getTotalBuildCount(),
@@ -22,7 +23,7 @@ export default async function Page() {
         title="Remnant 2 Toolkit"
         description={
           <>
-            <div className="mt-6 text-lg leading-8 text-gray-300">
+            <p className="mt-6 text-lg leading-8 text-gray-300">
               <Link
                 href="/community-builds"
                 className="hover:text-primary-500 underline"
@@ -48,7 +49,7 @@ export default async function Page() {
                 track your collectibles
               </Link>
               , and more!
-            </div>
+            </p>
             <p className="mt-6 text-lg leading-8 text-gray-300">
               <span className="text-primary-500 font-bold">100% free</span> and{' '}
               <span className="text-primary-500 font-bold">open source</span>{' '}
@@ -60,6 +61,17 @@ export default async function Page() {
               </span>{' '}
               to start creating builds, searching community builds, tracking
               your collectibles, or searching for detailed item information.
+            </p>
+            <p className="mt-6 text-lg leading-8">
+              <BaseTextLink
+                href="https://patreon.com/JoshPayette"
+                target="_blank"
+              >
+                <span className="text-accent1-400">
+                  Click here to read the recent updates and changes to the
+                  toolkit.
+                </span>
+              </BaseTextLink>
             </p>
           </>
         }

@@ -22,9 +22,8 @@ import { BuildState } from '@/app/(types)/builds'
 import { buildStateToCsvData } from '@/app/(utils)/builds/build-state-to-csv-data'
 import { buildStateToMasonryItems } from '@/app/(utils)/builds/build-state-to-masonry-items'
 import { cleanUpBuildState } from '@/app/(utils)/builds/clean-up-build-state'
+import { vashUrlToBuild } from '@/app/(utils)/builds/vash-integration/vash-url-to-build'
 import { itemCategories } from '@/app/(utils)/items/get-item-categories'
-
-import { vashUrlToBuild } from '../vash-integration/vash-url-to-build'
 
 /**
  * Handles reading/writing the build to the URL query string,

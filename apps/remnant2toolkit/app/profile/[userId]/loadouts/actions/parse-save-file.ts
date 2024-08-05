@@ -4,7 +4,7 @@ import { revalidatePath } from 'next/cache'
 
 import { createBuild } from '@/app/(actions)/builds/create-build'
 import { addBuildToLoadout } from '@/app/(actions)/loadouts/add-build-to-loadout'
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import type { BuildState, SuccessResponse } from '@/app/(types)/builds'
 import {
   MAX_PROFILE_SAV_SIZE,
@@ -25,7 +25,7 @@ export async function parseSaveFile(
   _prevState: unknown,
   formData: FormData,
 ): Promise<{ status: 'success' | 'error'; message: string }> {
-  const session = await getServerSession()
+  const session = await getSession()
 
   if (!session || !session.user?.id) {
     return {

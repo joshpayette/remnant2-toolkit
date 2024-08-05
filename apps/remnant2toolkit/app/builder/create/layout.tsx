@@ -6,7 +6,7 @@ import { ZINDEXES } from '@repo/ui/zindexes'
 import { Metadata } from 'next'
 import React from 'react'
 
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -42,7 +42,7 @@ export default async function Layout({
 }: {
   children: React.ReactNode
 }) {
-  const session = await getServerSession()
+  const session = await getSession()
 
   if (!session) {
     return (

@@ -11,6 +11,10 @@ import { VideoIcon } from '@repo/ui/icons/video'
 import { isValidYoutubeUrl } from '@repo/utils/youtube'
 
 import { ArchetypeLabel } from '@/app/(components)/builder/archetype-label'
+import { FeaturedBuildBadge } from '@/app/(components)/builder/badges/featured-build-badge'
+import { NewBuildBadge } from '@/app/(components)/builder/badges/new-build-badge'
+import { PopularBuildBadge } from '@/app/(components)/builder/badges/popular-build-badge'
+import { BuildTagsDisplay } from '@/app/(components)/builder/build-tags/build-tags-display'
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
 import { Skeleton } from '@/app/(components)/skeleton'
 import { Tooltip } from '@/app/(components)/tooltip'
@@ -23,11 +27,6 @@ import {
 } from '@/app/(utils)/builds/get-archetype-combo-name'
 import { isBuildNew } from '@/app/(utils)/builds/is-build-new'
 import { isBuildPopular } from '@/app/(utils)/builds/is-build-popular'
-
-import { FeaturedBuildBadge } from '../builder/badges/featured-build-badge'
-import { NewBuildBadge } from '../builder/badges/new-build-badge'
-import { PopularBuildBadge } from '../builder/badges/popular-build-badge'
-import { BuildTagsDisplay } from '../builder/build-tags/build-tags-display'
 
 interface Props {
   build: DBBuild

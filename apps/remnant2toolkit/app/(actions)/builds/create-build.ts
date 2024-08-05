@@ -10,7 +10,7 @@ import {
   DEFAULT_BUILD_NAME,
   MAX_BUILD_DESCRIPTION_LENGTH,
 } from '@/app/(data)/builds/constants'
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import type { BuildActionResponse } from '@/app/(types)/builds'
 import { badWordFilter } from '@/app/(utils)/bad-word-filter'
 import { buildStateToBuildItems } from '@/app/(utils)/builds/build-state-to-build-items'
@@ -20,7 +20,7 @@ import { validateBuildState } from '@/app/(validators)/validate-build-state'
 
 export async function createBuild(data: string): Promise<BuildActionResponse> {
   // session validation
-  const session = await getServerSession()
+  const session = await getSession()
   if (!session || !session.user) {
     return {
       message: 'You must be logged in.',

@@ -2,9 +2,8 @@ import { BuildItems } from '@repo/db'
 
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
 import { Item } from '@/app/(data)/items/types'
-
-import { weaponItems } from '../weapon-items'
-import { BaseItem } from './BaseItem'
+import { BaseItem } from '@/app/(data)/items/types/BaseItem'
+import { weaponItems } from '@/app/(data)/items/weapon-items'
 
 interface BaseWeaponItem extends BaseItem {
   type: 'long gun' | 'melee' | 'hand gun'

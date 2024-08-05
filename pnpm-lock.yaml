@@ -41,9 +41,18 @@ importers:
       '@reduxjs/toolkit':
         specifier: 2.2.2
         version: 2.2.2(react@18.3.1)
+      '@repo/constants':
+        specifier: workspace:*
+        version: link:../../packages/constants
       '@repo/db':
         specifier: workspace:*
         version: link:../../packages/database
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@repo/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
       '@tippyjs/react':
         specifier: 4.2.6
         version: 4.2.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -132,9 +141,6 @@ importers:
       '@prisma/nextjs-monorepo-workaround-plugin':
         specifier: 5.15.0
         version: 5.15.0
-      '@repo/constants':
-        specifier: workspace:*
-        version: link:../../packages/constants
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
@@ -144,12 +150,6 @@ importers:
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
-      '@repo/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
-      '@repo/utils':
-        specifier: workspace:*
-        version: link:../../packages/utils
       '@tailwindcss/forms':
         specifier: 0.5.7
         version: 0.5.7(tailwindcss@3.4.3(ts-node@10.9.1(typescript@5.5.2)))

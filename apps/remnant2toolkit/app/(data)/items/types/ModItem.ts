@@ -1,10 +1,9 @@
 import { BuildItems } from '@repo/db'
 
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
+import { modItems } from '@/app/(data)/items/mod-items'
 import { Item } from '@/app/(data)/items/types'
-
-import { modItems } from '../mod-items'
-import { BaseItem } from './BaseItem'
+import { BaseItem } from '@/app/(data)/items/types/BaseItem'
 
 interface BaseModItem extends BaseItem {}
 

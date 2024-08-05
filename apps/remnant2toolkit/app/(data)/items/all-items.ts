@@ -1,4 +1,5 @@
-import { Item } from '../items/types'
+import type { Item } from '@/app/(data)/items/types'
+
 import { amuletItems } from './amulet-items'
 import { archetypeItems } from './archetype-items'
 import { armorItems } from './armor-items'

@@ -26,6 +26,7 @@ import { PerkItem } from '@/app/(data)/items/types/PerkItem'
 import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+import { RELEASE_TO_NAME } from '@/app/(data)/releases/constants'
 import { BIOMES, ItemLocation } from '@/app/(types)/locations'
 import { itemShareEndpoint } from '@/app/(utils)/get-item-endpoint'
 
@@ -77,15 +78,24 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
         <br />
         <span className="text-md font-normal">{subtitle}</span>
         {item.location && (
-          <div className="mt-2 flex flex-col items-start justify-start gap-y-1">
-            <span className="text-xs font-normal">
-              {generateDungeonLabel(item.location)}
-            </span>
-            {!item.location.dungeon && item.location.injectable && (
-              <span className="text-xs font-normal italic">
-                {item.location?.injectable} injectable
+          <div className="mt-2 grid grid-cols-3 gap-1">
+            <div className="col-span-2 flex flex-col items-start justify-start">
+              <span className="text-xs font-normal">
+                {generateDungeonLabel(item.location)}
               </span>
-            )}
+              {!item.location.dungeon && item.location.injectable && (
+                <span className="mt-1 text-xs font-normal italic">
+                  {item.location?.injectable} injectable
+                </span>
+              )}
+            </div>
+            <div className="flex flex-col items-end justify-start text-right">
+              {RELEASE_TO_NAME[item.dlc] && (
+                <span className="text-xs font-normal">
+                  Requires {RELEASE_TO_NAME[item.dlc]}
+                </span>
+              )}
+            </div>
           </div>
         )}
       </BaseDialogTitle>

@@ -1,10 +1,9 @@
 import { BuildItems } from '@repo/db'
 
+import { armorItems } from '@/app/(data)/items/armor-items'
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
 import { Item } from '@/app/(data)/items/types'
-
-import { armorItems } from '../armor-items'
-import { BaseItem } from './BaseItem'
+import { BaseItem } from '@/app/(data)/items/types/BaseItem'
 
 interface BaseArmorItem extends BaseItem {
   set?: string

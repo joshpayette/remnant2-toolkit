@@ -1,10 +1,9 @@
 import { BuildItems } from '@repo/db'
 
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
+import { relicFragmentItems } from '@/app/(data)/items/relic-fragment-items'
 import { Item } from '@/app/(data)/items/types'
-
-import { relicFragmentItems } from '../relic-fragment-items'
-import { BaseItem } from './BaseItem'
+import { BaseItem } from '@/app/(data)/items/types/BaseItem'
 
 interface BaseRelicFragmentItem extends BaseItem {}
 

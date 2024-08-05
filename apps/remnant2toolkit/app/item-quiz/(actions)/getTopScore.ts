@@ -2,14 +2,14 @@
 
 import { prisma } from '@repo/db'
 
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 
 export async function getTopScore({
   userId,
 }: {
   userId: string
 }): Promise<number> {
-  const session = await getServerSession()
+  const session = await getSession()
   if (!session || !session.user) {
     return 0
   }

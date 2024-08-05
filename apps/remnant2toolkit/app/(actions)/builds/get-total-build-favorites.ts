@@ -2,10 +2,10 @@
 
 import { prisma } from '@repo/db'
 
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 
 export async function getTotalBuildFavorites(userId?: string) {
-  const session = await getServerSession()
+  const session = await getSession()
 
   if (!session?.user && !userId) return 0
 

@@ -1,13 +1,12 @@
 import { armorItems } from '@/app/(data)/items/armor-items'
 import { WEIGHT_CLASSES } from '@/app/(data)/items/constants'
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
+import type { ArmorSuggestion } from '@/app/(types)/armor-calculator'
 import { BuildState } from '@/app/(types)/builds'
 import { getTotalArmor } from '@/app/(utils)/builds/get-totals/get-total-armor'
 import { getTotalResistances } from '@/app/(utils)/builds/get-totals/get-total-resistances'
 import { getTotalWeight } from '@/app/(utils)/builds/get-totals/get-total-weight'
 import { getWeightThreshold } from '@/app/(utils)/builds/get-totals/get-weight-threshold'
-
-import { ArmorSuggestion } from '../../(types)/armor-calculator'
 
 export function getArmorSuggestions({
   buildState,

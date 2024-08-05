@@ -158,13 +158,13 @@ export function ItemCard({
               {itemBeingCompared ? (
                 <Tooltip content="Remove from item comparison.">
                   <BaseButton outline onClick={handleRemoveItemFromCompare}>
-                    <MagnifyPlusIcon className="h-5 w-5" />
+                    <MagnifyMinusIcon className="h-5 w-5" />
                   </BaseButton>
                 </Tooltip>
               ) : (
                 <Tooltip content="Add to item comparison.">
                   <BaseButton outline onClick={handleAddItemToCompare}>
-                    <MagnifyMinusIcon className="h-5 w-5" />
+                    <MagnifyPlusIcon className="h-5 w-5" />
                   </BaseButton>
                 </Tooltip>
               )}

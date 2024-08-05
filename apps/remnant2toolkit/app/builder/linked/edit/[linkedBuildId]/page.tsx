@@ -1,6 +1,6 @@
 import getLinkedBuild from '@/app/(actions)/builds/get-linked-build'
 import { PageHeader } from '@/app/(components)/page-header'
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import { isErrorResponse } from '@/app/(utils)/is-error-response'
 import PageClient from '@/app/builder/linked/edit/[linkedBuildId]/page.client'
 
@@ -27,7 +27,7 @@ export default async function Page({
     )
   }
 
-  const session = await getServerSession()
+  const session = await getSession()
   if (!session || !session.user) {
     return (
       <p className="text-red text-center">

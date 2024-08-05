@@ -1,4 +1,4 @@
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import { PageClient } from '@/app/profile/[userId]/linked-builds/[[...optionalBuildId]]/page.client'
 
 export default async function Page({
@@ -6,7 +6,7 @@ export default async function Page({
 }: {
   params: { userId: string; optionalBuildId: string[] }
 }) {
-  const session = await getServerSession()
+  const session = await getSession()
   const isEditable = session?.user?.id === userId
 
   const buildId = optionalBuildId ? optionalBuildId[0] : undefined

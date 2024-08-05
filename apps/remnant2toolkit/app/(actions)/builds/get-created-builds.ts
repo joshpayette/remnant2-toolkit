@@ -6,7 +6,7 @@ import { bigIntFix } from '@repo/utils/big-int-fix'
 
 import { OrderBy } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
 import { TimeRange } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import {
   communityBuildsCountQuery,
   communityBuildsQuery,
@@ -31,7 +31,7 @@ export async function getCreatedBuilds({
   timeRange: TimeRange
   userId: string
 }): Promise<PaginationResponse<DBBuild>> {
-  const session = await getServerSession()
+  const session = await getSession()
   if (!session || !session.user) {
     return {
       items: [],

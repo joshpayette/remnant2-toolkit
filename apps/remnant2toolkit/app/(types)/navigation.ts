@@ -23,8 +23,8 @@ import { MdQuiz as ItemQuizIcon } from 'react-icons/md'
 import { PiCubeFocus as FeaturedBuildsIcon } from 'react-icons/pi'
 import { RiOpenbaseLine as BaseGameBuildsIcon } from 'react-icons/ri'
 
-import VashIcon from '../(components)/images/vash-icon'
-import WikiIcon from '../(components)/images/wiki-icon'
+import VashIcon from '@/app/(components)/images/vash-icon'
+import WikiIcon from '@/app/(components)/images/wiki-icon'
 
 /**
  * The base pages for the site

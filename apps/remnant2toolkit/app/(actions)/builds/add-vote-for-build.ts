@@ -5,7 +5,7 @@ import { bigIntFix } from '@repo/utils/big-int-fix'
 import { revalidatePath } from 'next/cache'
 
 import { BUILD_REVALIDATE_PATHS } from '@/app/(data)/builds/constants'
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import { BuildActionResponse } from '@/app/(types)/builds'
 
 export async function addVoteForBuild({
@@ -14,7 +14,7 @@ export async function addVoteForBuild({
   buildId: string
 }): Promise<BuildActionResponse> {
   // session validation
-  const session = await getServerSession()
+  const session = await getSession()
   if (!session || !session.user) {
     return {
       message: 'You must be logged in.',

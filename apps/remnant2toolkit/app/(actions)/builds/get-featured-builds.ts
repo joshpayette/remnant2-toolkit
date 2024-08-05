@@ -7,7 +7,7 @@ import { bigIntFix } from '@repo/utils/big-int-fix'
 import { OrderBy } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
 import { TimeRange } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
 import { BuildListFilters } from '@/app/(components)/filters/builds/types'
-import { getServerSession } from '@/app/(features)/auth'
+import { getSession } from '@/app/(features)/auth/services/sessionService'
 import {
   communityBuildsCountQuery,
   communityBuildsQuery,
@@ -60,7 +60,7 @@ export async function getFeaturedBuilds({
   pageNumber: number
   timeRange: TimeRange
 }): Promise<PaginationResponse<DBBuild>> {
-  const session = await getServerSession()
+  const session = await getSession()
   const userId = session?.user?.id
 
   const {
