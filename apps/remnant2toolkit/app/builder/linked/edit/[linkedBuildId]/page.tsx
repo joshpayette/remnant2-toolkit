@@ -1,6 +1,6 @@
-import getLinkedBuild from '@/app/(actions)/builds/get-linked-build'
 import { PageHeader } from '@/app/(components)/page-header'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
+import { getLinkedBuild } from '@/app/(features)/linked-builds/actions/get-linked-build'
 import { isErrorResponse } from '@/app/(utils)/is-error-response'
 import PageClient from '@/app/builder/linked/edit/[linkedBuildId]/page.client'
 

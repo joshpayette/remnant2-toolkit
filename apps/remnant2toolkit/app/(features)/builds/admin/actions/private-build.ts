@@ -3,11 +3,11 @@
 import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
-import type { AdminToolResponse } from '@/app/(actions)/builds/admin/types'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
+import type { AdminToolResponse } from '@/app/(features)/builds/types/admin-tool-response'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 
-export default async function unapproveVideo(
+export default async function privateBuild(
   buildId: string | null,
 ): Promise<AdminToolResponse> {
   if (!buildId) return { status: 'error', message: 'No buildId provided!' }
@@ -23,14 +23,14 @@ export default async function unapproveVideo(
   if (session.user.role !== 'admin') {
     return {
       status: 'error',
-      message: 'You must be an admin to unapprove videos.',
+      message: 'You must be an admin to private builds.',
     }
   }
 
   try {
     const build = await prisma.build.update({
       where: { id: buildId },
-      data: { isModeratorApproved: false },
+      data: { isPublic: false },
     })
 
     // write to the audit log
@@ -38,7 +38,7 @@ export default async function unapproveVideo(
       data: {
         userId: build.createdById,
         moderatorId: session.user.id,
-        action: 'UNAPPROVE_VIDEO',
+        action: 'PRIVATE_BUILD',
         details: '',
       },
     })
@@ -54,7 +54,7 @@ export default async function unapproveVideo(
             fields: [
               {
                 name: 'Audit Action',
-                value: `UNAPPROVE_VIDEO`,
+                value: `PRIVATE_BUILD`,
               },
               {
                 name: 'Moderator',
@@ -74,13 +74,13 @@ export default async function unapproveVideo(
 
     return {
       status: 'success',
-      message: 'Build video approved.',
+      message: 'Build marked private.',
     }
   } catch (e) {
     console.error(e)
     return {
       status: 'error',
-      message: 'Failed to approve build video.',
+      message: 'Failed to mark build private.',
     }
   }
 }

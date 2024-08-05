@@ -6,7 +6,7 @@ import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
 import type { LinkedBuildState } from '@/app/(types)/linked-builds'
 
-export default async function getLinkedBuild(linkedBuildId: string): Promise<{
+export async function getLinkedBuild(linkedBuildId: string): Promise<{
   status: 'success' | 'error'
   message: string
   linkedBuildState?: LinkedBuildState

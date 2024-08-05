@@ -3,11 +3,11 @@
 import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
-import type { AdminToolResponse } from '@/app/(actions)/builds/admin/types'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
+import type { AdminToolResponse } from '@/app/(features)/builds/types/admin-tool-response'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 
-export default async function unlockLinkedBuild(
+export default async function unsetBaseGameBuild(
   buildId: string | null,
 ): Promise<AdminToolResponse> {
   if (!buildId) return { status: 'error', message: 'No buildId provided!' }
@@ -23,14 +23,14 @@ export default async function unlockLinkedBuild(
   if (session.user.role !== 'admin') {
     return {
       status: 'error',
-      message: 'You must be an admin to unlock builds.',
+      message: 'You must be an admin to unset base game builds.',
     }
   }
 
   try {
-    const build = await prisma.linkedBuild.update({
+    const build = await prisma.build.update({
       where: { id: buildId },
-      data: { isModeratorLocked: false },
+      data: { isBaseGameBuild: false },
     })
 
     // write to the audit log
@@ -38,7 +38,7 @@ export default async function unlockLinkedBuild(
       data: {
         userId: build.createdById,
         moderatorId: session.user.id,
-        action: 'UNLOCK_LINKED_BUILD',
+        action: 'UNSET_BASE_GAME_BUILD',
         details: '',
       },
     })
@@ -54,7 +54,7 @@ export default async function unlockLinkedBuild(
             fields: [
               {
                 name: 'Audit Action',
-                value: `UNLOCK_LINKED_BUILD`,
+                value: `UNSET_BASE_GAME_BUILD`,
               },
               {
                 name: 'Moderator',
@@ -62,7 +62,7 @@ export default async function unlockLinkedBuild(
               },
               {
                 name: 'Build Link',
-                value: `https://remnant2toolkit.com/builder/linked/${build.id}`,
+                value: `https://remnant2toolkit.com/builder/${build.id}`,
               },
             ],
           },
@@ -70,17 +70,17 @@ export default async function unlockLinkedBuild(
       },
     })
 
-    revalidatePath('/builder/linked/[linkedBuildId]', 'page')
+    revalidatePath('/builder/[buildId]', 'page')
 
     return {
       status: 'success',
-      message: 'Build unlocked.',
+      message: 'Build removed from base game builds.',
     }
   } catch (e) {
     console.error(e)
     return {
       status: 'error',
-      message: 'Failed to lock build.',
+      message: 'Failed to remove build from base game builds.',
     }
   }
 }

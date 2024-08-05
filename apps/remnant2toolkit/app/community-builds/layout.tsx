@@ -3,8 +3,8 @@
 import { Metadata } from 'next'
 import { Suspense } from 'react'
 
-import { getTotalBuildCount } from '@/app/(actions)/builds/get-total-build-count'
 import { PageHeader } from '@/app/(components)/page-header'
+import { getTotalBuildCount } from '@/app/(features)/builds/actions/get-total-build-count'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 
 export async function generateMetadata(): Promise<Metadata> {

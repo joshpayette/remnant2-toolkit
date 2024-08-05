@@ -1,11 +1,11 @@
 import { Link } from '@repo/ui/base/link'
 import { BaseTextLink } from '@repo/ui/base/text'
 
-import { getQualityBuildFeed } from '@/app/(actions)/builds/get-quality-build-feed'
-import { getTotalBuildCount } from '@/app/(actions)/builds/get-total-build-count'
 import { LandingPageCard } from '@/app/(components)/cards/landing-page-card'
 import { LandingPageContainer } from '@/app/(components)/landing-page-container'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
+import { getQualityBuildFeed } from '@/app/(features)/builds/actions/get-quality-build-feed'
+import { getTotalBuildCount } from '@/app/(features)/builds/actions/get-total-build-count'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { QualityBuildsFeed } from '@/app/quality-builds-feed'
 

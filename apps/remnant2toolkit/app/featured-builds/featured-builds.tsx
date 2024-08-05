@@ -5,7 +5,6 @@ import { EyeIcon } from '@repo/ui/icons/eye'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-import { getFeaturedBuilds } from '@/app/(actions)/builds/get-featured-builds'
 import { BuildList } from '@/app/(components)/build-list'
 import { BuildCard } from '@/app/(components)/cards/build-card'
 import { BuildSecondaryFilters } from '@/app/(components)/filters/builds/secondary-filters'
@@ -14,6 +13,7 @@ import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-
 import { parseUrlFilters } from '@/app/(components)/filters/builds/utils'
 import { Skeleton } from '@/app/(components)/skeleton'
 import { Tooltip } from '@/app/(components)/tooltip'
+import { getFeaturedBuilds } from '@/app/(features)/builds/actions/get-featured-builds'
 import { useBuildListState } from '@/app/(utils)/builds/hooks/use-build-list-state'
 import { usePagination } from '@/app/(utils)/pagination/use-pagination'
 

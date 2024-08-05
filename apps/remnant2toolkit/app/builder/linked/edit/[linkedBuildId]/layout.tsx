@@ -3,9 +3,9 @@
 import { Metadata } from 'next'
 import React from 'react'
 
-import getLinkedBuild from '@/app/(actions)/builds/get-linked-build'
 import { PageHeader } from '@/app/(components)/page-header'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
+import { getLinkedBuild } from '@/app/(features)/linked-builds/actions/get-linked-build'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
 import { isErrorResponse } from '@/app/(utils)/is-error-response'
 
