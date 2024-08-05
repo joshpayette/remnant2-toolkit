@@ -427,7 +427,12 @@ export function Builder({
           id="build-header"
           className={cn(
             'border-b-primary-900 relative mb-4 border-b',
-            (isPopular || isNew || buildState.isFeaturedBuild) && 'mb-10 pb-6',
+            (isPopular ||
+              isNew ||
+              buildState.isFeaturedBuild ||
+              buildState.isBaseGameBuild ||
+              buildState.isBeginnerBuild) &&
+              'mb-10 pb-6',
           )}
         >
           <div className="relative flex w-full flex-col items-center justify-center gap-2">
