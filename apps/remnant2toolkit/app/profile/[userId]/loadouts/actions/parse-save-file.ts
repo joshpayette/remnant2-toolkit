@@ -2,9 +2,9 @@
 
 import { revalidatePath } from 'next/cache'
 
-import { createBuild } from '@/app/(actions)/builds/create-build'
 import { addBuildToLoadout } from '@/app/(actions)/loadouts/add-build-to-loadout'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
+import { createBuild } from '@/app/(features)/builds/actions/create-build'
 import type { BuildState, SuccessResponse } from '@/app/(types)/builds'
 import {
   MAX_PROFILE_SAV_SIZE,

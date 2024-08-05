@@ -14,10 +14,10 @@ import { useSession } from 'next-auth/react'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
-import lockLinkedBuild from '@/app/(actions)/builds/admin/lock-linked-build'
-import unlockLinkedBuild from '@/app/(actions)/builds/admin/unlock-linked-build'
-import updateLinkedBuild from '@/app/(actions)/builds/admin/update-linked-build'
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
+import { lockLinkedBuild } from '@/app/(features)/linked-builds/admin/actions/lock-linked-build'
+import { unlockLinkedBuild } from '@/app/(features)/linked-builds/admin/actions/unlock-linked-build'
+import { updateLinkedBuild } from '@/app/(features)/linked-builds/admin/actions/update-linked-build'
 import type { LinkedBuildState } from '@/app/(types)/linked-builds'
 
 interface Props {

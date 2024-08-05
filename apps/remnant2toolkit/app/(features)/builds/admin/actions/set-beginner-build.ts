@@ -3,11 +3,11 @@
 import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
-import type { AdminToolResponse } from '@/app/(actions)/builds/admin/types'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
+import type { AdminToolResponse } from '@/app/(features)/builds/types/admin-tool-response'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 
-export default async function lockBuild(
+export default async function setBeginnerBuild(
   buildId: string | null,
 ): Promise<AdminToolResponse> {
   if (!buildId) return { status: 'error', message: 'No buildId provided!' }
@@ -23,14 +23,14 @@ export default async function lockBuild(
   if (session.user.role !== 'admin') {
     return {
       status: 'error',
-      message: 'You must be an admin to lock builds.',
+      message: 'You must be an admin to set beginner builds.',
     }
   }
 
   try {
     const build = await prisma.build.update({
       where: { id: buildId },
-      data: { isModeratorLocked: true },
+      data: { isBeginnerBuild: true, dateFeatured: new Date() },
     })
 
     // write to the audit log
@@ -38,7 +38,7 @@ export default async function lockBuild(
       data: {
         userId: build.createdById,
         moderatorId: session.user.id,
-        action: 'LOCK_BUILD',
+        action: 'SET_BEGINNER_BUILD',
         details: '',
       },
     })
@@ -54,7 +54,7 @@ export default async function lockBuild(
             fields: [
               {
                 name: 'Audit Action',
-                value: `LOCK_BUILD`,
+                value: `SET_BEGINNER_BUILD`,
               },
               {
                 name: 'Moderator',
@@ -74,13 +74,13 @@ export default async function lockBuild(
 
     return {
       status: 'success',
-      message: 'Build locked.',
+      message: 'Build added to beginner builds.',
     }
   } catch (e) {
     console.error(e)
     return {
       status: 'error',
-      message: 'Failed to lock build.',
+      message: 'Failed to add build to beginner builds.',
     }
   }
 }

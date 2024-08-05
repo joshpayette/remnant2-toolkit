@@ -1,6 +1,6 @@
 import { Metadata, ResolvingMetadata } from 'next'
 
-import { getBuild } from '@/app/(actions)/builds/get-build'
+import { getBuild } from '@/app/(features)/builds/actions/get-build'
 import { PageHeader } from '@/app/(components)/page-header'
 import { dbBuildToBuildState } from '@/app/(utils)/builds/db-build-to-build-state'
 import {

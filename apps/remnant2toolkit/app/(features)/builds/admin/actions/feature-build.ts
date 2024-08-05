@@ -3,8 +3,8 @@
 import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
-import type { AdminToolResponse } from '@/app/(actions)/builds/admin/types'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
+import type { AdminToolResponse } from '@/app/(features)/builds/types/admin-tool-response'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 
 export default async function featureBuild(

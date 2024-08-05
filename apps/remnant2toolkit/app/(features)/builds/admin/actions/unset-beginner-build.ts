@@ -3,11 +3,11 @@
 import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
-import type { AdminToolResponse } from '@/app/(actions)/builds/admin/types'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
+import type { AdminToolResponse } from '@/app/(features)/builds/types/admin-tool-response'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 
-export default async function unfeatureBuild(
+export default async function unsetBeginnerBuild(
   buildId: string | null,
 ): Promise<AdminToolResponse> {
   if (!buildId) return { status: 'error', message: 'No buildId provided!' }
@@ -23,14 +23,14 @@ export default async function unfeatureBuild(
   if (session.user.role !== 'admin') {
     return {
       status: 'error',
-      message: 'You must be an admin to unfeature builds.',
+      message: 'You must be an admin to unset beginner builds.',
     }
   }
 
   try {
     const build = await prisma.build.update({
       where: { id: buildId },
-      data: { isFeaturedBuild: false },
+      data: { isBeginnerBuild: false },
     })
 
     // write to the audit log
@@ -38,7 +38,7 @@ export default async function unfeatureBuild(
       data: {
         userId: build.createdById,
         moderatorId: session.user.id,
-        action: 'UNFEATURE_BUILD',
+        action: 'UNSET_BEGINNER_BUILD',
         details: '',
       },
     })
@@ -54,7 +54,7 @@ export default async function unfeatureBuild(
             fields: [
               {
                 name: 'Audit Action',
-                value: `UNFEATURE_BUILD`,
+                value: `UNSET_BEGINNER_BUILD`,
               },
               {
                 name: 'Moderator',
@@ -74,13 +74,13 @@ export default async function unfeatureBuild(
 
     return {
       status: 'success',
-      message: 'Build unfeatured.',
+      message: 'Build removed from beginner builds.',
     }
   } catch (e) {
     console.error(e)
     return {
       status: 'error',
-      message: 'Failed to unfeature build.',
+      message: 'Failed to remove build from beginner builds.',
     }
   }
 }

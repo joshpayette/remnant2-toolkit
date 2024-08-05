@@ -2,7 +2,6 @@
 
 import { LinkedBuild } from '@repo/db'
 import { prisma } from '@repo/db'
-import { revalidatePath } from 'next/cache'
 
 import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
@@ -11,18 +10,15 @@ import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 import { validateLinkedBuild } from '@/app/(validators)/validate-linked-build'
 
 type Props = {
-  id: string
-  createdById: string
   name: string
   description: string
-  isModeratorLocked: boolean
   linkedBuildItems: Array<{
     label: string
     buildId: string
   }>
 }
 
-export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
+export async function createLinkedBuild(linkedBuild: Props): Promise<{
   status: 'error' | 'success'
   message: string
   linkedBuild?: LinkedBuild
@@ -32,22 +28,6 @@ export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
     return { status: 'error', message: 'You must be logged in.' }
   }
   const userId = session.user.id
-
-  // If the user didn't create the build, return an error
-  if (userId !== linkedBuild.createdById) {
-    return {
-      status: 'error',
-      message: 'You must be the creator of the build to update it.',
-    }
-  }
-
-  // If build is moderator locked, do not allow editing
-  if (linkedBuild.isModeratorLocked) {
-    return {
-      status: 'error',
-      message: 'This build is moderator locked and cannot be edited.',
-    }
-  }
 
   const validatedLinkedBuild = validateLinkedBuild(linkedBuild)
   if (!validatedLinkedBuild.success) {
@@ -79,7 +59,7 @@ export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
             fields: [
               {
                 name: 'Action',
-                value: 'Update Linked Build, Build Name',
+                value: 'Create Linked Build, Build Name',
               },
               {
                 name: 'User',
@@ -118,7 +98,7 @@ export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
             fields: [
               {
                 name: 'Action',
-                value: 'Update Linked Build, Build Description',
+                value: 'Create Linked Build, Build Description',
               },
               {
                 name: 'User',
@@ -160,7 +140,7 @@ export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
             fields: [
               {
                 name: 'Action',
-                value: 'Update Linked Build, Build Label',
+                value: 'Create Linked Build, Build Label',
               },
               {
                 name: 'User',
@@ -185,19 +165,11 @@ export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
   }
 
   try {
-    // delete all linked build items
-    await prisma.linkedBuildItems.deleteMany({
-      where: {
-        linkedBuildId: linkedBuild.id,
-      },
-    })
-
     // Create the linked build
-    const updatedLinkedBuild = await prisma.linkedBuild.update({
-      where: {
-        id: linkedBuild.id,
-      },
+    const newLinkedBuild = await prisma.linkedBuild.create({
       data: {
+        createdBy: { connect: { id: userId } },
+        createdAt: new Date(),
         name:
           linkedBuild.name && linkedBuild.name !== ''
             ? badWordFilter.clean(linkedBuild.name)
@@ -219,8 +191,8 @@ export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
     // Trigger webhook to send build to Discord
     if (process.env.NODE_ENV === 'production') {
       const params = {
-        content: `Linked build updated! https://www.remnant2toolkit.com/builder/linked/${
-          updatedLinkedBuild.id
+        content: `New linked build created! https://www.remnant2toolkit.com/builder/linked/${
+          newLinkedBuild.id
         }?t=${Date.now()}`,
       }
 
@@ -237,14 +209,24 @@ export default async function updatedLinkedBuild(linkedBuild: Props): Promise<{
           'Error in sending linked build moderation webhook to Discord!',
         )
       }
-    }
 
-    revalidatePath(`/builder/linked/edit/${linkedBuild.id}`)
+      const res2 = await fetch(`${process.env.WEBHOOK_NEW_BUILD_FEED}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(params),
+      })
+
+      if (!res2.ok) {
+        console.error('Error in sending linked build webhook to Discord!')
+      }
+    }
 
     return {
       status: 'success',
-      message: 'Linked build updated successfully.',
-      linkedBuild: updatedLinkedBuild,
+      message: 'Linked build created.',
+      linkedBuild: newLinkedBuild,
     }
   } catch (e) {
     console.error(e)

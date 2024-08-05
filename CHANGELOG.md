@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-08-05
+
+### Fixed
+
+- Fixed bug where featured build badge was overlapping heading in some situations.
+
 ## 2024-08-04
 
 ### Added

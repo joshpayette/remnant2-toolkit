@@ -1,4 +1,4 @@
-import { getBuild } from '@/app/(actions)/builds/get-build'
+import { getBuild } from '@/app/(features)/builds/actions/get-build'
 import { isErrorResponse } from '@/app/(utils)/is-error-response'
 import { PageClient } from '@/app/builder/edit/[buildId]/page.client'
 

@@ -3,11 +3,11 @@
 import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
-import type { AdminToolResponse } from '@/app/(actions)/builds/admin/types'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
+import type { AdminToolResponse } from '@/app/(features)/builds/types/admin-tool-response'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 
-export default async function unlockBuild(
+export default async function unapproveVideo(
   buildId: string | null,
 ): Promise<AdminToolResponse> {
   if (!buildId) return { status: 'error', message: 'No buildId provided!' }
@@ -23,14 +23,14 @@ export default async function unlockBuild(
   if (session.user.role !== 'admin') {
     return {
       status: 'error',
-      message: 'You must be an admin to unlock builds.',
+      message: 'You must be an admin to unapprove videos.',
     }
   }
 
   try {
     const build = await prisma.build.update({
       where: { id: buildId },
-      data: { isModeratorLocked: false },
+      data: { isModeratorApproved: false },
     })
 
     // write to the audit log
@@ -38,13 +38,13 @@ export default async function unlockBuild(
       data: {
         userId: build.createdById,
         moderatorId: session.user.id,
-        action: 'UNLOCK_BUILD',
+        action: 'UNAPPROVE_VIDEO',
         details: '',
       },
     })
 
     // Send to webhook
-    await sendWebhook({
+    sendWebhook({
       webhook: 'auditLog',
       params: {
         embeds: [
@@ -54,7 +54,7 @@ export default async function unlockBuild(
             fields: [
               {
                 name: 'Audit Action',
-                value: `UNLOCK_BUILD`,
+                value: `UNAPPROVE_VIDEO`,
               },
               {
                 name: 'Moderator',
@@ -74,13 +74,13 @@ export default async function unlockBuild(
 
     return {
       status: 'success',
-      message: 'Build unlocked.',
+      message: 'Build video approved.',
     }
   } catch (e) {
     console.error(e)
     return {
       status: 'error',
-      message: 'Failed to lock build.',
+      message: 'Failed to approve build video.',
     }
   }
 }

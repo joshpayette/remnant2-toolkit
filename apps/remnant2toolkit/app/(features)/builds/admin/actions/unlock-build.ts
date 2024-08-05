@@ -3,11 +3,11 @@
 import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
-import type { AdminToolResponse } from '@/app/(actions)/builds/admin/types'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
+import type { AdminToolResponse } from '@/app/(features)/builds/types/admin-tool-response'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 
-export default async function lockLinkedBuild(
+export default async function unlockBuild(
   buildId: string | null,
 ): Promise<AdminToolResponse> {
   if (!buildId) return { status: 'error', message: 'No buildId provided!' }
@@ -23,14 +23,14 @@ export default async function lockLinkedBuild(
   if (session.user.role !== 'admin') {
     return {
       status: 'error',
-      message: 'You must be an admin to lock builds.',
+      message: 'You must be an admin to unlock builds.',
     }
   }
 
   try {
-    const build = await prisma.linkedBuild.update({
+    const build = await prisma.build.update({
       where: { id: buildId },
-      data: { isModeratorLocked: true },
+      data: { isModeratorLocked: false },
     })
 
     // write to the audit log
@@ -38,13 +38,13 @@ export default async function lockLinkedBuild(
       data: {
         userId: build.createdById,
         moderatorId: session.user.id,
-        action: 'LOCK_LINKED_BUILD',
+        action: 'UNLOCK_BUILD',
         details: '',
       },
     })
 
     // Send to webhook
-    sendWebhook({
+    await sendWebhook({
       webhook: 'auditLog',
       params: {
         embeds: [
@@ -54,7 +54,7 @@ export default async function lockLinkedBuild(
             fields: [
               {
                 name: 'Audit Action',
-                value: `LOCK_LINKED_BUILD`,
+                value: `UNLOCK_BUILD`,
               },
               {
                 name: 'Moderator',
@@ -62,7 +62,7 @@ export default async function lockLinkedBuild(
               },
               {
                 name: 'Build Link',
-                value: `https://remnant2toolkit.com/builder/linked/${build.id}`,
+                value: `https://remnant2toolkit.com/builder/${build.id}`,
               },
             ],
           },
@@ -70,11 +70,11 @@ export default async function lockLinkedBuild(
       },
     })
 
-    revalidatePath('/builder/linked/[linkedBuildId]', 'page')
+    revalidatePath('/builder/[buildId]', 'page')
 
     return {
       status: 'success',
-      message: 'Build locked.',
+      message: 'Build unlocked.',
     }
   } catch (e) {
     console.error(e)

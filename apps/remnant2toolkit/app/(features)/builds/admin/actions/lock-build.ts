@@ -3,11 +3,11 @@
 import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
-import type { AdminToolResponse } from '@/app/(actions)/builds/admin/types'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
+import type { AdminToolResponse } from '@/app/(features)/builds/types/admin-tool-response'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 
-export default async function unsetBaseGameBuild(
+export default async function lockBuild(
   buildId: string | null,
 ): Promise<AdminToolResponse> {
   if (!buildId) return { status: 'error', message: 'No buildId provided!' }
@@ -23,14 +23,14 @@ export default async function unsetBaseGameBuild(
   if (session.user.role !== 'admin') {
     return {
       status: 'error',
-      message: 'You must be an admin to unset base game builds.',
+      message: 'You must be an admin to lock builds.',
     }
   }
 
   try {
     const build = await prisma.build.update({
       where: { id: buildId },
-      data: { isBaseGameBuild: false },
+      data: { isModeratorLocked: true },
     })
 
     // write to the audit log
@@ -38,7 +38,7 @@ export default async function unsetBaseGameBuild(
       data: {
         userId: build.createdById,
         moderatorId: session.user.id,
-        action: 'UNSET_BASE_GAME_BUILD',
+        action: 'LOCK_BUILD',
         details: '',
       },
     })
@@ -54,7 +54,7 @@ export default async function unsetBaseGameBuild(
             fields: [
               {
                 name: 'Audit Action',
-                value: `UNSET_BASE_GAME_BUILD`,
+                value: `LOCK_BUILD`,
               },
               {
                 name: 'Moderator',
@@ -74,13 +74,13 @@ export default async function unsetBaseGameBuild(
 
     return {
       status: 'success',
-      message: 'Build removed from base game builds.',
+      message: 'Build locked.',
     }
   } catch (e) {
     console.error(e)
     return {
       status: 'error',
-      message: 'Failed to remove build from base game builds.',
+      message: 'Failed to lock build.',
     }
   }
 }
