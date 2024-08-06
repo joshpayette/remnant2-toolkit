@@ -27,6 +27,7 @@ import { perkItems } from '@/app/(data)/items/perk-items'
 import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { BuildState, ItemCategory } from '@/app/(types)/builds'
+import { buildHasFeaturedBadge } from '@/app/(utils)/builds/build-has-featured-badge'
 import { formatUpdatedAt } from '@/app/(utils)/builds/format-updated-at'
 import {
   ArchetypeName,
@@ -78,6 +79,7 @@ export function Builder({
   const concoctionSlotCount = getConcoctionSlotCount(buildState)
   const { isPopular, popularLevel } = isBuildPopular(buildState.totalUpvotes)
   const isNew = isBuildNew(buildState.createdAt) && showCreatedBy
+  const hasFeaturedBadge = buildHasFeaturedBadge(buildState)
 
   // Tracks information about the slot the user is selecting an item for
   const [selectedItemSlot, setSelectedItemSlot] = useState<{
@@ -427,12 +429,7 @@ export function Builder({
           id="build-header"
           className={cn(
             'border-b-primary-900 relative mb-4 border-b',
-            (isPopular ||
-              isNew ||
-              buildState.isFeaturedBuild ||
-              buildState.isBaseGameBuild ||
-              buildState.isBeginnerBuild) &&
-              'mb-10 pb-6',
+            (isPopular || isNew || hasFeaturedBadge) && 'mb-10 pb-6',
           )}
         >
           <div className="relative flex w-full flex-col items-center justify-center gap-2">
@@ -556,11 +553,7 @@ export function Builder({
               </p>
             </div>
           )}
-          {(isPopular ||
-            isNew ||
-            buildState.isFeaturedBuild ||
-            buildState.isBaseGameBuild ||
-            buildState.isBeginnerBuild) && (
+          {(isPopular || isNew || hasFeaturedBadge) && (
             <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center gap-x-2">
               {isNew ? <NewBuildBadge unoptimized={isScreenshotMode} /> : null}
               {isPopular ? (
@@ -569,9 +562,7 @@ export function Builder({
                   unoptimized={isScreenshotMode}
                 />
               ) : null}
-              {buildState.isFeaturedBuild ||
-              buildState.isBaseGameBuild ||
-              buildState.isBeginnerBuild ? (
+              {hasFeaturedBadge ? (
                 <FeaturedBuildBadge unoptimized={isScreenshotMode} />
               ) : null}
             </div>

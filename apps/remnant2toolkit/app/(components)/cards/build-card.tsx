@@ -19,6 +19,7 @@ import { DescriptionWithTokens } from '@/app/(components)/description-with-token
 import { Skeleton } from '@/app/(components)/skeleton'
 import { Tooltip } from '@/app/(components)/tooltip'
 import { DBBuild } from '@/app/(types)/builds'
+import { buildHasFeaturedBadge } from '@/app/(utils)/builds/build-has-featured-badge'
 import { dbBuildToBuildState } from '@/app/(utils)/builds/db-build-to-build-state'
 import { formatUpdatedAt } from '@/app/(utils)/builds/format-updated-at'
 import {
@@ -46,6 +47,7 @@ export function BuildCard({
   const buildState = dbBuildToBuildState(build)
   const { isPopular, popularLevel } = isBuildPopular(build.totalUpvotes)
   const isNew = isBuildNew(buildState.createdAt)
+  const hasFeaturedBadge = buildHasFeaturedBadge(build)
 
   return (
     <div
@@ -64,21 +66,13 @@ export function BuildCard({
               'border-accent1-300 shadow-accent1-600 border-2 shadow-lg',
           )}
         >
-          {isPopular ||
-          isNew ||
-          build.isFeaturedBuild ||
-          build.isBaseGameBuild ||
-          build.isBeginnerBuild ? (
+          {isPopular || isNew || hasFeaturedBadge ? (
             <div className="absolute left-1/2 top-0 flex w-full -translate-x-1/2 -translate-y-1/2 transform items-center justify-center gap-x-2">
               {isNew ? <NewBuildBadge /> : null}
               {isPopular ? (
                 <PopularBuildBadge level={popularLevel} unoptimized={true} />
               ) : null}
-              {build.isFeaturedBuild ||
-              build.isBaseGameBuild ||
-              build.isBeginnerBuild ? (
-                <FeaturedBuildBadge />
-              ) : null}
+              {hasFeaturedBadge ? <FeaturedBuildBadge /> : null}
             </div>
           ) : null}
           <div className="flex w-full flex-1 items-start justify-start p-4 pb-0">
@@ -90,12 +84,7 @@ export function BuildCard({
                 <h3
                   className={cn(
                     'text-md whitespace-pre-wrap font-medium',
-                    (isPopular ||
-                      isNew ||
-                      buildState.isFeaturedBuild ||
-                      buildState.isBaseGameBuild ||
-                      buildState.isBeginnerBuild) &&
-                      'mt-3',
+                    (isPopular || isNew || hasFeaturedBadge) && 'mt-3',
                   )}
                 >
                   {build.name}

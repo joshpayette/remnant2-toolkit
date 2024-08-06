@@ -2,7 +2,13 @@ import { Prisma } from '@repo/db'
 
 import { archetypeItems } from '@/app/(data)/items/archetype-items'
 
+const archetypeCount = archetypeItems.length
+
 export function limitByArchetypesSegment(archetypeIds: string[]) {
+  if (archetypeIds.length === archetypeCount) {
+    return Prisma.empty
+  }
+
   const allExcludedArchetypeIds = archetypeItems
     .map((item) => item.id)
     .filter((id) => !archetypeIds.includes(id))

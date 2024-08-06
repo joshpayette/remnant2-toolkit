@@ -65,12 +65,17 @@ export function communityBuildsQuery({
     GROUP BY BuildItems.buildId
   ) as ItemCounts ON Build.id = ItemCounts.buildId
   ${whereConditions}
-  AND (
+  ${
+    searchText && searchText.length > 0
+      ? Prisma.sql`AND (
     User.displayName LIKE ${'%' + searchText + '%'} 
     OR User.name LIKE ${'%' + searchText + '%'} 
     OR Build.name LIKE ${'%' + searchText + '%'} 
     OR Build.description LIKE ${'%' + searchText + '%'}
-  )
+  )`
+      : Prisma.sql``
+  }
+
   GROUP BY Build.id, User.id
   ${orderBySegment}
   LIMIT ${itemsPerPage} 
@@ -119,12 +124,16 @@ export function communityBuildsCountQuery({
     GROUP BY BuildItems.buildId
   ) as ItemCounts ON Build.id = ItemCounts.buildId
   ${whereConditions}
-  AND (
+  ${
+    searchText && searchText.length > 0
+      ? Prisma.sql`AND (
     User.displayName LIKE ${'%' + searchText + '%'} 
     OR User.name LIKE ${'%' + searchText + '%'} 
     OR Build.name LIKE ${'%' + searchText + '%'} 
     OR Build.description LIKE ${'%' + searchText + '%'}
-  )
+  )`
+      : Prisma.sql``
+  }
 `
 
   return prisma.$queryRaw<CommunityBuildTotalCount>(query)
