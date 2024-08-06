@@ -27,7 +27,6 @@ export async function getQualityBuildFeed(): Promise<{ builds: DBBuild[] }> {
   ) THEN TRUE ELSE FALSE END as upvoted,
   CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isMember
   FROM Build
-  LEFT JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
   LEFT JOIN User on Build.createdById = User.id
   LEFT JOIN PaidUsers on User.id = PaidUsers.userId
   LEFT JOIN BuildTags on Build.id = BuildTags.buildId
