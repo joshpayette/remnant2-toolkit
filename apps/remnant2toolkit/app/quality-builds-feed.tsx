@@ -8,7 +8,6 @@ import { BuildCard } from '@/app/(components)/cards/build-card'
 import QualityBuildDialog from '@/app/(components)/dialogs/quality-build-dialog'
 import { Tooltip } from '@/app/(components)/tooltip'
 import type { DBBuild } from '@/app/(types)/builds'
-import { areQualityBuildsEnabled } from '@/app/(utils)/builds/are-quality-builds-enabled'
 
 interface Props {
   builds: DBBuild[]
@@ -58,16 +57,15 @@ export function QualityBuildsFeed({ builds, userId }: Props) {
           </div>
         ))}
       </ul>
-      {areQualityBuildsEnabled({ userId, withQuality: true }) && (
-        <div className="flex w-full flex-row items-end justify-end">
-          <Link
-            href="/community-builds?withQuality=true"
-            className="text-sm underline"
-          >
-            View more quality builds
-          </Link>
-        </div>
-      )}
+
+      <div className="flex w-full flex-row items-end justify-end">
+        <Link
+          href="/community-builds?withQuality=true"
+          className="text-sm underline"
+        >
+          View more quality builds
+        </Link>
+      </div>
     </>
   )
 }

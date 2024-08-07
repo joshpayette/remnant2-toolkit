@@ -160,6 +160,13 @@ export function parseUrlFilters(
     withQuality = withQuality === 'true'
   }
 
+  // Validate the withCollection filter
+  let withCollection =
+    parsedParams.get(BUILD_FILTER_KEYS.WITHCOLLECTION) === 'true'
+  if (typeof withCollection === 'string') {
+    withCollection = withCollection === 'true'
+  }
+
   return {
     amulet,
     archetypes,
@@ -172,6 +179,7 @@ export function parseUrlFilters(
     rings,
     searchText,
     patchAffected,
+    withCollection,
     withVideo,
     withReference,
     withQuality,

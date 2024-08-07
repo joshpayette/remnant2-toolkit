@@ -25,6 +25,7 @@ import {
   buildTagsFilterToValues,
   limitByBuildTagsSegment,
 } from '@/app/(queries)/build-filters/segments/limit-by-build-tags'
+import { limitByCollectionSegment } from '@/app/(queries)/build-filters/segments/limit-by-collection'
 import { limitByFeatured } from '@/app/(queries)/build-filters/segments/limit-by-featured'
 import { limitByPatchAffected } from '@/app/(queries)/build-filters/segments/limit-by-patch-affected'
 import { limitToQualityBuilds } from '@/app/(queries)/build-filters/segments/limit-by-quality'
@@ -45,7 +46,6 @@ import {
   weaponFiltersToIds,
 } from '@/app/(queries)/build-filters/segments/limit-by-weapons'
 import { DBBuild } from '@/app/(types)/builds'
-import { areQualityBuildsEnabled } from '@/app/(utils)/builds/are-quality-builds-enabled'
 import { PaginationResponse } from '@/app/(utils)/pagination/use-pagination'
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes'
@@ -83,6 +83,7 @@ export async function getCreatedBuilds({
     searchText,
     releases,
     patchAffected,
+    withCollection,
     withVideo,
     withReference,
     withQuality,
@@ -117,8 +118,6 @@ export async function getCreatedBuilds({
     }
   }
 
-  const qualityBuildsEnabled = areQualityBuildsEnabled({ userId, withQuality })
-
   const whereConditions = Prisma.sql`
   WHERE Build.createdById = ${userId}
   ${isPublicSegment}
@@ -133,8 +132,9 @@ export async function getCreatedBuilds({
   ${limitByReferenceLink(withReference)}
   ${limitToBuildsWithVideo(withVideo)}
   ${limitByPatchAffected(patchAffected)}
-  ${limitToQualityBuilds(qualityBuildsEnabled)}
+  ${limitToQualityBuilds(withQuality)}
   ${limitByFeatured(featuredBuildsOnly)}
+  ${limitByCollectionSegment(withCollection, userId)}
   `
 
   const orderBySegment = getOrderBySegment(orderBy)

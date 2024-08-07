@@ -50,6 +50,7 @@ export const DEFAULT_BUILD_FILTERS = {
   rings: [DEFAULT_FILTER],
   searchText: '',
   patchAffected: false,
+  withCollection: false,
   withQuality: false,
   withVideo: false,
   withReference: false,
@@ -193,6 +194,9 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
     if (filtersToApply.withQuality !== defaultFilters.withQuality) {
       url += `${BUILD_FILTER_KEYS.WITHQUALITY}=${filtersToApply.withQuality}&`
     }
+    if (filtersToApply.withCollection !== defaultFilters.withCollection) {
+      url += `${BUILD_FILTER_KEYS.WITHCOLLECTION}=${filtersToApply.withCollection}&`
+    }
 
     // trim the final &
     if (url.endsWith('&')) {
@@ -330,6 +334,7 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
 
   function handleMiscFilterChange(newFilters: string[]) {
     const patchAffected = newFilters.includes(BUILD_FILTER_KEYS.PATCHAFFECTED)
+    const withCollection = newFilters.includes(BUILD_FILTER_KEYS.WITHCOLLECTION)
     const withQuality = newFilters.includes(BUILD_FILTER_KEYS.WITHQUALITY)
     const withVideo = newFilters.includes(BUILD_FILTER_KEYS.WITHVIDEO)
     const withReference = newFilters.includes(BUILD_FILTER_KEYS.WITHREFERENCE)
@@ -337,6 +342,7 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
     setUnappliedFilters((prev) => ({
       ...prev,
       patchAffected,
+      withCollection,
       withQuality,
       withVideo,
       withReference,
@@ -492,6 +498,9 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
                         unappliedFilters.patchAffected
                           ? BUILD_FILTER_KEYS.PATCHAFFECTED
                           : '',
+                        unappliedFilters.withCollection
+                          ? BUILD_FILTER_KEYS.WITHCOLLECTION
+                          : '',
                         unappliedFilters.withQuality
                           ? BUILD_FILTER_KEYS.WITHQUALITY
                           : '',
@@ -504,14 +513,16 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
                       ]}
                       onChange={handleMiscFilterChange}
                     />
-                    <div className="flex items-center justify-end">
-                      <BaseButton
-                        plain
-                        onClick={() => setQualityBuildDialogOpen(true)}
-                      >
-                        What makes a Quality Build?
-                      </BaseButton>
-                    </div>
+                    {unappliedFilters.withQuality && (
+                      <div className="flex items-center justify-end">
+                        <BaseButton
+                          plain
+                          onClick={() => setQualityBuildDialogOpen(true)}
+                        >
+                          What makes a Quality Build?
+                        </BaseButton>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="flex w-full items-center justify-end gap-x-4">
