@@ -3,6 +3,7 @@
 import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
+import { modItems } from '@/app/(data)/items/mod-items'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
 
@@ -23,6 +24,16 @@ export async function setDiscoveredItems(
   const cleanDiscoveredItemIds = Array.from(new Set(discoveredItemIds)).filter(
     (item) => ALL_TRACKABLE_ITEMS.some((i) => i.id === item),
   )
+
+  // add linked mods to the list
+  for (const item of ALL_TRACKABLE_ITEMS) {
+    if (!item.linkedItems?.mod) continue
+    const modName = item.linkedItems.mod.name
+    const modId = modItems.find((mod) => mod.name === modName)?.id
+    if (modId && cleanDiscoveredItemIds.includes(item.id)) {
+      cleanDiscoveredItemIds.push(modId)
+    }
+  }
 
   try {
     await prisma.$transaction([

@@ -12,6 +12,7 @@ export interface BuildListFilters {
   releases: string[] | [DefaultFilter]
   searchText: string
   patchAffected: boolean
+  withCollection: boolean
   withQuality: boolean
   withVideo: boolean
   withReference: boolean
@@ -30,6 +31,7 @@ export const BUILD_FILTER_KEYS = {
   RELIC: 'relic',
   RINGS: 'rings',
   SEARCHTEXT: 'searchText',
+  WITHCOLLECTION: 'withCollection',
   WITHQUALITY: 'withQuality',
   WITHVIDEO: 'withVideo',
   WITHREFERENCE: 'withReference',

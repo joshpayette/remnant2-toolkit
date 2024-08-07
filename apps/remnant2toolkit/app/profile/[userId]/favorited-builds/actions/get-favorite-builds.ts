@@ -25,6 +25,7 @@ import {
   buildTagsFilterToValues,
   limitByBuildTagsSegment,
 } from '@/app/(queries)/build-filters/segments/limit-by-build-tags'
+import { limitByCollectionSegment } from '@/app/(queries)/build-filters/segments/limit-by-collection'
 import { limitByFavorited } from '@/app/(queries)/build-filters/segments/limit-by-favorited'
 import { limitByPatchAffected } from '@/app/(queries)/build-filters/segments/limit-by-patch-affected'
 import { limitToQualityBuilds } from '@/app/(queries)/build-filters/segments/limit-by-quality'
@@ -45,7 +46,6 @@ import {
   weaponFiltersToIds,
 } from '@/app/(queries)/build-filters/segments/limit-by-weapons'
 import { DBBuild } from '@/app/(types)/builds'
-import { areQualityBuildsEnabled } from '@/app/(utils)/builds/are-quality-builds-enabled'
 import { PaginationResponse } from '@/app/(utils)/pagination/use-pagination'
 
 export async function getFavoritedBuilds({
@@ -76,6 +76,7 @@ export async function getFavoritedBuilds({
     searchText,
     releases,
     patchAffected,
+    withCollection,
     withQuality,
     withVideo,
     withReference,
@@ -94,8 +95,6 @@ export async function getFavoritedBuilds({
   const relicId = relicFilterToId({ relic })
   const ringIds = ringsFilterToIds({ rings })
 
-  const qualityBuildsEnabled = areQualityBuildsEnabled({ userId, withQuality })
-
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
   AND Build.createdById != ${userId}
@@ -111,7 +110,8 @@ export async function getFavoritedBuilds({
   ${limitToBuildsWithVideo(withVideo)}
   ${limitByPatchAffected(patchAffected)}
   ${limitByFavorited(userId)}
-  ${limitToQualityBuilds(qualityBuildsEnabled)}
+  ${limitToQualityBuilds(withQuality)}
+  ${limitByCollectionSegment(withCollection, userId)}
 `
 
   const orderBySegment = getOrderBySegment(orderBy)

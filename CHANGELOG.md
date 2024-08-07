@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-08-06
+
+### Added
+
+- Builds by collection is back, and you can now filter builds by items you own! Use the **Include** build filter for **Only Owned Items**.
+  - Because linked weapon mods were not tracked before this, you must untoggle/toggle one item on the Item Tracker in order to trigger the update to the database. Failure to do this will omit many builds because you don't "own" the linked mods.
+
+### Fixed
+
+- Finally fixed once and for good (god I hope) the quality builds filter breaking.
+
 ## 2024-08-05
 
 ### Fixed

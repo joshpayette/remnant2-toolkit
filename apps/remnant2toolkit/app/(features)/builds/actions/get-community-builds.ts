@@ -44,8 +44,8 @@ import {
   weaponFiltersToIds,
 } from '@/app/(queries)/build-filters/segments/limit-by-weapons'
 import { DBBuild } from '@/app/(types)/builds'
-import { areQualityBuildsEnabled } from '@/app/(utils)/builds/are-quality-builds-enabled'
 import { PaginationResponse } from '@/app/(utils)/pagination/use-pagination'
+import { limitByCollectionSegment } from '@/app/(queries)/build-filters/segments/limit-by-collection'
 
 export async function getCommunityBuilds({
   buildListFilters,
@@ -75,6 +75,7 @@ export async function getCommunityBuilds({
     releases,
     relic,
     patchAffected,
+    withCollection,
     withQuality,
     withVideo,
     withReference,
@@ -95,8 +96,6 @@ export async function getCommunityBuilds({
   const tagValues = buildTagsFilterToValues(buildTags)
   const trimmedSearchText = searchText.trim()
 
-  const qualityBuildsEnabled = areQualityBuildsEnabled({ userId, withQuality })
-
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
   ${limitByAmuletSegment(amuletId)}
@@ -109,7 +108,8 @@ export async function getCommunityBuilds({
   ${limitByWeaponsSegment(weaponIds)}
   ${limitByReferenceLink(withReference)}
   ${limitToBuildsWithVideo(withVideo)}
-  ${limitToQualityBuilds(qualityBuildsEnabled)}
+  ${limitToQualityBuilds(withQuality)}
+  ${limitByCollectionSegment(withCollection, userId)}
   ${limitByPatchAffected(patchAffected)}
   `
 

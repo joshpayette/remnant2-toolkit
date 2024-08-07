@@ -28,13 +28,13 @@ export default async function Layout({
   return (
     <RootLayout
       alertBanner={
-        <AlertBanner localStorageKey="wiki-lore-cta">
-          Are you interested in Remnant lore?{' '}
-          <BaseTextLink href="https://remnant.wiki">Remnant.wiki</BaseTextLink>{' '}
-          needs people to contribute!{' '}
-          <BaseTextLink href="https://discord.com/invite/BEan7bgvuF">
-            Join the discord!
-          </BaseTextLink>
+        <AlertBanner localStorageKey="builds-by-collection">
+          You can now filter builds by items you own! Use the "include" filter
+          and select "Only Owned Items".
+          <div className="font-bold text-red-500">
+            Please untoggle/toggle an item in the item tracker first to include
+            linked weapon mods!
+          </div>
         </AlertBanner>
       }
       footer={<Footer />}
