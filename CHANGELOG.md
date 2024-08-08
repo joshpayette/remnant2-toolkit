@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-08-07
+
+### Added
+
+- Added **Builds by Collection** link to Builds menu.
+
+### Changed
+
+- Ran a script that should have applied ownership to all linked mods for all users based on the guns the owned at the time the script ran. This should fix the issue where linked mods were not being tracked as owned items, thus preventing some builds from showing up when viewing Builds by Collection. If you still feel you are not getting all results, you can untoggle/toggle a single item on the Item Tracker to trigger the update to the database.
+
 ## 2024-08-06
 
 ### Added
