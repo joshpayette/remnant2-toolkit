@@ -20,6 +20,7 @@ import { GiStrong as HardcoreVeteranIcon } from 'react-icons/gi'
 import { IoArchive as WorldSaveArchiveIcon } from 'react-icons/io5'
 import { IoShieldCheckmark as BossTrackerIcon } from 'react-icons/io5'
 import { MdQuiz as ItemQuizIcon } from 'react-icons/md'
+import { MdCollectionsBookmark as BuildsByCollectionIcon } from 'react-icons/md'
 import { PiCubeFocus as FeaturedBuildsIcon } from 'react-icons/pi'
 import { RiOpenbaseLine as BaseGameBuildsIcon } from 'react-icons/ri'
 
@@ -57,13 +58,13 @@ export const NAV_ITEMS = {
     href: CHANGELOG_URL,
     icon: ChangeLogIcon,
   },
-  // collectionBuilds: {
-  //   label: 'Builds by Collection',
-  //   description:
-  //     'View builds that you can create based on the Item Tracker data.',
-  //   href: '/community-builds/by-collection',
-  //   icon: CircleStackIcon,
-  // },
+  collectionBuilds: {
+    label: 'Builds by Collection',
+    description:
+      'View Remnant 2 builds that you can create based on items you have collected and logged in the Remnant 2 Item Tracker.',
+    href: '/community-builds?withCollection=true',
+    icon: BuildsByCollectionIcon,
+  },
   communityBuilds: {
     label: 'Community Builds',
     description:
