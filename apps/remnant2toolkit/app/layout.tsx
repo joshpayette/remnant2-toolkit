@@ -1,6 +1,5 @@
 import './globals.css'
 
-import { BaseTextLink } from '@repo/ui/base/text'
 import { GlobalActionButtons } from '@repo/ui/global-action-buttons'
 import { RootLayout } from '@repo/ui/pages/root-layout'
 import { Analytics } from '@vercel/analytics/react'
@@ -31,10 +30,6 @@ export default async function Layout({
         <AlertBanner localStorageKey="builds-by-collection">
           You can now filter builds by items you own! Use the "include" filter
           and select "Only Owned Items".
-          <div className="font-bold text-red-500">
-            Please untoggle/toggle an item in the item tracker first to include
-            linked weapon mods!
-          </div>
         </AlertBanner>
       }
       footer={<Footer />}
