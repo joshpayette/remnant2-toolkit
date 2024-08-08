@@ -1,7 +1,6 @@
 'use server'
 
-import { Prisma } from '@repo/db'
-import { prisma } from '@repo/db'
+import { Prisma, prisma } from '@repo/db'
 import { bigIntFix } from '@repo/utils/big-int-fix'
 
 import { OrderBy } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
@@ -25,6 +24,7 @@ import {
   buildTagsFilterToValues,
   limitByBuildTagsSegment,
 } from '@/app/(queries)/build-filters/segments/limit-by-build-tags'
+import { limitByCollectionSegment } from '@/app/(queries)/build-filters/segments/limit-by-collection'
 import { limitByPatchAffected } from '@/app/(queries)/build-filters/segments/limit-by-patch-affected'
 import { limitToQualityBuilds } from '@/app/(queries)/build-filters/segments/limit-by-quality'
 import { limitByReferenceLink } from '@/app/(queries)/build-filters/segments/limit-by-reference-link'
@@ -45,7 +45,6 @@ import {
 } from '@/app/(queries)/build-filters/segments/limit-by-weapons'
 import { DBBuild } from '@/app/(types)/builds'
 import { PaginationResponse } from '@/app/(utils)/pagination/use-pagination'
-import { limitByCollectionSegment } from '@/app/(queries)/build-filters/segments/limit-by-collection'
 
 export async function getCommunityBuilds({
   buildListFilters,
