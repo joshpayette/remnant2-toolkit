@@ -525,10 +525,9 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
                     )}
                     {unappliedFilters.withCollection && (
                       <div className="flex items-center justify-end text-sm text-red-500">
-                        Be sure to untoggle/toggle an item in Item Tracker if
-                        you have never used the "Only Owned Items" filter
-                        before. This will ensure that all matching builds come
-                        up in search results.
+                        If it seems like you aren't getting enough results, try
+                        untoggling/toggling a single item in the Item Tracker to
+                        force a refresh of your owned items.
                       </div>
                     )}
                   </div>
