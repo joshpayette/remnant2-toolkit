@@ -74,7 +74,7 @@ export async function GET(request: NextRequest) {
         isPublic: true,
       },
       orderBy: {
-        createdAt: 'desc',
+        createdAt: 'asc',
       },
       skip: milestone.targetBuildCount - 1,
     })
