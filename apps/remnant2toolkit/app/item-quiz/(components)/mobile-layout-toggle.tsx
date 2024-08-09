@@ -17,7 +17,7 @@ export function MobileLayoutToggle({
     <div className="hidden sm:mb-8 sm:flex sm:flex-col sm:items-center sm:justify-center">
       <LayoutIcon className="text-primary-500 h-12 w-12" />
       <BaseField className="flex items-center justify-start gap-x-2">
-        <BaseLabel className="mt-2">Mobile layout?</BaseLabel>
+        <BaseLabel className="mt-2">Use mobile layout</BaseLabel>
         <BaseCheckbox
           name="layoutPreference"
           checked={layoutPreference === 'mobile'}
