@@ -329,6 +329,8 @@ export default function Page() {
     dispatch(startGame())
   }
 
+  // #region Render
+
   return (
     <div className="flex w-full max-w-4xl flex-col items-center justify-center pt-2">
       {state.status === 'idle' ? (

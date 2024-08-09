@@ -3,6 +3,7 @@ import { getArrayOfLength } from '@repo/utils/get-array-of-length'
 import React from 'react'
 
 import { QuizItemButton } from '@/app/item-quiz/(components)/quiz-item-button'
+import { Heading } from '@/app/item-quiz/(components)/ui/heading'
 import { TOTAL_CHOICES } from '@/app/item-quiz/constants'
 import { LayoutPreference, QuizItem } from '@/app/item-quiz/types'
 
@@ -25,7 +26,7 @@ export const PlayingDisplay = React.memo(
         id="item-name-container"
         className="mb-8 flex flex-col items-center justify-center"
       >
-        <h3 className="text-primary-500 text-xl font-bold">Item to Find:</h3>
+        <Heading>Item to Find:</Heading>
         <p className="text-lg text-gray-200">{correctItemName}</p>
       </div>
 

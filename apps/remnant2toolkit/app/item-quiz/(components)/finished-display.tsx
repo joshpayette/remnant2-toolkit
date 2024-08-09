@@ -1,8 +1,11 @@
 import { BaseButton } from '@repo/ui/base/button'
 import React from 'react'
 
+import { Leaderboard } from '@/app/item-quiz/(components)/leaderboard'
 import { MobileLayoutToggle } from '@/app/item-quiz/(components)/mobile-layout-toggle'
 import { QuizItemButton } from '@/app/item-quiz/(components)/quiz-item-button'
+import { Divider } from '@/app/item-quiz/(components)/ui/divider'
+import { Heading } from '@/app/item-quiz/(components)/ui/heading'
 import { LayoutPreference, QuizItem, QuizQuestion } from '@/app/item-quiz/types'
 
 interface Props {
@@ -44,10 +47,8 @@ export const FinishedDisplay = React.memo(
       </div>
       {gameTimer >= 0 ? (
         <>
-          <hr className="border-primary-500 mb-8 w-full border" />
-          <h3 className="text-primary-500 mb-2 text-xl font-bold">
-            The correct answer was:
-          </h3>
+          <Divider />
+          <Heading>The correct answer was:</Heading>
           <p className="mb-2 text-lg font-bold text-gray-200">
             {correctItem?.name}
           </p>
@@ -65,11 +66,9 @@ export const FinishedDisplay = React.memo(
       {/** List the history of correct answers */}
       {history.length > 0 ? (
         <>
-          <hr className="border-primary-500 mb-8 w-full border" />
+          <Divider />
           <div className="mb-8 flex w-full flex-col items-center justify-center">
-            <h3 className="text-primary-500 mb-2 text-xl font-bold">
-              Correct Answers
-            </h3>
+            <Heading>Correct Answers</Heading>
             <ol className="text-md grid w-full list-decimal grid-cols-2 text-gray-200">
               {history.map((question, index) => (
                 <li key={index} className="mb-2 ml-6">
@@ -81,7 +80,7 @@ export const FinishedDisplay = React.memo(
         </>
       ) : null}
 
-      <hr className="border-primary-500 mb-8 w-full border" />
+      <Divider />
       <div className="flex w-full flex-col items-center justify-center bg-gray-900 p-4">
         <MobileLayoutToggle
           layoutPreference={layoutPreference}
@@ -94,6 +93,10 @@ export const FinishedDisplay = React.memo(
           Press <span className="font-bold">Space</span> or{' '}
           <span className="font-bold">Enter</span> to start.
         </p>
+      </div>
+      <div className="mt-12 w-full">
+        <Divider />
+        <Leaderboard />
       </div>
     </div>
   ),
