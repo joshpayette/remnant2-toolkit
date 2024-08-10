@@ -1,8 +1,9 @@
-import { getItemsInCategory } from '@/app/item-quiz/(lib)/getItemsInCategory'
-import { GAME_ITEM_CATEGORIES, TOTAL_CHOICES } from '@/app/item-quiz/constants'
-import { QuizQuestion } from '@/app/item-quiz/types'
+import { GAME_ITEM_CATEGORIES } from '@/app/(features)/item-quiz/constants/game-item-categories'
+import { TOTAL_CHOICES } from '@/app/(features)/item-quiz/constants/total-choices'
+import { getItemsInCategory } from '@/app/(features)/item-quiz/lib/get-items-in-category'
+import type { QuizQuestion } from '@/app/(features)/item-quiz/types/quiz-question'
 
-export function getQuestion(history: QuizQuestion[]): QuizQuestion {
+export function getNextQuestion(history: QuizQuestion[]): QuizQuestion {
   const question: QuizQuestion = {
     correctItem: {
       id: '',

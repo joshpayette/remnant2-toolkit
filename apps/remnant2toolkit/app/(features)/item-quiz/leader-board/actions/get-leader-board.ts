@@ -2,9 +2,9 @@
 
 import { prisma } from '@repo/db'
 
-import type { Score } from '@/app/item-quiz/(types)/score'
+import type { Score } from '@/app/(features)/item-quiz/leader-board/types/score'
 
-export default async function getTopScores(): Promise<Score[]> {
+export async function getLeaderBoard(): Promise<Score[]> {
   const top20Scores = await prisma.userProfile.findMany({
     take: 20,
     select: {

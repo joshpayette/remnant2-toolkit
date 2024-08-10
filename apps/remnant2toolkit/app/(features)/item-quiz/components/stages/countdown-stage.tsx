@@ -6,7 +6,7 @@ interface Props {
   onSkipCountdown: () => void
 }
 
-export const StartingDisplay = React.memo(
+export const CountdownStage = React.memo(
   ({ countdownTimer, onSkipCountdown }: Props) => (
     <div className="flex w-full flex-col items-center justify-center">
       <h2 className="text-primary-500 mb-2 text-2xl font-bold">
@@ -24,7 +24,7 @@ export const StartingDisplay = React.memo(
       >
         Skip countdown
       </BaseButton>
-      <p className="mt-2 hidden text-lg italic text-gray-200 sm:block">
+      <p className="text-md text-accent1-400 mt-2 hidden sm:block">
         Press <span className="font-bold">Space</span> or{' '}
         <span className="font-bold">Enter</span> to skip.
       </p>
@@ -32,4 +32,4 @@ export const StartingDisplay = React.memo(
   ),
 )
 
-StartingDisplay.displayName = 'StartingDisplay'
+CountdownStage.displayName = 'CountdownStage'
