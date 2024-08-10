@@ -1,7 +1,7 @@
 'use client'
 
 import { Menu, Transition } from '@headlessui/react'
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 import { cn } from '@repo/ui/classnames'
 import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import { useSession } from 'next-auth/react'
@@ -38,7 +38,7 @@ function ProfileButtonComponent({
     return (
       <div className="space-y-2">
         {session?.user?.id ? (
-          <Link
+          <BaseLink
             href={`/profile/${session?.user?.id}?t=${Date.now()}`}
             className="flex flex-row items-center justify-start"
           >
@@ -53,11 +53,11 @@ function ProfileButtonComponent({
                 {NAV_ITEMS.profile.description}
               </p>
             </div>
-          </Link>
+          </BaseLink>
         ) : null}
 
         {session?.user?.id ? (
-          <Link
+          <BaseLink
             href={`/profile/${session?.user
               ?.id}/created-builds?t=${Date.now()}`}
             className="flex flex-row items-center justify-start"
@@ -73,11 +73,11 @@ function ProfileButtonComponent({
                 {NAV_ITEMS.myBuilds.description}
               </p>
             </div>
-          </Link>
+          </BaseLink>
         ) : null}
 
         {session?.user?.id ? (
-          <Link
+          <BaseLink
             href={`/profile/${session?.user
               ?.id}/favorited-builds?t=${Date.now()}`}
             className="flex flex-row items-center justify-start"
@@ -93,11 +93,11 @@ function ProfileButtonComponent({
                 {NAV_ITEMS.favoritedBuilds.description}
               </p>
             </div>
-          </Link>
+          </BaseLink>
         ) : null}
 
         {session?.user?.id ? (
-          <Link
+          <BaseLink
             href={`/profile/${session?.user?.id}/loadouts?t=${Date.now()}`}
             className="flex flex-row items-center justify-start"
           >
@@ -112,11 +112,11 @@ function ProfileButtonComponent({
                 {NAV_ITEMS.loadouts.description}
               </p>
             </div>
-          </Link>
+          </BaseLink>
         ) : null}
 
         {session?.user?.id ? (
-          <Link
+          <BaseLink
             href={`/profile/${session?.user?.id}/linked-builds?t=${Date.now()}`}
             className="flex flex-row items-center justify-start"
           >
@@ -131,11 +131,11 @@ function ProfileButtonComponent({
                 {NAV_ITEMS.linkedBuilds.description}
               </p>
             </div>
-          </Link>
+          </BaseLink>
         ) : null}
 
         {status !== 'authenticated' || !session?.user ? (
-          <Link
+          <BaseLink
             href={NAV_ITEMS.signin.href}
             className="flex flex-row items-center justify-start"
           >
@@ -146,9 +146,9 @@ function ProfileButtonComponent({
             <div className="flex flex-col items-start justify-start px-3 py-2">
               {NAV_ITEMS.signin.label}
             </div>
-          </Link>
+          </BaseLink>
         ) : (
-          <Link
+          <BaseLink
             href={NAV_ITEMS.signout.href}
             className="flex flex-row items-center justify-start"
           >
@@ -159,21 +159,21 @@ function ProfileButtonComponent({
             <div className="flex flex-col items-start justify-start px-3 py-2">
               {NAV_ITEMS.signout.label}
             </div>
-          </Link>
+          </BaseLink>
         )}
       </div>
     )
 
   // Desktop
   return status !== 'authenticated' || !session?.user ? (
-    <Link
+    <BaseLink
       href={NAV_ITEMS.signin.href}
       className={cn(
         'bg-secondary-700 text-surface-solid hover:bg-secondary-500 hidden flex-row items-center justify-start rounded-lg p-2 text-xs font-semibold lg:flex',
       )}
     >
       {NAV_ITEMS.signin.label}
-    </Link>
+    </BaseLink>
   ) : (
     <Menu as="div" className="relative hidden lg:block">
       <Menu.Button className="bg-background focus:ring-surface-solid flex h-[56px] w-[56px] rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800">
@@ -208,7 +208,7 @@ function ProfileButtonComponent({
           {session?.user?.id ? (
             <Menu.Item>
               {({ active }) => (
-                <Link
+                <BaseLink
                   href={`/profile/${session?.user?.id}?t=${Date.now()}`}
                   className={cn(
                     active ? 'bg-gray-800' : '',
@@ -217,14 +217,14 @@ function ProfileButtonComponent({
                 >
                   <NAV_ITEMS.profile.icon className="text-primary-600 mr-1 h-4 w-4" />
                   {NAV_ITEMS.profile.label}
-                </Link>
+                </BaseLink>
               )}
             </Menu.Item>
           ) : null}
           {session?.user?.id ? (
             <Menu.Item>
               {({ active }) => (
-                <Link
+                <BaseLink
                   href={`/profile/${session?.user?.id}/created-builds`}
                   className={cn(
                     active ? 'bg-gray-800' : '',
@@ -233,14 +233,14 @@ function ProfileButtonComponent({
                 >
                   <NAV_ITEMS.myBuilds.icon className="text-primary-600 mr-1 h-4 w-4" />
                   {NAV_ITEMS.myBuilds.label}
-                </Link>
+                </BaseLink>
               )}
             </Menu.Item>
           ) : null}
           {session?.user?.id ? (
             <Menu.Item>
               {({ active }) => (
-                <Link
+                <BaseLink
                   href={`/profile/${session?.user
                     ?.id}/linked-builds?t=${Date.now()}`}
                   className={cn(
@@ -250,14 +250,14 @@ function ProfileButtonComponent({
                 >
                   <NAV_ITEMS.linkedBuilds.icon className="text-primary-600 mr-1 h-4 w-4" />
                   {NAV_ITEMS.linkedBuilds.label}
-                </Link>
+                </BaseLink>
               )}
             </Menu.Item>
           ) : null}
           {session?.user?.id ? (
             <Menu.Item>
               {({ active }) => (
-                <Link
+                <BaseLink
                   href={`/profile/${session?.user
                     ?.id}/favorited-builds?t=${Date.now()}`}
                   className={cn(
@@ -267,14 +267,14 @@ function ProfileButtonComponent({
                 >
                   <NAV_ITEMS.favoritedBuilds.icon className="text-primary-600 mr-1 h-4 w-4" />
                   {NAV_ITEMS.favoritedBuilds.label}
-                </Link>
+                </BaseLink>
               )}
             </Menu.Item>
           ) : null}
           {session?.user?.id ? (
             <Menu.Item>
               {({ active }) => (
-                <Link
+                <BaseLink
                   href={`/profile/${session?.user
                     ?.id}/loadouts?t=${Date.now()}`}
                   className={cn(
@@ -284,13 +284,13 @@ function ProfileButtonComponent({
                 >
                   <NAV_ITEMS.loadouts.icon className="text-primary-600 mr-1 h-4 w-4" />
                   {NAV_ITEMS.loadouts.label}
-                </Link>
+                </BaseLink>
               )}
             </Menu.Item>
           ) : null}
           <Menu.Item>
             {({ active }) => (
-              <Link
+              <BaseLink
                 href={NAV_ITEMS.signout.href}
                 className={cn(
                   active ? 'bg-gray-800' : '',
@@ -299,7 +299,7 @@ function ProfileButtonComponent({
               >
                 <NAV_ITEMS.signout.icon className="text-primary-600 mr-1 h-4 w-4" />
                 {NAV_ITEMS.signout.label}
-              </Link>
+              </BaseLink>
             )}
           </Menu.Item>
         </Menu.Items>

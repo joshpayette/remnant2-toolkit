@@ -3,7 +3,7 @@ import {
   type ButtonProps as HeadlessButtonProps,
 } from '@headlessui/react'
 import { TouchTarget } from '@repo/ui/base/button'
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 import React from 'react'
 
 import { cn } from '../classnames'
@@ -65,7 +65,7 @@ export const BaseBadgeButton = React.forwardRef(function BadgeButton(
     ...props
   }: BadgeProps & { children: React.ReactNode } & (
       | HeadlessButtonProps
-      | React.ComponentPropsWithoutRef<typeof Link>
+      | React.ComponentPropsWithoutRef<typeof BaseLink>
     ),
   ref: React.ForwardedRef<HTMLElement>,
 ) {
@@ -75,7 +75,7 @@ export const BaseBadgeButton = React.forwardRef(function BadgeButton(
   )
 
   return 'href' in props ? (
-    <Link
+    <BaseLink
       {...props}
       className={classes}
       ref={ref as React.ForwardedRef<HTMLAnchorElement>}
@@ -83,7 +83,7 @@ export const BaseBadgeButton = React.forwardRef(function BadgeButton(
       <TouchTarget>
         <BaseBadge color={color}>{children}</BaseBadge>
       </TouchTarget>
-    </Link>
+    </BaseLink>
   ) : (
     <HeadlessButton {...props} className={classes} ref={ref}>
       <TouchTarget>

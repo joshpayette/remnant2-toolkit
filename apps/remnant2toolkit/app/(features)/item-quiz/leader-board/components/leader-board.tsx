@@ -1,6 +1,6 @@
 'use client'
 
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 import {
   BaseTable,
   BaseTableBody,
@@ -29,9 +29,9 @@ export function LeaderBoard() {
   return (
     <>
       <div className="flex w-full flex-col items-center justify-center">
-        <Link href="/item-quiz" className="hover:underline">
+        <BaseLink href="/item-quiz" className="hover:underline">
           <Heading>Item Quiz Leaderboard</Heading>
-        </Link>
+        </BaseLink>
       </div>
       <BaseTable>
         <BaseTableHead>

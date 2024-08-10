@@ -1,11 +1,11 @@
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 import { cn } from '@repo/ui/classnames'
 import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import Image from 'next/image'
 
 export function CreateBuildCard() {
   return (
-    <Link
+    <BaseLink
       className={cn(
         'border-primary-500 bg-background-solid hover:border-primary-300 col-span-1 flex h-full min-h-[362px] flex-col items-center justify-center rounded-lg border-4 text-center shadow hover:scale-[1.05]',
       )}
@@ -21,6 +21,6 @@ export function CreateBuildCard() {
       <p className="text-surface-solid text-2xl font-bold">
         Create a New Build
       </p>
-    </Link>
+    </BaseLink>
   )
 }

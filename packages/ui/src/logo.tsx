@@ -1,4 +1,4 @@
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import Image from 'next/image'
 
@@ -26,7 +26,7 @@ export function Logo({
   variant: Variant
 }) {
   return (
-    <Link
+    <BaseLink
       href="/"
       className="-ui-m-1.5 ui-flex ui-items-center ui-justify-start ui-p-1.5"
     >
@@ -48,6 +48,6 @@ export function Logo({
           <span className="text-xs text-gray-400">{variants[variant].url}</span>
         )}
       </div>
-    </Link>
+    </BaseLink>
   )
 }

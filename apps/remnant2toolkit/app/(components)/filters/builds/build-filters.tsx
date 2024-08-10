@@ -9,7 +9,7 @@ import isEqual from 'lodash.isequal'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useState } from 'react'
 
-import QualityBuildDialog from '@/app/(components)/dialogs/quality-build-dialog'
+import { QualityBuildDialog } from '@/app/(components)/dialogs/quality-build-dialog'
 import { AmuletFilter } from '@/app/(components)/filters/builds/amulet-filter'
 import {
   ArchetypeFilter,

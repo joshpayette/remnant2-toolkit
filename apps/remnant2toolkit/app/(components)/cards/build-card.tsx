@@ -1,7 +1,7 @@
 'use client'
 
 import { BaseButton } from '@repo/ui/base/button'
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 import { cn } from '@repo/ui/classnames'
 import { EyeIcon } from '@repo/ui/icons/eye'
 import { EyeSlashIcon } from '@repo/ui/icons/eyeslash'
@@ -77,7 +77,7 @@ export function BuildCard({
           ) : null}
           <div className="flex w-full flex-1 items-start justify-start p-4 pb-0">
             <div className="flex w-full flex-col items-start justify-start">
-              <Link
+              <BaseLink
                 href={`/builder/${build.id}`}
                 className="text-surface-solid w-full hover:text-gray-200 hover:underline"
               >
@@ -89,16 +89,16 @@ export function BuildCard({
                 >
                   {build.name}
                 </h3>
-              </Link>
+              </BaseLink>
               <div className="mb-1 grid w-full grid-cols-3 truncate text-sm">
                 <div className="col-span-2 truncate text-left text-gray-300">
                   by{' '}
-                  <Link
+                  <BaseLink
                     href={`/profile/${build.createdById}/created-builds`}
                     className="text-primary-500 hover:text-primary-300 underline"
                   >
                     {build.createdByDisplayName ?? build.createdByName}
-                  </Link>
+                  </BaseLink>
                 </div>
                 <div className="flex flex-row items-center justify-end gap-x-2">
                   <Tooltip content="Total Favorites">

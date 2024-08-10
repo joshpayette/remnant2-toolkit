@@ -1,6 +1,6 @@
 'use client'
 
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
 
@@ -78,13 +78,13 @@ export default function Page() {
               button to save it to the database, enabling the enhanced features.
             </li>
             <li>
-              <Link
+              <BaseLink
                 href="/builder/create"
                 className="text-accent1-500 hover:text-accent1-300 font-bold underline"
               >
                 Click here to visit the enhanced version of the Builder
                 directly.
-              </Link>
+              </BaseLink>
             </li>
           </ul>
         </div>

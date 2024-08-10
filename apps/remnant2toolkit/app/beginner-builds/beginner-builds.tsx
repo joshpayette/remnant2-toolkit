@@ -1,6 +1,6 @@
 'use client'
 
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 import { EyeIcon } from '@repo/ui/icons/eye'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -132,12 +132,12 @@ export function BeginnerBuilds({
                 isLoading={isLoading}
                 footerActions={
                   <Tooltip content="View Build">
-                    <Link
+                    <BaseLink
                       href={`/builder/${build.id}`}
                       className="text-primary-500 hover:text-primary-300 flex flex-col items-center gap-x-3 rounded-br-lg border border-transparent px-4 py-2 text-xs font-semibold hover:underline"
                     >
                       <EyeIcon className="h-4 w-4" /> View
-                    </Link>
+                    </BaseLink>
                   </Tooltip>
                 }
               />

@@ -5,7 +5,7 @@ import {
   BaseDialogDescription,
   BaseDialogTitle,
 } from '@repo/ui/base/dialog'
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 import { BaseTextLink } from '@repo/ui/base/text'
 import { cn } from '@repo/ui/classnames'
 import { getImageUrl } from '@repo/ui/utils/get-image-url'
@@ -187,13 +187,13 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
                 item.linkedItems?.archetype && (
                   <li className="text-surface-solid col-span-full text-left text-sm">
                     <strong>Archetype</strong>:{' '}
-                    <Link
+                    <BaseLink
                       href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
                       className="text-gray-400 underline"
                       target="_blank"
                     >
                       {item.linkedItems.archetype.name}
-                    </Link>
+                    </BaseLink>
                   </li>
                 )}
               {ArchetypeItem.isArchetypeItem(item) &&
@@ -206,13 +206,13 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
                           key={perk.name}
                           className="text-surface-solid text-left text-sm"
                         >
-                          <Link
+                          <BaseLink
                             href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${perk.name}`}
                             className="text-gray-400 underline"
                             target="_blank"
                           >
                             {perk.name}
-                          </Link>
+                          </BaseLink>
                         </li>
                       ))}
                     </ul>
@@ -229,13 +229,13 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
                           key={skill.name}
                           className="text-surface-solid text-left text-sm"
                         >
-                          <Link
+                          <BaseLink
                             href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${skill.name}`}
                             className="text-gray-400 underline"
                             target="_blank"
                           >
                             {skill.name}
-                          </Link>
+                          </BaseLink>
                         </li>
                       ))}
                     </ul>
@@ -252,13 +252,13 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
                           key={trait.name}
                           className="text-surface-solid text-left text-sm"
                         >
-                          <Link
+                          <BaseLink
                             href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${trait.name}`}
                             className="text-gray-400 underline"
                             target="_blank"
                           >
                             {trait.name}
-                          </Link>
+                          </BaseLink>
                         </li>
                       ))}
                     </ul>
@@ -267,25 +267,25 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
               {WeaponItem.isWeaponItem(item) && item.linkedItems?.mod && (
                 <li className="text-surface-solid col-span-full text-left text-sm">
                   <strong>Mod</strong>:{' '}
-                  <Link
+                  <BaseLink
                     href={`/item-lookup?searchText=${item.linkedItems.mod.name}`}
                     className="text-gray-400 underline"
                     target="_blank"
                   >
                     {item.linkedItems.mod.name}
-                  </Link>
+                  </BaseLink>
                 </li>
               )}
               {ModItem.isModItem(item) && item.linkedItems?.weapon && (
                 <li className="text-surface-solid col-span-full text-left text-sm">
                   <strong>Weapon</strong>:{' '}
-                  <Link
+                  <BaseLink
                     href={`/item-lookup?searchText=${item.linkedItems.weapon.name}`}
                     className="text-gray-400 underline"
                     target="_blank"
                   >
                     {item.linkedItems.weapon.name}
-                  </Link>
+                  </BaseLink>
                 </li>
               )}
             </ul>

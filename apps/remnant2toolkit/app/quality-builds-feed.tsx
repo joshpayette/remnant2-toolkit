@@ -1,11 +1,11 @@
 'use client'
 
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 import { EyeIcon } from '@repo/ui/icons/eye'
 import { useState } from 'react'
 
 import { BuildCard } from '@/app/(components)/cards/build-card'
-import QualityBuildDialog from '@/app/(components)/dialogs/quality-build-dialog'
+import { QualityBuildDialog } from '@/app/(components)/dialogs/quality-build-dialog'
 import { Tooltip } from '@/app/(components)/tooltip'
 import type { DBBuild } from '@/app/(types)/builds'
 
@@ -44,12 +44,12 @@ export function QualityBuildsFeed({ builds }: Props) {
               isLoading={false}
               footerActions={
                 <Tooltip content="View Build">
-                  <Link
+                  <BaseLink
                     href={`/builder/${build.id}`}
                     className="text-primary-500 hover:text-primary-300 flex flex-col items-center gap-x-3 rounded-br-lg border border-transparent px-4 py-2 text-xs font-semibold hover:underline"
                   >
                     <EyeIcon className="h-4 w-4" /> View
-                  </Link>
+                  </BaseLink>
                 </Tooltip>
               }
             />
@@ -58,12 +58,12 @@ export function QualityBuildsFeed({ builds }: Props) {
       </ul>
 
       <div className="flex w-full flex-row items-end justify-end">
-        <Link
+        <BaseLink
           href="/community-builds?withQuality=true"
           className="text-sm underline"
         >
           View more quality builds
-        </Link>
+        </BaseLink>
       </div>
     </>
   )
