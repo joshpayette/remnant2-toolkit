@@ -30,7 +30,7 @@ export function LeaderBoard() {
     <>
       <div className="flex w-full flex-col items-center justify-center">
         <Link href="/item-quiz" className="hover:underline">
-          <Heading>Top 20 Item Quiz Leaderboard</Heading>
+          <Heading>Item Quiz Leaderboard</Heading>
         </Link>
       </div>
       <BaseTable>
