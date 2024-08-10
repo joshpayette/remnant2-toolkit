@@ -1,4 +1,4 @@
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 import { Suspense } from 'react'
 
 import { WorldSaveFilters } from '@/app/(components)/filters/world-saves/world-save-filters'
@@ -26,12 +26,12 @@ export default function Page() {
           did not.
         </p>
         <p className="text-md text-surface-solid mb-4 font-bold">
-          <Link
+          <BaseLink
             href="/world-save-archive/instructions"
             className="text-accent1-500 hover:text-accent1-300 underline"
           >
             Please click here for complete instructions.
-          </Link>
+          </BaseLink>
         </p>
       </div>
       <div className="flex w-full flex-col items-center">

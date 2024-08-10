@@ -6,7 +6,7 @@ import React from 'react'
 
 import { cn } from '../classnames'
 import { TouchTarget } from './button'
-import { Link } from './link'
+import { BaseLink } from './link'
 
 type AvatarProps = {
   src?: string | null
@@ -78,7 +78,7 @@ export const BaseAvatarButton = React.forwardRef(function AvatarButton(
     className,
     ...props
   }: AvatarProps &
-    (HeadlessButtonProps | React.ComponentPropsWithoutRef<typeof Link>),
+    (HeadlessButtonProps | React.ComponentPropsWithoutRef<typeof BaseLink>),
   ref: React.ForwardedRef<HTMLElement>,
 ) {
   const classes = cn(
@@ -88,7 +88,7 @@ export const BaseAvatarButton = React.forwardRef(function AvatarButton(
   )
 
   return 'href' in props ? (
-    <Link
+    <BaseLink
       {...props}
       className={classes}
       ref={ref as React.ForwardedRef<HTMLAnchorElement>}
@@ -96,7 +96,7 @@ export const BaseAvatarButton = React.forwardRef(function AvatarButton(
       <TouchTarget>
         <BaseAvatar src={src} square={square} initials={initials} alt={alt} />
       </TouchTarget>
-    </Link>
+    </BaseLink>
   ) : (
     <HeadlessButton {...props} className={classes} ref={ref}>
       <TouchTarget>

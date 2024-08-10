@@ -1,6 +1,6 @@
 'use client'
 
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 import type React from 'react'
 import { createContext, useContext, useState } from 'react'
 
@@ -164,7 +164,7 @@ export function BaseTableCell({
       )}
     >
       {href && (
-        <Link
+        <BaseLink
           data-row-link
           href={href}
           target={target}

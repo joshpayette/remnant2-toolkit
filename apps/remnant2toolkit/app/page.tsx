@@ -1,5 +1,4 @@
-import { Link } from '@repo/ui/base/link'
-import { BaseTextLink } from '@repo/ui/base/text'
+import { BaseLink } from '@repo/ui/base/link'
 import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import Image from 'next/image'
 
@@ -28,7 +27,7 @@ export default async function Page() {
           description={
             <>
               <p className="mt-6 text-lg leading-8 text-gray-300">
-                <Link
+                <BaseLink
                   href="/community-builds"
                   className="hover:text-primary-500 underline"
                 >
@@ -37,21 +36,21 @@ export default async function Page() {
                     {totalBuildCount}
                   </span>{' '}
                   submitted builds
-                </Link>
+                </BaseLink>
                 ,{' '}
-                <Link
+                <BaseLink
                   href={session?.user?.id ? '/builder/create' : '/builder'}
                   className="hover:text-primary-500 underline"
                 >
                   create your own builds
-                </Link>
+                </BaseLink>
                 ,{' '}
-                <Link
+                <BaseLink
                   href="/tracker"
                   className="hover:text-primary-500 underline"
                 >
                   track your collectibles
-                </Link>
+                </BaseLink>
                 , and more!
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-300">
@@ -242,7 +241,7 @@ export default async function Page() {
           <h3 className="text-primary-500 mb-8 text-xl font-bold">
             Latest Patreon Post
           </h3>
-          <Link
+          <BaseLink
             href="https://www.patreon.com/posts/final-dlc-plus-109411608"
             target="_blank"
           >
@@ -252,7 +251,7 @@ export default async function Page() {
               height={622}
               alt="Latest Patreon Post for 2024-08-03"
             />
-          </Link>
+          </BaseLink>
         </div>
       </div>
     </div>

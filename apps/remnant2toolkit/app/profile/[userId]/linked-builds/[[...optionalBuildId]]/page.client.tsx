@@ -1,7 +1,7 @@
 'use client'
 
 import { BaseButton } from '@repo/ui/base/button'
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 import { EditIcon } from '@repo/ui/icons/edit'
 import { EyeIcon } from '@repo/ui/icons/eye'
 import { ShareIcon } from '@repo/ui/icons/share'
@@ -123,12 +123,12 @@ export function PageClient({
           <div className="mx-auto flex max-w-7xl items-center justify-between">
             <h1 className="text-2xl font-semibold text-gray-300">
               Linked Builds for{' '}
-              <Link
+              <BaseLink
                 href={`/builder/${buildId}`}
                 className="text-primary-500 hover:underline"
               >
                 {requestedBuildName}
-              </Link>
+              </BaseLink>
             </h1>
             <BaseButton
               color="red"

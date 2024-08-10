@@ -1,6 +1,6 @@
 'use server'
 
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 import { cn } from '@repo/ui/classnames'
 import { ZINDEXES } from '@repo/ui/zindexes'
 import { Metadata } from 'next'
@@ -65,9 +65,12 @@ export default async function Layout({
               This enhanced build tool requires you to be logged in to use it,
               as it saves your builds to the database. If you prefer not to sign
               in, you can still use the <br />
-              <Link href="/builder" className="text-surface-solid underline">
+              <BaseLink
+                href="/builder"
+                className="text-surface-solid underline"
+              >
                 non-database builder by clicking here!
-              </Link>
+              </BaseLink>
             </p>
           </div>
           {children}

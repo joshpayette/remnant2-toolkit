@@ -11,7 +11,7 @@ interface Props {
   onClose: () => void
 }
 
-export default function QualityBuildDialog({ open, onClose }: Props) {
+export function QualityBuildDialog({ open, onClose }: Props) {
   return (
     <BaseDialog open={open} onClose={onClose} size="md">
       <BaseDialogTitle>What is a Quality Build?</BaseDialogTitle>

@@ -1,5 +1,5 @@
 import { BaseButton } from '@repo/ui/base/button'
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 import { cn } from '@repo/ui/classnames'
 import { MagnifyMinusIcon } from '@repo/ui/icons/magnify-minus'
 import { MagnifyPlusIcon } from '@repo/ui/icons/magnify-plus'
@@ -252,13 +252,13 @@ export function ItemCard({
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
-              <Link
+              <BaseLink
                 href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
                 className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
                 target="_blank"
               >
                 {item.linkedItems.archetype.name}
-              </Link>
+              </BaseLink>
             </div>
           </div>
         )}
@@ -268,13 +268,13 @@ export function ItemCard({
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
-              <Link
+              <BaseLink
                 href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
                 className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
                 target="_blank"
               >
                 {item.linkedItems.archetype.name}
-              </Link>
+              </BaseLink>
             </div>
           </div>
         )}
@@ -284,13 +284,13 @@ export function ItemCard({
               <p className="flex items-center justify-start text-xs">
                 Archetype
               </p>
-              <Link
+              <BaseLink
                 href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${item.linkedItems.archetype.name}`}
                 className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
                 target="_blank"
               >
                 {item.linkedItems.archetype.name}
-              </Link>
+              </BaseLink>
             </div>
           </div>
         )}
@@ -298,13 +298,13 @@ export function ItemCard({
           <div className="mt-4">
             <div className="grid w-full grid-cols-2 gap-2 border border-transparent   py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">Weapon</p>
-              <Link
+              <BaseLink
                 href={`/item-lookup?searchText=${item.linkedItems.weapon.name}`}
                 className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
                 target="_blank"
               >
                 {item.linkedItems.weapon.name}
-              </Link>
+              </BaseLink>
             </div>
           </div>
         )}
@@ -319,13 +319,13 @@ export function ItemCard({
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Perk</p>
-                <Link
+                <BaseLink
                   href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${perk.name}`}
                   className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
                   target="_blank"
                 >
                   {perk.name}
-                </Link>
+                </BaseLink>
               </div>
             </div>
           ))}
@@ -339,13 +339,13 @@ export function ItemCard({
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Skill</p>
-                <Link
+                <BaseLink
                   href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${skill.name}`}
                   className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
                   target="_blank"
                 >
                   {skill.name}
-                </Link>
+                </BaseLink>
               </div>
             </div>
           ))}
@@ -359,13 +359,13 @@ export function ItemCard({
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Trait</p>
-                <Link
+                <BaseLink
                   href={`/item-lookup?categories=Trait,Archetype,Perk,Skill&searchText=${trait.name}`}
                   className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
                   target="_blank"
                 >
                   {trait.name}
-                </Link>
+                </BaseLink>
               </div>
             </div>
           ))}

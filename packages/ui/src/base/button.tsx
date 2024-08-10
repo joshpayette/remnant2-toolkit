@@ -2,7 +2,7 @@ import * as Headless from '@headlessui/react'
 import React from 'react'
 
 import { cn } from '../classnames'
-import { Link } from './link'
+import { BaseLink } from './link'
 
 const styles = {
   base: [
@@ -147,7 +147,7 @@ export type ButtonProps = (
   | { color?: never; outline?: never; plain: true }
 ) & { className?: string; children: React.ReactNode } & (
     | Omit<Headless.ButtonProps, 'className'>
-    | Omit<React.ComponentPropsWithoutRef<typeof Link>, 'className'>
+    | Omit<React.ComponentPropsWithoutRef<typeof BaseLink>, 'className'>
   )
 
 export const BaseButton = React.forwardRef(function Button(
@@ -165,13 +165,13 @@ export const BaseButton = React.forwardRef(function Button(
   )
 
   return 'href' in props ? (
-    <Link
+    <BaseLink
       {...props}
       className={classes}
       ref={ref as React.ForwardedRef<HTMLAnchorElement>}
     >
       <TouchTarget>{children}</TouchTarget>
-    </Link>
+    </BaseLink>
   ) : (
     <Headless.Button
       {...props}

@@ -1,4 +1,4 @@
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 import { ArrowRightIcon } from '@repo/ui/icons/arrow-right'
 
 interface Props {
@@ -17,7 +17,7 @@ export function LandingPageCard({
   label,
 }: Props) {
   return (
-    <Link
+    <BaseLink
       href={href}
       key={label}
       target={target}
@@ -34,6 +34,6 @@ export function LandingPageCard({
           />
         </div>
       </div>
-    </Link>
+    </BaseLink>
   )
 }

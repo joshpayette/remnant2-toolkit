@@ -1,4 +1,4 @@
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 
 import { cn } from '../classnames'
 
@@ -21,9 +21,9 @@ export function BaseText({
 export function BaseTextLink({
   className,
   ...props
-}: React.ComponentPropsWithoutRef<typeof Link>) {
+}: React.ComponentPropsWithoutRef<typeof BaseLink>) {
   return (
-    <Link
+    <BaseLink
       {...props}
       className={cn(
         className,

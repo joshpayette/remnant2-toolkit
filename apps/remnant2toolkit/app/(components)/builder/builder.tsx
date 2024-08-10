@@ -1,6 +1,6 @@
 import { BuildTags } from '@repo/db'
 import { BaseInput } from '@repo/ui/base/input'
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 import { cn } from '@repo/ui/classnames'
 import { EyeIcon } from '@repo/ui/icons/eye'
 import { FavoriteIcon } from '@repo/ui/icons/favorite'
@@ -471,12 +471,12 @@ export function Builder({
                   })}`}{' '}
                   Build by{' '}
                 </span>
-                <Link
+                <BaseLink
                   href={`/profile/${buildState.createdById}/created-builds`}
                   className="text-primary-500 ml-1 underline"
                 >
                   {buildState.createdByDisplayName}
-                </Link>
+                </BaseLink>
               </div>
               <div className="flex w-full flex-row items-center justify-center gap-x-4 text-sm text-gray-400">
                 <Tooltip content={`${buildState.totalUpvotes} Favorites`}>

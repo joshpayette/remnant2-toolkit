@@ -1,4 +1,4 @@
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 import { cn } from '@repo/ui/classnames'
 
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
@@ -119,13 +119,13 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
           {item.linkedItems?.mod && includeMod && (
             <div className="grid w-full grid-cols-2 gap-2 border border-transparent py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">Mod</p>
-              <Link
+              <BaseLink
                 href={`/item-lookup?searchText=${item.linkedItems.mod.name}`}
                 className="text-secondary-500 flex items-center justify-end text-right text-xs font-bold underline"
                 target="_blank"
               >
                 {item.linkedItems.mod.name}
-              </Link>
+              </BaseLink>
             </div>
           )}
         </div>

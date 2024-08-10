@@ -1,7 +1,7 @@
 'use client'
 
 import { Menu, Transition } from '@headlessui/react'
-import { Link } from '@repo/ui/base/link'
+import { BaseLink } from '@repo/ui/base/link'
 import { cn } from '@repo/ui/classnames'
 import { ChevronDownIcon } from '@repo/ui/icons/chevron-down'
 import { Logo } from '@repo/ui/logo'
@@ -53,7 +53,7 @@ export function Navbar() {
               >
                 <Menu.Item>
                   {({ active }) => (
-                    <Link
+                    <BaseLink
                       href={
                         status === 'loading' || status === 'authenticated'
                           ? NAV_ITEMS.createBuild.href
@@ -73,12 +73,12 @@ export function Navbar() {
                           {NAV_ITEMS.createBuild.description}
                         </p>
                       </div>
-                    </Link>
+                    </BaseLink>
                   )}
                 </Menu.Item>
                 <Menu.Item>
                   {({ active }) => (
-                    <Link
+                    <BaseLink
                       href={NAV_ITEMS.featuredBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
@@ -94,12 +94,12 @@ export function Navbar() {
                           {NAV_ITEMS.featuredBuilds.description}
                         </p>
                       </div>
-                    </Link>
+                    </BaseLink>
                   )}
                 </Menu.Item>
                 <Menu.Item>
                   {({ active }) => (
-                    <Link
+                    <BaseLink
                       href={NAV_ITEMS.communityBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
@@ -115,12 +115,12 @@ export function Navbar() {
                           {NAV_ITEMS.communityBuilds.description}
                         </p>
                       </div>
-                    </Link>
+                    </BaseLink>
                   )}
                 </Menu.Item>
                 <Menu.Item>
                   {({ active }) => (
-                    <Link
+                    <BaseLink
                       href={NAV_ITEMS.collectionBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
@@ -136,12 +136,12 @@ export function Navbar() {
                           {NAV_ITEMS.collectionBuilds.description}
                         </p>
                       </div>
-                    </Link>
+                    </BaseLink>
                   )}
                 </Menu.Item>
                 <Menu.Item>
                   {({ active }) => (
-                    <Link
+                    <BaseLink
                       href={NAV_ITEMS.baseGameBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
@@ -157,12 +157,12 @@ export function Navbar() {
                           {NAV_ITEMS.baseGameBuilds.description}
                         </p>
                       </div>
-                    </Link>
+                    </BaseLink>
                   )}
                 </Menu.Item>
                 <Menu.Item>
                   {({ active }) => (
-                    <Link
+                    <BaseLink
                       href={NAV_ITEMS.beginnerBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
@@ -178,57 +178,57 @@ export function Navbar() {
                           {NAV_ITEMS.beginnerBuilds.description}
                         </p>
                       </div>
-                    </Link>
+                    </BaseLink>
                   )}
                 </Menu.Item>
               </Menu.Items>
             </Transition>
           </Menu>
-          <Link
+          <BaseLink
             href={NAV_ITEMS.itemLookup.href}
             className={cn(
               'text-md text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start font-semibold',
             )}
           >
             {NAV_ITEMS.itemLookup.label}
-          </Link>
-          <Link
+          </BaseLink>
+          <BaseLink
             href={NAV_ITEMS.itemTracker.href}
             className={cn(
               'text-md text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start font-semibold',
             )}
           >
             {NAV_ITEMS.itemTracker.label}
-          </Link>
-          <Link
+          </BaseLink>
+          <BaseLink
             href={NAV_ITEMS.itemQuiz.href}
             className={cn(
               'text-md text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start font-semibold',
             )}
           >
             {NAV_ITEMS.itemQuiz.label}
-          </Link>
-          <Link
+          </BaseLink>
+          <BaseLink
             href={NAV_ITEMS.resources.href}
             className={cn(
               'text-md text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start font-semibold',
             )}
           >
             {NAV_ITEMS.resources.label}
-          </Link>
-          <Link
+          </BaseLink>
+          <BaseLink
             href={NAV_ITEMS.supportR2TK.href}
             className={cn(
               'text-md text-accent1-500 hover:text-accent1-300 flex flex-row items-center justify-start font-semibold',
             )}
           >
             {NAV_ITEMS.supportR2TK.label}
-          </Link>
+          </BaseLink>
         </>
       }
       mobileChildren={
         <>
-          <Link
+          <BaseLink
             href={
               status === 'loading' || status === 'authenticated'
                 ? NAV_ITEMS.createBuild.href
@@ -247,9 +247,9 @@ export function Navbar() {
                 {NAV_ITEMS.createBuild.description}
               </p>
             </div>
-          </Link>
+          </BaseLink>
 
-          <Link
+          <BaseLink
             href={NAV_ITEMS.featuredBuilds.href}
             className="flex flex-row items-center justify-start"
           >
@@ -264,9 +264,9 @@ export function Navbar() {
                 {NAV_ITEMS.featuredBuilds.description}
               </p>
             </div>
-          </Link>
+          </BaseLink>
 
-          <Link
+          <BaseLink
             href={NAV_ITEMS.communityBuilds.href}
             className="flex flex-row items-center justify-start"
           >
@@ -281,9 +281,9 @@ export function Navbar() {
                 {NAV_ITEMS.communityBuilds.description}
               </p>
             </div>
-          </Link>
+          </BaseLink>
 
-          <Link
+          <BaseLink
             href={NAV_ITEMS.collectionBuilds.href}
             className="flex flex-row items-center justify-start"
           >
@@ -298,9 +298,9 @@ export function Navbar() {
                 {NAV_ITEMS.collectionBuilds.description}
               </p>
             </div>
-          </Link>
+          </BaseLink>
 
-          <Link
+          <BaseLink
             href={NAV_ITEMS.baseGameBuilds.href}
             className="flex flex-row items-center justify-start"
           >
@@ -315,9 +315,9 @@ export function Navbar() {
                 {NAV_ITEMS.baseGameBuilds.description}
               </p>
             </div>
-          </Link>
+          </BaseLink>
 
-          <Link
+          <BaseLink
             href={NAV_ITEMS.beginnerBuilds.href}
             className="flex flex-row items-center justify-start"
           >
@@ -332,11 +332,11 @@ export function Navbar() {
                 {NAV_ITEMS.beginnerBuilds.description}
               </p>
             </div>
-          </Link>
+          </BaseLink>
 
           <hr className="border-secondary-900" />
 
-          <Link
+          <BaseLink
             href={NAV_ITEMS.itemLookup.href}
             className="flex flex-row items-center justify-start"
           >
@@ -351,9 +351,9 @@ export function Navbar() {
                 {NAV_ITEMS.itemLookup.description}
               </p>
             </div>
-          </Link>
+          </BaseLink>
 
-          <Link
+          <BaseLink
             href={NAV_ITEMS.itemTracker.href}
             className="flex flex-row items-center justify-start"
           >
@@ -368,9 +368,9 @@ export function Navbar() {
                 {NAV_ITEMS.itemTracker.description}
               </p>
             </div>
-          </Link>
+          </BaseLink>
 
-          <Link
+          <BaseLink
             href={NAV_ITEMS.itemQuiz.href}
             className="flex flex-row items-center justify-start"
           >
@@ -385,9 +385,9 @@ export function Navbar() {
                 {NAV_ITEMS.itemQuiz.description}
               </p>
             </div>
-          </Link>
+          </BaseLink>
 
-          <Link
+          <BaseLink
             href={NAV_ITEMS.resources.href}
             className="flex flex-row items-center justify-start"
           >
@@ -402,11 +402,11 @@ export function Navbar() {
                 {NAV_ITEMS.resources.description}
               </p>
             </div>
-          </Link>
+          </BaseLink>
 
           <hr className="border-secondary-900" />
 
-          <Link
+          <BaseLink
             href={NAV_ITEMS.supportR2TK.href}
             className="flex flex-row items-center justify-start"
           >
@@ -421,7 +421,7 @@ export function Navbar() {
                 {NAV_ITEMS.supportR2TK.description}
               </p>
             </div>
-          </Link>
+          </BaseLink>
         </>
       }
     ></NavbarContainer>
