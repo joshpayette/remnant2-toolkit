@@ -67,17 +67,6 @@ export default async function Page() {
                 to start creating builds, searching community builds, tracking
                 your collectibles, or searching for detailed item information.
               </p>
-              <p className="mt-6 text-lg leading-8">
-                <BaseTextLink
-                  href="https://patreon.com/JoshPayette"
-                  target="_blank"
-                >
-                  <span className="text-accent1-400">
-                    Click here to read the recent updates and changes to the
-                    toolkit.
-                  </span>
-                </BaseTextLink>
-              </p>
             </>
           }
         >
