@@ -26,9 +26,9 @@ import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
 import { perkItems } from '@/app/(data)/items/perk-items'
 import { Item } from '@/app/(data)/items/types'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
+import { formatUpdatedAt } from '@/app/(features)/builds/utils/format-updated-at'
 import { BuildState, ItemCategory } from '@/app/(types)/builds'
 import { buildHasFeaturedBadge } from '@/app/(utils)/builds/build-has-featured-badge'
-import { formatUpdatedAt } from '@/app/(utils)/builds/format-updated-at'
 import {
   ArchetypeName,
   getArchetypeComboName,
