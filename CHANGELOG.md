@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-08-10
+
+### Added
+
+- Home page now displays the top 10 users with the most build favorite counts.
+
+### Changed
+
+- Improved the look and behavior of the leader boards.
+
 ## 2024-08-09
 
 ### Added
