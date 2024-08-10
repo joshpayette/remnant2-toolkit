@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Home page now displays the top 10 users with the most build favorite counts.
+- Added more precise time ranges for the "Last updated at" field on builds. Previously it would max out at "over a week ago".
 
 ### Changed
 

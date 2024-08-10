@@ -18,10 +18,10 @@ import { PopularBuildBadge } from '@/app/(components)/builder/badges/popular-bui
 import { BuildTagsDisplay } from '@/app/(components)/builder/build-tags/build-tags-display'
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
 import { Tooltip } from '@/app/(components)/tooltip'
+import { formatUpdatedAt } from '@/app/(features)/builds/utils/format-updated-at'
 import { DBBuild } from '@/app/(types)/builds'
 import { buildHasFeaturedBadge } from '@/app/(utils)/builds/build-has-featured-badge'
 import { dbBuildToBuildState } from '@/app/(utils)/builds/db-build-to-build-state'
-import { formatUpdatedAt } from '@/app/(utils)/builds/format-updated-at'
 import {
   ArchetypeName,
   getArchetypeComboName,
