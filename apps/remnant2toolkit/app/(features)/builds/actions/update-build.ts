@@ -387,22 +387,32 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     }
 
     // If the build was private but is now public, send the build info to Discord
-    if (
-      existingBuild?.isPublic === false &&
-      buildState.isPublic === true &&
-      !isPermittedBuilder(session.user.id)
-    ) {
+    if (existingBuild?.isPublic === false && buildState.isPublic === true) {
       await sendWebhook({
         webhook: 'modQueue',
         params: {
           embeds: [
             {
-              title: `Build Changed to Public`,
+              title: `Build Changed From Private to Public`,
               color: 0x00ff00,
               fields: [
                 {
-                  name: 'Changes',
-                  value: `Build changed from private to public.`,
+                  name: 'Build Name',
+                  value: buildState.name,
+                },
+                {
+                  name: 'Build Reference Link?',
+                  value:
+                    buildState.buildLink && buildState.buildLink.length > 0
+                      ? buildState.buildLink
+                      : 'N/A',
+                },
+                {
+                  name: 'Build Description?',
+                  value:
+                    buildState.description && buildState.description.length > 0
+                      ? `Yes (${buildState.description.length} chars)`
+                      : 'No',
                 },
                 {
                   name: 'Build Link',
