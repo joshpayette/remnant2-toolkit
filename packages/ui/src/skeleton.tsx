@@ -13,7 +13,7 @@ export function Skeleton({
   className?: string
   [key: string]: unknown
 }) {
-  const styles = clsx('rounded animate-pulse bg-gray-800', className)
+  const styles = clsx('ui-rounded ui-animate-pulse ui-bg-gray-800', className)
 
   return (
     <Component {...props} width={width} height={height} className={styles} />

@@ -1,5 +1,6 @@
 'use client'
 
+import { Skeleton } from '@repo/ui/skeleton'
 import { getArrayOfLength } from '@repo/utils/get-array-of-length'
 import { Masonry } from 'masonic'
 import { useState } from 'react'
@@ -7,7 +8,6 @@ import { useIsClient } from 'usehooks-ts'
 
 import { ItemCard } from '@/app/(components)/cards/item-card'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
-import { Skeleton } from '@/app/(components)/skeleton'
 import { Item } from '@/app/(data)/items/types'
 
 interface Props {

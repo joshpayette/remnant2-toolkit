@@ -1,5 +1,6 @@
 'use client'
 
+import { Skeleton } from '@repo/ui/skeleton'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 
@@ -12,7 +13,6 @@ import { useOrderByFilter } from '@/app/(components)/filters/builds/secondary-fi
 import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
 import { BuildListFilters } from '@/app/(components)/filters/builds/types'
 import { parseUrlFilters } from '@/app/(components)/filters/builds/utils'
-import { Skeleton } from '@/app/(components)/skeleton'
 import { useBuildListState } from '@/app/(utils)/builds/hooks/use-build-list-state'
 import { usePagination } from '@/app/(utils)/pagination/use-pagination'
 import { CreatedBuildCardActions } from '@/app/profile/[userId]/(components)/created-build-card-actions'

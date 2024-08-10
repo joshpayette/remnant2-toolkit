@@ -2,9 +2,9 @@
 
 import { BaseLink } from '@repo/ui/base/link'
 import { cn } from '@repo/ui/classnames'
+import { Skeleton } from '@repo/ui/skeleton'
 
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
-import { Skeleton } from '@/app/(components)/skeleton'
 import type { LinkedBuildState } from '@/app/(types)/linked-builds'
 
 interface Props {

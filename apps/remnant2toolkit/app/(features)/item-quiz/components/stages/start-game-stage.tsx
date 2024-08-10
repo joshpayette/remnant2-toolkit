@@ -4,7 +4,7 @@ import React from 'react'
 import { Divider } from '@/app/(features)/item-quiz/components/divider'
 import { Heading } from '@/app/(features)/item-quiz/components/heading'
 import { MobileLayoutToggle } from '@/app/(features)/item-quiz/components/mobile-layout-toggle'
-import { LeaderBoard } from '@/app/(features)/item-quiz/leader-board/components/leader-board'
+import { TopScoresLeaderBoard } from '@/app/(features)/item-quiz/components/top-scores-leader-board'
 import type { LayoutPreference } from '@/app/(features)/item-quiz/types/layout-preference'
 
 interface Props {
@@ -55,7 +55,7 @@ export const StartGameStage = React.memo(
       </div>
       <div className="mt-12 w-full">
         <Divider />
-        <LeaderBoard />
+        <TopScoresLeaderBoard />
       </div>
     </div>
   ),

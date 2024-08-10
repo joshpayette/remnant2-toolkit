@@ -1,4 +1,5 @@
 import { BaseLink } from '@repo/ui/base/link'
+import { LeaderBoard } from '@repo/ui/leader-board/components'
 import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import Image from 'next/image'
 
@@ -7,8 +8,9 @@ import { LandingPageContainer } from '@/app/(components)/landing-page-container'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
 import { getQualityBuildFeed } from '@/app/(features)/builds/actions/get-quality-build-feed'
 import { getTotalBuildCount } from '@/app/(features)/builds/actions/get-total-build-count'
-import { LeaderBoard as ItemQuizLeaderBoard } from '@/app/(features)/item-quiz/leader-board/components/leader-board'
+import { getLeaderBoard as getItemQuizLeaderBoard } from '@/app/(features)/item-quiz/actions/get-leader-board'
 import { NAV_ITEMS } from '@/app/(types)/navigation'
+import { getFavoritesLeaderboard } from '@/app/get-favorites-leaderboard'
 import { QualityBuildsFeed } from '@/app/quality-builds-feed'
 
 export default async function Page() {
@@ -233,12 +235,19 @@ export default async function Page() {
           </div>
         </LandingPageContainer>
       </div>
-      <div className="col-span-full mt-12 grid grid-cols-1 gap-y-10 md:grid-cols-3 md:gap-x-10 xl:col-span-1 xl:mt-0 xl:flex xl:flex-col xl:items-center xl:justify-start xl:gap-x-0 xl:gap-y-10">
-        <div className="col-span-2 xl:w-full">
-          <ItemQuizLeaderBoard />
-        </div>
-        <div className="col-span-full flex w-full flex-col items-center justify-start md:col-span-1 xl:col-span-1">
-          <h3 className="text-primary-500 mb-8 text-xl font-bold">
+      <div className="col-span-full mt-8 grid grid-cols-1 gap-y-10 md:grid-cols-3 md:gap-x-10 xl:col-span-1 xl:mt-0 xl:flex xl:flex-col xl:items-center xl:justify-start xl:gap-x-0 xl:gap-y-10">
+        <LeaderBoard
+          fetchAction={getFavoritesLeaderboard}
+          itemCount={10}
+          title="Top Favorite Counts"
+        />
+        <LeaderBoard
+          fetchAction={getItemQuizLeaderBoard}
+          itemCount={10}
+          title="Top Item Quiz Scores"
+        />
+        <div className="col-span-full flex w-full flex-col items-center justify-start md:col-span-1">
+          <h3 className="text-primary-500 mb-4 text-xl font-bold">
             Latest Patreon Post
           </h3>
           <BaseLink
@@ -247,9 +256,9 @@ export default async function Page() {
           >
             <Image
               src={getImageUrl('remnant2/patreon-posts/2024-08-03.jpg')}
-              width={350}
-              height={622}
-              alt="Latest Patreon Post for 2024-08-03"
+              width={253}
+              height={450}
+              alt="First DLC announced, plus some Toolkit updates!"
             />
           </BaseLink>
         </div>

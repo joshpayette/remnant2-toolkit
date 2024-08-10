@@ -1,9 +1,8 @@
 'use client'
 
 import { BaseButton } from '@repo/ui/base/button'
+import { Skeleton } from '@repo/ui/skeleton'
 import { useFormStatus } from 'react-dom'
-
-import { Skeleton } from '@/app/(components)/skeleton'
 
 export function ImportSaveSubmitButton({
   className,

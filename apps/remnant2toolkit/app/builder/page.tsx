@@ -1,6 +1,7 @@
 'use client'
 
 import { BaseLink } from '@repo/ui/base/link'
+import { Skeleton } from '@repo/ui/skeleton'
 import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
 
@@ -14,7 +15,6 @@ import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
 import { DetailedBuildDialog } from '@/app/(components)/dialogs/detailed-build-dialog'
 import { ImageDownloadInfoDialog } from '@/app/(components)/dialogs/image-download-info-dialog'
 import { PageHeader } from '@/app/(components)/page-header'
-import { Skeleton } from '@/app/(components)/skeleton'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { useUrlBuildState } from '@/app/(utils)/builds/hooks/use-url-build-state'
 

@@ -5,10 +5,9 @@ import { BaseInput } from '@repo/ui/base/input'
 import { cn } from '@repo/ui/classnames'
 import { CheckIcon } from '@repo/ui/icons/check'
 import { ChevronUpDownIcon } from '@repo/ui/icons/chevron-updown'
+import { Skeleton } from '@repo/ui/skeleton'
 import React, { useEffect, useState } from 'react'
 import { useIsClient, useMediaQuery } from 'usehooks-ts'
-
-import { Skeleton } from '@/app/(components)/skeleton'
 
 type Item = {
   id: string

@@ -1,10 +1,10 @@
 'use client'
 
 import { BaseButton } from '@repo/ui/base/button'
+import { Skeleton } from '@repo/ui/skeleton'
 import { useEffect, useState } from 'react'
 
 import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list'
-import { Skeleton } from '@/app/(components)/skeleton'
 import { DBBuild } from '@/app/(types)/builds'
 
 interface Props {

@@ -1,9 +1,9 @@
 import { BaseLink } from '@repo/ui/base/link'
+import { Skeleton } from '@repo/ui/skeleton'
 import { Suspense } from 'react'
 
 import { WorldSaveFilters } from '@/app/(components)/filters/world-saves/world-save-filters'
 import { PageHeader } from '@/app/(components)/page-header'
-import { Skeleton } from '@/app/(components)/skeleton'
 import { worldSaves } from '@/app/(data)/world-saves/world-saves'
 import { WorldSaves } from '@/app/world-save-archive/world-saves'
 
