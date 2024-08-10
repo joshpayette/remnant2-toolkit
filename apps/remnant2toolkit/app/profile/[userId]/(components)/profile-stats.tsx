@@ -4,7 +4,10 @@ import { prisma } from '@repo/db'
 
 import { DiscoveredItemsStatBox } from '@/app/profile/[userId]/(components)/discovered-items-stat-box'
 import { StatBox } from '@/app/profile/[userId]/(components)/stat-box'
-import { TOTAL_TRACKABLE_ITEM_COUNT } from '@/app/tracker/constants'
+import {
+  ALL_TRACKABLE_ITEMS,
+  TOTAL_TRACKABLE_ITEM_COUNT,
+} from '@/app/tracker/constants'
 
 interface Props {
   isEditable: boolean
@@ -19,7 +22,7 @@ export async function ProfileStats({ isEditable, userId }: Props) {
     loadoutCounts,
     featuredBuilds,
     userProfile,
-    discoveredItemIdCount,
+    discoveredItemIds,
   ] = await Promise.all([
     await prisma.build.count({
       where: { createdById: userId, isPublic: true },
@@ -51,10 +54,22 @@ export async function ProfileStats({ isEditable, userId }: Props) {
       where: { userId },
       select: { topItemQuizScore: true },
     }),
-    await prisma.userItems.count({
+    await prisma.userItems.findMany({
       where: { userId },
+      select: { itemId: true },
     }),
   ])
+
+  // const discoveredItemIdCount = Array.from(new Set(discoveredItemIds)).filter(
+  //   (item) => ALL_TRACKABLE_ITEMS.some((i) => i.id === item.itemId),
+  // )
+
+  const uniqueItemIds = Array.from(
+    new Set(discoveredItemIds.map((item) => item.itemId)),
+  )
+  const discoveredItemIdCount = uniqueItemIds.filter((itemId) =>
+    ALL_TRACKABLE_ITEMS.some((i) => i.id === itemId),
+  ).length
 
   return (
     <div className="grid grid-cols-2 bg-gray-700/10 sm:grid-cols-3 lg:grid-cols-6">
@@ -77,7 +92,10 @@ export async function ProfileStats({ isEditable, userId }: Props) {
       <DiscoveredItemsStatBox
         stat={{
           name: 'Items Discovered',
-          value: discoveredItemIdCount ?? 0,
+          value:
+            discoveredItemIdCount > TOTAL_TRACKABLE_ITEM_COUNT
+              ? TOTAL_TRACKABLE_ITEM_COUNT
+              : discoveredItemIdCount,
           unit: `/ ${TOTAL_TRACKABLE_ITEM_COUNT}`,
         }}
         index={4}
