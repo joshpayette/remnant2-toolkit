@@ -17,6 +17,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Home page now has a two-column layout on larger screens.
   - Other pages are a bit wider on larger displays due to this change.
 
+### Fixed
+
+- Fixed bug on user profile page when determining the total items discovered.
+
 ## 2024-08-08
 
 ### Added
