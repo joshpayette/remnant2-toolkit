@@ -4,8 +4,8 @@ import { ArrowUpIcon } from '@repo/ui/icons/arrow-up'
 import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import Image from 'next/image'
 
-import { ARROW_TO_INDEX } from '@/app/item-quiz/constants'
-import { QuizItem } from '@/app/item-quiz/types'
+import { ARROW_TO_INDEX } from '@/app/(features)/item-quiz/constants/arrow-to-index'
+import type { QuizItem } from '@/app/(features)/item-quiz/types/quiz-item'
 
 interface Props {
   item: QuizItem

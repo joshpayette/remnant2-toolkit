@@ -2,10 +2,11 @@ import { cn } from '@repo/ui/classnames'
 import { getArrayOfLength } from '@repo/utils/get-array-of-length'
 import React from 'react'
 
-import { QuizItemButton } from '@/app/item-quiz/(components)/quiz-item-button'
-import { Heading } from '@/app/item-quiz/(components)/ui/heading'
-import { TOTAL_CHOICES } from '@/app/item-quiz/constants'
-import { LayoutPreference, QuizItem } from '@/app/item-quiz/types'
+import { Heading } from '@/app/(features)/item-quiz/components/heading'
+import { QuizItemButton } from '@/app/(features)/item-quiz/components/quiz-item-button'
+import { TOTAL_CHOICES } from '@/app/(features)/item-quiz/constants/total-choices'
+import type { LayoutPreference } from '@/app/(features)/item-quiz/types/layout-preference'
+import type { QuizItem } from '@/app/(features)/item-quiz/types/quiz-item'
 
 interface Props {
   correctItemName: string
@@ -14,7 +15,7 @@ interface Props {
   onAnswerQuestion: (id: string) => void
 }
 
-export const PlayingDisplay = React.memo(
+export const GameplayStage = React.memo(
   ({
     correctItemName,
     layoutPreference,
@@ -131,4 +132,4 @@ export const PlayingDisplay = React.memo(
   ),
 )
 
-PlayingDisplay.displayName = 'PlayingDisplay'
+GameplayStage.displayName = 'GameplayStage'

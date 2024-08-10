@@ -2,7 +2,7 @@ import { BaseCheckbox } from '@repo/ui/base/checkbox'
 import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
 import { AiFillLayout as LayoutIcon } from 'react-icons/ai'
 
-import { LayoutPreference } from '@/app/item-quiz/types'
+import type { LayoutPreference } from '@/app/(features)/item-quiz/types/layout-preference'
 
 interface Props {
   layoutPreference: LayoutPreference
@@ -14,8 +14,8 @@ export function MobileLayoutToggle({
   onToggleLayoutPreference,
 }: Props) {
   return (
-    <div className="hidden sm:mb-8 sm:flex sm:flex-col sm:items-center sm:justify-center">
-      <LayoutIcon className="text-primary-500 h-12 w-12" />
+    <div className="hidden sm:mb-8 sm:flex sm:flex-row sm:items-center sm:justify-center">
+      <LayoutIcon className="text-primary-500 mr-2 mt-2 h-5 w-5" />
       <BaseField className="flex items-center justify-start gap-x-2">
         <BaseLabel className="mt-2">Use mobile layout</BaseLabel>
         <BaseCheckbox

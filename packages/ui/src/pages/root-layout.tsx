@@ -45,7 +45,7 @@ export async function RootLayout({
             <ToastContainer theme="dark" pauseOnFocusLoss={false} />
             {alertBanner}
 
-            <div className="ui-h-full ui-w-full ui-justify-start ui-items-start ui-flex-col ui-flex ui-max-w-7xl ui-grow">
+            <div className="ui-h-full ui-w-full ui-justify-start ui-items-start ui-flex-col ui-flex ui-max-w-[1500px] ui-grow">
               <header className="ui-w-full">{navbar}</header>
 
               <main className="ui-mt-[80px] ui-flex ui-h-full ui-min-h-screen ui-w-full ui-grow ui-flex-col ui-items-center ui-justify-start ui-p-4 ui-pt-0">

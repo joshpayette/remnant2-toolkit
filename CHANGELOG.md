@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-08-09
+
+### Added
+
+- Item Quiz leaderboard now appears on the home page.
+- Item Quiz leaderboard now links to the profiles of the top ranked users.
+- Added link to latest Patreon update posts.
+
 ## 2024-08-08
 
 ### Added

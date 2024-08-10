@@ -1,11 +1,11 @@
 import { BaseButton } from '@repo/ui/base/button'
 import React from 'react'
 
-import { Leaderboard } from '@/app/item-quiz/(components)/leaderboard'
-import { MobileLayoutToggle } from '@/app/item-quiz/(components)/mobile-layout-toggle'
-import { Divider } from '@/app/item-quiz/(components)/ui/divider'
-import { Heading } from '@/app/item-quiz/(components)/ui/heading'
-import { LayoutPreference } from '@/app/item-quiz/types'
+import { Divider } from '@/app/(features)/item-quiz/components/divider'
+import { Heading } from '@/app/(features)/item-quiz/components/heading'
+import { MobileLayoutToggle } from '@/app/(features)/item-quiz/components/mobile-layout-toggle'
+import { LeaderBoard } from '@/app/(features)/item-quiz/leader-board/components/leader-board'
+import type { LayoutPreference } from '@/app/(features)/item-quiz/types/layout-preference'
 
 interface Props {
   topScore: number
@@ -15,7 +15,7 @@ interface Props {
   onStartGame: () => void
 }
 
-export const IdleDisplay = React.memo(
+export const StartGameStage = React.memo(
   ({
     layoutPreference,
     topScore,
@@ -24,7 +24,7 @@ export const IdleDisplay = React.memo(
     onToggleLayoutPreference,
   }: Props) => (
     <div className="flex w-full flex-col items-center justify-center">
-      <div className="mb-4 text-center">
+      <div className="mb-8 text-center">
         <Heading>Rules</Heading>
         <p className="text-md max-w-lg text-left text-gray-200">
           You will be shown four items and an item name. You must select the
@@ -33,14 +33,14 @@ export const IdleDisplay = React.memo(
           number keys.
         </p>
       </div>
-      {showTopScore ? (
-        <div className="mb-8 flex flex-col items-center justify-center">
-          <Heading>Your Top Score</Heading>
-          <p className="text-left text-4xl text-gray-200">{topScore}</p>
-        </div>
-      ) : null}
       <Divider />
       <div className="flex w-full flex-col items-center justify-center bg-gray-900 p-4">
+        {showTopScore ? (
+          <div className="mb-8 flex flex-col items-center justify-center">
+            <Heading>Your Top Score</Heading>
+            <p className="text-left text-4xl text-gray-200">{topScore}</p>
+          </div>
+        ) : null}
         <MobileLayoutToggle
           layoutPreference={layoutPreference}
           onToggleLayoutPreference={onToggleLayoutPreference}
@@ -48,17 +48,17 @@ export const IdleDisplay = React.memo(
         <BaseButton color="cyan" onClick={onStartGame}>
           Start Game
         </BaseButton>
-        <p className="text-md mt-2 hidden italic text-gray-200 sm:block">
+        <p className="text-md text-accent1-400 mt-2 hidden sm:block">
           Press <span className="font-bold">Space</span> or{' '}
           <span className="font-bold">Enter</span> to start.
         </p>
       </div>
       <div className="mt-12 w-full">
         <Divider />
-        <Leaderboard />
+        <LeaderBoard />
       </div>
     </div>
   ),
 )
 
-IdleDisplay.displayName = 'IdleDisplay'
+StartGameStage.displayName = 'StartGameStage'

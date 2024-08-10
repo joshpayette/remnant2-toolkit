@@ -18,19 +18,3 @@ export type QuizItemCategory =
   | 'Mutator (Melee)'
   | 'Concoction'
   | 'Consumable'
-
-export type QuizItem = {
-  id: string
-  name: string
-  description: string
-  category: QuizItemCategory
-  imagePath: string
-  position: number
-}
-
-export type QuizQuestion = {
-  correctItem: QuizItem
-  wrongItems: QuizItem[]
-}
-
-export type LayoutPreference = 'mobile' | 'desktop'

@@ -5,22 +5,22 @@ import { useSession } from 'next-auth/react'
 import { useCallback, useEffect, useMemo, useReducer, useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { getTopScore } from '@/app/item-quiz/(actions)/getTopScore'
-import { updateTopScore } from '@/app/item-quiz/(actions)/updateTopScore'
-import { FinishedDisplay } from '@/app/item-quiz/(components)/finished-display'
-import { IdleDisplay } from '@/app/item-quiz/(components)/idle-display'
-import { PlayingDisplay } from '@/app/item-quiz/(components)/playing-display'
-import { QuizScore } from '@/app/item-quiz/(components)/quiz-score'
-import { QuizTimer } from '@/app/item-quiz/(components)/quiz-timer'
-import { StartingDisplay } from '@/app/item-quiz/(components)/starting-display'
-import { getQuestion } from '@/app/item-quiz/(lib)/getQuestion'
-import {
-  ARROW_TO_INDEX,
-  COUNTDOWN_DURATION,
-  GAME_DURATION,
-  KEY_TO_ARROW,
-} from '@/app/item-quiz/constants'
-import { LayoutPreference, QuizItem, QuizQuestion } from '@/app/item-quiz/types'
+import { getTopScore } from '@/app/(features)/item-quiz/actions/get-top-score'
+import { updateTopScore } from '@/app/(features)/item-quiz/actions/update-top-score'
+import { QuizScore } from '@/app/(features)/item-quiz/components/quiz-score'
+import { QuizTimer } from '@/app/(features)/item-quiz/components/quiz-timer'
+import { CountdownStage } from '@/app/(features)/item-quiz/components/stages/countdown-stage'
+import { GameOverStage } from '@/app/(features)/item-quiz/components/stages/game-over-stage'
+import { GameplayStage } from '@/app/(features)/item-quiz/components/stages/gameplay-stage'
+import { StartGameStage } from '@/app/(features)/item-quiz/components/stages/start-game-stage'
+import { ARROW_TO_INDEX } from '@/app/(features)/item-quiz/constants/arrow-to-index'
+import { COUNTDOWN_DURATION } from '@/app/(features)/item-quiz/constants/countdown-duration'
+import { GAME_DURATION } from '@/app/(features)/item-quiz/constants/game-duration'
+import { KEY_TO_ARROW } from '@/app/(features)/item-quiz/constants/key-to-arrow'
+import { getNextQuestion } from '@/app/(features)/item-quiz/lib/get-next-question'
+import type { LayoutPreference } from '@/app/(features)/item-quiz/types/layout-preference'
+import type { QuizItem } from '@/app/(features)/item-quiz/types/quiz-item'
+import type { QuizQuestion } from '@/app/(features)/item-quiz/types/quiz-question'
 
 interface GameState {
   countdownTimer: number
@@ -56,7 +56,7 @@ const gameReducer = createReducer(initialState, (builder) => {
       state.gameTimer = GAME_DURATION
       state.score = 0
       state.history = []
-      state.currentQuestion = getQuestion(state.history)
+      state.currentQuestion = getNextQuestion(state.history)
     })
     .addCase(startGame, (state) => {
       state.status = 'playing'
@@ -78,7 +78,7 @@ const gameReducer = createReducer(initialState, (builder) => {
       state.score++
     })
     .addCase(newQuestion, (state) => {
-      state.currentQuestion = getQuestion(state.history)
+      state.currentQuestion = getNextQuestion(state.history)
     })
 })
 
@@ -334,7 +334,7 @@ export default function Page() {
   return (
     <div className="flex w-full max-w-4xl flex-col items-center justify-center pt-2">
       {state.status === 'idle' ? (
-        <IdleDisplay
+        <StartGameStage
           showTopScore={Boolean(session?.user?.id)}
           topScore={topScore}
           layoutPreference={layoutPreference}
@@ -344,7 +344,7 @@ export default function Page() {
       ) : null}
 
       {state.status === 'starting' ? (
-        <StartingDisplay
+        <CountdownStage
           countdownTimer={state.countdownTimer}
           onSkipCountdown={handleSkipCountdown}
         />
@@ -362,7 +362,7 @@ export default function Page() {
             />
             <QuizScore score={state.score} />
           </div>
-          <PlayingDisplay
+          <GameplayStage
             correctItemName={state.currentQuestion?.correctItem.name || ''}
             layoutPreference={layoutPreference}
             questionsForUI={questionsForUI}
@@ -372,7 +372,7 @@ export default function Page() {
       ) : null}
 
       {state.status === 'finished' ? (
-        <FinishedDisplay
+        <GameOverStage
           correctItem={state.currentQuestion?.correctItem}
           gameTimer={state.gameTimer}
           history={state.history}

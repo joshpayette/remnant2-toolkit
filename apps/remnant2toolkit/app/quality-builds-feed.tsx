@@ -11,10 +11,9 @@ import type { DBBuild } from '@/app/(types)/builds'
 
 interface Props {
   builds: DBBuild[]
-  userId: string | undefined
 }
 
-export function QualityBuildsFeed({ builds, userId }: Props) {
+export function QualityBuildsFeed({ builds }: Props) {
   const [qualityBuildDialogOpen, setQualityBuildDialogOpen] = useState(false)
 
   return (
@@ -36,7 +35,7 @@ export function QualityBuildsFeed({ builds, userId }: Props) {
       </div>
       <ul
         role="list"
-        className="my-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        className="my-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4"
       >
         {builds.map((build) => (
           <div key={build.id} className="mt-4 w-full">

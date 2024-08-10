@@ -22,7 +22,6 @@ import {
   getFilteredItemsForCategory,
   parseUrlFilters,
 } from '@/app/(components)/filters/item-tracker/utils'
-import { modItems } from '@/app/(data)/items/mod-items'
 import { Item } from '@/app/(data)/items/types'
 import {
   ItemTrackerLocalStorage,

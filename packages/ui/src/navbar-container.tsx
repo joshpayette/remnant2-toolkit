@@ -38,7 +38,7 @@ export function NavbarContainer({
       {/* DESKTOP */}
       <nav
         className={cn(
-          'ui-bg-background ui-fixed ui-mx-auto ui-flex ui-max-h-[80px] ui-w-full ui-max-w-7xl ui-items-center ui-justify-between ui-px-4 ui-py-6',
+          'ui-bg-background ui-fixed ui-mx-auto ui-flex ui-max-h-[80px] ui-w-full ui-max-w-[1500px] ui-items-center ui-justify-between ui-px-4 ui-py-6',
           ZINDEXES.NAVBAR,
         )}
         aria-label="Global"

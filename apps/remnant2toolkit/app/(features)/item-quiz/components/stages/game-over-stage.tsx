@@ -1,12 +1,14 @@
 import { BaseButton } from '@repo/ui/base/button'
 import React from 'react'
 
-import { Leaderboard } from '@/app/item-quiz/(components)/leaderboard'
-import { MobileLayoutToggle } from '@/app/item-quiz/(components)/mobile-layout-toggle'
-import { QuizItemButton } from '@/app/item-quiz/(components)/quiz-item-button'
-import { Divider } from '@/app/item-quiz/(components)/ui/divider'
-import { Heading } from '@/app/item-quiz/(components)/ui/heading'
-import { LayoutPreference, QuizItem, QuizQuestion } from '@/app/item-quiz/types'
+import { Divider } from '@/app/(features)/item-quiz/components/divider'
+import { Heading } from '@/app/(features)/item-quiz/components/heading'
+import { MobileLayoutToggle } from '@/app/(features)/item-quiz/components/mobile-layout-toggle'
+import { QuizItemButton } from '@/app/(features)/item-quiz/components/quiz-item-button'
+import { LeaderBoard } from '@/app/(features)/item-quiz/leader-board/components/leader-board'
+import type { LayoutPreference } from '@/app/(features)/item-quiz/types/layout-preference'
+import type { QuizItem } from '@/app/(features)/item-quiz/types/quiz-item'
+import type { QuizQuestion } from '@/app/(features)/item-quiz/types/quiz-question'
 
 interface Props {
   correctItem: QuizItem | undefined
@@ -18,7 +20,7 @@ interface Props {
   onToggleLayoutPreference: () => void
 }
 
-export const FinishedDisplay = React.memo(
+export const GameOverStage = React.memo(
   ({
     correctItem,
     gameTimer,
@@ -89,17 +91,17 @@ export const FinishedDisplay = React.memo(
         <BaseButton color="cyan" onClick={onStartGame}>
           Play Again
         </BaseButton>
-        <p className="text-md mt-2 hidden italic text-gray-200 sm:block">
+        <p className="text-md text-accent1-400 mt-2 hidden sm:block">
           Press <span className="font-bold">Space</span> or{' '}
           <span className="font-bold">Enter</span> to start.
         </p>
       </div>
       <div className="mt-12 w-full">
         <Divider />
-        <Leaderboard />
+        <LeaderBoard />
       </div>
     </div>
   ),
 )
 
-FinishedDisplay.displayName = 'FinishedDisplay'
+GameOverStage.displayName = 'GameOverStage'
