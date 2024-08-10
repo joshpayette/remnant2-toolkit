@@ -238,11 +238,13 @@ export default async function Page() {
       <div className="col-span-full mt-8 grid grid-cols-1 gap-y-10 md:grid-cols-3 md:gap-x-10 xl:col-span-1 xl:mt-0 xl:flex xl:flex-col xl:items-center xl:justify-start xl:gap-x-0 xl:gap-y-10">
         <LeaderBoard
           fetchAction={getFavoritesLeaderboard}
+          headerLink="/community-builds"
           itemCount={10}
           title="Top Favorite Counts"
         />
         <LeaderBoard
           fetchAction={getItemQuizLeaderBoard}
+          headerLink="/item-quiz"
           itemCount={10}
           title="Top Item Quiz Scores"
         />

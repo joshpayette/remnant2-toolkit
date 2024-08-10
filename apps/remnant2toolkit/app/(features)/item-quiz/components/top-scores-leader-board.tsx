@@ -5,6 +5,7 @@ import { getLeaderBoard } from '@/app/(features)/item-quiz/actions/get-leader-bo
 export function TopScoresLeaderBoard() {
   return (
     <LeaderBoard
+      headerLink="/item-quiz"
       fetchAction={getLeaderBoard}
       itemCount={20}
       title="Leaderboard"
