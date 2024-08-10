@@ -13,20 +13,21 @@ import { Skeleton } from '@repo/ui/skeleton'
 import { getArrayOfLength } from '@repo/utils/get-array-of-length'
 import { useEffect, useState } from 'react'
 
-import { BaseTextLink } from '../../base/text'
 import type { LeaderBoardItem } from '../types/leader-board-item'
 
 const SCORE_COLUMN_NAME = 'Score'
 
 interface Props {
   fetchAction: () => Promise<LeaderBoardItem[]>
-  scoreColumnName?: string
+  headerLink?: string
   itemCount: number
+  scoreColumnName?: string
   title: string
 }
 
 export function LeaderBoard({
   fetchAction,
+  headerLink,
   itemCount,
   title,
   scoreColumnName = SCORE_COLUMN_NAME,
@@ -44,11 +45,17 @@ export function LeaderBoard({
   return (
     <>
       <div className="ui-flex ui-w-full ui-flex-col ui-items-center ui-justify-start">
-        <BaseLink href="/item-quiz" className="hover:ui-underline">
+        {headerLink ? (
+          <BaseLink href={headerLink} className="hover:ui-underline">
+            <h3 className="ui-text-primary-500 ui-mb-2 ui-text-xl ui-font-bold">
+              {title}
+            </h3>
+          </BaseLink>
+        ) : (
           <h3 className="ui-text-primary-500 ui-mb-2 ui-text-xl ui-font-bold">
             {title}
           </h3>
-        </BaseLink>
+        )}
         <div className="ui-w-full">
           <BaseTable dense striped grid>
             <BaseTableHead>
