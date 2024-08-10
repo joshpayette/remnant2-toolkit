@@ -12,6 +12,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Item Quiz leaderboard now links to the profiles of the top ranked users.
 - Added link to latest Patreon update posts.
 
+### Changed
+
+- Home page now has a two-column layout on larger screens.
+  - Other pages are a bit wider on larger displays due to this change.
+
 ## 2024-08-08
 
 ### Added
