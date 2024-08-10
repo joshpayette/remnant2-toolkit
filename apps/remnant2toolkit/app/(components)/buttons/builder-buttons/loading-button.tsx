@@ -1,6 +1,5 @@
 import { BaseButton } from '@repo/ui/base/button'
-
-import { Skeleton } from '@/app/(components)/skeleton'
+import { Skeleton } from '@repo/ui/skeleton'
 
 export function LoadingButton() {
   return (

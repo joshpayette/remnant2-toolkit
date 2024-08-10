@@ -1,8 +1,8 @@
+import { Skeleton } from '@repo/ui/skeleton'
 import { Suspense } from 'react'
 
 import { BossTrackerFilters } from '@/app/(components)/filters/boss-tracker/boss-tracker-filters'
 import { PageHeader } from '@/app/(components)/page-header'
-import { Skeleton } from '@/app/(components)/skeleton'
 import { BossList } from '@/app/boss-tracker/boss-list'
 
 export default function Page() {

@@ -1,12 +1,12 @@
 'use client'
 
+import { Skeleton } from '@repo/ui/skeleton'
 import { Suspense } from 'react'
 import { useLocalStorage } from 'usehooks-ts'
 
 import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
 import { ItemLookupFilters } from '@/app/(components)/filters/item-lookup/item-lookup-filters'
 import { PageHeader } from '@/app/(components)/page-header'
-import { Skeleton } from '@/app/(components)/skeleton'
 import { allItems } from '@/app/(data)/items/all-items'
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
 import {

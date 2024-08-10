@@ -2,6 +2,7 @@
 
 import { BaseLink } from '@repo/ui/base/link'
 import { EyeIcon } from '@repo/ui/icons/eye'
+import { Skeleton } from '@repo/ui/skeleton'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
@@ -11,7 +12,6 @@ import { BuildSecondaryFilters } from '@/app/(components)/filters/builds/seconda
 import { useOrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
 import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
 import { parseUrlFilters } from '@/app/(components)/filters/builds/utils'
-import { Skeleton } from '@/app/(components)/skeleton'
 import { Tooltip } from '@/app/(components)/tooltip'
 import { getCommunityBuilds } from '@/app/(features)/builds/actions/get-community-builds'
 import { useBuildListState } from '@/app/(utils)/builds/hooks/use-build-list-state'
