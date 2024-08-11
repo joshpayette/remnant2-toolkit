@@ -175,7 +175,7 @@ export function ItemSelectDialog({
                   {
                     name: 'Clear',
                     category: buildSlot,
-                    imagePath: '/remnant2/misc/cancel-icon.png',
+                    imagePath: '/misc/cancel-icon.png',
                     id: '',
                   } as Item
                 }

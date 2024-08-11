@@ -4,7 +4,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Bark Extract',
-    imagePath: '/remnant2/items/consumables/barkextract.png',
+    imagePath: '/items/consumables/barkextract.png',
     saveFileSlug: 'Consumable_BarkExtract_C',
     id: 'hqjxyn',
     dlc: 'base',
@@ -20,7 +20,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Bottled Shaedberry',
-    imagePath: '/remnant2/items/consumables/bottledshaedberry.png',
+    imagePath: '/items/consumables/bottledshaedberry.png',
     saveFileSlug: 'Consumable_BottledShaedberry_C',
     id: 'qj302c',
     dlc: 'base',
@@ -35,7 +35,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Chilled Steam',
-    imagePath: '/remnant2/items/consumables/chilledsteam.png',
+    imagePath: '/items/consumables/chilledsteam.png',
     saveFileSlug: 'Consumable_ChilledSteam_C',
     id: 'fhm256',
     dlc: 'base',
@@ -50,7 +50,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Dark Cider',
-    imagePath: '/remnant2/items/consumables/darkcider.png',
+    imagePath: '/items/consumables/darkcider.png',
     saveFileSlug: 'Consumable_DarkCider_C',
     id: '8p2sj3',
     dlc: 'base',
@@ -67,7 +67,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Dark Fluid',
-    imagePath: '/remnant2/items/consumables/darkfluid.png',
+    imagePath: '/items/consumables/darkfluid.png',
     saveFileSlug: 'Consumable_DarkFluid_C',
     id: 'byi9a5',
     dlc: 'base',
@@ -87,7 +87,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Egg Drink',
-    imagePath: '/remnant2/items/consumables/eggdrink.png',
+    imagePath: '/items/consumables/eggdrink.png',
     saveFileSlug: 'Consumable_EggDrink.Consumable_EggDrink_C',
     id: 'byi9d',
     dlc: 'dlc2',
@@ -103,7 +103,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Meat Shake',
-    imagePath: '/remnant2/items/consumables/meatshake.png',
+    imagePath: '/items/consumables/meatshake.png',
     saveFileSlug: 'Consumable_MeatShake_C',
     id: '4yzeco',
     dlc: 'base',
@@ -118,7 +118,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: "Mudtooth's Elixir",
-    imagePath: '/remnant2/items/consumables/mudtoothselixir.png',
+    imagePath: '/items/consumables/mudtoothselixir.png',
     saveFileSlug: 'Consumable_MudToothsElixir_C',
     tags: ['Consumable'],
     id: 'yduuj3',
@@ -133,7 +133,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: "Mudtooth's Stew",
-    imagePath: '/remnant2/items/consumables/mudtoothsstew.png',
+    imagePath: '/items/consumables/mudtoothsstew.png',
     saveFileSlug: 'Consumable_MudToothsStew_C',
     id: '5yrxf1',
     dlc: 'base',
@@ -149,7 +149,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: "Mudtooth's Tonic",
-    imagePath: '/remnant2/items/consumables/mudtoothstonic.png',
+    imagePath: '/items/consumables/mudtoothstonic.png',
     saveFileSlug: 'Consumable_MudToothsTonic_C',
     id: 'p0ru94',
     dlc: 'base',
@@ -164,7 +164,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Root Water',
-    imagePath: '/remnant2/items/consumables/rootwater.png',
+    imagePath: '/items/consumables/rootwater.png',
     saveFileSlug: 'Consumable_RootWater_C',
     id: '56vkqr',
     dlc: 'base',
@@ -179,7 +179,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Sacred Lakewater',
-    imagePath: '/remnant2/items/consumables/sacredlakewater.png',
+    imagePath: '/items/consumables/sacredlakewater.png',
     saveFileSlug: 'Consumable_SacredLakewater_C',
     id: 'dk9yg4',
     dlc: 'base',
@@ -194,7 +194,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Sanguine Vapor',
-    imagePath: '/remnant2/items/consumables/sanguinevapor.png',
+    imagePath: '/items/consumables/sanguinevapor.png',
     saveFileSlug: 'Consumable_SanguineVapor_C',
     id: 'kyulid',
     dlc: 'base',
@@ -212,7 +212,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Strong Drink',
-    imagePath: '/remnant2/items/consumables/strongdrink.png',
+    imagePath: '/items/consumables/strongdrink.png',
     saveFileSlug: 'Consumable_StrongDrink_C',
     id: 'to2dcw',
     dlc: 'base',
@@ -228,7 +228,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Tranquility Font',
-    imagePath: '/remnant2/items/consumables/tranquilityfont.png',
+    imagePath: '/items/consumables/tranquilityfont.png',
     saveFileSlug: 'Consumable_TranquilityFont_C',
     id: 'l7r9sm',
     dlc: 'base',
@@ -243,7 +243,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Verdant Tea',
-    imagePath: '/remnant2/items/consumables/verdanttea.png',
+    imagePath: '/items/consumables/verdanttea.png',
     saveFileSlug: 'Consumable_VerdantTea_C',
     id: 'qgare2',
     dlc: 'base',
@@ -258,7 +258,7 @@ export const concoctionItems: ConcoctionItem[] = [
   {
     category: 'concoction',
     name: 'Xenoplasm',
-    imagePath: '/remnant2/items/consumables/xenoplasm.png',
+    imagePath: '/items/consumables/xenoplasm.png',
     saveFileSlug: 'Consumable_Xenoplasm_C',
     id: '2jeq07',
     dlc: 'base',

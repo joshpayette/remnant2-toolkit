@@ -4,7 +4,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "A'Taerii Booster",
-    imagePath: '/remnant2/items/rings/ataeriibooster.png',
+    imagePath: '/items/rings/ataeriibooster.png',
     saveFileSlug: 'Ring_AtaeriiBooster_C',
     id: '27gn7b',
     dlc: 'base',
@@ -16,7 +16,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Acid Stone',
-    imagePath: '/remnant2/items/rings/acidstone.png',
+    imagePath: '/items/rings/acidstone.png',
     saveFileSlug: 'Ring_AcidStone_C',
     id: 'q3qca2',
     dlc: 'base',
@@ -29,7 +29,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Ahanae Crystal',
     saveFileSlug: 'Ring_PanMageSigil_C',
-    imagePath: '/remnant2/items/rings/ahanaecrystal.png',
+    imagePath: '/items/rings/ahanaecrystal.png',
     id: 'azy0pj',
     dlc: 'base',
     tags: ['All Damage', 'Status Effect', 'Hardcore Reward'],
@@ -41,7 +41,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Akari War Band',
-    imagePath: '/remnant2/items/rings/akariwarband.png',
+    imagePath: '/items/rings/akariwarband.png',
     saveFileSlug: 'Ring_AkariWarBand_C',
     id: '9siz0d',
     dlc: 'base',
@@ -53,7 +53,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Alchemy Stone',
-    imagePath: '/remnant2/items/rings/alchemystone.png',
+    imagePath: '/items/rings/alchemystone.png',
     saveFileSlug: 'Ring_AlchemyStone_C',
     id: 'dgh4g8',
     dlc: 'base',
@@ -65,7 +65,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Alumni Ring',
-    imagePath: '/remnant2/items/rings/alumniring.png',
+    imagePath: '/items/rings/alumniring.png',
     saveFileSlug: 'Ring_AlumniRing_C',
     id: 'll1vsx',
     dlc: 'base',
@@ -77,7 +77,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Amber Moonstone',
-    imagePath: '/remnant2/items/rings/ambermoonstone.png',
+    imagePath: '/items/rings/ambermoonstone.png',
     saveFileSlug: 'Ring_AmberMoonstone_C',
     id: 'pqez3b',
     dlc: 'base',
@@ -90,7 +90,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Anastasija's Inspiration",
-    imagePath: '/remnant2/items/rings/anastasijasinspiration.png',
+    imagePath: '/items/rings/anastasijasinspiration.png',
     saveFileSlug: 'Ring_AnastasijasInspiration_C',
     id: '7fmi47',
     dlc: 'base',
@@ -102,7 +102,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Archer's Crest",
-    imagePath: '/remnant2/items/rings/archerscrest.png',
+    imagePath: '/items/rings/archerscrest.png',
     saveFileSlug: 'Ring_ArchersCrest_C',
     id: '6bqghl',
     dlc: 'base',
@@ -118,7 +118,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Assassin's Seal",
-    imagePath: '/remnant2/items/rings/assassinsseal.png',
+    imagePath: '/items/rings/assassinsseal.png',
     saveFileSlug: 'Ring_AssassinsSeal_C',
     id: '8kyyav',
     dlc: 'base',
@@ -130,7 +130,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Atonement Fold',
-    imagePath: '/remnant2/items/rings/atonementfold.png',
+    imagePath: '/items/rings/atonementfold.png',
     saveFileSlug: 'Ring_AtonementFold_C',
     dlc: 'dlc1',
     id: 'ez01nk',
@@ -143,7 +143,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Band Band',
-    imagePath: '/remnant2/items/rings/bandband.png',
+    imagePath: '/items/rings/bandband.png',
     saveFileSlug: 'Ring_BandBand_C',
     id: 'mm6dj8',
     tags: ['Movement Speed', 'Health'],
@@ -159,7 +159,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Band of Accord',
-    imagePath: '/remnant2/items/rings/bandofaccord.png',
+    imagePath: '/items/rings/bandofaccord.png',
     saveFileSlug: 'Ring_BandOfAccord_C',
     id: 'id6lly',
     tags: ['Ammo Reserves'],
@@ -171,7 +171,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Band of the Fanatic',
-    imagePath: '/remnant2/items/rings/bandofthefanatic.png',
+    imagePath: '/items/rings/bandofthefanatic.png',
     saveFileSlug: 'Ring_BandOfTheFanatic_C',
     dlc: 'dlc1',
     id: 'gv12gw',
@@ -184,7 +184,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Berserker's Crest",
-    imagePath: '/remnant2/items/rings/berserkerscrest.png',
+    imagePath: '/items/rings/berserkerscrest.png',
     saveFileSlug: 'Ring_BerserkersCrest_C',
     id: 'pi2zf8',
     tags: ['Melee Charge Speed', 'Charged Melee', 'Stamina'],
@@ -201,7 +201,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Bisected Ring',
-    imagePath: '/remnant2/items/rings/bisectedring.png',
+    imagePath: '/items/rings/bisectedring.png',
     saveFileSlug: 'Ring_BisectedRing_C',
     id: '7usn4n',
     tags: ['Stamina'],
@@ -214,7 +214,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Bitter Memento',
-    imagePath: '/remnant2/items/rings/bittermemento.png',
+    imagePath: '/items/rings/bittermemento.png',
     saveFileSlug: 'Ring_BitterMemento_C',
     dlc: 'dlc1',
     id: 'eozlwb',
@@ -227,7 +227,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Black Cat Band',
-    imagePath: '/remnant2/items/rings/blackcatband.png',
+    imagePath: '/items/rings/blackcatband.png',
     saveFileSlug: 'Ring_BlackCatBand_C',
     id: 'ac27lx',
     tags: ['Movement Speed'],
@@ -239,7 +239,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Black Pawn Stamp',
-    imagePath: '/remnant2/items/rings/blackpawnstamp.png',
+    imagePath: '/items/rings/blackpawnstamp.png',
     saveFileSlug: 'Ring_BlackPawnStamp_C',
     id: '7kbu25',
     tags: ['Reduce Skill Cooldown'],
@@ -255,7 +255,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Black Spinel',
-    imagePath: '/remnant2/items/rings/blackspinel.png',
+    imagePath: '/items/rings/blackspinel.png',
     saveFileSlug: 'Ring_BlackSpinel.Ring_BlackSpinel_C',
     id: 'sq8ZUN',
     dlc: 'base',
@@ -267,7 +267,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Blackout Ring',
-    imagePath: '/remnant2/items/rings/blackoutring.png',
+    imagePath: '/items/rings/blackoutring.png',
     saveFileSlug: 'Ring_BlackoutRing_C',
     id: '6pzq37',
     tags: ['Reload Speed'],
@@ -284,7 +284,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Blasting Cap Ring',
-    imagePath: '/remnant2/items/rings/blastingcap.png',
+    imagePath: '/items/rings/blastingcap.png',
     saveFileSlug: 'Ring_BlastingCapRing_C',
     id: 'ep14lr',
     description: 'Increases Explosive damage by 15%.',
@@ -299,7 +299,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Blessed Ring',
-    imagePath: '/remnant2/items/rings/blessedring.png',
+    imagePath: '/items/rings/blessedring.png',
     saveFileSlug: 'Ring_BlessedRing_C',
     id: 'empffm',
     tags: ['Damage Reduction'],
@@ -311,7 +311,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: `Bloodless King's Vow`,
-    imagePath: '/remnant2/items/rings/bloodlesskingsvow.png',
+    imagePath: '/items/rings/bloodlesskingsvow.png',
     saveFileSlug: 'Ring_BloodlessKingsVow.Ring_BloodlessKingsVow_C',
     id: 'WHgN93',
     dlc: 'dlc2',
@@ -323,7 +323,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Blood Jewel',
-    imagePath: '/remnant2/items/rings/bloodjewel.png',
+    imagePath: '/items/rings/bloodjewel.png',
     saveFileSlug: 'Ring_BloodJewel_C',
     id: 'rw8rn0',
     tags: ['Charged Melee'],
@@ -336,7 +336,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Blood Tinged Ring',
-    imagePath: '/remnant2/items/rings/bloodtingedring.png',
+    imagePath: '/items/rings/bloodtingedring.png',
     saveFileSlug: 'Ring_BloodTingedRing_C',
     id: 'pj7i9a',
     tags: ['Heal'],
@@ -348,7 +348,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Booster Ring',
-    imagePath: '/remnant2/items/rings/boosterring.png',
+    imagePath: '/items/rings/boosterring.png',
     saveFileSlug: 'Ring_BoosterRing_C',
     id: 'sdkwq2',
     description: `Increases all Status Resistances by 25.`,
@@ -364,7 +364,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Braided Thorns',
-    imagePath: '/remnant2/items/rings/braidedthorns.png',
+    imagePath: '/items/rings/braidedthorns.png',
     saveFileSlug: 'Ring_BraidedThorns_C',
     id: 'zdkh54',
     tags: ['Critical Chance'],
@@ -376,7 +376,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Brawler's Pride",
-    imagePath: '/remnant2/items/rings/brawlerspride.png',
+    imagePath: '/items/rings/brawlerspride.png',
     saveFileSlug: 'Ring_BrawlersPride_C',
     id: '17ckov',
     tags: ['Melee Attack Speed'],
@@ -389,7 +389,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: `Bridge Warden's Crest`,
-    imagePath: '/remnant2/items/rings/bridgewardenscrest.png',
+    imagePath: '/items/rings/bridgewardenscrest.png',
     saveFileSlug: 'Ring_BridgeWardensCrest_C',
     dlc: 'dlc1',
     id: 't7sqw7',
@@ -401,7 +401,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Audacious',
-    imagePath: '/remnant2/items/rings/burdenoftheaudacious.png',
+    imagePath: '/items/rings/burdenoftheaudacious.png',
     saveFileSlug: 'Ring_BurdenOfTheAudacious_C',
     id: 'k45qer',
     tags: ['Heal', 'Perfect Dodge'],
@@ -413,7 +413,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Departed',
-    imagePath: '/remnant2/items/rings/burdenofthedeparted.png',
+    imagePath: '/items/rings/burdenofthedeparted.png',
     saveFileSlug: 'Ring_BurdenOfTheDeparted_C',
     dlc: 'dlc1',
     id: 'syutk7',
@@ -426,7 +426,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Destroyer',
-    imagePath: '/remnant2/items/rings/burdenofthedestroyer.png',
+    imagePath: '/items/rings/burdenofthedestroyer.png',
     saveFileSlug: 'Ring_BurdenOfTheDestroyer_C',
     id: 'dgb0s9',
     tags: ['All Damage', 'Range'],
@@ -439,7 +439,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Divine',
-    imagePath: '/remnant2/items/rings/burdenofthedivine.png',
+    imagePath: '/items/rings/burdenofthedivine.png',
     id: 'tvfpo7',
     saveFileSlug: 'Ring_BurdenOfTheDivine_C',
     description:
@@ -455,7 +455,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Follower',
-    imagePath: '/remnant2/items/rings/burdenofthefollower.png',
+    imagePath: '/items/rings/burdenofthefollower.png',
     saveFileSlug: 'Ring_BurdenOfTheFollower_C',
     id: 'b76cdv',
     tags: ['Fire Rate', 'Mod Power'],
@@ -472,7 +472,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Gambler',
-    imagePath: '/remnant2/items/rings/burdenofthegambler.png',
+    imagePath: '/items/rings/burdenofthegambler.png',
     saveFileSlug: 'Ring_BurdenOfTheGambler_C',
     id: 'ctv31c',
     tags: ['Weakspot Damage', 'Critical Chance'],
@@ -484,7 +484,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Mariner',
-    imagePath: '/remnant2/items/rings/burdenofthemariner.png',
+    imagePath: '/items/rings/burdenofthemariner.png',
     saveFileSlug: 'Ring_BurdenOfTheMariner_C',
     id: 'k89bxv',
     tags: ['Mod Power'],
@@ -500,7 +500,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Mason',
-    imagePath: '/remnant2/items/rings/burdenofthemason.png',
+    imagePath: '/items/rings/burdenofthemason.png',
     saveFileSlug: 'Ring_BurdenOfTheMason.Ring_BurdenOfTheMason_C',
     id: 'k89bxz',
     dlc: 'dlc2',
@@ -512,7 +512,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Mesmer',
-    imagePath: '/remnant2/items/rings/burdenofthemesmer.png',
+    imagePath: '/items/rings/burdenofthemesmer.png',
     saveFileSlug: 'Ring_BurdenOfTheMesmer.Ring_BurdenOfTheMesmer_C',
     id: 'fGFm6B',
     dlc: 'dlc2',
@@ -526,7 +526,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Rebel',
-    imagePath: '/remnant2/items/rings/burdenoftherebel.png',
+    imagePath: '/items/rings/burdenoftherebel.png',
     saveFileSlug: 'Ring_BurdenOfTheRebel_C',
     id: 'z169p0',
     tags: ['Reduce Skill Cooldown', 'Relic Use Speed'],
@@ -539,7 +539,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Sciolist',
-    imagePath: '/remnant2/items/rings/burdenofthesciolist.png',
+    imagePath: '/items/rings/burdenofthesciolist.png',
     saveFileSlug: 'Ring_BurdenOfTheSciolist_C',
     dlc: 'dlc1',
     id: '7xb5zr',
@@ -552,7 +552,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Stargazer',
-    imagePath: '/remnant2/items/rings/burdenofthestargazer.png',
+    imagePath: '/items/rings/burdenofthestargazer.png',
     saveFileSlug: 'Ring_BurdenOfTheStargazer_C',
     id: 'kj85yo',
     tags: ['Reduce Skill Cooldown'],
@@ -572,7 +572,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Burden of the Warlock',
-    imagePath: '/remnant2/items/rings/burdenofthewarlock.png',
+    imagePath: '/items/rings/burdenofthewarlock.png',
     saveFileSlug: 'Ring_BurdenOfTheWarlock_C',
     id: 'mdu1f6',
     tags: ['Mod Power', 'Grey Health'],
@@ -589,7 +589,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Captain's Insignia",
-    imagePath: '/remnant2/items/rings/captaininsignia.png',
+    imagePath: '/items/rings/captaininsignia.png',
     saveFileSlug: 'Ring_CaptainsInsignia_C',
     id: 'cu0w65',
     tags: ['Relic Use Speed'],
@@ -601,7 +601,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Cataloger's Jewel",
-    imagePath: '/remnant2/items/rings/catalogerjewel.png',
+    imagePath: '/items/rings/catalogerjewel.png',
     saveFileSlug: 'Ring_CatalogersJewel_C',
     id: 'e6da79',
     tags: ['Mod Power'],
@@ -616,7 +616,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Celerity Stone',
-    imagePath: '/remnant2/items/rings/celeritystone.png',
+    imagePath: '/items/rings/celeritystone.png',
     saveFileSlug: 'Ring_CelerityStone_C',
     id: 'kt5ag1',
     tags: ['Relic Use Speed'],
@@ -628,7 +628,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Closed Loop',
-    imagePath: '/remnant2/items/rings/closedloop.png',
+    imagePath: '/items/rings/closedloop.png',
     saveFileSlug: 'Ring_ClosedLoop.Ring_ClosedLoop_C',
     dlc: 'base',
     id: 'Sm4o3R',
@@ -640,7 +640,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Compulsion Loop',
-    imagePath: '/remnant2/items/rings/compulsionloop.png',
+    imagePath: '/items/rings/compulsionloop.png',
     saveFileSlug: 'Ring_CompulsionLoop_C',
     id: '6p71zo',
     tags: ['Fire Rate', 'Melee Attack Speed'],
@@ -652,7 +652,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Conjurer's Circle",
-    imagePath: '/remnant2/items/rings/conjurerscircle.png',
+    imagePath: '/items/rings/conjurerscircle.png',
     saveFileSlug: 'Ring_ConjurersCircle.Ring_ConjurersCircle_C',
     id: 'k89bxd',
     dlc: 'dlc2',
@@ -668,7 +668,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Conservation Seal',
-    imagePath: '/remnant2/items/rings/conservationseal.png',
+    imagePath: '/items/rings/conservationseal.png',
     saveFileSlug: 'Ring_ConservationSeal_C',
     id: 'fa7066',
     tags: ['Healing Effectiveness'],
@@ -681,7 +681,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Constant Variable Ring',
-    imagePath: '/remnant2/items/rings/constantvariable.png',
+    imagePath: '/items/rings/constantvariable.png',
     saveFileSlug: 'Ring_ConstantVariableRing_C',
     id: 'dyr6ej',
     tags: ['Ranged Damage', 'Heat Generation'],
@@ -697,7 +697,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Crimson Dreamstone',
-    imagePath: '/remnant2/items/rings/crimsondreamstone.png',
+    imagePath: '/items/rings/crimsondreamstone.png',
     saveFileSlug: 'Ring_CrimsonDreamstone_C',
     dlc: 'dlc1',
     id: 's916uj',
@@ -714,7 +714,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Dark Sea Armada Crest',
-    imagePath: '/remnant2/items/rings/darkseaarmadacrest.png',
+    imagePath: '/items/rings/darkseaarmadacrest.png',
     saveFileSlug: 'Ring_DarkSeaArmadaCrest.Ring_DarkSeaArmadaCrest_C',
     id: 'Zj9qF5',
     dlc: 'dlc2',
@@ -726,7 +726,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Dead King's Memento",
-    imagePath: '/remnant2/items/rings/deadkingsmemento.png',
+    imagePath: '/items/rings/deadkingsmemento.png',
     saveFileSlug: 'Ring_DeadKingsMemento_C',
     id: 'vbxfcp',
     tags: ['Health'],
@@ -739,7 +739,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Deceiver's Band",
-    imagePath: '/remnant2/items/rings/deceiversband.png',
+    imagePath: '/items/rings/deceiversband.png',
     saveFileSlug: 'Ring_DeceiversBand_C',
     id: '1dmpt8',
     tags: ['Movement Speed'],
@@ -752,7 +752,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Deep Pocket Ring',
-    imagePath: '/remnant2/items/rings/deeppocketring.png',
+    imagePath: '/items/rings/deeppocketring.png',
     saveFileSlug: 'Ring_DeepPocketRing_C',
     id: '9bnfhm',
     tags: ['Ammo Reserves'],
@@ -764,7 +764,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Defensive Action Loop',
-    imagePath: '/remnant2/items/rings/defensiveactionloop.png',
+    imagePath: '/items/rings/defensiveactionloop.png',
     saveFileSlug: 'Ring_DefensiveActionLoop_C',
     id: '3krgp4',
     tags: ['Damage Reduction'],
@@ -776,7 +776,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Dense Silicon Ring',
-    imagePath: '/remnant2/items/rings/densesilicon.png',
+    imagePath: '/items/rings/densesilicon.png',
     saveFileSlug: 'Ring_DenseSiliconRing_C',
     id: 'b91hx9',
     tags: ['Mod Power'],
@@ -788,7 +788,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Devoured Loop',
-    imagePath: '/remnant2/items/rings/devouredloop.png',
+    imagePath: '/items/rings/devouredloop.png',
     saveFileSlug: 'Ring_DevouringLoop_C',
     id: 'l8a2e1',
     tags: ['Critical Hit', 'Reduce Skill Cooldown'],
@@ -800,7 +800,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Digested Hog Lure',
-    imagePath: '/remnant2/items/rings/digestedhoglure.png',
+    imagePath: '/items/rings/digestedhoglure.png',
     saveFileSlug: 'Ring_DigestedHogLure_C',
     dlc: 'dlc1',
     id: 'v4yzc6',
@@ -812,7 +812,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Drakestone Pearl',
-    imagePath: '/remnant2/items/rings/drakestonepearl.png',
+    imagePath: '/items/rings/drakestonepearl.png',
     saveFileSlug: 'Ring_DrakestonePearl_C',
     id: 'r1dqm9',
     tags: ['Stamina', 'Melee Damage'],
@@ -827,7 +827,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Dran Memento',
-    imagePath: '/remnant2/items/rings/dranmemento.png',
+    imagePath: '/items/rings/dranmemento.png',
     saveFileSlug: 'Ring_DranMemento_C',
     id: 'fojjag',
     tags: ['Stamina', 'Encumbrance'],
@@ -842,7 +842,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Dran Scavenger Ring',
     saveFileSlug: 'Ring_DranScavengerSigil_C',
-    imagePath: '/remnant2/items/rings/dranscavengersigil.png',
+    imagePath: '/items/rings/dranscavengersigil.png',
     id: '5pwtei',
     tags: ['Heal', 'All Damage', 'Hardcore Reward'],
     description:
@@ -854,7 +854,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Dread Font',
-    imagePath: '/remnant2/items/rings/dreadfont.png',
+    imagePath: '/items/rings/dreadfont.png',
     saveFileSlug: 'Ring_DreadFont_C',
     id: '5k6zdd',
     tags: ['Grey Health', 'Heal'],
@@ -866,7 +866,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Dried Clay Ring',
-    imagePath: '/remnant2/items/rings/driedclayring.png',
+    imagePath: '/items/rings/driedclayring.png',
     saveFileSlug: 'Ring_DriedClayRing_C',
     id: 'ez6z8b',
     tags: ['Damage Reduction', 'All Damage'],
@@ -879,7 +879,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Drzyr Sniper Sigil',
-    imagePath: '/remnant2/items/rings/drzyrsnipersigil.png',
+    imagePath: '/items/rings/drzyrsnipersigil.png',
     saveFileSlug: 'Ring_DrzyrSniperSigil_C',
     id: 'gtli7e',
     tags: ['Hardcore Reward'],
@@ -893,7 +893,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Dull Steel Ring',
     saveFileSlug: 'Ring_BrightSteelRing_C',
-    imagePath: '/remnant2/items/rings/dullsteelring.png',
+    imagePath: '/items/rings/dullsteelring.png',
     id: 's76ytc',
     tags: ['Encumbrance'],
     description: 'Improves Dodges by 1 Weight Class.',
@@ -905,7 +905,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Dying Ember',
-    imagePath: '/remnant2/items/rings/dyingember.png',
+    imagePath: '/items/rings/dyingember.png',
     saveFileSlug: 'Ring_DyingEmber_C',
     id: 'mv9b18',
     tags: ['Melee Damage', 'Lifesteal'],
@@ -917,7 +917,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Elevated Ring',
-    imagePath: '/remnant2/items/rings/elevatedring.png',
+    imagePath: '/items/rings/elevatedring.png',
     saveFileSlug: 'Ring_ElevatedRing_C',
     dlc: 'dlc1',
     id: '5dipaq',
@@ -933,7 +933,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: "Embrace of Sha'Hala",
     saveFileSlug: 'Ring_DowngradedRing_C',
-    imagePath: '/remnant2/items/rings/embraceofshahala.png',
+    imagePath: '/items/rings/embraceofshahala.png',
     id: 'h2g5z3',
     tags: ['Damage Reduction', 'Status Effect'],
     description:
@@ -950,7 +950,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Encrypted Ring',
     saveFileSlug: 'Ring_EncryptedLoop_C',
-    imagePath: '/remnant2/items/rings/encryptedring.png',
+    imagePath: '/items/rings/encryptedring.png',
     id: 'g1u6gi',
     tags: ['Heal'],
     description:
@@ -962,7 +962,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Endaira's Endless Loop",
-    imagePath: '/remnant2/items/rings/endairasendlessloop.png',
+    imagePath: '/items/rings/endairasendlessloop.png',
     saveFileSlug: 'Ring_EndairasEndlessLoop_C',
     id: 'bx0ulq',
     tags: ['Heal'],
@@ -974,7 +974,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Excess Coil',
-    imagePath: '/remnant2/items/rings/excesscoil.png',
+    imagePath: '/items/rings/excesscoil.png',
     saveFileSlug: 'Ring_ExcessCoil_C',
     id: 'l5gfd1',
     description: `Activating a Skill grants a SHIELD for 25% of Max Health. Cannot stack with itself. Lasts 15s.`,
@@ -989,7 +989,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Fae Bruiser Ring',
-    imagePath: '/remnant2/items/rings/faebruiserring.png',
+    imagePath: '/items/rings/faebruiserring.png',
     saveFileSlug: 'Ring_FaeBruiserRing_C',
     id: 't2ct6r',
     tags: ['Melee Damage', 'Damage Reduction'],
@@ -1002,7 +1002,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Fae Hunter Ring',
-    imagePath: '/remnant2/items/rings/faehunterring.png',
+    imagePath: '/items/rings/faehunterring.png',
     saveFileSlug: 'Ring_FaeHunterRing_C',
     id: 'i4wkw2',
     tags: ['Range'],
@@ -1014,7 +1014,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Fae Protector Signet',
-    imagePath: '/remnant2/items/rings/faeprotectorsignet.png',
+    imagePath: '/items/rings/faeprotectorsignet.png',
     saveFileSlug: 'Ring_FaeProtectorSignet_C',
     id: 'f2j9er',
     tags: ['Health', 'Stamina', 'Encumbrance'],
@@ -1029,7 +1029,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Fae Shaman Ring',
-    imagePath: '/remnant2/items/rings/faeshamanring.png',
+    imagePath: '/items/rings/faeshamanring.png',
     saveFileSlug: 'Ring_FaeShamanRing_C',
     id: '7okl48',
     tags: ['Heal', 'Relic Use Speed'],
@@ -1042,7 +1042,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Fae Warrior Ring',
-    imagePath: '/remnant2/items/rings/faewarriorring.png',
+    imagePath: '/items/rings/faewarriorring.png',
     saveFileSlug: 'Ring_FaeWarriorRing_C',
     id: '6ypnyx',
     tags: ['Melee Damage'],
@@ -1054,7 +1054,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Faelin's Sigil",
-    imagePath: '/remnant2/items/rings/faelinsigil.png',
+    imagePath: '/items/rings/faelinsigil.png',
     saveFileSlug: 'Ring_FaelinsSigil_C',
     id: 'drjm15',
     tags: ['Melee Damage', 'Mod Power'],
@@ -1069,7 +1069,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Faerin's Sigil",
-    imagePath: '/remnant2/items/rings/faerinsigil.png',
+    imagePath: '/items/rings/faerinsigil.png',
     saveFileSlug: 'Ring_FaerinsSigil_C',
     id: '02wal9',
     tags: ['Critical Hit', 'Weakspot Damage', 'Mod Power'],
@@ -1085,7 +1085,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Feastmaster's Signet",
-    imagePath: '/remnant2/items/rings/feastmastersignet.png',
+    imagePath: '/items/rings/feastmastersignet.png',
     saveFileSlug: 'Ring_FeastmastersSignet_C',
     id: '5q53ke',
     tags: ['Concoction'],
@@ -1097,7 +1097,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Feathery Binding',
-    imagePath: '/remnant2/items/rings/featherybinding.png',
+    imagePath: '/items/rings/featherybinding.png',
     saveFileSlug: 'Ring_FeatheryBinding.Ring_FeatheryBinding_C',
     id: 'zXq2H7',
     dlc: 'dlc2',
@@ -1109,7 +1109,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Feedback Loop',
-    imagePath: '/remnant2/items/rings/feedbackloop.png',
+    imagePath: '/items/rings/feedbackloop.png',
     saveFileSlug: 'Ring_FeedbackLoop_C',
     id: 'j13xrf',
     tags: ['Perfect Dodge'],
@@ -1123,7 +1123,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Fire Stone',
-    imagePath: '/remnant2/items/rings/firestone.png',
+    imagePath: '/items/rings/firestone.png',
     saveFileSlug: 'Ring_FireStone_C',
     id: 'go5hz8',
     description: `Increases FIRE damage by 15% and FIRE Resistance by 20.`,
@@ -1135,7 +1135,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Floodlit Diamond',
-    imagePath: '/remnant2/items/rings/floodlitdiamond.png',
+    imagePath: '/items/rings/floodlitdiamond.png',
     saveFileSlug: 'Ring_FloodlitDiamond.Ring_FloodlitDiamond_C',
     id: 'z9YJih',
     dlc: 'dlc2',
@@ -1147,7 +1147,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Flyweight's Sting",
-    imagePath: '/remnant2/items/rings/flyweightsting.png',
+    imagePath: '/items/rings/flyweightsting.png',
     saveFileSlug: 'Ring_FlyweightsSting_C',
     id: '1qg7a8',
     tags: ['Melee Damage', 'Encumbrance'],
@@ -1160,7 +1160,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Focusing Shard',
     saveFileSlug: 'Ring_FocusedJewel_C',
-    imagePath: '/remnant2/items/rings/focusedjewel.png',
+    imagePath: '/items/rings/focusedjewel.png',
     id: 'o7grsg',
     tags: ['Recoil', 'Spread'],
     description: 'Aiming Down Sights gradually reduces Spread by 70% over 4s.',
@@ -1175,7 +1175,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Frivolous Band',
-    imagePath: '/remnant2/items/rings/frivolousband.png',
+    imagePath: '/items/rings/frivolousband.png',
     saveFileSlug: 'Ring_FrivolousBand_C',
     id: '4j9wo9',
     tags: ['Perfect Dodge', 'Fire Rate', 'Melee Speed'],
@@ -1187,7 +1187,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Galvanized Resupply Band',
-    imagePath: '/remnant2/items/rings/galvanizedresupplyband.png',
+    imagePath: '/items/rings/galvanizedresupplyband.png',
     saveFileSlug: 'Ring_GalvanizedResupplyBand_C',
     id: 'y23znz',
     tags: ['Ammo Reserves'],
@@ -1199,7 +1199,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: `Game Master's Pride`,
-    imagePath: '/remnant2/items/rings/gamemasterspride.png',
+    imagePath: '/items/rings/gamemasterspride.png',
     saveFileSlug: 'Ring_GameMastersPride_C',
     id: '4dstmt',
     tags: ['Heal', 'Damage Reduction'],
@@ -1211,7 +1211,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Generating Band',
-    imagePath: '/remnant2/items/rings/generatingband.png',
+    imagePath: '/items/rings/generatingband.png',
     saveFileSlug: 'Ring_GeneratingBand_C',
     id: 'fg8su2',
     tags: ['Heal'],
@@ -1227,7 +1227,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Grounding Stone',
-    imagePath: '/remnant2/items/rings/groundingstone.png',
+    imagePath: '/items/rings/groundingstone.png',
     saveFileSlug: 'Ring_GroundingStone_C',
     id: 'o7vaf6',
     description: `Increases SHOCK damage by 15% and SHOCK Resistance by 20.`,
@@ -1239,7 +1239,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: `Guardian's Ring`,
-    imagePath: '/remnant2/items/rings/guardiansring.png',
+    imagePath: '/items/rings/guardiansring.png',
     saveFileSlug: 'Ring_GuardiansRing_C',
     id: 'yvo3jd',
     tags: ['Damage Reduction'],
@@ -1253,7 +1253,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Gul Signet',
-    imagePath: '/remnant2/items/rings/gulsignet.png',
+    imagePath: '/items/rings/gulsignet.png',
     saveFileSlug: 'Ring_GulSignet.Ring_GulSignet_C',
     dlc: 'base',
     id: 'xG9CQJ',
@@ -1265,7 +1265,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: `Gunslinger's Ring`,
-    imagePath: '/remnant2/items/rings/gunslingersring.png',
+    imagePath: '/items/rings/gunslingersring.png',
     saveFileSlug: 'Ring_GunslingersRing_C',
     id: '976r2x',
     tags: ['Reload Speed', 'Firearm Swap Speed'],
@@ -1277,7 +1277,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Hardcore Metal Band',
-    imagePath: '/remnant2/items/rings/hardcoremetalband.png',
+    imagePath: '/items/rings/hardcoremetalband.png',
     saveFileSlug: 'Ring_HardcoreMetalBand_C',
     id: 'f2ooga',
     tags: ['Damage Reduction'],
@@ -1293,7 +1293,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Hardened Coil',
-    imagePath: '/remnant2/items/rings/hardenedcoil.png',
+    imagePath: '/items/rings/hardenedcoil.png',
     saveFileSlug: 'Ring_HardenedCoil_C',
     id: 'pvwud6',
     tags: ['Damage Reduction'],
@@ -1310,7 +1310,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: `Haymaker's Ring`,
-    imagePath: '/remnant2/items/rings/haymakersring.png',
+    imagePath: '/items/rings/haymakersring.png',
     saveFileSlug: 'Ring_HaymakersRing_C',
     id: '8azdr4',
     tags: ['Melee Damage', 'Encumbrance'],
@@ -1323,7 +1323,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Heart of the Wolf',
-    imagePath: '/remnant2/items/rings/heartofthewolf.png',
+    imagePath: '/items/rings/heartofthewolf.png',
     saveFileSlug: 'Ring_HeartOfTheWolf_C',
     id: 'x74y2q',
     tags: ['Stamina', 'Movement Speed'],
@@ -1336,7 +1336,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Hex Ward',
-    imagePath: '/remnant2/items/rings/hexward.png',
+    imagePath: '/items/rings/hexward.png',
     saveFileSlug: 'Ring_HexWard_C',
     id: 'y45ad6',
     description: 'Prevents CURSE.',
@@ -1347,7 +1347,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Jewel of the Beholden',
-    imagePath: '/remnant2/items/rings/jewelofthebeholden.png',
+    imagePath: '/items/rings/jewelofthebeholden.png',
     saveFileSlug: 'Ring_JewelOfTheBeholden_C',
     dlc: 'dlc1',
     id: 'sosywj',
@@ -1359,7 +1359,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Kinetic Cycle Stone',
-    imagePath: '/remnant2/items/rings/kineticcyclestone.png',
+    imagePath: '/items/rings/kineticcyclestone.png',
     saveFileSlug: 'Ring_KineticCycleStone_C',
     id: 'kpxowa',
     tags: ['Mod Cast Speed', 'Skill Cast Speed'],
@@ -1371,7 +1371,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Kolket Eyelet',
-    imagePath: '/remnant2/items/rings/kolketeyelet.png',
+    imagePath: '/items/rings/kolketeyelet.png',
     saveFileSlug: 'Ring_KolketEyelet.Ring_KolketEyelet_C',
     id: 'dp4w2B',
     dlc: 'base',
@@ -1383,7 +1383,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Leaking Gemstone',
-    imagePath: '/remnant2/items/rings/leakinggemstone.png',
+    imagePath: '/items/rings/leakinggemstone.png',
     saveFileSlug: 'Ring_LeakingGemstone.Ring_LeakingGemstone_C',
     id: 't5dv6X',
     dlc: 'base',
@@ -1395,7 +1395,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Lighthouse Keeper's Ring",
-    imagePath: '/remnant2/items/rings/lighthousekeepersring.png',
+    imagePath: '/items/rings/lighthousekeepersring.png',
     saveFileSlug: 'Ring_LighthouseKeepersRing_C',
     dlc: 'dlc1',
     id: 't8u4k1',
@@ -1407,7 +1407,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Lithic Signet',
-    imagePath: '/remnant2/items/rings/lithicsignet.png',
+    imagePath: '/items/rings/lithicsignet.png',
     saveFileSlug: 'Ring_LithicSignet_C',
     id: 'hs5tok',
     tags: ['Damage Reduction'],
@@ -1423,7 +1423,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Lodestone Ring',
-    imagePath: '/remnant2/items/rings/lodestonering.png',
+    imagePath: '/items/rings/lodestonering.png',
     saveFileSlug: 'Ring_LodestoneRing_C',
     id: 'sye1ay',
     tags: ['All Damage'],
@@ -1436,7 +1436,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Low Yield Recovery Ring',
-    imagePath: '/remnant2/items/rings/lowyieldrecovery.png',
+    imagePath: '/items/rings/lowyieldrecovery.png',
     saveFileSlug: 'Ring_LowYieldRecoveryRing_C',
     id: 'l2dwy4',
     tags: ['Heal'],
@@ -1452,7 +1452,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Mark of the Destroyer',
-    imagePath: '/remnant2/items/rings/markofthedestroyer.png',
+    imagePath: '/items/rings/markofthedestroyer.png',
     saveFileSlug: 'Ring_MarkOfTheDestroyer.Ring_MarkOfTheDestroyer_C',
     id: 'E7fQdZ',
     dlc: 'dlc2',
@@ -1470,7 +1470,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: `Matriarch's Ring`,
-    imagePath: '/remnant2/items/rings/matriarchsring.png',
+    imagePath: '/items/rings/matriarchsring.png',
     saveFileSlug: 'Ring_MatriarchsRing.Ring_MatriarchsRing_C',
     id: 'R3fM4y',
     dlc: 'base',
@@ -1483,7 +1483,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Mechanic's Cog",
-    imagePath: '/remnant2/items/rings/mechaniccog.png',
+    imagePath: '/items/rings/mechaniccog.png',
     saveFileSlug: 'Ring_MechanicsCog_C',
     id: 'ngue5b',
     tags: ['Movement Speed', 'Damage Reduction'],
@@ -1496,7 +1496,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Metal Driver',
-    imagePath: '/remnant2/items/rings/metaldriver.png',
+    imagePath: '/items/rings/metaldriver.png',
     saveFileSlug: 'Ring_MetalDriver_C',
     id: 'o7byap',
     tags: ['Reload Speed'],
@@ -1508,7 +1508,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Meteorite Shard Ring',
-    imagePath: '/remnant2/items/rings/meteoriteshardring.png',
+    imagePath: '/items/rings/meteoriteshardring.png',
     saveFileSlug: 'Ring_MeteoriteShardRing_C',
     id: 'ayje99',
     tags: ['Encumbrance'],
@@ -1525,7 +1525,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Microcompressor',
-    imagePath: '/remnant2/items/rings/microcompressor.png',
+    imagePath: '/items/rings/microcompressor.png',
     saveFileSlug: 'Ring_Microcompressor_C',
     id: 'rtfwr5',
     tags: ['Heat Generation'],
@@ -1542,7 +1542,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Momentum Driver',
-    imagePath: '/remnant2/items/rings/momentumdriver.png',
+    imagePath: '/items/rings/momentumdriver.png',
     saveFileSlug: 'Ring_MomentumDriver_C',
     id: 'la9qe1',
     tags: ['Movement Speed', 'Stagger'],
@@ -1563,7 +1563,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Offering Stone',
-    imagePath: '/remnant2/items/rings/offeringstone.png',
+    imagePath: '/items/rings/offeringstone.png',
     saveFileSlug: 'Ring_OfferingStone_C',
     id: 'p71mik',
     tags: ['Ranged Damage', 'All Damage'],
@@ -1575,7 +1575,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Outcast Ring',
-    imagePath: '/remnant2/items/rings/outcastring.png',
+    imagePath: '/items/rings/outcastring.png',
     saveFileSlug: 'Ring_OutcastRing_C',
     id: 'b195vq',
     tags: ['Reload Speed'],
@@ -1587,7 +1587,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Painless Obsidian',
-    imagePath: '/remnant2/items/rings/painlessobsidian.png',
+    imagePath: '/items/rings/painlessobsidian.png',
     saveFileSlug: 'Ring_PainlessObsidian_C',
     id: '6y14c4',
     tags: ['Grey Health', 'Damage Reduction'],
@@ -1600,7 +1600,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Pan War Band',
-    imagePath: '/remnant2/items/rings/panwarband.png',
+    imagePath: '/items/rings/panwarband.png',
     saveFileSlug: 'Ring_PanWarBand.Ring_PanWarBand_C',
     id: 'eBxG7w',
     dlc: 'dlc2',
@@ -1616,7 +1616,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Point Focus Ring',
-    imagePath: '/remnant2/items/rings/pointfocusring.png',
+    imagePath: '/items/rings/pointfocusring.png',
     saveFileSlug: 'Ring_PointFocusRing_C',
     id: 'gg6srx',
     tags: ['Recoil', 'Spread'],
@@ -1628,7 +1628,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Power Complex',
-    imagePath: '/remnant2/items/rings/powercomplex.png',
+    imagePath: '/items/rings/powercomplex.png',
     saveFileSlug: 'Ring_PowerComplex_C',
     id: 'oavdxw',
     tags: ['All Damage'],
@@ -1641,7 +1641,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Power Saver',
-    imagePath: '/remnant2/items/rings/powersaver.png',
+    imagePath: '/items/rings/powersaver.png',
     saveFileSlug: 'Ring_PowerSaver_C',
     id: '7i0yzu',
     description: `At Max Health, gain a 35% chance to not use a Relic charge.`,
@@ -1652,7 +1652,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Probability Cord',
-    imagePath: '/remnant2/items/rings/probabilitycord.png',
+    imagePath: '/items/rings/probabilitycord.png',
     saveFileSlug: 'Ring_ProbabilityCord_C',
     id: '0k8d0g',
     tags: ['Critical Hit'],
@@ -1664,7 +1664,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Propulsion Loop',
-    imagePath: '/remnant2/items/rings/propulsionloop.png',
+    imagePath: '/items/rings/propulsionloop.png',
     saveFileSlug: 'Ring_PropulsionLoop_C',
     id: 'uydz9a',
     tags: ['Movement Speed', 'Relic Use Speed'],
@@ -1680,7 +1680,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Provisioner Ring',
-    imagePath: '/remnant2/items/rings/provisionerring.png',
+    imagePath: '/items/rings/provisionerring.png',
     saveFileSlug: 'Ring_ProvisionerRing_C',
     id: '8i7o4p',
     tags: ['Reload Speed', 'Hardcore Reward'],
@@ -1692,7 +1692,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Rally Band',
-    imagePath: '/remnant2/items/rings/rallyband.png',
+    imagePath: '/items/rings/rallyband.png',
     saveFileSlug: 'Ring_RallyBand.Ring_RallyBand_C',
     id: '7XdP4g',
     dlc: 'dlc2',
@@ -1704,7 +1704,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Ravager's Bargain",
-    imagePath: '/remnant2/items/rings/ravagersbargain.png',
+    imagePath: '/items/rings/ravagersbargain.png',
     saveFileSlug: 'Ring_RavagersBargain.Ring_RavagersBargain_C',
     id: 'kqddup',
     dlc: 'dlc2',
@@ -1716,7 +1716,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Reaping Stone',
-    imagePath: '/remnant2/items/rings/reapingstone.png',
+    imagePath: '/items/rings/reapingstone.png',
     saveFileSlug: 'Ring_ReapingStone_C',
     id: 'kqdoup',
     tags: ['Status Effect', 'Lifesteal'],
@@ -1728,7 +1728,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Red Ring of Death',
-    imagePath: '/remnant2/items/rings/redringofdeath.png',
+    imagePath: '/items/rings/redringofdeath.png',
     saveFileSlug: 'Ring_RedRingOfDeath_C',
     id: '9ng83z',
     tags: ['Status Effect'],
@@ -1741,7 +1741,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Rerouting Cable',
-    imagePath: '/remnant2/items/rings/reroutingcable.png',
+    imagePath: '/items/rings/reroutingcable.png',
     saveFileSlug: 'Ring_ReroutingCable_C',
     id: '48r4bl',
     description: `Gain 5% of Max Health as a SHIELD for 5s after spending 20 Stamina. Accumulation resets after 5s of inaction. Max 50% SHIELD.`,
@@ -1756,7 +1756,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Reserve Boosting Gem',
-    imagePath: '/remnant2/items/rings/reserveboostinggem.png',
+    imagePath: '/items/rings/reserveboostinggem.png',
     saveFileSlug: 'Ring_ReserveBoostingGem_C',
     id: 'ucm4yv',
     tags: ['Heal'],
@@ -1768,7 +1768,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Restriction Cord',
-    imagePath: '/remnant2/items/rings/restrictioncord.png',
+    imagePath: '/items/rings/restrictioncord.png',
     saveFileSlug: 'Ring_RestrictionCord_C',
     id: 'eznhcv',
     tags: ['Damage Reduction', 'Health'],
@@ -1781,7 +1781,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Crisis',
-    imagePath: '/remnant2/items/rings/ringofcrisis.png',
+    imagePath: '/items/rings/ringofcrisis.png',
     saveFileSlug: 'Ring_RingOfCrisis_C',
     id: '378qz0',
     tags: ['Health'],
@@ -1798,7 +1798,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Deflection',
-    imagePath: '/remnant2/items/rings/ringofdeflection.png',
+    imagePath: '/items/rings/ringofdeflection.png',
     saveFileSlug: 'Ring_RingOfDeflection_C',
     id: 'ie648z',
     tags: ['Grey Health'],
@@ -1815,7 +1815,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Diversion',
-    imagePath: '/remnant2/items/rings/ringofdiversion.png',
+    imagePath: '/items/rings/ringofdiversion.png',
     saveFileSlug: 'Ring_RingOfDiversion_C',
     id: 'ubqgie',
     description: `Increases invulnerability window while evading and sliding.`,
@@ -1826,7 +1826,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Flawed Beauty',
-    imagePath: '/remnant2/items/rings/flawedbeauty.png',
+    imagePath: '/items/rings/flawedbeauty.png',
     saveFileSlug: 'Ring_RingOfFlawedBeauty_C',
     id: 'lx6all',
     tags: ['Weakspot Damage', 'Ranged Damage'],
@@ -1839,7 +1839,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Grace',
-    imagePath: '/remnant2/items/rings/ringofgrace.png',
+    imagePath: '/items/rings/ringofgrace.png',
     saveFileSlug: 'Ring_RingOfGrace_C',
     id: 'ne83ro',
     tags: ['Heal'],
@@ -1851,7 +1851,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Infinite Damage',
-    imagePath: '/remnant2/items/rings/ringofinfinitedamage.png',
+    imagePath: '/items/rings/ringofinfinitedamage.png',
     saveFileSlug: 'Ring_RingOfInfiniteDamage_C',
     dlc: 'dlc1',
     id: '0yfahk',
@@ -1863,7 +1863,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Omens',
-    imagePath: '/remnant2/items/rings/ringofomens.png',
+    imagePath: '/items/rings/ringofomens.png',
     saveFileSlug: 'Ring_RingOfOmens_C',
     id: '1gnt2c',
     tags: ['Grey Health', 'Stamina'],
@@ -1876,7 +1876,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring Of Ordnance',
-    imagePath: '/remnant2/items/rings/ringofordnance.png',
+    imagePath: '/items/rings/ringofordnance.png',
     saveFileSlug: 'Ring_RingOfOrdnance.Ring_RingOfOrdnance_C',
     id: 'RDi2ad',
     dlc: 'base',
@@ -1888,7 +1888,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Restocking',
-    imagePath: '/remnant2/items/rings/ringofrestocking.png',
+    imagePath: '/items/rings/ringofrestocking.png',
     saveFileSlug: 'Ring_RingOfRestocking_C',
     id: '3aryrr',
     tags: ['Reload Speed', 'Critical Hit', 'Weakspot Damage'],
@@ -1901,7 +1901,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Retribution',
-    imagePath: '/remnant2/items/rings/ringofretribution.png',
+    imagePath: '/items/rings/ringofretribution.png',
     saveFileSlug: 'Ring_RingOfRetribution_C',
     id: '8ejbuu',
     tags: ['Reload Speed', 'All Damage'],
@@ -1914,7 +1914,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Ring of Spirits',
     dlc: 'dlc2',
-    imagePath: '/remnant2/items/rings/ringofspirits.png',
+    imagePath: '/items/rings/ringofspirits.png',
     saveFileSlug: 'Ring_RingOfSpirits.Ring_RingOfSpirits_C',
     id: 'ic39X7',
     tags: ['Mod Power'],
@@ -1929,7 +1929,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of the Castaway',
-    imagePath: '/remnant2/items/rings/ringofthecastaway.png',
+    imagePath: '/items/rings/ringofthecastaway.png',
     saveFileSlug: 'Ring_RingOfTheCastaway_C',
     dlc: 'dlc1',
     id: 'aqo8pe',
@@ -1945,7 +1945,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Ring of the Damned',
     saveFileSlug: 'Ring_StrongArmBand_C',
-    imagePath: '/remnant2/items/rings/ringofthedamned.png',
+    imagePath: '/items/rings/ringofthedamned.png',
     id: 'jbfxsb',
     tags: ['All Damage', 'Grey Health', 'Critical Chance'],
     description:
@@ -1957,7 +1957,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of the Forest Spirit',
-    imagePath: '/remnant2/items/rings/ringoftheforestspirit.png',
+    imagePath: '/items/rings/ringoftheforestspirit.png',
     saveFileSlug: 'Ring_RingOfTheForestSpirit_C',
     id: 'wvtzrn',
     tags: ['Healing Effectiveness'],
@@ -1969,7 +1969,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of the Robust',
-    imagePath: '/remnant2/items/rings/ringoftherobust.png',
+    imagePath: '/items/rings/ringoftherobust.png',
     saveFileSlug: 'Ring_RingOfTheRobust_C',
     id: 'qdxm42',
     tags: ['Health'],
@@ -1983,7 +1983,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of the Vain',
-    imagePath: '/remnant2/items/rings/ringofthevain.png',
+    imagePath: '/items/rings/ringofthevain.png',
     saveFileSlug: 'Ring_RingOfTheVain_C',
     id: 'g61t33',
     tags: ['Movement Speed'],
@@ -1996,7 +1996,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Rock of Anguish',
-    imagePath: '/remnant2/items/rings/rockofanguish.png',
+    imagePath: '/items/rings/rockofanguish.png',
     saveFileSlug: 'Ring_RockOfAnguish_C',
     id: 'lr4wxu',
     tags: ['Movement Speed', 'Reload Speed'],
@@ -2008,7 +2008,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Rotward',
-    imagePath: '/remnant2/items/rings/rotward.png',
+    imagePath: '/items/rings/rotward.png',
     saveFileSlug: 'Ring_Rotward_C',
     id: 'hvhbv9',
     description: `Prevents ROOT ROT Blight.`,
@@ -2019,7 +2019,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Rusted Heirloom',
-    imagePath: '/remnant2/items/rings/rustedheirloom.png',
+    imagePath: '/items/rings/rustedheirloom.png',
     saveFileSlug: 'Ring_RustedHeirloom_C',
     id: 'i544v3',
     tags: ['Damage Reduction'],
@@ -2035,7 +2035,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Sagestone',
-    imagePath: '/remnant2/items/rings/sagestone.png',
+    imagePath: '/items/rings/sagestone.png',
     saveFileSlug: 'Ring_Sagestone_C',
     id: 'pl1g6b',
     description: `Increases earned Experience by 10%.`,
@@ -2046,7 +2046,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Sapphire Dreamstone',
-    imagePath: '/remnant2/items/rings/sapphiredreamstone.png',
+    imagePath: '/items/rings/sapphiredreamstone.png',
     saveFileSlug: 'Ring_SapphireDreamstone_C',
     id: 'v65mav',
     tags: ['Reduce Skill Cooldown', 'Critical Hit'],
@@ -2066,7 +2066,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Sealed Resin Loop',
-    imagePath: '/remnant2/items/rings/sealedresinloop.png',
+    imagePath: '/items/rings/sealedresinloop.png',
     saveFileSlug: 'Ring_SealedResinLoop.Ring_SealedResinLoop_C',
     id: 'RA6NZn',
     dlc: 'base',
@@ -2078,7 +2078,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Seal of the Empress',
-    imagePath: '/remnant2/items/rings/sealoftheempress.png',
+    imagePath: '/items/rings/sealoftheempress.png',
     saveFileSlug: 'Ring_SealOfTheEmpress_C',
     id: 'pqd4vp',
     tags: ['Health', 'Stamina'],
@@ -2092,7 +2092,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Shadow of Misery',
-    imagePath: '/remnant2/items/rings/shadowofmisery.png',
+    imagePath: '/items/rings/shadowofmisery.png',
     saveFileSlug: 'Ring_ShadowOfMisery_C',
     id: '8bhhzo',
     tags: ['Status Effect'],
@@ -2104,7 +2104,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Shaed Stone',
-    imagePath: '/remnant2/items/rings/shaedstone.png',
+    imagePath: '/items/rings/shaedstone.png',
     saveFileSlug: 'Ring_ShaedStone_C',
     dlc: 'dlc1',
     id: 'ylif78',
@@ -2124,7 +2124,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Shard Banded Ring',
-    imagePath: '/remnant2/items/rings/shardbandedring.png',
+    imagePath: '/items/rings/shardbandedring.png',
     saveFileSlug: 'Ring_ShardBandedRing_C',
     id: '13vsn5',
     tags: ['Mod Damage'],
@@ -2136,7 +2136,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Shiny Hog Lure',
-    imagePath: '/remnant2/items/rings/shinyhoglure.png',
+    imagePath: '/items/rings/shinyhoglure.png',
     saveFileSlug: 'Ring_ShinyHogLure_C',
     id: '08cb3s',
     tags: ['Mod Power'],
@@ -2156,7 +2156,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Singed Ring',
-    imagePath: '/remnant2/items/rings/singedring.png',
+    imagePath: '/items/rings/singedring.png',
     saveFileSlug: 'Ring_SingedRing_C',
     id: 'cpxk1d',
     tags: ['All Damage'],
@@ -2168,7 +2168,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Slayer's Crest",
-    imagePath: '/remnant2/items/rings/slayerscrest.png',
+    imagePath: '/items/rings/slayerscrest.png',
     saveFileSlug: 'Ring_SlayersCrest_C',
     id: '0e7ll0',
     tags: ['Melee Damage'],
@@ -2184,7 +2184,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Soul Feast',
-    imagePath: '/remnant2/items/rings/soulfeast.png',
+    imagePath: '/items/rings/soulfeast.png',
     saveFileSlug: 'Ring_SoulFeast.Ring_SoulFeast_C',
     dlc: 'base',
     id: '8kotd5',
@@ -2196,7 +2196,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Soul Guard',
-    imagePath: '/remnant2/items/rings/soulguard.png',
+    imagePath: '/items/rings/soulguard.png',
     saveFileSlug: 'Ring_SoulGuard_C',
     id: '8kotg5',
     tags: ['Damage Reduction', 'Summon'],
@@ -2208,7 +2208,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Soul Link',
-    imagePath: '/remnant2/items/rings/soullink.png',
+    imagePath: '/items/rings/soullink.png',
     saveFileSlug: 'Ring_SoulLink_C',
     id: 'ohlt19',
     tags: ['Summon', 'Lifesteal'],
@@ -2220,7 +2220,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Soul Shard',
-    imagePath: '/remnant2/items/rings/soulshard.png',
+    imagePath: '/items/rings/soulshard.png',
     saveFileSlug: 'Ring_SoulShard_C',
     id: 'uswo9w',
     tags: ['Summon', 'All Damage'],
@@ -2233,7 +2233,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Spirit Stone',
-    imagePath: '/remnant2/items/rings/spiritstone.png',
+    imagePath: '/items/rings/spiritstone.png',
     saveFileSlug: 'Ring_SpiritStone_C',
     id: '58hv43',
     tags: ['Mod Power'],
@@ -2245,7 +2245,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Stockpile Charger',
-    imagePath: '/remnant2/items/rings/stockpilecharger.png',
+    imagePath: '/items/rings/stockpilecharger.png',
     saveFileSlug: 'Ring_StockpileCharger_C',
     id: '0jnimt',
     tags: ['Ranged Damage'],
@@ -2257,7 +2257,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Stone of Balance',
-    imagePath: '/remnant2/items/rings/stoneofbalance.png',
+    imagePath: '/items/rings/stoneofbalance.png',
     saveFileSlug: 'Ring_StoneOfBalance_C',
     id: 'c20p9b',
     tags: ['All Damage'],
@@ -2269,7 +2269,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Stone of Continuance',
-    imagePath: '/remnant2/items/rings/stoneofcontinuance.png',
+    imagePath: '/items/rings/stoneofcontinuance.png',
     saveFileSlug: 'Ring_StoneOfContinuance_C',
     id: 'leuefm',
     tags: ['Skill Duration'],
@@ -2281,7 +2281,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Stone of Expanse',
-    imagePath: '/remnant2/items/rings/stoneofexpanse.png',
+    imagePath: '/items/rings/stoneofexpanse.png',
     saveFileSlug: 'Ring_StoneOfExpanse_C',
     id: 'efdw51',
     tags: ['Ranged Damage'],
@@ -2293,7 +2293,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Stone of Malevolence',
-    imagePath: '/remnant2/items/rings/stoneofmalevolence.png',
+    imagePath: '/items/rings/stoneofmalevolence.png',
     saveFileSlug: 'Ring_StoneOfMalevolence_C',
     id: 'kx65km',
     tags: ['Status Effect', 'Mod Power'],
@@ -2305,7 +2305,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Stream Coupler',
-    imagePath: '/remnant2/items/rings/streamcoupler.png',
+    imagePath: '/items/rings/streamcoupler.png',
     saveFileSlug: 'Ring_StreamCoupler_C',
     id: 'jq4dje',
     tags: ['Heal'],
@@ -2317,7 +2317,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Subterfuge Link',
-    imagePath: '/remnant2/items/rings/subterfugelink.png',
+    imagePath: '/items/rings/subterfugelink.png',
     saveFileSlug: 'Ring_SubterfugeLink_C',
     id: 'al5vs8',
     tags: ['Skill Cast Speed', 'Mod Cast Speed'],
@@ -2333,7 +2333,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Suppression Ward',
-    imagePath: '/remnant2/items/rings/suppressionward.png',
+    imagePath: '/items/rings/suppressionward.png',
     saveFileSlug: 'Ring_SuppressionWard_C',
     id: '44my16',
     description: `Prevents SUPPRESSION Blight.`,
@@ -2344,7 +2344,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Targeting Jewel',
-    imagePath: '/remnant2/items/rings/targetingjewel.png',
+    imagePath: '/items/rings/targetingjewel.png',
     saveFileSlug: 'Ring_TargetingJewel_C',
     id: 'm2uqsh',
     tags: ['Range', 'Spread'],
@@ -2356,7 +2356,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Tarnished Ring',
-    imagePath: '/remnant2/items/rings/tarnishedring.png',
+    imagePath: '/items/rings/tarnishedring.png',
     saveFileSlug: 'Ring_TarnishedRing_C',
     id: 'w4xzfq',
     tags: ['Melee Damage'],
@@ -2368,7 +2368,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Tear of Kaeula',
-    imagePath: '/remnant2/items/rings/tearofkaeula.png',
+    imagePath: '/items/rings/tearofkaeula.png',
     saveFileSlug: 'Ring_TearOfKaeula_C',
     id: 'qv7e2g',
     description: 'Increases Relic capacity by 2 while equipped.',
@@ -2379,7 +2379,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Tear of Lydusa',
-    imagePath: '/remnant2/items/rings/tearoflydusa.png',
+    imagePath: '/items/rings/tearoflydusa.png',
     saveFileSlug: 'Ring_TearOfLydusa.Ring_TearOfLydusa_C',
     id: 'k90sex',
     dlc: 'dlc2',
@@ -2391,7 +2391,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Tempest Conduit',
-    imagePath: '/remnant2/items/rings/tempestconduit.png',
+    imagePath: '/items/rings/tempestconduit.png',
     saveFileSlug: 'Ring_TempestConduit_C',
     id: '4bb4gf',
     tags: ['Elemental Damage', 'All Damage'],
@@ -2403,7 +2403,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Thalos Eyelet',
-    imagePath: '/remnant2/items/rings/thaloseyelet.png',
+    imagePath: '/items/rings/thaloseyelet.png',
     saveFileSlug: 'Ring_ThalosEyelet.Ring_ThalosEyelet_C',
     dlc: 'base',
     id: '6mopod',
@@ -2415,7 +2415,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Tightly Wound Coil',
-    imagePath: '/remnant2/items/rings/tightlywoundcoil.png',
+    imagePath: '/items/rings/tightlywoundcoil.png',
     saveFileSlug: 'Ring_TightlyWoundCoil_C',
     id: '3pe83i',
     description: `When spending 75% or more of current magazine, gain a SHIELD for 15% of Max Health for 5s. Does not stack with itself.`,
@@ -2426,7 +2426,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Timekeeper's Jewel",
-    imagePath: '/remnant2/items/rings/timekeepersjewel.png',
+    imagePath: '/items/rings/timekeepersjewel.png',
     saveFileSlug: 'Ring_TimekeepersJewel_C',
     id: '3uggz9',
     tags: ['Status Effect', 'Status Duration'],
@@ -2439,7 +2439,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Token of Favor',
-    imagePath: '/remnant2/items/rings/tokenoffavor.png',
+    imagePath: '/items/rings/tokenoffavor.png',
     saveFileSlug: 'Ring_TokenOfFavor.Ring_TokenOfFavor_C',
     dlc: 'dlc2',
     id: 'qv7e2gx',
@@ -2455,7 +2455,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Tomb Dweller's Ring",
-    imagePath: '/remnant2/items/rings/tombdwellersring.png',
+    imagePath: '/items/rings/tombdwellersring.png',
     saveFileSlug: 'Ring_TombDwellersRing_C',
     id: '6mopou',
     tags: ['Movement Speed', 'Damage Reduction'],
@@ -2471,7 +2471,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Vacuum Seal',
-    imagePath: '/remnant2/items/rings/vacuumseal.png',
+    imagePath: '/items/rings/vacuumseal.png',
     saveFileSlug: 'Ring_VacuumSeal_C',
     id: 'hnkpp0',
     description:
@@ -2483,7 +2483,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Vestige of Power',
-    imagePath: '/remnant2/items/rings/vestigeofpower.png',
+    imagePath: '/items/rings/vestigeofpower.png',
     saveFileSlug: 'Ring_VestigeOfPower_C',
     id: 'e6zmo5',
     tags: ['Ranged Damage', 'Melee Damage'],
@@ -2495,7 +2495,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Wax Sealed Ring',
-    imagePath: '/remnant2/items/rings/waxsealedring.png',
+    imagePath: '/items/rings/waxsealedring.png',
     saveFileSlug: 'Ring_WaxSealedRing_C',
     id: 'ekm1hx',
     tags: ['Ranged Damage', 'Melee Damage'],
@@ -2508,7 +2508,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'White Glass Bead',
-    imagePath: '/remnant2/items/rings/whiteglassbead.png',
+    imagePath: '/items/rings/whiteglassbead.png',
     saveFileSlug: 'Ring_WhiteGlassBead_C',
     dlc: 'dlc1',
     id: 'etgc4h',
@@ -2521,7 +2521,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'White Pawn Stamp',
-    imagePath: '/remnant2/items/rings/whitepawnstamp.png',
+    imagePath: '/items/rings/whitepawnstamp.png',
     saveFileSlug: 'Ring_WhitePawnStamp_C',
     id: 'irhphl',
     tags: ['Mod Power'],
@@ -2537,7 +2537,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Wind Hollow Circlet',
-    imagePath: '/remnant2/items/rings/windhollowcirclet.png',
+    imagePath: '/items/rings/windhollowcirclet.png',
     saveFileSlug: 'Ring_WindHollowCirclet_C',
     id: 'tx475e',
     tags: ['Reload Speed'],
@@ -2553,7 +2553,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Wood Ring',
-    imagePath: '/remnant2/items/rings/woodring.png',
+    imagePath: '/items/rings/woodring.png',
     saveFileSlug: 'Ring_WoodRing_C',
     dlc: 'dlc1',
     id: 'uwq264',
@@ -2566,7 +2566,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: "Worn Admiral's Ring",
     saveFileSlug: 'Ring_RingOfTheAdmiral_C',
-    imagePath: '/remnant2/items/rings/wornadmiralsring.png',
+    imagePath: '/items/rings/wornadmiralsring.png',
     id: '9kcrxa',
     tags: ['All Damage'],
     description: `All damage received is increased by 200%. All damage dealt is increased by 15%.`,
@@ -2577,7 +2577,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Zania's Malice",
-    imagePath: '/remnant2/items/rings/zaniasmalice.png',
+    imagePath: '/items/rings/zaniasmalice.png',
     saveFileSlug: 'Ring_ZaniasMalice_C',
     id: 'ukufrn',
     tags: ['Weakspot Damage'],
@@ -2590,7 +2590,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: "Zohee's Ring",
-    imagePath: '/remnant2/items/rings/zoheesring.png',
+    imagePath: '/items/rings/zoheesring.png',
     saveFileSlug: 'Ring_ZoheesRing_C',
     id: '9fe9kj',
     tags: ['Mod Duration'],

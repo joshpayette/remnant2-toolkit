@@ -1,5 +1,4 @@
 import { BaseLink } from '@repo/ui/base/link'
-import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import Image from 'next/image'
 
 type Variant = 'remnant2toolkit'
@@ -32,7 +31,7 @@ export function Logo({
     >
       <Image
         className="ui-mr-2 ui-h-[36px] ui-w-[52px]"
-        src={getImageUrl(`${variants[variant].imageUrl}`)}
+        src={`https://d2sqltdcj8czo5.cloudfront.net${variants[variant].imageUrl}`}
         alt={variants[variant].alt}
         width={52}
         height={36}

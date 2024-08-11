@@ -16,7 +16,7 @@ export function FeaturedBuildBadge({
         plain
       >
         <Image
-          src={getImageUrl(`/remnant2/badges/featured_build_badge1.png`)}
+          src={getImageUrl(`/badges/featured_build_badge1.png`)}
           width={50}
           height={50}
           alt="Badge denoting the build is a featured build."
