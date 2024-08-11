@@ -27,7 +27,7 @@ export function ArmorInfo({ item }: Props) {
           <div className="grid w-full grid-cols-2 gap-x-4 sm:gap-x-8">
             <div className=" grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
               <Image
-                src={getImageUrl(`/remnant2/status/bleed_resistance.png`)}
+                src={getImageUrl(`/status/bleed_resistance.png`)}
                 alt="Bleed Resistance"
                 width={32}
                 height={32}
@@ -40,7 +40,7 @@ export function ArmorInfo({ item }: Props) {
             </div>
             <div className=" grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
               <Image
-                src={getImageUrl(`/remnant2/status/fire_resistance.png`)}
+                src={getImageUrl(`/status/fire_resistance.png`)}
                 alt="Fire Resistance"
                 width={32}
                 height={32}
@@ -53,7 +53,7 @@ export function ArmorInfo({ item }: Props) {
             </div>
             <div className=" grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
               <Image
-                src={getImageUrl(`status/shock_resistance.png`)}
+                src={getImageUrl(`/status/shock_resistance.png`)}
                 alt="Shock Resistance"
                 width={32}
                 height={32}
@@ -66,7 +66,7 @@ export function ArmorInfo({ item }: Props) {
             </div>
             <div className=" grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
               <Image
-                src={getImageUrl(`/remnant2/status/toxin_resistance.png`)}
+                src={getImageUrl(`/status/toxin_resistance.png`)}
                 alt="Toxin Resistance"
                 width={32}
                 height={32}
@@ -79,7 +79,7 @@ export function ArmorInfo({ item }: Props) {
             </div>
             <div className=" grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
               <Image
-                src={getImageUrl(`/remnant2/status/blight_resistance.png`)}
+                src={getImageUrl(`/status/blight_resistance.png`)}
                 alt="Blight Resistance"
                 width={32}
                 height={32}

@@ -4,7 +4,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Bloodless Heart',
-    imagePath: '/remnant2/items/relics/bloodlessheart.png',
+    imagePath: '/items/relics/bloodlessheart.png',
     saveFileSlug: 'Relic_Consumable_BloodlessHeart_C',
     id: 'LQho3X',
     dlc: 'dlc2',
@@ -18,7 +18,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Blooming Heart',
-    imagePath: '/remnant2/items/relics/bloomingheart.png',
+    imagePath: '/items/relics/bloomingheart.png',
     saveFileSlug: 'Relic_Consumable_BloomingHeart_C',
     id: 'soyjpp',
     dlc: 'base',
@@ -30,7 +30,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Broken Heart',
-    imagePath: '/remnant2/items/relics/brokenheart.png',
+    imagePath: '/items/relics/brokenheart.png',
     saveFileSlug: 'Relic_Consumable_BrokenHeart_C',
     dlc: 'dlc1',
     id: 'm71h9m',
@@ -44,7 +44,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Constrained Heart',
-    imagePath: '/remnant2/items/relics/constrainedheart.png',
+    imagePath: '/items/relics/constrainedheart.png',
     saveFileSlug: 'Relic_Consumable_ConstrainedHeart_C',
     id: 'rlezcg',
     dlc: 'base',
@@ -56,7 +56,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Crystal Heart',
-    imagePath: '/remnant2/items/relics/crystalheart.png',
+    imagePath: '/items/relics/crystalheart.png',
     saveFileSlug: 'Relic_Consumable_CrystalHeart_C',
     id: '67tfbl',
     dlc: 'base',
@@ -68,7 +68,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Decayed Heart',
-    imagePath: '/remnant2/items/relics/decayedheart.png',
+    imagePath: '/items/relics/decayedheart.png',
     saveFileSlug: 'Relic_Consumable_DecayedHeart_C',
     id: 'vhjydw',
     dlc: 'base',
@@ -79,7 +79,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Diverting Heart',
-    imagePath: '/remnant2/items/relics/divertingheart.png',
+    imagePath: '/items/relics/divertingheart.png',
     saveFileSlug: 'Relic_Consumable_DivertingHeart_C',
     id: '96f26y',
     dlc: 'base',
@@ -92,7 +92,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Dragon Heart',
-    imagePath: '/remnant2/items/relics/dragonheart.png',
+    imagePath: '/items/relics/dragonheart.png',
     saveFileSlug: 'DragonHeart',
     id: 'f96bom',
     dlc: 'base',
@@ -103,7 +103,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Enlarged Heart',
-    imagePath: '/remnant2/items/relics/enlargedheart.png',
+    imagePath: '/items/relics/enlargedheart.png',
     saveFileSlug: 'Relic_Consumable_EnlargedHeart_C',
     id: '4y2xb3',
     dlc: 'base',
@@ -115,7 +115,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Lifeless Heart',
-    imagePath: '/remnant2/items/relics/lifelessheart.png',
+    imagePath: '/items/relics/lifelessheart.png',
     saveFileSlug: 'Relic_Consumable_LifelessHeart_C',
     id: 'k1de0f',
     dlc: 'base',
@@ -127,7 +127,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Paper Heart',
-    imagePath: '/remnant2/items/relics/paperheart.png',
+    imagePath: '/items/relics/paperheart.png',
     saveFileSlug: 'Relic_Consumable_PaperHeart_C',
     dlc: 'dlc1',
     id: 'n9fm2r',
@@ -141,7 +141,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Profane Heart',
-    imagePath: '/remnant2/items/relics/profaneheart.png',
+    imagePath: '/items/relics/profaneheart.png',
     saveFileSlug: 'Relic_Consumable_profaneHeart_C',
     id: '4v7sf4',
     dlc: 'dlc2',
@@ -153,7 +153,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Pulsing Heart',
-    imagePath: '/remnant2/items/relics/pulsingheart.png',
+    imagePath: '/items/relics/pulsingheart.png',
     saveFileSlug: 'Relic_Consumable_PulsingHeart_C',
     id: 'xfwkzp',
     dlc: 'base',
@@ -164,7 +164,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Quilted Heart',
-    imagePath: '/remnant2/items/relics/quiltedheart.png',
+    imagePath: '/items/relics/quiltedheart.png',
     saveFileSlug: 'Relic_Consumable_QuiltedHeart_C',
     id: '4v7sf3',
     dlc: 'base',
@@ -178,7 +178,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Reprocessed Heart',
-    imagePath: '/remnant2/items/relics/reprocessedheart.png',
+    imagePath: '/items/relics/reprocessedheart.png',
     saveFileSlug: 'Relic_Consumable_ReprocessedHeart_C',
     id: '06pxhy',
     dlc: 'base',
@@ -191,7 +191,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Resonating Heart',
-    imagePath: '/remnant2/items/relics/resonatingheart.png',
+    imagePath: '/items/relics/resonatingheart.png',
     saveFileSlug: 'Relic_Consumable_ResonatingHeart_C',
     id: '6ruk95',
     dlc: 'base',
@@ -203,7 +203,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Ripened Heart',
-    imagePath: '/remnant2/items/relics/ripenedheart.png',
+    imagePath: '/items/relics/ripenedheart.png',
     saveFileSlug: 'Relic_Consumable_RipenedHeart_C',
     id: '5azu1p',
     dlc: 'base',
@@ -214,7 +214,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Runed Heart',
-    imagePath: '/remnant2/items/relics/runedheart.png',
+    imagePath: '/items/relics/runedheart.png',
     saveFileSlug: 'Relic_Consumable_RunedHeart_C',
     id: 'yb7v4c',
     dlc: 'base',
@@ -226,7 +226,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Salvaged Heart',
-    imagePath: '/remnant2/items/relics/salvagedheart.png',
+    imagePath: '/items/relics/salvagedheart.png',
     saveFileSlug: 'Relic_Consumable_SalvagedHeart_C',
     id: '2rnl2d',
     dlc: 'base',
@@ -242,7 +242,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Shielded Heart',
-    imagePath: '/remnant2/items/relics/shieldedheart.png',
+    imagePath: '/items/relics/shieldedheart.png',
     saveFileSlug: 'Relic_Consumable_ShieldedHeart_C',
     id: 'sge99k',
     dlc: 'base',
@@ -254,7 +254,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Siphon Heart',
-    imagePath: '/remnant2/items/relics/siphonheart.png',
+    imagePath: '/items/relics/siphonheart.png',
     saveFileSlug: 'Relic_Consumable_SiphonHeart_C',
     id: '3awf5n',
     dlc: 'base',
@@ -268,7 +268,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Tormented Heart',
-    imagePath: '/remnant2/items/relics/tormentedheart.png',
+    imagePath: '/items/relics/tormentedheart.png',
     saveFileSlug: 'Relic_Consumable_TormentedHeart_C',
     id: 'rtmajx',
     dlc: 'base',
@@ -281,7 +281,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Tranquil Heart',
-    imagePath: '/remnant2/items/relics/tranquilheart.png',
+    imagePath: '/items/relics/tranquilheart.png',
     saveFileSlug: 'Relic_Consumable_TranquilHeart_C',
     id: 'thgp2z',
     dlc: 'base',
@@ -292,7 +292,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Unsullied Heart',
-    imagePath: '/remnant2/items/relics/unsulliedheart.png',
+    imagePath: '/items/relics/unsulliedheart.png',
     saveFileSlug: 'Relic_Consumable_UnsulliedHeart_C',
     id: 'pj4ika',
     dlc: 'base',
@@ -303,7 +303,7 @@ export const relicItems: RelicItem[] = [
   {
     category: 'relic',
     name: 'Void Heart',
-    imagePath: '/remnant2/items/relics/voidheart.png',
+    imagePath: '/items/relics/voidheart.png',
     saveFileSlug: 'Relic_Consumable_VoidHeart_C',
     id: 'weaetb',
     dlc: 'base',

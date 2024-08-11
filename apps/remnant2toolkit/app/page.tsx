@@ -257,7 +257,7 @@ export default async function Page() {
             target="_blank"
           >
             <Image
-              src={getImageUrl('remnant2/patreon-posts/2024-08-03.jpg')}
+              src={getImageUrl('/patreon-posts/2024-08-03.jpg')}
               width={253}
               height={450}
               alt="First DLC announced, plus some Toolkit updates!"

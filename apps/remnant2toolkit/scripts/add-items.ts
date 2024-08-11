@@ -8,7 +8,7 @@ const items = [
     type: 'trait',
     inGameOrder: 31,
     name: 'Resolute',
-    imagePath: '/remnant2/items/traits/resolute.png',
+    imagePath: '/items/traits/resolute.png',
     saveFileSlug: 'Trait_Resolute_C',
     id: '7z3ejd',
     dlc: 'dlc2',

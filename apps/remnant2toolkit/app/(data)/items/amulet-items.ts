@@ -4,7 +4,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Abrasive Whetstone',
-    imagePath: '/remnant2/items/amulets/abrasivewhetstone.png',
+    imagePath: '/items/amulets/abrasivewhetstone.png',
     saveFileSlug: 'Amulet_AbrasiveWhetstone_C',
     id: '6sqyf9',
     dlc: 'base',
@@ -17,7 +17,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Ankh of Power',
-    imagePath: '/remnant2/items/amulets/ankhofpower.png',
+    imagePath: '/items/amulets/ankhofpower.png',
     saveFileSlug: 'Amulet_AnkhOfPower_C',
     id: 'ca8ada',
     dlc: 'base',
@@ -29,7 +29,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Beads of the Valorous',
-    imagePath: '/remnant2/items/amulets/beadsofthevalorous.png',
+    imagePath: '/items/amulets/beadsofthevalorous.png',
     saveFileSlug: 'Amulet_BeadsOfTheValorous_C',
     id: 'n8gqNY',
     dlc: 'base',
@@ -41,7 +41,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Birthright of the Lost',
-    imagePath: '/remnant2/items/amulets/birthrightofthelost.png',
+    imagePath: '/items/amulets/birthrightofthelost.png',
     saveFileSlug: 'Amulet_BirthrightOfTheLost_C',
     id: '41ookr',
     dlc: 'base',
@@ -56,7 +56,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Brewmaster's Cork",
-    imagePath: '/remnant2/items/amulets/brewmasterscork.png',
+    imagePath: '/items/amulets/brewmasterscork.png',
     saveFileSlug: 'Amulet_BrewmastersCork_C',
     id: '6il3tm',
     dlc: 'base',
@@ -69,7 +69,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Broken Pocket Watch',
-    imagePath: '/remnant2/items/amulets/brokenpocketwatch.png',
+    imagePath: '/items/amulets/brokenpocketwatch.png',
     saveFileSlug: 'Amulet_BrokenPocketWatch_C',
     id: 'sap1xm',
     dlc: 'base',
@@ -82,7 +82,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Butcher's Fetish",
-    imagePath: '/remnant2/items/amulets/butchersfetish.png',
+    imagePath: '/items/amulets/butchersfetish.png',
     saveFileSlug: 'Amulet_ButchersFetish_C',
     id: '67s1pu',
     dlc: 'base',
@@ -95,7 +95,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Cervine Keepsake',
-    imagePath: '/remnant2/items/amulets/cervinekeepsake.png',
+    imagePath: '/items/amulets/cervinekeepsake.png',
     saveFileSlug: 'Amulet_CervineKeepsake_C',
     id: '5sfzsd',
     dlc: 'dlc2',
@@ -115,7 +115,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Chains of Amplification',
-    imagePath: '/remnant2/items/amulets/chainsofamplification.png',
+    imagePath: '/items/amulets/chainsofamplification.png',
     saveFileSlug: 'Amulet_ChainsOfAmplification_C',
     id: '5sfzsx',
     dlc: 'base',
@@ -127,7 +127,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Cleansing Stone',
-    imagePath: '/remnant2/items/amulets/cleansingstone.png',
+    imagePath: '/items/amulets/cleansingstone.png',
     saveFileSlug: 'Amulet_CleansingStone_C',
     id: 'nm7b6f',
     dlc: 'base',
@@ -141,7 +141,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Core Booster',
-    imagePath: '/remnant2/items/amulets/corebooster.png',
+    imagePath: '/items/amulets/corebooster.png',
     saveFileSlug: 'Amulet_CoreBooster_C',
     id: 'wb4ixr',
     dlc: 'base',
@@ -157,7 +157,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Cost of Betrayal',
-    imagePath: '/remnant2/items/amulets/costofbetrayal.png',
+    imagePath: '/items/amulets/costofbetrayal.png',
     saveFileSlug: 'Amulet_CostOfBetrayal_C',
     dlc: 'dlc1',
     id: 'hug5mz',
@@ -170,7 +170,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Daredevil's Charm",
-    imagePath: '/remnant2/items/amulets/daredevilscharm.png',
+    imagePath: '/items/amulets/daredevilscharm.png',
     saveFileSlug: 'Amulet_DaredevilsCharm_C',
     id: 'ik580i',
     dlc: 'base',
@@ -183,7 +183,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Death's Embrace",
-    imagePath: '/remnant2/items/amulets/deathembrace.png',
+    imagePath: '/items/amulets/deathembrace.png',
     saveFileSlug: 'Amulet_DeathsEmbrace_C',
     id: 'i13ipm',
     dlc: 'base',
@@ -197,7 +197,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Death-Soaked Idol',
-    imagePath: '/remnant2/items/amulets/deathsoakedidol.png',
+    imagePath: '/items/amulets/deathsoakedidol.png',
     saveFileSlug: 'Amulet_DeathSoakedIdol_C',
     dlc: 'dlc1',
     id: 'ui1miz',
@@ -213,7 +213,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Decayed Margin',
-    imagePath: '/remnant2/items/amulets/decayedmargin.png',
+    imagePath: '/items/amulets/decayedmargin.png',
     saveFileSlug: 'Amulet_DecayedMargin_C',
     id: 'dipf2o',
     dlc: 'base',
@@ -226,7 +226,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Detonation Trigger',
-    imagePath: '/remnant2/items/amulets/detonationtrigger.png',
+    imagePath: '/items/amulets/detonationtrigger.png',
     saveFileSlug: 'Amulet_DetonationTrigger_C',
     id: '3zi80a',
     dlc: 'base',
@@ -241,7 +241,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Difference Engine',
-    imagePath: '/remnant2/items/amulets/differenceengine.png',
+    imagePath: '/items/amulets/differenceengine.png',
     saveFileSlug: 'Amulet_DifferenceEngine_C',
     id: '2zr6vu',
     dlc: 'base',
@@ -254,7 +254,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Downward Spiral',
-    imagePath: '/remnant2/items/amulets/downwardspiral.png',
+    imagePath: '/items/amulets/downwardspiral.png',
     saveFileSlug: 'Amulet_DownwardSpiral_C',
     id: '1k2x4r',
     dlc: 'base',
@@ -266,7 +266,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Echo of the Forest',
-    imagePath: '/remnant2/items/amulets/echooftheforest.png',
+    imagePath: '/items/amulets/echooftheforest.png',
     saveFileSlug: 'Amulet_EchoOfTheForest_C',
     id: '2VokuK',
     dlc: 'dlc2',
@@ -278,7 +278,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Effigy Pendant',
-    imagePath: '/remnant2/items/amulets/effigypendant.png',
+    imagePath: '/items/amulets/effigypendant.png',
     saveFileSlug: 'Amulet_EffigyPendant_C',
     id: 'vkcf4e',
     dlc: 'base',
@@ -293,7 +293,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Effluvium Enhancer',
-    imagePath: '/remnant2/items/amulets/effluviumenhancer.png',
+    imagePath: '/items/amulets/effluviumenhancer.png',
     saveFileSlug: 'Amulet_EffluviumEnhancer_C',
     id: 'kah85t',
     dlc: 'base',
@@ -307,7 +307,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Emergency Switch',
-    imagePath: '/remnant2/items/amulets/emergencyswitch.png',
+    imagePath: '/items/amulets/emergencyswitch.png',
     saveFileSlug: 'Amulet_EmergencySwitch_C',
     id: '8dcefr',
     dlc: 'base',
@@ -319,7 +319,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Energized Neck Coil',
-    imagePath: '/remnant2/items/amulets/energizedneckcoil.png',
+    imagePath: '/items/amulets/energizedneckcoil.png',
     saveFileSlug: 'Amulet_EnergizedNeckCoil_C',
     id: 'c52jp0',
     dlc: 'base',
@@ -335,7 +335,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Energy Diverter',
-    imagePath: '/remnant2/items/amulets/energydiverter.png',
+    imagePath: '/items/amulets/energydiverter.png',
     saveFileSlug: 'Amulet_EnergyDiverter_C',
     id: 'evwgwk',
     dlc: 'base',
@@ -351,7 +351,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Escalation Protocol',
-    imagePath: '/remnant2/items/amulets/escalationprotocol.png',
+    imagePath: '/items/amulets/escalationprotocol.png',
     saveFileSlug: 'Amulet_EscalationProtocol_C',
     id: 'vxcn9e',
     dlc: 'base',
@@ -363,7 +363,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Fragrant Thorn',
-    imagePath: '/remnant2/items/amulets/fragrantthorn.png',
+    imagePath: '/items/amulets/fragrantthorn.png',
     saveFileSlug: 'Amulet_FragrantThorn_C',
     id: 'Hx5iNF',
     dlc: 'base',
@@ -378,7 +378,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Full Moon Circlet',
-    imagePath: '/remnant2/items/amulets/fullmooncirclet.png',
+    imagePath: '/items/amulets/fullmooncirclet.png',
     saveFileSlug: 'Amulet_FullMoonCirclet_C',
     id: '8xn7hh',
     dlc: 'base',
@@ -392,7 +392,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Gift of Euphoria',
-    imagePath: '/remnant2/items/amulets/giftofeuphoria.png',
+    imagePath: '/items/amulets/giftofeuphoria.png',
     saveFileSlug: 'Amulet_GiftOfEuphoria_C',
     dlc: 'dlc1',
     id: '70ryol',
@@ -404,7 +404,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Gift of Melancholy',
-    imagePath: '/remnant2/items/amulets/giftofmelancholy.png',
+    imagePath: '/items/amulets/giftofmelancholy.png',
     saveFileSlug: 'Amulet_GiftOfMelancholy_C',
     dlc: 'dlc1',
     id: '65851b',
@@ -416,7 +416,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Gift of the Unbound',
-    imagePath: '/remnant2/items/amulets/giftoftheunbound.png',
+    imagePath: '/items/amulets/giftoftheunbound.png',
     saveFileSlug: 'Amulet_GiftOfTheUnbound_C',
     dlc: 'dlc1',
     id: 'u7am0w',
@@ -428,7 +428,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Golden Ribbon',
-    imagePath: '/remnant2/items/amulets/goldribbon.png',
+    imagePath: '/items/amulets/goldribbon.png',
     saveFileSlug: 'Amulet_GoldenRibbon_C',
     id: 'm0l0u5',
     dlc: 'base',
@@ -444,7 +444,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Gunfire Security Lanyard',
-    imagePath: '/remnant2/items/amulets/gunfiresecuritylanyard.png',
+    imagePath: '/items/amulets/gunfiresecuritylanyard.png',
     saveFileSlug: 'Amulet_GunfireSecurityLanyard_C',
     id: 'wbqua6',
     dlc: 'base',
@@ -456,7 +456,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Gunslinger's Charm",
-    imagePath: '/remnant2/items/amulets/gunslingerscharm.png',
+    imagePath: '/items/amulets/gunslingerscharm.png',
     saveFileSlug: 'Amulet_GunslingersCharm_C',
     id: 'qqg64h',
     dlc: 'base',
@@ -468,7 +468,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Hallowed Egg',
-    imagePath: '/remnant2/items/amulets/hallowedegg.png',
+    imagePath: '/items/amulets/hallowedegg.png',
     saveFileSlug: 'Amulet_HallowedEgg_C',
     id: 'pfew3v',
     dlc: 'base',
@@ -485,7 +485,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Hyperconductor',
-    imagePath: '/remnant2/items/amulets/hyperconductor.png',
+    imagePath: '/items/amulets/hyperconductor.png',
     saveFileSlug: 'Amulet_Hyperconductor_C',
     id: 'c0z3fy',
     dlc: 'base',
@@ -500,7 +500,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Index of the Scribe',
-    imagePath: '/remnant2/items/amulets/indexofthescribe.png',
+    imagePath: '/items/amulets/indexofthescribe.png',
     saveFileSlug: 'Amulet_IndexOfTheScribe_C',
     dlc: 'dlc1',
     id: '3lzs0c',
@@ -512,7 +512,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Indignant Fetish',
-    imagePath: '/remnant2/items/amulets/indignantfetish.png',
+    imagePath: '/items/amulets/indignantfetish.png',
     saveFileSlug: 'Amulet_IndignantFetish_C',
     id: 'dqhstq',
     dlc: 'base',
@@ -525,7 +525,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Inert Overcharger',
-    imagePath: '/remnant2/items/amulets/inertovercharger.png',
+    imagePath: '/items/amulets/inertovercharger.png',
     saveFileSlug: 'Amulet_InertOvercharger_C',
     id: 'k8d15f',
     dlc: 'base',
@@ -538,7 +538,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Insulation Driver',
-    imagePath: '/remnant2/items/amulets/insulationdriver.png',
+    imagePath: '/items/amulets/insulationdriver.png',
     saveFileSlug: 'Amulet_InsulationDriver_C',
     id: 'k1oijc',
     dlc: 'base',
@@ -554,7 +554,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Jester's Bell",
-    imagePath: '/remnant2/items/amulets/jestersbell.png',
+    imagePath: '/items/amulets/jestersbell.png',
     saveFileSlug: 'Amulet_JestersBell_C',
     id: 'lpv0qq',
     dlc: 'base',
@@ -567,7 +567,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Kinetic Shield Exchanger',
-    imagePath: '/remnant2/items/amulets/kineticshieldexchanger.png',
+    imagePath: '/items/amulets/kineticshieldexchanger.png',
     saveFileSlug: 'Amulet_KineticShieldExchanger_C',
     id: 'femylz',
     dlc: 'base',
@@ -580,7 +580,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Kuri Kuri Charm',
-    imagePath: '/remnant2/items/amulets/kurikuricharm.png',
+    imagePath: '/items/amulets/kurikuricharm.png',
     saveFileSlug: 'Amulet_KuriKuriCharm_C',
     id: '04yl4w',
     dlc: 'base',
@@ -596,7 +596,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Laemir Censer',
-    imagePath: '/remnant2/items/amulets/laemircenser.png',
+    imagePath: '/items/amulets/laemircenser.png',
     saveFileSlug: 'Amulet_LaemirCenser_C',
     id: 'hwpkls',
     dlc: 'base',
@@ -608,7 +608,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Legacy Protocol',
-    imagePath: '/remnant2/items/amulets/legacyprotocol.png',
+    imagePath: '/items/amulets/legacyprotocol.png',
     saveFileSlug: 'Amulet_LegacyProtocol_C',
     id: 'a7axvo',
     dlc: 'base',
@@ -621,7 +621,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Leto's Amulet",
-    imagePath: '/remnant2/items/amulets/letosamulet.png',
+    imagePath: '/items/amulets/letosamulet.png',
     saveFileSlug: 'Amulet_LetosAmulet_C',
     id: 'rpxs8n',
     dlc: 'base',
@@ -634,7 +634,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Magnifying Glass',
-    imagePath: '/remnant2/items/amulets/magnifyingglass.png',
+    imagePath: '/items/amulets/magnifyingglass.png',
     saveFileSlug: 'Amulet_MagnifyingGlass_C',
     id: 'zo9Dkk',
     dlc: 'base',
@@ -646,7 +646,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Matriarch's Insignia",
-    imagePath: '/remnant2/items/amulets/matriarchinsignia.png',
+    imagePath: '/items/amulets/matriarchinsignia.png',
     saveFileSlug: 'Amulet_MatriarchsInsignia_C',
     id: 'jlch5h',
     dlc: 'base',
@@ -658,7 +658,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Moon Stone',
-    imagePath: '/remnant2/items/amulets/moonstone.png',
+    imagePath: '/items/amulets/moonstone.png',
     saveFileSlug: 'Amulet_MoonStone_C',
     id: 'zo9Dkd',
     dlc: 'dlc2',
@@ -674,7 +674,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Navigator's Pendant",
-    imagePath: '/remnant2/items/amulets/navigatorpendant.png',
+    imagePath: '/items/amulets/navigatorpendant.png',
     saveFileSlug: 'Amulet_NavigatorsPendant_C',
     id: 'pd4ez1',
     dlc: 'base',
@@ -690,7 +690,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Neckbone Necklace',
-    imagePath: '/remnant2/items/amulets/neckbonenecklace.png',
+    imagePath: '/items/amulets/neckbonenecklace.png',
     saveFileSlug: 'Amulet_NeckboneNecklace_C',
     id: 'r11n5x',
     dlc: 'base',
@@ -702,7 +702,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Necklace of Flowing Life',
-    imagePath: '/remnant2/items/amulets/necklaceofflowinglife.png',
+    imagePath: '/items/amulets/necklaceofflowinglife.png',
     saveFileSlug: 'Amulet_NecklaceOfFlowingLife_C',
     id: '8q9cj1',
     dlc: 'base',
@@ -719,7 +719,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Necklace of Supremacy',
-    imagePath: '/remnant2/items/amulets/necklaceofsupremacy.png',
+    imagePath: '/items/amulets/necklaceofsupremacy.png',
     saveFileSlug: 'Amulet_NecklaceOfSupremacy_C',
     id: 'dm67y5',
     dlc: 'base',
@@ -732,7 +732,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Nightmare Spiral',
-    imagePath: '/remnant2/items/amulets/nightmarespiral.png',
+    imagePath: '/items/amulets/nightmarespiral.png',
     saveFileSlug: 'Amulet_NightmareSpiral_C',
     id: 'mewmtq',
     dlc: 'base',
@@ -744,7 +744,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Nightweaver's Grudge",
-    imagePath: '/remnant2/items/amulets/nightweavergrudge.png',
+    imagePath: '/items/amulets/nightweavergrudge.png',
     saveFileSlug: 'Amulet_NightweaversGrudge_C',
     id: '0aaso1',
     dlc: 'base',
@@ -757,7 +757,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Nimue's Ribbon",
-    imagePath: '/remnant2/items/amulets/nimuesribbon.png',
+    imagePath: '/items/amulets/nimuesribbon.png',
     saveFileSlug: 'Amulet_NimuesRibbon_C',
     id: 'sqsdvj',
     dlc: 'base',
@@ -769,7 +769,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'One-Eyed Joker Idol',
-    imagePath: '/remnant2/items/amulets/oneeyedjokeridol.png',
+    imagePath: '/items/amulets/oneeyedjokeridol.png',
     saveFileSlug: 'Amulet_OneEyedJokerIdol_C',
     id: 'yl1ah9',
     dlc: 'base',
@@ -782,7 +782,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'One True King Sigil',
-    imagePath: '/remnant2/items/amulets/onetruekingsigil.png',
+    imagePath: '/items/amulets/onetruekingsigil.png',
     saveFileSlug: 'Amulet_OneTrueKingSigil_C',
     id: 'j5ew1m',
     dlc: 'base',
@@ -794,7 +794,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Onyx Pendulum',
-    imagePath: '/remnant2/items/amulets/onyxpendulam.png',
+    imagePath: '/items/amulets/onyxpendulam.png',
     saveFileSlug: 'Amulet_OnyxPendulum_C',
     id: 'ps6umu',
     dlc: 'base',
@@ -808,7 +808,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Participation Medal',
-    imagePath: '/remnant2/items/amulets/participationmedal.png',
+    imagePath: '/items/amulets/participationmedal.png',
     saveFileSlug: 'Amulet_ParticipationMedal_C',
     id: '588hoi',
     dlc: 'base',
@@ -823,7 +823,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Profane Soul Stone',
-    imagePath: '/remnant2/items/amulets/profanesoulstone.png',
+    imagePath: '/items/amulets/profanesoulstone.png',
     saveFileSlug: 'Amulet_ProfaneSoulStone_C',
     id: 'YsS9NW',
     dlc: 'dlc2',
@@ -836,7 +836,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Range Finder',
-    imagePath: '/remnant2/items/amulets/rangefinder.png',
+    imagePath: '/items/amulets/rangefinder.png',
     saveFileSlug: 'Amulet_RangeFinder_C',
     id: 't7x0op',
     dlc: 'base',
@@ -852,7 +852,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Ravager's Mark",
-    imagePath: '/remnant2/items/amulets/ravagermark.png',
+    imagePath: '/items/amulets/ravagermark.png',
     saveFileSlug: 'Amulet_RavagersMark_C',
     id: 'gh0gk6',
     dlc: 'base',
@@ -865,7 +865,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Red Doe Sigil',
-    imagePath: '/remnant2/items/amulets/reddoesigil.png',
+    imagePath: '/items/amulets/reddoesigil.png',
     saveFileSlug: 'Amulet_RedDoeSigil_C',
     id: 'xxp0ri',
     dlc: 'base',
@@ -878,7 +878,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Reed of the Vaunnt',
-    imagePath: '/remnant2/items/amulets/reedofthevaunnt.png',
+    imagePath: '/items/amulets/reedofthevaunnt.png',
     saveFileSlug: 'Amulet_ReedOfTheVaunnt_C',
     id: 'U2Vekv',
     dlc: 'base',
@@ -890,7 +890,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Rusted Navigator's Pendant",
-    imagePath: '/remnant2/items/amulets/rustednavigatorpendant.png',
+    imagePath: '/items/amulets/rustednavigatorpendant.png',
     saveFileSlug: 'Amulet_RustedNavigatorsPendant_C',
     id: 'iq6zyc',
     dlc: 'base',
@@ -906,7 +906,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Samoflange',
-    imagePath: '/remnant2/items/amulets/samoflange.png',
+    imagePath: '/items/amulets/samoflange.png',
     saveFileSlug: 'Amulet_Samoflange_C',
     id: 'z7ivk2',
     dlc: 'base',
@@ -919,7 +919,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Scavenger's Bauble",
-    imagePath: '/remnant2/items/amulets/scavengerbauble.png',
+    imagePath: '/items/amulets/scavengerbauble.png',
     saveFileSlug: 'Amulet_ScavengersBauble_C',
     id: 'j2jso0',
     dlc: 'base',
@@ -932,7 +932,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Shaed Bloom Crystal',
     saveFileSlug: `Amulet_ShadeBloomCrystal_C`,
-    imagePath: '/remnant2/items/amulets/shadebloomfloret.png',
+    imagePath: '/items/amulets/shadebloomfloret.png',
     id: 'ib2as6',
     dlc: 'base',
     tags: ['All Damage', 'Elemental Damage'],
@@ -944,7 +944,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Shock Device',
-    imagePath: '/remnant2/items/amulets/shockdevice.png',
+    imagePath: '/items/amulets/shockdevice.png',
     saveFileSlug: 'Amulet_ShockDevice_C',
     id: '9z1g8f',
     dlc: 'base',
@@ -955,7 +955,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Silver Ribbon',
-    imagePath: '/remnant2/items/amulets/silverribbon.png',
+    imagePath: '/items/amulets/silverribbon.png',
     saveFileSlug: 'Amulet_SilverRibbon_C',
     id: 'k8j2r3',
     dlc: 'base',
@@ -971,7 +971,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Sinister Totem',
-    imagePath: '/remnant2/items/amulets/sinistertotem.png',
+    imagePath: '/items/amulets/sinistertotem.png',
     saveFileSlug: 'Amulet_SinisterTotem_C',
     id: 'qwguja',
     dlc: 'base',
@@ -983,7 +983,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Soul Anchor',
-    imagePath: '/remnant2/items/amulets/soulanchor.png',
+    imagePath: '/items/amulets/soulanchor.png',
     saveFileSlug: 'Amulet_SoulAnchor_C',
     id: '6amich',
     dlc: 'base',
@@ -996,7 +996,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Soul Stone',
-    imagePath: '/remnant2/items/amulets/soulstone.png',
+    imagePath: '/items/amulets/soulstone.png',
     saveFileSlug: 'Amulet_SoulStone_C',
     id: 'z7ivk3',
     dlc: 'dlc2',
@@ -1008,7 +1008,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Spirit Wisp Amulet',
-    imagePath: '/remnant2/items/amulets/spiritwispamulet.png',
+    imagePath: '/items/amulets/spiritwispamulet.png',
     saveFileSlug: 'Amulet_SpiritWispAmulet_C',
     id: 'n1y24e',
     dlc: 'base',
@@ -1020,7 +1020,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Stalker's Brand",
-    imagePath: '/remnant2/items/amulets/stalkersbrand.png',
+    imagePath: '/items/amulets/stalkersbrand.png',
     saveFileSlug: 'Amulet_StalkersBrand_C',
     id: 'rcyafk',
     dlc: 'base',
@@ -1033,7 +1033,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: "Stoneshaper's Chisel",
-    imagePath: '/remnant2/items/amulets/stoneshaperchisel.png',
+    imagePath: '/items/amulets/stoneshaperchisel.png',
     saveFileSlug: 'Amulet_StoneshapersChisel_C',
     id: '41ookg',
     dlc: 'dlc2',
@@ -1045,7 +1045,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Talisman of the Sun',
-    imagePath: '/remnant2/items/amulets/talismanofthesun.png',
+    imagePath: '/items/amulets/talismanofthesun.png',
     saveFileSlug: 'Amulet_TalismanOfTheSun_C',
     id: '8jy9hv',
     dlc: 'base',
@@ -1061,7 +1061,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Toxic Release Valve',
-    imagePath: '/remnant2/items/amulets/toxicreleasevalve.png',
+    imagePath: '/items/amulets/toxicreleasevalve.png',
     saveFileSlug: 'Amulet_ToxicReleaseValve_C',
     id: 'nevpy5',
     dlc: 'base',
@@ -1076,7 +1076,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Twisted Idol',
-    imagePath: '/remnant2/items/amulets/twistedidol.png',
+    imagePath: '/items/amulets/twistedidol.png',
     saveFileSlug: 'Amulet_TwistedIdol_C',
     id: '776kn2',
     dlc: 'base',
@@ -1090,7 +1090,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Vengeance Idol',
-    imagePath: '/remnant2/items/amulets/vengeanceidol.png',
+    imagePath: '/items/amulets/vengeanceidol.png',
     saveFileSlug: 'Amulet_VengeanceIdol_C',
     id: '1ucgis',
     dlc: 'base',
@@ -1102,7 +1102,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Void Idol',
-    imagePath: '/remnant2/items/amulets/voididol.png',
+    imagePath: '/items/amulets/voididol.png',
     saveFileSlug: 'Amulet_VoidIdol_C',
     id: 'rctnex',
     dlc: 'base',
@@ -1118,7 +1118,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Weightless Weight',
-    imagePath: '/remnant2/items/amulets/weightlessweight.png',
+    imagePath: '/items/amulets/weightlessweight.png',
     saveFileSlug: 'Amulet_WeightlessWeight_C',
     id: 'b9l389',
     dlc: 'base',
@@ -1131,7 +1131,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Whispering Marble',
-    imagePath: '/remnant2/items/amulets/whisperingmarble.png',
+    imagePath: '/items/amulets/whisperingmarble.png',
     saveFileSlug: 'Amulet_WhisperingMarble_C',
     id: '2e2hh5',
     dlc: 'base',
@@ -1144,7 +1144,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Worn Dog Tags',
-    imagePath: '/remnant2/items/amulets/worndogtag.png',
+    imagePath: '/items/amulets/worndogtag.png',
     saveFileSlug: 'Amulet_WornDogTags_C',
     id: '69dogy',
     dlc: 'dlc2',
@@ -1156,7 +1156,7 @@ export const amuletItems: AmuletItem[] = [
   {
     category: 'amulet',
     name: 'Zero Divide',
-    imagePath: '/remnant2/items/amulets/zerodivide.png',
+    imagePath: '/items/amulets/zerodivide.png',
     saveFileSlug: 'Amulet_ZeroDivide_C',
     id: 'ryS67y',
     dlc: 'base',

@@ -4,7 +4,7 @@ export const archetypeItems: ArchetypeItem[] = [
   {
     category: 'archetype',
     name: 'Alchemist',
-    imagePath: '/remnant2/items/archetypes/alchemist.png',
+    imagePath: '/items/archetypes/alchemist.png',
     saveFileSlug: 'Engram_Alchemist_C',
     id: '67pme7',
     dlc: 'base',
@@ -36,7 +36,7 @@ export const archetypeItems: ArchetypeItem[] = [
   {
     category: 'archetype',
     name: 'Archon',
-    imagePath: '/remnant2/items/archetypes/archon.png',
+    imagePath: '/items/archetypes/archon.png',
     saveFileSlug: 'Engram_Archon_C',
     id: 'og1fvq',
     dlc: 'base',
@@ -68,7 +68,7 @@ export const archetypeItems: ArchetypeItem[] = [
   {
     category: 'archetype',
     name: 'Challenger',
-    imagePath: '/remnant2/items/archetypes/challenger.png',
+    imagePath: '/items/archetypes/challenger.png',
     saveFileSlug: 'Engram_Challenger_C',
     id: 'wm2xsy',
     dlc: 'base',
@@ -99,7 +99,7 @@ export const archetypeItems: ArchetypeItem[] = [
   {
     category: 'archetype',
     name: 'Engineer',
-    imagePath: '/remnant2/items/archetypes/engineer.png',
+    imagePath: '/items/archetypes/engineer.png',
     saveFileSlug: 'Engram_Engineer_C',
     id: '98i1ka',
     dlc: 'base',
@@ -130,7 +130,7 @@ export const archetypeItems: ArchetypeItem[] = [
   {
     category: 'archetype',
     name: 'Explorer',
-    imagePath: '/remnant2/items/archetypes/explorer.png',
+    imagePath: '/items/archetypes/explorer.png',
     saveFileSlug: 'Engram_Explorer_C',
     id: 'la3vvu',
     dlc: 'base',
@@ -162,7 +162,7 @@ export const archetypeItems: ArchetypeItem[] = [
   {
     category: 'archetype',
     name: 'Gunslinger',
-    imagePath: '/remnant2/items/archetypes/gunslinger.png',
+    imagePath: '/items/archetypes/gunslinger.png',
     saveFileSlug: 'Engram_Gunslinger_C',
     id: 'd2qga5',
     dlc: 'base',
@@ -194,7 +194,7 @@ export const archetypeItems: ArchetypeItem[] = [
   {
     category: 'archetype',
     name: 'Handler',
-    imagePath: '/remnant2/items/archetypes/handler.png',
+    imagePath: '/items/archetypes/handler.png',
     saveFileSlug: 'Engram_Handler_C',
     id: 'aazlxe',
     dlc: 'base',
@@ -226,7 +226,7 @@ export const archetypeItems: ArchetypeItem[] = [
   {
     category: 'archetype',
     name: 'Hunter',
-    imagePath: '/remnant2/items/archetypes/hunter.png',
+    imagePath: '/items/archetypes/hunter.png',
     saveFileSlug: 'Engram_Hunter_C',
     id: '5tkqdz',
     dlc: 'base',
@@ -258,7 +258,7 @@ export const archetypeItems: ArchetypeItem[] = [
   {
     category: 'archetype',
     name: 'Invader',
-    imagePath: '/remnant2/items/archetypes/invader.png',
+    imagePath: '/items/archetypes/invader.png',
     saveFileSlug: 'Engram_Invader_C',
     id: '0ipjpk',
     dlc: 'base',
@@ -288,7 +288,7 @@ export const archetypeItems: ArchetypeItem[] = [
   {
     category: 'archetype',
     name: 'Invoker',
-    imagePath: '/remnant2/items/archetypes/invoker.png',
+    imagePath: '/items/archetypes/invoker.png',
     saveFileSlug: 'Engram_Invoker_C',
     id: 'Y2NhrX',
     dlc: 'dlc2',
@@ -318,7 +318,7 @@ export const archetypeItems: ArchetypeItem[] = [
   {
     category: 'archetype',
     name: 'Medic',
-    imagePath: '/remnant2/items/archetypes/medic.png',
+    imagePath: '/items/archetypes/medic.png',
     saveFileSlug: 'Engram_Medic_C',
     id: 'd6fvmc',
     dlc: 'base',
@@ -350,7 +350,7 @@ export const archetypeItems: ArchetypeItem[] = [
   {
     category: 'archetype',
     name: 'Ritualist',
-    imagePath: '/remnant2/items/archetypes/ritualist.png',
+    imagePath: '/items/archetypes/ritualist.png',
     saveFileSlug: 'Engram_Ritualist_C',
     id: '1q7z9d',
     dlc: 'dlc1',
@@ -377,7 +377,7 @@ export const archetypeItems: ArchetypeItem[] = [
   {
     category: 'archetype',
     name: 'Summoner',
-    imagePath: '/remnant2/items/archetypes/summoner.png',
+    imagePath: '/items/archetypes/summoner.png',
     saveFileSlug: 'Engram_Summoner_C',
     id: 'og0bwx',
     dlc: 'base',

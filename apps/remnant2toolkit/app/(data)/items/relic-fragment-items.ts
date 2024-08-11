@@ -4,7 +4,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Ammo Pickups',
-    imagePath: '/remnant2/items/relicfragments/ammo_pickups.png',
+    imagePath: '/items/relicfragments/ammo_pickups.png',
     saveFileSlug: 'RelicFragment_AmmoPickups_C',
     id: 'j1aele',
     dlc: 'base',
@@ -15,7 +15,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Ammo Reserves',
-    imagePath: '/remnant2/items/relicfragments/ammo_reserves.png',
+    imagePath: '/items/relicfragments/ammo_reserves.png',
     saveFileSlug: 'RelicFragment_AmmoReserves_C',
     id: '3aqiq5',
     dlc: 'base',
@@ -26,7 +26,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Armor Effectiveness',
-    imagePath: '/remnant2/items/relicfragments/armor_effectiveness.png',
+    imagePath: '/items/relicfragments/armor_effectiveness.png',
     saveFileSlug: 'RelicFragment_ArmorEffectiveness_C',
     id: '7u1bma',
     dlc: 'base',
@@ -38,7 +38,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Blight Resistance',
-    imagePath: '/remnant2/items/relicfragments/blight_resistance.png',
+    imagePath: '/items/relicfragments/blight_resistance.png',
     saveFileSlug: 'RelicFragment_BlightResistance_C',
     id: '8q8xe3',
     dlc: 'base',
@@ -50,7 +50,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Casting Speed',
-    imagePath: '/remnant2/items/relicfragments/casting_speed.png',
+    imagePath: '/items/relicfragments/casting_speed.png',
     saveFileSlug: 'RelicFragment_CastSpeed_C',
     id: '51y6ih',
     dlc: 'base',
@@ -61,7 +61,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Charge Melee Cost',
-    imagePath: '/remnant2/items/relicfragments/charge_melee_cost.png',
+    imagePath: '/items/relicfragments/charge_melee_cost.png',
     saveFileSlug: 'RelicFragment_ChargeMeleeCost_C',
     id: 'fuikyq',
     dlc: 'base',
@@ -72,7 +72,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Consumable Duration',
-    imagePath: '/remnant2/items/relicfragments/consumable_duration.png',
+    imagePath: '/items/relicfragments/consumable_duration.png',
     saveFileSlug: 'RelicFragment_ConsumableDuration_C',
     id: 'xqklut',
     dlc: 'base',
@@ -82,7 +82,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Consumable Speed',
-    imagePath: '/remnant2/items/relicfragments/consumable_speed.png',
+    imagePath: '/items/relicfragments/consumable_speed.png',
     saveFileSlug: 'RelicFragment_ConsumableSpeed_C',
     id: 'omefk5',
     dlc: 'base',
@@ -93,7 +93,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Damage Reduction',
-    imagePath: '/remnant2/items/relicfragments/damage_reduction.png',
+    imagePath: '/items/relicfragments/damage_reduction.png',
     saveFileSlug: 'RelicFragment_DamageReduction_C',
     id: '1pddio',
     dlc: 'base',
@@ -104,7 +104,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Elemental Damage',
-    imagePath: '/remnant2/items/relicfragments/elemental_damage.png',
+    imagePath: '/items/relicfragments/elemental_damage.png',
     saveFileSlug: 'RelicFragment_ElementalDamage_C',
     id: 'erp2mp',
     dlc: 'base',
@@ -115,7 +115,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Elemental Resistance',
-    imagePath: '/remnant2/items/relicfragments/elemental_resistance.png',
+    imagePath: '/items/relicfragments/elemental_resistance.png',
     saveFileSlug: 'RelicFragment_ElementalResistance_C',
     id: 'j7k57r',
     dlc: 'base',
@@ -131,7 +131,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Grey Health Rate',
-    imagePath: '/remnant2/items/relicfragments/grey_health_rate.png',
+    imagePath: '/items/relicfragments/grey_health_rate.png',
     saveFileSlug: 'RelicFragment_GreyHealthRate_C',
     id: 'aci99s',
     dlc: 'base',
@@ -142,7 +142,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Healing Effectiveness',
-    imagePath: '/remnant2/items/relicfragments/healing_effectiveness.png',
+    imagePath: '/items/relicfragments/healing_effectiveness.png',
     saveFileSlug: 'RelicFragment_HealingEffectiveness_C',
     id: 'y52c32',
     dlc: 'base',
@@ -153,7 +153,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Health',
-    imagePath: '/remnant2/items/relicfragments/health.png',
+    imagePath: '/items/relicfragments/health.png',
     saveFileSlug: 'RelicFragment_Health_C',
     id: 'j87rzn',
     dlc: 'base',
@@ -165,7 +165,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Melee Speed',
-    imagePath: '/remnant2/items/relicfragments/melee_attack_speed.png',
+    imagePath: '/items/relicfragments/melee_attack_speed.png',
     saveFileSlug: 'RelicFragment_MeleeAttackSpeed_C',
     id: 't8jgpe',
     dlc: 'base',
@@ -177,7 +177,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     category: 'relicfragment',
     name: 'Melee Critical Chance',
     saveFileSlug: 'RelicFragment_MeleeCritChance_C',
-    imagePath: '/remnant2/items/relicfragments/melee_critical_chance.png',
+    imagePath: '/items/relicfragments/melee_critical_chance.png',
     id: 'm16fn9',
     dlc: 'base',
     tags: ['Critical Chance', 'Melee Critical Chance'],
@@ -188,7 +188,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     category: 'relicfragment',
     name: 'Melee Critical Damage',
     saveFileSlug: 'RelicFragment_MeleeCritDamage_C',
-    imagePath: '/remnant2/items/relicfragments/melee_critical_damage.png',
+    imagePath: '/items/relicfragments/melee_critical_damage.png',
     id: '77ch7i',
     dlc: 'base',
     tags: ['Melee Critical Damage', 'Critical Damage'],
@@ -198,7 +198,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Melee Damage',
-    imagePath: '/remnant2/items/relicfragments/melee_damage.png',
+    imagePath: '/items/relicfragments/melee_damage.png',
     saveFileSlug: 'RelicFragment_MeleeDamage_C',
     id: 'yu7d57',
     dlc: 'base',
@@ -209,7 +209,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Mod Cost',
-    imagePath: '/remnant2/items/relicfragments/mod_cost.png',
+    imagePath: '/items/relicfragments/mod_cost.png',
     saveFileSlug: 'RelicFragment_ModCost_C',
     id: 's8pkj3',
     dlc: 'base',
@@ -220,7 +220,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Mod Damage',
-    imagePath: '/remnant2/items/relicfragments/mod_damage.png',
+    imagePath: '/items/relicfragments/mod_damage.png',
     saveFileSlug: 'RelicFragment_ModDamage_C',
     id: 'zkr2us',
     dlc: 'base',
@@ -231,7 +231,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Mod Duration',
-    imagePath: '/remnant2/items/relicfragments/mod_duration.png',
+    imagePath: '/items/relicfragments/mod_duration.png',
     saveFileSlug: 'RelicFragment_ModDuration_C',
     id: 'c2t1p6',
     dlc: 'base',
@@ -243,7 +243,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     category: 'relicfragment',
     name: 'Ranged Critical Chance',
     saveFileSlug: 'RelicFragment_RangedCritChance_C',
-    imagePath: '/remnant2/items/relicfragments/ranged_critical_chance.png',
+    imagePath: '/items/relicfragments/ranged_critical_chance.png',
     id: 'dp184t',
     dlc: 'base',
     tags: ['Critical Chance'],
@@ -254,7 +254,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     category: 'relicfragment',
     name: 'Ranged Critical Damage',
     saveFileSlug: 'RelicFragment_RangedCritDamage_C',
-    imagePath: '/remnant2/items/relicfragments/ranged_critical_damage.png',
+    imagePath: '/items/relicfragments/ranged_critical_damage.png',
     id: 'w5jmys',
     dlc: 'base',
     tags: ['Critical Damage'],
@@ -264,7 +264,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Ranged Damage',
-    imagePath: '/remnant2/items/relicfragments/ranged_damage.png',
+    imagePath: '/items/relicfragments/ranged_damage.png',
     saveFileSlug: 'RelicFragment_RangedDamage_C',
     id: 'wlnbc1',
     dlc: 'base',
@@ -275,7 +275,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Ranged Fire Rate',
-    imagePath: '/remnant2/items/relicfragments/ranged_fire_rate.png',
+    imagePath: '/items/relicfragments/ranged_fire_rate.png',
     saveFileSlug: 'RelicFragment_RangedFireRate_C',
     id: 'w8ruyt',
     dlc: 'base',
@@ -286,7 +286,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Recoil',
-    imagePath: '/remnant2/items/relicfragments/recoil.png',
+    imagePath: '/items/relicfragments/recoil.png',
     saveFileSlug: 'RelicFragment_Recoil_C',
     id: 'ygdexg',
     dlc: 'base',
@@ -297,7 +297,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Revive Speed',
-    imagePath: '/remnant2/items/relicfragments/revive_speed.png',
+    imagePath: '/items/relicfragments/revive_speed.png',
     saveFileSlug: 'RelicFragment_ReviveSpeed_C',
     id: '0jam5w',
     dlc: 'base',
@@ -307,7 +307,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Shield Effectiveness',
-    imagePath: '/remnant2/items/relicfragments/shield_effectiveness.png',
+    imagePath: '/items/relicfragments/shield_effectiveness.png',
     saveFileSlug: 'RelicFragment_ShieldEffectiveness_C',
     id: 'alp59n',
     dlc: 'base',
@@ -317,7 +317,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Skill Cooldown',
-    imagePath: '/remnant2/items/relicfragments/skill_cooldown.png',
+    imagePath: '/items/relicfragments/skill_cooldown.png',
     saveFileSlug: 'RelicFragment_SkillCooldown_C',
     id: '2bqp66',
     dlc: 'base',
@@ -328,7 +328,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Skill Damage',
-    imagePath: '/remnant2/items/relicfragments/skill_damage.png',
+    imagePath: '/items/relicfragments/skill_damage.png',
     saveFileSlug: 'RelicFragment_SkillDamage_C',
     id: 'fuhykd',
     dlc: 'base',
@@ -339,7 +339,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Skill Duration',
-    imagePath: '/remnant2/items/relicfragments/skill_duration.png',
+    imagePath: '/items/relicfragments/skill_duration.png',
     saveFileSlug: 'RelicFragment_SkillDuration_C',
     id: '7c8uka',
     dlc: 'base',
@@ -350,7 +350,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Spread Recovery',
-    imagePath: '/remnant2/items/relicfragments/spread_recovery.png',
+    imagePath: '/items/relicfragments/spread_recovery.png',
     saveFileSlug: 'RelicFragment_SpreadRecovery_C',
     id: 'yk8dng',
     dlc: 'base',
@@ -361,7 +361,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Stagger Damage',
-    imagePath: '/remnant2/items/relicfragments/stagger_damage.png',
+    imagePath: '/items/relicfragments/stagger_damage.png',
     saveFileSlug: 'RelicFragment_StaggerDamage_C',
     id: '74x7jt',
     dlc: 'base',
@@ -372,7 +372,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Stamina',
-    imagePath: '/remnant2/items/relicfragments/stamina.png',
+    imagePath: '/items/relicfragments/stamina.png',
     saveFileSlug: 'RelicFragment_Stamina_C',
     id: 'qqmdc0',
     dlc: 'base',
@@ -384,7 +384,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Stamina Cost',
-    imagePath: '/remnant2/items/relicfragments/stamina_cost.png',
+    imagePath: '/items/relicfragments/stamina_cost.png',
     saveFileSlug: 'RelicFragment_StaminaCosts_C',
     id: 'lbtjq3',
     dlc: 'base',
@@ -395,7 +395,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Stamina Recovery Delay',
-    imagePath: '/remnant2/items/relicfragments/stamina_recovery_delay.png',
+    imagePath: '/items/relicfragments/stamina_recovery_delay.png',
     saveFileSlug: 'RelicFragment_StaminaRecoveryDelay_C',
     id: '0y36lm',
     dlc: 'base',
@@ -406,7 +406,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Weakspot Damage',
-    imagePath: '/remnant2/items/relicfragments/weakspot_damage.png',
+    imagePath: '/items/relicfragments/weakspot_damage.png',
     saveFileSlug: 'RelicFragment_RangedWeakspotDamage_C',
     id: 'oszz4u',
     dlc: 'base',
@@ -417,7 +417,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Weapon Spread',
-    imagePath: '/remnant2/items/relicfragments/weapon_spread.png',
+    imagePath: '/items/relicfragments/weapon_spread.png',
     saveFileSlug: 'RelicFragment_WeaponSpread_C',
     id: 'oiiiu2',
     dlc: 'base',
@@ -428,7 +428,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   {
     category: 'relicfragment',
     name: 'Weapon Swap',
-    imagePath: '/remnant2/items/relicfragments/weapon_swap.png',
+    imagePath: '/items/relicfragments/weapon_swap.png',
     saveFileSlug: 'RelicFragment_WeaponSwapSpeed_C',
     id: 'h9e463',
     dlc: 'base',
