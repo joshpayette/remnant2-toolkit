@@ -1,6 +1,5 @@
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import { prisma } from '@repo/db'
-import { redirect } from 'next/navigation'
 import { NextAuthOptions } from 'next-auth'
 import { type Adapter, AdapterUser } from 'next-auth/adapters'
 import DiscordProvider from 'next-auth/providers/discord'
@@ -22,64 +21,52 @@ export const authOptions: NextAuthOptions = {
     //   if (isBanned) return false
     //   return true
     // },
-    // async session({ session, user }) {
-    //   // Check if user is banned
-    //   const isBanned = await prisma.bannedUsers
-    //     .findFirst({
-    //       where: { userId: user.id },
-    //     })
-    //     .catch((e) => {
-    //       console.error(
-    //         `Session callback error on ban check, ${e.message} - User ID: ${user.id}`,
-    //       )
-    //     })
-    //   if (isBanned) {
-    //     console.info(`User ${user.id} is banned`)
-    //     redirect('/api/auth/signout')
-    //   }
-    //   // Create user profile if it doesn't exist
-    //   const existingProfile = await prisma.userProfile.findFirst({
-    //     where: { userId: user.id },
-    //   })
-    //   if (!existingProfile) {
-    //     await prisma.userProfile
-    //       .create({
-    //         data: {
-    //           userId: user.id,
-    //           bio: 'No bio set.',
-    //         },
-    //       })
-    //       .catch((e) => {
-    //         console.error(
-    //           `Session callback error on profile creation: ${e.message} - User ID: ${user.id}`,
-    //         )
-    //       })
-    //   }
-    //   // Update the user's avatar
-    //   // Ensure the user's display name is defaulted
-    //   const displayName = (user as AdapterUser & { displayName: string })
-    //     .displayName
-    //   await prisma.user
-    //     .update({
-    //       where: { id: user.id },
-    //       data: {
-    //         image: user.image,
-    //         displayName: displayName ?? user.name ?? DEFAULT_DISPLAY_NAME,
-    //       },
-    //     })
-    //     .catch((e) => {
-    //       console.error(
-    //         `Session callback error on avatar update: ${e.message} - User ID: ${user.id}`,
-    //       )
-    //     })
-    //   // Update the session user object
-    //   if (session.user) {
-    //     session.user.id = user.id
-    //     session.user.role = (user as AdapterUser & { role: string }).role
-    //     session.user.displayName = displayName
-    //   }
-    //   return session
-    // },
+    async session({ session, user }) {
+      //   // Check if user is banned
+      //   const isBanned = await prisma.bannedUsers
+      //     .findFirst({
+      //       where: { userId: user.id },
+      //     })
+      //     .catch((e) => {
+      //       console.error(
+      //         `Session callback error on ban check, ${e.message} - User ID: ${user.id}`,
+      //       )
+      //     })
+      //   if (isBanned) {
+      //     console.info(`User ${user.id} is banned`)
+      //     redirect('/api/auth/signout')
+      //   }
+      //   // Create user profile if it doesn't exist
+      //   const existingProfile = await prisma.userProfile.findFirst({
+      //     where: { userId: user.id },
+      //   })
+      //   if (!existingProfile) {
+      //     await prisma.userProfile
+      //       .create({
+      //         data: {
+      //           userId: user.id,
+      //           bio: 'No bio set.',
+      //         },
+      //       })
+      //       .catch((e) => {
+      //         console.error(
+      //           `Session callback error on profile creation: ${e.message} - User ID: ${user.id}`,
+      //         )
+      //       })
+      //   }
+      // Update the user's avatar
+      // Ensure the user's display name is defaulted
+      const displayName = (user as AdapterUser & { displayName: string })
+        .displayName
+
+      // Update the session user object
+      if (session.user) {
+        session.user.id = user.id
+        session.user.role = (user as AdapterUser & { role: string }).role
+        session.user.displayName = displayName
+      }
+      return session
+    },
   },
   adapter: PrismaAdapter(prisma) as Adapter,
   providers: [
