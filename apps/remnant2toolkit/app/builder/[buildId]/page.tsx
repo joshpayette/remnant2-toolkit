@@ -17,6 +17,7 @@ export default async function Page({
       </p>
     )
   }
+
   const { build } = buildData
 
   return <PageClient build={build} />

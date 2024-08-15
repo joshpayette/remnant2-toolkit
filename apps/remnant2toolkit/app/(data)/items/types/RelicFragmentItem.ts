@@ -51,11 +51,13 @@ export class RelicFragmentItem
   }
 
   static fromDBValue(
-    buildItems: BuildItems[],
-  ): Array<RelicFragmentItem | null> {
+    buildItems: Array<BuildItems & { isOwned?: boolean }>,
+  ): Array<(RelicFragmentItem & { isOwned?: boolean }) | null> {
     if (!buildItems) return []
 
-    const relicFragmentValues: Array<RelicFragmentItem | null> = []
+    const relicFragmentValues: Array<
+      (RelicFragmentItem & { isOwned?: boolean }) | null
+    > = []
     for (const buildItem of buildItems) {
       const item = relicFragmentItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
@@ -63,12 +65,15 @@ export class RelicFragmentItem
         ? (relicFragmentValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,
+            isOwned: buildItem.isOwned,
           })
         : relicFragmentValues.push({
             ...item,
             optional: buildItem.optional,
+            isOwned: buildItem.isOwned,
           })
     }
+
     return relicFragmentValues
   }
 }

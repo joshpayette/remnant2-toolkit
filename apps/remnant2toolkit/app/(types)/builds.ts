@@ -48,23 +48,23 @@ export interface BuildState {
   duplicateCount: number
   reported: boolean
   items: {
-    helm: ArmorItem | null
-    torso: ArmorItem | null
-    legs: ArmorItem | null
-    gloves: ArmorItem | null
-    relic: RelicItem | null
-    amulet: AmuletItem | null
-    weapon: Array<WeaponItem | null>
-    ring: Array<RingItem | null>
-    archetype: Array<ArchetypeItem | null>
-    skill: Array<SkillItem | null>
-    concoction: Array<ConcoctionItem | null>
-    consumable: Array<ConsumableItem | null>
-    mod: Array<ModItem | null>
-    mutator: Array<MutatorItem | null>
-    relicfragment: Array<RelicFragmentItem | null>
-    trait: TraitItem[]
-    perk: Array<PerkItem | null>
+    helm: (ArmorItem & { isOwned?: boolean }) | null
+    torso: (ArmorItem & { isOwned?: boolean }) | null
+    legs: (ArmorItem & { isOwned?: boolean }) | null
+    gloves: (ArmorItem & { isOwned?: boolean }) | null
+    relic: (RelicItem & { isOwned?: boolean }) | null
+    amulet: (AmuletItem & { isOwned?: boolean }) | null
+    weapon: Array<(WeaponItem & { isOwned?: boolean }) | null>
+    ring: Array<(RingItem & { isOwned?: boolean }) | null>
+    archetype: Array<(ArchetypeItem & { isOwned?: boolean }) | null>
+    skill: Array<(SkillItem & { isOwned?: boolean }) | null>
+    concoction: Array<(ConcoctionItem & { isOwned?: boolean }) | null>
+    consumable: Array<(ConsumableItem & { isOwned?: boolean }) | null>
+    mod: Array<(ModItem & { isOwned?: boolean }) | null>
+    mutator: Array<(MutatorItem & { isOwned?: boolean }) | null>
+    relicfragment: Array<(RelicFragmentItem & { isOwned?: boolean }) | null>
+    trait: Array<TraitItem & { isOwned?: boolean }>
+    perk: Array<(PerkItem & { isOwned?: boolean }) | null>
   }
 }
 
@@ -102,7 +102,7 @@ export interface DBBuild {
   viewCount: number
   validatedViewCount: number
   duplicateCount: number
-  buildItems: BuildItems[]
+  buildItems: Array<BuildItems & { isOwned?: boolean }>
   buildTags: BuildTags[]
 }
 

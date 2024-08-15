@@ -40,16 +40,19 @@ export class RelicItem extends BaseItem implements BaseRelicItem {
     return optional ? { ...item, optional } : item
   }
 
-  static fromDBValue(buildItems: BuildItems[]): RelicItem | null {
+  static fromDBValue(
+    buildItems: Array<BuildItems & { isOwned?: boolean }>,
+  ): (RelicItem & { isOwned?: boolean }) | null {
     if (!buildItems) return null
 
-    let relicValues: RelicItem | null = null
+    let relicValues: (RelicItem & { isOwned?: boolean }) | null = null
     for (const buildItem of buildItems) {
       const item = relicItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
       relicValues = {
         ...item,
         optional: buildItem.optional,
+        isOwned: buildItem.isOwned,
       }
     }
     return relicValues

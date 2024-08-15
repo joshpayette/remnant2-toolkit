@@ -6,29 +6,35 @@ import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import { useEffect, useRef, useState } from 'react'
 import { toast } from 'react-toastify'
+import { useLocalStorage } from 'usehooks-ts'
 
-import { BuilderContainer } from '@/app/(components)/builder/builder-container'
-import VideoThumbnail from '@/app/(components)/builder/video-thumbnail'
-import { DeleteBuildButton } from '@/app/(components)/buttons/builder-buttons/delete-build-button'
-import { DetailedViewButton } from '@/app/(components)/buttons/builder-buttons/detailed-view-button'
-import { DuplicateBuildButton } from '@/app/(components)/buttons/builder-buttons/duplicate-build-button'
-import { EditBuildButton } from '@/app/(components)/buttons/builder-buttons/edit-build-button'
-import { FavoriteBuildButton } from '@/app/(components)/buttons/builder-buttons/favorite-build-button'
-import { GenerateBuildImageButton } from '@/app/(components)/buttons/builder-buttons/generate-build-image'
-import { LoadoutManagementButton } from '@/app/(components)/buttons/builder-buttons/loadout-management-button'
-import { ModeratorToolsButton } from '@/app/(components)/buttons/builder-buttons/moderator-tools-button'
-import { NewLinkedBuildButton } from '@/app/(components)/buttons/builder-buttons/new-linked-build-button'
-import { ShareBuildButton } from '@/app/(components)/buttons/builder-buttons/share-build-button'
-import { ViewLinkedBuildButton } from '@/app/(components)/buttons/builder-buttons/view-linked-builds'
 import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
-import { DetailedBuildDialog } from '@/app/(components)/dialogs/detailed-build-dialog'
-import FavoriteBuildDialog from '@/app/(components)/dialogs/favorite-build-dialog'
-import { ImageDownloadInfoDialog } from '@/app/(components)/dialogs/image-download-info-dialog'
-import { LoadoutDialog } from '@/app/(components)/dialogs/loadout-dialog'
-import { ModeratorBuildToolsDialog } from '@/app/(components)/dialogs/moderator-build-tools-dialog'
+import { BuilderContainer } from '@/app/(features)/builder/components/builder-container'
+import { DeleteBuildButton } from '@/app/(features)/builder/components/buttons/delete-build-button'
+import { DetailedViewButton } from '@/app/(features)/builder/components/buttons/detailed-view-button'
+import { DuplicateBuildButton } from '@/app/(features)/builder/components/buttons/duplicate-build-button'
+import { EditBuildButton } from '@/app/(features)/builder/components/buttons/edit-build-button'
+import { FavoriteBuildButton } from '@/app/(features)/builder/components/buttons/favorite-build-button'
+import { GenerateBuildImageButton } from '@/app/(features)/builder/components/buttons/generate-build-image'
+import { ItemOwnershipPreferenceButton } from '@/app/(features)/builder/components/buttons/item-ownership-preference-button'
+import { LoadoutManagementButton } from '@/app/(features)/builder/components/buttons/loadout-management-button'
+import { ModeratorToolsButton } from '@/app/(features)/builder/components/buttons/moderator-tools-button'
+import { NewLinkedBuildButton } from '@/app/(features)/builder/components/buttons/new-linked-build-button'
+import { ShareBuildButton } from '@/app/(features)/builder/components/buttons/share-build-button'
+import { ViewLinkedBuildButton } from '@/app/(features)/builder/components/buttons/view-linked-builds'
+import { DetailedBuildDialog } from '@/app/(features)/builder/components/dialogs/detailed-build-dialog'
+import { FavoriteBuildDialog } from '@/app/(features)/builder/components/dialogs/favorite-build-dialog'
+import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dialogs/image-download-info-dialog'
+import { VideoThumbnail } from '@/app/(features)/builder/components/video-thumbnail'
 import { incrementViewCount } from '@/app/(features)/builds/actions/increment-view-count'
+import { ModeratorBuildToolsDialog } from '@/app/(features)/builds/admin/components/dialogs/moderator-build-tools-dialog'
+import { LoadoutDialog } from '@/app/(features)/loadouts/components/dialogs/loadout-dialog'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { DBBuild } from '@/app/(types)/builds'
+import {
+  ItemOwnershipPreference,
+  LOCALSTORAGE_KEY,
+} from '@/app/(types)/localstorage'
 import { buildStateToCsvData } from '@/app/(utils)/builds/build-state-to-csv-data'
 import { cleanUpBuildState } from '@/app/(utils)/builds/clean-up-build-state'
 import { dbBuildToBuildState } from '@/app/(utils)/builds/db-build-to-build-state'
@@ -41,6 +47,13 @@ export function PageClient({ build }: Props) {
   const buildState = cleanUpBuildState(dbBuildToBuildState(build))
 
   const [showModeratorTooling, setShowModeratorTooling] = useState(false)
+
+  const [itemOwnershipPreference, setItemOwnershipPreference] =
+    useLocalStorage<ItemOwnershipPreference>(
+      LOCALSTORAGE_KEY.ITEM_OWNERSHIP_PREFERENCE,
+      false,
+      { initializeWithValue: false },
+    )
 
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
   const [loadoutDialogOpen, setLoadoutDialogOpen] = useState(false)
@@ -115,6 +128,7 @@ export function PageClient({ build }: Props) {
           buildState={buildState}
           isEditable={false}
           isScreenshotMode={isScreenshotMode}
+          itemOwnershipPreference={itemOwnershipPreference}
           showControls={showControls}
           builderActions={
             <>
@@ -195,6 +209,12 @@ export function PageClient({ build }: Props) {
 
               <DetailedViewButton
                 onClick={() => setDetailedBuildDialogOpen(true)}
+              />
+
+              <ItemOwnershipPreferenceButton
+                onClick={() =>
+                  setItemOwnershipPreference(!itemOwnershipPreference)
+                }
               />
 
               <ViewLinkedBuildButton

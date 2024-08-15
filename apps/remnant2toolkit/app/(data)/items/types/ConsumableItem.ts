@@ -45,10 +45,14 @@ export class ConsumableItem extends BaseItem implements BaseConsumableItem {
     return items
   }
 
-  static fromDBValue(buildItems: BuildItems[]): Array<ConsumableItem | null> {
+  static fromDBValue(
+    buildItems: Array<BuildItems & { isOwned?: boolean }>,
+  ): Array<(ConsumableItem & { isOwned?: boolean }) | null> {
     if (!buildItems) return []
 
-    const consumableValues: Array<ConsumableItem | null> = []
+    const consumableValues: Array<
+      (ConsumableItem & { isOwned?: boolean }) | null
+    > = []
     for (const buildItem of buildItems) {
       const item = consumableItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
@@ -57,12 +61,15 @@ export class ConsumableItem extends BaseItem implements BaseConsumableItem {
         ? (consumableValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,
+            isOwned: buildItem.isOwned,
           })
         : consumableValues.push({
             ...item,
             optional: buildItem.optional,
+            isOwned: buildItem.isOwned,
           })
     }
+
     return consumableValues
   }
 }

@@ -45,10 +45,12 @@ export class ModItem extends BaseItem implements BaseModItem {
     return items
   }
 
-  static fromDBValue(buildItems: BuildItems[]): Array<ModItem | null> {
+  static fromDBValue(
+    buildItems: Array<BuildItems & { isOwned?: boolean }>,
+  ): Array<(ModItem & { isOwned?: boolean }) | null> {
     if (!buildItems) return []
 
-    const modValues: Array<ModItem | null> = []
+    const modValues: Array<(ModItem & { isOwned?: boolean }) | null> = []
     for (const buildItem of buildItems) {
       const item = modItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
@@ -56,12 +58,15 @@ export class ModItem extends BaseItem implements BaseModItem {
         ? (modValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,
+            isOwned: buildItem.isOwned,
           })
         : modValues.push({
             ...item,
             optional: buildItem.optional,
+            isOwned: buildItem.isOwned,
           })
     }
+
     return modValues
   }
 }

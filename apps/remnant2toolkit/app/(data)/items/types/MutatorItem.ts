@@ -52,10 +52,13 @@ export class MutatorItem extends BaseItem implements BaseMutatorItem {
     return items
   }
 
-  static fromDBValue(buildItems: BuildItems[]): Array<MutatorItem | null> {
+  static fromDBValue(
+    buildItems: Array<BuildItems & { isOwned?: boolean }>,
+  ): Array<(MutatorItem & { isOwned?: boolean }) | null> {
     if (!buildItems) return []
 
-    const mutatorValues: Array<MutatorItem | null> = []
+    const mutatorValues: Array<(MutatorItem & { isOwned?: boolean }) | null> =
+      []
     for (const buildItem of buildItems) {
       const item = mutatorItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
@@ -63,12 +66,15 @@ export class MutatorItem extends BaseItem implements BaseMutatorItem {
         ? (mutatorValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,
+            isOwned: buildItem.isOwned,
           })
         : mutatorValues.push({
             ...item,
             optional: buildItem.optional,
+            isOwned: buildItem.isOwned,
           })
     }
+
     return mutatorValues
   }
 }

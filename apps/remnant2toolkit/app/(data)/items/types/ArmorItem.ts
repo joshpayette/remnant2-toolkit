@@ -28,12 +28,12 @@ export class ArmorItem extends BaseItem implements BaseArmorItem {
   }
 
   static fromDBValue(
-    buildItems: BuildItems[],
+    buildItems: Array<BuildItems & { isOwned?: boolean }>,
     category: 'helm' | 'gloves' | 'torso' | 'legs',
-  ): ArmorItem | null {
+  ): (ArmorItem & { isOwned?: boolean }) | null {
     if (!buildItems) return null
 
-    let armorItem: ArmorItem | null = null
+    let armorItem: (ArmorItem & { isOwned?: boolean }) | null = null
     for (const buildItem of buildItems) {
       const item = armorItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
@@ -41,6 +41,7 @@ export class ArmorItem extends BaseItem implements BaseArmorItem {
       armorItem = {
         ...item,
         optional: buildItem.optional,
+        isOwned: buildItem.isOwned,
       }
     }
     return armorItem

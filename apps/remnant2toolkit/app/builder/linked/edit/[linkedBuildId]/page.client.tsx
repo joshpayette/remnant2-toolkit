@@ -11,23 +11,21 @@ import { FaLink } from 'react-icons/fa6'
 import { toast } from 'react-toastify'
 
 import { BuildList } from '@/app/(components)/build-list'
-import { BuildCard } from '@/app/(components)/cards/build-card'
 import { OrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter'
 import { useOrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
 import { TimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter'
 import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
 import { Tooltip } from '@/app/(components)/tooltip'
-import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
 import { getCreatedBuilds } from '@/app/(features)/builds/actions/get-created-builds'
+import { BuildCard } from '@/app/(features)/builds/components/cards/build-card'
 import { updateLinkedBuild } from '@/app/(features)/linked-builds/actions/update-linked-build'
+import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(features)/linked-builds/constants/max-linked-build-description-length'
+import { MAX_LINKED_BUILD_ITEMS } from '@/app/(features)/linked-builds/constants/max-linked-build-items'
+import { MAX_LINKED_BUILD_LABEL_LENGTH } from '@/app/(features)/linked-builds/constants/max-linked-build-label-length'
 import { DBBuild } from '@/app/(types)/builds'
 import type { LinkedBuildState } from '@/app/(types)/linked-builds'
 import { useBuildListState } from '@/app/(utils)/builds/hooks/use-build-list-state'
 import { usePagination } from '@/app/(utils)/pagination/use-pagination'
-import {
-  MAX_LINKED_BUILD_ITEMS,
-  MAX_LINKED_BUILD_LABEL_LENGTH,
-} from '@/app/builder/linked/constants'
 import { LinkedBuildItem } from '@/app/builder/linked/create/[buildId]/type'
 
 const ITEMS_PER_PAGE = 16

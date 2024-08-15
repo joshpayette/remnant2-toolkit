@@ -9,7 +9,6 @@ import isEqual from 'lodash.isequal'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useState } from 'react'
 
-import { QualityBuildDialog } from '@/app/(components)/dialogs/quality-build-dialog'
 import { AmuletFilter } from '@/app/(components)/filters/builds/amulet-filter'
 import {
   ArchetypeFilter,
@@ -37,6 +36,7 @@ import {
 } from '@/app/(components)/filters/releases-filter'
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
 import { InputWithClear } from '@/app/(components)/input-with-clear'
+import { QualityBuildDialog } from '@/app/(features)/builds/components/dialogs/quality-build-dialog'
 
 export const DEFAULT_BUILD_FILTERS = {
   archetypes: VALID_ARCHETYPES,

@@ -3,8 +3,8 @@
 import { getArrayOfLength } from '@repo/utils/get-array-of-length'
 
 import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list'
-import { EmptyLoadoutCard } from '@/app/(components)/cards/empty-loadout-card'
-import { LoadoutCard } from '@/app/(components)/cards/loadout-card'
+import { EmptyLoadoutCard } from '@/app/(features)/loadouts/components/cards/empty-loadout-card'
+import { LoadoutCard } from '@/app/(features)/loadouts/components/cards/loadout-card'
 
 interface Props {
   isEditable: boolean

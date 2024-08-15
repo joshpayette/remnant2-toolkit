@@ -4,9 +4,9 @@ import { BaseLink } from '@repo/ui/base/link'
 import { EyeIcon } from '@repo/ui/icons/eye'
 import { useState } from 'react'
 
-import { BuildCard } from '@/app/(components)/cards/build-card'
-import { QualityBuildDialog } from '@/app/(components)/dialogs/quality-build-dialog'
 import { Tooltip } from '@/app/(components)/tooltip'
+import { BuildCard } from '@/app/(features)/builds/components/cards/build-card'
+import { QualityBuildDialog } from '@/app/(features)/builds/components/dialogs/quality-build-dialog'
 import type { DBBuild } from '@/app/(types)/builds'
 
 interface Props {

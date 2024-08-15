@@ -1,5 +1,5 @@
-import { ARCHETYPE_COMBO_NAMES } from '@/app/(data)/builds/constants'
 import { archetypeItems } from '@/app/(data)/items/archetype-items'
+import { ARCHETYPE_COMBO_NAMES } from '@/app/(features)/builds/constants/archetype-combo-names'
 
 export type ArchetypeName =
   | 'alchemist'

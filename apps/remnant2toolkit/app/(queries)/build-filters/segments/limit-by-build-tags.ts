@@ -1,6 +1,6 @@
 import { BUILD_TAG, Prisma } from '@repo/db'
 
-import { ALL_BUILD_TAGS } from '@/app/(components)/builder/build-tags/constants'
+import { ALL_BUILD_TAGS } from '@/app/(features)/builder/constants/all-build-tags'
 
 export function limitByBuildTagsSegment(tagValues: BUILD_TAG[]) {
   // ! Excluding this for now because it seems like we'd want to do this

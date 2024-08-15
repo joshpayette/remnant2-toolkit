@@ -6,11 +6,11 @@ import { ReactNode, useState } from 'react'
 import reactStringReplace from 'react-string-replace'
 import { v4 as uuidv4 } from 'uuid'
 
-import { ALL_BUILD_TAGS } from '@/app/(components)/builder/build-tags/constants'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { Tooltip } from '@/app/(components)/tooltip'
 import { allItems } from '@/app/(data)/items/all-items'
 import { Item } from '@/app/(data)/items/types'
+import { ALL_BUILD_TAGS } from '@/app/(features)/builder/constants/all-build-tags'
 import { EXTERNAL_TOKENS, INLINE_TOKENS } from '@/app/(types)/tokens'
 
 // Start with all description tokens, which are always included
