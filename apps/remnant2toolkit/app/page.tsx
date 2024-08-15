@@ -257,14 +257,14 @@ export default async function Page() {
             Latest Post
           </h3>
           <BaseLink
-            href="https://www.patreon.com/posts/final-dlc-plus-109411608"
+            href="https://www.patreon.com/posts/latest-toolkit-110126697"
             target="_blank"
           >
             <Image
-              src={getImageUrl('/patreon-posts/2024-08-03.jpg')}
+              src={getImageUrl('/patreon-posts/2024-08-14.jpg')}
               width={253}
               height={450}
-              alt="First DLC announced, plus some Toolkit updates!"
+              alt="The latest Toolkit updates - DLC3 soon!"
             />
           </BaseLink>
         </div>
