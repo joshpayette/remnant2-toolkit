@@ -205,6 +205,7 @@ export function PageClient({ linkedBuildState }: Props) {
           buildState={buildState}
           isEditable={false}
           isScreenshotMode={isScreenshotMode}
+          itemOwnershipPreference={false}
           showControls={showControls}
           builderActions={
             <>

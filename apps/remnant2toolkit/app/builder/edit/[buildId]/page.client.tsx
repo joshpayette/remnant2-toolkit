@@ -91,6 +91,7 @@ export function PageClient({ build }: Props) {
         buildState={dbBuildState}
         isEditable={true}
         isScreenshotMode={isScreenshotMode}
+        itemOwnershipPreference={false}
         showControls={showControls}
         onUpdateBuildState={updateDBBuildState}
         builderActions={

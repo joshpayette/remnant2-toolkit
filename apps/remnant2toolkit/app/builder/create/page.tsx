@@ -89,6 +89,7 @@ export default function Page() {
         buildState={dbBuildState}
         isScreenshotMode={isScreenshotMode}
         isEditable={true}
+        itemOwnershipPreference={false}
         onUpdateBuildState={updateDBBuildState}
         showControls={showControls}
         showCreatedBy={false}

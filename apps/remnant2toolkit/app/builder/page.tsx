@@ -18,6 +18,8 @@ import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dia
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { useUrlBuildState } from '@/app/(utils)/builds/hooks/use-url-build-state'
 
+// TODO Add ownership preference localstorage read like in the builder/[buildId]
+
 export default function Page() {
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
   const [shareBuildAlertOpen, setShareBuildAlertOpen] = useState(false)
@@ -114,6 +116,7 @@ export default function Page() {
         buildState={urlBuildState}
         isEditable={true}
         isScreenshotMode={isScreenshotMode}
+        itemOwnershipPreference={false}
         showControls={showControls}
         showCreatedBy={false}
         showMemberFeatures={false}
