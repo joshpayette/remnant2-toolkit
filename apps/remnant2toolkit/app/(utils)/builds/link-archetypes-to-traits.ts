@@ -1,6 +1,6 @@
-import { DEFAULT_TRAIT_AMOUNT } from '@/app/(data)/builds/constants'
 import { traitItems } from '@/app/(data)/items/trait-items'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
+import { DEFAULT_TRAIT_AMOUNT } from '@/app/(features)/builder/constants/default-trait-amount'
 import { BuildState } from '@/app/(types)/builds'
 
 /**

@@ -45,10 +45,14 @@ export class ConcoctionItem extends BaseItem implements BaseConcoctionItem {
     return items
   }
 
-  static fromDBValue(buildItems: BuildItems[]): Array<ConcoctionItem | null> {
+  static fromDBValue(
+    buildItems: Array<BuildItems & { isOwned?: boolean }>,
+  ): Array<(ConcoctionItem & { isOwned?: boolean }) | null> {
     if (!buildItems) return []
 
-    const concoctionValues: Array<ConcoctionItem | null> = []
+    const concoctionValues: Array<
+      (ConcoctionItem & { isOwned?: boolean }) | null
+    > = []
     for (const buildItem of buildItems) {
       const item = concoctionItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
@@ -57,10 +61,12 @@ export class ConcoctionItem extends BaseItem implements BaseConcoctionItem {
         ? (concoctionValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,
+            isOwned: buildItem.isOwned,
           })
         : concoctionValues.push({
             ...item,
             optional: buildItem.optional,
+            isOwned: buildItem.isOwned,
           })
     }
 

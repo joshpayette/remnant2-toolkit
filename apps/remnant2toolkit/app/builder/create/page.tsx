@@ -3,19 +3,19 @@
 import { useRef, useState } from 'react'
 import { useIsClient } from 'usehooks-ts'
 
-import { BuilderContainer } from '@/app/(components)/builder/builder-container'
-import { ArmorCalculatorButton } from '@/app/(components)/buttons/builder-buttons/armor-calculator-button'
-import { DetailedViewButton } from '@/app/(components)/buttons/builder-buttons/detailed-view-button'
-import { GenerateBuildImageButton } from '@/app/(components)/buttons/builder-buttons/generate-build-image'
-import { ItemSuggestionsButton } from '@/app/(components)/buttons/builder-buttons/item-suggestions-button'
-import { RandomBuildButton } from '@/app/(components)/buttons/builder-buttons/random-build-button'
-import { SaveBuildButton } from '@/app/(components)/buttons/builder-buttons/save-build-button'
-import { ArmorSuggestionDialog } from '@/app/(components)/dialogs/armor-suggestion-dialog'
-import { DetailedBuildDialog } from '@/app/(components)/dialogs/detailed-build-dialog'
-import { ImageDownloadInfoDialog } from '@/app/(components)/dialogs/image-download-info-dialog'
 import { ItemTagSuggestionDialog } from '@/app/(components)/dialogs/item-tag-suggestion-dialog'
 import { PageHeader } from '@/app/(components)/page-header'
-import { INITIAL_BUILD_STATE } from '@/app/(data)/builds/constants'
+import { BuilderContainer } from '@/app/(features)/builder/components/builder-container'
+import { ArmorCalculatorButton } from '@/app/(features)/builder/components/buttons/armor-calculator-button'
+import { DetailedViewButton } from '@/app/(features)/builder/components/buttons/detailed-view-button'
+import { GenerateBuildImageButton } from '@/app/(features)/builder/components/buttons/generate-build-image'
+import { ItemSuggestionsButton } from '@/app/(features)/builder/components/buttons/item-suggestions-button'
+import { RandomBuildButton } from '@/app/(features)/builder/components/buttons/random-build-button'
+import { SaveBuildButton } from '@/app/(features)/builder/components/buttons/save-build-button'
+import { ArmorSuggestionDialog } from '@/app/(features)/builder/components/dialogs/armor-suggestion-dialog'
+import { DetailedBuildDialog } from '@/app/(features)/builder/components/dialogs/detailed-build-dialog'
+import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dialogs/image-download-info-dialog'
+import { INITIAL_BUILD_STATE } from '@/app/(features)/builds/constants/initial-build-state'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { BuildState } from '@/app/(types)/builds'
 import { useDBBuildState } from '@/app/(utils)/builds/hooks/use-db-build-state'
@@ -89,6 +89,7 @@ export default function Page() {
         buildState={dbBuildState}
         isScreenshotMode={isScreenshotMode}
         isEditable={true}
+        itemOwnershipPreference={false}
         onUpdateBuildState={updateDBBuildState}
         showControls={showControls}
         showCreatedBy={false}

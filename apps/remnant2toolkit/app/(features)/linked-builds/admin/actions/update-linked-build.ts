@@ -3,9 +3,9 @@
 import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
-import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
 import type { AdminToolResponse } from '@/app/(features)/builds/types/admin-tool-response'
+import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(features)/linked-builds/constants/max-linked-build-description-length'
 import type { LinkedBuildState } from '@/app/(types)/linked-builds'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 

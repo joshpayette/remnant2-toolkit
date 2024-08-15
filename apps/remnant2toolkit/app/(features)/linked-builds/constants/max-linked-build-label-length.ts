@@ -1,0 +1,1 @@
+export const MAX_LINKED_BUILD_LABEL_LENGTH = 20

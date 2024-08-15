@@ -20,10 +20,19 @@ export function Footer() {
         </a>{' '}
         created and managed by Josh Payette.
         <br />
+        <br />
         View the{' '}
         <a href={NAV_ITEMS.changeLog.href} className={cn(aClass)}>
           change log
         </a>{' '}
+        or the{' '}
+        <a
+          href="https://www.patreon.com/JoshPayette"
+          target="_blank"
+          className={cn(aClass)}
+        >
+          Patreon
+        </a>
         for the latest updates.
       </p>
 

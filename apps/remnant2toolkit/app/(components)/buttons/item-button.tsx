@@ -5,12 +5,14 @@ import { InfoCircleIcon } from '@repo/ui/icons/info-circle'
 import { getImageUrl } from '@repo/ui/utils/get-image-url'
 import { ZINDEXES } from '@repo/ui/zindexes'
 import Image from 'next/image'
+import { PiBagSimpleFill as OwnershipIcon } from 'react-icons/pi'
 import { TbHttpOptions } from 'react-icons/tb'
 
 import { Tooltip } from '@/app/(components)/tooltip'
 import { Enemy, isEnemy } from '@/app/(data)/enemies/types'
 import { Item } from '@/app/(data)/items/types'
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
+import { SKIPPED_ITEM_TRACKER_CATEGORIES } from '@/app/tracker/constants'
 
 /**
  * Some words are too long to fit in the item label on the builder
@@ -31,35 +33,45 @@ const MANUAL_ITEM_NAME_TEXT_TRANSFORMS: Array<{
 }> = [{ name: "Nightweaver's Grudge", transform: 'text-[9px]' }]
 
 type Props = {
-  // Whether the button is in edit mode or not
-  // Controls buttons and controls that are shown
+  /** Whether a button is able to be edited, i.e. can change the item, toggle optional, etc. */
   isEditable?: boolean
-  // Used to control the look of buttons during image export
+  /** Whether the button is in screenshot mode, i.e. for image export */
   isScreenshotMode?: boolean
-  // Used for item tracker and boss tracker to toggle grayscale
+  /** Whether the button is toggled on or off, i.e. for item tracker or boss tracker */
   isToggled?: boolean
-  item: Item | Enemy | null
-  // Used to toggle off lazy loading so that image export doesn't break on Safari
+  /** The item to display on the button */
+  item: (Item & { isOwned?: boolean }) | Enemy | null
+  /** Used primarily to disable lazy loading for image export, as that breaks on Safari */
   loadingType?: 'lazy' | 'eager'
-  // If true, will use the manual word breaks for item names from MANUAL_ITEM_NAME_BREAKS constant
+  /**
+   * If true, will add manual word breaks for item names from MANUAL_ITEM_NAME_BREAKS constant.
+   * This is because some item names are too long to wrap in the ItemButton label
+   */
   manualWordBreaks?: boolean
-  // If true, will disable the image info tooltip on the button
+  /** If true, will show the item ownership icon on the button */
+  showOwnership?: boolean
+  /** If true, will disable the image info tooltip on the button */
   tooltipDisabled?: boolean
-  // Used to toggle off image optimization so that image export doesn't break on Safari
+  /** Used primarily to disable image optimization for image export, as that breaks on Safari */
   unoptimized?: boolean
+  /** The variant of the button to display */
   variant?: 'default' | 'large' | 'boss-tracker' | 'relic-fragment' | 'weapon'
+  /** The function to run when the button is clicked */
   onClick?: () => void
+  /** The function to run when the info icon button is clicked */
   onItemInfoClick?: (item: Item) => void
+  /** The function to run when the optional toggle icon button is clicked */
   onToggleOptional?: (selectedItem: Item, optional: boolean) => void
 }
 
 export function ItemButton({
-  item,
   isEditable = true,
   isScreenshotMode = false,
   isToggled,
+  item,
   loadingType = 'eager',
   manualWordBreaks = false,
+  showOwnership = false,
   tooltipDisabled = true,
   unoptimized = false,
   variant = 'default',
@@ -110,6 +122,30 @@ export function ItemButton({
       break
   }
 
+  /**
+   * Item ownership should be shown if:
+   * - The item is not an enemy
+   * - The button is not in screenshot mode
+   * - The button is not editable
+   * - The item is owned
+   * - The item is not in SKIPPED_ITEM_TRACKER_CATEGORIES
+   */
+  const showItemOwnership =
+    item &&
+    !isEnemy(item) &&
+    !isScreenshotMode &&
+    !isEditable &&
+    showOwnership &&
+    SKIPPED_ITEM_TRACKER_CATEGORIES.includes(item.category) === false
+
+  /**
+   * Optional toggle should be shown if:
+   * - The item is not an enemy
+   * - The button is not in screenshot mode
+   * - The button is editable
+   * - The `onToggleOptional` function is provided
+   * - The `onClick` function is provided
+   */
   const showOptionalToggle =
     item &&
     !isEnemy(item) &&
@@ -118,13 +154,25 @@ export function ItemButton({
     onToggleOptional &&
     onClick
 
+  /**
+   * Clicking should show item info if:
+   * - The button is not an enemy
+   * - The button is not editable
+   * - The `onItemInfoClick` function is provided
+   * - The `isToggled` prop is not provided
+   */
   const clickShowsInfo =
-    !isEditable &&
     item &&
-    onItemInfoClick &&
     !isEnemy(item) &&
+    !isEditable &&
+    onItemInfoClick &&
     isToggled === undefined
 
+  /**
+   * The button click action should be:
+   * - If `clickShowsInfo` is true, run the onItemInfoClick function
+   * - If `clickShowsInfo` is false, run the onClick function
+   */
   const buttonClickAction = clickShowsInfo
     ? () => onItemInfoClick(item)
     : onClick
@@ -171,6 +219,7 @@ export function ItemButton({
           </button>
         </Tooltip>
       )}
+
       {showOptionalToggle && (
         <Tooltip
           content={`Toggle item as optional`}
@@ -188,6 +237,33 @@ export function ItemButton({
             aria-label="Toggle item as optional"
           >
             <TbHttpOptions className="text-accent1-500 h-4 w-4" />
+          </button>
+        </Tooltip>
+      )}
+
+      {showItemOwnership && (
+        <Tooltip
+          content={
+            item.isOwned ? `You own this item` : `You do not own this item`
+          }
+          trigger="mouseenter"
+          interactive={false}
+          disabled={tooltipDisabled}
+        >
+          <button
+            className={cn(
+              'absolute left-0 top-0 rounded-full border-transparent bg-black',
+              ZINDEXES.ITEM_BUTTON,
+              variant === 'relic-fragment' && 'left-auto right-[-40px]',
+            )}
+            aria-label={item.isOwned ? 'Item Owned' : 'Item Unowned'}
+          >
+            <OwnershipIcon
+              className={cn(
+                'h-3 w-3',
+                item.isOwned ? 'text-green-500' : 'text-red-500',
+              )}
+            />
           </button>
         </Tooltip>
       )}

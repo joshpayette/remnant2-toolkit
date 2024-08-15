@@ -3,8 +3,8 @@
 import { prisma } from '@repo/db'
 import { revalidatePath } from 'next/cache'
 
-import { BUILD_REVALIDATE_PATHS } from '@/app/(data)/builds/constants'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
+import { BUILD_REVALIDATE_PATHS } from '@/app/(features)/builds/constants/build-revalidate-paths'
 import { BuildActionResponse } from '@/app/(types)/builds'
 
 export async function deleteBuild(

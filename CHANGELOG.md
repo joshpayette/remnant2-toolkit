@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-08-14
+
+### Added
+
+- Builder now has a button to toggle item ownership icons on builds. This will add a red/green icon to the top left of each item in a build, as well as a total count at the top of a build. This setting is stored locally, so the preference will persist across all builds you view on the same device.
+
 ## 2024-08-10
 
 ### Added

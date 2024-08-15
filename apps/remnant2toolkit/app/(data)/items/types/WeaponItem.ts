@@ -82,10 +82,12 @@ export class WeaponItem extends BaseItem implements BaseWeaponItem {
     return items
   }
 
-  static fromDBValue(buildItems: BuildItems[]): Array<WeaponItem | null> {
+  static fromDBValue(
+    buildItems: Array<BuildItems & { isOwned?: boolean }>,
+  ): Array<(WeaponItem & { isOwned?: boolean }) | null> {
     if (!buildItems) return []
 
-    const weaponValues: Array<WeaponItem | null> = []
+    const weaponValues: Array<(WeaponItem & { isOwned?: boolean }) | null> = []
     for (const buildItem of buildItems) {
       const item = weaponItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
@@ -93,12 +95,15 @@ export class WeaponItem extends BaseItem implements BaseWeaponItem {
         ? (weaponValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,
+            isOwned: buildItem.isOwned,
           })
         : weaponValues.push({
             ...item,
             optional: buildItem.optional,
+            isOwned: buildItem.isOwned,
           })
     }
+
     return weaponValues
   }
 }

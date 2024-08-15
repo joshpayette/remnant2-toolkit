@@ -8,6 +8,7 @@ export const LOCALSTORAGE_KEY = {
   ITEM_COMPARE: 'item-lookup-compare',
   ITEM_TRACKER: 'item-tracker',
   SORT_PREFERENCE: 'sorting-preference',
+  ITEM_OWNERSHIP_PREFERENCE: 'item-ownership-preference',
 }
 
 export interface BossTrackerLocalStorage {
@@ -24,3 +25,5 @@ export const DEFAULT_ITEM_COMPARE_LIST = getArrayOfLength(5).map(() => '')
 
 export const SORTING_PREFERENCES = ['alphabetical', 'in-game']
 export type SortingPreference = (typeof SORTING_PREFERENCES)[number]
+
+export type ItemOwnershipPreference = boolean

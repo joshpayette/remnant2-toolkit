@@ -6,7 +6,7 @@ import {
 } from '@repo/ui/base/checkbox'
 import { BaseFieldset, BaseLabel, BaseLegend } from '@repo/ui/base/fieldset'
 
-import { ALL_BUILD_TAGS } from '@/app/(components)/builder/build-tags/constants'
+import { ALL_BUILD_TAGS } from '@/app/(features)/builder/constants/all-build-tags'
 
 export const VALID_BUILD_TAGS = ALL_BUILD_TAGS.map((item) => item.label)
 

@@ -1,3 +1,5 @@
+// TODO Remove this god hook and replace with separate functions
+
 import { getArrayOfLength } from '@repo/utils/get-array-of-length'
 import html2canvas from 'html2canvas'
 import cloneDeep from 'lodash.clonedeep'
@@ -5,7 +7,6 @@ import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { INITIAL_BUILD_STATE } from '@/app/(data)/builds/constants'
 import { modItems } from '@/app/(data)/items/mod-items'
 import { traitItems } from '@/app/(data)/items/trait-items'
 import { Item } from '@/app/(data)/items/types'
@@ -27,6 +28,7 @@ import { createBuild } from '@/app/(features)/builds/actions/create-build'
 import { deleteBuild } from '@/app/(features)/builds/actions/delete-build'
 import { incrementDuplicateCount } from '@/app/(features)/builds/actions/increment-duplicate-count'
 import { removeVoteForBuild } from '@/app/(features)/builds/actions/remove-vote-for-build'
+import { INITIAL_BUILD_STATE } from '@/app/(features)/builds/constants/initial-build-state'
 import { BuildState, ItemCategory } from '@/app/(types)/builds'
 import { cleanUpBuildState } from '@/app/(utils)/builds/clean-up-build-state'
 import { getConcoctionSlotCount } from '@/app/(utils)/builds/get-concoction-slot-count'

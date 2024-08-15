@@ -45,10 +45,12 @@ export class RingItem extends BaseItem implements BaseRingItem {
     return items
   }
 
-  static fromDBValue(buildItems: BuildItems[]): Array<RingItem | null> {
+  static fromDBValue(
+    buildItems: Array<BuildItems & { isOwned?: boolean }>,
+  ): Array<(RingItem & { isOwned?: boolean }) | null> {
     if (!buildItems) return []
 
-    const ringValues: Array<RingItem | null> = []
+    const ringValues: Array<(RingItem & { isOwned?: boolean }) | null> = []
     for (const buildItem of buildItems) {
       const item = ringItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
@@ -56,12 +58,15 @@ export class RingItem extends BaseItem implements BaseRingItem {
         ? (ringValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,
+            isOwned: buildItem.isOwned,
           })
         : ringValues.push({
             ...item,
             optional: buildItem.optional,
+            isOwned: buildItem.isOwned,
           })
     }
+
     return ringValues
   }
 }

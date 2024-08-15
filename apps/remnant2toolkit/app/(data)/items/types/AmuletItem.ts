@@ -42,16 +42,19 @@ export class AmuletItem extends BaseItem implements BaseAmuletItem {
     return optional ? { ...item, optional } : item
   }
 
-  static fromDBValue(buildItems: BuildItems[]): AmuletItem | null {
+  static fromDBValue(
+    buildItems: Array<BuildItems & { isOwned?: boolean }>,
+  ): (AmuletItem & { isOwned?: boolean }) | null {
     if (!buildItems) return null
 
-    let amuletItem: AmuletItem | null = null
+    let amuletItem: (AmuletItem & { isOwned?: boolean }) | null = null
     for (const buildItem of buildItems) {
       const item = amuletItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
       amuletItem = {
         ...item,
         optional: buildItem.optional,
+        isOwned: buildItem.isOwned,
       }
     }
     return amuletItem

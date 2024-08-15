@@ -44,10 +44,14 @@ export class ArchetypeItem extends BaseItem implements BaseArchetypeItem {
     return items
   }
 
-  static fromDBValue(buildItems: BuildItems[]): Array<ArchetypeItem | null> {
+  static fromDBValue(
+    buildItems: Array<BuildItems & { isOwned?: boolean }>,
+  ): Array<(ArchetypeItem & { isOwned?: boolean }) | null> {
     if (!buildItems) return []
 
-    const archetypeValues: Array<ArchetypeItem | null> = []
+    const archetypeValues: Array<
+      (ArchetypeItem & { isOwned?: boolean }) | null
+    > = []
     for (const buildItem of buildItems) {
       const item = archetypeItems.find((i) => i.id === buildItem.itemId)
       if (!item) continue
@@ -56,12 +60,15 @@ export class ArchetypeItem extends BaseItem implements BaseArchetypeItem {
         ? (archetypeValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,
+            isOwned: buildItem.isOwned,
           })
         : archetypeValues.push({
             ...item,
             optional: buildItem.optional,
+            isOwned: buildItem.isOwned,
           })
     }
+
     return archetypeValues
   }
 }

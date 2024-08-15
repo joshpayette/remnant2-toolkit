@@ -1,11 +1,11 @@
 import { BuildItems } from '@repo/db'
 
-import { DEFAULT_TRAIT_AMOUNT } from '@/app/(data)/builds/constants'
 import { archetypeItems } from '@/app/(data)/items/archetype-items'
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
 import { traitItems } from '@/app/(data)/items/trait-items'
 import { Item } from '@/app/(data)/items/types'
 import { BaseItem } from '@/app/(data)/items/types/BaseItem'
+import { DEFAULT_TRAIT_AMOUNT } from '@/app/(features)/builder/constants/default-trait-amount'
 
 const allItems = [...traitItems, ...archetypeItems]
 
@@ -144,7 +144,9 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
     return items
   }
 
-  static fromDBValue(buildItems: BuildItems[]): Array<TraitItem> {
+  static fromDBValue(
+    buildItems: Array<BuildItems & { isOwned?: boolean }>,
+  ): Array<TraitItem & { isOwned?: boolean }> {
     if (!buildItems) return []
 
     const traitValues: Array<TraitItem> = []
@@ -231,9 +233,27 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
     // 2. Core
     // 3. Trait
     return [
-      ...sortedTraitItems.filter((i) => i.type === 'archetype'),
-      ...sortedTraitItems.filter((i) => i.type === 'core'),
-      ...sortedTraitItems.filter((i) => i.type === 'trait'),
+      ...sortedTraitItems
+        .filter((i) => i.type === 'archetype')
+        .map((i) => {
+          const isOwned =
+            buildItems.find((j) => j.itemId === i.id)?.isOwned || false
+          return { ...i, isOwned }
+        }),
+      ...sortedTraitItems
+        .filter((i) => i.type === 'core')
+        .map((i) => {
+          const isOwned =
+            buildItems.find((j) => j.itemId === i.id)?.isOwned || false
+          return { ...i, isOwned }
+        }),
+      ...sortedTraitItems
+        .filter((i) => i.type === 'trait')
+        .map((i) => {
+          const isOwned =
+            buildItems.find((j) => j.itemId === i.id)?.isOwned || false
+          return { ...i, isOwned }
+        }),
     ]
   }
 }

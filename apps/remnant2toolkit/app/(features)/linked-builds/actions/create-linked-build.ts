@@ -3,8 +3,8 @@
 import { LinkedBuild } from '@repo/db'
 import { prisma } from '@repo/db'
 
-import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(data)/builds/constants'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
+import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(features)/linked-builds/constants/max-linked-build-description-length'
 import { badWordFilter } from '@/app/(utils)/bad-word-filter'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 import { validateLinkedBuild } from '@/app/(validators)/validate-linked-build'

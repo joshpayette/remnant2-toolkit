@@ -236,31 +236,35 @@ export default async function Page() {
         </LandingPageContainer>
       </div>
       <div className="col-span-full mt-8 grid grid-cols-1 gap-y-10 md:grid-cols-3 md:gap-x-10 xl:col-span-1 xl:mt-0 xl:flex xl:flex-col xl:items-center xl:justify-start xl:gap-x-0 xl:gap-y-10">
-        <LeaderBoard
-          fetchAction={getFavoritesLeaderboard}
-          headerLink="/community-builds"
-          itemCount={10}
-          title="Top Favorite Counts"
-        />
-        <LeaderBoard
-          fetchAction={getItemQuizLeaderBoard}
-          headerLink="/item-quiz"
-          itemCount={10}
-          title="Top Item Quiz Scores"
-        />
+        <div className="xl:order-2">
+          <LeaderBoard
+            fetchAction={getFavoritesLeaderboard}
+            headerLink="/community-builds"
+            itemCount={10}
+            title="Top Favorite Counts"
+          />
+        </div>
+        <div className="xl:order-3">
+          <LeaderBoard
+            fetchAction={getItemQuizLeaderBoard}
+            headerLink="/item-quiz"
+            itemCount={10}
+            title="Top Item Quiz Scores"
+          />
+        </div>
         <div className="col-span-full flex w-full flex-col items-center justify-start md:col-span-1">
           <h3 className="text-primary-500 mb-4 text-xl font-bold">
-            Latest Patreon Post
+            Latest Post
           </h3>
           <BaseLink
-            href="https://www.patreon.com/posts/final-dlc-plus-109411608"
+            href="https://www.patreon.com/posts/latest-toolkit-110126697"
             target="_blank"
           >
             <Image
-              src={getImageUrl('/patreon-posts/2024-08-03.jpg')}
+              src={getImageUrl('/patreon-posts/2024-08-14.jpg')}
               width={253}
               height={450}
-              alt="First DLC announced, plus some Toolkit updates!"
+              alt="The latest Toolkit updates - DLC3 soon!"
             />
           </BaseLink>
         </div>
