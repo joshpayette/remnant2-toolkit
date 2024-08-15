@@ -7,6 +7,7 @@ import { cn } from '@repo/ui/classnames'
 import { FilterIcon } from '@repo/ui/icons/filter'
 import isEqual from 'lodash.isequal'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 import { useMemo, useState } from 'react'
 
 import { AmuletFilter } from '@/app/(components)/filters/builds/amulet-filter'
@@ -65,6 +66,7 @@ interface Props {
 
 export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
   const [qualityBuildDialogOpen, setQualityBuildDialogOpen] = useState(false)
+  const { status: sessionStatus } = useSession()
 
   const defaultFilters = useMemo(() => {
     return buildFiltersOverrides
@@ -524,10 +526,18 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
                       </div>
                     )}
                     {unappliedFilters.withCollection && (
-                      <div className="flex items-center justify-end text-sm text-red-500">
-                        If it seems like you aren't getting enough results, try
-                        untoggling/toggling a single item in the Item Tracker to
-                        force a refresh of your owned items.
+                      <div className="flex flex-col gap-y-2">
+                        {sessionStatus !== 'authenticated' && (
+                          <p className="text-accent1-500 text-sm">
+                            If you are not logged in, the "Only Owned Items"
+                            filter will not work.
+                          </p>
+                        )}
+                        <p className="text-sm text-red-500">
+                          If it seems like you aren't getting enough results,
+                          try untoggling/toggling a single item in the Item
+                          Tracker to force a refresh of your owned items.
+                        </p>
                       </div>
                     )}
                   </div>
