@@ -18,16 +18,16 @@ import { FeaturedBuildBadge } from '@/app/(features)/builder/components/badges/f
 import { NewBuildBadge } from '@/app/(features)/builder/components/badges/new-build-badge'
 import { PopularBuildBadge } from '@/app/(features)/builder/components/badges/popular-build-badge'
 import { BuildTagsDisplay } from '@/app/(features)/builder/components/build-tags/build-tags-display'
+import { buildHasFeaturedBadge } from '@/app/(features)/builds/utils/build-has-featured-badge'
+import { dbBuildToBuildState } from '@/app/(features)/builds/utils/db-build-to-build-state'
 import { formatUpdatedAt } from '@/app/(features)/builds/utils/format-updated-at'
-import { DBBuild } from '@/app/(types)/builds'
-import { buildHasFeaturedBadge } from '@/app/(utils)/builds/build-has-featured-badge'
-import { dbBuildToBuildState } from '@/app/(utils)/builds/db-build-to-build-state'
 import {
   ArchetypeName,
   getArchetypeComboName,
-} from '@/app/(utils)/builds/get-archetype-combo-name'
-import { isBuildNew } from '@/app/(utils)/builds/is-build-new'
-import { isBuildPopular } from '@/app/(utils)/builds/is-build-popular'
+} from '@/app/(features)/builds/utils/get-archetype-combo-name'
+import { isBuildNew } from '@/app/(features)/builds/utils/is-build-new'
+import { isBuildPopular } from '@/app/(features)/builds/utils/is-build-popular'
+import { DBBuild } from '@/app/(types)/builds'
 
 interface Props {
   build: DBBuild

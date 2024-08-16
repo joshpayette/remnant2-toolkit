@@ -15,10 +15,8 @@ import { SaveBuildButton } from '@/app/(features)/builder/components/buttons/sav
 import { ShareBuildButton } from '@/app/(features)/builder/components/buttons/share-build-button'
 import { DetailedBuildDialog } from '@/app/(features)/builder/components/dialogs/detailed-build-dialog'
 import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dialogs/image-download-info-dialog'
+import { useUrlBuildState } from '@/app/(features)/builds/utils/hooks/use-url-build-state'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
-import { useUrlBuildState } from '@/app/(utils)/builds/hooks/use-url-build-state'
-
-// TODO Add ownership preference localstorage read like in the builder/[buildId]
 
 export default function Page() {
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
@@ -26,7 +24,11 @@ export default function Page() {
 
   const { data: session, status: sessionStatus } = useSession()
 
-  const { csvItems, urlBuildState, updateUrlBuildState } = useUrlBuildState()
+  const {
+    csvItems,
+    urlBuildState: buildState,
+    updateUrlBuildState,
+  } = useUrlBuildState()
 
   const {
     isScreenshotMode,
@@ -42,7 +44,7 @@ export default function Page() {
   return (
     <div className="flex w-full flex-col items-center">
       <DetailedBuildDialog
-        buildState={urlBuildState}
+        buildState={buildState}
         open={detailedBuildDialogOpen}
         onClose={() => setDetailedBuildDialogOpen(false)}
       />
@@ -113,7 +115,7 @@ export default function Page() {
 
       <BuilderContainer
         buildContainerRef={buildContainerRef}
-        buildState={urlBuildState}
+        buildState={buildState}
         isEditable={true}
         isScreenshotMode={isScreenshotMode}
         itemOwnershipPreference={false}
@@ -124,7 +126,7 @@ export default function Page() {
         builderActions={
           <>
             {session?.user && (
-              <SaveBuildButton buildState={urlBuildState} editMode={false} />
+              <SaveBuildButton buildState={buildState} editMode={false} />
             )}
 
             <GenerateBuildImageButton
@@ -132,7 +134,7 @@ export default function Page() {
               onClick={() =>
                 handleImageExport(
                   buildContainerRef.current,
-                  `${urlBuildState.name}`,
+                  `${buildState.name}`,
                 )
               }
             />
@@ -155,7 +157,7 @@ export default function Page() {
 
             <ToCsvButton
               data={csvItems}
-              filename={`remnant2_builder_${urlBuildState.name}`}
+              filename={`remnant2_builder_${buildState.name}`}
               label="Export to CSV"
             />
           </>

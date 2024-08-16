@@ -32,6 +32,9 @@ import { DetailedBuildDialog } from '@/app/(features)/builder/components/dialogs
 import { FavoriteBuildDialog } from '@/app/(features)/builder/components/dialogs/favorite-build-dialog'
 import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dialogs/image-download-info-dialog'
 import { VideoThumbnail } from '@/app/(features)/builder/components/video-thumbnail'
+import { buildStateToCsvData } from '@/app/(features)/builds/utils/build-state-to-csv-data'
+import { cleanUpBuildState } from '@/app/(features)/builds/utils/clean-up-build-state'
+import { dbBuildToBuildState } from '@/app/(features)/builds/utils/db-build-to-build-state'
 import { ModeratorLinkedBuildToolsDialog } from '@/app/(features)/linked-builds/admin/components/dialogs/moderator-linkedbuild-tools-dialog'
 import { LoadoutDialog } from '@/app/(features)/loadouts/components/dialogs/loadout-dialog'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
@@ -39,9 +42,6 @@ import type {
   LinkedBuildItem,
   LinkedBuildState,
 } from '@/app/(types)/linked-builds'
-import { buildStateToCsvData } from '@/app/(utils)/builds/build-state-to-csv-data'
-import { cleanUpBuildState } from '@/app/(utils)/builds/clean-up-build-state'
-import { dbBuildToBuildState } from '@/app/(utils)/builds/db-build-to-build-state'
 
 interface Props {
   linkedBuildState: LinkedBuildState

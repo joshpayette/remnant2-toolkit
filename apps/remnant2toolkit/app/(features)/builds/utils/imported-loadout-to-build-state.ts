@@ -11,9 +11,9 @@ import { RingItem } from '@/app/(data)/items/types/RingItem'
 import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+import { cleanUpBuildState } from '@/app/(features)/builds/utils/clean-up-build-state'
 import type { BuildState } from '@/app/(types)/builds'
 import type { ParsedLoadoutItem } from '@/app/(types)/sav-file'
-import { cleanUpBuildState } from '@/app/(utils)/builds/clean-up-build-state'
 
 const USABLE_ITEMS = allItems.filter((item) => item.saveFileSlug !== undefined)
 

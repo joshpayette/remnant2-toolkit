@@ -18,11 +18,11 @@ import { SkillItem } from '@/app/(data)/items/types/SkillItem'
 import { TraitItem } from '@/app/(data)/items/types/TraitItem'
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
 import { INITIAL_BUILD_STATE } from '@/app/(features)/builds/constants/initial-build-state'
+import { buildStateToCsvData } from '@/app/(features)/builds/utils/build-state-to-csv-data'
+import { buildStateToMasonryItems } from '@/app/(features)/builds/utils/build-state-to-masonry-items'
+import { cleanUpBuildState } from '@/app/(features)/builds/utils/clean-up-build-state'
+import { vashUrlToBuild } from '@/app/(features)/builds/utils/vash-integration/vash-url-to-build'
 import { BuildState } from '@/app/(types)/builds'
-import { buildStateToCsvData } from '@/app/(utils)/builds/build-state-to-csv-data'
-import { buildStateToMasonryItems } from '@/app/(utils)/builds/build-state-to-masonry-items'
-import { cleanUpBuildState } from '@/app/(utils)/builds/clean-up-build-state'
-import { vashUrlToBuild } from '@/app/(utils)/builds/vash-integration/vash-url-to-build'
 import { itemCategories } from '@/app/(utils)/items/get-item-categories'
 
 /**
@@ -49,7 +49,6 @@ export function useUrlBuildState() {
   }
 
   const parsedBuild = parseQueryString(searchParams)
-
   const urlBuildState = cleanUpBuildState(parsedBuild)
 
   /**

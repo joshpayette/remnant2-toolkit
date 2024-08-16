@@ -11,7 +11,7 @@ import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-
 import { BuildListFilters } from '@/app/(components)/filters/builds/types'
 import { parseUrlFilters } from '@/app/(components)/filters/builds/utils'
 import { BuildCard } from '@/app/(features)/builds/components/cards/build-card'
-import { useBuildListState } from '@/app/(utils)/builds/hooks/use-build-list-state'
+import { useBuildListState } from '@/app/(features)/builds/utils/hooks/use-build-list-state'
 import { usePagination } from '@/app/(utils)/pagination/use-pagination'
 import { getFavoritedBuilds } from '@/app/profile/[userId]/favorited-builds/actions/get-favorite-builds'
 

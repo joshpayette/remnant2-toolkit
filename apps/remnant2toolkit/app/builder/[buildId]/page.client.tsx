@@ -1,6 +1,5 @@
 'use client'
 
-import type { BuildItems } from '@repo/db'
 import { urlNoCache } from '@repo/utils/url-no-cache'
 import copy from 'clipboard-copy'
 import { useRouter } from 'next/navigation'
@@ -10,8 +9,6 @@ import { toast } from 'react-toastify'
 import { useLocalStorage } from 'usehooks-ts'
 
 import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
-import type { Item } from '@/app/(data)/items/types'
-import type { BaseItem } from '@/app/(data)/items/types/BaseItem'
 import { BuilderContainer } from '@/app/(features)/builder/components/builder-container'
 import { DeleteBuildButton } from '@/app/(features)/builder/components/buttons/delete-build-button'
 import { DetailedViewButton } from '@/app/(features)/builder/components/buttons/detailed-view-button'
@@ -31,6 +28,10 @@ import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dia
 import { VideoThumbnail } from '@/app/(features)/builder/components/video-thumbnail'
 import { incrementViewCount } from '@/app/(features)/builds/actions/increment-view-count'
 import { ModeratorBuildToolsDialog } from '@/app/(features)/builds/admin/components/dialogs/moderator-build-tools-dialog'
+import { buildStateToCsvData } from '@/app/(features)/builds/utils/build-state-to-csv-data'
+import { cleanUpBuildState } from '@/app/(features)/builds/utils/clean-up-build-state'
+import { dbBuildToBuildState } from '@/app/(features)/builds/utils/db-build-to-build-state'
+import { setLocalBuildItemOwnership } from '@/app/(features)/builds/utils/set-local-build-item-ownership'
 import { LoadoutDialog } from '@/app/(features)/loadouts/components/dialogs/loadout-dialog'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { useDiscoveredItems } from '@/app/(hooks)/use-discovered-items'
@@ -39,119 +40,21 @@ import {
   ItemOwnershipPreference,
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage'
-import { buildStateToCsvData } from '@/app/(utils)/builds/build-state-to-csv-data'
-import { cleanUpBuildState } from '@/app/(utils)/builds/clean-up-build-state'
-import { dbBuildToBuildState } from '@/app/(utils)/builds/db-build-to-build-state'
 
 interface Props {
   build: DBBuild
 }
 
 export function PageClient({ build }: Props) {
-  const buildState = cleanUpBuildState(dbBuildToBuildState(build))
   const { data: session, status: sessionStatus } = useSession()
   const { discoveredItemIds } = useDiscoveredItems()
-
-  // If user is not logged in, determine item ownership preference based on the localstorage
-  if (sessionStatus === 'unauthenticated') {
-    if (buildState.items.helm) {
-      buildState.items.helm.isOwned = discoveredItemIds.includes(
-        buildState.items.helm.id,
-      )
-    }
-    if (buildState.items.torso) {
-      buildState.items.torso.isOwned = discoveredItemIds.includes(
-        buildState.items.torso.id,
-      )
-    }
-
-    if (buildState.items.legs) {
-      buildState.items.legs.isOwned = discoveredItemIds.includes(
-        buildState.items.legs.id,
-      )
-    }
-
-    if (buildState.items.gloves) {
-      buildState.items.gloves.isOwned = discoveredItemIds.includes(
-        buildState.items.gloves.id,
-      )
-    }
-
-    if (buildState.items.amulet) {
-      buildState.items.amulet.isOwned = discoveredItemIds.includes(
-        buildState.items.amulet.id,
-      )
-    }
-
-    if (buildState.items.relic) {
-      buildState.items.relic.isOwned = discoveredItemIds.includes(
-        buildState.items.relic.id,
-      )
-    }
-
-    if (buildState.items.ring) {
-      buildState.items.ring.map((ring) => {
-        if (!ring) return null
-        ring.isOwned = discoveredItemIds.includes(ring.id)
-      })
-    }
-
-    if (buildState.items.archetype) {
-      buildState.items.archetype.map((archetype) => {
-        if (!archetype) return null
-        archetype.isOwned = discoveredItemIds.includes(archetype.id)
-      })
-    }
-
-    if (buildState.items.concoction) {
-      buildState.items.concoction.map((concoction) => {
-        if (!concoction) return null
-        concoction.isOwned = discoveredItemIds.includes(concoction.id)
-      })
-    }
-
-    if (buildState.items.consumable) {
-      buildState.items.consumable.map((consumable) => {
-        if (!consumable) return null
-        consumable.isOwned = discoveredItemIds.includes(consumable.id)
-      })
-    }
-
-    if (buildState.items.mod) {
-      buildState.items.mod.map((mod) => {
-        if (!mod) return null
-        mod.isOwned = discoveredItemIds.includes(mod.id)
-      })
-    }
-
-    if (buildState.items.mutator) {
-      buildState.items.mutator.map((mutator) => {
-        if (!mutator) return null
-        mutator.isOwned = discoveredItemIds.includes(mutator.id)
-      })
-    }
-
-    if (buildState.items.relicfragment) {
-      buildState.items.relicfragment.map((fragment) => {
-        if (!fragment) return null
-        fragment.isOwned = discoveredItemIds.includes(fragment.id)
-      })
-    }
-
-    if (buildState.items.trait) {
-      buildState.items.trait.map((trait) => {
-        if (!trait) return null
-        trait.isOwned = discoveredItemIds.includes(trait.id)
-      })
-    }
-
-    if (buildState.items.weapon) {
-      buildState.items.weapon.map((weapon) => {
-        if (!weapon) return null
-        weapon.isOwned = discoveredItemIds.includes(weapon.id)
-      })
-    }
-  }
+  const buildState = cleanUpBuildState(
+    setLocalBuildItemOwnership({
+      buildState: dbBuildToBuildState(build),
+      discoveredItemIds,
+      sessionStatus,
+    }),
+  )
 
   const [showModeratorTooling, setShowModeratorTooling] = useState(false)
 

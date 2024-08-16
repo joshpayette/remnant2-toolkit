@@ -16,12 +16,12 @@ import { ArmorSuggestionCard } from '@/app/(components)/cards/armor-suggestion-c
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { Pagination } from '@/app/(components)/pagination'
 import { Item } from '@/app/(data)/items/types'
+import { getArmorSuggestions } from '@/app/(features)/armor-calculator/utils/get-armor-suggestions'
 import {
   ArmorSuggestion,
   WeightClassKeysWithDefault,
 } from '@/app/(types)/armor-calculator'
 import { BuildState } from '@/app/(types)/builds'
-import { getArmorSuggestions } from '@/app/(utils)/armor-calculator/get-armor-suggestions'
 import { usePagination } from '@/app/(utils)/pagination/use-pagination'
 
 const ITEMS_PER_PAGE = 8

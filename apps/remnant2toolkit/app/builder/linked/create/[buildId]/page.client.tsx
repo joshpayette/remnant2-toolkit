@@ -18,12 +18,12 @@ import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-
 import { Tooltip } from '@/app/(components)/tooltip'
 import { getCreatedBuilds } from '@/app/(features)/builds/actions/get-created-builds'
 import { BuildCard } from '@/app/(features)/builds/components/cards/build-card'
+import { useBuildListState } from '@/app/(features)/builds/utils/hooks/use-build-list-state'
 import { createLinkedBuild } from '@/app/(features)/linked-builds/actions/create-linked-build'
 import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(features)/linked-builds/constants/max-linked-build-description-length'
 import { MAX_LINKED_BUILD_ITEMS } from '@/app/(features)/linked-builds/constants/max-linked-build-items'
 import { MAX_LINKED_BUILD_LABEL_LENGTH } from '@/app/(features)/linked-builds/constants/max-linked-build-label-length'
 import { DBBuild } from '@/app/(types)/builds'
-import { useBuildListState } from '@/app/(utils)/builds/hooks/use-build-list-state'
 import { usePagination } from '@/app/(utils)/pagination/use-pagination'
 import { LinkedBuildItem } from '@/app/builder/linked/create/[buildId]/type'
 
