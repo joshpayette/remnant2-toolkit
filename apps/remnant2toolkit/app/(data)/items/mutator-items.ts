@@ -25,7 +25,7 @@ export const mutatorItems: MutatorItem[] = [
     type: 'melee',
     imagePath: '/items/mutators/battle_mage.png',
     saveFileSlug: 'MetaGem_BattleMage.MetaGem_BattleMage_C',
-    dlc: 'dlc2',
+    dlc: 'base',
     id: 'y5hY8J',
     tags: ['Mod Power', 'Melee Damage'],
     description:
@@ -649,7 +649,7 @@ export const mutatorItems: MutatorItem[] = [
     type: 'gun',
     imagePath: '/items/mutators/spellweaver.png',
     saveFileSlug: 'MetaGem_Spellweaver.MetaGem_Spellweaver_C',
-    dlc: 'dlc2',
+    dlc: 'base',
     id: '5Brz87',
     tags: ['Mod Damage', 'Mod Power', 'Reduce Skill Cooldown'],
     description:
