@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-08-16
+
+### Fixed
+
+- Fixed issue where Favorited Builds were not loading on your profile.
+
 ## 2024-08-14
 
 ### Added
