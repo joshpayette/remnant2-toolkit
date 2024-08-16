@@ -2,11 +2,11 @@ import { Metadata, ResolvingMetadata } from 'next'
 
 import { PageHeader } from '@/app/(components)/page-header'
 import { getBuild } from '@/app/(features)/builds/actions/get-build'
-import { dbBuildToBuildState } from '@/app/(utils)/builds/db-build-to-build-state'
+import { dbBuildToBuildState } from '@/app/(features)/builds/utils/db-build-to-build-state'
 import {
   ArchetypeName,
   getArchetypeComboName,
-} from '@/app/(utils)/builds/get-archetype-combo-name'
+} from '@/app/(features)/builds/utils/get-archetype-combo-name'
 import { isErrorResponse } from '@/app/(utils)/is-error-response'
 
 export async function generateMetadata(

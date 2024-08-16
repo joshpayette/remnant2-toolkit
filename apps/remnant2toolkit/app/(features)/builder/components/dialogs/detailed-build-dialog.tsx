@@ -10,8 +10,8 @@ import { useState } from 'react'
 import { ItemCard } from '@/app/(components)/cards/item-card'
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
 import { Item } from '@/app/(data)/items/types'
+import { buildStateToMasonryItems } from '@/app/(features)/builds/utils/build-state-to-masonry-items'
 import { BuildState } from '@/app/(types)/builds'
-import { buildStateToMasonryItems } from '@/app/(utils)/builds/build-state-to-masonry-items'
 
 interface Props {
   open: boolean

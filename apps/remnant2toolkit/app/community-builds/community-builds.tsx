@@ -14,7 +14,7 @@ import { parseUrlFilters } from '@/app/(components)/filters/builds/utils'
 import { Tooltip } from '@/app/(components)/tooltip'
 import { getCommunityBuilds } from '@/app/(features)/builds/actions/get-community-builds'
 import { BuildCard } from '@/app/(features)/builds/components/cards/build-card'
-import { useBuildListState } from '@/app/(utils)/builds/hooks/use-build-list-state'
+import { useBuildListState } from '@/app/(features)/builds/utils/hooks/use-build-list-state'
 import { usePagination } from '@/app/(utils)/pagination/use-pagination'
 
 interface Props {

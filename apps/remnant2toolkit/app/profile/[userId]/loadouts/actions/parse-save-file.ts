@@ -5,12 +5,12 @@ import { revalidatePath } from 'next/cache'
 import { addBuildToLoadout } from '@/app/(actions)/loadouts/add-build-to-loadout'
 import { getSession } from '@/app/(features)/auth/services/sessionService'
 import { createBuild } from '@/app/(features)/builds/actions/create-build'
+import { importedLoadoutToBuildState } from '@/app/(features)/builds/utils/imported-loadout-to-build-state'
 import type { BuildState, SuccessResponse } from '@/app/(types)/builds'
 import {
   MAX_PROFILE_SAV_SIZE,
   type ParsedLoadoutItem,
 } from '@/app/(types)/sav-file'
-import { importedLoadoutToBuildState } from '@/app/(utils)/builds/imported-loadout-to-build-state'
 import { isErrorResponse } from '@/app/(utils)/is-error-response'
 import { validateEnv } from '@/app/(validators)/validate-env'
 

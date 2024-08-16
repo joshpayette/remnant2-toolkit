@@ -24,17 +24,17 @@ import { NewBuildBadge } from '@/app/(features)/builder/components/badges/new-bu
 import { PopularBuildBadge } from '@/app/(features)/builder/components/badges/popular-build-badge'
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(features)/builder/constants/default-trait-amount'
 import { MAX_BUILD_TAGS } from '@/app/(features)/builder/constants/max-build-tags'
+import { buildHasFeaturedBadge } from '@/app/(features)/builds/utils/build-has-featured-badge'
 import { formatUpdatedAt } from '@/app/(features)/builds/utils/format-updated-at'
-import { BuildState, ItemCategory } from '@/app/(types)/builds'
-import { buildHasFeaturedBadge } from '@/app/(utils)/builds/build-has-featured-badge'
 import {
   ArchetypeName,
   getArchetypeComboName,
-} from '@/app/(utils)/builds/get-archetype-combo-name'
-import { getConcoctionSlotCount } from '@/app/(utils)/builds/get-concoction-slot-count'
-import { getItemListForSlot } from '@/app/(utils)/builds/get-item-list-for-slot'
-import { isBuildNew } from '@/app/(utils)/builds/is-build-new'
-import { isBuildPopular } from '@/app/(utils)/builds/is-build-popular'
+} from '@/app/(features)/builds/utils/get-archetype-combo-name'
+import { getConcoctionSlotCount } from '@/app/(features)/builds/utils/get-concoction-slot-count'
+import { getItemListForSlot } from '@/app/(features)/builds/utils/get-item-list-for-slot'
+import { isBuildNew } from '@/app/(features)/builds/utils/is-build-new'
+import { isBuildPopular } from '@/app/(features)/builds/utils/is-build-popular'
+import { BuildState, ItemCategory } from '@/app/(types)/builds'
 import { SKIPPED_ITEM_TRACKER_CATEGORIES } from '@/app/tracker/constants'
 
 import { MemberFeatures } from './member-features'

@@ -15,11 +15,11 @@ import { SaveBuildButton } from '@/app/(features)/builder/components/buttons/sav
 import { ArmorSuggestionDialog } from '@/app/(features)/builder/components/dialogs/armor-suggestion-dialog'
 import { DetailedBuildDialog } from '@/app/(features)/builder/components/dialogs/detailed-build-dialog'
 import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dialogs/image-download-info-dialog'
+import { cleanUpBuildState } from '@/app/(features)/builds/utils/clean-up-build-state'
+import { dbBuildToBuildState } from '@/app/(features)/builds/utils/db-build-to-build-state'
+import { useDBBuildState } from '@/app/(features)/builds/utils/hooks/use-db-build-state'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { BuildState, DBBuild } from '@/app/(types)/builds'
-import { cleanUpBuildState } from '@/app/(utils)/builds/clean-up-build-state'
-import { dbBuildToBuildState } from '@/app/(utils)/builds/db-build-to-build-state'
-import { useDBBuildState } from '@/app/(utils)/builds/hooks/use-db-build-state'
 
 interface Props {
   build: DBBuild

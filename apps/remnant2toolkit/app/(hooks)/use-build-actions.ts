@@ -29,10 +29,10 @@ import { deleteBuild } from '@/app/(features)/builds/actions/delete-build'
 import { incrementDuplicateCount } from '@/app/(features)/builds/actions/increment-duplicate-count'
 import { removeVoteForBuild } from '@/app/(features)/builds/actions/remove-vote-for-build'
 import { INITIAL_BUILD_STATE } from '@/app/(features)/builds/constants/initial-build-state'
+import { cleanUpBuildState } from '@/app/(features)/builds/utils/clean-up-build-state'
+import { getConcoctionSlotCount } from '@/app/(features)/builds/utils/get-concoction-slot-count'
+import { getItemListForSlot } from '@/app/(features)/builds/utils/get-item-list-for-slot'
 import { BuildState, ItemCategory } from '@/app/(types)/builds'
-import { cleanUpBuildState } from '@/app/(utils)/builds/clean-up-build-state'
-import { getConcoctionSlotCount } from '@/app/(utils)/builds/get-concoction-slot-count'
-import { getItemListForSlot } from '@/app/(utils)/builds/get-item-list-for-slot'
 import { isErrorResponse } from '@/app/(utils)/is-error-response'
 
 function getRandomItem(

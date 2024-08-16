@@ -16,9 +16,9 @@ import { ArmorSuggestionDialog } from '@/app/(features)/builder/components/dialo
 import { DetailedBuildDialog } from '@/app/(features)/builder/components/dialogs/detailed-build-dialog'
 import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dialogs/image-download-info-dialog'
 import { INITIAL_BUILD_STATE } from '@/app/(features)/builds/constants/initial-build-state'
+import { useDBBuildState } from '@/app/(features)/builds/utils/hooks/use-db-build-state'
 import { useBuildActions } from '@/app/(hooks)/use-build-actions'
 import { BuildState } from '@/app/(types)/builds'
-import { useDBBuildState } from '@/app/(utils)/builds/hooks/use-db-build-state'
 
 export default function Page() {
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
