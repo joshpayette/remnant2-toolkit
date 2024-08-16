@@ -432,6 +432,7 @@ export const modItems: ModItem[] = [
     name: 'Deadwood',
     saveFileSlug: 'Mod_Deadwood_C',
     imagePath: '/items/mods/deadwood.png',
+    externalTokens: ['Explosive Damage'],
     id: 'k7z7rz',
     dlc: 'dlc2',
     description:
@@ -848,7 +849,7 @@ export const modItems: ModItem[] = [
       "Imbues the Arbalest with the power of Yaesha's corrupted guardian, increases Fire Rate by 20%, reduces Recoil and Sway by 25% and each disc impact with an enemy explodes over 3.5m for 69 - 207 damage. Lasts 15s.\n" +
       '\n' +
       'Mod Power Requirement: 1,250',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`Amplitude`, 'Explosive Damage'],
     wikiLinks: [`https://remnant.wiki/Corrupted_Arbalest`],
     linkedItems: {
       weapon: {
@@ -910,6 +911,7 @@ export const modItems: ModItem[] = [
     name: 'Helix',
     saveFileSlug: 'Mod_Helix_C',
     imagePath: '/items/mods/helix.png',
+    externalTokens: ['Explosive Damage'],
     id: '1mtqkk',
     dlc: 'base',
     description:
@@ -1021,6 +1023,7 @@ export const modItems: ModItem[] = [
     name: 'Loathe the Weak',
     saveFileSlug: 'Mod_LoathTheWeak_C',
     imagePath: '/items/mods/loaththeweak.png',
+    externalTokens: ['Explosive Damage'],
     dlc: 'dlc1',
     id: 'aobtw7',
     description:
@@ -1410,6 +1413,7 @@ export const modItems: ModItem[] = [
     name: 'Space Crabs',
     saveFileSlug: 'Mod_SpaceCrabs_C',
     imagePath: '/items/mods/spacecrabs.png',
+    externalTokens: ['Explosive Damage'],
     id: '4wd3gm',
     dlc: 'base',
     description:
@@ -1490,7 +1494,7 @@ export const modItems: ModItem[] = [
       'Generates 1 Primary Ammo on Fire.\n' +
       '\n' +
       'Mod Power Requirement: 1,000',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`Amplitude`, 'Explosive Damage'],
     wikiLinks: [`https://remnant.wiki/Aphelion`],
     linkedItems: {
       weapon: {

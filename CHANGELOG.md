@@ -11,6 +11,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed issue where Favorited Builds were not loading on your profile.
 - Battle Mage mutator was mistakenly listed as "dlc2" instead of base game.
 - Spellweaver mutator was mistakenly listed as "dlc2" instead of base game.
+- Added Explosive Damage tag to Deadwood mod.
+- Added Explosive Damage tag to Guardian's Fury mod.
+- Added Explosive Damage tag to Helix mod.
+- Added Explosive Damage tag to Loathe the Weak mod.
+- Added Explosive Damage tag to Space Crabs mod.
+- Added Explosive Damage tag to Supernova mod.
 
 ## 2024-08-14
 
