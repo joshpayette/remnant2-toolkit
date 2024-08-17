@@ -23,6 +23,7 @@ import { MdQuiz as ItemQuizIcon } from 'react-icons/md'
 import { MdCollectionsBookmark as BuildsByCollectionIcon } from 'react-icons/md'
 import { PiCubeFocus as FeaturedBuildsIcon } from 'react-icons/pi'
 import { RiOpenbaseLine as BaseGameBuildsIcon } from 'react-icons/ri'
+import { SiModrinth as ModdingDiscordIcon } from 'react-icons/si'
 
 import VashIcon from '@/app/(components)/images/vash-icon'
 import WikiIcon from '@/app/(components)/images/wiki-icon'
@@ -140,6 +141,13 @@ export const NAV_ITEMS = {
       'Keep your Remnant 2 in-game loadouts and their toolkit build counterparts in sync.',
     href: '/profile/loadout-builds',
     icon: LoadoutIcon,
+  },
+  modding: {
+    label: 'Remnant Modding',
+    description:
+      'Join the Discord community for Remnant modding and mod support.',
+    href: 'https://discord.gg/ghvBzT5gxF',
+    icon: ModdingDiscordIcon,
   },
   myBuilds: {
     label: 'My Builds',
