@@ -6,6 +6,7 @@ import { revalidatePath } from 'next/cache'
 
 import { getSession } from '@/app/(features)/auth/services/sessionService'
 import { badWordFilter } from '@/app/(features)/bad-word-filter'
+import { isPermittedBuilder } from '@/app/(features)/builds/utils/is-permitted-builder'
 import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(features)/linked-builds/constants/max-linked-build-description-length'
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
 import { validateLinkedBuild } from '@/app/(validators)/validate-linked-build'
@@ -217,7 +218,10 @@ export async function updateLinkedBuild(linkedBuild: Props): Promise<{
     })
 
     // Trigger webhook to send build to Discord
-    if (process.env.NODE_ENV === 'production') {
+    if (
+      process.env.NODE_ENV === 'production' &&
+      !isPermittedBuilder(session.user.id)
+    ) {
       const params = {
         content: `Linked build updated! https://www.remnant2toolkit.com/builder/linked/${
           updatedLinkedBuild.id
