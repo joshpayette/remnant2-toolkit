@@ -1,40 +1,40 @@
-import { BaseButton } from '@repo/ui/base/button'
+import { BaseButton } from '@repo/ui/base/button';
 import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogTitle,
-} from '@repo/ui/base/dialog'
-import { cn } from '@repo/ui/classnames'
-import { SortIcon } from '@repo/ui/icons/sort'
-import { capitalize } from '@repo/utils/capitalize'
-import { useCallback, useEffect, useState } from 'react'
-import { useDebounceValue, useLocalStorage } from 'usehooks-ts'
+} from '@repo/ui/base/dialog';
+import { cn } from '@repo/ui/classnames';
+import { SortIcon } from '@repo/ui/icons/sort';
+import { capitalize } from '@repo/utils/capitalize';
+import { useCallback, useEffect, useState } from 'react';
+import { useDebounceValue, useLocalStorage } from 'usehooks-ts';
 
-import { ItemButton } from '@/app/(components)/buttons/item-button'
-import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
-import { ItemSearchText } from '@/app/(components)/filters/item-lookup/item-search-text'
-import { Item } from '@/app/(data)/items/types'
-import { TraitItem } from '@/app/(data)/items/types/TraitItem'
-import { ItemCategory } from '@/app/(types)/builds'
-import { SortingPreference } from '@/app/(types)/localstorage'
-import { ITEM_TOKENS } from '@/app/(types)/tokens'
-import { itemMatchesSearchText } from '@/app/(utils)/items/item-matches-search-text'
+import { ItemButton } from '@/app/(components)/buttons/item-button';
+import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
+import { ItemSearchText } from '@/app/(components)/filters/item-lookup/item-search-text';
+import { Item } from '@/app/(data)/items/types';
+import { TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { ItemCategory } from '@/app/(features)/builds/types/item-category';
+import { SortingPreference } from '@/app/(types)/localstorage';
+import { ITEM_TOKENS } from '@/app/(types)/tokens';
+import { itemMatchesSearchText } from '@/app/(utils)/items/item-matches-search-text';
 
 function buildSearchTextOptions(): Array<{ id: string; name: string }> {
   let items = ITEM_TOKENS.map((tag) => ({
     id: tag as string,
     name: tag as string,
-  }))
+  }));
 
-  items = items.sort((a, b) => a.name.localeCompare(b.name))
+  items = items.sort((a, b) => a.name.localeCompare(b.name));
 
   // remove duplicates
   items = items.filter(
     (item, index, self) =>
       index === self.findIndex((i) => i.name === item.name),
-  )
+  );
 
-  return items
+  return items;
 }
 
 function sortByPreference({
@@ -42,27 +42,27 @@ function sortByPreference({
   buildSlot,
   sortingPreference,
 }: {
-  items: Item[]
-  buildSlot: ItemCategory | null
-  sortingPreference: SortingPreference
+  items: Item[];
+  buildSlot: ItemCategory | null;
+  sortingPreference: SortingPreference;
 }) {
-  if (buildSlot !== 'trait') return items
+  if (buildSlot !== 'trait') return items;
 
   if (sortingPreference === 'alphabetical') {
-    return [...items].sort((a, b) => a.name.localeCompare(b.name))
+    return [...items].sort((a, b) => a.name.localeCompare(b.name));
   } else {
     return ([...items] as TraitItem[]).sort(
       (a, b) => a.inGameOrder - b.inGameOrder,
-    )
+    );
   }
 }
 
 interface Props {
-  open: boolean
-  itemList: Item[]
-  buildSlot: ItemCategory | null
-  onClose: () => void
-  onSelectItem: (item: Item | null) => void
+  open: boolean;
+  itemList: Item[];
+  buildSlot: ItemCategory | null;
+  onClose: () => void;
+  onSelectItem: (item: Item | null) => void;
 }
 
 export function ItemSelectDialog({
@@ -72,25 +72,25 @@ export function ItemSelectDialog({
   onClose,
   onSelectItem,
 }: Props) {
-  const searchTextOptions = buildSearchTextOptions()
+  const searchTextOptions = buildSearchTextOptions();
 
-  const [infoItem, setInfoItem] = useState<Item | null>(null)
-  const isItemInfoOpen = Boolean(infoItem)
+  const [infoItem, setInfoItem] = useState<Item | null>(null);
+  const isItemInfoOpen = Boolean(infoItem);
 
-  const [filter, setFilter] = useState('')
-  const [debouncedFilter] = useDebounceValue(filter, 500)
+  const [filter, setFilter] = useState('');
+  const [debouncedFilter] = useDebounceValue(filter, 500);
 
   const [sortingPreference, setSortingPreference] =
     useLocalStorage<SortingPreference>('sorting-preference', 'alphabetical', {
       initializeWithValue: false,
-    })
+    });
 
   const getNewSortedItems = useCallback(() => {
     const filteredItems = itemList
       .filter((item) =>
         itemMatchesSearchText({ item, searchText: debouncedFilter }),
       )
-      .sort((a, b) => a.name.localeCompare(b.name))
+      .sort((a, b) => a.name.localeCompare(b.name));
 
     const sortedItems =
       buildSlot === 'trait'
@@ -99,27 +99,27 @@ export function ItemSelectDialog({
             buildSlot,
             sortingPreference,
           })
-        : filteredItems
+        : filteredItems;
 
-    return sortedItems
-  }, [buildSlot, debouncedFilter, itemList, sortingPreference])
+    return sortedItems;
+  }, [buildSlot, debouncedFilter, itemList, sortingPreference]);
 
-  const [filteredItemList, setFilteredItemList] = useState(getNewSortedItems())
+  const [filteredItemList, setFilteredItemList] = useState(getNewSortedItems());
 
   // * useEffect appropriate here to react to changes
   useEffect(() => {
-    setFilteredItemList(getNewSortedItems())
-  }, [debouncedFilter, sortingPreference, getNewSortedItems])
+    setFilteredItemList(getNewSortedItems());
+  }, [debouncedFilter, sortingPreference, getNewSortedItems]);
 
   function handleSortingPreferenceToggle() {
-    if (buildSlot !== 'trait') return
+    if (buildSlot !== 'trait') return;
 
     const newSortingPreference =
-      sortingPreference === 'alphabetical' ? 'in-game' : 'alphabetical'
-    setSortingPreference(newSortingPreference)
+      sortingPreference === 'alphabetical' ? 'in-game' : 'alphabetical';
+    setSortingPreference(newSortingPreference);
   }
 
-  if (!buildSlot) return null
+  if (!buildSlot) return null;
 
   return (
     <BaseDialog open={open} title="Select an Item" onClose={onClose} size="5xl">
@@ -199,5 +199,5 @@ export function ItemSelectDialog({
         </ul>
       </BaseDialogBody>
     </BaseDialog>
-  )
+  );
 }

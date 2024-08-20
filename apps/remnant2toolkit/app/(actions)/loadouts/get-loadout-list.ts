@@ -1,16 +1,16 @@
-'use server'
+'use server';
 
-import { prisma } from '@repo/db'
+import { prisma } from '@repo/db';
 
-import { getIsLoadoutPublic } from '@/app/(actions)/loadouts/get-is-loadout-public'
-import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile'
-import { getSession } from '@/app/(features)/auth/services/sessionService'
-import { DBBuild } from '@/app/(types)/builds'
+import { getIsLoadoutPublic } from '@/app/(actions)/loadouts/get-is-loadout-public';
+import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile';
+import { getSession } from '@/app/(features)/auth/services/sessionService';
+import { DBBuild } from '@/app/(features)/builds/types/db-build';
 
 export async function getLoadoutList(userId?: string) {
-  const session = await getSession()
+  const session = await getSession();
   if (!session?.user?.id && !userId) {
-    return []
+    return [];
   }
 
   const userLoadoutBuildsResponse = await prisma.userLoadouts.findMany({
@@ -31,12 +31,12 @@ export async function getLoadoutList(userId?: string) {
     orderBy: {
       slot: 'asc',
     },
-  })
+  });
 
   if (userId && session?.user?.id !== userId) {
-    const isLoadoutPublic = await getIsLoadoutPublic(userId)
+    const isLoadoutPublic = await getIsLoadoutPublic(userId);
     if (!isLoadoutPublic && session?.user?.id !== userId) {
-      return []
+      return [];
     }
   }
 
@@ -48,7 +48,7 @@ export async function getLoadoutList(userId?: string) {
         },
       }),
     ),
-  )
+  );
 
   const userLoadoutBuilds = userLoadoutBuildsResponse.map((loadout) =>
     loadout.build.isPublic || loadout.userId === session?.user?.id
@@ -62,6 +62,7 @@ export async function getLoadoutList(userId?: string) {
           isPatchAffected: loadout.build.isPatchAffected,
           isBeginnerBuild: loadout.build.isBeginnerBuild,
           isBaseGameBuild: loadout.build.isBaseGameBuild,
+          isGimmickBuild: loadout.build.isGimmickBuild,
           isMember: false,
           isModeratorApproved: loadout.build.isModeratorApproved,
           isModeratorLocked: loadout.build.isModeratorLocked,
@@ -97,6 +98,7 @@ export async function getLoadoutList(userId?: string) {
           isPatchAffected: loadout.build.isPatchAffected,
           isBeginnerBuild: false,
           isBaseGameBuild: false,
+          isGimmickBuild: false,
           isMember: false,
           isModeratorApproved: loadout.build.isModeratorApproved,
           isModeratorLocked: loadout.build.isModeratorLocked,
@@ -122,7 +124,7 @@ export async function getLoadoutList(userId?: string) {
           buildItems: [],
           slot: loadout.slot,
         },
-  ) satisfies Array<DBBuild & { slot: number }>
+  ) satisfies Array<DBBuild & { slot: number }>;
 
-  return userLoadoutBuilds
+  return userLoadoutBuilds;
 }

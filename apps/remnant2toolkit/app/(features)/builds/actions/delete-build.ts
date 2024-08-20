@@ -1,21 +1,21 @@
-'use server'
+'use server';
 
-import { prisma } from '@repo/db'
-import { revalidatePath } from 'next/cache'
+import { prisma } from '@repo/db';
+import { revalidatePath } from 'next/cache';
 
-import { getSession } from '@/app/(features)/auth/services/sessionService'
-import { BUILD_REVALIDATE_PATHS } from '@/app/(features)/builds/constants/build-revalidate-paths'
-import { BuildActionResponse } from '@/app/(types)/builds'
+import { getSession } from '@/app/(features)/auth/services/sessionService';
+import { BUILD_REVALIDATE_PATHS } from '@/app/(features)/builds/constants/build-revalidate-paths';
+import { BuildActionResponse } from '@/app/(features)/builds/types/build-action-response';
 
 export async function deleteBuild(
   buildId: string,
 ): Promise<BuildActionResponse> {
   // session validation
-  const session = await getSession()
+  const session = await getSession();
   if (!session || !session.user) {
     return {
       errors: ['You must be logged in.'],
-    }
+    };
   }
 
   try {
@@ -26,11 +26,11 @@ export async function deleteBuild(
       include: {
         createdBy: true,
       },
-    })
+    });
     if (!build) {
       return {
         errors: [`Build with id ${buildId} not found.`],
-      }
+      };
     }
 
     if (build.createdBy.id !== session.user.id) {
@@ -38,35 +38,35 @@ export async function deleteBuild(
         errors: [
           'You must be logged in as the build creator to delete a build.',
         ],
-      }
+      };
     }
 
     const dbResponse = await prisma.build.delete({
       where: {
         id: build.id,
       },
-    })
+    });
 
     // check for errors in dbResponse
     if (!dbResponse) {
       return {
         errors: ['Error in deleting build!'],
-      }
+      };
     }
 
     // Refresh the cache for the routes
     for (const path of BUILD_REVALIDATE_PATHS) {
-      revalidatePath(path, 'page')
+      revalidatePath(path, 'page');
     }
 
     return {
       message: 'Build successfully deleted!',
       buildId: dbResponse.id,
-    }
+    };
   } catch (e) {
-    console.error(e)
+    console.error(e);
     return {
       errors: ['Error in deleting build!'],
-    }
+    };
   }
 }

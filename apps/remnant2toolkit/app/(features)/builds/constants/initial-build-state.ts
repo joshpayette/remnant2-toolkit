@@ -1,5 +1,5 @@
-import { DEFAULT_BUILD_NAME } from '@/app/(features)/builds/constants/default-build-name'
-import type { BuildState } from '@/app/(types)/builds'
+import { DEFAULT_BUILD_NAME } from '@/app/(features)/builds/constants/default-build-name';
+import { BuildState } from '@/app/(features)/builds/types/build-state';
 
 /**
  * The default empty BuildState
@@ -12,6 +12,7 @@ export const INITIAL_BUILD_STATE: BuildState = {
   isFeaturedBuild: false,
   isBeginnerBuild: false,
   isBaseGameBuild: false,
+  isGimmickBuild: false,
   dateFeatured: null,
   isPatchAffected: false,
   isModeratorApproved: false,
@@ -51,4 +52,4 @@ export const INITIAL_BUILD_STATE: BuildState = {
     trait: [],
     perk: [],
   },
-}
+};

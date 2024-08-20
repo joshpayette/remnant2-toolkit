@@ -1,69 +1,69 @@
-import { BuildTags } from '@repo/db'
-import { BaseInput } from '@repo/ui/base/input'
-import { BaseLink } from '@repo/ui/base/link'
-import { cn } from '@repo/ui/classnames'
-import { EyeIcon } from '@repo/ui/icons/eye'
-import { FavoriteIcon } from '@repo/ui/icons/favorite'
-import { Logo } from '@repo/ui/logo'
-import { getArrayOfLength } from '@repo/utils/get-array-of-length'
-import { stripUnicode } from '@repo/utils/strip-unicode'
-import { useCallback, useMemo, useState } from 'react'
-import { FaRegEye } from 'react-icons/fa'
-import { HiOutlineDuplicate as DuplicateIcon } from 'react-icons/hi'
+import { BuildTags } from '@repo/db';
+import { BaseInput } from '@repo/ui/base/input';
+import { BaseLink } from '@repo/ui/base/link';
+import { cn } from '@repo/ui/classnames';
+import { EyeIcon } from '@repo/ui/icons/eye';
+import { FavoriteIcon } from '@repo/ui/icons/favorite';
+import { Logo } from '@repo/ui/logo';
+import { getArrayOfLength } from '@repo/utils/get-array-of-length';
+import { stripUnicode } from '@repo/utils/strip-unicode';
+import { useCallback, useMemo, useState } from 'react';
+import { FaRegEye } from 'react-icons/fa';
+import { HiOutlineDuplicate as DuplicateIcon } from 'react-icons/hi';
 
-import { ItemButton } from '@/app/(components)/buttons/item-button'
-import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
-import { ItemSelectDialog } from '@/app/(components)/dialogs/item-select-dialog'
-import { Tooltip } from '@/app/(components)/tooltip'
-import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
-import { perkItems } from '@/app/(data)/items/perk-items'
-import { Item } from '@/app/(data)/items/types'
-import { TraitItem } from '@/app/(data)/items/types/TraitItem'
-import { FeaturedBuildBadge } from '@/app/(features)/builder/components/badges/featured-build-badge'
-import { NewBuildBadge } from '@/app/(features)/builder/components/badges/new-build-badge'
-import { PopularBuildBadge } from '@/app/(features)/builder/components/badges/popular-build-badge'
-import { DEFAULT_TRAIT_AMOUNT } from '@/app/(features)/builder/constants/default-trait-amount'
-import { MAX_BUILD_TAGS } from '@/app/(features)/builder/constants/max-build-tags'
-import { buildHasFeaturedBadge } from '@/app/(features)/builds/utils/build-has-featured-badge'
-import { formatUpdatedAt } from '@/app/(features)/builds/utils/format-updated-at'
+import { ItemButton } from '@/app/(components)/buttons/item-button';
+import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
+import { ItemSelectDialog } from '@/app/(components)/dialogs/item-select-dialog';
+import { Tooltip } from '@/app/(components)/tooltip';
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants';
+import { perkItems } from '@/app/(data)/items/perk-items';
+import { Item } from '@/app/(data)/items/types';
+import { TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { FeaturedBuildBadge } from '@/app/(features)/builder/components/badges/featured-build-badge';
+import { NewBuildBadge } from '@/app/(features)/builder/components/badges/new-build-badge';
+import { PopularBuildBadge } from '@/app/(features)/builder/components/badges/popular-build-badge';
+import { DEFAULT_TRAIT_AMOUNT } from '@/app/(features)/builder/constants/default-trait-amount';
+import { MAX_BUILD_TAGS } from '@/app/(features)/builder/constants/max-build-tags';
+import { BuildState } from '@/app/(features)/builds/types/build-state';
+import { ItemCategory } from '@/app/(features)/builds/types/item-category';
+import { buildHasFeaturedBadge } from '@/app/(features)/builds/utils/build-has-featured-badge';
+import { formatUpdatedAt } from '@/app/(features)/builds/utils/format-updated-at';
 import {
   ArchetypeName,
   getArchetypeComboName,
-} from '@/app/(features)/builds/utils/get-archetype-combo-name'
-import { getConcoctionSlotCount } from '@/app/(features)/builds/utils/get-concoction-slot-count'
-import { getItemListForSlot } from '@/app/(features)/builds/utils/get-item-list-for-slot'
-import { isBuildNew } from '@/app/(features)/builds/utils/is-build-new'
-import { isBuildPopular } from '@/app/(features)/builds/utils/is-build-popular'
-import { BuildState, ItemCategory } from '@/app/(types)/builds'
-import { SKIPPED_ITEM_TRACKER_CATEGORIES } from '@/app/tracker/constants'
+} from '@/app/(features)/builds/utils/get-archetype-combo-name';
+import { getConcoctionSlotCount } from '@/app/(features)/builds/utils/get-concoction-slot-count';
+import { getItemListForSlot } from '@/app/(features)/builds/utils/get-item-list-for-slot';
+import { isBuildNew } from '@/app/(features)/builds/utils/is-build-new';
+import { isBuildPopular } from '@/app/(features)/builds/utils/is-build-popular';
 
-import { MemberFeatures } from './member-features'
-import { Stats } from './stats/stats'
-import { Traits } from './traits'
+import { MemberFeatures } from './member-features';
+import { Stats } from './stats/stats';
+import { Traits } from './traits';
 
 type BuilderProps = {
-  buildState: BuildState
-  isScreenshotMode: boolean
-  itemOwnershipPreference: boolean
-  showControls: boolean
-  showCreatedBy?: boolean
-  showMemberFeatures?: boolean
-  totalUpvotes?: number
+  buildState: BuildState;
+  isScreenshotMode: boolean;
+  itemOwnershipPreference: boolean;
+  showControls: boolean;
+  showCreatedBy?: boolean;
+  showMemberFeatures?: boolean;
+  totalUpvotes?: number;
 } & (
   | { isEditable: false; onUpdateBuildState?: never }
   | {
-      isEditable: true
+      isEditable: true;
       onUpdateBuildState: ({
         category,
         value,
         scroll,
       }: {
-        category: string
-        value: string | Array<string | undefined> | BuildTags[]
-        scroll?: boolean
-      }) => void
+        category: string;
+        value: string | Array<string | undefined> | BuildTags[];
+        scroll?: boolean;
+      }) => void;
     }
-)
+);
 
 // #region Component
 
@@ -77,25 +77,25 @@ export function Builder({
   showMemberFeatures = true,
   onUpdateBuildState,
 }: BuilderProps) {
-  const concoctionSlotCount = getConcoctionSlotCount(buildState)
-  const { isPopular, popularLevel } = isBuildPopular(buildState.totalUpvotes)
-  const isNew = isBuildNew(buildState.createdAt) && showCreatedBy
-  const hasFeaturedBadge = buildHasFeaturedBadge(buildState)
+  const concoctionSlotCount = getConcoctionSlotCount(buildState);
+  const { isPopular, popularLevel } = isBuildPopular(buildState.totalUpvotes);
+  const isNew = isBuildNew(buildState.createdAt) && showCreatedBy;
+  const hasFeaturedBadge = buildHasFeaturedBadge(buildState);
 
   // Tracks information about the slot the user is selecting an item for
   const [selectedItemSlot, setSelectedItemSlot] = useState<{
-    category: ItemCategory | null
-    index?: number
+    category: ItemCategory | null;
+    index?: number;
   }>({
     category: null,
-  })
+  });
 
   /** If the item category is null, modal is closed */
-  const isItemSelectModalOpen = Boolean(selectedItemSlot.category)
+  const isItemSelectModalOpen = Boolean(selectedItemSlot.category);
 
   // Tracks the item that the user is viewing information for
-  const [infoItem, setInfoItem] = useState<Item | null>(null)
-  const itemInfoOpen = Boolean(infoItem)
+  const [infoItem, setInfoItem] = useState<Item | null>(null);
+  const itemInfoOpen = Boolean(infoItem);
 
   /**
    * Returns a list of items that match the selected slot
@@ -104,7 +104,7 @@ export function Builder({
   const itemListForSlot = useMemo(
     () => getItemListForSlot(buildState, selectedItemSlot),
     [selectedItemSlot, buildState],
-  )
+  );
 
   /**
    * Fires when the user changes an item in the build.
@@ -117,15 +117,15 @@ export function Builder({
    */
   const handleSelectItem = useCallback(
     (selectedItem: Item | null) => {
-      if (!selectedItemSlot.category) return
-      if (!onUpdateBuildState) return
+      if (!selectedItemSlot.category) return;
+      if (!onUpdateBuildState) return;
 
       /**
        * The item index is used to determine which item in the array of items
        * for slots like rings and archetypes
        */
-      const specifiedIndex = selectedItemSlot.index
-      const isIndexSpecified = specifiedIndex !== undefined
+      const specifiedIndex = selectedItemSlot.index;
+      const isIndexSpecified = specifiedIndex !== undefined;
 
       // If the item is null, remove the item from the build
       // and from the query string
@@ -133,226 +133,226 @@ export function Builder({
       // then remove the item at the specified index
       if (!selectedItem) {
         if (isIndexSpecified) {
-          const buildItems = buildState.items[selectedItemSlot.category]
+          const buildItems = buildState.items[selectedItemSlot.category];
 
-          if (!Array.isArray(buildItems)) return
+          if (!Array.isArray(buildItems)) return;
 
           // We can't filter here because we want to preserve the index
           // If we filtered, the second archetype would become the first archetype
           // if you removed the first archetype
           const newBuildItems = buildItems.map((item, index) =>
             index === specifiedIndex ? null : item,
-          )
-          const newItemIds = newBuildItems.map((i) => i?.id ?? '')
+          );
+          const newItemIds = newBuildItems.map((i) => i?.id ?? '');
           onUpdateBuildState({
             category: selectedItemSlot.category,
             value: newItemIds,
-          })
+          });
         } else {
           onUpdateBuildState({
             category: selectedItemSlot.category,
             value: '',
-          })
+          });
         }
 
-        setSelectedItemSlot({ category: null })
-        return
+        setSelectedItemSlot({ category: null });
+        return;
       }
 
-      const categoryItemOrItems = buildState.items[selectedItemSlot.category]
+      const categoryItemOrItems = buildState.items[selectedItemSlot.category];
 
       // If the item can be multiple, such as rings,
       // then add the item at the specified index
       if (Array.isArray(categoryItemOrItems)) {
-        const buildItems = categoryItemOrItems
+        const buildItems = categoryItemOrItems;
 
         const itemAlreadyInBuild = buildItems.find(
           (i) => i?.id === selectedItem.id,
-        )
-        if (itemAlreadyInBuild) return
+        );
+        if (itemAlreadyInBuild) return;
 
         /** Used to add the new item to the array of items for this slot */
-        const newBuildItems = [...buildItems]
+        const newBuildItems = [...buildItems];
 
-        const specifiedIndex = selectedItemSlot.index
-        const isIndexSpecified = specifiedIndex !== undefined
+        const specifiedIndex = selectedItemSlot.index;
+        const isIndexSpecified = specifiedIndex !== undefined;
 
         isIndexSpecified
           ? (newBuildItems[specifiedIndex] = selectedItem)
-          : newBuildItems.push(selectedItem)
+          : newBuildItems.push(selectedItem);
 
         // If the item is a trait, then we need to add the amount
         if (selectedItemSlot.category === 'trait') {
           const newTraitItemParams = TraitItem.toParams(
             newBuildItems as TraitItem[],
-          )
+          );
 
-          onUpdateBuildState({ category: 'trait', value: newTraitItemParams })
-          setSelectedItemSlot({ category: null })
-          return
+          onUpdateBuildState({ category: 'trait', value: newTraitItemParams });
+          setSelectedItemSlot({ category: null });
+          return;
         }
 
         // If we got here, add the item to the build
         const newItemIds = newBuildItems.map((i) =>
           i?.optional ? `${i?.id}${OPTIONAL_ITEM_SYMBOL}` : i?.id,
-        )
+        );
         onUpdateBuildState({
           category: selectedItem.category,
           value: newItemIds,
-        })
-        setSelectedItemSlot({ category: null })
-        return
+        });
+        setSelectedItemSlot({ category: null });
+        return;
       }
 
       // If the item is not null, add the item to the build
-      const buildItem = categoryItemOrItems
+      const buildItem = categoryItemOrItems;
 
-      const itemAlreadyInBuild = buildItem?.id === selectedItem.id
-      if (itemAlreadyInBuild) return
+      const itemAlreadyInBuild = buildItem?.id === selectedItem.id;
+      if (itemAlreadyInBuild) return;
 
       onUpdateBuildState({
         category: selectedItem.category,
         value: selectedItem.id,
-      })
-      setSelectedItemSlot({ category: null })
+      });
+      setSelectedItemSlot({ category: null });
     },
     [buildState.items, selectedItemSlot, onUpdateBuildState],
-  )
+  );
 
   function handleToggleOptional(selectedItem: Item, optional: boolean) {
-    if (!isEditable) return
-    if (!onUpdateBuildState) return
+    if (!isEditable) return;
+    if (!onUpdateBuildState) return;
 
-    const categoryItemOrItems = buildState.items[selectedItem.category]
-    if (!categoryItemOrItems) return
+    const categoryItemOrItems = buildState.items[selectedItem.category];
+    if (!categoryItemOrItems) return;
 
     if (Array.isArray(categoryItemOrItems)) {
       const newBuildItems = (categoryItemOrItems as Item[]).map((item) => {
         if (item?.id === selectedItem?.id) {
-          return { ...item, optional }
+          return { ...item, optional };
         }
-        return item
-      })
+        return item;
+      });
 
       const newItemIds = newBuildItems.map((i) =>
         i?.optional ? `${i?.id}${OPTIONAL_ITEM_SYMBOL}` : i?.id,
-      )
+      );
 
       onUpdateBuildState({
         category: selectedItem.category,
         value: newItemIds,
-      })
-      return
+      });
+      return;
     }
 
-    const newBuildItem = { ...categoryItemOrItems, optional }
+    const newBuildItem = { ...categoryItemOrItems, optional };
     onUpdateBuildState({
       category: selectedItem.category,
       value: newBuildItem.optional
         ? `${newBuildItem.id}${OPTIONAL_ITEM_SYMBOL}`
         : newBuildItem.id,
-    })
+    });
   }
 
   function handleChangeBuildLink(newBuildLink: string) {
-    if (!isEditable) return
-    if (!onUpdateBuildState) return
-    onUpdateBuildState({ category: 'buildLink', value: newBuildLink })
+    if (!isEditable) return;
+    if (!onUpdateBuildState) return;
+    onUpdateBuildState({ category: 'buildLink', value: newBuildLink });
   }
 
   function handleChangeDescription(description: string) {
-    if (!isEditable) return
-    if (!onUpdateBuildState) return
-    onUpdateBuildState({ category: 'description', value: description })
+    if (!isEditable) return;
+    if (!onUpdateBuildState) return;
+    onUpdateBuildState({ category: 'description', value: description });
   }
 
   function handleToggleIsPublic(isPublic: boolean) {
-    if (!isEditable) return
-    if (!onUpdateBuildState) return
+    if (!isEditable) return;
+    if (!onUpdateBuildState) return;
     onUpdateBuildState({
       category: 'isPublic',
       value: isPublic ? 'true' : 'false',
-    })
+    });
   }
 
   function handleToggleIsPatchAffected(isPatchAffected: boolean) {
-    if (!isEditable) return
-    if (!onUpdateBuildState) return
+    if (!isEditable) return;
+    if (!onUpdateBuildState) return;
     onUpdateBuildState({
       category: 'isPatchAffected',
       value: isPatchAffected ? 'true' : 'false',
-    })
+    });
   }
 
   function handleChangeBuildTags(tags: BuildTags[]) {
-    if (!isEditable) return
-    if (!onUpdateBuildState) return
+    if (!isEditable) return;
+    if (!onUpdateBuildState) return;
 
     onUpdateBuildState({
       category: 'tags',
       value:
         tags.length > MAX_BUILD_TAGS ? tags.slice(0, MAX_BUILD_TAGS) : tags,
-    })
+    });
   }
 
   function handleShowInfo(item: Item) {
-    setInfoItem(item)
+    setInfoItem(item);
   }
 
   function handleItemSlotClick(category: ItemCategory, index?: number) {
-    if (!isEditable) return
-    setSelectedItemSlot({ category, index })
+    if (!isEditable) return;
+    setSelectedItemSlot({ category, index });
   }
 
   function handleChangeBuildName(newBuildName: string) {
-    if (!isEditable) return
-    if (!onUpdateBuildState) return
-    onUpdateBuildState({ category: 'name', value: newBuildName })
+    if (!isEditable) return;
+    if (!onUpdateBuildState) return;
+    onUpdateBuildState({ category: 'name', value: newBuildName });
   }
 
   function handleRemoveTrait(traitItem: TraitItem) {
-    if (!isEditable) return
-    if (!onUpdateBuildState) return
+    if (!isEditable) return;
+    if (!onUpdateBuildState) return;
 
     const newTraitItems = buildState.items.trait.filter(
       (i) => i.name !== traitItem.name,
-    )
-    const newTraitItemParams = TraitItem.toParams(newTraitItems)
-    onUpdateBuildState({ category: 'trait', value: newTraitItemParams })
+    );
+    const newTraitItemParams = TraitItem.toParams(newTraitItems);
+    onUpdateBuildState({ category: 'trait', value: newTraitItemParams });
   }
 
   function handleUpdateTraitAmount(newTraitItem: TraitItem) {
-    if (!isEditable) return
-    if (!onUpdateBuildState) return
+    if (!isEditable) return;
+    if (!onUpdateBuildState) return;
 
     const newTraitItems = buildState.items.trait.map((traitItem) => {
       if (traitItem.name === newTraitItem.name) {
-        return newTraitItem
+        return newTraitItem;
       }
-      return traitItem
-    })
+      return traitItem;
+    });
 
     // validate the amounts
     const validatedTraitItems = newTraitItems.map((traitItem) => {
-      let validAmount = traitItem.amount
+      let validAmount = traitItem.amount;
 
       // if this is the linked trait to an archetype,
       // the default should be the linked amount
-      let defaultAmount = DEFAULT_TRAIT_AMOUNT
+      let defaultAmount = DEFAULT_TRAIT_AMOUNT;
 
-      const primaryArchetype = buildState.items.archetype[0]
-      const secondaryArchetype = buildState.items.archetype[1]
+      const primaryArchetype = buildState.items.archetype[0];
+      const secondaryArchetype = buildState.items.archetype[1];
 
       // if this is the linked trait for the primary archetype,
       // make sure the amount is not less than the minimum allowed
       if (primaryArchetype?.name) {
         const linkedTrait = primaryArchetype?.linkedItems?.traits?.find(
           (linkedTrait) => linkedTrait.name === traitItem.name,
-        )
+        );
         if (linkedTrait && traitItem.name === linkedTrait.name) {
           if (validAmount < linkedTrait.amount) {
-            validAmount = linkedTrait.amount
-            defaultAmount = linkedTrait.amount
+            validAmount = linkedTrait.amount;
+            defaultAmount = linkedTrait.amount;
           }
         }
       }
@@ -362,50 +362,50 @@ export function Builder({
         const linkedTrait = secondaryArchetype?.linkedItems?.traits?.find(
           (linkedTrait) =>
             linkedTrait.name === traitItem.name && linkedTrait.amount === 10,
-        )
+        );
         if (linkedTrait && traitItem.name === linkedTrait.name) {
           if (validAmount < linkedTrait.amount) {
-            validAmount = linkedTrait.amount
-            defaultAmount = linkedTrait.amount
+            validAmount = linkedTrait.amount;
+            defaultAmount = linkedTrait.amount;
           }
         }
       }
 
-      if (isNaN(validAmount)) validAmount = defaultAmount
-      if (validAmount < 1) validAmount = defaultAmount
-      if (validAmount > 10) validAmount = defaultAmount
+      if (isNaN(validAmount)) validAmount = defaultAmount;
+      if (validAmount < 1) validAmount = defaultAmount;
+      if (validAmount > 10) validAmount = defaultAmount;
 
       return {
         ...traitItem,
         amount: validAmount,
-      }
-    })
+      };
+    });
 
-    const newTraitItemParams = TraitItem.toParams(validatedTraitItems)
-    onUpdateBuildState({ category: 'trait', value: newTraitItemParams })
+    const newTraitItemParams = TraitItem.toParams(validatedTraitItems);
+    onUpdateBuildState({ category: 'trait', value: newTraitItemParams });
   }
 
   const primePerkName =
-    buildState.items.archetype[0]?.linkedItems?.perks?.[0]?.name
-  const primePerk = perkItems.find((i) => i.name === primePerkName)
+    buildState.items.archetype[0]?.linkedItems?.perks?.[0]?.name;
+  const primePerk = perkItems.find((i) => i.name === primePerkName);
 
   function countOwnedItems(items: BuildState['items']): string {
     // Filter out skills and perks
-    const { skill: _skill, perk: _perk, ...filteredItems } = items
+    const { skill: _skill, perk: _perk, ...filteredItems } = items;
 
-    const itemsArray = Object.values(filteredItems).flat()
-    if (!itemsArray) return '---'
+    const itemsArray = Object.values(filteredItems).flat();
+    if (!itemsArray) return '---';
 
     const ownedItemsCount = itemsArray.reduce((acc, item) => {
-      if (!item) return acc
-      return item.isOwned ? acc + 1 : acc
-    }, 0)
-    const totalItemsCount = itemsArray.length
+      if (!item) return acc;
+      return item.isOwned ? acc + 1 : acc;
+    }, 0);
+    const totalItemsCount = itemsArray.length;
     const ownedPercentage = Math.round(
       (ownedItemsCount / totalItemsCount) * 100,
-    )
+    );
 
-    return `${ownedItemsCount} / ${totalItemsCount} (${ownedPercentage}%)`
+    return `${ownedItemsCount} / ${totalItemsCount} (${ownedPercentage}%)`;
   }
 
   // #region Render
@@ -952,7 +952,7 @@ export function Builder({
                   />
                   {getArrayOfLength(concoctionSlotCount).map((index) => {
                     // Add 1 to the index because we already rendered the first slot
-                    const concoctionIndex = index + 1
+                    const concoctionIndex = index + 1;
                     return (
                       <ItemButton
                         key={`concoction-${concoctionIndex}`}
@@ -971,7 +971,7 @@ export function Builder({
                         tooltipDisabled={itemInfoOpen}
                         unoptimized={isScreenshotMode}
                       />
-                    )
+                    );
                   })}
                 </div>
               )}
@@ -1043,5 +1043,5 @@ export function Builder({
         )}
       </div>
     </>
-  )
+  );
 }

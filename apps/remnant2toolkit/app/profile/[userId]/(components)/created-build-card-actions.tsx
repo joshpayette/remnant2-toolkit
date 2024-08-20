@@ -1,12 +1,12 @@
-import { DeleteBuildButton } from '@/app/(components)/buttons/profile-buttons/delete-build-button'
-import { DuplicateBuildButton } from '@/app/(components)/buttons/profile-buttons/duplicate-build-button'
-import { EditBuildButton } from '@/app/(components)/buttons/profile-buttons/edit-build-button'
-import { ShareBuildButton } from '@/app/(components)/buttons/profile-buttons/share-build-button'
-import { DBBuild } from '@/app/(types)/builds'
+import { DeleteBuildButton } from '@/app/(components)/buttons/profile-buttons/delete-build-button';
+import { DuplicateBuildButton } from '@/app/(components)/buttons/profile-buttons/duplicate-build-button';
+import { EditBuildButton } from '@/app/(components)/buttons/profile-buttons/edit-build-button';
+import { ShareBuildButton } from '@/app/(components)/buttons/profile-buttons/share-build-button';
+import { DBBuild } from '@/app/(features)/builds/types/db-build';
 
 interface Props {
-  build: DBBuild
-  onDelete: (buildId: string) => void
+  build: DBBuild;
+  onDelete: (buildId: string) => void;
 }
 
 export function CreatedBuildCardActions({ build, onDelete }: Props) {
@@ -17,5 +17,5 @@ export function CreatedBuildCardActions({ build, onDelete }: Props) {
       <DuplicateBuildButton build={build} />
       <DeleteBuildButton buildId={build.id} onDelete={onDelete} />
     </div>
-  )
+  );
 }

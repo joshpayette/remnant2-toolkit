@@ -1,29 +1,29 @@
-'use client'
+'use client';
 
 import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogTitle,
-} from '@repo/ui/base/dialog'
-import { useState } from 'react'
+} from '@repo/ui/base/dialog';
+import { useState } from 'react';
 
-import { ItemCard } from '@/app/(components)/cards/item-card'
-import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
-import { Item } from '@/app/(data)/items/types'
-import { buildStateToMasonryItems } from '@/app/(features)/builds/utils/build-state-to-masonry-items'
-import { BuildState } from '@/app/(types)/builds'
+import { ItemCard } from '@/app/(components)/cards/item-card';
+import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
+import { Item } from '@/app/(data)/items/types';
+import { BuildState } from '@/app/(features)/builds/types/build-state';
+import { buildStateToMasonryItems } from '@/app/(features)/builds/utils/build-state-to-masonry-items';
 
 interface Props {
-  open: boolean
-  buildState: BuildState
-  onClose: () => void
+  open: boolean;
+  buildState: BuildState;
+  onClose: () => void;
 }
 
 export function DetailedBuildDialog({ open, buildState, onClose }: Props) {
-  const masonryItems = buildStateToMasonryItems(buildState)
+  const masonryItems = buildStateToMasonryItems(buildState);
 
-  const [selectedItem, setSelectedItem] = useState<Item | null>(null)
-  const isItemInfoOpen = Boolean(selectedItem)
+  const [selectedItem, setSelectedItem] = useState<Item | null>(null);
+  const isItemInfoOpen = Boolean(selectedItem);
 
   return (
     <BaseDialog open={open} onClose={onClose} size="7xl">
@@ -47,5 +47,5 @@ export function DetailedBuildDialog({ open, buildState, onClose }: Props) {
         </div>
       </BaseDialogBody>
     </BaseDialog>
-  )
+  );
 }

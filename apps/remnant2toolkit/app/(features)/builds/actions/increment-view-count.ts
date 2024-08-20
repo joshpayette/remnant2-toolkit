@@ -1,17 +1,17 @@
-'use server'
+'use server';
 
-import { prisma } from '@repo/db'
+import { prisma } from '@repo/db';
 
-import { getSession } from '@/app/(features)/auth/services/sessionService'
-import type { BuildActionResponse } from '@/app/(types)/builds'
+import { getSession } from '@/app/(features)/auth/services/sessionService';
+import { BuildActionResponse } from '@/app/(features)/builds/types/build-action-response';
 
 export async function incrementViewCount({
   buildId,
 }: {
-  buildId: string
+  buildId: string;
 }): Promise<BuildActionResponse & { viewCount: number }> {
-  const session = await getSession()
-  const userId = session?.user?.id
+  const session = await getSession();
+  const userId = session?.user?.id;
 
   try {
     const build = await prisma.build.findUnique({
@@ -23,13 +23,13 @@ export async function incrementViewCount({
         updatedAt: true,
         viewCount: true,
       },
-    })
+    });
 
     if (!build) {
       return {
         errors: ['Build not found!'],
         viewCount: -1,
-      }
+      };
     }
 
     // If the build is created by the user, do not add a view
@@ -39,7 +39,7 @@ export async function incrementViewCount({
           message:
             'View count not incremented as the build is created by the user!',
           viewCount: build.viewCount,
-        }
+        };
       }
     }
 
@@ -55,7 +55,7 @@ export async function incrementViewCount({
           buildId,
           userId,
         },
-      })
+      });
     }
 
     const updatedBuild = await prisma.build.update({
@@ -68,17 +68,17 @@ export async function incrementViewCount({
         },
         updatedAt: build.updatedAt,
       },
-    })
+    });
 
     return {
       message: 'View count incremented!',
       viewCount: updatedBuild.viewCount,
-    }
+    };
   } catch (e) {
-    console.error(`Error in incrementing view count for build ${buildId}!`)
+    console.error(`Error in incrementing view count for build ${buildId}!`);
     return {
       errors: ['Error in incrementing view count!'],
       viewCount: -1,
-    }
+    };
   }
 }

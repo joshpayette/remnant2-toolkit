@@ -1,40 +1,40 @@
-'use client'
+'use client';
 
-import { BaseButton } from '@repo/ui/base/button'
-import { BaseLink } from '@repo/ui/base/link'
-import { cn } from '@repo/ui/classnames'
-import { EyeIcon } from '@repo/ui/icons/eye'
-import { EyeSlashIcon } from '@repo/ui/icons/eyeslash'
-import { FavoriteIcon } from '@repo/ui/icons/favorite'
-import { PaperClipIcon } from '@repo/ui/icons/paperclip'
-import { VideoIcon } from '@repo/ui/icons/video'
-import { Skeleton } from '@repo/ui/skeleton'
-import { isValidYoutubeUrl } from '@repo/utils/youtube'
+import { BaseButton } from '@repo/ui/base/button';
+import { BaseLink } from '@repo/ui/base/link';
+import { cn } from '@repo/ui/classnames';
+import { EyeIcon } from '@repo/ui/icons/eye';
+import { EyeSlashIcon } from '@repo/ui/icons/eyeslash';
+import { FavoriteIcon } from '@repo/ui/icons/favorite';
+import { PaperClipIcon } from '@repo/ui/icons/paperclip';
+import { VideoIcon } from '@repo/ui/icons/video';
+import { Skeleton } from '@repo/ui/skeleton';
+import { isValidYoutubeUrl } from '@repo/utils/youtube';
 
-import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
-import { Tooltip } from '@/app/(components)/tooltip'
-import { ArchetypeLabel } from '@/app/(features)/builder/components/archetype-label'
-import { FeaturedBuildBadge } from '@/app/(features)/builder/components/badges/featured-build-badge'
-import { NewBuildBadge } from '@/app/(features)/builder/components/badges/new-build-badge'
-import { PopularBuildBadge } from '@/app/(features)/builder/components/badges/popular-build-badge'
-import { BuildTagsDisplay } from '@/app/(features)/builder/components/build-tags/build-tags-display'
-import { buildHasFeaturedBadge } from '@/app/(features)/builds/utils/build-has-featured-badge'
-import { dbBuildToBuildState } from '@/app/(features)/builds/utils/db-build-to-build-state'
-import { formatUpdatedAt } from '@/app/(features)/builds/utils/format-updated-at'
+import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens';
+import { Tooltip } from '@/app/(components)/tooltip';
+import { ArchetypeLabel } from '@/app/(features)/builder/components/archetype-label';
+import { FeaturedBuildBadge } from '@/app/(features)/builder/components/badges/featured-build-badge';
+import { NewBuildBadge } from '@/app/(features)/builder/components/badges/new-build-badge';
+import { PopularBuildBadge } from '@/app/(features)/builder/components/badges/popular-build-badge';
+import { BuildTagsDisplay } from '@/app/(features)/builder/components/build-tags/build-tags-display';
+import { DBBuild } from '@/app/(features)/builds/types/db-build';
+import { buildHasFeaturedBadge } from '@/app/(features)/builds/utils/build-has-featured-badge';
+import { dbBuildToBuildState } from '@/app/(features)/builds/utils/db-build-to-build-state';
+import { formatUpdatedAt } from '@/app/(features)/builds/utils/format-updated-at';
 import {
   ArchetypeName,
   getArchetypeComboName,
-} from '@/app/(features)/builds/utils/get-archetype-combo-name'
-import { isBuildNew } from '@/app/(features)/builds/utils/is-build-new'
-import { isBuildPopular } from '@/app/(features)/builds/utils/is-build-popular'
-import { DBBuild } from '@/app/(types)/builds'
+} from '@/app/(features)/builds/utils/get-archetype-combo-name';
+import { isBuildNew } from '@/app/(features)/builds/utils/is-build-new';
+import { isBuildPopular } from '@/app/(features)/builds/utils/is-build-popular';
 
 interface Props {
-  build: DBBuild
-  footerActions?: React.ReactNode
-  isLoading: boolean
-  memberFrameEnabled?: boolean
-  showBuildVisibility?: boolean
+  build: DBBuild;
+  footerActions?: React.ReactNode;
+  isLoading: boolean;
+  memberFrameEnabled?: boolean;
+  showBuildVisibility?: boolean;
 }
 
 export function BuildCard({
@@ -44,10 +44,10 @@ export function BuildCard({
   memberFrameEnabled = true,
   showBuildVisibility = false,
 }: Props) {
-  const buildState = dbBuildToBuildState(build)
-  const { isPopular, popularLevel } = isBuildPopular(build.totalUpvotes)
-  const isNew = isBuildNew(buildState.createdAt)
-  const hasFeaturedBadge = buildHasFeaturedBadge(build)
+  const buildState = dbBuildToBuildState(build);
+  const { isPopular, popularLevel } = isBuildPopular(build.totalUpvotes);
+  const isNew = isBuildNew(buildState.createdAt);
+  const hasFeaturedBadge = buildHasFeaturedBadge(build);
 
   return (
     <div
@@ -215,5 +215,5 @@ export function BuildCard({
         </div>
       )}
     </div>
-  )
+  );
 }

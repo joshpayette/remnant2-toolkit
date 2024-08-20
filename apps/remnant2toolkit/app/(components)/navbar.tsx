@@ -1,20 +1,20 @@
-'use client'
+'use client';
 
-import { Menu, Transition } from '@headlessui/react'
-import { BaseLink } from '@repo/ui/base/link'
-import { cn } from '@repo/ui/classnames'
-import { ChevronDownIcon } from '@repo/ui/icons/chevron-down'
-import { Logo } from '@repo/ui/logo'
-import { NavbarContainer } from '@repo/ui/navbar-container'
-import { ZINDEXES } from '@repo/ui/zindexes'
-import { useSession } from 'next-auth/react'
-import { Fragment } from 'react'
+import { Menu, Transition } from '@headlessui/react';
+import { BaseLink } from '@repo/ui/base/link';
+import { cn } from '@repo/ui/classnames';
+import { ChevronDownIcon } from '@repo/ui/icons/chevron-down';
+import { Logo } from '@repo/ui/logo';
+import { NavbarContainer } from '@repo/ui/navbar-container';
+import { ZINDEXES } from '@repo/ui/zindexes';
+import { useSession } from 'next-auth/react';
+import { Fragment } from 'react';
 
-import { ProfileButton } from '@/app/(components)/profile-button'
-import { NAV_ITEMS } from '@/app/(types)/navigation'
+import { ProfileButton } from '@/app/(components)/profile-button';
+import { NAV_ITEMS } from '@/app/(types)/navigation';
 
 export function Navbar() {
-  const { status } = useSession()
+  const { status } = useSession();
 
   return (
     <NavbarContainer
@@ -134,6 +134,27 @@ export function Navbar() {
                         {NAV_ITEMS.collectionBuilds.label}
                         <p className="text-xs font-normal text-gray-400">
                           {NAV_ITEMS.collectionBuilds.description}
+                        </p>
+                      </div>
+                    </BaseLink>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <BaseLink
+                      href={NAV_ITEMS.gimmickBuilds.href}
+                      className={cn(
+                        active ? 'bg-gray-800' : '',
+                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
+                      )}
+                    >
+                      <div className="mr-4 w-[20px]">
+                        <NAV_ITEMS.gimmickBuilds.icon className="text-primary-600 h-5 w-5" />
+                      </div>
+                      <div className="flex flex-col items-start justify-start gap-y-1">
+                        {NAV_ITEMS.gimmickBuilds.label}
+                        <p className="text-xs font-normal text-gray-400">
+                          {NAV_ITEMS.gimmickBuilds.description}
                         </p>
                       </div>
                     </BaseLink>
@@ -301,6 +322,23 @@ export function Navbar() {
           </BaseLink>
 
           <BaseLink
+            href={NAV_ITEMS.gimmickBuilds.href}
+            className="flex flex-row items-center justify-start"
+          >
+            <NAV_ITEMS.gimmickBuilds.icon
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
+              aria-hidden="true"
+            />
+            <div className="flex flex-col items-start justify-start px-3 py-2">
+              {NAV_ITEMS.gimmickBuilds.label}
+
+              <p className="text-xs text-gray-400">
+                {NAV_ITEMS.gimmickBuilds.description}
+              </p>
+            </div>
+          </BaseLink>
+
+          <BaseLink
             href={NAV_ITEMS.baseGameBuilds.href}
             className="flex flex-row items-center justify-start"
           >
@@ -425,5 +463,5 @@ export function Navbar() {
         </>
       }
     ></NavbarContainer>
-  )
+  );
 }

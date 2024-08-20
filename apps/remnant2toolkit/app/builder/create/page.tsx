@@ -1,30 +1,30 @@
-'use client'
+'use client';
 
-import { useRef, useState } from 'react'
-import { useIsClient } from 'usehooks-ts'
+import { useRef, useState } from 'react';
+import { useIsClient } from 'usehooks-ts';
 
-import { ItemTagSuggestionDialog } from '@/app/(components)/dialogs/item-tag-suggestion-dialog'
-import { PageHeader } from '@/app/(components)/page-header'
-import { BuilderContainer } from '@/app/(features)/builder/components/builder-container'
-import { ArmorCalculatorButton } from '@/app/(features)/builder/components/buttons/armor-calculator-button'
-import { DetailedViewButton } from '@/app/(features)/builder/components/buttons/detailed-view-button'
-import { GenerateBuildImageButton } from '@/app/(features)/builder/components/buttons/generate-build-image'
-import { ItemSuggestionsButton } from '@/app/(features)/builder/components/buttons/item-suggestions-button'
-import { RandomBuildButton } from '@/app/(features)/builder/components/buttons/random-build-button'
-import { SaveBuildButton } from '@/app/(features)/builder/components/buttons/save-build-button'
-import { ArmorSuggestionDialog } from '@/app/(features)/builder/components/dialogs/armor-suggestion-dialog'
-import { DetailedBuildDialog } from '@/app/(features)/builder/components/dialogs/detailed-build-dialog'
-import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dialogs/image-download-info-dialog'
-import { INITIAL_BUILD_STATE } from '@/app/(features)/builds/constants/initial-build-state'
-import { useDBBuildState } from '@/app/(features)/builds/utils/hooks/use-db-build-state'
-import { useBuildActions } from '@/app/(hooks)/use-build-actions'
-import { BuildState } from '@/app/(types)/builds'
+import { ItemTagSuggestionDialog } from '@/app/(components)/dialogs/item-tag-suggestion-dialog';
+import { PageHeader } from '@/app/(components)/page-header';
+import { BuilderContainer } from '@/app/(features)/builder/components/builder-container';
+import { ArmorCalculatorButton } from '@/app/(features)/builder/components/buttons/armor-calculator-button';
+import { DetailedViewButton } from '@/app/(features)/builder/components/buttons/detailed-view-button';
+import { GenerateBuildImageButton } from '@/app/(features)/builder/components/buttons/generate-build-image';
+import { ItemSuggestionsButton } from '@/app/(features)/builder/components/buttons/item-suggestions-button';
+import { RandomBuildButton } from '@/app/(features)/builder/components/buttons/random-build-button';
+import { SaveBuildButton } from '@/app/(features)/builder/components/buttons/save-build-button';
+import { ArmorSuggestionDialog } from '@/app/(features)/builder/components/dialogs/armor-suggestion-dialog';
+import { DetailedBuildDialog } from '@/app/(features)/builder/components/dialogs/detailed-build-dialog';
+import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dialogs/image-download-info-dialog';
+import { INITIAL_BUILD_STATE } from '@/app/(features)/builds/constants/initial-build-state';
+import { BuildState } from '@/app/(features)/builds/types/build-state';
+import { useDBBuildState } from '@/app/(features)/builds/utils/hooks/use-db-build-state';
+import { useBuildActions } from '@/app/(hooks)/use-build-actions';
 
 export default function Page() {
-  const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
+  const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);
 
   const { dbBuildState, setNewBuildState, updateDBBuildState } =
-    useDBBuildState(INITIAL_BUILD_STATE)
+    useDBBuildState(INITIAL_BUILD_STATE);
 
   const {
     isScreenshotMode,
@@ -34,21 +34,21 @@ export default function Page() {
     handleClearImageDownloadInfo,
     handleImageExport,
     handleRandomBuild,
-  } = useBuildActions()
+  } = useBuildActions();
 
-  const buildContainerRef = useRef<HTMLDivElement>(null)
+  const buildContainerRef = useRef<HTMLDivElement>(null);
 
-  const [showArmorCalculator, setShowArmorCalculator] = useState(false)
-  const [showItemSuggestions, setShowItemSuggestions] = useState(false)
+  const [showArmorCalculator, setShowArmorCalculator] = useState(false);
+  const [showItemSuggestions, setShowItemSuggestions] = useState(false);
 
   function handleApplySuggestions(newBuildState: BuildState) {
-    setNewBuildState(newBuildState)
-    setShowArmorCalculator(false)
-    setShowItemSuggestions(false)
+    setNewBuildState(newBuildState);
+    setShowArmorCalculator(false);
+    setShowItemSuggestions(false);
   }
 
-  const isClient = useIsClient()
-  if (!isClient) return
+  const isClient = useIsClient();
+  if (!isClient) return;
 
   return (
     <div className="flex w-full flex-col items-center">
@@ -121,13 +121,13 @@ export default function Page() {
 
             <RandomBuildButton
               onClick={() => {
-                const randomBuild = handleRandomBuild()
-                setNewBuildState(randomBuild)
+                const randomBuild = handleRandomBuild();
+                setNewBuildState(randomBuild);
               }}
             />
           </>
         }
       />
     </div>
-  )
+  );
 }

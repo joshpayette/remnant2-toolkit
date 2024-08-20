@@ -1,32 +1,33 @@
-import { CHANGELOG_URL, DISCORD_INVITE_URL } from '@repo/constants'
-import { ChangeLogIcon } from '@repo/ui/icons/changelog'
-import { CommunityBuildsIcon } from '@repo/ui/icons/community-builds'
-import { CreateBuildIcon } from '@repo/ui/icons/create-build'
-import { DiscordIcon } from '@repo/ui/icons/discord'
-import { FavoriteIcon } from '@repo/ui/icons/favorite'
-import { ItemLookupIcon } from '@repo/ui/icons/item-lookup'
-import { ItemTrackerIcon } from '@repo/ui/icons/item-tracker'
-import { MyBuildsIcon } from '@repo/ui/icons/my-builds'
-import { ProfileIcon } from '@repo/ui/icons/profile'
-import { ResourcesIcon } from '@repo/ui/icons/resources'
-import { SignInIcon } from '@repo/ui/icons/signin'
-import { SignOutIcon } from '@repo/ui/icons/signout'
-import { SupportIcon } from '@repo/ui/icons/support'
-import { FaStaylinked as LinkedBuildsIcon } from 'react-icons/fa'
-import { FaHandSparkles as BeginnerBuildsIcon } from 'react-icons/fa'
-import { GiChestArmor as ArmorGeneratorIcon } from 'react-icons/gi'
-import { GiBarbute as LoadoutIcon } from 'react-icons/gi'
-import { GiStrong as HardcoreVeteranIcon } from 'react-icons/gi'
-import { IoArchive as WorldSaveArchiveIcon } from 'react-icons/io5'
-import { IoShieldCheckmark as BossTrackerIcon } from 'react-icons/io5'
-import { MdQuiz as ItemQuizIcon } from 'react-icons/md'
-import { MdCollectionsBookmark as BuildsByCollectionIcon } from 'react-icons/md'
-import { PiCubeFocus as FeaturedBuildsIcon } from 'react-icons/pi'
-import { RiOpenbaseLine as BaseGameBuildsIcon } from 'react-icons/ri'
-import { SiModrinth as ModdingDiscordIcon } from 'react-icons/si'
+import { CHANGELOG_URL, DISCORD_INVITE_URL } from '@repo/constants';
+import { ChangeLogIcon } from '@repo/ui/icons/changelog';
+import { CommunityBuildsIcon } from '@repo/ui/icons/community-builds';
+import { CreateBuildIcon } from '@repo/ui/icons/create-build';
+import { DiscordIcon } from '@repo/ui/icons/discord';
+import { FavoriteIcon } from '@repo/ui/icons/favorite';
+import { ItemLookupIcon } from '@repo/ui/icons/item-lookup';
+import { ItemTrackerIcon } from '@repo/ui/icons/item-tracker';
+import { MyBuildsIcon } from '@repo/ui/icons/my-builds';
+import { ProfileIcon } from '@repo/ui/icons/profile';
+import { ResourcesIcon } from '@repo/ui/icons/resources';
+import { SignInIcon } from '@repo/ui/icons/signin';
+import { SignOutIcon } from '@repo/ui/icons/signout';
+import { SupportIcon } from '@repo/ui/icons/support';
+import { FaStaylinked as LinkedBuildsIcon } from 'react-icons/fa';
+import { FaHandSparkles as BeginnerBuildsIcon } from 'react-icons/fa';
+import { FaAffiliatetheme as GimmickBuildsIcon } from 'react-icons/fa';
+import { GiChestArmor as ArmorGeneratorIcon } from 'react-icons/gi';
+import { GiBarbute as LoadoutIcon } from 'react-icons/gi';
+import { GiStrong as HardcoreVeteranIcon } from 'react-icons/gi';
+import { IoArchive as WorldSaveArchiveIcon } from 'react-icons/io5';
+import { IoShieldCheckmark as BossTrackerIcon } from 'react-icons/io5';
+import { MdQuiz as ItemQuizIcon } from 'react-icons/md';
+import { MdCollectionsBookmark as BuildsByCollectionIcon } from 'react-icons/md';
+import { PiCubeFocus as FeaturedBuildsIcon } from 'react-icons/pi';
+import { RiOpenbaseLine as BaseGameBuildsIcon } from 'react-icons/ri';
+import { SiModrinth as ModdingDiscordIcon } from 'react-icons/si';
 
-import VashIcon from '@/app/(components)/images/vash-icon'
-import WikiIcon from '@/app/(components)/images/wiki-icon'
+import VashIcon from '@/app/(components)/images/vash-icon';
+import WikiIcon from '@/app/(components)/images/wiki-icon';
 
 /**
  * The base pages for the site
@@ -34,14 +35,14 @@ import WikiIcon from '@/app/(components)/images/wiki-icon'
 export const NAV_ITEMS = {
   baseGameBuilds: {
     label: 'Base Game Builds',
-    description: `A curated list of Remnant 2 builds for players who don't own any DLCs.`,
+    description: `A curated list of Remnant 2 community builds for players who don't own any DLCs.`,
     href: '/base-game-builds',
     icon: BaseGameBuildsIcon,
   },
   beginnerBuilds: {
     label: 'Beginner Builds',
     description:
-      'A curated list of Remnant 2 builds intended to be usable or targetable in the earlier hours of gameplay.',
+      'A curated list of Remnant 2 community builds intended to be usable or targetable in the earlier hours of gameplay.',
     href: '/beginner-builds',
     icon: BeginnerBuildsIcon,
   },
@@ -99,6 +100,13 @@ export const NAV_ITEMS = {
       'A curated list of unique and high-quality community submitted Remnant 2 builds.',
     href: '/featured-builds',
     icon: FeaturedBuildsIcon,
+  },
+  gimmickBuilds: {
+    label: 'Gimmick Builds',
+    description:
+      'A curated list of Remnant 2 community builds designed around a specific gimmick or theme.',
+    href: '/gimmick-builds',
+    icon: GimmickBuildsIcon,
   },
   hardcoreVeteran: {
     label: 'Hardcore Veteran Guide',
@@ -215,4 +223,4 @@ export const NAV_ITEMS = {
     href: '/world-save-archive',
     icon: WorldSaveArchiveIcon,
   },
-}
+};
