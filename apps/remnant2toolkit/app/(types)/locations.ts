@@ -82,7 +82,6 @@ export const LOSOMN_DUNGEONS = [
   `The Forgotten Commune`,
   `Pathway of the Fallen`,
   `Walk of Rememberance`,
-  
 ] as const satisfies LosomnDungeon[]
 
 export type NErudDungeon =
@@ -166,6 +165,7 @@ export type YaeshaDungeon =
   | `Bloodless Throne`
   | `Glittering Grotto`
   | 'Luminous Vale'
+  | 'Earthen Colosseum'
 
 export const YAESHA_DUNGEONS = [
   `The Red Throne`,
@@ -354,7 +354,7 @@ export const BIOMES = [
   {
     name: `Ziggurats`,
     world: 'Yaesha',
-    dungeons: [`Kaeula's Rest`, `Endaira's End`, `Cathedral of Omens`],
+    dungeons: [`Endaira's End`, `Proving Grounds`, `Earthen Colosseum`],
     injectables: [`Hidden Chamber`, `Wind Hollow`, `Library`, `Moon's Path`],
   },
 ] as const satisfies Array<
