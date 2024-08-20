@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed bug where extending the height of the description field on the builder would cause the token and template links to overlap it.
+- Updated the `Ziggurats` injectable to no longer include Kaeula's Rest and Cathedral of Omens, as well as added Earthen Colosseum and Proving Grounds.
 
 ## 2024-08-17
 
