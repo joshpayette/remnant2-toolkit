@@ -18,11 +18,13 @@ import approveVideo from '@/app/(features)/builds/admin/actions/approve-video';
 import featureBuild from '@/app/(features)/builds/admin/actions/feature-build';
 import lockBuild from '@/app/(features)/builds/admin/actions/lock-build';
 import privateBuild from '@/app/(features)/builds/admin/actions/private-build';
+import setBaseGameBuild from '@/app/(features)/builds/admin/actions/set-base-game-build';
 import setBeginnerBuild from '@/app/(features)/builds/admin/actions/set-beginner-build';
 import setGimmickBuild from '@/app/(features)/builds/admin/actions/set-gimmick-build';
 import unapproveVideo from '@/app/(features)/builds/admin/actions/unapprove-video';
 import unfeatureBuild from '@/app/(features)/builds/admin/actions/unfeature-build';
 import unlockBuild from '@/app/(features)/builds/admin/actions/unlock-build';
+import unsetBaseGameBuild from '@/app/(features)/builds/admin/actions/unset-base-game-build';
 import unsetBeginnerBuild from '@/app/(features)/builds/admin/actions/unset-beginner-build';
 import unsetGimmickBuild from '@/app/(features)/builds/admin/actions/unsetGimmickBuild';
 import updateBuild from '@/app/(features)/builds/admin/actions/update-build';
@@ -227,6 +229,35 @@ export function ModeratorBuildToolsDialog({
               Set Beginner Build
             </BaseButton>
           )}
+          {localBuild.isBaseGameBuild ? (
+            <BaseButton
+              onClick={async () => {
+                const response = await unsetBaseGameBuild(localBuild.buildId);
+                if (response.status === 'error') {
+                  toast.error(response.message);
+                  return;
+                }
+                setLocalBuild({ ...localBuild, isBaseGameBuild: false });
+                toast.success(response.message);
+              }}
+            >
+              Unset Base Game Build
+            </BaseButton>
+          ) : (
+            <BaseButton
+              onClick={async () => {
+                const response = await setBaseGameBuild(localBuild.buildId);
+                if (response.status === 'error') {
+                  toast.error(response.message);
+                  return;
+                }
+                setLocalBuild({ ...localBuild, isBaseGameBuild: true });
+                toast.success(response.message);
+              }}
+            >
+              Set Base Game Build
+            </BaseButton>
+          )}
           {localBuild.isGimmickBuild ? (
             <BaseButton
               onClick={async () => {
@@ -239,7 +270,7 @@ export function ModeratorBuildToolsDialog({
                 toast.success(response.message);
               }}
             >
-              Unset Base Game Build
+              Unset Gimmick Build
             </BaseButton>
           ) : (
             <BaseButton
@@ -253,7 +284,7 @@ export function ModeratorBuildToolsDialog({
                 toast.success(response.message);
               }}
             >
-              Set Base Game Build
+              Set Gimmick Build
             </BaseButton>
           )}
           {localBuild.isModeratorApproved ? (
