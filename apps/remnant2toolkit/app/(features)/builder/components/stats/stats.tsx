@@ -1,48 +1,49 @@
-import { cn } from '@repo/ui/classnames'
-import { InfoCircleIcon } from '@repo/ui/icons/info-circle'
-import { getImageUrl } from '@repo/ui/utils/get-image-url'
-import { ZINDEXES } from '@repo/ui/zindexes'
-import Image from 'next/image'
-import { useState } from 'react'
+import { cn } from '@repo/ui/classnames';
+import { InfoCircleIcon } from '@repo/ui/icons/info-circle';
+import { getImageUrl } from '@repo/ui/utils/get-image-url';
+import { ZINDEXES } from '@repo/ui/zindexes';
+import Image from 'next/image';
+import { useState } from 'react';
 
-import { Tooltip } from '@/app/(components)/tooltip'
-import { ArmorBreakdownDialog } from '@/app/(features)/builder/components/dialogs/armor-breakdown-dialog'
-import { HealthBreakdownDialog } from '@/app/(features)/builder/components/dialogs/health-breakdown-dialog'
-import { StaminaBreakdownDialog } from '@/app/(features)/builder/components/dialogs/stamina-breakdown-dialog'
-import { getTotalArmor } from '@/app/(features)/builds/utils/get-totals/get-total-armor'
-import { getTotalHealth } from '@/app/(features)/builds/utils/get-totals/get-total-health'
-import { getTotalResistances } from '@/app/(features)/builds/utils/get-totals/get-total-resistances'
-import { getTotalStamina } from '@/app/(features)/builds/utils/get-totals/get-total-stamina'
-import { getTotalWeight } from '@/app/(features)/builds/utils/get-totals/get-total-weight'
-import { getWeightClass } from '@/app/(features)/builds/utils/get-totals/get-weight-class'
-import { buildToVashUrl } from '@/app/(features)/builds/utils/vash-integration/build-to-vash-url'
-import { BuildState } from '@/app/(types)/builds'
+import { Tooltip } from '@/app/(components)/tooltip';
+import { ArmorBreakdownDialog } from '@/app/(features)/builder/components/dialogs/armor-breakdown-dialog';
+import { HealthBreakdownDialog } from '@/app/(features)/builder/components/dialogs/health-breakdown-dialog';
+import { StaminaBreakdownDialog } from '@/app/(features)/builder/components/dialogs/stamina-breakdown-dialog';
+import { BuildState } from '@/app/(features)/builds/types/build-state';
+import { getTotalArmor } from '@/app/(features)/builds/utils/get-totals/get-total-armor';
+import { getTotalHealth } from '@/app/(features)/builds/utils/get-totals/get-total-health';
+import { getTotalResistances } from '@/app/(features)/builds/utils/get-totals/get-total-resistances';
+import { getTotalStamina } from '@/app/(features)/builds/utils/get-totals/get-total-stamina';
+import { getTotalWeight } from '@/app/(features)/builds/utils/get-totals/get-total-weight';
+import { getWeightClass } from '@/app/(features)/builds/utils/get-totals/get-weight-class';
+import { buildToVashUrl } from '@/app/(features)/builds/utils/vash-integration/build-to-vash-url';
 
 interface Props {
-  buildState: BuildState
-  isScreenshotMode: boolean
+  buildState: BuildState;
+  isScreenshotMode: boolean;
 }
 
 export function Stats({ buildState, isScreenshotMode }: Props) {
-  const [healthInfoOpen, setHealthInfoOpen] = useState(false)
-  const [staminaInfoOpen, setStaminaInfoOpen] = useState(false)
-  const [armorInfoOpen, setArmorInfoOpen] = useState(false)
+  const [healthInfoOpen, setHealthInfoOpen] = useState(false);
+  const [staminaInfoOpen, setStaminaInfoOpen] = useState(false);
+  const [armorInfoOpen, setArmorInfoOpen] = useState(false);
 
-  const { totalArmor, breakdown: armorBreakdown } = getTotalArmor(buildState)
-  const totalWeight = getTotalWeight(buildState)
-  const { totalHealth, breakdown: healthBreakdown } = getTotalHealth(buildState)
+  const { totalArmor, breakdown: armorBreakdown } = getTotalArmor(buildState);
+  const totalWeight = getTotalWeight(buildState);
+  const { totalHealth, breakdown: healthBreakdown } =
+    getTotalHealth(buildState);
   const { totalStamina, breakdown: staminaBreakdown } =
-    getTotalStamina(buildState)
-  const totalFireResistance = getTotalResistances(buildState, 'fire')
-  const totalBlightResistance = getTotalResistances(buildState, 'blight')
-  const totalShockResistance = getTotalResistances(buildState, 'shock')
-  const totalBleedResistance = getTotalResistances(buildState, 'bleed')
-  const totalToxinResistance = getTotalResistances(buildState, 'toxin')
-  const weightClass = getWeightClass(buildState)
+    getTotalStamina(buildState);
+  const totalFireResistance = getTotalResistances(buildState, 'fire');
+  const totalBlightResistance = getTotalResistances(buildState, 'blight');
+  const totalShockResistance = getTotalResistances(buildState, 'shock');
+  const totalBleedResistance = getTotalResistances(buildState, 'bleed');
+  const totalToxinResistance = getTotalResistances(buildState, 'toxin');
+  const weightClass = getWeightClass(buildState);
 
   const challengerIsEquipped =
     buildState.items.archetype[0]?.name === 'Challenger' ||
-    buildState.items.archetype[1]?.name === 'Challenger'
+    buildState.items.archetype[1]?.name === 'Challenger';
 
   return (
     <>
@@ -267,5 +268,5 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
         </div>
       </div>
     </>
-  )
+  );
 }

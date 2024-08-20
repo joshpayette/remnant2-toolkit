@@ -1,11 +1,11 @@
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
+import { BaseField, BaseLabel } from '@repo/ui/base/fieldset';
 import {
   BaseListbox,
   BaseListboxLabel,
   BaseListboxOption,
-} from '@repo/ui/base/listbox'
+} from '@repo/ui/base/listbox';
 
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
+import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
 import {
   LABYRINTH_DUNGEONS,
   LOSOMN_DUNGEONS,
@@ -13,15 +13,15 @@ import {
   ROOT_EARTH_DUNGEONS,
   WORLD_LOCATIONS,
   YAESHA_DUNGEONS,
-} from '@/app/(types)/locations'
+} from '@/app/(features)/items/types/locations';
 
-export const VALID_WORLDS = WORLD_LOCATIONS
+export const VALID_WORLDS = WORLD_LOCATIONS;
 
 interface Props {
-  worldValue: string
-  dungeonValue: string
-  onChangeWorld: (value: string) => void
-  onChangeDungeon: (value: string) => void
+  worldValue: string;
+  dungeonValue: string;
+  onChangeWorld: (value: string) => void;
+  onChangeDungeon: (value: string) => void;
 }
 
 export function WorldFilter({
@@ -33,20 +33,20 @@ export function WorldFilter({
   const worldOptions = VALID_WORLDS.map((world) => ({
     label: world as string,
     value: world as string,
-  }))
-  worldOptions.unshift({ label: DEFAULT_FILTER, value: DEFAULT_FILTER })
+  }));
+  worldOptions.unshift({ label: DEFAULT_FILTER, value: DEFAULT_FILTER });
 
   const showDungeons =
     worldValue === 'Losomn' ||
     worldValue === `N'Erud` ||
     worldValue === 'Yaesha' ||
     worldValue === 'Root Earth' ||
-    worldValue === 'Labyrinth'
+    worldValue === 'Labyrinth';
 
   let dungeonOptions = [
     { label: DEFAULT_FILTER, value: DEFAULT_FILTER },
     { label: 'World Drop', value: 'World Drop' },
-  ]
+  ];
   switch (worldValue) {
     case 'Losomn':
       dungeonOptions = dungeonOptions.concat(
@@ -54,24 +54,24 @@ export function WorldFilter({
           label: dungeon as string,
           value: dungeon as string,
         })),
-      )
-      break
+      );
+      break;
     case `N'Erud`:
       dungeonOptions = dungeonOptions.concat(
         NERUD_DUNGEONS.sort((a, b) => a.localeCompare(b)).map((dungeon) => ({
           label: dungeon as string,
           value: dungeon as string,
         })),
-      )
-      break
+      );
+      break;
     case 'Yaesha':
       dungeonOptions = dungeonOptions.concat(
         YAESHA_DUNGEONS.sort((a, b) => a.localeCompare(b)).map((dungeon) => ({
           label: dungeon as string,
           value: dungeon as string,
         })),
-      )
-      break
+      );
+      break;
     case 'Root Earth':
       dungeonOptions = dungeonOptions.concat(
         ROOT_EARTH_DUNGEONS.sort((a, b) => a.localeCompare(b)).map(
@@ -80,8 +80,8 @@ export function WorldFilter({
             value: dungeon as string,
           }),
         ),
-      )
-      break
+      );
+      break;
     case 'Labyrinth':
       dungeonOptions = dungeonOptions.concat(
         LABYRINTH_DUNGEONS.sort((a, b) => a.localeCompare(b)).map(
@@ -90,10 +90,10 @@ export function WorldFilter({
             value: dungeon as string,
           }),
         ),
-      )
-      break
+      );
+      break;
     default:
-      break
+      break;
   }
 
   return (
@@ -125,5 +125,5 @@ export function WorldFilter({
         </BaseField>
       )}
     </div>
-  )
+  );
 }

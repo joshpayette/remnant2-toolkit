@@ -1,30 +1,30 @@
-import { BaseButton } from '@repo/ui/base/button'
+import { BaseButton } from '@repo/ui/base/button';
 import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@repo/ui/base/dialog'
+} from '@repo/ui/base/dialog';
 import {
   BaseListbox,
   BaseListboxLabel,
   BaseListboxOption,
-} from '@repo/ui/base/listbox'
-import { useEffect, useState } from 'react'
+} from '@repo/ui/base/listbox';
+import { useEffect, useState } from 'react';
 
-import { ArmorSuggestionCard } from '@/app/(components)/cards/armor-suggestion-card'
-import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
-import { Pagination } from '@/app/(components)/pagination'
-import { Item } from '@/app/(data)/items/types'
-import { getArmorSuggestions } from '@/app/(features)/armor-calculator/utils/get-armor-suggestions'
+import { ArmorSuggestionCard } from '@/app/(components)/cards/armor-suggestion-card';
+import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
+import { Pagination } from '@/app/(components)/pagination';
+import { Item } from '@/app/(data)/items/types';
+import { getArmorSuggestions } from '@/app/(features)/armor-calculator/utils/get-armor-suggestions';
+import { BuildState } from '@/app/(features)/builds/types/build-state';
 import {
   ArmorSuggestion,
   WeightClassKeysWithDefault,
-} from '@/app/(types)/armor-calculator'
-import { BuildState } from '@/app/(types)/builds'
-import { usePagination } from '@/app/(utils)/pagination/use-pagination'
+} from '@/app/(types)/armor-calculator';
+import { usePagination } from '@/app/(utils)/pagination/use-pagination';
 
-const ITEMS_PER_PAGE = 8
+const ITEMS_PER_PAGE = 8;
 
 function ArmorInfoContainer({
   children,
@@ -34,12 +34,12 @@ function ArmorInfoContainer({
   onDialogClose,
   onInfoClose,
 }: {
-  children: React.ReactNode
-  isDialogOpen: boolean
-  itemInfo: Item | null
-  isItemInfoOpen: boolean
-  onDialogClose: () => void
-  onInfoClose: () => void
+  children: React.ReactNode;
+  isDialogOpen: boolean;
+  itemInfo: Item | null;
+  isItemInfoOpen: boolean;
+  onDialogClose: () => void;
+  onInfoClose: () => void;
 }) {
   return (
     <BaseDialog open={isDialogOpen} onClose={onDialogClose} size="7xl">
@@ -58,14 +58,14 @@ function ArmorInfoContainer({
         </div>
       </BaseDialogBody>
     </BaseDialog>
-  )
+  );
 }
 
 interface Props {
-  buildState: BuildState
-  open: boolean
-  onClose: () => void
-  onApplySuggestions: (newBuildState: BuildState) => void
+  buildState: BuildState;
+  open: boolean;
+  onClose: () => void;
+  onApplySuggestions: (newBuildState: BuildState) => void;
 }
 
 export function ArmorSuggestionDialog({
@@ -74,19 +74,19 @@ export function ArmorSuggestionDialog({
   onClose,
   onApplySuggestions,
 }: Props) {
-  const [isCalculating, setIsCalculating] = useState(false)
+  const [isCalculating, setIsCalculating] = useState(false);
 
   // Tracks the item the user wants info on
-  const [itemInfo, setItemInfo] = useState<Item | null>(null)
+  const [itemInfo, setItemInfo] = useState<Item | null>(null);
   // If the item info is defined, the modal should be open
-  const isItemInfoOpen = Boolean(itemInfo)
+  const isItemInfoOpen = Boolean(itemInfo);
 
   const [desiredWeightClass, setDesiredWeightClass] =
-    useState<WeightClassKeysWithDefault>('CHOOSE')
+    useState<WeightClassKeysWithDefault>('CHOOSE');
 
   const [armorSuggestions, setArmorSuggestions] = useState<ArmorSuggestion[]>(
     [],
-  )
+  );
 
   const {
     currentPage,
@@ -100,46 +100,46 @@ export function ArmorSuggestionDialog({
   } = usePagination({
     totalItemCount: armorSuggestions.length,
     itemsPerPage: ITEMS_PER_PAGE,
-  })
+  });
 
   useEffect(() => {
-    if (!isCalculating) return
-    if (desiredWeightClass === 'CHOOSE') return
+    if (!isCalculating) return;
+    if (desiredWeightClass === 'CHOOSE') return;
 
     // Start a timeout to delay the calculation
     // This allows the loading indicator to render
     const timeoutId = setTimeout(() => {
       setArmorSuggestions(
         getArmorSuggestions({ buildState, desiredWeightClass }),
-      )
-      handleSpecificPageClick(1)
-      setIsCalculating(false)
-    }, 250)
+      );
+      handleSpecificPageClick(1);
+      setIsCalculating(false);
+    }, 250);
 
     // Clear the timeout when the component unmounts or when the dependencies change
-    return () => clearTimeout(timeoutId)
-  }, [buildState, desiredWeightClass, isCalculating, handleSpecificPageClick])
+    return () => clearTimeout(timeoutId);
+  }, [buildState, desiredWeightClass, isCalculating, handleSpecificPageClick]);
 
   const allSlotsFull = Boolean(
     buildState.items.helm &&
       buildState.items.torso &&
       buildState.items.gloves &&
       buildState.items.legs,
-  )
+  );
 
   function handleWeightClassChange(weightClass: WeightClassKeysWithDefault) {
     if (weightClass === 'CHOOSE') {
-      setArmorSuggestions([])
-      setDesiredWeightClass(weightClass)
-      return
+      setArmorSuggestions([]);
+      setDesiredWeightClass(weightClass);
+      return;
     }
-    setDesiredWeightClass(weightClass)
-    setIsCalculating(true)
+    setDesiredWeightClass(weightClass);
+    setIsCalculating(true);
   }
 
   function clearArmorSuggestions() {
-    setDesiredWeightClass('CHOOSE')
-    setArmorSuggestions([])
+    setDesiredWeightClass('CHOOSE');
+    setArmorSuggestions([]);
   }
 
   const armorInfoProps = {
@@ -148,7 +148,7 @@ export function ArmorSuggestionDialog({
     isItemInfoOpen: isItemInfoOpen,
     onDialogClose: onClose,
     onInfoClose: () => setItemInfo(null),
-  }
+  };
 
   if (allSlotsFull) {
     return (
@@ -157,7 +157,7 @@ export function ArmorSuggestionDialog({
           All armor slots are full. Clear at least one slot for suggestions.
         </div>
       </ArmorInfoContainer>
-    )
+    );
   }
 
   if (isCalculating) {
@@ -169,7 +169,7 @@ export function ArmorSuggestionDialog({
           </p>
         </div>
       </ArmorInfoContainer>
-    )
+    );
   }
 
   // #region Render
@@ -283,5 +283,5 @@ export function ArmorSuggestionDialog({
         </div>
       )}
     </ArmorInfoContainer>
-  )
+  );
 }

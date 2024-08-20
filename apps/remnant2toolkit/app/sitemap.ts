@@ -1,10 +1,10 @@
-import { prisma } from '@repo/db'
-import { MetadataRoute } from 'next'
+import { prisma } from '@repo/db';
+import { MetadataRoute } from 'next';
 
-const baseUrl = 'https://remnant2toolkit.com'
-const currentDate = new Date().toISOString().split('T')[0]
+const baseUrl = 'https://remnant2toolkit.com';
+const currentDate = new Date().toISOString().split('T')[0];
 
-type ChangeFrequency = MetadataRoute.Sitemap[number]['changeFrequency']
+type ChangeFrequency = MetadataRoute.Sitemap[number]['changeFrequency'];
 
 const staticRoutes = [
   { url: baseUrl, lastModified: currentDate, changeFrequency: 'weekly' },
@@ -25,6 +25,11 @@ const staticRoutes = [
   },
   {
     url: `${baseUrl}/beginner-builds`,
+    lastModified: currentDate,
+    changeFrequency: 'daily' as ChangeFrequency,
+  },
+  {
+    url: `${baseUrl}/gimmick-builds`,
     lastModified: currentDate,
     changeFrequency: 'daily' as ChangeFrequency,
   },
@@ -73,7 +78,7 @@ const staticRoutes = [
     lastModified: currentDate,
     changeFrequency: 'weekly' as ChangeFrequency,
   },
-] as const satisfies MetadataRoute.Sitemap
+] as const satisfies MetadataRoute.Sitemap;
 
 async function getSitemapData() {
   const [builds, profiles] = await Promise.all([
@@ -81,28 +86,28 @@ async function getSitemapData() {
       where: { isPublic: true },
     }),
     await prisma.userProfile.findMany(),
-  ])
+  ]);
 
   return {
     buildIds: builds.map((build) => build.id),
     profileUserIds: profiles.map((profile) => profile.userId),
-  }
+  };
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const { buildIds, profileUserIds } = await getSitemapData()
+  const { buildIds, profileUserIds } = await getSitemapData();
 
   const buildRoutes: MetadataRoute.Sitemap = buildIds.map((id) => ({
     url: `${baseUrl}/builder/${id}`,
     lastModified: currentDate,
     changeFrequency: 'daily' as ChangeFrequency,
-  }))
+  }));
 
   const profileRoutes: MetadataRoute.Sitemap = profileUserIds.map((id) => ({
     url: `${baseUrl}/profile/${id}`,
     lastModified: currentDate,
     changeFrequency: 'daily' as ChangeFrequency,
-  }))
+  }));
 
   const createdBuildRoutes: MetadataRoute.Sitemap = profileUserIds.map(
     (id) => ({
@@ -110,7 +115,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: currentDate,
       changeFrequency: 'daily' as ChangeFrequency,
     }),
-  )
+  );
 
   const favoritedBuildRoutes: MetadataRoute.Sitemap = profileUserIds.map(
     (id) => ({
@@ -118,7 +123,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: currentDate,
       changeFrequency: 'daily' as ChangeFrequency,
     }),
-  )
+  );
 
   return [
     ...staticRoutes,
@@ -126,5 +131,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...profileRoutes,
     ...createdBuildRoutes,
     ...favoritedBuildRoutes,
-  ]
+  ];
 }

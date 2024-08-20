@@ -7,6 +7,7 @@ model Build {
   isFeaturedBuild     Boolean               @default(false)
   isBeginnerBuild     Boolean               @default(false)
   isBaseGameBuild     Boolean               @default(false)
+  isGimmickBuild      Boolean               @default(false)
   isModeratorApproved Boolean               @default(false)
   isModeratorLocked   Boolean               @default(false)
   isPatchAffected     Boolean               @default(false)

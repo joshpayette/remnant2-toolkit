@@ -1,22 +1,23 @@
-'use server'
+'use server';
 
-import { revalidatePath } from 'next/cache'
+import { revalidatePath } from 'next/cache';
 
-import { addBuildToLoadout } from '@/app/(actions)/loadouts/add-build-to-loadout'
-import { getSession } from '@/app/(features)/auth/services/sessionService'
-import { createBuild } from '@/app/(features)/builds/actions/create-build'
-import { importedLoadoutToBuildState } from '@/app/(features)/builds/utils/imported-loadout-to-build-state'
-import type { BuildState, SuccessResponse } from '@/app/(types)/builds'
+import { addBuildToLoadout } from '@/app/(actions)/loadouts/add-build-to-loadout';
+import { getSession } from '@/app/(features)/auth/services/sessionService';
+import { createBuild } from '@/app/(features)/builds/actions/create-build';
+import type { BuildState } from '@/app/(features)/builds/types/build-state';
+import { SuccessResponse } from '@/app/(features)/builds/types/success-response';
+import { importedLoadoutToBuildState } from '@/app/(features)/builds/utils/imported-loadout-to-build-state';
 import {
   MAX_PROFILE_SAV_SIZE,
   type ParsedLoadoutItem,
-} from '@/app/(types)/sav-file'
-import { isErrorResponse } from '@/app/(utils)/is-error-response'
-import { validateEnv } from '@/app/(validators)/validate-env'
+} from '@/app/(types)/sav-file';
+import { isErrorResponse } from '@/app/(utils)/is-error-response';
+import { validateEnv } from '@/app/(validators)/validate-env';
 
-const env = validateEnv()
+const env = validateEnv();
 
-type ParsedLoadoutResponse = Array<ParsedLoadoutItem>
+type ParsedLoadoutResponse = Array<ParsedLoadoutItem>;
 
 /**
  * Parse the data from the Remnant 2 save file
@@ -25,36 +26,36 @@ export async function parseSaveFile(
   _prevState: unknown,
   formData: FormData,
 ): Promise<{ status: 'success' | 'error'; message: string }> {
-  const session = await getSession()
+  const session = await getSession();
 
   if (!session || !session.user?.id) {
     return {
       status: 'error',
       message: 'User not authenticated',
-    }
+    };
   }
 
-  const saveFile = formData.get('saveFile') as File | null
+  const saveFile = formData.get('saveFile') as File | null;
   if (!saveFile) {
-    throw new Error('No file provided')
+    throw new Error('No file provided');
   }
   if (saveFile.name.toLowerCase() !== 'profile.sav') {
-    const message = 'Invalid file name, should be profile.sav'
+    const message = 'Invalid file name, should be profile.sav';
     return {
       status: 'error',
       message,
-    }
+    };
   }
 
   // if characterSlot is missing from form data, add it
   if (!formData.has('characterSlot')) {
-    formData.append('characterSlot', '1')
+    formData.append('characterSlot', '1');
   }
 
-  const loadoutsToReplace: number[] = []
+  const loadoutsToReplace: number[] = [];
   for (const [key, value] of formData.entries()) {
     if (key.startsWith('loadoutsToReplace')) {
-      loadoutsToReplace.push(parseInt(value.toString()))
+      loadoutsToReplace.push(parseInt(value.toString()));
     }
   }
 
@@ -63,22 +64,22 @@ export async function parseSaveFile(
     return {
       status: 'error',
       message: 'No loadouts to replace provided.',
-    }
+    };
   }
 
-  const fileSizeInBytes = saveFile.size
-  const fileSizeInKilobytes = fileSizeInBytes / 1000.0
+  const fileSizeInBytes = saveFile.size;
+  const fileSizeInKilobytes = fileSizeInBytes / 1000.0;
 
   if (fileSizeInKilobytes > MAX_PROFILE_SAV_SIZE) {
-    console.error('File too large', fileSizeInKilobytes)
+    console.error('File too large', fileSizeInKilobytes);
     return {
       status: 'error',
       message: `File too large (${fileSizeInKilobytes} KB), please use a smaller file. If you think this is in error, please use the bug report icon in the bottom right to let me know.`,
-    }
+    };
   }
 
   try {
-    formData.append('authToken', env.LOADOUT_AUTH_TOKEN)
+    formData.append('authToken', env.LOADOUT_AUTH_TOKEN);
 
     // Send the file the loadout parser
     const response = await fetch(`${env.LOADOUT_PARSER_URL}/ExportLoadout`, {
@@ -88,87 +89,87 @@ export async function parseSaveFile(
         Accept: 'application/octet-stream',
       },
       body: formData,
-    })
+    });
 
     if (!response.ok) {
-      console.error('Error in parseSaveFile', response)
+      console.error('Error in parseSaveFile', response);
       return {
         status: 'error',
         message: `Error parsing save file`,
-      }
+      };
     }
 
-    const data = await response.json()
+    const data = await response.json();
     if (!data[0]?.loadouts) {
       return {
         status: 'error',
         message: `No loadouts found in save file for character slot ${formData.get(
           'characterSlot',
         )}`,
-      }
+      };
     }
 
-    const loadouts = data[0]?.loadouts as ParsedLoadoutResponse[]
+    const loadouts = data[0]?.loadouts as ParsedLoadoutResponse[];
 
-    const buildsToCreate: BuildState[] = []
+    const buildsToCreate: BuildState[] = [];
     for (const loadoutIndex of loadoutsToReplace) {
-      const loadout = loadouts[loadoutIndex - 1]
+      const loadout = loadouts[loadoutIndex - 1];
       // don't create empty loadouts
       if (!loadout || loadout.length === 0) {
-        continue
+        continue;
       }
       const buildState = importedLoadoutToBuildState({
         loadout,
-      })
+      });
       buildsToCreate.push({
         ...buildState,
         name: `Imported Loadout ${loadoutIndex}`,
         description: `Imported from profile.sav by ${session.user.displayName}`,
-      })
+      });
     }
 
     // Save the builds to the database
     const createdBuildResponse = await Promise.all([
       ...buildsToCreate.map((build) => createBuild(JSON.stringify(build))),
-    ])
+    ]);
     const buildIds = createdBuildResponse
       .filter((build) => !isErrorResponse(build))
-      .map((build) => (build as SuccessResponse).buildId as string)
+      .map((build) => (build as SuccessResponse).buildId as string);
 
     // Update the loadouts with the new build IDs
-    const loadoutsToUpdate: Array<{ buildId: string; slot: number }> = []
+    const loadoutsToUpdate: Array<{ buildId: string; slot: number }> = [];
     for (const loadoutIndex of loadoutsToReplace) {
-      const loadout = loadouts[loadoutIndex - 1]
+      const loadout = loadouts[loadoutIndex - 1];
       if (!loadout || loadout.length === 0) {
-        continue
+        continue;
       }
-      const buildId = buildIds.shift()
+      const buildId = buildIds.shift();
       if (!buildId) {
-        continue
+        continue;
       }
       loadoutsToUpdate.push({
         buildId,
         slot: loadoutIndex,
-      })
+      });
     }
 
     const _updatedLoadoutsResponse = await Promise.all([
       ...loadoutsToUpdate.map((loadout) =>
         addBuildToLoadout(loadout.buildId, loadout.slot),
       ),
-    ])
+    ]);
 
-    revalidatePath(`/api/profile/[userId]/loadouts`, 'page')
+    revalidatePath(`/api/profile/[userId]/loadouts`, 'page');
 
     return {
       status: 'success',
       message: 'Loadouts imported successfully',
-    }
+    };
   } catch (e) {
-    console.error('Error in parseSaveFile', e)
+    console.error('Error in parseSaveFile', e);
     return {
       status: 'error',
       message: `Unknown error parsing save file`,
-    }
+    };
   }
 }

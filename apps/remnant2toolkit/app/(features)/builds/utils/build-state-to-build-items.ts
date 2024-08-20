@@ -1,13 +1,14 @@
-import { BuildState, ItemCategory } from '@/app/(types)/builds'
+import { BuildState } from '@/app/(features)/builds/types/build-state';
+import { ItemCategory } from '@/app/(features)/builds/types/item-category';
 
 export function buildStateToBuildItems(buildState: BuildState): Array<{
-  itemId: string
-  amount?: number
-  index?: number
-  optional?: boolean
-  category: ItemCategory
+  itemId: string;
+  amount?: number;
+  index?: number;
+  optional?: boolean;
+  category: ItemCategory;
 }> {
-  const { items } = buildState
+  const { items } = buildState;
 
   const buildItems = [
     {
@@ -190,6 +191,6 @@ export function buildStateToBuildItems(buildState: BuildState): Array<{
             optional: false,
           },
         ]),
-  ]
-  return buildItems
+  ];
+  return buildItems;
 }

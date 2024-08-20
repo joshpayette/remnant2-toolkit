@@ -1,61 +1,61 @@
-'use client'
+'use client';
 
-import { BaseButton } from '@repo/ui/base/button'
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
-import { BaseInput } from '@repo/ui/base/input'
-import { BaseTextarea } from '@repo/ui/base/textarea'
-import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
-import { FaUnlink } from 'react-icons/fa'
-import { FaLink } from 'react-icons/fa6'
-import { toast } from 'react-toastify'
+import { BaseButton } from '@repo/ui/base/button';
+import { BaseField, BaseLabel } from '@repo/ui/base/fieldset';
+import { BaseInput } from '@repo/ui/base/input';
+import { BaseTextarea } from '@repo/ui/base/textarea';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { FaUnlink } from 'react-icons/fa';
+import { FaLink } from 'react-icons/fa6';
+import { toast } from 'react-toastify';
 
-import { BuildList } from '@/app/(components)/build-list'
-import { OrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter'
-import { useOrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
-import { TimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter'
-import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
-import { Tooltip } from '@/app/(components)/tooltip'
-import { getCreatedBuilds } from '@/app/(features)/builds/actions/get-created-builds'
-import { BuildCard } from '@/app/(features)/builds/components/cards/build-card'
-import { useBuildListState } from '@/app/(features)/builds/utils/hooks/use-build-list-state'
-import { updateLinkedBuild } from '@/app/(features)/linked-builds/actions/update-linked-build'
-import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(features)/linked-builds/constants/max-linked-build-description-length'
-import { MAX_LINKED_BUILD_ITEMS } from '@/app/(features)/linked-builds/constants/max-linked-build-items'
-import { MAX_LINKED_BUILD_LABEL_LENGTH } from '@/app/(features)/linked-builds/constants/max-linked-build-label-length'
-import { DBBuild } from '@/app/(types)/builds'
-import type { LinkedBuildState } from '@/app/(types)/linked-builds'
-import { usePagination } from '@/app/(utils)/pagination/use-pagination'
-import { LinkedBuildItem } from '@/app/builder/linked/create/[buildId]/type'
+import { BuildList } from '@/app/(components)/build-list';
+import { OrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter';
+import { useOrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter';
+import { TimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter';
+import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter';
+import { Tooltip } from '@/app/(components)/tooltip';
+import { getCreatedBuilds } from '@/app/(features)/builds/actions/get-created-builds';
+import { BuildCard } from '@/app/(features)/builds/components/cards/build-card';
+import { DBBuild } from '@/app/(features)/builds/types/db-build';
+import { useBuildListState } from '@/app/(features)/builds/utils/hooks/use-build-list-state';
+import { updateLinkedBuild } from '@/app/(features)/linked-builds/actions/update-linked-build';
+import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(features)/linked-builds/constants/max-linked-build-description-length';
+import { MAX_LINKED_BUILD_ITEMS } from '@/app/(features)/linked-builds/constants/max-linked-build-items';
+import { MAX_LINKED_BUILD_LABEL_LENGTH } from '@/app/(features)/linked-builds/constants/max-linked-build-label-length';
+import type { LinkedBuildState } from '@/app/(types)/linked-builds';
+import { usePagination } from '@/app/(utils)/pagination/use-pagination';
+import { LinkedBuildItem } from '@/app/builder/linked/create/[buildId]/type';
 
-const ITEMS_PER_PAGE = 16
+const ITEMS_PER_PAGE = 16;
 
 interface Props {
-  currentLinkedBuildState: LinkedBuildState
-  userId: string
+  currentLinkedBuildState: LinkedBuildState;
+  userId: string;
 }
 
 export default function PageClient({ currentLinkedBuildState, userId }: Props) {
-  const router = useRouter()
+  const router = useRouter();
 
-  const [name, setName] = useState(currentLinkedBuildState.name)
+  const [name, setName] = useState(currentLinkedBuildState.name);
   const [description, setDescription] = useState(
     currentLinkedBuildState.description,
-  )
+  );
 
   const [linkedBuildItems, setLinkedBuildItems] = useState<LinkedBuildItem[]>(
     currentLinkedBuildState.linkedBuildItems.map(
       (linkedBuildItem) => linkedBuildItem,
     ),
-  )
+  );
 
-  const { buildListState, setBuildListState } = useBuildListState()
-  const { builds, totalBuildCount, isLoading } = buildListState
+  const { buildListState, setBuildListState } = useBuildListState();
+  const { builds, totalBuildCount, isLoading } = buildListState;
 
-  const [saveInProgress, setSaveInProgress] = useState(false)
+  const [saveInProgress, setSaveInProgress] = useState(false);
 
-  const { orderBy, handleOrderByChange } = useOrderByFilter('newest')
-  const { timeRange, handleTimeRangeChange } = useTimeRangeFilter('all-time')
+  const { orderBy, handleOrderByChange } = useOrderByFilter('newest');
+  const { timeRange, handleTimeRangeChange } = useTimeRangeFilter('all-time');
 
   const {
     currentPage,
@@ -69,27 +69,27 @@ export default function PageClient({ currentLinkedBuildState, userId }: Props) {
   } = usePagination({
     totalItemCount: totalBuildCount,
     itemsPerPage: ITEMS_PER_PAGE,
-  })
+  });
 
   useEffect(() => {
     const getItemsAsync = async () => {
-      setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
+      setBuildListState((prevState) => ({ ...prevState, isLoading: true }));
       const response = await getCreatedBuilds({
         itemsPerPage: ITEMS_PER_PAGE,
         orderBy,
         pageNumber: currentPage,
         timeRange,
         userId,
-      })
+      });
       setBuildListState((prevState) => ({
         ...prevState,
         isLoading: false,
         builds: response.items,
         totalBuildCount: response.totalItemCount,
-      }))
-    }
-    getItemsAsync()
-  }, [currentPage, orderBy, setBuildListState, timeRange, userId])
+      }));
+    };
+    getItemsAsync();
+  }, [currentPage, orderBy, setBuildListState, timeRange, userId]);
 
   function handleAddLinkedBuildItem(buildToAdd: DBBuild) {
     // If the build is already linked, don't add it again
@@ -98,40 +98,40 @@ export default function PageClient({ currentLinkedBuildState, userId }: Props) {
         (linkedBuildItem) => linkedBuildItem.build.id === buildToAdd.id,
       )
     ) {
-      toast.error('Build is already linked.')
-      return
+      toast.error('Build is already linked.');
+      return;
     }
 
     // If the max number of linked builds has been reached, don't add another
     if (linkedBuildItems.length >= MAX_LINKED_BUILD_ITEMS) {
-      toast.error('Maximum linked builds reached.')
-      return
+      toast.error('Maximum linked builds reached.');
+      return;
     }
 
     const newLinkedBuildItems = [
       ...linkedBuildItems,
       { label: `Variation #${linkedBuildItems.length + 1}`, build: buildToAdd },
-    ]
-    toast.success('Build added.')
-    setLinkedBuildItems(newLinkedBuildItems)
+    ];
+    toast.success('Build added.');
+    setLinkedBuildItems(newLinkedBuildItems);
   }
 
   function handleRemoveLinkedBuildItem(buildToRemove: DBBuild) {
     // If only one build remaining, don't remove it
     if (linkedBuildItems.length === 1) {
-      toast.error('At least one build must be linked.')
-      return
+      toast.error('At least one build must be linked.');
+      return;
     }
 
     const newLinkedBuildItems = linkedBuildItems.filter(
       (linkedBuildItem) => linkedBuildItem.build.id !== buildToRemove.id,
-    )
-    toast.success('Build removed.')
-    setLinkedBuildItems(newLinkedBuildItems)
+    );
+    toast.success('Build removed.');
+    setLinkedBuildItems(newLinkedBuildItems);
   }
 
   async function handleSaveLinkedBuild() {
-    setSaveInProgress(true)
+    setSaveInProgress(true);
 
     const response = await updateLinkedBuild({
       name,
@@ -143,20 +143,20 @@ export default function PageClient({ currentLinkedBuildState, userId }: Props) {
         label: linkedBuildItem.label,
         buildId: linkedBuildItem.build.id,
       })),
-    })
+    });
 
     if (response.status === 'error') {
-      setSaveInProgress(false)
-      toast.error(response.message)
-      return
+      setSaveInProgress(false);
+      toast.error(response.message);
+      return;
     }
     if (!response.linkedBuild) {
-      setSaveInProgress(false)
-      toast.error('An error occurred while updating the linked build.')
-      return
+      setSaveInProgress(false);
+      toast.error('An error occurred while updating the linked build.');
+      return;
     }
-    toast.success(response.message)
-    router.push(`/builder/linked/${response.linkedBuild.id}`)
+    toast.success(response.message);
+    router.push(`/builder/linked/${response.linkedBuild.id}`);
   }
 
   return (
@@ -221,12 +221,12 @@ export default function PageClient({ currentLinkedBuildState, userId }: Props) {
                     const newLinkedBuildItems = linkedBuildItems.map(
                       (linkedBuildItem) => {
                         if (linkedBuildItem.build.id === linkedBuild.build.id) {
-                          return { ...linkedBuildItem, label: e.target.value }
+                          return { ...linkedBuildItem, label: e.target.value };
                         }
-                        return linkedBuildItem
+                        return linkedBuildItem;
                       },
-                    )
-                    setLinkedBuildItems(newLinkedBuildItems)
+                    );
+                    setLinkedBuildItems(newLinkedBuildItems);
                   }}
                 />
               </BaseField>
@@ -262,11 +262,11 @@ export default function PageClient({ currentLinkedBuildState, userId }: Props) {
                 isLoading={isLoading}
                 value={timeRange}
                 onChange={(value) => {
-                  handleTimeRangeChange(value)
+                  handleTimeRangeChange(value);
                   setBuildListState((prevState) => ({
                     ...prevState,
                     isLoading: true,
-                  }))
+                  }));
                 }}
               />
             </div>
@@ -275,11 +275,11 @@ export default function PageClient({ currentLinkedBuildState, userId }: Props) {
                 isLoading={isLoading}
                 value={orderBy}
                 onChange={(value) => {
-                  handleOrderByChange(value)
+                  handleOrderByChange(value);
                   setBuildListState((prevState) => ({
                     ...prevState,
                     isLoading: true,
-                  }))
+                  }));
                 }}
               />
             </div>
@@ -315,5 +315,5 @@ export default function PageClient({ currentLinkedBuildState, userId }: Props) {
         </ul>
       </BuildList>
     </div>
-  )
+  );
 }

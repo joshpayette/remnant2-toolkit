@@ -1,20 +1,20 @@
-'use client'
+'use client';
 
-import { BaseLink } from '@repo/ui/base/link'
-import { EyeIcon } from '@repo/ui/icons/eye'
-import { useState } from 'react'
+import { BaseLink } from '@repo/ui/base/link';
+import { EyeIcon } from '@repo/ui/icons/eye';
+import { useState } from 'react';
 
-import { Tooltip } from '@/app/(components)/tooltip'
-import { BuildCard } from '@/app/(features)/builds/components/cards/build-card'
-import { QualityBuildDialog } from '@/app/(features)/builds/components/dialogs/quality-build-dialog'
-import type { DBBuild } from '@/app/(types)/builds'
+import { Tooltip } from '@/app/(components)/tooltip';
+import { BuildCard } from '@/app/(features)/builds/components/cards/build-card';
+import { QualityBuildDialog } from '@/app/(features)/builds/components/dialogs/quality-build-dialog';
+import { DBBuild } from '@/app/(features)/builds/types/db-build';
 
 interface Props {
-  builds: DBBuild[]
+  builds: DBBuild[];
 }
 
 export function QualityBuildsFeed({ builds }: Props) {
-  const [qualityBuildDialogOpen, setQualityBuildDialogOpen] = useState(false)
+  const [qualityBuildDialogOpen, setQualityBuildDialogOpen] = useState(false);
 
   return (
     <>
@@ -66,5 +66,5 @@ export function QualityBuildsFeed({ builds }: Props) {
         </BaseLink>
       </div>
     </>
-  )
+  );
 }

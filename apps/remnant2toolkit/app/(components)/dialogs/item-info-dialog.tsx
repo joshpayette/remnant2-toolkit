@@ -1,74 +1,74 @@
-import { BaseButton } from '@repo/ui/base/button'
+import { BaseButton } from '@repo/ui/base/button';
 import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@repo/ui/base/dialog'
-import { BaseLink } from '@repo/ui/base/link'
-import { BaseTextLink } from '@repo/ui/base/text'
-import { cn } from '@repo/ui/classnames'
-import { getImageUrl } from '@repo/ui/utils/get-image-url'
-import { capitalize } from '@repo/utils/capitalize'
-import copy from 'clipboard-copy'
-import Image from 'next/image'
-import { toast } from 'react-toastify'
+} from '@repo/ui/base/dialog';
+import { BaseLink } from '@repo/ui/base/link';
+import { BaseTextLink } from '@repo/ui/base/text';
+import { cn } from '@repo/ui/classnames';
+import { getImageUrl } from '@repo/ui/utils/get-image-url';
+import { capitalize } from '@repo/utils/capitalize';
+import copy from 'clipboard-copy';
+import Image from 'next/image';
+import { toast } from 'react-toastify';
 
-import { ArmorInfo } from '@/app/(components)/armor-info'
-import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
-import { WeaponInfo } from '@/app/(components)/weapon-info'
-import { Item } from '@/app/(data)/items/types'
-import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
-import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
-import { ModItem } from '@/app/(data)/items/types/ModItem'
-import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
-import { PerkItem } from '@/app/(data)/items/types/PerkItem'
-import { SkillItem } from '@/app/(data)/items/types/SkillItem'
-import { TraitItem } from '@/app/(data)/items/types/TraitItem'
-import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-import { RELEASE_TO_NAME } from '@/app/(data)/releases/constants'
-import { BIOMES, ItemLocation } from '@/app/(types)/locations'
-import { itemShareEndpoint } from '@/app/(utils)/get-item-endpoint'
+import { ArmorInfo } from '@/app/(components)/armor-info';
+import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens';
+import { WeaponInfo } from '@/app/(components)/weapon-info';
+import { Item } from '@/app/(data)/items/types';
+import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem';
+import { ArmorItem } from '@/app/(data)/items/types/ArmorItem';
+import { ModItem } from '@/app/(data)/items/types/ModItem';
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem';
+import { PerkItem } from '@/app/(data)/items/types/PerkItem';
+import { SkillItem } from '@/app/(data)/items/types/SkillItem';
+import { TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem';
+import { RELEASE_TO_NAME } from '@/app/(data)/releases/constants';
+import { BIOMES, ItemLocation } from '@/app/(features)/items/types/locations';
+import { itemShareEndpoint } from '@/app/(utils)/get-item-endpoint';
 
 function generateDungeonLabel(location: ItemLocation) {
-  let label = `${location.world} - `
+  let label = `${location.world} - `;
 
   if (location.dungeon) {
     if (Array.isArray(location.dungeon)) {
-      label += `${location.dungeon.join(', ')}`
+      label += `${location.dungeon.join(', ')}`;
     } else {
-      label += `${location.dungeon}`
+      label += `${location.dungeon}`;
     }
   } else if (location.biome) {
-    const biome = BIOMES.find((b) => b.name === location.biome)
-    label += `${biome?.dungeons.join(', ')}`
+    const biome = BIOMES.find((b) => b.name === location.biome);
+    label += `${biome?.dungeons.join(', ')}`;
   }
 
-  return label
+  return label;
 }
 
 interface Props {
-  open: boolean
-  item: Item | null
-  onClose: () => void
+  open: boolean;
+  item: Item | null;
+  onClose: () => void;
 }
 
 export function ItemInfoDialog({ open, item, onClose }: Props) {
-  if (!item) return null
+  if (!item) return null;
 
   const imageSize = {
     width: 150,
     height: item.category === 'trait' ? 367 : 150,
-  }
+  };
 
   let subtitle =
     item.category === 'relicfragment'
       ? 'Relic Fragment'
-      : capitalize(item.category)
+      : capitalize(item.category);
   if (PerkItem.isPerkItem(item)) {
     subtitle = `${item.linkedItems?.archetype?.name} ${capitalize(
       item.type,
-    )} Perk`
+    )} Perk`;
   }
 
   return (
@@ -115,8 +115,8 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
             <BaseButton
               aria-label="Copy link to item"
               onClick={() => {
-                copy(itemShareEndpoint(item.name))
-                toast.success('Copied link to clipboard')
+                copy(itemShareEndpoint(item.name));
+                toast.success('Copied link to clipboard');
               }}
             >
               Share
@@ -305,5 +305,5 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
         )}
       </BaseDialogBody>
     </BaseDialog>
-  )
+  );
 }

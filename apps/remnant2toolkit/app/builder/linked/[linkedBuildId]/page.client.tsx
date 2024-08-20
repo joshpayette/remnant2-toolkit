@@ -1,72 +1,72 @@
-'use client'
+'use client';
 
-import { BaseDivider } from '@repo/ui/base/divider'
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
+import { BaseDivider } from '@repo/ui/base/divider';
+import { BaseField, BaseLabel } from '@repo/ui/base/fieldset';
 import {
   BaseListbox,
   BaseListboxLabel,
   BaseListboxOption,
-} from '@repo/ui/base/listbox'
-import { cn } from '@repo/ui/classnames'
-import { urlNoCache } from '@repo/utils/url-no-cache'
-import copy from 'clipboard-copy'
-import { useRouter } from 'next/navigation'
-import { useSession } from 'next-auth/react'
-import { useRef, useState } from 'react'
-import { toast } from 'react-toastify'
+} from '@repo/ui/base/listbox';
+import { cn } from '@repo/ui/classnames';
+import { urlNoCache } from '@repo/utils/url-no-cache';
+import copy from 'clipboard-copy';
+import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
+import { useRef, useState } from 'react';
+import { toast } from 'react-toastify';
 
-import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
-import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
-import { BuilderContainer } from '@/app/(features)/builder/components/builder-container'
-import { DeleteBuildButton } from '@/app/(features)/builder/components/buttons/delete-build-button'
-import { DetailedViewButton } from '@/app/(features)/builder/components/buttons/detailed-view-button'
-import { DuplicateBuildButton } from '@/app/(features)/builder/components/buttons/duplicate-build-button'
-import { EditBuildButton } from '@/app/(features)/builder/components/buttons/edit-build-button'
-import { EditLinkedBuildButton } from '@/app/(features)/builder/components/buttons/edit-linked-build-button'
-import { FavoriteBuildButton } from '@/app/(features)/builder/components/buttons/favorite-build-button'
-import { GenerateBuildImageButton } from '@/app/(features)/builder/components/buttons/generate-build-image'
-import { LoadoutManagementButton } from '@/app/(features)/builder/components/buttons/loadout-management-button'
-import { ModeratorToolsButton } from '@/app/(features)/builder/components/buttons/moderator-tools-button'
-import { ShareBuildButton } from '@/app/(features)/builder/components/buttons/share-build-button'
-import { DetailedBuildDialog } from '@/app/(features)/builder/components/dialogs/detailed-build-dialog'
-import { FavoriteBuildDialog } from '@/app/(features)/builder/components/dialogs/favorite-build-dialog'
-import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dialogs/image-download-info-dialog'
-import { VideoThumbnail } from '@/app/(features)/builder/components/video-thumbnail'
-import { buildStateToCsvData } from '@/app/(features)/builds/utils/build-state-to-csv-data'
-import { cleanUpBuildState } from '@/app/(features)/builds/utils/clean-up-build-state'
-import { dbBuildToBuildState } from '@/app/(features)/builds/utils/db-build-to-build-state'
-import { ModeratorLinkedBuildToolsDialog } from '@/app/(features)/linked-builds/admin/components/dialogs/moderator-linkedbuild-tools-dialog'
-import { LoadoutDialog } from '@/app/(features)/loadouts/components/dialogs/loadout-dialog'
-import { useBuildActions } from '@/app/(hooks)/use-build-actions'
+import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button';
+import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens';
+import { BuilderContainer } from '@/app/(features)/builder/components/builder-container';
+import { DeleteBuildButton } from '@/app/(features)/builder/components/buttons/delete-build-button';
+import { DetailedViewButton } from '@/app/(features)/builder/components/buttons/detailed-view-button';
+import { DuplicateBuildButton } from '@/app/(features)/builder/components/buttons/duplicate-build-button';
+import { EditBuildButton } from '@/app/(features)/builder/components/buttons/edit-build-button';
+import { EditLinkedBuildButton } from '@/app/(features)/builder/components/buttons/edit-linked-build-button';
+import { FavoriteBuildButton } from '@/app/(features)/builder/components/buttons/favorite-build-button';
+import { GenerateBuildImageButton } from '@/app/(features)/builder/components/buttons/generate-build-image';
+import { LoadoutManagementButton } from '@/app/(features)/builder/components/buttons/loadout-management-button';
+import { ModeratorToolsButton } from '@/app/(features)/builder/components/buttons/moderator-tools-button';
+import { ShareBuildButton } from '@/app/(features)/builder/components/buttons/share-build-button';
+import { DetailedBuildDialog } from '@/app/(features)/builder/components/dialogs/detailed-build-dialog';
+import { FavoriteBuildDialog } from '@/app/(features)/builder/components/dialogs/favorite-build-dialog';
+import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dialogs/image-download-info-dialog';
+import { VideoThumbnail } from '@/app/(features)/builder/components/video-thumbnail';
+import { buildStateToCsvData } from '@/app/(features)/builds/utils/build-state-to-csv-data';
+import { cleanUpBuildState } from '@/app/(features)/builds/utils/clean-up-build-state';
+import { dbBuildToBuildState } from '@/app/(features)/builds/utils/db-build-to-build-state';
+import { ModeratorLinkedBuildToolsDialog } from '@/app/(features)/linked-builds/admin/components/dialogs/moderator-linkedbuild-tools-dialog';
+import { LoadoutDialog } from '@/app/(features)/loadouts/components/dialogs/loadout-dialog';
+import { useBuildActions } from '@/app/(hooks)/use-build-actions';
 import type {
   LinkedBuildItem,
   LinkedBuildState,
-} from '@/app/(types)/linked-builds'
+} from '@/app/(types)/linked-builds';
 
 interface Props {
-  linkedBuildState: LinkedBuildState
+  linkedBuildState: LinkedBuildState;
 }
 
 export function PageClient({ linkedBuildState }: Props) {
-  const { linkedBuildItems } = linkedBuildState
+  const { linkedBuildItems } = linkedBuildState;
   const [currentLinkedBuild, setCurrentLinkedBuild] = useState<LinkedBuildItem>(
     linkedBuildItems[0] as LinkedBuildItem,
-  )
+  );
 
   const buildState = cleanUpBuildState(
     dbBuildToBuildState(currentLinkedBuild.build),
-  )
+  );
 
-  const [showModeratorTooling, setShowModeratorTooling] = useState(false)
+  const [showModeratorTooling, setShowModeratorTooling] = useState(false);
 
-  const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
-  const [loadoutDialogOpen, setLoadoutDialogOpen] = useState(false)
+  const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);
+  const [loadoutDialogOpen, setLoadoutDialogOpen] = useState(false);
 
-  const router = useRouter()
-  const { data: session } = useSession()
+  const router = useRouter();
+  const { data: session } = useSession();
 
   const [signInRequiredDialogOpen, setSignInRequiredDialogOpen] =
-    useState(false)
+    useState(false);
 
   const {
     isScreenshotMode,
@@ -77,18 +77,18 @@ export function PageClient({ linkedBuildState }: Props) {
     handleDuplicateBuild,
     handleFavoriteBuild,
     handleImageExport,
-  } = useBuildActions()
+  } = useBuildActions();
 
-  const buildContainerRef = useRef<HTMLDivElement>(null)
+  const buildContainerRef = useRef<HTMLDivElement>(null);
 
   // Need to convert the build data to a format that the BuildPage component can use
   if (!session?.user) {
-    buildState.upvoted = false
-    buildState.reported = false
+    buildState.upvoted = false;
+    buildState.reported = false;
   }
 
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
-  const csvBuildData = buildStateToCsvData(buildState)
+  const csvBuildData = buildStateToCsvData(buildState);
 
   return (
     <div className="flex w-full flex-col items-center">
@@ -148,9 +148,9 @@ export function PageClient({ linkedBuildState }: Props) {
               onChange={(value) => {
                 const linkedBuild = linkedBuildItems.find(
                   (linkedBuildItem) => linkedBuildItem.label === value,
-                )
+                );
                 if (linkedBuild) {
-                  setCurrentLinkedBuild(linkedBuild)
+                  setCurrentLinkedBuild(linkedBuild);
                 }
               }}
             >
@@ -253,9 +253,9 @@ export function PageClient({ linkedBuildState }: Props) {
                 onClick={() => {
                   const url = urlNoCache(
                     `https://remnant2toolkit.com/builder/${currentLinkedBuild.build.id}`,
-                  )
-                  copy(url)
-                  toast.success('Copied Build URL to clipboard.')
+                  );
+                  copy(url);
+                  toast.success('Copied Build URL to clipboard.');
                 }}
               />
 
@@ -272,10 +272,10 @@ export function PageClient({ linkedBuildState }: Props) {
                   onClick={() => {
                     // if user is not signed in, let them know signin is required
                     if (!session?.user?.id) {
-                      setSignInRequiredDialogOpen(true)
-                      return
+                      setSignInRequiredDialogOpen(true);
+                      return;
                     }
-                    handleFavoriteBuild(buildState, session?.user?.id)
+                    handleFavoriteBuild(buildState, session?.user?.id);
                     setCurrentLinkedBuild({
                       ...currentLinkedBuild,
                       build: {
@@ -285,7 +285,7 @@ export function PageClient({ linkedBuildState }: Props) {
                           ? currentLinkedBuild.build.totalUpvotes - 1
                           : currentLinkedBuild.build.totalUpvotes + 1,
                       },
-                    })
+                    });
                   }}
                 />
               )}
@@ -314,5 +314,5 @@ export function PageClient({ linkedBuildState }: Props) {
         />
       </div>
     </div>
-  )
+  );
 }

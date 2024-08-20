@@ -1,14 +1,14 @@
-import { traitItems } from '@/app/(data)/items/trait-items'
-import type { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
-import { TraitItem } from '@/app/(data)/items/types/TraitItem'
-import { weaponItems } from '@/app/(data)/items/weapon-items'
-import { linkArchetypesToPerks } from '@/app/(features)/builds/utils/link-archetypes-to-perks'
-import { BuildState } from '@/app/(types)/builds'
+import { traitItems } from '@/app/(data)/items/trait-items';
+import type { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem';
+import { TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { weaponItems } from '@/app/(data)/items/weapon-items';
+import { BuildState } from '@/app/(features)/builds/types/build-state';
+import { linkArchetypesToPerks } from '@/app/(features)/builds/utils/link-archetypes-to-perks';
 
-import { getConcoctionSlotCount } from './get-concoction-slot-count'
-import { linkArchetypesToTraits } from './link-archetypes-to-traits'
-import { linkSkillsToArchetypes } from './link-skills-to-archetypes'
-import { linkWeaponsToMods } from './link-weapons-to-mods'
+import { getConcoctionSlotCount } from './get-concoction-slot-count';
+import { linkArchetypesToTraits } from './link-archetypes-to-traits';
+import { linkSkillsToArchetypes } from './link-skills-to-archetypes';
+import { linkWeaponsToMods } from './link-weapons-to-mods';
 
 /**
  * When a build is updated or loaded, this function is called to ensure
@@ -24,51 +24,51 @@ export function cleanUpBuildState(buildState: BuildState): BuildState {
     if (mod?.linkedItems?.weapon) {
       const linkedWeapon = weaponItems.find(
         (item) => item.name === mod.linkedItems?.weapon?.name,
-      )
+      );
 
       if (!linkedWeapon) {
-        return null
+        return null;
       }
 
       if (buildState.items.weapon[index]?.id !== linkedWeapon.id) {
-        return null
+        return null;
       }
     }
-    return mod
-  })
+    return mod;
+  });
 
   // Get the new number of allowed concoctions
   // If there are more than the allowed amount, remove the last ones
-  const totalConcoctionsAllowed = getConcoctionSlotCount(buildState) + 1
+  const totalConcoctionsAllowed = getConcoctionSlotCount(buildState) + 1;
   if (totalConcoctionsAllowed < buildState.items.concoction.length) {
     buildState.items.concoction = buildState.items.concoction.slice(
       0,
       totalConcoctionsAllowed,
-    )
+    );
   }
 
   // Update the trait points to match the minimum for the selected primary archetype
-  const primaryArchetype = buildState.items.archetype[0]
+  const primaryArchetype = buildState.items.archetype[0];
   if (primaryArchetype) {
-    setArchetypePrimeTraitPoints(primaryArchetype, buildState, 'primary')
+    setArchetypePrimeTraitPoints(primaryArchetype, buildState, 'primary');
   }
 
   // Update the trait points to match the minimum for the selected secondary archetype
-  const secondaryArchetype = buildState.items.archetype[1]
+  const secondaryArchetype = buildState.items.archetype[1];
   if (secondaryArchetype) {
-    setArchetypePrimeTraitPoints(secondaryArchetype, buildState, 'secondary')
+    setArchetypePrimeTraitPoints(secondaryArchetype, buildState, 'secondary');
   }
 
   // link weapons to mods
-  buildState = linkWeaponsToMods(buildState)
+  buildState = linkWeaponsToMods(buildState);
   // link skills to archetypes
-  buildState = linkSkillsToArchetypes(buildState)
+  buildState = linkSkillsToArchetypes(buildState);
   // link perks to archetypes
-  buildState = linkArchetypesToPerks(buildState)
+  buildState = linkArchetypesToPerks(buildState);
   // link archetypes to traits
-  buildState = linkArchetypesToTraits(buildState)
+  buildState = linkArchetypesToTraits(buildState);
 
-  return buildState
+  return buildState;
 }
 
 /**
@@ -80,37 +80,37 @@ function setArchetypePrimeTraitPoints(
   buildState: BuildState,
   type: 'primary' | 'secondary',
 ) {
-  const archetypeTraits = archetype.linkedItems?.traits
-  if (!archetypeTraits) return buildState
+  const archetypeTraits = archetype.linkedItems?.traits;
+  if (!archetypeTraits) return buildState;
 
   let archetypeTraitItems = traitItems.filter(
     (item) =>
       archetypeTraits.some((trait) => trait.name === item.name) &&
       item.category === 'trait',
-  ) as TraitItem[]
+  ) as TraitItem[];
 
   // if secondary, we only need the 10 point trait
   if (type === 'secondary') {
     archetypeTraitItems = archetypeTraitItems.filter(
       (trait) => trait.type === 'archetype',
-    )
+    );
   }
 
   for (const archetypeTrait of archetypeTraits) {
     const traitItem = archetypeTraitItems.find(
       (item) => item.name === archetypeTrait.name,
-    )
-    if (!traitItem) continue
+    );
+    if (!traitItem) continue;
 
     const currentTraitAmount = buildState.items.trait.find(
       (trait) => trait?.id === traitItem.id,
-    )?.amount
+    )?.amount;
 
     if (!currentTraitAmount) {
       buildState.items.trait.push({
         ...traitItem,
         amount: archetypeTrait.amount,
-      })
+      });
     }
 
     if (currentTraitAmount && currentTraitAmount < archetypeTrait.amount) {
@@ -119,10 +119,10 @@ function setArchetypePrimeTraitPoints(
           return {
             ...trait,
             amount: archetypeTrait.amount,
-          }
+          };
         }
-        return trait
-      })
+        return trait;
+      });
     }
   }
 }

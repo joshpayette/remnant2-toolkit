@@ -1,12 +1,12 @@
-import { allItems } from '@/app/(data)/items/all-items'
-import { Item } from '@/app/(data)/items/types'
-import { ItemCategory } from '@/app/(types)/builds'
+import { allItems } from '@/app/(data)/items/all-items';
+import { Item } from '@/app/(data)/items/types';
+import { ItemCategory } from '@/app/(features)/builds/types/item-category';
 
 /** We don't track these categories at all */
 export const SKIPPED_ITEM_TRACKER_CATEGORIES: Array<ItemCategory> = [
   'skill',
   'perk',
-]
+];
 
 /** All items that are trackable. */
 export const ALL_TRACKABLE_ITEMS = allItems
@@ -16,12 +16,12 @@ export const ALL_TRACKABLE_ITEMS = allItems
   )
   // Remove mods that have linked guns
   .filter((item) => {
-    if (item.category !== 'mod') return true
-    return item.linkedItems?.weapon === undefined
+    if (item.category !== 'mod') return true;
+    return item.linkedItems?.weapon === undefined;
   })
   .map((item) => ({
     ...item,
     discovered: false,
-  })) satisfies Item[]
+  })) satisfies Item[];
 
-export const TOTAL_TRACKABLE_ITEM_COUNT = ALL_TRACKABLE_ITEMS.length
+export const TOTAL_TRACKABLE_ITEM_COUNT = ALL_TRACKABLE_ITEMS.length;

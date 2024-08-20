@@ -1,30 +1,31 @@
-'use client'
+'use client';
 
-import { BaseButton } from '@repo/ui/base/button'
-import { useRouter } from 'next/navigation'
-import { signIn, useSession } from 'next-auth/react'
-import { useState } from 'react'
-import { toast } from 'react-toastify'
+import { BaseButton } from '@repo/ui/base/button';
+import { useRouter } from 'next/navigation';
+import { signIn, useSession } from 'next-auth/react';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 
-import { LoadingButton } from '@/app/(features)/builder/components/buttons/loading-button'
-import { createBuild } from '@/app/(features)/builds/actions/create-build'
-import { updateBuild } from '@/app/(features)/builds/actions/update-build'
-import { BuildActionResponse, BuildState } from '@/app/(types)/builds'
-import { isErrorResponse } from '@/app/(utils)/is-error-response'
+import { LoadingButton } from '@/app/(features)/builder/components/buttons/loading-button';
+import { createBuild } from '@/app/(features)/builds/actions/create-build';
+import { updateBuild } from '@/app/(features)/builds/actions/update-build';
+import { BuildActionResponse } from '@/app/(features)/builds/types/build-action-response';
+import { BuildState } from '@/app/(features)/builds/types/build-state';
+import { isErrorResponse } from '@/app/(utils)/is-error-response';
 
 interface Props {
-  buildState: BuildState
-  editMode: boolean
+  buildState: BuildState;
+  editMode: boolean;
 }
 
 export function SaveBuildButton({ buildState, editMode }: Props) {
-  const router = useRouter()
+  const router = useRouter();
 
-  const [saveInProgress, setSaveInProgress] = useState(false)
+  const [saveInProgress, setSaveInProgress] = useState(false);
 
-  const { status } = useSession()
+  const { status } = useSession();
 
-  if (status === 'loading') return <LoadingButton />
+  if (status === 'loading') return <LoadingButton />;
   if (status === 'unauthenticated') {
     return (
       <BaseButton
@@ -36,18 +37,18 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
       >
         Sign In to Save Build
       </BaseButton>
-    )
+    );
   }
 
   function handleResponse(response: BuildActionResponse) {
     if (isErrorResponse(response)) {
-      console.error(response.errors)
-      toast.error(`Error saving build. ${response.errors?.join(' ')}`)
-      setSaveInProgress(false)
+      console.error(response.errors);
+      toast.error(`Error saving build. ${response.errors?.join(' ')}`);
+      setSaveInProgress(false);
     } else {
-      toast.success(response.message)
-      setSaveInProgress(false)
-      router.push(`/builder/${response.buildId}`)
+      toast.success(response.message);
+      setSaveInProgress(false);
+      router.push(`/builder/${response.buildId}`);
     }
   }
 
@@ -61,14 +62,14 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
         aria-label="Save Edits"
         className="sm:w-full"
         onClick={async () => {
-          setSaveInProgress(true)
-          const response = await updateBuild(JSON.stringify(buildState))
-          handleResponse(response)
+          setSaveInProgress(true);
+          const response = await updateBuild(JSON.stringify(buildState));
+          handleResponse(response);
         }}
       >
         Save Edits
       </BaseButton>
-    )
+    );
   }
 
   return (
@@ -81,14 +82,14 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
           aria-label="Save Build"
           className="sm:w-full"
           onClick={async () => {
-            setSaveInProgress(true)
-            const response = await createBuild(JSON.stringify(buildState))
-            handleResponse(response)
+            setSaveInProgress(true);
+            const response = await createBuild(JSON.stringify(buildState));
+            handleResponse(response);
           }}
         >
           Save Build
         </BaseButton>
       )}
     </>
-  )
+  );
 }
