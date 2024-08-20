@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-08-19
 
+### Added
+
+- Created new `Gimmick Builds` section. This will be a curated list of builds that strongly adhere to a theme or gimmick, regardless of whether they are capable of clearing apocalypse difficulty or not.
+
 ### Fixed
 
 - Fixed bug where extending the height of the description field on the builder would cause the token and template links to overlap it.
