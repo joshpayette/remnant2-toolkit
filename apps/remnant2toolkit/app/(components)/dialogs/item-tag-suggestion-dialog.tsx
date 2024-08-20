@@ -1,28 +1,28 @@
-import { BaseButton } from '@repo/ui/base/button'
+import { BaseButton } from '@repo/ui/base/button';
 import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@repo/ui/base/dialog'
-import { useState } from 'react'
+} from '@repo/ui/base/dialog';
+import { useState } from 'react';
 
-import { ItemButton } from '@/app/(components)/buttons/item-button'
-import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
-import { ItemTagSelect } from '@/app/(components)/filters/builds/item-tag-select'
-import { allItems } from '@/app/(data)/items/all-items'
-import { archetypeItems } from '@/app/(data)/items/archetype-items'
-import { Item } from '@/app/(data)/items/types'
-import { ConcoctionItem } from '@/app/(data)/items/types/ConcoctionItem'
-import { ConsumableItem } from '@/app/(data)/items/types/ConsumableItem'
-import { ModItem } from '@/app/(data)/items/types/ModItem'
-import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
-import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-import { cleanUpBuildState } from '@/app/(features)/builds/utils/clean-up-build-state'
-import { getConcoctionSlotCount } from '@/app/(features)/builds/utils/get-concoction-slot-count'
-import { BuildState } from '@/app/(types)/builds'
-import { ITEM_TOKENS, ItemToken } from '@/app/(types)/tokens'
-import { itemMatchesSearchText } from '@/app/(utils)/items/item-matches-search-text'
+import { ItemButton } from '@/app/(components)/buttons/item-button';
+import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
+import { ItemTagSelect } from '@/app/(components)/filters/builds/item-tag-select';
+import { allItems } from '@/app/(data)/items/all-items';
+import { archetypeItems } from '@/app/(data)/items/archetype-items';
+import { Item } from '@/app/(data)/items/types';
+import { ConcoctionItem } from '@/app/(data)/items/types/ConcoctionItem';
+import { ConsumableItem } from '@/app/(data)/items/types/ConsumableItem';
+import { ModItem } from '@/app/(data)/items/types/ModItem';
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem';
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem';
+import { BuildState } from '@/app/(features)/builds/types/build-state';
+import { cleanUpBuildState } from '@/app/(features)/builds/utils/clean-up-build-state';
+import { getConcoctionSlotCount } from '@/app/(features)/builds/utils/get-concoction-slot-count';
+import { ITEM_TOKENS, ItemToken } from '@/app/(types)/tokens';
+import { itemMatchesSearchText } from '@/app/(utils)/items/item-matches-search-text';
 
 /**
  * Combines the tags found in item.descriptions, as well as the item.tags
@@ -34,11 +34,11 @@ function buildTagOptions() {
       label: tag,
       value: tag,
     })).sort((a, b) => {
-      if (a.label < b.label) return -1
-      if (a.label > b.label) return 1
-      return 0
-    })
-  return itemTagsOptions
+      if (a.label < b.label) return -1;
+      if (a.label > b.label) return 1;
+      return 0;
+    });
+  return itemTagsOptions;
 }
 
 /**
@@ -48,99 +48,99 @@ function getItemSuggestions(
   buildState: BuildState,
   tag: ItemTagOption,
 ): Item[] {
-  let suggestions: Item[] = []
+  let suggestions: Item[] = [];
 
   for (const item of allItems) {
     if (itemMatchesSearchText({ item, searchText: tag.value })) {
-      suggestions.push(item)
+      suggestions.push(item);
     }
   }
 
   // Filter out mods that are linked to weapons
   suggestions = suggestions.filter((suggestion) => {
     if (ModItem.isModItem(suggestion)) {
-      if (suggestion.linkedItems?.weapon) return false
+      if (suggestion.linkedItems?.weapon) return false;
     }
-    return true
-  })
+    return true;
+  });
 
   // Filter out archetypes, as skills are the ones that should be suggested
   suggestions = suggestions.filter((suggestion) => {
-    if (suggestion.category === 'archetype') return false
-    return true
-  })
+    if (suggestion.category === 'archetype') return false;
+    return true;
+  });
 
   // Remove any suggestions already in the build
   suggestions = suggestions.filter((suggestion) => {
-    if (suggestion.id === buildState.items.helm?.id) return false
-    if (suggestion.id === buildState.items.torso?.id) return false
-    if (suggestion.id === buildState.items.legs?.id) return false
-    if (suggestion.id === buildState.items.gloves?.id) return false
-    if (suggestion.id === buildState.items.amulet?.id) return false
-    if (suggestion.id === buildState.items.relic?.id) return false
+    if (suggestion.id === buildState.items.helm?.id) return false;
+    if (suggestion.id === buildState.items.torso?.id) return false;
+    if (suggestion.id === buildState.items.legs?.id) return false;
+    if (suggestion.id === buildState.items.gloves?.id) return false;
+    if (suggestion.id === buildState.items.amulet?.id) return false;
+    if (suggestion.id === buildState.items.relic?.id) return false;
 
     if (buildState.items.ring.some((ring) => ring?.id === suggestion.id)) {
-      return false
+      return false;
     }
     if (
       buildState.items.archetype.some(
         (archetype) => archetype?.id === suggestion.id,
       )
     ) {
-      return false
+      return false;
     }
     if (
       buildState.items.weapon.some((weapon) => weapon?.id === suggestion.id)
     ) {
-      return false
+      return false;
     }
     if (buildState.items.mod.some((mod) => mod?.id === suggestion.id)) {
-      return false
+      return false;
     }
     if (
       buildState.items.mutator.some((mutator) => mutator?.id === suggestion.id)
     ) {
-      return false
+      return false;
     }
     if (
       buildState.items.relicfragment.some(
         (relicfragment) => relicfragment?.id === suggestion.id,
       )
     ) {
-      return false
+      return false;
     }
     if (
       buildState.items.concoction.some(
         (concoction) => concoction?.id === suggestion.id,
       )
     ) {
-      return false
+      return false;
     }
     if (
       buildState.items.consumable.some(
         (consumable) => consumable?.id === suggestion.id,
       )
     ) {
-      return false
+      return false;
     }
 
     // If we got this far, the item is not in the build state
-    return true
-  })
+    return true;
+  });
 
-  return suggestions
+  return suggestions;
 }
 
-export type ItemTokenWithDefault = ItemToken | 'Choose'
+export type ItemTokenWithDefault = ItemToken | 'Choose';
 const DEFAULT_TAG = { label: 'Choose', value: 'Choose' } satisfies {
-  label: string
-  value: ItemTokenWithDefault
-}
+  label: string;
+  value: ItemTokenWithDefault;
+};
 
-const allTagOptions = buildTagOptions()
-allTagOptions.unshift(DEFAULT_TAG)
+const allTagOptions = buildTagOptions();
+allTagOptions.unshift(DEFAULT_TAG);
 
-type ItemTagOption = (typeof allTagOptions)[number]
+type ItemTagOption = (typeof allTagOptions)[number];
 
 type SelectedItem = Item & {
   slot?:
@@ -165,14 +165,14 @@ type SelectedItem = Item & {
     | 'ring1'
     | 'ring2'
     | 'ring3'
-    | 'ring4'
-}
+    | 'ring4';
+};
 
 interface Props {
-  buildState: BuildState
-  open: boolean
-  onClose: () => void
-  onApplySuggestions: (newBuildState: BuildState) => void
+  buildState: BuildState;
+  open: boolean;
+  onClose: () => void;
+  onApplySuggestions: (newBuildState: BuildState) => void;
 }
 
 export function ItemTagSuggestionDialog({
@@ -182,28 +182,28 @@ export function ItemTagSuggestionDialog({
   onApplySuggestions,
 }: Props) {
   // Tracks the item the user wants info on
-  const [itemInfo, setItemInfo] = useState<Item | null>(null)
+  const [itemInfo, setItemInfo] = useState<Item | null>(null);
   // If the item info is defined, the modal should be open
-  const isItemInfoOpen = Boolean(itemInfo)
+  const isItemInfoOpen = Boolean(itemInfo);
 
-  const [selectedTag, setSelectedTag] = useState<ItemTagOption>(DEFAULT_TAG)
-  const [itemSuggestions, setItemSuggestions] = useState<Item[]>([])
-  const [selectedItems, setSelectedItems] = useState<SelectedItem[]>([])
+  const [selectedTag, setSelectedTag] = useState<ItemTagOption>(DEFAULT_TAG);
+  const [itemSuggestions, setItemSuggestions] = useState<Item[]>([]);
+  const [selectedItems, setSelectedItems] = useState<SelectedItem[]>([]);
 
   function handleItemTagChange(tag: ItemTagOption) {
     if (tag.value === 'Choose') {
-      setItemSuggestions([])
-      return
+      setItemSuggestions([]);
+      return;
     }
-    setSelectedTag(tag)
+    setSelectedTag(tag);
 
-    const suggestions = getItemSuggestions(buildState, tag)
-    setItemSuggestions(suggestions)
+    const suggestions = getItemSuggestions(buildState, tag);
+    setItemSuggestions(suggestions);
   }
 
   function clearTagSuggestions() {
-    setItemSuggestions([])
-    setSelectedTag(DEFAULT_TAG)
+    setItemSuggestions([]);
+    setSelectedTag(DEFAULT_TAG);
   }
 
   /**
@@ -214,7 +214,7 @@ export function ItemTagSuggestionDialog({
   function handleSelectItem(item: SelectedItem) {
     const itemAlreadySelected = selectedItems.some(
       (selectedItem) => selectedItem.id === item.id,
-    )
+    );
 
     if (itemAlreadySelected) {
       // ------------------------------
@@ -223,309 +223,309 @@ export function ItemTagSuggestionDialog({
       if (item.category === 'ring') {
         const selectedRing = selectedItems.find(
           (selectedItem) => selectedItem.id === item.id,
-        )
-        const ringSlot = selectedRing?.slot
+        );
+        const ringSlot = selectedRing?.slot;
         if (ringSlot) {
           if (ringSlot === 'ring1') {
-            item.slot = 'ring2'
+            item.slot = 'ring2';
           } else if (ringSlot === 'ring2') {
-            item.slot = 'ring3'
+            item.slot = 'ring3';
           } else if (ringSlot === 'ring3') {
-            item.slot = 'ring4'
+            item.slot = 'ring4';
           } else if (ringSlot === 'ring4') {
             setSelectedItems((prev) =>
               prev.filter((selectedItem) => selectedItem.slot !== ringSlot),
-            )
-            return
+            );
+            return;
           }
           setSelectedItems((prev) =>
             prev.map((selectedItem) =>
               selectedItem.id === item.id ? item : selectedItem,
             ),
-          )
+          );
         }
-        return
+        return;
       }
 
       if (item.category === 'skill') {
         const selectedArchetype = selectedItems.find(
           (selectedItem) => selectedItem.id === item.id,
-        )
-        const archetypeSlot = selectedArchetype?.slot
+        );
+        const archetypeSlot = selectedArchetype?.slot;
         if (archetypeSlot) {
           if (archetypeSlot === 'archetype1') {
-            item.slot = 'archetype2'
+            item.slot = 'archetype2';
             setSelectedItems((prev) =>
               prev.map((selectedItem) =>
                 selectedItem.id === item.id ? item : selectedItem,
               ),
-            )
+            );
           } else if (archetypeSlot === 'archetype2') {
             setSelectedItems((prev) =>
               prev.filter(
                 (selectedItem) => selectedItem.slot !== archetypeSlot,
               ),
-            )
+            );
           }
         }
-        return
+        return;
       }
 
       if (item.category === 'perk') {
         const selectedArchetype = selectedItems.find(
           (selectedItem) => selectedItem.id === item.id,
-        )
-        const archetypeSlot = selectedArchetype?.slot
+        );
+        const archetypeSlot = selectedArchetype?.slot;
         if (archetypeSlot) {
           if (archetypeSlot === 'archetype1') {
-            item.slot = 'archetype2'
+            item.slot = 'archetype2';
             setSelectedItems((prev) =>
               prev.map((selectedItem) =>
                 selectedItem.id === item.id ? item : selectedItem,
               ),
-            )
+            );
           } else if (archetypeSlot === 'archetype2') {
             setSelectedItems((prev) =>
               prev.filter(
                 (selectedItem) => selectedItem.slot !== archetypeSlot,
               ),
-            )
+            );
           }
         }
-        return
+        return;
       }
 
       if (item.category === 'mod') {
         const selectedMod = selectedItems.find(
           (selectedItem) => selectedItem.id === item.id,
-        )
-        const modSlot = selectedMod?.slot
+        );
+        const modSlot = selectedMod?.slot;
         if (modSlot) {
           if (modSlot === 'long gun') {
-            item.slot = 'hand gun'
+            item.slot = 'hand gun';
             setSelectedItems((prev) =>
               prev.map((selectedItem) =>
                 selectedItem.id === item.id ? item : selectedItem,
               ),
-            )
+            );
           } else if (modSlot === 'hand gun') {
             setSelectedItems((prev) =>
               prev.filter((selectedItem) => selectedItem.slot !== modSlot),
-            )
+            );
           }
         } else {
           setSelectedItems((prev) =>
             prev.filter((selectedItem) => selectedItem.id !== item.id),
-          )
+          );
         }
-        return
+        return;
       }
       if (MutatorItem.isMutatorItem(item) && item.type === 'gun') {
         const selectedMutator = selectedItems.find(
           (selectedItem) => selectedItem.id === item.id,
-        )
-        const mutatorSlot = selectedMutator?.slot
+        );
+        const mutatorSlot = selectedMutator?.slot;
         if (mutatorSlot) {
           if (mutatorSlot === 'long gun') {
-            item.slot = 'hand gun'
+            item.slot = 'hand gun';
             setSelectedItems((prev) =>
               prev.map((selectedItem) =>
                 selectedItem.id === item.id ? item : selectedItem,
               ),
-            )
+            );
           } else if (mutatorSlot === 'hand gun') {
             setSelectedItems((prev) =>
               prev.filter((selectedItem) => selectedItem.slot !== mutatorSlot),
-            )
+            );
           }
         } else {
           setSelectedItems((prev) =>
             prev.filter((selectedItem) => selectedItem.id !== item.id),
-          )
+          );
         }
-        return
+        return;
       }
       if (item.category === 'consumable') {
         const selectedConsumable = selectedItems.find(
           (selectedItem) => selectedItem.id === item.id,
-        )
-        const consumableSlot = selectedConsumable?.slot
+        );
+        const consumableSlot = selectedConsumable?.slot;
         if (consumableSlot) {
           if (consumableSlot === 'consumable1') {
-            item.slot = 'consumable2'
+            item.slot = 'consumable2';
           } else if (consumableSlot === 'consumable2') {
-            item.slot = 'consumable3'
+            item.slot = 'consumable3';
           } else if (consumableSlot === 'consumable3') {
-            item.slot = 'consumable4'
+            item.slot = 'consumable4';
           } else if (consumableSlot === 'consumable4') {
             setSelectedItems((prev) =>
               prev.filter(
                 (selectedItem) => selectedItem.slot !== consumableSlot,
               ),
-            )
-            return
+            );
+            return;
           }
           setSelectedItems((prev) =>
             prev.map((selectedItem) =>
               selectedItem.id === item.id ? item : selectedItem,
             ),
-          )
+          );
         }
-        return
+        return;
       }
       if (item.category === 'relicfragment') {
         const selectedRelicFragment = selectedItems.find(
           (selectedItem) => selectedItem.id === item.id,
-        )
-        const relicFragmentSlot = selectedRelicFragment?.slot
+        );
+        const relicFragmentSlot = selectedRelicFragment?.slot;
         if (relicFragmentSlot) {
           if (relicFragmentSlot === 'relicfragment1') {
-            item.slot = 'relicfragment2'
+            item.slot = 'relicfragment2';
           } else if (relicFragmentSlot === 'relicfragment2') {
-            item.slot = 'relicfragment3'
+            item.slot = 'relicfragment3';
           } else if (relicFragmentSlot === 'relicfragment3') {
             setSelectedItems((prev) =>
               prev.filter(
                 (selectedItem) => selectedItem.slot !== relicFragmentSlot,
               ),
-            )
-            return
+            );
+            return;
           }
           setSelectedItems((prev) =>
             prev.map((selectedItem) =>
               selectedItem.id === item.id ? item : selectedItem,
             ),
-          )
+          );
         }
-        return
+        return;
       }
       if (item.category === 'concoction') {
         const selectedConcoction = selectedItems.find(
           (selectedItem) => selectedItem.id === item.id,
-        )
-        const concoctionSlotCount = getConcoctionSlotCount(buildState) + 1
+        );
+        const concoctionSlotCount = getConcoctionSlotCount(buildState) + 1;
 
-        const concoctionSlot = selectedConcoction?.slot
+        const concoctionSlot = selectedConcoction?.slot;
         if (concoctionSlot) {
           if (concoctionSlot === 'concoction1') {
             if (concoctionSlotCount >= 2) {
-              item.slot = 'concoction2'
+              item.slot = 'concoction2';
             } else {
               setSelectedItems((prev) =>
                 prev.filter(
                   (selectedItem) => selectedItem.slot !== concoctionSlot,
                 ),
-              )
-              return
+              );
+              return;
             }
           } else if (concoctionSlot === 'concoction2') {
             if (concoctionSlotCount >= 3) {
-              item.slot = 'concoction3'
+              item.slot = 'concoction3';
             } else {
               setSelectedItems((prev) =>
                 prev.filter(
                   (selectedItem) => selectedItem.slot !== concoctionSlot,
                 ),
-              )
-              return
+              );
+              return;
             }
           } else if (concoctionSlot === 'concoction3') {
             if (concoctionSlotCount >= 4) {
-              item.slot = 'concoction4'
+              item.slot = 'concoction4';
             } else {
               setSelectedItems((prev) =>
                 prev.filter(
                   (selectedItem) => selectedItem.slot !== concoctionSlot,
                 ),
-              )
-              return
+              );
+              return;
             }
           } else if (concoctionSlot === 'concoction4') {
             if (concoctionSlotCount >= 5) {
-              item.slot = 'concoction5'
+              item.slot = 'concoction5';
             } else {
               setSelectedItems((prev) =>
                 prev.filter(
                   (selectedItem) => selectedItem.slot !== concoctionSlot,
                 ),
-              )
-              return
+              );
+              return;
             }
           } else if (concoctionSlot === 'concoction5') {
             if (concoctionSlotCount >= 6) {
-              item.slot = 'concoction6'
+              item.slot = 'concoction6';
             } else {
               setSelectedItems((prev) =>
                 prev.filter(
                   (selectedItem) => selectedItem.slot !== concoctionSlot,
                 ),
-              )
-              return
+              );
+              return;
             }
           } else if (concoctionSlot === 'concoction6') {
             if (concoctionSlotCount >= 7) {
-              item.slot = 'concoction7'
+              item.slot = 'concoction7';
             } else {
               setSelectedItems((prev) =>
                 prev.filter(
                   (selectedItem) => selectedItem.slot !== concoctionSlot,
                 ),
-              )
-              return
+              );
+              return;
             }
           } else if (concoctionSlot === 'concoction7') {
             setSelectedItems((prev) =>
               prev.filter(
                 (selectedItem) => selectedItem.slot !== concoctionSlot,
               ),
-            )
-            return
+            );
+            return;
           }
           setSelectedItems((prev) =>
             prev.map((selectedItem) =>
               selectedItem.id === item.id ? item : selectedItem,
             ),
-          )
+          );
         }
-        return
+        return;
       }
 
       // If the item doesn't have a slot, untoggle it
       setSelectedItems((prev) =>
         prev.filter((selectedItem) => selectedItem.id !== item.id),
-      )
+      );
     } else {
       // ------------------------------
       // If the item is not already selected, add it
       // For items with slots, assign it to the first slot
       // ------------------------------
       if (item.category === 'ring') {
-        item.slot = 'ring1'
+        item.slot = 'ring1';
       }
       if (item.category === 'skill') {
-        item.slot = 'archetype1'
+        item.slot = 'archetype1';
       }
       if (item.category === 'perk') {
-        item.slot = 'archetype1'
+        item.slot = 'archetype1';
       }
       if (item.category === 'mod') {
-        item.slot = 'long gun'
+        item.slot = 'long gun';
       }
       if (MutatorItem.isMutatorItem(item) && item.type === 'gun') {
-        item.slot = 'long gun'
+        item.slot = 'long gun';
       }
       if (item.category === 'consumable') {
-        item.slot = 'consumable1'
+        item.slot = 'consumable1';
       }
       if (item.category === 'relicfragment') {
-        item.slot = 'relicfragment1'
+        item.slot = 'relicfragment1';
       }
       if (item.category === 'concoction') {
-        item.slot = `concoction1`
+        item.slot = `concoction1`;
       }
 
       // Add the item to the selected items
-      setSelectedItems((prev) => [...prev, item])
+      setSelectedItems((prev) => [...prev, item]);
     }
   }
 
@@ -534,12 +534,12 @@ export function ItemTagSuggestionDialog({
    * This is the final step of the suggestions
    */
   function handleApplyItemSelections() {
-    let newBuildState = { ...buildState }
+    let newBuildState = { ...buildState };
 
     // Loop through each selected item and add it to the build state
     for (const selectedItem of selectedItems) {
       // Split out the slot from the item added to the build state
-      const { slot: _slot, ...itemToEquip } = selectedItem
+      const { slot: _slot, ...itemToEquip } = selectedItem;
 
       // Handle equipping the weapons to the specified slots
       if (
@@ -547,21 +547,21 @@ export function ItemTagSuggestionDialog({
         selectedItem.type === 'long gun'
       ) {
         if (WeaponItem.isWeaponItem(itemToEquip)) {
-          newBuildState.items.weapon[0] = itemToEquip
-          continue
+          newBuildState.items.weapon[0] = itemToEquip;
+          continue;
         }
       } else if (
         WeaponItem.isWeaponItem(selectedItem) &&
         selectedItem.type === 'hand gun'
       ) {
         if (WeaponItem.isWeaponItem(itemToEquip)) {
-          newBuildState.items.weapon[2] = itemToEquip
-          continue
+          newBuildState.items.weapon[2] = itemToEquip;
+          continue;
         }
       } else {
         if (WeaponItem.isWeaponItem(itemToEquip)) {
-          newBuildState.items.weapon[1] = itemToEquip
-          continue
+          newBuildState.items.weapon[1] = itemToEquip;
+          continue;
         }
       }
 
@@ -572,7 +572,7 @@ export function ItemTagSuggestionDialog({
       ) {
         const linkedArchetype = archetypeItems.find(
           (i) => i.name === selectedItem.linkedItems?.archetype?.name,
-        )
+        );
         if (selectedItem.slot === 'archetype1') {
           // equip the linked archetype as well
           if (linkedArchetype) {
@@ -580,27 +580,27 @@ export function ItemTagSuggestionDialog({
             // and its linked traits
             if (newBuildState.items.archetype[0]) {
               const linkedTraits =
-                newBuildState.items.archetype[0]?.linkedItems?.traits
+                newBuildState.items.archetype[0]?.linkedItems?.traits;
               if (linkedTraits) {
                 linkedTraits.forEach((trait) => {
                   newBuildState.items.trait = newBuildState.items.trait.filter(
                     (t) => t.name !== trait.name,
-                  )
-                })
+                  );
+                });
               }
             }
 
-            newBuildState.items.archetype[0] = linkedArchetype
+            newBuildState.items.archetype[0] = linkedArchetype;
             if (selectedItem.category === 'skill')
-              newBuildState.items.skill[0] = itemToEquip
-            continue
+              newBuildState.items.skill[0] = itemToEquip;
+            continue;
           }
         } else if (selectedItem.slot === 'archetype2') {
           if (linkedArchetype) {
-            newBuildState.items.archetype[1] = linkedArchetype
+            newBuildState.items.archetype[1] = linkedArchetype;
             if (selectedItem.category === 'skill')
-              newBuildState.items.skill[1] = itemToEquip
-            continue
+              newBuildState.items.skill[1] = itemToEquip;
+            continue;
           }
         }
       }
@@ -608,11 +608,11 @@ export function ItemTagSuggestionDialog({
       // Handle equipping the mods to the specified slots
       if (ModItem.isModItem(selectedItem)) {
         if (selectedItem.slot === 'long gun') {
-          newBuildState.items.mod[0] = itemToEquip
-          continue
+          newBuildState.items.mod[0] = itemToEquip;
+          continue;
         } else if (selectedItem.slot === 'hand gun') {
-          newBuildState.items.mod[1] = itemToEquip
-          continue
+          newBuildState.items.mod[1] = itemToEquip;
+          continue;
         }
       }
 
@@ -622,18 +622,18 @@ export function ItemTagSuggestionDialog({
           selectedItem.slot === 'long gun' &&
           MutatorItem.isMutatorItem(itemToEquip)
         ) {
-          newBuildState.items.mutator[0] = itemToEquip
-          continue
+          newBuildState.items.mutator[0] = itemToEquip;
+          continue;
         } else if (
           selectedItem.slot === 'hand gun' &&
           MutatorItem.isMutatorItem(itemToEquip)
         ) {
-          newBuildState.items.mutator[2] = itemToEquip
-          continue
+          newBuildState.items.mutator[2] = itemToEquip;
+          continue;
         } else {
           if (MutatorItem.isMutatorItem(itemToEquip)) {
-            newBuildState.items.mutator[1] = itemToEquip
-            continue
+            newBuildState.items.mutator[1] = itemToEquip;
+            continue;
           }
         }
       }
@@ -641,99 +641,99 @@ export function ItemTagSuggestionDialog({
       // Handle equipping consumables to the specified slots
       if (ConsumableItem.isConsumableItem(selectedItem)) {
         if (selectedItem.slot === 'consumable1') {
-          newBuildState.items.consumable[0] = itemToEquip
-          continue
+          newBuildState.items.consumable[0] = itemToEquip;
+          continue;
         } else if (selectedItem.slot === 'consumable2') {
-          newBuildState.items.consumable[1] = itemToEquip
-          continue
+          newBuildState.items.consumable[1] = itemToEquip;
+          continue;
         } else if (selectedItem.slot === 'consumable3') {
-          newBuildState.items.consumable[2] = itemToEquip
-          continue
+          newBuildState.items.consumable[2] = itemToEquip;
+          continue;
         } else if (selectedItem.slot === 'consumable4') {
-          newBuildState.items.consumable[3] = itemToEquip
-          continue
+          newBuildState.items.consumable[3] = itemToEquip;
+          continue;
         }
       }
 
       // Handle equipping the concoctions
       if (ConcoctionItem.isConcoctionItem(selectedItem)) {
-        const concoctionSlotCount = getConcoctionSlotCount(buildState) + 1
+        const concoctionSlotCount = getConcoctionSlotCount(buildState) + 1;
 
         if (selectedItem.slot === 'concoction1') {
-          newBuildState.items.concoction[0] = itemToEquip
-          continue
+          newBuildState.items.concoction[0] = itemToEquip;
+          continue;
         } else if (selectedItem.slot === 'concoction2') {
           if (concoctionSlotCount >= 2) {
-            newBuildState.items.concoction[1] = itemToEquip
-            continue
+            newBuildState.items.concoction[1] = itemToEquip;
+            continue;
           }
         } else if (selectedItem.slot === 'concoction3') {
           if (concoctionSlotCount >= 3) {
-            newBuildState.items.concoction[2] = itemToEquip
-            continue
+            newBuildState.items.concoction[2] = itemToEquip;
+            continue;
           }
         } else if (selectedItem.slot === 'concoction4') {
           if (concoctionSlotCount >= 4) {
-            newBuildState.items.concoction[3] = itemToEquip
-            continue
+            newBuildState.items.concoction[3] = itemToEquip;
+            continue;
           }
         } else if (selectedItem.slot === 'concoction5') {
           if (concoctionSlotCount >= 5) {
-            newBuildState.items.concoction[4] = itemToEquip
-            continue
+            newBuildState.items.concoction[4] = itemToEquip;
+            continue;
           }
         } else if (selectedItem.slot === 'concoction6') {
           if (concoctionSlotCount >= 6) {
-            newBuildState.items.concoction[5] = itemToEquip
-            continue
+            newBuildState.items.concoction[5] = itemToEquip;
+            continue;
           }
         } else if (selectedItem.slot === 'concoction7') {
           if (concoctionSlotCount >= 7) {
-            newBuildState.items.concoction[6] = itemToEquip
-            continue
+            newBuildState.items.concoction[6] = itemToEquip;
+            continue;
           }
         }
       }
 
       // Handle equipping the relics
       if (selectedItem.category === 'relic') {
-        newBuildState.items.relic = itemToEquip
-        continue
+        newBuildState.items.relic = itemToEquip;
+        continue;
       }
 
       // Handle equipping the relicfragments
       if (selectedItem.category === 'relicfragment') {
         if (selectedItem.slot === 'relicfragment1') {
-          newBuildState.items.relicfragment[0] = itemToEquip
-          continue
+          newBuildState.items.relicfragment[0] = itemToEquip;
+          continue;
         } else if (selectedItem.slot === 'relicfragment2') {
-          newBuildState.items.relicfragment[1] = itemToEquip
-          continue
+          newBuildState.items.relicfragment[1] = itemToEquip;
+          continue;
         } else if (selectedItem.slot === 'relicfragment3') {
-          newBuildState.items.relicfragment[2] = itemToEquip
-          continue
+          newBuildState.items.relicfragment[2] = itemToEquip;
+          continue;
         }
       }
 
       // Equip the amulet
       if (selectedItem.category === 'amulet') {
-        newBuildState.items.amulet = itemToEquip
-        continue
+        newBuildState.items.amulet = itemToEquip;
+        continue;
       }
       // Equip the rings
       if (selectedItem.category === 'ring') {
         if (selectedItem.slot === 'ring1') {
-          newBuildState.items.ring[0] = itemToEquip
-          continue
+          newBuildState.items.ring[0] = itemToEquip;
+          continue;
         } else if (selectedItem.slot === 'ring2') {
-          newBuildState.items.ring[1] = itemToEquip
-          continue
+          newBuildState.items.ring[1] = itemToEquip;
+          continue;
         } else if (selectedItem.slot === 'ring3') {
-          newBuildState.items.ring[2] = itemToEquip
-          continue
+          newBuildState.items.ring[2] = itemToEquip;
+          continue;
         } else if (selectedItem.slot === 'ring4') {
-          newBuildState.items.ring[3] = itemToEquip
-          continue
+          newBuildState.items.ring[3] = itemToEquip;
+          continue;
         }
       }
     }
@@ -744,13 +744,13 @@ export function ItemTagSuggestionDialog({
       newBuildState.items.archetype[0]?.name ===
       newBuildState.items.archetype[1]?.name
     ) {
-      newBuildState.items.archetype[1] = null
-      newBuildState.items.skill[1] = null
+      newBuildState.items.archetype[1] = null;
+      newBuildState.items.skill[1] = null;
     }
 
-    newBuildState = cleanUpBuildState(newBuildState)
+    newBuildState = cleanUpBuildState(newBuildState);
 
-    onApplySuggestions(newBuildState)
+    onApplySuggestions(newBuildState);
   }
 
   return (
@@ -783,9 +783,9 @@ export function ItemTagSuggestionDialog({
               value={selectedTag?.value}
               options={allTagOptions}
               onChange={(e) => {
-                const newTag = allTagOptions.find((tag) => tag.value === e)
-                if (!newTag) return
-                handleItemTagChange(newTag)
+                const newTag = allTagOptions.find((tag) => tag.value === e);
+                if (!newTag) return;
+                handleItemTagChange(newTag);
               }}
             />
 
@@ -858,5 +858,5 @@ export function ItemTagSuggestionDialog({
         </div>
       </BaseDialogBody>
     </BaseDialog>
-  )
+  );
 }

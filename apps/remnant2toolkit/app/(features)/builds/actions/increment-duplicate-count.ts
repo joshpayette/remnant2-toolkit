@@ -1,17 +1,17 @@
-'use server'
+'use server';
 
-import { prisma } from '@repo/db'
+import { prisma } from '@repo/db';
 
-import { getSession } from '@/app/(features)/auth/services/sessionService'
-import type { BuildActionResponse } from '@/app/(types)/builds'
+import { getSession } from '@/app/(features)/auth/services/sessionService';
+import { BuildActionResponse } from '@/app/(features)/builds/types/build-action-response';
 
 export async function incrementDuplicateCount({
   buildId,
 }: {
-  buildId: string
+  buildId: string;
 }): Promise<BuildActionResponse> {
-  const session = await getSession()
-  const userId = session?.user?.id
+  const session = await getSession();
+  const userId = session?.user?.id;
 
   try {
     const build = await prisma.build.findUnique({
@@ -22,12 +22,12 @@ export async function incrementDuplicateCount({
         createdById: true,
         updatedAt: true,
       },
-    })
+    });
 
     if (!build) {
       return {
         errors: ['Build not found!'],
-      }
+      };
     }
 
     // If the build is created by the user, do not add a count
@@ -36,7 +36,7 @@ export async function incrementDuplicateCount({
         return {
           message:
             'Duplicate count not incremented as the build is created by the user!',
-        }
+        };
       }
     }
 
@@ -50,15 +50,17 @@ export async function incrementDuplicateCount({
         },
         updatedAt: build.updatedAt,
       },
-    })
+    });
 
     return {
       message: 'Duplicate count incremented!',
-    }
+    };
   } catch (e) {
-    console.error(`Error in incrementing duplicate count for build ${buildId}!`)
+    console.error(
+      `Error in incrementing duplicate count for build ${buildId}!`,
+    );
     return {
       errors: ['Error in incrementing duplicate count!'],
-    }
+    };
   }
 }

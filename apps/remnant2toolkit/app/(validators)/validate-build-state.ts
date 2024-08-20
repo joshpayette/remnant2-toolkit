@@ -1,6 +1,6 @@
-import { z } from 'zod'
+import { z } from 'zod';
 
-import { BuildState } from '@/app/(types)/builds'
+import { BuildState } from '@/app/(features)/builds/types/build-state';
 
 const baseItemShape = {
   id: z.string(),
@@ -51,23 +51,23 @@ const baseItemShape = {
   blightResistancePercent: z.number().optional(),
   toxinResistance: z.number().optional(),
   toxinResistancePercent: z.number().optional(),
-}
+};
 
 const armorItemSchema = z.object({
   ...baseItemShape,
   category: z.enum(['helm', 'torso', 'legs', 'gloves']),
   set: z.string().optional(),
-})
+});
 
 const relicItemSchema = z.object({
   ...baseItemShape,
   category: z.enum(['relic']),
-})
+});
 
 const amuletItemSchema = z.object({
   ...baseItemShape,
   category: z.enum(['amulet']),
-})
+});
 
 export function validateBuildState(buildState: unknown) {
   const buildStateSchema: z.ZodType<BuildState> = z.object({
@@ -99,6 +99,7 @@ export function validateBuildState(buildState: unknown) {
     isFeaturedBuild: z.boolean(),
     isBeginnerBuild: z.boolean(),
     isBaseGameBuild: z.boolean(),
+    isGimmickBuild: z.boolean(),
     dateFeatured: z.date().nullable(),
     isMember: z.boolean(),
     isModeratorApproved: z.boolean(),
@@ -135,6 +136,6 @@ export function validateBuildState(buildState: unknown) {
       trait: z.array(z.any()),
       perk: z.array(z.any()),
     }),
-  })
-  return buildStateSchema.safeParse(buildState)
+  });
+  return buildStateSchema.safeParse(buildState);
 }

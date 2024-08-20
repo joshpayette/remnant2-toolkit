@@ -1,18 +1,18 @@
-import { BaseButton } from '@repo/ui/base/button'
-import { BaseInput } from '@repo/ui/base/input'
-import { cn } from '@repo/ui/classnames'
-import { CloseCircleIcon } from '@repo/ui/icons/close-circle'
-import { ZINDEXES } from '@repo/ui/zindexes'
-import { useState } from 'react'
-import { PiBagSimpleFill as OwnershipIcon } from 'react-icons/pi'
-import { TbHttpOptions } from 'react-icons/tb'
+import { BaseButton } from '@repo/ui/base/button';
+import { BaseInput } from '@repo/ui/base/input';
+import { cn } from '@repo/ui/classnames';
+import { CloseCircleIcon } from '@repo/ui/icons/close-circle';
+import { ZINDEXES } from '@repo/ui/zindexes';
+import { useState } from 'react';
+import { PiBagSimpleFill as OwnershipIcon } from 'react-icons/pi';
+import { TbHttpOptions } from 'react-icons/tb';
 
-import { Tooltip } from '@/app/(components)/tooltip'
-import { Item } from '@/app/(data)/items/types'
-import { TraitItem } from '@/app/(data)/items/types/TraitItem'
-import { DEFAULT_TRAIT_AMOUNT } from '@/app/(features)/builder/constants/default-trait-amount'
-import { MAX_TRAIT_AMOUNT } from '@/app/(features)/builder/constants/max-trait-amount'
-import { BuildState } from '@/app/(types)/builds'
+import { Tooltip } from '@/app/(components)/tooltip';
+import { Item } from '@/app/(data)/items/types';
+import { TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { DEFAULT_TRAIT_AMOUNT } from '@/app/(features)/builder/constants/default-trait-amount';
+import { MAX_TRAIT_AMOUNT } from '@/app/(features)/builder/constants/max-trait-amount';
+import { BuildState } from '@/app/(features)/builds/types/build-state';
 
 export function Traits({
   buildState,
@@ -26,80 +26,80 @@ export function Traits({
   onRemoveTrait,
   onUpdateAmount,
 }: {
-  buildState: BuildState
-  isEditable: boolean
-  isScreenshotMode: boolean
-  showControls: boolean
-  showOwnership: boolean
-  tooltipDisabled: boolean
-  onAddTrait?: () => void
-  onItemInfoClick?: (item: Item) => void
-  onRemoveTrait: (traitItem: TraitItem) => void
-  onUpdateAmount: (traitItem: TraitItem) => void
+  buildState: BuildState;
+  isEditable: boolean;
+  isScreenshotMode: boolean;
+  showControls: boolean;
+  showOwnership: boolean;
+  tooltipDisabled: boolean;
+  onAddTrait?: () => void;
+  onItemInfoClick?: (item: Item) => void;
+  onRemoveTrait: (traitItem: TraitItem) => void;
+  onUpdateAmount: (traitItem: TraitItem) => void;
 }) {
-  const { trait: traitItems, archetype: archetypeItems } = buildState.items
+  const { trait: traitItems, archetype: archetypeItems } = buildState.items;
 
   const [editingTraitItem, setEditingTraitItem] = useState<TraitItem | null>(
     null,
-  )
+  );
 
   const totalTraitAmount = traitItems.reduce(
     (total, traitItem) => total + traitItem.amount,
     0,
-  )
+  );
 
   function shouldAllowEdit(traitItem: TraitItem) {
-    const primaryArchetype = archetypeItems[0]
+    const primaryArchetype = archetypeItems[0];
     const isLinkedPrimaryArchetypeTraitMaxed =
       primaryArchetype?.linkedItems?.traits?.some(
         (linkedTraitItem) =>
           linkedTraitItem.name === traitItem.name &&
           linkedTraitItem.amount === 10,
-      )
+      );
     if (isLinkedPrimaryArchetypeTraitMaxed) {
-      return false
+      return false;
     }
 
-    const secondaryArchetype = archetypeItems[1]
+    const secondaryArchetype = archetypeItems[1];
     const isLinkedSecondaryArchetypeTraitMaxed =
       secondaryArchetype?.linkedItems?.traits?.some(
         (linkedTraitItem) =>
           linkedTraitItem.name === traitItem.name &&
           linkedTraitItem.amount === 10,
-      )
+      );
     if (isLinkedSecondaryArchetypeTraitMaxed) {
-      return false
+      return false;
     }
 
-    return true
+    return true;
   }
 
   function shouldAllowDelete(traitItem: TraitItem) {
     // Default values based on editable and wheisEditable && showControlsther controls are shown
-    let shouldAllowDelete = isEditable && showControls
+    let shouldAllowDelete = isEditable && showControls;
 
     // If the trait is linked to an archtype, it should not be deletable
     if (isArchetypeTrait(traitItem)) {
-      shouldAllowDelete = false
+      shouldAllowDelete = false;
     }
 
-    return shouldAllowDelete
+    return shouldAllowDelete;
   }
 
   function isArchetypeTrait(traitItem: TraitItem) {
     // If the trait is linked to an archtype, it should not be deletable
-    const primaryArchtype = archetypeItems[0]
+    const primaryArchtype = archetypeItems[0];
     if (
       primaryArchtype?.linkedItems?.traits?.some(
         (linkedTraitItem) => linkedTraitItem.name === traitItem.name,
       )
     ) {
-      return true
+      return true;
     }
 
     // If the trait is linked to the secondary archtype, it should not be deletable
     // but only if it's the main archtype trait, i.e. amount is 10
-    const secondaryArchtype = archetypeItems[1]
+    const secondaryArchtype = archetypeItems[1];
     if (
       secondaryArchtype?.linkedItems?.traits?.some(
         (linkedTraitItem) =>
@@ -107,13 +107,13 @@ export function Traits({
           linkedTraitItem.amount === 10,
       )
     ) {
-      return true
+      return true;
     }
   }
 
   function isArchetypeCoreTrait(traitItem: TraitItem) {
     // If the trait is linked to an archtype, it should not be deletable
-    const primaryArchtype = archetypeItems[0]
+    const primaryArchtype = archetypeItems[0];
     if (
       primaryArchtype?.linkedItems?.traits?.some(
         (linkedTraitItem) =>
@@ -121,12 +121,12 @@ export function Traits({
           linkedTraitItem.amount === 10,
       )
     ) {
-      return true
+      return true;
     }
 
     // If the trait is linked to the secondary archtype, it should not be deletable
     // but only if it's the main archtype trait, i.e. amount is 10
-    const secondaryArchtype = archetypeItems[1]
+    const secondaryArchtype = archetypeItems[1];
     if (
       secondaryArchtype?.linkedItems?.traits?.some(
         (linkedTraitItem) =>
@@ -134,12 +134,12 @@ export function Traits({
           linkedTraitItem.amount === 10,
       )
     ) {
-      return true
+      return true;
     }
   }
 
   const showItemOwnership =
-    !isScreenshotMode && !isEditable && showControls && showOwnership
+    !isScreenshotMode && !isEditable && showControls && showOwnership;
 
   /**
    * Optional toggle should be shown if:
@@ -147,7 +147,7 @@ export function Traits({
    * - The button is editable
    * - The button should show controls
    */
-  const showOptionalToggle = !isScreenshotMode && isEditable && showControls
+  const showOptionalToggle = !isScreenshotMode && isEditable && showControls;
 
   return (
     <>
@@ -207,31 +207,31 @@ export function Traits({
                   // Update the parent state when the user presses enter
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') {
-                      onUpdateAmount(editingTraitItem)
-                      setEditingTraitItem(null)
+                      onUpdateAmount(editingTraitItem);
+                      setEditingTraitItem(null);
                     }
                   }}
                   // Select the text when the input is focused
                   onFocus={(e) => e.target.select()}
                   // Update the local state when the user types
                   onChange={(e) => {
-                    const { value } = e.target
+                    const { value } = e.target;
 
-                    if (value.trim() === '') return
+                    if (value.trim() === '') return;
 
-                    const amount = Number(value)
+                    const amount = Number(value);
 
                     setEditingTraitItem(
                       new TraitItem({
                         ...traitItem,
                         amount: isNaN(amount) ? 0 : amount,
                       }),
-                    )
+                    );
                   }}
                   // Update the parent state when the input is blurred
                   onBlur={() => {
-                    onUpdateAmount(editingTraitItem)
-                    setEditingTraitItem(null)
+                    onUpdateAmount(editingTraitItem);
+                    setEditingTraitItem(null);
                   }}
                   autoFocus
                   style={{ width: '60px' }}
@@ -338,5 +338,5 @@ export function Traits({
         </button>
       )}
     </>
-  )
+  );
 }

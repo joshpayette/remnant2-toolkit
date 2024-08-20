@@ -1,88 +1,88 @@
-import { BaseButton } from '@repo/ui/base/button'
+import { BaseButton } from '@repo/ui/base/button';
 import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@repo/ui/base/dialog'
-import { Skeleton } from '@repo/ui/skeleton'
-import { getArrayOfLength } from '@repo/utils/get-array-of-length'
-import { useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
+} from '@repo/ui/base/dialog';
+import { Skeleton } from '@repo/ui/skeleton';
+import { getArrayOfLength } from '@repo/utils/get-array-of-length';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
-import { addBuildToLoadout } from '@/app/(actions)/loadouts/add-build-to-loadout'
-import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list'
-import { EmptyLoadoutCard } from '@/app/(features)/loadouts/components/cards/empty-loadout-card'
-import { LoadoutCard } from '@/app/(features)/loadouts/components/cards/loadout-card'
-import { DBBuild } from '@/app/(types)/builds'
+import { addBuildToLoadout } from '@/app/(actions)/loadouts/add-build-to-loadout';
+import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list';
+import { DBBuild } from '@/app/(features)/builds/types/db-build';
+import { EmptyLoadoutCard } from '@/app/(features)/loadouts/components/cards/empty-loadout-card';
+import { LoadoutCard } from '@/app/(features)/loadouts/components/cards/loadout-card';
 
 interface Props {
-  open: boolean
-  buildId: string | null
-  isEditable: boolean
-  onClose: () => void
+  open: boolean;
+  buildId: string | null;
+  isEditable: boolean;
+  onClose: () => void;
 }
 
 export function LoadoutDialog({ open, buildId, isEditable, onClose }: Props) {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   const [loadoutList, setLoadoutList] = useState<
     Array<DBBuild & { slot: number }>
-  >([])
+  >([]);
 
   useEffect(() => {
     async function getItemsAsync() {
-      const userLoadoutBuilds = await getLoadoutList()
-      setLoadoutList(userLoadoutBuilds)
-      setLoading(false)
+      const userLoadoutBuilds = await getLoadoutList();
+      setLoadoutList(userLoadoutBuilds);
+      setLoading(false);
     }
-    getItemsAsync()
-  }, [])
+    getItemsAsync();
+  }, []);
 
   async function addToLoadout(slot: number) {
     if (!buildId) {
-      return
+      return;
     }
 
     if (slot < 1 || slot > 8) {
-      toast.error('Invalid slot')
-      return
+      toast.error('Invalid slot');
+      return;
     }
 
-    const response = await addBuildToLoadout(buildId, slot)
+    const response = await addBuildToLoadout(buildId, slot);
     if (!response.success) {
-      toast.error('Failed to add build to loadout')
-      onClose()
-      return
+      toast.error('Failed to add build to loadout');
+      onClose();
+      return;
     }
-    toast.success('Build added to loadout')
-    onClose()
+    toast.success('Build added to loadout');
+    onClose();
   }
 
   function removeFromLoadout(slot: number) {
-    const newLoadoutList = loadoutList.filter((build) => build.slot !== slot)
-    setLoadoutList(newLoadoutList)
+    const newLoadoutList = loadoutList.filter((build) => build.slot !== slot);
+    setLoadoutList(newLoadoutList);
   }
 
   function swapLoadoutSlot({
     oldSlot,
     newSlot,
   }: {
-    oldSlot: number
-    newSlot: number
+    oldSlot: number;
+    newSlot: number;
   }) {
-    let newLoadoutList = [...loadoutList]
+    let newLoadoutList = [...loadoutList];
 
     newLoadoutList = newLoadoutList.map((build) => {
       if (build.slot === oldSlot) {
-        return { ...build, slot: newSlot }
+        return { ...build, slot: newSlot };
       }
       if (build.slot === newSlot) {
-        return { ...build, slot: oldSlot }
+        return { ...build, slot: oldSlot };
       }
-      return build
-    })
+      return build;
+    });
 
-    setLoadoutList(newLoadoutList)
+    setLoadoutList(newLoadoutList);
   }
 
   return (
@@ -101,12 +101,12 @@ export function LoadoutDialog({ open, buildId, isEditable, onClose }: Props) {
                   key={index}
                   className="bg-background-solid col-span-1 flex h-full min-h-[350px] flex-col items-center justify-start rounded-lg border-4 border-dashed border-gray-500 text-center shadow"
                 />
-              )
+              );
             }
 
             const userLoadoutBuild = loadoutList.find(
               (build) => build.slot - 1 === index,
-            )
+            );
 
             if (!userLoadoutBuild) {
               return (
@@ -121,7 +121,7 @@ export function LoadoutDialog({ open, buildId, isEditable, onClose }: Props) {
                     label="Click to add build to this loadout slot."
                   />
                 </BaseButton>
-              )
+              );
             }
 
             return (
@@ -132,14 +132,14 @@ export function LoadoutDialog({ open, buildId, isEditable, onClose }: Props) {
                 onRemove={() => removeFromLoadout(userLoadoutBuild.slot)}
                 onSlotChange={(success, newLoadouts) => {
                   if (success && newLoadouts) {
-                    swapLoadoutSlot(newLoadouts)
+                    swapLoadoutSlot(newLoadouts);
                   }
                 }}
               />
-            )
+            );
           })}
         </div>
       </BaseDialogBody>
     </BaseDialog>
-  )
+  );
 }

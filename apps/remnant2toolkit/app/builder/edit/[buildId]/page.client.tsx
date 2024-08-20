@@ -1,58 +1,59 @@
-'use client'
+'use client';
 
-import { useSession } from 'next-auth/react'
-import { useRef, useState } from 'react'
-import { useIsClient } from 'usehooks-ts'
+import { useSession } from 'next-auth/react';
+import { useRef, useState } from 'react';
+import { useIsClient } from 'usehooks-ts';
 
-import { ItemTagSuggestionDialog } from '@/app/(components)/dialogs/item-tag-suggestion-dialog'
-import { PageHeader } from '@/app/(components)/page-header'
-import { BuilderContainer } from '@/app/(features)/builder/components/builder-container'
-import { ArmorCalculatorButton } from '@/app/(features)/builder/components/buttons/armor-calculator-button'
-import { DeleteBuildButton } from '@/app/(features)/builder/components/buttons/delete-build-button'
-import { DetailedViewButton } from '@/app/(features)/builder/components/buttons/detailed-view-button'
-import { ItemSuggestionsButton } from '@/app/(features)/builder/components/buttons/item-suggestions-button'
-import { SaveBuildButton } from '@/app/(features)/builder/components/buttons/save-build-button'
-import { ArmorSuggestionDialog } from '@/app/(features)/builder/components/dialogs/armor-suggestion-dialog'
-import { DetailedBuildDialog } from '@/app/(features)/builder/components/dialogs/detailed-build-dialog'
-import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dialogs/image-download-info-dialog'
-import { cleanUpBuildState } from '@/app/(features)/builds/utils/clean-up-build-state'
-import { dbBuildToBuildState } from '@/app/(features)/builds/utils/db-build-to-build-state'
-import { useDBBuildState } from '@/app/(features)/builds/utils/hooks/use-db-build-state'
-import { useBuildActions } from '@/app/(hooks)/use-build-actions'
-import { BuildState, DBBuild } from '@/app/(types)/builds'
+import { ItemTagSuggestionDialog } from '@/app/(components)/dialogs/item-tag-suggestion-dialog';
+import { PageHeader } from '@/app/(components)/page-header';
+import { BuilderContainer } from '@/app/(features)/builder/components/builder-container';
+import { ArmorCalculatorButton } from '@/app/(features)/builder/components/buttons/armor-calculator-button';
+import { DeleteBuildButton } from '@/app/(features)/builder/components/buttons/delete-build-button';
+import { DetailedViewButton } from '@/app/(features)/builder/components/buttons/detailed-view-button';
+import { ItemSuggestionsButton } from '@/app/(features)/builder/components/buttons/item-suggestions-button';
+import { SaveBuildButton } from '@/app/(features)/builder/components/buttons/save-build-button';
+import { ArmorSuggestionDialog } from '@/app/(features)/builder/components/dialogs/armor-suggestion-dialog';
+import { DetailedBuildDialog } from '@/app/(features)/builder/components/dialogs/detailed-build-dialog';
+import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dialogs/image-download-info-dialog';
+import { BuildState } from '@/app/(features)/builds/types/build-state';
+import { DBBuild } from '@/app/(features)/builds/types/db-build';
+import { cleanUpBuildState } from '@/app/(features)/builds/utils/clean-up-build-state';
+import { dbBuildToBuildState } from '@/app/(features)/builds/utils/db-build-to-build-state';
+import { useDBBuildState } from '@/app/(features)/builds/utils/hooks/use-db-build-state';
+import { useBuildActions } from '@/app/(hooks)/use-build-actions';
 
 interface Props {
-  build: DBBuild
+  build: DBBuild;
 }
 
 export function PageClient({ build }: Props) {
-  const { data: session } = useSession()
+  const { data: session } = useSession();
 
-  const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
+  const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);
 
   const { dbBuildState, updateDBBuildState, setNewBuildState } =
-    useDBBuildState(cleanUpBuildState(dbBuildToBuildState(build)))
+    useDBBuildState(cleanUpBuildState(dbBuildToBuildState(build)));
 
   const {
     isScreenshotMode,
     showControls,
     imageDownloadInfo,
     handleClearImageDownloadInfo,
-  } = useBuildActions()
+  } = useBuildActions();
 
-  const buildContainerRef = useRef<HTMLDivElement>(null)
+  const buildContainerRef = useRef<HTMLDivElement>(null);
 
-  const [showArmorCalculator, setShowArmorCalculator] = useState(false)
-  const [showItemTagSuggestions, setShowItemTagSuggestions] = useState(false)
+  const [showArmorCalculator, setShowArmorCalculator] = useState(false);
+  const [showItemTagSuggestions, setShowItemTagSuggestions] = useState(false);
 
   function handleSelectArmorSuggestion(newBuildState: BuildState) {
-    setNewBuildState(newBuildState)
-    setShowArmorCalculator(false)
-    setShowItemTagSuggestions(false)
+    setNewBuildState(newBuildState);
+    setShowArmorCalculator(false);
+    setShowItemTagSuggestions(false);
   }
 
-  const isClient = useIsClient()
-  if (!isClient) return
+  const isClient = useIsClient();
+  if (!isClient) return;
 
   return (
     <div className="flex w-full flex-col items-center">
@@ -119,5 +120,5 @@ export function PageClient({ build }: Props) {
         }
       />
     </div>
-  )
+  );
 }

@@ -1,19 +1,17 @@
-import { Prisma } from '@repo/db'
-import { prisma } from '@repo/db'
+import { Prisma } from '@repo/db';
+import { prisma } from '@repo/db';
 
-import {
-  CommunityBuildQueryResponse,
-  CommunityBuildTotalCount,
-} from '@/app/(types)/builds'
+import { CommunityBuildQueryResponse } from '@/app/(features)/builds/types/community-build-query-response';
+import { CommunityBuildTotalCount } from '@/app/(features)/builds/types/community-build-total-count';
 
 type Props = {
-  itemsPerPage: number
-  pageNumber: number
-  userId: string | undefined
-  whereConditions: Prisma.Sql
-  orderBySegment: Prisma.Sql
-  searchText: string
-}
+  itemsPerPage: number;
+  pageNumber: number;
+  userId: string | undefined;
+  whereConditions: Prisma.Sql;
+  orderBySegment: Prisma.Sql;
+  searchText: string;
+};
 
 export function communityBuildsQuery({
   itemsPerPage,
@@ -79,9 +77,9 @@ export function communityBuildsQuery({
   ${orderBySegment}
   LIMIT ${itemsPerPage} 
   OFFSET ${(pageNumber - 1) * itemsPerPage}
-`
+`;
 
-  return prisma.$queryRaw<CommunityBuildQueryResponse>(query)
+  return prisma.$queryRaw<CommunityBuildQueryResponse>(query);
 }
 
 /**
@@ -92,8 +90,8 @@ export function communityBuildsCountQuery({
   whereConditions,
   searchText,
 }: {
-  whereConditions: Props['whereConditions']
-  searchText: Props['searchText']
+  whereConditions: Props['whereConditions'];
+  searchText: Props['searchText'];
 }): Prisma.PrismaPromise<CommunityBuildTotalCount> {
   const query = Prisma.sql`
   SELECT 
@@ -132,7 +130,7 @@ export function communityBuildsCountQuery({
   )`
       : Prisma.sql``
   }
-`
+`;
 
-  return prisma.$queryRaw<CommunityBuildTotalCount>(query)
+  return prisma.$queryRaw<CommunityBuildTotalCount>(query);
 }

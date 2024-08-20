@@ -1,16 +1,17 @@
-'use server'
+'use server';
 
-import { Prisma } from '@repo/db'
-import { prisma } from '@repo/db'
-import { bigIntFix } from '@repo/utils/big-int-fix'
+import { Prisma } from '@repo/db';
+import { prisma } from '@repo/db';
+import { bigIntFix } from '@repo/utils/big-int-fix';
 
-import { getSession } from '@/app/(features)/auth/services/sessionService'
-import { limitToQualityBuilds } from '@/app/(queries)/build-filters/segments/limit-by-quality'
-import { type CommunityBuildQueryResponse, DBBuild } from '@/app/(types)/builds'
+import { getSession } from '@/app/(features)/auth/services/sessionService';
+import { CommunityBuildQueryResponse } from '@/app/(features)/builds/types/community-build-query-response';
+import { DBBuild } from '@/app/(features)/builds/types/db-build';
+import { limitToQualityBuilds } from '@/app/(queries)/build-filters/segments/limit-by-quality';
 
 export async function getQualityBuildFeed(): Promise<{ builds: DBBuild[] }> {
-  const session = await getSession()
-  const userId = session?.user?.id
+  const session = await getSession();
+  const userId = session?.user?.id;
 
   const query = Prisma.sql`
   SELECT Build.*, 
@@ -56,27 +57,27 @@ export async function getQualityBuildFeed(): Promise<{ builds: DBBuild[] }> {
   GROUP BY Build.id, User.id
   ORDER BY createdAt DESC
   LIMIT 4 
-  `
+  `;
 
-  const builds = await prisma.$queryRaw<CommunityBuildQueryResponse>(query)
+  const builds = await prisma.$queryRaw<CommunityBuildQueryResponse>(query);
 
   // Then, for each Build, get the associated BuildItems
   for (const build of builds) {
     const buildItems = await prisma.buildItems.findMany({
       where: { buildId: build.id },
-    })
-    build.buildItems = buildItems
+    });
+    build.buildItems = buildItems;
   }
 
   // Then, for each Build, get the associated BuildTags
   for (const build of builds) {
     const buildTags = await prisma.buildTags.findMany({
       where: { buildId: build.id },
-    })
-    build.buildTags = buildTags
+    });
+    build.buildTags = buildTags;
   }
 
   return bigIntFix({
     builds,
-  })
+  });
 }

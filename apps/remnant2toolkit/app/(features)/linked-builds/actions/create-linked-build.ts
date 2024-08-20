@@ -1,37 +1,37 @@
-'use server'
+'use server';
 
-import { LinkedBuild } from '@repo/db'
-import { prisma } from '@repo/db'
+import { LinkedBuild } from '@repo/db';
+import { prisma } from '@repo/db';
 
-import { getSession } from '@/app/(features)/auth/services/sessionService'
-import { badWordFilter } from '@/app/(features)/bad-word-filter'
-import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(features)/linked-builds/constants/max-linked-build-description-length'
-import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
-import { validateLinkedBuild } from '@/app/(validators)/validate-linked-build'
+import { getSession } from '@/app/(features)/auth/services/sessionService';
+import { badWordFilter } from '@/app/(features)/bad-word-filter';
+import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(features)/linked-builds/constants/max-linked-build-description-length';
+import { sendWebhook } from '@/app/(utils)/moderation/send-webhook';
+import { validateLinkedBuild } from '@/app/(validators)/validate-linked-build';
 
 type Props = {
-  name: string
-  description: string
+  name: string;
+  description: string;
   linkedBuildItems: Array<{
-    label: string
-    buildId: string
-  }>
-}
+    label: string;
+    buildId: string;
+  }>;
+};
 
 export async function createLinkedBuild(linkedBuild: Props): Promise<{
-  status: 'error' | 'success'
-  message: string
-  linkedBuild?: LinkedBuild
+  status: 'error' | 'success';
+  message: string;
+  linkedBuild?: LinkedBuild;
 }> {
-  const session = await getSession()
+  const session = await getSession();
   if (!session || !session.user) {
-    return { status: 'error', message: 'You must be logged in.' }
+    return { status: 'error', message: 'You must be logged in.' };
   }
-  const userId = session.user.id
+  const userId = session.user.id;
 
-  const validatedLinkedBuild = validateLinkedBuild(linkedBuild)
+  const validatedLinkedBuild = validateLinkedBuild(linkedBuild);
   if (!validatedLinkedBuild.success) {
-    return { status: 'error', message: 'Invalid linked build.' }
+    return { status: 'error', message: 'Invalid linked build.' };
   }
 
   // if the description is longer than allowed, truncate it
@@ -43,10 +43,10 @@ export async function createLinkedBuild(linkedBuild: Props): Promise<{
       linkedBuild.description.slice(
         0,
         MAX_LINKED_BUILD_DESCRIPTION_LENGTH - 3,
-      ) + '...'
+      ) + '...';
   }
 
-  const nameBadWordCheck = badWordFilter.isProfane(linkedBuild.name)
+  const nameBadWordCheck = badWordFilter.isProfane(linkedBuild.name);
   if (nameBadWordCheck.isProfane) {
     // Send webhook to #action-log
     await sendWebhook({
@@ -73,19 +73,19 @@ export async function createLinkedBuild(linkedBuild: Props): Promise<{
           },
         ],
       },
-    })
+    });
 
     return {
       status: 'error',
       message: `Could not save build with profanity: ${nameBadWordCheck.badWords.join(
         ', ',
       )}`,
-    }
+    };
   }
 
   const descriptionBadWordCheck = badWordFilter.isProfane(
     linkedBuild.description,
-  )
+  );
   if (descriptionBadWordCheck.isProfane) {
     // Send webhook to #action-log
     await sendWebhook({
@@ -112,22 +112,22 @@ export async function createLinkedBuild(linkedBuild: Props): Promise<{
           },
         ],
       },
-    })
+    });
 
     return {
       status: 'error',
       message: `Could not save build with profanity: ${descriptionBadWordCheck.badWords.join(
         ', ',
       )}`,
-    }
+    };
   }
 
   const linkedBuildItemBadWordCheck = linkedBuild.linkedBuildItems.map(
     (linkedBuildItem) => badWordFilter.isProfane(linkedBuildItem.label),
-  )
+  );
   const badWordCheck = linkedBuildItemBadWordCheck.find(
     (check) => check.isProfane,
-  )
+  );
   if (badWordCheck) {
     // Send webhook to #action-log
     await sendWebhook({
@@ -154,14 +154,14 @@ export async function createLinkedBuild(linkedBuild: Props): Promise<{
           },
         ],
       },
-    })
+    });
 
     return {
       status: 'error',
       message: `Could not save build with profanity: ${badWordCheck.badWords.join(
         ', ',
       )}`,
-    }
+    };
   }
 
   try {
@@ -186,7 +186,7 @@ export async function createLinkedBuild(linkedBuild: Props): Promise<{
           })),
         },
       },
-    })
+    });
 
     // Trigger webhook to send build to Discord
     if (process.env.NODE_ENV === 'production') {
@@ -194,7 +194,7 @@ export async function createLinkedBuild(linkedBuild: Props): Promise<{
         content: `New linked build created! https://www.remnant2toolkit.com/builder/linked/${
           newLinkedBuild.id
         }?t=${Date.now()}`,
-      }
+      };
 
       const res = await fetch(`${process.env.WEBHOOK_MOD_QUEUE}`, {
         method: 'POST',
@@ -202,12 +202,12 @@ export async function createLinkedBuild(linkedBuild: Props): Promise<{
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(params),
-      })
+      });
 
       if (!res.ok) {
         console.error(
           'Error in sending linked build moderation webhook to Discord!',
-        )
+        );
       }
 
       const res2 = await fetch(`${process.env.WEBHOOK_NEW_BUILD_FEED}`, {
@@ -216,10 +216,10 @@ export async function createLinkedBuild(linkedBuild: Props): Promise<{
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(params),
-      })
+      });
 
       if (!res2.ok) {
-        console.error('Error in sending linked build webhook to Discord!')
+        console.error('Error in sending linked build webhook to Discord!');
       }
     }
 
@@ -227,9 +227,9 @@ export async function createLinkedBuild(linkedBuild: Props): Promise<{
       status: 'success',
       message: 'Linked build created.',
       linkedBuild: newLinkedBuild,
-    }
+    };
   } catch (e) {
-    console.error(e)
-    return { status: 'error', message: 'Failed to create linked build.' }
+    console.error(e);
+    return { status: 'error', message: 'Failed to create linked build.' };
   }
 }

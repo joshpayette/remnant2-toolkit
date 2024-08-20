@@ -1,18 +1,18 @@
-'use server'
+'use server';
 
-import { prisma } from '@repo/db'
+import { prisma } from '@repo/db';
 
-import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile'
-import { getSession } from '@/app/(features)/auth/services/sessionService'
-import type { LinkedBuildState } from '@/app/(types)/linked-builds'
+import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile';
+import { getSession } from '@/app/(features)/auth/services/sessionService';
+import type { LinkedBuildState } from '@/app/(types)/linked-builds';
 
 export async function getLinkedBuild(linkedBuildId: string): Promise<{
-  status: 'success' | 'error'
-  message: string
-  linkedBuildState?: LinkedBuildState
+  status: 'success' | 'error';
+  message: string;
+  linkedBuildState?: LinkedBuildState;
 }> {
-  const session = await getSession()
-  const userId = session?.user?.id
+  const session = await getSession();
+  const userId = session?.user?.id;
 
   try {
     // delete all linkedBuildItems that are not public
@@ -25,7 +25,7 @@ export async function getLinkedBuild(linkedBuildId: string): Promise<{
           },
         },
       },
-    })
+    });
 
     const linkedBuild = await prisma.linkedBuild.findUnique({
       where: {
@@ -51,17 +51,17 @@ export async function getLinkedBuild(linkedBuildId: string): Promise<{
           },
         },
       },
-    })
+    });
 
     if (!linkedBuild) {
-      return { status: 'error', message: 'Linked build not found.' }
+      return { status: 'error', message: 'Linked build not found.' };
     }
 
     const createdByDisplayName =
-      linkedBuild?.createdBy?.displayName ?? DEFAULT_DISPLAY_NAME
+      linkedBuild?.createdBy?.displayName ?? DEFAULT_DISPLAY_NAME;
 
     // Find out whether the user has upvoted the build
-    const upvotes: Array<{ buildId: string; upvoted: boolean }> = []
+    const upvotes: Array<{ buildId: string; upvoted: boolean }> = [];
     if (userId) {
       for (const linkedBuildItem of linkedBuild.LinkedBuildItems) {
         const build = await prisma.buildVoteCounts.findFirst({
@@ -69,10 +69,10 @@ export async function getLinkedBuild(linkedBuildId: string): Promise<{
             buildId: linkedBuildItem.buildId,
             userId: userId,
           },
-        })
+        });
 
         if (build) {
-          upvotes.push({ buildId: linkedBuildItem.buildId, upvoted: true })
+          upvotes.push({ buildId: linkedBuildItem.buildId, upvoted: true });
         }
       }
     }
@@ -91,7 +91,7 @@ export async function getLinkedBuild(linkedBuildId: string): Promise<{
         linkedBuildItems: linkedBuild.LinkedBuildItems.filter(
           (linkedBuildItem) => linkedBuildItem.Build.isPublic,
         ).map((linkedBuildItem) => {
-          const build = linkedBuildItem.Build
+          const build = linkedBuildItem.Build;
           return {
             id: linkedBuildItem.id,
             label: linkedBuildItem.label,
@@ -104,6 +104,7 @@ export async function getLinkedBuild(linkedBuildId: string): Promise<{
               isFeaturedBuild: build.isFeaturedBuild,
               isBeginnerBuild: build.isBeginnerBuild,
               isBaseGameBuild: build.isBaseGameBuild,
+              isGimmickBuild: build.isGimmickBuild,
               dateFeatured: build.dateFeatured,
               isPatchAffected: build.isPatchAffected,
               isPublic: build.isPublic,
@@ -128,12 +129,12 @@ export async function getLinkedBuild(linkedBuildId: string): Promise<{
               reported: false,
               buildItems: build.BuildItems,
             },
-          }
+          };
         }),
       },
-    }
+    };
   } catch (e) {
-    console.error(e)
-    return { status: 'error', message: 'Error fetching linked build.' }
+    console.error(e);
+    return { status: 'error', message: 'Error fetching linked build.' };
   }
 }
