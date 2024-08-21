@@ -1,10 +1,10 @@
-import { DISCORD_INVITE_URL } from '@repo/constants'
-import { cn } from '@repo/ui/classnames'
-import { FooterContainer } from '@repo/ui/footer-container'
+import { DISCORD_INVITE_URL } from '@repo/constants';
+import { cn } from '@repo/ui/classnames';
+import { FooterContainer } from '@repo/ui/footer-container';
 
-import { NAV_ITEMS } from '@/app/(types)/navigation'
+import { NAV_ITEMS } from '@/app/(types)/navigation';
 
-const aClass = 'text-gray-300 hover:text-primary-400 underline'
+const aClass = 'text-gray-300 hover:text-primary-400 underline';
 
 export function Footer() {
   return (
@@ -18,10 +18,7 @@ export function Footer() {
         >
           open source project
         </a>{' '}
-        created and managed by Josh Payette.
-        <br />
-        <br />
-        View the{' '}
+        created and managed by Josh Payette. View the{' '}
         <a href={NAV_ITEMS.changeLog.href} className={cn(aClass)}>
           change log
         </a>{' '}
@@ -33,7 +30,7 @@ export function Footer() {
         >
           Patreon
         </a>
-        for the latest updates.
+        {` `}for the latest updates.
       </p>
 
       <p className="pb-4">
@@ -63,9 +60,7 @@ export function Footer() {
         >
           Vash Cowaii
         </a>
-        .
-        <br />
-        <br />A special thanks to{' '}
+        . A special thanks to{' '}
         <a
           href="https://github.com/joshpayette/remnant2-toolkit/blob/main/CONTRIBUTORS.md"
           target="_blank"
@@ -73,10 +68,7 @@ export function Footer() {
         >
           all of the community contributors
         </a>
-        , this project would not be possible without your help.
-      </p>
-
-      <p>
+        , this project would not be possible without your help.{' '}
         {`This project was inspired by Robin Kuiper's `}
         <a
           href="https://remnant.rkuiper.nl/"
@@ -92,5 +84,5 @@ export function Footer() {
         &nbsp;
       </div>
     </FooterContainer>
-  )
+  );
 }
