@@ -1,25 +1,25 @@
-import { BaseLink } from '@repo/ui/base/link'
-import { LeaderBoard } from '@repo/ui/leader-board/components'
-import { getImageUrl } from '@repo/ui/utils/get-image-url'
-import Image from 'next/image'
+import { BaseLink } from '@repo/ui/base/link';
+import { LeaderBoard } from '@repo/ui/leader-board/components';
+import { getImageUrl } from '@repo/ui/utils/get-image-url';
+import Image from 'next/image';
 
-import { LandingPageCard } from '@/app/(components)/cards/landing-page-card'
-import { LandingPageContainer } from '@/app/(components)/landing-page-container'
-import { getSession } from '@/app/(features)/auth/services/sessionService'
-import { getQualityBuildFeed } from '@/app/(features)/builds/actions/get-quality-build-feed'
-import { getTotalBuildCount } from '@/app/(features)/builds/actions/get-total-build-count'
-import { getLeaderBoard as getItemQuizLeaderBoard } from '@/app/(features)/item-quiz/actions/get-leader-board'
-import { NAV_ITEMS } from '@/app/(types)/navigation'
-import { getFavoritesLeaderboard } from '@/app/get-favorites-leaderboard'
-import { QualityBuildsFeed } from '@/app/quality-builds-feed'
+import { LandingPageCard } from '@/app/(components)/cards/landing-page-card';
+import { LandingPageContainer } from '@/app/(components)/landing-page-container';
+import { getSession } from '@/app/(features)/auth/services/sessionService';
+import { getQualityBuildFeed } from '@/app/(features)/builds/actions/get-quality-build-feed';
+import { getTotalBuildCount } from '@/app/(features)/builds/actions/get-total-build-count';
+import { getLeaderBoard as getItemQuizLeaderBoard } from '@/app/(features)/item-quiz/actions/get-leader-board';
+import { NAV_ITEMS } from '@/app/(types)/navigation';
+import { getFavoritesLeaderboard } from '@/app/get-favorites-leaderboard';
+import { QualityBuildsFeed } from '@/app/quality-builds-feed';
 
 export default async function Page() {
-  const session = await getSession()
+  const session = await getSession();
 
   const [totalBuildCount, qualityBuilds] = await Promise.all([
     getTotalBuildCount(),
     getQualityBuildFeed(),
-  ])
+  ]);
 
   return (
     <div className="grid w-full grid-cols-4 gap-x-4">
@@ -257,18 +257,18 @@ export default async function Page() {
             Latest Post
           </h3>
           <BaseLink
-            href="https://www.patreon.com/posts/latest-toolkit-110126697"
+            href="https://www.patreon.com/posts/thank-you-for-1-110485135"
             target="_blank"
           >
             <Image
-              src={getImageUrl('/patreon-posts/2024-08-14.jpg')}
+              src={getImageUrl('/patreon-posts/2024-08-20.jpg')}
               width={253}
               height={450}
-              alt="The latest Toolkit updates - DLC3 soon!"
+              alt="Thank you for 1 million page views!"
             />
           </BaseLink>
         </div>
       </div>
     </div>
-  )
+  );
 }
