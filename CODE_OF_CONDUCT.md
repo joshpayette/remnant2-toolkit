@@ -35,16 +35,20 @@ Examples of unacceptable behavior include:
   without their explicit permission
 - Other conduct which could reasonably be considered inappropriate in a
   professional setting
-- Overusing discord's @ feature 
+- Overusing discord's @ feature
 - Gore or violence beyond the context of the game
 
 ## Foreign Language Policy
 
-This community is primarily English-speaking. While we welcome and encourage
-people from all over the world to participate, we ask that all communication
-be in English. This includes build names and build descriptions. This is to
-ensure that all members of the community can understand and participate in
-discussions and activities, and to ensure that moderation is effective.
+This community is primarily English-speaking. We welcome and encourage people from
+all over the world to participate. Builds and descriptions can be written in any
+language. The mod team will do their best to moderate this non-English content in the
+same way as English language builds to ensure adherence to our Code of Conduct.
+
+The only exception to this policy is for curated builds
+(featured builds, base game builds, beginner builds, gimmick builds).
+Since these builds are vetted and promoted through discussion with the community,
+and the community is primarily English-speaking, this is necessary requirement.
 
 ## Enforcement Responsibilities
 
