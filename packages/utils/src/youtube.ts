@@ -27,6 +27,22 @@ function getVideoUrlType(
 }
 
 /**
+ * Removes all URL parameters except for the `v` parameter
+ * @example
+ * removeAllParamsExceptV('https://www.youtube.com/watch?v=4kIQKHxZGS8&si=XXXX
+ */
+function removeAllParamsExceptV(videoUrl: string): string {
+  const url = new URL(videoUrl);
+  const vParam = url.searchParams.get('v');
+
+  if (vParam) {
+    return `${url.origin}${url.pathname}?v=${vParam}`;
+  }
+
+  return `${url.origin}${url.pathname}`;
+}
+
+/**
  * Converts a Youtube video embed url to a video id
  * @example
  * videoEmbedUrlToVideoId('https://www.youtube.com/embed/4kIQKHxZGS8')
@@ -39,15 +55,7 @@ function videoUrlToVideoId(videoUrl: string): string | undefined {
   // remove the ?t=XXX part of the url
   // remove the ?list=XXX part of the url
   // remove the ?index=XXX part of the url
-  const videoUrlWithoutParams = videoUrl
-    .split('?si=')[0]
-    ?.split('&si=')[0]
-    ?.split('?t=')[0]
-    ?.split('&t=')[0]
-    ?.split('?list=')[0]
-    ?.split('&list=')[0]
-    ?.split('?index=')[0]
-    ?.split('&index=')[0];
+  const videoUrlWithoutParams = removeAllParamsExceptV(videoUrl);
 
   if (!videoUrlWithoutParams) return undefined;
 
