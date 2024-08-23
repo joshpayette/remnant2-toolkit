@@ -19,6 +19,7 @@ import { MutatorItem } from '@/app/(data)/items/types/MutatorItem';
 import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem';
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem';
 import { BIOMES } from '@/app/(features)/items/types/locations';
+import { useDiscoveredItems } from '@/app/(hooks)/use-discovered-items';
 import {
   ItemTrackerLocalStorage,
   LOCALSTORAGE_KEY,
@@ -227,15 +228,7 @@ export function ItemList() {
     }
   }, [filters]);
 
-  const [tracker] = useLocalStorage<ItemTrackerLocalStorage>(
-    LOCALSTORAGE_KEY.ITEM_TRACKER,
-    {
-      discoveredItemIds: [],
-      collapsedCategories: [],
-    },
-    { initializeWithValue: false },
-  );
-  const { discoveredItemIds } = tracker;
+  const { discoveredItemIds } = useDiscoveredItems();
 
   const filteredItems = getFilteredItems(filters, discoveredItemIds);
 

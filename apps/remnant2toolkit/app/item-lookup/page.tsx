@@ -1,58 +1,59 @@
-'use client'
+'use client';
 
-import { Skeleton } from '@repo/ui/skeleton'
-import { Suspense } from 'react'
-import { useLocalStorage } from 'usehooks-ts'
+import { Skeleton } from '@repo/ui/skeleton';
+import { Suspense } from 'react';
+import { useLocalStorage } from 'usehooks-ts';
 
-import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
-import { ItemLookupFilters } from '@/app/(components)/filters/item-lookup/item-lookup-filters'
-import { PageHeader } from '@/app/(components)/page-header'
-import { allItems } from '@/app/(data)/items/all-items'
-import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
+import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button';
+import { ItemLookupFilters } from '@/app/(components)/filters/item-lookup/item-lookup-filters';
+import { PageHeader } from '@/app/(components)/page-header';
+import { allItems } from '@/app/(data)/items/all-items';
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem';
 import {
   DEFAULT_ITEM_COMPARE_LIST,
   LOCALSTORAGE_KEY,
-} from '@/app/(types)/localstorage'
-import { itemToCsvItem } from '@/app/(utils)/items/item-to-csv-item'
-import { ItemCompareList } from '@/app/item-lookup/item-compare'
-import { ItemList } from '@/app/item-lookup/item-list'
+} from '@/app/(types)/localstorage';
+import { itemToCsvItem } from '@/app/(utils)/items/item-to-csv-item';
+import { ItemCompareList } from '@/app/item-lookup/item-compare';
+import { ItemList } from '@/app/item-lookup/item-list';
 
 const csvItems = allItems
   // Modify the data for use. Adds a discovered flag,
   // modifies the description for mutators
   .map((item) => {
-    let csvItem = itemToCsvItem(item)
+    let csvItem = itemToCsvItem(item);
 
     // For mutators, we need to combine the description
     // and the max level bonus
     if (MutatorItem.isMutatorItem(item)) {
-      const description = item.description
-      const maxLevelBonus = item.maxLevelBonus
+      const description = item.description;
+      const maxLevelBonus = item.maxLevelBonus;
       csvItem = itemToCsvItem({
         ...item,
         description: `${description}. At Max Level: ${maxLevelBonus}`,
-      })
+      });
     }
 
-    return csvItem
+    return csvItem;
   })
   // sort items by category then name alphabetically
   .sort((a, b) => {
-    if (a.category < b.category) return -1
-    if (a.category > b.category) return 1
-    if (a.name < b.name) return -1
-    if (a.name > b.name) return 1
-    return 0
-  })
+    if (a.category < b.category) return -1;
+    if (a.category > b.category) return 1;
+    if (a.name < b.name) return -1;
+    if (a.name > b.name) return 1;
+    return 0;
+  });
+
 export default function Page() {
   const [itemsToCompare, _setItemsToCompare] = useLocalStorage<string[]>(
     LOCALSTORAGE_KEY.ITEM_COMPARE,
     DEFAULT_ITEM_COMPARE_LIST,
     { initializeWithValue: false },
-  )
+  );
   const areAnyItemsBeingCompared = itemsToCompare.some(
     (itemId) => itemId !== '',
-  )
+  );
 
   return (
     <>
@@ -96,5 +97,5 @@ export default function Page() {
         </div>
       </div>
     </>
-  )
+  );
 }
