@@ -1,14 +1,14 @@
-import { OrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter'
-import { OrderBy } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
-import { TimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter'
-import { TimeRange } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
+import { OrderByFilter } from '@/app/(features)/builds/filters/secondary-filters/order-by-filter';
+import { OrderBy } from '@/app/(features)/builds/filters/secondary-filters/order-by-filter/use-order-by-filter';
+import { TimeRangeFilter } from '@/app/(features)/builds/filters/secondary-filters/time-range-filter';
+import { TimeRange } from '@/app/(features)/builds/filters/secondary-filters/time-range-filter/use-time-range-filter';
 
 interface Props {
-  isLoading: boolean
-  orderBy: OrderBy
-  onOrderByChange: (orderBy: OrderBy) => void
-  timeRange: TimeRange
-  onTimeRangeChange: (timeRange: TimeRange) => void
+  isLoading: boolean;
+  orderBy: OrderBy;
+  onOrderByChange: (orderBy: OrderBy) => void;
+  timeRange: TimeRange;
+  onTimeRangeChange: (timeRange: TimeRange) => void;
 }
 
 export function BuildSecondaryFilters({
@@ -35,5 +35,5 @@ export function BuildSecondaryFilters({
         />
       </div>
     </div>
-  )
+  );
 }

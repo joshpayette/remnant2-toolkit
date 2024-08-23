@@ -2,21 +2,21 @@ import {
   BaseListbox,
   BaseListboxLabel,
   BaseListboxOption,
-} from '@repo/ui/base/listbox'
+} from '@repo/ui/base/listbox';
 
 import {
   type OrderBy,
   useOrderByFilter,
-} from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
+} from '@/app/(features)/builds/filters/secondary-filters/order-by-filter/use-order-by-filter';
 
 interface Props {
-  isLoading: boolean
-  value: OrderBy
-  onChange: (value: OrderBy) => void
+  isLoading: boolean;
+  value: OrderBy;
+  onChange: (value: OrderBy) => void;
 }
 
 export function OrderByFilter({ isLoading, value, onChange }: Props) {
-  const { orderByOptions } = useOrderByFilter()
+  const { orderByOptions } = useOrderByFilter();
 
   return (
     <BaseListbox
@@ -32,5 +32,5 @@ export function OrderByFilter({ isLoading, value, onChange }: Props) {
         </BaseListboxOption>
       ))}
     </BaseListbox>
-  )
+  );
 }

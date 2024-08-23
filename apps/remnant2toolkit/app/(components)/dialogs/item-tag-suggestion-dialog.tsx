@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 import { ItemButton } from '@/app/(components)/buttons/item-button';
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
-import { ItemTagSelect } from '@/app/(components)/filters/builds/item-tag-select';
+import { ItemTagSelect } from '@/app/(features)/builds/filters/item-tag-select';
 import { allItems } from '@/app/(data)/items/all-items';
 import { archetypeItems } from '@/app/(data)/items/archetype-items';
 import { Item } from '@/app/(data)/items/types';

@@ -1,43 +1,47 @@
-'use client'
+'use client';
 
-import { Disclosure } from '@headlessui/react'
-import { BaseButton } from '@repo/ui/base/button'
-import { BaseField, BaseFieldGroup, BaseFieldset } from '@repo/ui/base/fieldset'
-import { cn } from '@repo/ui/classnames'
-import { FilterIcon } from '@repo/ui/icons/filter'
-import isEqual from 'lodash.isequal'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { useSession } from 'next-auth/react'
-import { useMemo, useState } from 'react'
+import { Disclosure } from '@headlessui/react';
+import { BaseButton } from '@repo/ui/base/button';
+import {
+  BaseField,
+  BaseFieldGroup,
+  BaseFieldset,
+} from '@repo/ui/base/fieldset';
+import { cn } from '@repo/ui/classnames';
+import { FilterIcon } from '@repo/ui/icons/filter';
+import isEqual from 'lodash.isequal';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useSession } from 'next-auth/react';
+import { useMemo, useState } from 'react';
 
-import { AmuletFilter } from '@/app/(components)/filters/builds/amulet-filter'
+import {
+  ReleasesFilter,
+  VALID_RELEASE_KEYS,
+} from '@/app/(components)/filters/releases-filter';
+import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
+import { InputWithClear } from '@/app/(components)/input-with-clear';
+import { QualityBuildDialog } from '@/app/(features)/builds/components/dialogs/quality-build-dialog';
+import { AmuletFilter } from '@/app/(features)/builds/filters/amulet-filter';
 import {
   ArchetypeFilter,
   VALID_ARCHETYPES,
-} from '@/app/(components)/filters/builds/archetype-filter'
-import { BuildMiscFilter } from '@/app/(components)/filters/builds/build-misc-filter'
+} from '@/app/(features)/builds/filters/archetype-filter';
+import { BuildMiscFilter } from '@/app/(features)/builds/filters/build-misc-filter';
 import {
   BuildTagFilter,
   VALID_BUILD_TAGS,
-} from '@/app/(components)/filters/builds/build-tag-filter'
-import { HandGunFilter } from '@/app/(components)/filters/builds/hand-gun-filter'
-import { LongGunFilter } from '@/app/(components)/filters/builds/long-gun-filter'
-import { MeleeFilter } from '@/app/(components)/filters/builds/melee-filter'
-import { RelicFilter } from '@/app/(components)/filters/builds/relic-filter'
-import { RingFilter } from '@/app/(components)/filters/builds/ring-filter'
+} from '@/app/(features)/builds/filters/build-tag-filter';
+import { HandGunFilter } from '@/app/(features)/builds/filters/hand-gun-filter';
+import { LongGunFilter } from '@/app/(features)/builds/filters/long-gun-filter';
+import { MeleeFilter } from '@/app/(features)/builds/filters/melee-filter';
+import { RelicFilter } from '@/app/(features)/builds/filters/relic-filter';
+import { RingFilter } from '@/app/(features)/builds/filters/ring-filter';
 import {
   BUILD_FILTER_KEYS,
   BuildListFilters,
   MAX_RINGS,
-} from '@/app/(components)/filters/builds/types'
-import { parseUrlFilters } from '@/app/(components)/filters/builds/utils'
-import {
-  ReleasesFilter,
-  VALID_RELEASE_KEYS,
-} from '@/app/(components)/filters/releases-filter'
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
-import { InputWithClear } from '@/app/(components)/input-with-clear'
-import { QualityBuildDialog } from '@/app/(features)/builds/components/dialogs/quality-build-dialog'
+} from '@/app/(features)/builds/filters/types';
+import { parseUrlFilters } from '@/app/(features)/builds/filters/utils';
 
 export const DEFAULT_BUILD_FILTERS = {
   archetypes: VALID_ARCHETYPES,
@@ -55,60 +59,60 @@ export const DEFAULT_BUILD_FILTERS = {
   withQuality: false,
   withVideo: false,
   withReference: false,
-} as const satisfies BuildListFilters
+} as const satisfies BuildListFilters;
 
 interface Props {
-  buildFiltersOverrides?: Partial<BuildListFilters>
-  loadingResults: boolean
+  buildFiltersOverrides?: Partial<BuildListFilters>;
+  loadingResults: boolean;
 }
 
 // #region Component
 
 export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
-  const [qualityBuildDialogOpen, setQualityBuildDialogOpen] = useState(false)
-  const { status: sessionStatus } = useSession()
+  const [qualityBuildDialogOpen, setQualityBuildDialogOpen] = useState(false);
+  const { status: sessionStatus } = useSession();
 
   const defaultFilters = useMemo(() => {
     return buildFiltersOverrides
       ? { ...DEFAULT_BUILD_FILTERS, ...buildFiltersOverrides }
-      : DEFAULT_BUILD_FILTERS
-  }, [buildFiltersOverrides])
+      : DEFAULT_BUILD_FILTERS;
+  }, [buildFiltersOverrides]);
 
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams();
   const filters = useMemo(() => {
-    return parseUrlFilters(searchParams, defaultFilters)
-  }, [searchParams, defaultFilters])
+    return parseUrlFilters(searchParams, defaultFilters);
+  }, [searchParams, defaultFilters]);
 
-  const [unappliedFilters, setUnappliedFilters] = useState(filters)
+  const [unappliedFilters, setUnappliedFilters] = useState(filters);
 
   function clearFilters() {
-    setUnappliedFilters(defaultFilters)
-    applyUrlFilters(defaultFilters)
+    setUnappliedFilters(defaultFilters);
+    applyUrlFilters(defaultFilters);
   }
 
   const areAnyFiltersActive = useMemo(() => {
-    if (isEqual(filters, defaultFilters)) return false
-    return true
-  }, [filters, defaultFilters])
+    if (isEqual(filters, defaultFilters)) return false;
+    return true;
+  }, [filters, defaultFilters]);
 
   const areFiltersApplied = useMemo(() => {
-    if (isEqual(filters, unappliedFilters)) return true
-    return false
-  }, [filters, unappliedFilters])
+    if (isEqual(filters, unappliedFilters)) return true;
+    return false;
+  }, [filters, unappliedFilters]);
 
   // #region Apply Filters Handler
 
-  const pathname = usePathname()
-  const router = useRouter()
+  const pathname = usePathname();
+  const router = useRouter();
 
   function applyUrlFilters(filtersToApply: BuildListFilters) {
-    if (loadingResults) return
+    if (loadingResults) return;
 
-    let url = `${pathname}?t=${Date.now()}&`
+    let url = `${pathname}?t=${Date.now()}&`;
 
     // Add the amulet filter
     if (filtersToApply.amulet !== defaultFilters.amulet) {
-      url += `${BUILD_FILTER_KEYS.AMULET}=${filtersToApply.amulet}&`
+      url += `${BUILD_FILTER_KEYS.AMULET}=${filtersToApply.amulet}&`;
     }
 
     // Add the archetype filter
@@ -118,7 +122,7 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
     ) {
       url += `${BUILD_FILTER_KEYS.ARCHETYPES}=${filtersToApply.archetypes.join(
         ',',
-      )}&`
+      )}&`;
     }
 
     // Add the build tag filters
@@ -128,7 +132,7 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
     ) {
       url += `${BUILD_FILTER_KEYS.BUILDTAGS}=${filtersToApply.buildTags.join(
         ',',
-      )}&`
+      )}&`;
     }
 
     // Add the long gun filters
@@ -136,7 +140,7 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
       filtersToApply.longGun !== defaultFilters.longGun &&
       filtersToApply.longGun !== DEFAULT_FILTER
     ) {
-      url += `${BUILD_FILTER_KEYS.LONGGUN}=${filtersToApply.longGun}&`
+      url += `${BUILD_FILTER_KEYS.LONGGUN}=${filtersToApply.longGun}&`;
     }
 
     // Add the hand gun filters
@@ -144,7 +148,7 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
       filtersToApply.handGun !== defaultFilters.handGun &&
       filtersToApply.handGun !== DEFAULT_FILTER
     ) {
-      url += `${BUILD_FILTER_KEYS.HANDGUN}=${filtersToApply.handGun}&`
+      url += `${BUILD_FILTER_KEYS.HANDGUN}=${filtersToApply.handGun}&`;
     }
 
     // Add the melee filters
@@ -152,7 +156,7 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
       filtersToApply.melee !== defaultFilters.melee &&
       filtersToApply.melee !== DEFAULT_FILTER
     ) {
-      url += `${BUILD_FILTER_KEYS.MELEE}=${filtersToApply.melee}&`
+      url += `${BUILD_FILTER_KEYS.MELEE}=${filtersToApply.melee}&`;
     }
 
     // Add the releases filters
@@ -162,12 +166,12 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
     ) {
       url += `${BUILD_FILTER_KEYS.RELEASES}=${filtersToApply.releases.join(
         ',',
-      )}&`
+      )}&`;
     }
 
     // Add the relic filter
     if (filtersToApply.relic !== defaultFilters.relic) {
-      url += `${BUILD_FILTER_KEYS.RELIC}=${filtersToApply.relic}&`
+      url += `${BUILD_FILTER_KEYS.RELIC}=${filtersToApply.relic}&`;
     }
 
     // Add the ring filters
@@ -175,48 +179,48 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
       !isEqual(filtersToApply.rings, defaultFilters.rings) &&
       !filtersToApply.rings.includes(DEFAULT_FILTER)
     ) {
-      url += `${BUILD_FILTER_KEYS.RINGS}=${filtersToApply.rings.join(',')}&`
+      url += `${BUILD_FILTER_KEYS.RINGS}=${filtersToApply.rings.join(',')}&`;
     }
 
     // Add the search text
     if (filtersToApply.searchText !== defaultFilters.searchText) {
-      url += `${BUILD_FILTER_KEYS.SEARCHTEXT}=${filtersToApply.searchText}&`
+      url += `${BUILD_FILTER_KEYS.SEARCHTEXT}=${filtersToApply.searchText}&`;
     }
 
     // Add the misc filters
     if (filtersToApply.patchAffected !== defaultFilters.patchAffected) {
-      url += `${BUILD_FILTER_KEYS.PATCHAFFECTED}=${filtersToApply.patchAffected}&`
+      url += `${BUILD_FILTER_KEYS.PATCHAFFECTED}=${filtersToApply.patchAffected}&`;
     }
     if (filtersToApply.withVideo !== defaultFilters.withVideo) {
-      url += `${BUILD_FILTER_KEYS.WITHVIDEO}=${filtersToApply.withVideo}&`
+      url += `${BUILD_FILTER_KEYS.WITHVIDEO}=${filtersToApply.withVideo}&`;
     }
     if (filtersToApply.withReference !== defaultFilters.withReference) {
-      url += `${BUILD_FILTER_KEYS.WITHREFERENCE}=${filtersToApply.withReference}&`
+      url += `${BUILD_FILTER_KEYS.WITHREFERENCE}=${filtersToApply.withReference}&`;
     }
     if (filtersToApply.withQuality !== defaultFilters.withQuality) {
-      url += `${BUILD_FILTER_KEYS.WITHQUALITY}=${filtersToApply.withQuality}&`
+      url += `${BUILD_FILTER_KEYS.WITHQUALITY}=${filtersToApply.withQuality}&`;
     }
     if (filtersToApply.withCollection !== defaultFilters.withCollection) {
-      url += `${BUILD_FILTER_KEYS.WITHCOLLECTION}=${filtersToApply.withCollection}&`
+      url += `${BUILD_FILTER_KEYS.WITHCOLLECTION}=${filtersToApply.withCollection}&`;
     }
 
     // trim the final &
     if (url.endsWith('&')) {
-      url = url.slice(0, -1)
+      url = url.slice(0, -1);
     }
 
-    router.push(url, { scroll: false })
+    router.push(url, { scroll: false });
   }
 
   // #region Filter Change Handlers
 
   function handleSearchTextChange(newSearchText: string) {
-    setUnappliedFilters((prev) => ({ ...prev, searchText: newSearchText }))
+    setUnappliedFilters((prev) => ({ ...prev, searchText: newSearchText }));
   }
 
   function handleAmuletChange(newAmulet: string) {
-    const newFilters = { ...unappliedFilters, amulet: newAmulet }
-    setUnappliedFilters(newFilters)
+    const newFilters = { ...unappliedFilters, amulet: newAmulet };
+    setUnappliedFilters(newFilters);
   }
 
   function handleArchetypeChange(newArchetype: string, checked: boolean) {
@@ -227,17 +231,17 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
         archetypes: unappliedFilters.archetypes.filter(
           (i) => i !== newArchetype,
         ),
-      }
-      setUnappliedFilters(newFilters)
-      return
+      };
+      setUnappliedFilters(newFilters);
+      return;
     }
 
     // if the archetype is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
       archetypes: [...unappliedFilters.archetypes, newArchetype],
-    }
-    setUnappliedFilters(newFilters)
+    };
+    setUnappliedFilters(newFilters);
   }
 
   function handleBuildTagChange(newBuildTag: string, checked: boolean) {
@@ -246,32 +250,32 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
       const newFilters = {
         ...unappliedFilters,
         buildTags: unappliedFilters.buildTags.filter((i) => i !== newBuildTag),
-      }
-      setUnappliedFilters(newFilters)
-      return
+      };
+      setUnappliedFilters(newFilters);
+      return;
     }
 
     // if the build tag is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
       buildTags: [...unappliedFilters.buildTags, newBuildTag],
-    }
-    setUnappliedFilters(newFilters)
+    };
+    setUnappliedFilters(newFilters);
   }
 
   function handleLongGunChange(newLongGun: string) {
-    const newFilters = { ...unappliedFilters, longGun: newLongGun }
-    setUnappliedFilters(newFilters)
+    const newFilters = { ...unappliedFilters, longGun: newLongGun };
+    setUnappliedFilters(newFilters);
   }
 
   function handleHandGunChange(newHandGun: string) {
-    const newFilters = { ...unappliedFilters, handGun: newHandGun }
-    setUnappliedFilters(newFilters)
+    const newFilters = { ...unappliedFilters, handGun: newHandGun };
+    setUnappliedFilters(newFilters);
   }
 
   function handleMeleeChange(newMelee: string) {
-    const newFilters = { ...unappliedFilters, melee: newMelee }
-    setUnappliedFilters(newFilters)
+    const newFilters = { ...unappliedFilters, melee: newMelee };
+    setUnappliedFilters(newFilters);
   }
 
   function handleReleasesChange(newRelease: string, checked: boolean) {
@@ -280,30 +284,30 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
       const newFilters = {
         ...unappliedFilters,
         releases: unappliedFilters.releases.filter((i) => i !== newRelease),
-      }
-      setUnappliedFilters(newFilters)
-      return
+      };
+      setUnappliedFilters(newFilters);
+      return;
     }
 
     // if the release is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
       releases: [...unappliedFilters.releases, newRelease],
-    }
-    setUnappliedFilters(newFilters)
+    };
+    setUnappliedFilters(newFilters);
   }
 
   function handleRelicChange(newRelic: string) {
-    const newFilters = { ...unappliedFilters, relic: newRelic }
-    setUnappliedFilters(newFilters)
+    const newFilters = { ...unappliedFilters, relic: newRelic };
+    setUnappliedFilters(newFilters);
   }
 
   function handleRingChange(newRings: string[]) {
     // if the newRings length is 0, set the rings to the default value
     if (newRings.length === 0) {
-      const newFilters = { ...unappliedFilters, rings: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      return
+      const newFilters = { ...unappliedFilters, rings: [DEFAULT_FILTER] };
+      setUnappliedFilters(newFilters);
+      return;
     }
 
     // If the first item is the default value ("All"), apply the filters after removing the default value
@@ -311,35 +315,37 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
       const newFilters = {
         ...unappliedFilters,
         rings: newRings.filter((i) => i !== DEFAULT_FILTER),
-      }
-      setUnappliedFilters(newFilters)
-      return
+      };
+      setUnappliedFilters(newFilters);
+      return;
     }
 
     // If any of the filters contain the default value of "All", just apply the filters
     if (newRings.includes(DEFAULT_FILTER)) {
-      const newFilters = { ...unappliedFilters, rings: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      return
+      const newFilters = { ...unappliedFilters, rings: [DEFAULT_FILTER] };
+      setUnappliedFilters(newFilters);
+      return;
     }
 
     // if the newRings length is more than the max rings, return
-    if (newRings.length > MAX_RINGS) return
+    if (newRings.length > MAX_RINGS) return;
 
     // If we got here, remove the default value from the list
     const newFilters = {
       ...unappliedFilters,
       rings: newRings.filter((ring) => ring !== DEFAULT_FILTER),
-    }
-    setUnappliedFilters(newFilters)
+    };
+    setUnappliedFilters(newFilters);
   }
 
   function handleMiscFilterChange(newFilters: string[]) {
-    const patchAffected = newFilters.includes(BUILD_FILTER_KEYS.PATCHAFFECTED)
-    const withCollection = newFilters.includes(BUILD_FILTER_KEYS.WITHCOLLECTION)
-    const withQuality = newFilters.includes(BUILD_FILTER_KEYS.WITHQUALITY)
-    const withVideo = newFilters.includes(BUILD_FILTER_KEYS.WITHVIDEO)
-    const withReference = newFilters.includes(BUILD_FILTER_KEYS.WITHREFERENCE)
+    const patchAffected = newFilters.includes(BUILD_FILTER_KEYS.PATCHAFFECTED);
+    const withCollection = newFilters.includes(
+      BUILD_FILTER_KEYS.WITHCOLLECTION,
+    );
+    const withQuality = newFilters.includes(BUILD_FILTER_KEYS.WITHQUALITY);
+    const withVideo = newFilters.includes(BUILD_FILTER_KEYS.WITHVIDEO);
+    const withReference = newFilters.includes(BUILD_FILTER_KEYS.WITHREFERENCE);
 
     setUnappliedFilters((prev) => ({
       ...prev,
@@ -348,7 +354,7 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
       withQuality,
       withVideo,
       withReference,
-    }))
+    }));
   }
 
   // #region Render
@@ -370,15 +376,15 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
                       const newFilters = {
                         ...unappliedFilters,
                         searchText: '',
-                      }
-                      setUnappliedFilters(newFilters)
-                      applyUrlFilters(newFilters)
+                      };
+                      setUnappliedFilters(newFilters);
+                      applyUrlFilters(newFilters);
                     }}
                     onChange={(e) => handleSearchTextChange(e.target.value)}
                     onKeyDown={(e) => {
                       // If the user presses enter, apply the filters
                       if (e.key === 'Enter') {
-                        applyUrlFilters(unappliedFilters)
+                        applyUrlFilters(unappliedFilters);
                       }
                     }}
                   />
@@ -408,15 +414,15 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
                         const newFilters = {
                           ...unappliedFilters,
                           archetypes: VALID_ARCHETYPES,
-                        }
-                        setUnappliedFilters(newFilters)
+                        };
+                        setUnappliedFilters(newFilters);
                       }}
                       onUncheckAll={() => {
                         const newFilters = {
                           ...unappliedFilters,
                           archetypes: [],
-                        }
-                        setUnappliedFilters(newFilters)
+                        };
+                        setUnappliedFilters(newFilters);
                       }}
                     />
                   </div>
@@ -458,15 +464,15 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
                         const newFilters = {
                           ...unappliedFilters,
                           releases: VALID_RELEASE_KEYS,
-                        }
-                        setUnappliedFilters(newFilters)
+                        };
+                        setUnappliedFilters(newFilters);
                       }}
                       onUncheckAll={() => {
                         const newFilters = {
                           ...unappliedFilters,
                           releases: [],
-                        }
-                        setUnappliedFilters(newFilters)
+                        };
+                        setUnappliedFilters(newFilters);
                       }}
                     />
                   </div>
@@ -478,15 +484,15 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
                         const newFilters = {
                           ...unappliedFilters,
                           buildTags: VALID_BUILD_TAGS,
-                        }
-                        setUnappliedFilters(newFilters)
+                        };
+                        setUnappliedFilters(newFilters);
                       }}
                       onUncheckAll={() => {
                         const newFilters = {
                           ...unappliedFilters,
                           buildTags: [],
-                        }
-                        setUnappliedFilters(newFilters)
+                        };
+                        setUnappliedFilters(newFilters);
                       }}
                     />
                   </div>
@@ -561,5 +567,5 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
         </div>
       )}
     </Disclosure>
-  )
+  );
 }

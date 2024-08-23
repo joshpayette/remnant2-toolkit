@@ -20,11 +20,11 @@ import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem';
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem';
 import { BIOMES } from '@/app/(features)/items/types/locations';
 import { useDiscoveredItems } from '@/app/(hooks)/use-discovered-items';
-import {
-  ItemTrackerLocalStorage,
-  LOCALSTORAGE_KEY,
-} from '@/app/(types)/localstorage';
 import { itemMatchesSearchText } from '@/app/(utils)/items/item-matches-search-text';
+
+import { archetypeItems } from '../(data)/items/archetype-items';
+import { perkItems } from '../(data)/items/perk-items';
+import { skillItems } from '../(data)/items/skill-items';
 
 const allItemsWithDiscovered = allItems.map((item) => ({
   ...item,
@@ -39,6 +39,41 @@ function getFilteredItems(
     ...item,
     discovered: discoveredItemIds.includes(item.id),
   }));
+
+  // Loop over each archetype, and if it is discovered, then mark the
+  // associated skills and perks as discovered
+  for (const archetypeItem of archetypeItems) {
+    const isDiscovered = filteredItems.find((i) => i.id === archetypeItem.id)
+      ?.discovered;
+    if (!isDiscovered) {
+      continue;
+    }
+
+    if (
+      !archetypeItem.linkedItems?.skills ||
+      !archetypeItem.linkedItems?.perks
+    ) {
+      continue;
+    }
+
+    for (const skill of archetypeItem.linkedItems.skills) {
+      const skillItem = skillItems.find((i) => i.name === skill.name);
+      if (skillItem) {
+        filteredItems = filteredItems.map((i) =>
+          i.id === skillItem.id ? { ...i, discovered: true } : i,
+        );
+      }
+    }
+
+    for (const perk of archetypeItem.linkedItems.perks) {
+      const perkItem = perkItems.find((i) => i.name === perk.name);
+      if (perkItem) {
+        filteredItems = filteredItems.map((i) =>
+          i.id === perkItem.id ? { ...i, discovered: true } : i,
+        );
+      }
+    }
+  }
 
   // if categories are not default, filter by categories
   if (
@@ -107,42 +142,13 @@ function getFilteredItems(
           .filter((i) => i !== DEFAULT_FILTER)
           .includes('Undiscovered')
       ) {
-        // If the item is a mod, we want to show if the linked weapon is undiscovered
-        // If the item is a skill or perk, we want to show if the linked archetype is undiscovered
-        if (item.category === 'mod') {
-          const linkedWeapon = filteredItems.find(
-            (i) => i.name === item.linkedItems?.weapon?.name,
-          );
-          return linkedWeapon?.discovered === false;
-        } else if (item.category === 'skill' || item.category === 'perk') {
-          const linkedArchetype = filteredItems.find(
-            (i) => i.name === item.linkedItems?.archetype?.name,
-          );
-          return linkedArchetype?.discovered === false;
-        } else {
-          return item.discovered === false;
-        }
+        return item.discovered === false;
       } else if (
         filters.collections
           .filter((i) => i !== DEFAULT_FILTER)
           .includes('Discovered')
       ) {
-        // If the item is a mod, we want to show if the linked weapon is discovered
-        // If the item is a skill or perk, we want to show if the linked archetype is discovered
-        if (item.category === 'mod') {
-          const linkedWeapon = filteredItems.find(
-            (i) => i.name === item.linkedItems?.weapon?.name,
-          );
-          return linkedWeapon?.discovered === true;
-        } else if (item.category === 'skill' || item.category === 'perk') {
-          const linkedArchetype = filteredItems.find(
-            (i) => i.name === item.linkedItems?.archetype?.name,
-          );
-
-          return linkedArchetype?.discovered === true;
-        } else {
-          return item.discovered === true;
-        }
+        return item.discovered === true;
       } else {
         return false;
       }
@@ -229,7 +235,6 @@ export function ItemList() {
   }, [filters]);
 
   const { discoveredItemIds } = useDiscoveredItems();
-
   const filteredItems = getFilteredItems(filters, discoveredItemIds);
 
   const isClient = useIsClient();

@@ -4,10 +4,10 @@ import { Prisma } from '@repo/db';
 import { prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils/big-int-fix';
 
-import { BuildVisibility } from '@/app/(components)/filters/builds/secondary-filters/build-visibility-filter/use-build-visibility-filter';
-import { OrderBy } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter';
-import { TimeRange } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter';
-import { BuildListFilters } from '@/app/(components)/filters/builds/types';
+import { BuildVisibility } from '@/app/(features)/builds/filters/secondary-filters/build-visibility-filter/use-build-visibility-filter';
+import { OrderBy } from '@/app/(features)/builds/filters/secondary-filters/order-by-filter/use-order-by-filter';
+import { TimeRange } from '@/app/(features)/builds/filters/secondary-filters/time-range-filter/use-time-range-filter';
+import { BuildListFilters } from '@/app/(features)/builds/filters/types';
 import { DBBuild } from '@/app/(features)/builds/types/db-build';
 import {
   communityBuildsCountQuery,

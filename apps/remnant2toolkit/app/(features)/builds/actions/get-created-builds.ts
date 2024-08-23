@@ -4,8 +4,8 @@ import { Prisma } from '@repo/db';
 import { prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils/big-int-fix';
 
-import { OrderBy } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter';
-import { TimeRange } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter';
+import { OrderBy } from '@/app/(features)/builds/filters/secondary-filters/order-by-filter/use-order-by-filter';
+import { TimeRange } from '@/app/(features)/builds/filters/secondary-filters/time-range-filter/use-time-range-filter';
 import { getSession } from '@/app/(features)/auth/services/sessionService';
 import { DBBuild } from '@/app/(features)/builds/types/db-build';
 import {
