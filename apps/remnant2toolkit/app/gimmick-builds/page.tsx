@@ -4,7 +4,7 @@ import { DISCORD_INVITE_URL } from '@repo/constants';
 import { BaseText, BaseTextLink } from '@repo/ui/base/text';
 import { useCallback, useState } from 'react';
 
-import { BuildFilters } from '@/app/(components)/filters/builds/build-filters';
+import { BuildFilters } from '@/app/(features)/builds/filters/build-filters';
 import { PageHeader } from '@/app/(components)/page-header';
 import { NAV_ITEMS } from '@/app/(types)/navigation';
 import { DEFAULT_ITEMS_PER_PAGE } from '@/app/(utils)/pagination/constants';

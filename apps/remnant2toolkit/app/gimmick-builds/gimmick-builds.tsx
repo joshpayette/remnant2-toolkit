@@ -7,10 +7,10 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { BuildList } from '@/app/(components)/build-list';
-import { BuildSecondaryFilters } from '@/app/(components)/filters/builds/secondary-filters';
-import { useOrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter';
-import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter';
-import { parseUrlFilters } from '@/app/(components)/filters/builds/utils';
+import { BuildSecondaryFilters } from '@/app/(features)/builds/filters/secondary-filters';
+import { useOrderByFilter } from '@/app/(features)/builds/filters/secondary-filters/order-by-filter/use-order-by-filter';
+import { useTimeRangeFilter } from '@/app/(features)/builds/filters/secondary-filters/time-range-filter/use-time-range-filter';
+import { parseUrlFilters } from '@/app/(features)/builds/filters/utils';
 import { Tooltip } from '@/app/(components)/tooltip';
 import { getGimmickBuilds } from '@/app/(features)/builds/actions/get-gimmick-builds';
 import { BuildCard } from '@/app/(features)/builds/components/cards/build-card';

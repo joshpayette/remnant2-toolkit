@@ -1,18 +1,18 @@
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
+import { BaseField, BaseLabel } from '@repo/ui/base/fieldset';
 import {
   BaseListbox,
   BaseListboxLabel,
   BaseListboxOption,
-} from '@repo/ui/base/listbox'
+} from '@repo/ui/base/listbox';
 
-import { BUILD_FILTER_KEYS } from '@/app/(components)/filters/builds/types'
+import { BUILD_FILTER_KEYS } from '@/app/(features)/builds/filters/types';
 
 interface Props {
-  value: string[]
-  onChange: (value: string[]) => void
+  value: string[];
+  onChange: (value: string[]) => void;
 }
 
-export const MINIMUM_QUALITY_DESCRIPTION_LENGTH = 200
+export const MINIMUM_QUALITY_DESCRIPTION_LENGTH = 200;
 
 export function BuildMiscFilter({ value, onChange }: Props) {
   const options = [
@@ -36,7 +36,7 @@ export function BuildMiscFilter({ value, onChange }: Props) {
       label: 'Patch Affected Builds',
       value: BUILD_FILTER_KEYS.PATCHAFFECTED,
     },
-  ]
+  ];
 
   return (
     <BaseField>
@@ -49,5 +49,5 @@ export function BuildMiscFilter({ value, onChange }: Props) {
         ))}
       </BaseListbox>
     </BaseField>
-  )
+  );
 }

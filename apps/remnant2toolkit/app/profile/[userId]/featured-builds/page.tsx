@@ -1,33 +1,33 @@
-'use client'
+'use client';
 
-import { useSession } from 'next-auth/react'
-import { useCallback, useState } from 'react'
+import { useSession } from 'next-auth/react';
+import { useCallback, useState } from 'react';
 
-import { BuildFilters } from '@/app/(components)/filters/builds/build-filters'
-import { BuildListFilters } from '@/app/(components)/filters/builds/types'
-import { FeaturedBuilds } from '@/app/profile/[userId]/featured-builds/featured-builds'
+import { BuildFilters } from '@/app/(features)/builds/filters/build-filters';
+import { BuildListFilters } from '@/app/(features)/builds/filters/types';
+import { FeaturedBuilds } from '@/app/profile/[userId]/featured-builds/featured-builds';
 
 const buildFilters: Partial<BuildListFilters> = {
   patchAffected: true,
-}
+};
 
 export default function Page({
   params: { userId },
 }: {
-  params: { userId: string }
+  params: { userId: string };
 }) {
-  const [loadingResults, setLoadingResults] = useState(false)
+  const [loadingResults, setLoadingResults] = useState(false);
 
   const handleToggleLoadingResults = useCallback(
     (isLoading: boolean) => setLoadingResults(isLoading),
     [],
-  )
+  );
 
-  const { data: session, status } = useSession()
-  const isEditable = session?.user?.id === userId
+  const { data: session, status } = useSession();
+  const isEditable = session?.user?.id === userId;
 
   if (status === 'loading') {
-    return <p>Loading...</p>
+    return <p>Loading...</p>;
   }
 
   return (
@@ -48,5 +48,5 @@ export default function Page({
         />
       </div>
     </>
-  )
+  );
 }

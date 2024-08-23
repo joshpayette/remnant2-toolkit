@@ -2,21 +2,21 @@ import {
   BaseListbox,
   BaseListboxLabel,
   BaseListboxOption,
-} from '@repo/ui/base/listbox'
+} from '@repo/ui/base/listbox';
 
 import {
   type TimeRange,
   useTimeRangeFilter,
-} from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
+} from '@/app/(features)/builds/filters/secondary-filters/time-range-filter/use-time-range-filter';
 
 interface Props {
-  isLoading: boolean
-  value: TimeRange
-  onChange: (value: TimeRange) => void
+  isLoading: boolean;
+  value: TimeRange;
+  onChange: (value: TimeRange) => void;
 }
 
 export function TimeRangeFilter({ isLoading, value, onChange }: Props) {
-  const { timeRangeOptions } = useTimeRangeFilter()
+  const { timeRangeOptions } = useTimeRangeFilter();
 
   return (
     <BaseListbox
@@ -32,5 +32,5 @@ export function TimeRangeFilter({ isLoading, value, onChange }: Props) {
         </BaseListboxOption>
       ))}
     </BaseListbox>
-  )
+  );
 }

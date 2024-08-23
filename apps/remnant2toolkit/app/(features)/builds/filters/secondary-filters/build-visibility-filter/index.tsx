@@ -2,18 +2,18 @@ import {
   BaseListbox,
   BaseListboxLabel,
   BaseListboxOption,
-} from '@repo/ui/base/listbox'
+} from '@repo/ui/base/listbox';
 
-import { useBuildVisibilityFilter } from '@/app/(components)/filters/builds/secondary-filters/build-visibility-filter/use-build-visibility-filter'
+import { useBuildVisibilityFilter } from '@/app/(features)/builds/filters/secondary-filters/build-visibility-filter/use-build-visibility-filter';
 
 interface Props {
-  isLoading: boolean
-  value: string
-  onChange: (value: string) => void
+  isLoading: boolean;
+  value: string;
+  onChange: (value: string) => void;
 }
 
 export function BuildVisibilityFilter({ isLoading, value, onChange }: Props) {
-  const { buildVisibilityOptions } = useBuildVisibilityFilter()
+  const { buildVisibilityOptions } = useBuildVisibilityFilter();
 
   return (
     <BaseListbox
@@ -29,5 +29,5 @@ export function BuildVisibilityFilter({ isLoading, value, onChange }: Props) {
         </BaseListboxOption>
       ))}
     </BaseListbox>
-  )
+  );
 }

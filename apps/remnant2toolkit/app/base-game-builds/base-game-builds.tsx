@@ -1,41 +1,41 @@
-'use client'
+'use client';
 
-import { BaseLink } from '@repo/ui/base/link'
-import { EyeIcon } from '@repo/ui/icons/eye'
-import { Skeleton } from '@repo/ui/skeleton'
-import { useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { BaseLink } from '@repo/ui/base/link';
+import { EyeIcon } from '@repo/ui/icons/eye';
+import { Skeleton } from '@repo/ui/skeleton';
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-import { BuildList } from '@/app/(components)/build-list'
-import { BuildSecondaryFilters } from '@/app/(components)/filters/builds/secondary-filters'
-import { useOrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
-import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
-import { parseUrlFilters } from '@/app/(components)/filters/builds/utils'
-import { Tooltip } from '@/app/(components)/tooltip'
-import { getBaseGameBuilds } from '@/app/(features)/builds/actions/get-base-game-builds'
-import { BuildCard } from '@/app/(features)/builds/components/cards/build-card'
-import { useBuildListState } from '@/app/(features)/builds/utils/hooks/use-build-list-state'
-import { usePagination } from '@/app/(utils)/pagination/use-pagination'
+import { BuildList } from '@/app/(components)/build-list';
+import { BuildSecondaryFilters } from '@/app/(features)/builds/filters/secondary-filters';
+import { useOrderByFilter } from '@/app/(features)/builds/filters/secondary-filters/order-by-filter/use-order-by-filter';
+import { useTimeRangeFilter } from '@/app/(features)/builds/filters/secondary-filters/time-range-filter/use-time-range-filter';
+import { parseUrlFilters } from '@/app/(features)/builds/filters/utils';
+import { Tooltip } from '@/app/(components)/tooltip';
+import { getBaseGameBuilds } from '@/app/(features)/builds/actions/get-base-game-builds';
+import { BuildCard } from '@/app/(features)/builds/components/cards/build-card';
+import { useBuildListState } from '@/app/(features)/builds/utils/hooks/use-build-list-state';
+import { usePagination } from '@/app/(utils)/pagination/use-pagination';
 
 interface Props {
-  itemsPerPage?: number
-  onToggleLoadingResults: (isLoading: boolean) => void
+  itemsPerPage?: number;
+  onToggleLoadingResults: (isLoading: boolean) => void;
 }
 
 export function BaseGameBuilds({
   itemsPerPage = 8,
   onToggleLoadingResults,
 }: Props) {
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams();
   const [buildListFilters, setBuildListFilters] = useState(
     parseUrlFilters(searchParams),
-  )
+  );
 
-  const { buildListState, setBuildListState } = useBuildListState()
-  const { builds, totalBuildCount, isLoading } = buildListState
+  const { buildListState, setBuildListState } = useBuildListState();
+  const { builds, totalBuildCount, isLoading } = buildListState;
 
-  const { orderBy, handleOrderByChange } = useOrderByFilter('newest')
-  const { timeRange, handleTimeRangeChange } = useTimeRangeFilter('all-time')
+  const { orderBy, handleOrderByChange } = useOrderByFilter('newest');
+  const { timeRange, handleTimeRangeChange } = useTimeRangeFilter('all-time');
 
   const {
     currentPage,
@@ -49,41 +49,41 @@ export function BaseGameBuilds({
   } = usePagination({
     totalItemCount: totalBuildCount,
     itemsPerPage,
-  })
+  });
 
   useEffect(() => {
-    setBuildListFilters(parseUrlFilters(searchParams))
-    setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
-  }, [searchParams, setBuildListState])
+    setBuildListFilters(parseUrlFilters(searchParams));
+    setBuildListState((prevState) => ({ ...prevState, isLoading: true }));
+  }, [searchParams, setBuildListState]);
 
   useEffect(() => {
-    onToggleLoadingResults(isLoading)
-  }, [isLoading, onToggleLoadingResults])
+    onToggleLoadingResults(isLoading);
+  }, [isLoading, onToggleLoadingResults]);
 
   // Whenever loading is set to true, we should update the build items
   useEffect(() => {
     const getItemsAsync = async () => {
-      if (!isLoading) return
+      if (!isLoading) return;
       const response = await getBaseGameBuilds({
         itemsPerPage,
         pageNumber: currentPage,
         timeRange,
         orderBy,
         buildListFilters,
-      })
+      });
       setBuildListState((prevState) => ({
         ...prevState,
         isLoading: false,
         builds: response.items,
         totalBuildCount: response.totalItemCount,
-      }))
-    }
-    getItemsAsync()
+      }));
+    };
+    getItemsAsync();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoading])
+  }, [isLoading]);
 
   if (!buildListFilters) {
-    return <Skeleton className="min-h-[1100px] w-full" />
+    return <Skeleton className="min-h-[1100px] w-full" />;
   }
 
   return (
@@ -104,19 +104,19 @@ export function BaseGameBuilds({
             isLoading={isLoading}
             orderBy={orderBy}
             onOrderByChange={(value) => {
-              handleOrderByChange(value)
+              handleOrderByChange(value);
               setBuildListState((prevState) => ({
                 ...prevState,
                 isLoading: true,
-              }))
+              }));
             }}
             timeRange={timeRange}
             onTimeRangeChange={(value) => {
-              handleTimeRangeChange(value)
+              handleTimeRangeChange(value);
               setBuildListState((prevState) => ({
                 ...prevState,
                 isLoading: true,
-              }))
+              }));
             }}
           />
         }
@@ -146,5 +146,5 @@ export function BaseGameBuilds({
         </ul>
       </BuildList>
     </>
-  )
+  );
 }
