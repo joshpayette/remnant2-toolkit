@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-08-23
+
+### Fixed
+
+- Item Lookup was not using correct data source for discovered/undiscovered items from the Item Tracker. This has been fixed.
+
 ## 2024-08-22
 
 ### Fixed
