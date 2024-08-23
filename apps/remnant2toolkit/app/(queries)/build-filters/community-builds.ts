@@ -36,7 +36,7 @@ export function communityBuildsQuery({
       WHERE BuildVoteCounts.buildId = Build.id
       AND BuildVoteCounts.userId = ${userId}
     ) THEN TRUE ELSE FALSE END as upvoted,
-    CASE WHEN PaidUsers.userId IS NOT NULL THEN true ELSE false END as isMember
+    CASE WHEN PaidUsers.userId IS NOT NULL THEN 1 ELSE 0 END as isMember
   FROM Build
   LEFT JOIN User on Build.createdById = User.id
   LEFT JOIN PaidUsers on User.id = PaidUsers.userId
