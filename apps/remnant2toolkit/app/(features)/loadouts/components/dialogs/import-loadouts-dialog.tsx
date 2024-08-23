@@ -1,32 +1,32 @@
-import { BaseButton } from '@repo/ui/base/button'
+import { BaseButton } from '@repo/ui/base/button';
 import {
   BaseDialog,
   BaseDialogActions,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@repo/ui/base/dialog'
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
-import { BaseInput } from '@repo/ui/base/input'
+} from '@repo/ui/base/dialog';
+import { BaseField, BaseLabel } from '@repo/ui/base/fieldset';
+import { BaseInput } from '@repo/ui/base/input';
 import {
   BaseListbox,
   BaseListboxLabel,
   BaseListboxOption,
-} from '@repo/ui/base/listbox'
-import { BaseCode } from '@repo/ui/base/text'
-import { getArrayOfLength } from '@repo/utils/get-array-of-length'
-import type React from 'react'
+} from '@repo/ui/base/listbox';
+import { BaseCode } from '@repo/ui/base/text';
+import { getArrayOfLength } from '@repo/utils/get-array-of-length';
+import type React from 'react';
 
-import LocatingProfileSav from '@/app/(components)/dialogs/partial/locating-profile-sav'
-import type { DBBuild } from '@/app/(types)/builds'
-import { ImportSaveSubmitButton } from '@/app/tracker/import-save-submit-button'
+import LocatingProfileSav from '@/app/(components)/dialogs/partial/locating-profile-sav';
+import { DBBuild } from '@/app/(features)/builds/types/db-build';
+import { ImportSaveSubmitButton } from '@/app/tracker/import-save-submit-button';
 
 interface Props {
-  open: boolean
-  fileInputRef: React.RefObject<HTMLInputElement>
-  existingLoadouts: Array<DBBuild & { slot: number }>
-  onClose: () => void
-  onSubmit: (payload: FormData) => void
+  open: boolean;
+  fileInputRef: React.RefObject<HTMLInputElement>;
+  existingLoadouts: Array<DBBuild & { slot: number }>;
+  onClose: () => void;
+  onSubmit: (payload: FormData) => void;
 }
 
 export function ImportLoadoutsDialog({
@@ -80,7 +80,7 @@ export function ImportLoadoutsDialog({
               {getArrayOfLength(8).map((_, index) => {
                 const loadout = existingLoadouts.find(
                   (loadout) => loadout.slot === index + 1,
-                )
+                );
 
                 return (
                   <BaseListboxOption key={index} value={index + 1}>
@@ -88,7 +88,7 @@ export function ImportLoadoutsDialog({
                       {index + 1}. {loadout?.name ?? 'Empty Slot'}
                     </BaseListboxLabel>
                   </BaseListboxOption>
-                )
+                );
               })}
             </BaseListbox>
           </BaseField>
@@ -109,5 +109,5 @@ export function ImportLoadoutsDialog({
       </form>
       <LocatingProfileSav />
     </BaseDialog>
-  )
+  );
 }

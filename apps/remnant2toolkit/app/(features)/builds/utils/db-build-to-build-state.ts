@@ -1,21 +1,22 @@
-import { AmuletItem } from '@/app/(data)/items/types/AmuletItem'
-import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
-import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
-import { ConcoctionItem } from '@/app/(data)/items/types/ConcoctionItem'
-import { ConsumableItem } from '@/app/(data)/items/types/ConsumableItem'
-import { ModItem } from '@/app/(data)/items/types/ModItem'
-import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
-import { PerkItem } from '@/app/(data)/items/types/PerkItem'
-import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
-import { RelicItem } from '@/app/(data)/items/types/RelicItem'
-import { RingItem } from '@/app/(data)/items/types/RingItem'
-import { SkillItem } from '@/app/(data)/items/types/SkillItem'
-import { TraitItem } from '@/app/(data)/items/types/TraitItem'
-import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-import { BuildState, DBBuild } from '@/app/(types)/builds'
+import { AmuletItem } from '@/app/(data)/items/types/AmuletItem';
+import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem';
+import { ArmorItem } from '@/app/(data)/items/types/ArmorItem';
+import { ConcoctionItem } from '@/app/(data)/items/types/ConcoctionItem';
+import { ConsumableItem } from '@/app/(data)/items/types/ConsumableItem';
+import { ModItem } from '@/app/(data)/items/types/ModItem';
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem';
+import { PerkItem } from '@/app/(data)/items/types/PerkItem';
+import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem';
+import { RelicItem } from '@/app/(data)/items/types/RelicItem';
+import { RingItem } from '@/app/(data)/items/types/RingItem';
+import { SkillItem } from '@/app/(data)/items/types/SkillItem';
+import { TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem';
+import { BuildState } from '@/app/(features)/builds/types/build-state';
+import { DBBuild } from '@/app/(features)/builds/types/db-build';
 
 export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
-  const { buildItems } = dbBuild
+  const { buildItems } = dbBuild;
 
   const buildState: BuildState = {
     buildId: dbBuild.id,
@@ -25,13 +26,14 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
     updatedAt: dbBuild.updatedAt,
     createdById: dbBuild.createdById,
     createdByDisplayName: dbBuild.createdByDisplayName,
-    isMember: dbBuild.isMember,
-    isPublic: dbBuild.isPublic,
+    isMember: Boolean(Number(dbBuild.isMember)),
+    isPublic: Boolean(Number(dbBuild.isPublic)),
     isModeratorApproved: Boolean(dbBuild.isModeratorApproved),
     isModeratorLocked: Boolean(dbBuild.isModeratorLocked),
     isFeaturedBuild: Boolean(dbBuild.isFeaturedBuild),
     isBeginnerBuild: Boolean(dbBuild.isBeginnerBuild),
     isBaseGameBuild: Boolean(dbBuild.isBaseGameBuild),
+    isGimmickBuild: Boolean(dbBuild.isGimmickBuild),
     dateFeatured: dbBuild.dateFeatured,
     isPatchAffected: Boolean(dbBuild.isPatchAffected),
     thumbnailUrl: dbBuild.thumbnailUrl,
@@ -64,7 +66,7 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
       trait: TraitItem.fromDBValue(buildItems),
       perk: PerkItem.fromDBValue(buildItems),
     },
-  }
+  };
 
-  return buildState
+  return buildState;
 }

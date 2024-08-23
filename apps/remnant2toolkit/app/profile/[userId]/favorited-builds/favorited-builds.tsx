@@ -1,25 +1,25 @@
-'use client'
+'use client';
 
-import { useSearchParams } from 'next/navigation'
-import { useEffect, useMemo, useState } from 'react'
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useMemo, useState } from 'react';
 
-import { BuildList } from '@/app/(components)/build-list'
-import { DEFAULT_BUILD_FILTERS } from '@/app/(components)/filters/builds/build-filters'
-import { BuildSecondaryFilters } from '@/app/(components)/filters/builds/secondary-filters'
-import { useOrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
-import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
-import { BuildListFilters } from '@/app/(components)/filters/builds/types'
-import { parseUrlFilters } from '@/app/(components)/filters/builds/utils'
-import { BuildCard } from '@/app/(features)/builds/components/cards/build-card'
-import { useBuildListState } from '@/app/(features)/builds/utils/hooks/use-build-list-state'
-import { usePagination } from '@/app/(utils)/pagination/use-pagination'
-import { getFavoritedBuilds } from '@/app/profile/[userId]/favorited-builds/actions/get-favorite-builds'
+import { BuildList } from '@/app/(components)/build-list';
+import { DEFAULT_BUILD_FILTERS } from '@/app/(features)/builds/filters/build-filters';
+import { BuildSecondaryFilters } from '@/app/(features)/builds/filters/secondary-filters';
+import { useOrderByFilter } from '@/app/(features)/builds/filters/secondary-filters/order-by-filter/use-order-by-filter';
+import { useTimeRangeFilter } from '@/app/(features)/builds/filters/secondary-filters/time-range-filter/use-time-range-filter';
+import { BuildListFilters } from '@/app/(features)/builds/filters/types';
+import { parseUrlFilters } from '@/app/(features)/builds/filters/utils';
+import { BuildCard } from '@/app/(features)/builds/components/cards/build-card';
+import { useBuildListState } from '@/app/(features)/builds/utils/hooks/use-build-list-state';
+import { usePagination } from '@/app/(utils)/pagination/use-pagination';
+import { getFavoritedBuilds } from '@/app/profile/[userId]/favorited-builds/actions/get-favorite-builds';
 
-const ITEMS_PER_PAGE = 16
+const ITEMS_PER_PAGE = 16;
 
 interface Props {
-  buildFiltersOverrides?: Partial<BuildListFilters>
-  onToggleLoadingResults: (isLoading: boolean) => void
+  buildFiltersOverrides?: Partial<BuildListFilters>;
+  onToggleLoadingResults: (isLoading: boolean) => void;
 }
 
 export function FavoritedBuilds({
@@ -29,19 +29,19 @@ export function FavoritedBuilds({
   const defaultFilters = useMemo(() => {
     return buildFiltersOverrides
       ? { ...DEFAULT_BUILD_FILTERS, ...buildFiltersOverrides }
-      : DEFAULT_BUILD_FILTERS
-  }, [buildFiltersOverrides])
+      : DEFAULT_BUILD_FILTERS;
+  }, [buildFiltersOverrides]);
 
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams();
   const [buildListFilters, setBuildListFilters] = useState(
     parseUrlFilters(searchParams, defaultFilters),
-  )
+  );
 
-  const { buildListState, setBuildListState } = useBuildListState()
-  const { builds, totalBuildCount, isLoading } = buildListState
+  const { buildListState, setBuildListState } = useBuildListState();
+  const { builds, totalBuildCount, isLoading } = buildListState;
 
-  const { orderBy, handleOrderByChange } = useOrderByFilter('newest')
-  const { timeRange, handleTimeRangeChange } = useTimeRangeFilter('all-time')
+  const { orderBy, handleOrderByChange } = useOrderByFilter('newest');
+  const { timeRange, handleTimeRangeChange } = useTimeRangeFilter('all-time');
 
   const {
     currentPage,
@@ -55,38 +55,38 @@ export function FavoritedBuilds({
   } = usePagination({
     totalItemCount: totalBuildCount,
     itemsPerPage: ITEMS_PER_PAGE,
-  })
+  });
 
   useEffect(() => {
-    setBuildListFilters(parseUrlFilters(searchParams, defaultFilters))
-    setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
-  }, [searchParams, defaultFilters, setBuildListState])
+    setBuildListFilters(parseUrlFilters(searchParams, defaultFilters));
+    setBuildListState((prevState) => ({ ...prevState, isLoading: true }));
+  }, [searchParams, defaultFilters, setBuildListState]);
 
   useEffect(() => {
-    onToggleLoadingResults(isLoading)
-  }, [isLoading, onToggleLoadingResults])
+    onToggleLoadingResults(isLoading);
+  }, [isLoading, onToggleLoadingResults]);
 
   // Whenever loading is set to true, we should update the build items
   useEffect(() => {
     const getItemsAsync = async () => {
-      if (!isLoading) return
+      if (!isLoading) return;
       const response = await getFavoritedBuilds({
         buildListFilters,
         itemsPerPage: ITEMS_PER_PAGE,
         orderBy,
         pageNumber: currentPage,
         timeRange,
-      })
+      });
       setBuildListState((prevState) => ({
         ...prevState,
         isLoading: false,
         builds: response.items,
         totalBuildCount: response.totalItemCount,
-      }))
-    }
-    getItemsAsync()
+      }));
+    };
+    getItemsAsync();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoading])
+  }, [isLoading]);
 
   return (
     <>
@@ -107,19 +107,19 @@ export function FavoritedBuilds({
             isLoading={isLoading}
             orderBy={orderBy}
             onOrderByChange={(value) => {
-              handleOrderByChange(value)
+              handleOrderByChange(value);
               setBuildListState((prevState) => ({
                 ...prevState,
                 isLoading: true,
-              }))
+              }));
             }}
             timeRange={timeRange}
             onTimeRangeChange={(value) => {
-              handleTimeRangeChange(value)
+              handleTimeRangeChange(value);
               setBuildListState((prevState) => ({
                 ...prevState,
                 isLoading: true,
-              }))
+              }));
             }}
           />
         }
@@ -140,5 +140,5 @@ export function FavoritedBuilds({
         </ul>
       </BuildList>
     </>
-  )
+  );
 }

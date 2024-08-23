@@ -1,21 +1,21 @@
-'use client'
+'use client';
 
-import { ChangeLoadoutSlotButton } from '@/app/(components)/buttons/loadout-buttons/change-loadout-slot-button'
-import { RemoveFromLoadoutButton } from '@/app/(components)/buttons/loadout-buttons/remove-from-loadout-button'
-import { BuildCard } from '@/app/(features)/builds/components/cards/build-card'
-import { DBBuild } from '@/app/(types)/builds'
+import { ChangeLoadoutSlotButton } from '@/app/(components)/buttons/loadout-buttons/change-loadout-slot-button';
+import { RemoveFromLoadoutButton } from '@/app/(components)/buttons/loadout-buttons/remove-from-loadout-button';
+import { BuildCard } from '@/app/(features)/builds/components/cards/build-card';
+import { DBBuild } from '@/app/(features)/builds/types/db-build';
 
 interface Props {
-  build: DBBuild & { slot: number }
-  isEditable: boolean
-  onRemove?: () => void
+  build: DBBuild & { slot: number };
+  isEditable: boolean;
+  onRemove?: () => void;
   onSlotChange?: (
     success: boolean,
     newLoadouts: {
-      oldSlot: number
-      newSlot: number
+      oldSlot: number;
+      newSlot: number;
     } | null,
-  ) => void
+  ) => void;
 }
 
 export function LoadoutCard({
@@ -44,5 +44,5 @@ export function LoadoutCard({
         ) : undefined
       }
     />
-  )
+  );
 }

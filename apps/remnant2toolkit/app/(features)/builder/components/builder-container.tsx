@@ -1,35 +1,35 @@
-import { BuildTags } from '@repo/db'
-import { cn } from '@repo/ui/classnames'
-import { ReactNode, RefObject } from 'react'
+import { BuildTags } from '@repo/db';
+import { cn } from '@repo/ui/classnames';
+import { ReactNode, RefObject } from 'react';
 
-import { BuildState } from '@/app/(types)/builds'
+import { BuildState } from '@/app/(features)/builds/types/build-state';
 
-import { Builder } from './builder'
+import { Builder } from './builder';
 
 type Props = {
-  buildContainerRef: RefObject<HTMLDivElement>
-  builderActions: ReactNode
-  buildState: BuildState
-  isScreenshotMode: boolean
-  itemOwnershipPreference: boolean
-  showControls: boolean
-  showCreatedBy?: boolean
-  showMemberFeatures?: boolean
+  buildContainerRef: RefObject<HTMLDivElement>;
+  builderActions: ReactNode;
+  buildState: BuildState;
+  isScreenshotMode: boolean;
+  itemOwnershipPreference: boolean;
+  showControls: boolean;
+  showCreatedBy?: boolean;
+  showMemberFeatures?: boolean;
 } & (
   | { isEditable: false; onUpdateBuildState?: never }
   | {
-      isEditable: true
+      isEditable: true;
       onUpdateBuildState: ({
         category,
         value,
         scroll,
       }: {
-        category: string
-        value: string | Array<string | undefined> | BuildTags[]
-        scroll?: boolean
-      }) => void
+        category: string;
+        value: string | Array<string | undefined> | BuildTags[];
+        scroll?: boolean;
+      }) => void;
     }
-)
+);
 
 export function BuilderContainer({
   buildContainerRef,
@@ -84,5 +84,5 @@ export function BuilderContainer({
         </div>
       </div>
     </>
-  )
+  );
 }

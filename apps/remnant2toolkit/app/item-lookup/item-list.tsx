@@ -1,34 +1,35 @@
-'use client'
+'use client';
 
-import { BaseButton } from '@repo/ui/base/button'
-import { capitalize } from '@repo/utils/capitalize'
-import isEqual from 'lodash.isequal'
-import { useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
-import { useIsClient, useLocalStorage } from 'usehooks-ts'
-import { v4 as uuidv4 } from 'uuid'
+import { BaseButton } from '@repo/ui/base/button';
+import { capitalize } from '@repo/utils/capitalize';
+import isEqual from 'lodash.isequal';
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useIsClient, useLocalStorage } from 'usehooks-ts';
+import { v4 as uuidv4 } from 'uuid';
 
-import { DEFAULT_ITEM_LOOKUP_FILTERS } from '@/app/(components)/filters/item-lookup/item-lookup-filters'
-import { ItemLookupFilters } from '@/app/(components)/filters/item-lookup/types'
-import { parseUrlFilters } from '@/app/(components)/filters/item-lookup/utils'
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
-import { MasonryItemList } from '@/app/(components)/masonry-item-list'
-import { allItems } from '@/app/(data)/items/all-items'
-import { Item } from '@/app/(data)/items/types'
-import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
-import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
-import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-import {
-  ItemTrackerLocalStorage,
-  LOCALSTORAGE_KEY,
-} from '@/app/(types)/localstorage'
-import { BIOMES } from '@/app/(types)/locations'
-import { itemMatchesSearchText } from '@/app/(utils)/items/item-matches-search-text'
+import { DEFAULT_ITEM_LOOKUP_FILTERS } from '@/app/(components)/filters/item-lookup/item-lookup-filters';
+import { ItemLookupFilters } from '@/app/(components)/filters/item-lookup/types';
+import { parseUrlFilters } from '@/app/(components)/filters/item-lookup/utils';
+import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
+import { MasonryItemList } from '@/app/(components)/masonry-item-list';
+import { allItems } from '@/app/(data)/items/all-items';
+import { Item } from '@/app/(data)/items/types';
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem';
+import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem';
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem';
+import { BIOMES } from '@/app/(features)/items/types/locations';
+import { useDiscoveredItems } from '@/app/(hooks)/use-discovered-items';
+import { itemMatchesSearchText } from '@/app/(utils)/items/item-matches-search-text';
+
+import { archetypeItems } from '../(data)/items/archetype-items';
+import { perkItems } from '../(data)/items/perk-items';
+import { skillItems } from '../(data)/items/skill-items';
 
 const allItemsWithDiscovered = allItems.map((item) => ({
   ...item,
   discovered: false,
-}))
+}));
 
 function getFilteredItems(
   filters: ItemLookupFilters,
@@ -37,7 +38,42 @@ function getFilteredItems(
   let filteredItems = allItemsWithDiscovered.map((item) => ({
     ...item,
     discovered: discoveredItemIds.includes(item.id),
-  }))
+  }));
+
+  // Loop over each archetype, and if it is discovered, then mark the
+  // associated skills and perks as discovered
+  for (const archetypeItem of archetypeItems) {
+    const isDiscovered = filteredItems.find((i) => i.id === archetypeItem.id)
+      ?.discovered;
+    if (!isDiscovered) {
+      continue;
+    }
+
+    if (
+      !archetypeItem.linkedItems?.skills ||
+      !archetypeItem.linkedItems?.perks
+    ) {
+      continue;
+    }
+
+    for (const skill of archetypeItem.linkedItems.skills) {
+      const skillItem = skillItems.find((i) => i.name === skill.name);
+      if (skillItem) {
+        filteredItems = filteredItems.map((i) =>
+          i.id === skillItem.id ? { ...i, discovered: true } : i,
+        );
+      }
+    }
+
+    for (const perk of archetypeItem.linkedItems.perks) {
+      const perkItem = perkItems.find((i) => i.name === perk.name);
+      if (perkItem) {
+        filteredItems = filteredItems.map((i) =>
+          i.id === perkItem.id ? { ...i, discovered: true } : i,
+        );
+      }
+    }
+  }
 
   // if categories are not default, filter by categories
   if (
@@ -46,41 +82,41 @@ function getFilteredItems(
   ) {
     filteredItems = filteredItems.filter((item) => {
       if (item.category === undefined) {
-        return true
+        return true;
       }
 
       return filters.categories.some((itemCategory) => {
         if (itemCategory === 'Long Gun' && WeaponItem.isWeaponItem(item)) {
-          return item.category === 'weapon' && item.type === 'long gun'
+          return item.category === 'weapon' && item.type === 'long gun';
         }
         if (itemCategory === 'Hand Gun' && WeaponItem.isWeaponItem(item)) {
-          return item.category === 'weapon' && item.type === 'hand gun'
+          return item.category === 'weapon' && item.type === 'hand gun';
         }
         if (itemCategory === 'Melee' && WeaponItem.isWeaponItem(item)) {
-          return item.category === 'weapon' && item.type === 'melee'
+          return item.category === 'weapon' && item.type === 'melee';
         }
         if (
           itemCategory === 'Mutator (Gun)' &&
           MutatorItem.isMutatorItem(item)
         ) {
-          return item.category === 'mutator' && item.type === 'gun'
+          return item.category === 'mutator' && item.type === 'gun';
         }
         if (
           itemCategory === 'Mutator (Melee)' &&
           MutatorItem.isMutatorItem(item)
         ) {
-          return item.category === 'mutator' && item.type === 'melee'
+          return item.category === 'mutator' && item.type === 'melee';
         }
         if (
           itemCategory === 'Relic Fragment' &&
           RelicFragmentItem.isRelicFragmentItem(item)
         ) {
-          return item.category === 'relicfragment'
+          return item.category === 'relicfragment';
         }
 
-        return capitalize(item.category) === itemCategory
-      })
-    })
+        return capitalize(item.category) === itemCategory;
+      });
+    });
   }
 
   // if collections are not default, filter by collections
@@ -100,52 +136,23 @@ function getFilteredItems(
           .filter((i) => i !== DEFAULT_FILTER)
           .includes('Undiscovered')
       ) {
-        return true
+        return true;
       } else if (
         filters.collections
           .filter((i) => i !== DEFAULT_FILTER)
           .includes('Undiscovered')
       ) {
-        // If the item is a mod, we want to show if the linked weapon is undiscovered
-        // If the item is a skill or perk, we want to show if the linked archetype is undiscovered
-        if (item.category === 'mod') {
-          const linkedWeapon = filteredItems.find(
-            (i) => i.name === item.linkedItems?.weapon?.name,
-          )
-          return linkedWeapon?.discovered === false
-        } else if (item.category === 'skill' || item.category === 'perk') {
-          const linkedArchetype = filteredItems.find(
-            (i) => i.name === item.linkedItems?.archetype?.name,
-          )
-          return linkedArchetype?.discovered === false
-        } else {
-          return item.discovered === false
-        }
+        return item.discovered === false;
       } else if (
         filters.collections
           .filter((i) => i !== DEFAULT_FILTER)
           .includes('Discovered')
       ) {
-        // If the item is a mod, we want to show if the linked weapon is discovered
-        // If the item is a skill or perk, we want to show if the linked archetype is discovered
-        if (item.category === 'mod') {
-          const linkedWeapon = filteredItems.find(
-            (i) => i.name === item.linkedItems?.weapon?.name,
-          )
-          return linkedWeapon?.discovered === true
-        } else if (item.category === 'skill' || item.category === 'perk') {
-          const linkedArchetype = filteredItems.find(
-            (i) => i.name === item.linkedItems?.archetype?.name,
-          )
-
-          return linkedArchetype?.discovered === true
-        } else {
-          return item.discovered === true
-        }
+        return item.discovered === true;
       } else {
-        return false
+        return false;
       }
-    })
+    });
   }
 
   // if releases are not default, filter by releases
@@ -157,14 +164,14 @@ function getFilteredItems(
       filters.releases
         .filter((release) => release !== DEFAULT_FILTER)
         .includes(item.dlc),
-    )
+    );
   }
 
   // filter by world
   if (filters.world !== DEFAULT_FILTER) {
     filteredItems = filteredItems.filter(
       (item) => item.location?.world === filters.world,
-    )
+    );
   }
 
   // filter by dungeon
@@ -172,74 +179,65 @@ function getFilteredItems(
     if (filters.dungeon === 'World Drop') {
       filteredItems = filteredItems.filter(
         (item) => item.location?.dungeon === 'World Drop',
-      )
+      );
     } else {
       filteredItems = filteredItems.filter((item) => {
-        if (!item.location) return false
+        if (!item.location) return false;
 
         if (item.location.dungeon) {
           if (!Array.isArray(item.location.dungeon)) {
-            return false
+            return false;
           }
 
-          return item.location.dungeon.some((d) => d === filters.dungeon)
+          return item.location.dungeon.some((d) => d === filters.dungeon);
         } else {
-          const itemBiome = item.location.biome
-          const biome = BIOMES.find((biome) => biome.name === itemBiome)
-          return biome?.dungeons.some((dungeon) => dungeon === filters.dungeon)
+          const itemBiome = item.location.biome;
+          const biome = BIOMES.find((biome) => biome.name === itemBiome);
+          return biome?.dungeons.some((dungeon) => dungeon === filters.dungeon);
         }
-      })
+      });
     }
   }
 
   // Filter by search text
   filteredItems = filteredItems.filter((item) =>
     itemMatchesSearchText({ item, searchText: filters.searchText }),
-  )
+  );
 
   // Sort alphabetically by item.category and item.name
   filteredItems = filteredItems.sort((a, b) => {
-    if (a.category < b.category) return -1
-    if (a.category > b.category) return 1
-    if (a.name < b.name) return -1
-    if (a.name > b.name) return 1
-    return 0
-  })
+    if (a.category < b.category) return -1;
+    if (a.category > b.category) return 1;
+    if (a.name < b.name) return -1;
+    if (a.name > b.name) return 1;
+    return 0;
+  });
 
-  return filteredItems
+  return filteredItems;
 }
 
 export function ItemList() {
-  const searchParams = useSearchParams()
-  const [filters, setFilters] = useState(parseUrlFilters(searchParams))
+  const searchParams = useSearchParams();
+  const [filters, setFilters] = useState(parseUrlFilters(searchParams));
 
   const [areFiltersApplied, setAreFiltersApplied] = useState(
     !isEqual(filters, DEFAULT_ITEM_LOOKUP_FILTERS),
-  )
+  );
 
   useEffect(() => {
-    setFilters(parseUrlFilters(searchParams))
-  }, [searchParams])
+    setFilters(parseUrlFilters(searchParams));
+  }, [searchParams]);
 
   useEffect(() => {
     if (!isEqual(filters, DEFAULT_ITEM_LOOKUP_FILTERS)) {
-      setAreFiltersApplied(true)
+      setAreFiltersApplied(true);
     }
-  }, [filters])
+  }, [filters]);
 
-  const [tracker] = useLocalStorage<ItemTrackerLocalStorage>(
-    LOCALSTORAGE_KEY.ITEM_TRACKER,
-    {
-      discoveredItemIds: [],
-      collapsedCategories: [],
-    },
-    { initializeWithValue: false },
-  )
-  const { discoveredItemIds } = tracker
+  const { discoveredItemIds } = useDiscoveredItems();
+  const filteredItems = getFilteredItems(filters, discoveredItemIds);
 
-  const filteredItems = getFilteredItems(filters, discoveredItemIds)
-
-  const isClient = useIsClient()
+  const isClient = useIsClient();
 
   // #region Render
 
@@ -259,5 +257,5 @@ export function ItemList() {
       items={filteredItems}
       allowItemCompare={true}
     />
-  )
+  );
 }

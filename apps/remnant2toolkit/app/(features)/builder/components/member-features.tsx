@@ -110,7 +110,7 @@ export function MemberFeatures({
               onChange={(e) => onChangeDescription(e.target.value)}
               value={description ?? ''}
               maxLength={MAX_BUILD_DESCRIPTION_LENGTH}
-              className="h-[215px] w-full"
+              className="min-h-[215px] w-full"
             />
           </BaseField>
           <div className="flex w-full items-center justify-between">

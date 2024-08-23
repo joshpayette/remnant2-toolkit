@@ -1,22 +1,22 @@
-'use client'
+'use client';
 
-import { DISCORD_INVITE_URL } from '@repo/constants'
-import { BaseText, BaseTextLink } from '@repo/ui/base/text'
-import { useCallback, useState } from 'react'
+import { DISCORD_INVITE_URL } from '@repo/constants';
+import { BaseText, BaseTextLink } from '@repo/ui/base/text';
+import { useCallback, useState } from 'react';
 
-import { BuildFilters } from '@/app/(components)/filters/builds/build-filters'
-import { PageHeader } from '@/app/(components)/page-header'
-import { NAV_ITEMS } from '@/app/(types)/navigation'
-import { DEFAULT_ITEMS_PER_PAGE } from '@/app/(utils)/pagination/constants'
-import { FeaturedBuilds } from '@/app/featured-builds/featured-builds'
+import { BuildFilters } from '@/app/(features)/builds/filters/build-filters';
+import { PageHeader } from '@/app/(components)/page-header';
+import { NAV_ITEMS } from '@/app/(types)/navigation';
+import { DEFAULT_ITEMS_PER_PAGE } from '@/app/(utils)/pagination/constants';
+import { FeaturedBuilds } from '@/app/featured-builds/featured-builds';
 
 export default function Page() {
-  const [loadingResults, setLoadingResults] = useState(false)
+  const [loadingResults, setLoadingResults] = useState(false);
 
   const handleToggleLoadingResults = useCallback(
     (isLoading: boolean) => setLoadingResults(isLoading),
     [],
-  )
+  );
 
   return (
     <>
@@ -47,5 +47,5 @@ export default function Page() {
         />
       </div>
     </>
-  )
+  );
 }

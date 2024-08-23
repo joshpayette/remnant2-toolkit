@@ -1,10 +1,10 @@
-'use server'
+'use server';
 
-import type { Build } from '@repo/db'
-import { prisma } from '@repo/db'
+import type { Build } from '@repo/db';
+import { prisma } from '@repo/db';
 
-import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile'
-import type { LinkedBuildState } from '@/app/(types)/linked-builds'
+import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile';
+import type { LinkedBuildState } from '@/app/(types)/linked-builds';
 
 export default async function getLinkedBuilds({
   buildId,
@@ -12,16 +12,16 @@ export default async function getLinkedBuilds({
   itemsPerPage,
   pageNumber,
 }: {
-  buildId: string | undefined
-  userId: string
-  itemsPerPage: number
-  pageNumber: number
+  buildId: string | undefined;
+  userId: string;
+  itemsPerPage: number;
+  pageNumber: number;
 }): Promise<{
-  status: 'success' | 'error'
-  message: string
-  linkedBuilds: LinkedBuildState[]
-  totalCount: number
-  requestedBuildName?: string
+  status: 'success' | 'error';
+  message: string;
+  linkedBuilds: LinkedBuildState[];
+  totalCount: number;
+  requestedBuildName?: string;
 }> {
   try {
     // delete all linkedBuildItems that are not public attached to linkedBuilds
@@ -37,17 +37,17 @@ export default async function getLinkedBuilds({
           },
         },
       },
-    })
+    });
 
     // if buildId is set, fetch the build
-    let requestedBuild: Build | null | undefined = undefined
+    let requestedBuild: Build | null | undefined = undefined;
     if (buildId) {
       requestedBuild = await prisma.build.findFirst({
         where: {
           id: buildId,
           isPublic: true,
         },
-      })
+      });
 
       if (!requestedBuild) {
         return {
@@ -55,7 +55,7 @@ export default async function getLinkedBuilds({
           message: 'Specified build not found',
           linkedBuilds: [],
           totalCount: 0,
-        }
+        };
       }
     }
 
@@ -131,7 +131,7 @@ export default async function getLinkedBuilds({
             : {}),
         },
       }),
-    ])
+    ]);
 
     if (!linkedBuilds) {
       return {
@@ -139,14 +139,14 @@ export default async function getLinkedBuilds({
         message: 'No linked builds found',
         linkedBuilds: [],
         totalCount: 0,
-      }
+      };
     }
 
     const createdByDisplayName =
-      linkedBuilds[0]?.createdBy?.displayName ?? DEFAULT_DISPLAY_NAME
+      linkedBuilds[0]?.createdBy?.displayName ?? DEFAULT_DISPLAY_NAME;
 
     // Find out whether the user has upvoted the build
-    const upvotes: Array<{ buildId: string; upvoted: boolean }> = []
+    const upvotes: Array<{ buildId: string; upvoted: boolean }> = [];
     if (userId) {
       for (const linkedBuild of linkedBuilds) {
         for (const linkedBuildItem of linkedBuild.LinkedBuildItems) {
@@ -155,10 +155,10 @@ export default async function getLinkedBuilds({
               buildId: linkedBuildItem.buildId,
               userId: userId,
             },
-          })
+          });
 
           if (build) {
-            upvotes.push({ buildId: linkedBuildItem.buildId, upvoted: true })
+            upvotes.push({ buildId: linkedBuildItem.buildId, upvoted: true });
           }
         }
       }
@@ -180,7 +180,7 @@ export default async function getLinkedBuilds({
         linkedBuildItems: linkedBuild.LinkedBuildItems.filter(
           (linkedBuildItem) => linkedBuildItem.Build.isPublic,
         ).map((linkedBuildItem) => {
-          const build = linkedBuildItem.Build
+          const build = linkedBuildItem.Build;
           return {
             id: linkedBuildItem.id,
             label: linkedBuildItem.label,
@@ -193,6 +193,7 @@ export default async function getLinkedBuilds({
               isFeaturedBuild: build.isFeaturedBuild,
               isBeginnerBuild: build.isBeginnerBuild,
               isBaseGameBuild: build.isBaseGameBuild,
+              isGimmickBuild: build.isGimmickBuild,
               dateFeatured: build.dateFeatured,
               isPatchAffected: build.isPatchAffected,
               isPublic: build.isPublic,
@@ -217,17 +218,17 @@ export default async function getLinkedBuilds({
               reported: false,
               buildItems: [],
             },
-          }
+          };
         }),
       })),
-    }
+    };
   } catch (e) {
-    console.error(e)
+    console.error(e);
     return {
       status: 'error',
       message: 'Failed to fetch linked builds.',
       totalCount: 0,
       linkedBuilds: [],
-    }
+    };
   }
 }

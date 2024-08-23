@@ -1,10 +1,10 @@
-import { Prisma } from '@repo/db'
+import { Prisma } from '@repo/db';
 
-import { MINIMUM_QUALITY_DESCRIPTION_LENGTH } from '@/app/(components)/filters/builds/build-misc-filter'
-import { MAX_TRAIT_AMOUNT } from '@/app/(features)/builder/constants/max-trait-amount'
+import { MINIMUM_QUALITY_DESCRIPTION_LENGTH } from '@/app/(features)/builds/filters/build-misc-filter';
+import { MAX_TRAIT_AMOUNT } from '@/app/(features)/builder/constants/max-trait-amount';
 
 export function limitToQualityBuilds(limitToQualityBuilds: boolean) {
-  if (!limitToQualityBuilds) return Prisma.empty
+  if (!limitToQualityBuilds) return Prisma.empty;
   return Prisma.sql`
   AND CHAR_LENGTH(Build.description) >= ${MINIMUM_QUALITY_DESCRIPTION_LENGTH}
   AND EXISTS (SELECT 1 FROM BuildTags WHERE BuildTags.BuildId = Build.Id)
@@ -22,5 +22,5 @@ export function limitToQualityBuilds(limitToQualityBuilds: boolean) {
   AND (ItemCounts.amuletCount = 1)
   AND (ItemCounts.ringCount = 4)
   AND (ItemCounts.traitSum = ${MAX_TRAIT_AMOUNT})
-  `
+  `;
 }

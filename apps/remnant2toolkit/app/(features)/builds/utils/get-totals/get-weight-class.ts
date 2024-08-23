@@ -1,38 +1,38 @@
-import { WEIGHT_CLASSES } from '@/app/(data)/items/constants'
-import { WeightClass } from '@/app/(data)/items/types'
-import { BuildState } from '@/app/(types)/builds'
+import { WEIGHT_CLASSES } from '@/app/(data)/items/constants';
+import { WeightClass } from '@/app/(data)/items/types';
+import { BuildState } from '@/app/(features)/builds/types/build-state';
 
-import { getTotalWeight } from './get-total-weight'
-import { getWeightThreshold } from './get-weight-threshold'
+import { getTotalWeight } from './get-total-weight';
+import { getWeightThreshold } from './get-weight-threshold';
 
-type WeightClassResponse = WeightClass & { label: keyof typeof WEIGHT_CLASSES }
+type WeightClassResponse = WeightClass & { label: keyof typeof WEIGHT_CLASSES };
 
 export function getWeightClass(buildState: BuildState): WeightClassResponse {
-  const combinedWeightThreshold = Number(getWeightThreshold(buildState))
+  const combinedWeightThreshold = Number(getWeightThreshold(buildState));
 
-  const totalWeight = Number(getTotalWeight(buildState))
+  const totalWeight = Number(getTotalWeight(buildState));
 
   let weightClass: WeightClassResponse = {
     ...WEIGHT_CLASSES.LIGHT,
     label: 'LIGHT',
-  }
+  };
   if (totalWeight > WEIGHT_CLASSES.LIGHT.maxWeight + combinedWeightThreshold) {
     weightClass = {
       ...WEIGHT_CLASSES.MEDIUM,
       label: 'MEDIUM',
-    }
+    };
   }
   if (totalWeight > WEIGHT_CLASSES.MEDIUM.maxWeight + combinedWeightThreshold) {
     weightClass = {
       ...WEIGHT_CLASSES.HEAVY,
       label: 'HEAVY',
-    }
+    };
   }
   if (totalWeight > WEIGHT_CLASSES.HEAVY.maxWeight + combinedWeightThreshold) {
     weightClass = {
       ...WEIGHT_CLASSES.ULTRA,
       label: 'ULTRA',
-    }
+    };
   }
 
   // Dull Steel Ring lowers by one weight class
@@ -42,14 +42,14 @@ export function getWeightClass(buildState: BuildState): WeightClassResponse {
   // If so, we lower it to Heavy
   const buildHasDullSteelRing = buildState.items.ring.some(
     (ring) => ring?.id === 's76ytc',
-  )
+  );
 
   if (weightClass.label === 'ULTRA' && buildHasDullSteelRing) {
     weightClass = {
       ...WEIGHT_CLASSES.HEAVY,
       label: 'HEAVY',
-    }
+    };
   }
 
-  return weightClass
+  return weightClass;
 }

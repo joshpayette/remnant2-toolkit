@@ -40,6 +40,24 @@ This is not an exhaustive or literal list we follow, but some of the things we c
 - **No or one corrupted weapon**
 - **No random aberration mutators (with exceptions)**
 
+## Base Game Builds
+
+Want to see your build listed on the base game builds? [Join the Discord](https://discord.gg/kgVaU3zAQ7) and let us know. Alternatively, you can file an issue on this repo requesting it and we'll take a look.
+
+### How Base Game Builds Are Selected
+
+The criteria is the same as Featured Builds, with the additional requirement that all items are obtainable without any DLC purchases.
+
+## Gimmick Builds
+
+Want to see your build listed on the gimmick builds? [Join the Discord](https://discord.gg/kgVaU3zAQ7) and let us know. Alternatively, you can file an issue on this repo requesting it and we'll take a look.
+
+### How Gimmick Builds Are Selected
+
+- **No Effectiveness Restriction**: Build does not have to be effective on Apocalypse difficulty to be considered. Adherance to a theme is more important than the damage output.
+- **Adherance to a Theme or Gimmick**: Build should use equipment that is generally overlooked, or use an unusual playstyle.
+- **Setups with Bugs are Permitted**: Builds showcasing bugs can be considered for gimmick builds.
+
 ## Credits
 
 This project would not be possible without the following sources:

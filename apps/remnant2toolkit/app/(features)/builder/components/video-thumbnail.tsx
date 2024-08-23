@@ -2,13 +2,13 @@ import {
   isValidYoutubeUrl,
   videoUrlToThumbnailUrl,
   videoUrlToWatchUrl,
-} from '@repo/utils/youtube'
-import Image from 'next/image'
+} from '@repo/utils/youtube';
+import Image from 'next/image';
 
-import { BuildState } from '@/app/(types)/builds'
+import { BuildState } from '@/app/(features)/builds/types/build-state';
 
 interface Props {
-  buildState: BuildState
+  buildState: BuildState;
 }
 
 export function VideoThumbnail({ buildState }: Props) {
@@ -18,16 +18,16 @@ export function VideoThumbnail({ buildState }: Props) {
     isValidYoutubeUrl(buildState.videoUrl) &&
     (buildState.isFeaturedBuild ||
       buildState.isBeginnerBuild ||
-      buildState.isBaseGameBuild)
+      buildState.isBaseGameBuild);
 
   // if the video is not a featured build, show it if it was updated over 12 hours ago
-  const twelveHoursAgo = new Date(new Date().getTime() - 1000 * 60 * 60 * 12)
+  const twelveHoursAgo = new Date(new Date().getTime() - 1000 * 60 * 60 * 12);
   const canShowBuildLinkVideo =
     buildState.buildLink &&
     buildState.buildLinkUpdatedAt &&
     isValidYoutubeUrl(buildState.buildLink) &&
     (buildState.buildLinkUpdatedAt < twelveHoursAgo ||
-      buildState.isModeratorApproved)
+      buildState.isModeratorApproved);
 
   return (
     <>
@@ -68,5 +68,5 @@ export function VideoThumbnail({ buildState }: Props) {
           </div>
         )}
     </>
-  )
+  );
 }

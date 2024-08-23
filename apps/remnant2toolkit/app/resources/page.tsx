@@ -19,7 +19,7 @@ export default async function Page() {
           {...NAV_ITEMS.worldSaveArchive}
           icon={
             <NAV_ITEMS.worldSaveArchive.icon
-              className="h-7 w-7 flex-none text-primary-500"
+              className="text-primary-500 h-7 w-7 flex-none"
               aria-hidden="true"
             />
           }
@@ -29,7 +29,7 @@ export default async function Page() {
           {...NAV_ITEMS.bossTracker}
           icon={
             <NAV_ITEMS.bossTracker.icon
-              className="h-7 w-7 flex-none text-primary-500"
+              className="text-primary-500 h-7 w-7 flex-none"
               aria-hidden="true"
             />
           }
@@ -39,7 +39,7 @@ export default async function Page() {
           {...NAV_ITEMS.hardcoreVeteran}
           icon={
             <NAV_ITEMS.hardcoreVeteran.icon
-              className="h-7 w-7 flex-none text-primary-500"
+              className="text-primary-500 h-7 w-7 flex-none"
               aria-hidden="true"
             />
           }
@@ -48,8 +48,8 @@ export default async function Page() {
         <LandingPageCard
           {...NAV_ITEMS.vashCalculator}
           icon={
-            <NAV_ITEMS.vashCalculator.icon 
-              className="h-7 w-7 flex-none text-primary-500"
+            <NAV_ITEMS.vashCalculator.icon
+              className="text-primary-500 h-7 w-7 flex-none"
               aria-hidden="true"
             />
           }
@@ -58,8 +58,18 @@ export default async function Page() {
         <LandingPageCard
           {...NAV_ITEMS.wiki}
           icon={
-            <NAV_ITEMS.wiki.icon 
-              className="h-7 w-7 flex-none text-primary-500"
+            <NAV_ITEMS.wiki.icon
+              className="text-primary-500 h-7 w-7 flex-none"
+              aria-hidden="true"
+            />
+          }
+        />
+
+        <LandingPageCard
+          {...NAV_ITEMS.modding}
+          icon={
+            <NAV_ITEMS.modding.icon
+              className="text-primary-500 h-7 w-7 flex-none"
               aria-hidden="true"
             />
           }
@@ -69,7 +79,7 @@ export default async function Page() {
           {...NAV_ITEMS.r2ag}
           icon={
             <NAV_ITEMS.r2ag.icon
-              className="h-7 w-7 flex-none text-primary-500"
+              className="text-primary-500 h-7 w-7 flex-none"
               aria-hidden="true"
             />
           }

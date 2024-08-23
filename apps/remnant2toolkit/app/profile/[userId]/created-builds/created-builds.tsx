@@ -1,30 +1,30 @@
-'use client'
+'use client';
 
-import { useSearchParams } from 'next/navigation'
-import { useEffect, useMemo, useState } from 'react'
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useMemo, useState } from 'react';
 
-import { BuildList } from '@/app/(components)/build-list'
-import { DEFAULT_BUILD_FILTERS } from '@/app/(components)/filters/builds/build-filters'
-import { BuildVisibilityFilter } from '@/app/(components)/filters/builds/secondary-filters/build-visibility-filter'
-import { useBuildVisibilityFilter } from '@/app/(components)/filters/builds/secondary-filters/build-visibility-filter/use-build-visibility-filter'
-import { OrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter'
-import { useOrderByFilter } from '@/app/(components)/filters/builds/secondary-filters/order-by-filter/use-order-by-filter'
-import { TimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter'
-import { useTimeRangeFilter } from '@/app/(components)/filters/builds/secondary-filters/time-range-filter/use-time-range-filter'
-import { BuildListFilters } from '@/app/(components)/filters/builds/types'
-import { parseUrlFilters } from '@/app/(components)/filters/builds/utils'
-import { BuildCard } from '@/app/(features)/builds/components/cards/build-card'
-import { CreateBuildCard } from '@/app/(features)/builds/components/cards/create-build-card'
-import { useBuildListState } from '@/app/(features)/builds/utils/hooks/use-build-list-state'
-import { usePagination } from '@/app/(utils)/pagination/use-pagination'
-import { CreatedBuildCardActions } from '@/app/profile/[userId]/(components)/created-build-card-actions'
-import { getCreatedBuilds } from '@/app/profile/[userId]/created-builds/actions/get-created-builds'
+import { BuildList } from '@/app/(components)/build-list';
+import { DEFAULT_BUILD_FILTERS } from '@/app/(features)/builds/filters/build-filters';
+import { BuildVisibilityFilter } from '@/app/(features)/builds/filters/secondary-filters/build-visibility-filter';
+import { useBuildVisibilityFilter } from '@/app/(features)/builds/filters/secondary-filters/build-visibility-filter/use-build-visibility-filter';
+import { OrderByFilter } from '@/app/(features)/builds/filters/secondary-filters/order-by-filter';
+import { useOrderByFilter } from '@/app/(features)/builds/filters/secondary-filters/order-by-filter/use-order-by-filter';
+import { TimeRangeFilter } from '@/app/(features)/builds/filters/secondary-filters/time-range-filter';
+import { useTimeRangeFilter } from '@/app/(features)/builds/filters/secondary-filters/time-range-filter/use-time-range-filter';
+import { BuildListFilters } from '@/app/(features)/builds/filters/types';
+import { parseUrlFilters } from '@/app/(features)/builds/filters/utils';
+import { BuildCard } from '@/app/(features)/builds/components/cards/build-card';
+import { CreateBuildCard } from '@/app/(features)/builds/components/cards/create-build-card';
+import { useBuildListState } from '@/app/(features)/builds/utils/hooks/use-build-list-state';
+import { usePagination } from '@/app/(utils)/pagination/use-pagination';
+import { CreatedBuildCardActions } from '@/app/profile/[userId]/(components)/created-build-card-actions';
+import { getCreatedBuilds } from '@/app/profile/[userId]/created-builds/actions/get-created-builds';
 
 interface Props {
-  isEditable: boolean
-  userId: string
-  buildFiltersOverrides?: Partial<BuildListFilters>
-  onToggleLoadingResults: (isLoading: boolean) => void
+  isEditable: boolean;
+  userId: string;
+  buildFiltersOverrides?: Partial<BuildListFilters>;
+  onToggleLoadingResults: (isLoading: boolean) => void;
 }
 
 export function CreatedBuilds({
@@ -36,23 +36,23 @@ export function CreatedBuilds({
   const defaultFilters = useMemo(() => {
     return buildFiltersOverrides
       ? { ...DEFAULT_BUILD_FILTERS, ...buildFiltersOverrides }
-      : DEFAULT_BUILD_FILTERS
-  }, [buildFiltersOverrides])
+      : DEFAULT_BUILD_FILTERS;
+  }, [buildFiltersOverrides]);
 
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams();
   const [buildListFilters, setBuildListFilters] = useState(
     parseUrlFilters(searchParams, defaultFilters),
-  )
+  );
 
-  const { buildListState, setBuildListState } = useBuildListState()
-  const { builds, totalBuildCount, isLoading } = buildListState
+  const { buildListState, setBuildListState } = useBuildListState();
+  const { builds, totalBuildCount, isLoading } = buildListState;
 
-  const itemsPerPage = isEditable ? 15 : 16
+  const itemsPerPage = isEditable ? 15 : 16;
 
-  const { orderBy, handleOrderByChange } = useOrderByFilter('newest')
-  const { timeRange, handleTimeRangeChange } = useTimeRangeFilter('all-time')
+  const { orderBy, handleOrderByChange } = useOrderByFilter('newest');
+  const { timeRange, handleTimeRangeChange } = useTimeRangeFilter('all-time');
   const { buildVisibility, handleBuildVisibilityChange } =
-    useBuildVisibilityFilter('all')
+    useBuildVisibilityFilter('all');
 
   const {
     currentPage,
@@ -66,21 +66,21 @@ export function CreatedBuilds({
   } = usePagination({
     totalItemCount: totalBuildCount,
     itemsPerPage,
-  })
+  });
 
   useEffect(() => {
-    setBuildListFilters(parseUrlFilters(searchParams, defaultFilters))
-    setBuildListState((prevState) => ({ ...prevState, isLoading: true }))
-  }, [searchParams, defaultFilters, setBuildListState])
+    setBuildListFilters(parseUrlFilters(searchParams, defaultFilters));
+    setBuildListState((prevState) => ({ ...prevState, isLoading: true }));
+  }, [searchParams, defaultFilters, setBuildListState]);
 
   useEffect(() => {
-    onToggleLoadingResults(isLoading)
-  }, [isLoading, onToggleLoadingResults])
+    onToggleLoadingResults(isLoading);
+  }, [isLoading, onToggleLoadingResults]);
 
   // Whenever loading is set to true, we should update the build items
   useEffect(() => {
     const getItemsAsync = async () => {
-      if (!isLoading) return
+      if (!isLoading) return;
       const response = await getCreatedBuilds({
         buildListFilters,
         featuredBuildsOnly: false,
@@ -91,17 +91,17 @@ export function CreatedBuilds({
         userId,
         isEditable,
         buildVisibility,
-      })
+      });
       setBuildListState((prevState) => ({
         ...prevState,
         isLoading: false,
         builds: response.items,
         totalBuildCount: response.totalItemCount,
-      }))
-    }
-    getItemsAsync()
+      }));
+    };
+    getItemsAsync();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoading])
+  }, [isLoading]);
 
   return (
     <>
@@ -124,11 +124,11 @@ export function CreatedBuilds({
                 isLoading={isLoading}
                 value={timeRange}
                 onChange={(value) => {
-                  handleTimeRangeChange(value)
+                  handleTimeRangeChange(value);
                   setBuildListState((prevState) => ({
                     ...prevState,
                     isLoading: true,
-                  }))
+                  }));
                 }}
               />
             </div>
@@ -137,11 +137,11 @@ export function CreatedBuilds({
                 isLoading={isLoading}
                 value={orderBy}
                 onChange={(value) => {
-                  handleOrderByChange(value)
+                  handleOrderByChange(value);
                   setBuildListState((prevState) => ({
                     ...prevState,
                     isLoading: true,
-                  }))
+                  }));
                 }}
               />
             </div>
@@ -180,7 +180,7 @@ export function CreatedBuilds({
                             (b) => b.id !== buildId,
                           ),
                           totalBuildCount: prevState.totalBuildCount - 1,
-                        }))
+                        }));
                       }}
                     />
                   ) : undefined
@@ -191,5 +191,5 @@ export function CreatedBuilds({
         </ul>
       </BuildList>
     </>
-  )
+  );
 }

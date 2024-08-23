@@ -1,4 +1,4 @@
-import { ArchetypeItem } from './types/ArchetypeItem'
+import { ArchetypeItem } from './types/ArchetypeItem';
 
 export const archetypeItems: ArchetypeItem[] = [
   {
@@ -311,7 +311,7 @@ export const archetypeItems: ArchetypeItem[] = [
         { name: 'Entranced' },
         { name: 'Communion' },
         { name: 'Mind and Body' },
-        { name: 'soothsayer' },
+        { name: 'Soothsayer' },
       ],
     },
   },
@@ -406,4 +406,4 @@ export const archetypeItems: ArchetypeItem[] = [
       ],
     },
   },
-]
+];

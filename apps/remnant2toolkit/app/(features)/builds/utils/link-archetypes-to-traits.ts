@@ -1,37 +1,37 @@
-import { traitItems } from '@/app/(data)/items/trait-items'
-import { TraitItem } from '@/app/(data)/items/types/TraitItem'
-import { DEFAULT_TRAIT_AMOUNT } from '@/app/(features)/builder/constants/default-trait-amount'
-import { BuildState } from '@/app/(types)/builds'
+import { traitItems } from '@/app/(data)/items/trait-items';
+import { TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { DEFAULT_TRAIT_AMOUNT } from '@/app/(features)/builder/constants/default-trait-amount';
+import { BuildState } from '@/app/(features)/builds/types/build-state';
 
 /**
  * Checks the build archtypes and equips any traits
  * that are linked to them
  */
 export function linkArchetypesToTraits(buildState: BuildState) {
-  const newBuildState = { ...buildState }
+  const newBuildState = { ...buildState };
 
   // Check the archtypes for linked traits
   // If any are found, add them to the build
-  const archtypes = newBuildState.items.archetype
+  const archtypes = newBuildState.items.archetype;
 
   archtypes.forEach((archetype, archetypeIndex) => {
-    const linkedTraits = archetype?.linkedItems?.traits
-    if (!linkedTraits) return
+    const linkedTraits = archetype?.linkedItems?.traits;
+    if (!linkedTraits) return;
 
     const linkedTraitItems = traitItems.filter((item) =>
       linkedTraits.some((linkedTrait) => linkedTrait.name === item.name),
-    ) as TraitItem[]
-    if (!linkedTraitItems) return
+    ) as TraitItem[];
+    if (!linkedTraitItems) return;
 
     // if any items aren't valid trait items, error
     const invalidItems = linkedTraitItems.filter(
       (traitItem) => !TraitItem.isTraitItem(traitItem),
-    )
+    );
     if (invalidItems.length > 0) {
       console.error(
         `Invalid traits found for archtype ${archetype.name}: ${invalidItems}`,
-      )
-      return
+      );
+      return;
     }
 
     for (const linkedTraitItem of linkedTraitItems) {
@@ -39,35 +39,35 @@ export function linkArchetypesToTraits(buildState: BuildState) {
       // not have a value of 10 (we don't add core values for secondary archtypes)
       const linkedTrait = linkedTraits.find(
         (trait) => trait.name === linkedTraitItem.name,
-      )
-      if (archetypeIndex === 1 && linkedTrait?.amount !== 10) continue
+      );
+      if (archetypeIndex === 1 && linkedTrait?.amount !== 10) continue;
 
       const existingBuildTrait = newBuildState.items.trait.find(
         (trait) => trait.name === linkedTraitItem.name,
-      )
+      );
 
-      let defaultTraitAmount = DEFAULT_TRAIT_AMOUNT
+      let defaultTraitAmount = DEFAULT_TRAIT_AMOUNT;
 
       // If we are on the primary archtype, determine the core
       // trait amounts to use as defaults
       if (archetypeIndex === 0) {
         defaultTraitAmount =
           linkedTraits.find((trait) => trait.name === linkedTraitItem.name)
-            ?.amount ?? DEFAULT_TRAIT_AMOUNT
+            ?.amount ?? DEFAULT_TRAIT_AMOUNT;
       }
 
       // If the trait already exists with a value that is greater
       // than the default amount, use the existing amount
-      const traitAmount = existingBuildTrait?.amount ?? defaultTraitAmount
+      const traitAmount = existingBuildTrait?.amount ?? defaultTraitAmount;
 
       // If the trait is already in the build, set the amount to the default value
       // Otherwise, add the trait to the build
       if (existingBuildTrait) {
-        existingBuildTrait.amount = traitAmount
+        existingBuildTrait.amount = traitAmount;
 
         newBuildState.items.trait = newBuildState.items.trait.map((trait) =>
           trait.name === linkedTraitItem.name ? existingBuildTrait : trait,
-        )
+        );
       } else {
         newBuildState.items.trait.push(
           new TraitItem({
@@ -99,13 +99,13 @@ export function linkArchetypesToTraits(buildState: BuildState) {
             weightStepPercent: linkedTraitItem.weightStepPercent ?? 0,
             weightThresholds: linkedTraitItem.weightThresholds ?? [],
           }),
-        )
+        );
       }
     }
-  })
+  });
 
   // *We deliberately don't check the traits and link to archtypes,
   // *since traits can be used without the archtype equipped
   // Return the build with linked items
-  return newBuildState
+  return newBuildState;
 }

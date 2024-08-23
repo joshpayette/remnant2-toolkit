@@ -1,21 +1,21 @@
-import { allItems } from '@/app/(data)/items/all-items'
-import { traitItems } from '@/app/(data)/items/trait-items'
-import { AmuletItem } from '@/app/(data)/items/types/AmuletItem'
-import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
-import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
-import { ModItem } from '@/app/(data)/items/types/ModItem'
-import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
-import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
-import { RelicItem } from '@/app/(data)/items/types/RelicItem'
-import { RingItem } from '@/app/(data)/items/types/RingItem'
-import { SkillItem } from '@/app/(data)/items/types/SkillItem'
-import { TraitItem } from '@/app/(data)/items/types/TraitItem'
-import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
-import { cleanUpBuildState } from '@/app/(features)/builds/utils/clean-up-build-state'
-import type { BuildState } from '@/app/(types)/builds'
-import type { ParsedLoadoutItem } from '@/app/(types)/sav-file'
+import { allItems } from '@/app/(data)/items/all-items';
+import { traitItems } from '@/app/(data)/items/trait-items';
+import { AmuletItem } from '@/app/(data)/items/types/AmuletItem';
+import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem';
+import { ArmorItem } from '@/app/(data)/items/types/ArmorItem';
+import { ModItem } from '@/app/(data)/items/types/ModItem';
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem';
+import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem';
+import { RelicItem } from '@/app/(data)/items/types/RelicItem';
+import { RingItem } from '@/app/(data)/items/types/RingItem';
+import { SkillItem } from '@/app/(data)/items/types/SkillItem';
+import { TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem';
+import type { BuildState } from '@/app/(features)/builds/types/build-state';
+import { cleanUpBuildState } from '@/app/(features)/builds/utils/clean-up-build-state';
+import type { ParsedLoadoutItem } from '@/app/(types)/sav-file';
 
-const USABLE_ITEMS = allItems.filter((item) => item.saveFileSlug !== undefined)
+const USABLE_ITEMS = allItems.filter((item) => item.saveFileSlug !== undefined);
 
 const LOADOUT_SLOT_MAP = {
   Amulet: '12',
@@ -35,7 +35,7 @@ const LOADOUT_SLOT_MAP = {
   Skill1: '5',
   Skill2: '6',
   Torso: '14',
-}
+};
 
 const ARCHETYPE_TRAIT_MAP = {
   Archetype_Alchemist_C: 'Trait_Potency_C',
@@ -51,16 +51,16 @@ const ARCHETYPE_TRAIT_MAP = {
   Archetype_Medic_C: 'Trait_Triage_C',
   Archetype_Ritualist_C: 'Trait_Affliction_C',
   Archetype_Summoner_C: 'Trait_Regrowth_C',
-} as const
+} as const;
 
 function getLoadoutSlot(str: string) {
-  return str.split(':LoadoutEquipmentSlot_')[1]
+  return str.split(':LoadoutEquipmentSlot_')[1];
 }
 
 export function importedLoadoutToBuildState({
   loadout,
 }: {
-  loadout: ParsedLoadoutItem[]
+  loadout: ParsedLoadoutItem[];
 }): BuildState {
   const buildState: BuildState = {
     buildId: null,
@@ -74,6 +74,7 @@ export function importedLoadoutToBuildState({
     isFeaturedBuild: false,
     isBeginnerBuild: false,
     isBaseGameBuild: false,
+    isGimmickBuild: false,
     isModeratorApproved: false,
     isModeratorLocked: false,
     dateFeatured: null,
@@ -109,14 +110,14 @@ export function importedLoadoutToBuildState({
       trait: [],
       perk: [],
     },
-  }
+  };
 
   for (const loadoutItem of loadout) {
     let item = USABLE_ITEMS.find((item) =>
       loadoutItem.id
         .toLowerCase()
         .includes(item.saveFileSlug?.toLowerCase() as string),
-    )
+    );
 
     // If item not found, it may be an archetype trait
     // For some reason, the game uses a different slug for the traits
@@ -124,198 +125,198 @@ export function importedLoadoutToBuildState({
     // i.e. if Handler is equipped, it is `Archetype_Handler_C`, but if you
     // used the trait itself, it is `Trait_Kinship_C`
     if (!item) {
-      const loadoutTrait = loadoutItem.id.split('.')[1]
+      const loadoutTrait = loadoutItem.id.split('.')[1];
       if (loadoutTrait) {
         const traitSlug =
-          ARCHETYPE_TRAIT_MAP[loadoutTrait as keyof typeof ARCHETYPE_TRAIT_MAP]
+          ARCHETYPE_TRAIT_MAP[loadoutTrait as keyof typeof ARCHETYPE_TRAIT_MAP];
         if (traitSlug) {
-          item = traitItems.find((item) => item.saveFileSlug === traitSlug)
+          item = traitItems.find((item) => item.saveFileSlug === traitSlug);
         }
       }
 
       // If still no item, error
       if (!item) {
-        console.error(`Item not found for loadout item ${loadoutItem.id}`)
-        continue
+        console.error(`Item not found for loadout item ${loadoutItem.id}`);
+        continue;
       }
     }
 
     switch (item.category) {
       case 'helm': {
-        if (!ArmorItem.isArmorItem(item)) break
-        buildState.items.helm = item
-        break
+        if (!ArmorItem.isArmorItem(item)) break;
+        buildState.items.helm = item;
+        break;
       }
       case 'torso': {
-        if (!ArmorItem.isArmorItem(item)) break
-        buildState.items.torso = item
-        break
+        if (!ArmorItem.isArmorItem(item)) break;
+        buildState.items.torso = item;
+        break;
       }
       case 'legs': {
-        if (!ArmorItem.isArmorItem(item)) break
-        buildState.items.legs = item
-        break
+        if (!ArmorItem.isArmorItem(item)) break;
+        buildState.items.legs = item;
+        break;
       }
       case 'gloves': {
-        if (!ArmorItem.isArmorItem(item)) break
-        buildState.items.gloves = item
-        break
+        if (!ArmorItem.isArmorItem(item)) break;
+        buildState.items.gloves = item;
+        break;
       }
       case 'relic': {
-        if (!RelicItem.isRelicItem(item)) break
-        buildState.items.relic = item
-        break
+        if (!RelicItem.isRelicItem(item)) break;
+        buildState.items.relic = item;
+        break;
       }
       case 'amulet': {
-        if (!AmuletItem.isAmuletItem(item)) break
-        buildState.items.amulet = item
-        break
+        if (!AmuletItem.isAmuletItem(item)) break;
+        buildState.items.amulet = item;
+        break;
       }
       case 'weapon': {
-        if (!WeaponItem.isWeaponItem(item)) break
+        if (!WeaponItem.isWeaponItem(item)) break;
         // Which slot in the buildstate to add the weapon at
-        let inventorySlot = 0
+        let inventorySlot = 0;
 
-        const loadoutSlot = getLoadoutSlot(loadoutItem.type)
-        if (!loadoutSlot) break
+        const loadoutSlot = getLoadoutSlot(loadoutItem.type);
+        if (!loadoutSlot) break;
         switch (loadoutSlot) {
           case LOADOUT_SLOT_MAP.Mainhand:
-            inventorySlot = 0
-            break
+            inventorySlot = 0;
+            break;
           case LOADOUT_SLOT_MAP.Offhand:
-            inventorySlot = 2
-            break
+            inventorySlot = 2;
+            break;
           case LOADOUT_SLOT_MAP.Melee:
-            inventorySlot = 1
-            break
+            inventorySlot = 1;
+            break;
         }
 
-        buildState.items.weapon[inventorySlot] = item
-        break
+        buildState.items.weapon[inventorySlot] = item;
+        break;
       }
       case 'mod': {
-        if (!ModItem.isModItem(item)) break
+        if (!ModItem.isModItem(item)) break;
         // Which slot in the buildstate to add the mod at
-        let inventorySlot = 0
+        let inventorySlot = 0;
 
-        const loadoutSlot = getLoadoutSlot(loadoutItem.type)
-        if (!loadoutSlot) break
+        const loadoutSlot = getLoadoutSlot(loadoutItem.type);
+        if (!loadoutSlot) break;
         switch (loadoutSlot) {
           case LOADOUT_SLOT_MAP.Mainhand:
-            inventorySlot = 0
-            break
+            inventorySlot = 0;
+            break;
           case LOADOUT_SLOT_MAP.Offhand:
-            inventorySlot = 2
-            break
+            inventorySlot = 2;
+            break;
           case LOADOUT_SLOT_MAP.Melee:
-            inventorySlot = 1
-            break
+            inventorySlot = 1;
+            break;
         }
 
-        buildState.items.mod[inventorySlot] = item
-        break
+        buildState.items.mod[inventorySlot] = item;
+        break;
       }
       case 'mutator': {
-        if (!MutatorItem.isMutatorItem(item)) break
+        if (!MutatorItem.isMutatorItem(item)) break;
         // Which slot in the buildstate to add the mutator at
-        let inventorySlot = 0
+        let inventorySlot = 0;
 
-        const loadoutSlot = getLoadoutSlot(loadoutItem.type)
-        if (!loadoutSlot) break
+        const loadoutSlot = getLoadoutSlot(loadoutItem.type);
+        if (!loadoutSlot) break;
         switch (loadoutSlot) {
           case LOADOUT_SLOT_MAP.Mainhand:
-            inventorySlot = 0
-            break
+            inventorySlot = 0;
+            break;
           case LOADOUT_SLOT_MAP.Offhand:
-            inventorySlot = 2
-            break
+            inventorySlot = 2;
+            break;
           case LOADOUT_SLOT_MAP.Melee:
-            inventorySlot = 1
-            break
+            inventorySlot = 1;
+            break;
         }
 
-        buildState.items.mutator[inventorySlot] = item
-        break
+        buildState.items.mutator[inventorySlot] = item;
+        break;
       }
       case 'ring': {
-        if (!RingItem.isRingItem(item)) break
+        if (!RingItem.isRingItem(item)) break;
         // Which slot in the buildstate to add the ring at
-        let inventorySlot = 0
+        let inventorySlot = 0;
 
-        const loadoutSlot = getLoadoutSlot(loadoutItem.type)
-        if (!loadoutSlot) break
+        const loadoutSlot = getLoadoutSlot(loadoutItem.type);
+        if (!loadoutSlot) break;
 
         switch (loadoutSlot) {
           case LOADOUT_SLOT_MAP.Ring1:
-            inventorySlot = 0
-            break
+            inventorySlot = 0;
+            break;
           case LOADOUT_SLOT_MAP.Ring2:
-            inventorySlot = 1
-            break
+            inventorySlot = 1;
+            break;
           case LOADOUT_SLOT_MAP.Ring3:
-            inventorySlot = 2
-            break
+            inventorySlot = 2;
+            break;
           case LOADOUT_SLOT_MAP.Ring4:
-            inventorySlot = 3
-            break
+            inventorySlot = 3;
+            break;
         }
 
-        buildState.items.ring[inventorySlot] = item
-        break
+        buildState.items.ring[inventorySlot] = item;
+        break;
       }
       case 'archetype': {
-        if (!ArchetypeItem.isArchetypeItem(item)) break
+        if (!ArchetypeItem.isArchetypeItem(item)) break;
         // Which slot in the buildstate to add the archetype at
-        let inventorySlot = 0
+        let inventorySlot = 0;
 
-        const loadoutSlot = getLoadoutSlot(loadoutItem.type)
-        if (!loadoutSlot) break
+        const loadoutSlot = getLoadoutSlot(loadoutItem.type);
+        if (!loadoutSlot) break;
 
         switch (loadoutSlot) {
           case LOADOUT_SLOT_MAP.Archetype1:
-            inventorySlot = 0
-            break
+            inventorySlot = 0;
+            break;
           case LOADOUT_SLOT_MAP.Archetype2:
-            inventorySlot = 1
-            break
+            inventorySlot = 1;
+            break;
         }
 
-        buildState.items.archetype[inventorySlot] = item
-        break
+        buildState.items.archetype[inventorySlot] = item;
+        break;
       }
       case 'skill': {
-        if (!SkillItem.isSkillItem(item)) break
+        if (!SkillItem.isSkillItem(item)) break;
         // Which slot in the buildstate to add the skill at
-        let inventorySlot = 0
+        let inventorySlot = 0;
 
-        const loadoutSlot = getLoadoutSlot(loadoutItem.type)
-        if (!loadoutSlot) break
+        const loadoutSlot = getLoadoutSlot(loadoutItem.type);
+        if (!loadoutSlot) break;
 
         switch (loadoutSlot) {
           case LOADOUT_SLOT_MAP.Skill1:
-            inventorySlot = 0
-            break
+            inventorySlot = 0;
+            break;
           case LOADOUT_SLOT_MAP.Skill2:
-            inventorySlot = 1
-            break
+            inventorySlot = 1;
+            break;
         }
 
-        buildState.items.skill[inventorySlot] = item
-        break
+        buildState.items.skill[inventorySlot] = item;
+        break;
       }
       case 'relicfragment': {
-        if (!RelicFragmentItem.isRelicFragmentItem(item)) break
-        buildState.items.relicfragment.push(item)
-        break
+        if (!RelicFragmentItem.isRelicFragmentItem(item)) break;
+        buildState.items.relicfragment.push(item);
+        break;
       }
       case 'trait': {
-        if (!TraitItem.isTraitItem(item)) break
+        if (!TraitItem.isTraitItem(item)) break;
 
         buildState.items.trait.push({
           ...item,
           amount: parseInt(loadoutItem.level),
-        })
-        break
+        });
+        break;
       }
     }
   }
@@ -324,31 +325,31 @@ export function importedLoadoutToBuildState({
   const coreTraitPoints =
     buildState.items.archetype[0]?.linkedItems?.traits?.filter(
       (t) => t.amount !== 10,
-    )
+    );
 
   if (coreTraitPoints) {
     for (const coreTraitPoint of coreTraitPoints) {
       const existingTraitIndex = buildState.items.trait.findIndex(
         (t) => t.name === coreTraitPoint.name,
-      )
+      );
 
       // If trait is not in the build, add it
       // Otherwise add the points
       if (existingTraitIndex === -1) {
         const traitItem = traitItems.find(
           (item) => item.name === coreTraitPoint.name,
-        ) as TraitItem
+        ) as TraitItem;
         buildState.items.trait.push({
           ...traitItem,
           amount: coreTraitPoint.amount,
-        })
+        });
       } else {
-        if (!buildState.items.trait[existingTraitIndex]) continue
+        if (!buildState.items.trait[existingTraitIndex]) continue;
         buildState.items.trait[existingTraitIndex].amount +=
-          coreTraitPoint.amount
+          coreTraitPoint.amount;
       }
     }
   }
 
-  return cleanUpBuildState(buildState)
+  return cleanUpBuildState(buildState);
 }

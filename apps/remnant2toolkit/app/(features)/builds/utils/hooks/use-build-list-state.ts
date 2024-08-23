@@ -1,13 +1,13 @@
-import { getArrayOfLength } from '@repo/utils/get-array-of-length'
-import { useState } from 'react'
+import { getArrayOfLength } from '@repo/utils/get-array-of-length';
+import { useState } from 'react';
 
-import { DBBuild } from '@/app/(types)/builds'
-import { DEFAULT_ITEMS_PER_PAGE } from '@/app/(utils)/pagination/constants'
+import { DBBuild } from '@/app/(features)/builds/types/db-build';
+import { DEFAULT_ITEMS_PER_PAGE } from '@/app/(utils)/pagination/constants';
 
 interface State {
-  builds: DBBuild[]
-  totalBuildCount: number
-  isLoading: boolean
+  builds: DBBuild[];
+  totalBuildCount: number;
+  isLoading: boolean;
 }
 
 const DEFAULT_STATE: State = {
@@ -20,6 +20,7 @@ const DEFAULT_STATE: State = {
     isFeaturedBuild: false,
     isBeginnerBuild: false,
     isBaseGameBuild: false,
+    isGimmickBuild: false,
     dateFeatured: new Date(),
     isPatchAffected: false,
     isPublic: true,
@@ -46,9 +47,9 @@ const DEFAULT_STATE: State = {
   })),
   totalBuildCount: 0,
   isLoading: true,
-}
+};
 
 export function useBuildListState() {
-  const [buildListState, setBuildListState] = useState<State>(DEFAULT_STATE)
-  return { buildListState, setBuildListState }
+  const [buildListState, setBuildListState] = useState<State>(DEFAULT_STATE);
+  return { buildListState, setBuildListState };
 }
