@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-08-24
 
+### Changed
+
+- Updated the Total Favorite Counts leader board to exclude the build creator's votes for their builds from the totals.
+
 ### Fixed
 
 - Fixed bug with build description textarea sizing inconsistencies.
