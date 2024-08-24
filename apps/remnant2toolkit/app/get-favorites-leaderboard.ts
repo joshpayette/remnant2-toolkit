@@ -1,8 +1,8 @@
-'use server'
+'use server';
 
-import { prisma } from '@repo/db'
-import type { LeaderBoardItem } from '@repo/ui/leader-board/types'
-import { bigIntFix } from '@repo/utils/big-int-fix'
+import { prisma } from '@repo/db';
+import type { LeaderBoardItem } from '@repo/ui/leader-board/types';
+import { bigIntFix } from '@repo/utils/big-int-fix';
 
 export async function getFavoritesLeaderboard(): Promise<LeaderBoardItem[]> {
   // Excluding remnant2toolkit account
@@ -11,7 +11,7 @@ export async function getFavoritesLeaderboard(): Promise<LeaderBoardItem[]> {
       User.id,
       User.name,
       User.displayName,
-      COUNT(BuildVoteCounts.buildId) as totalVotes
+      COUNT(CASE WHEN BuildVoteCounts.userId != Build.createdById THEN BuildVoteCounts.buildId END) as totalVotes
     FROM User
     JOIN Build ON User.id = Build.createdById
     JOIN BuildVoteCounts ON Build.id = BuildVoteCounts.buildId
@@ -20,15 +20,15 @@ export async function getFavoritesLeaderboard(): Promise<LeaderBoardItem[]> {
     ORDER BY totalVotes DESC
     LIMIT 10
   `) as Array<{
-    id: string
-    name: string
-    displayName: string
-    totalVotes: number
-  }>
+    id: string;
+    name: string;
+    displayName: string;
+    totalVotes: number;
+  }>;
 
   return response.map((item) => ({
     userId: item.id,
     userDisplayName: item.displayName,
     score: bigIntFix(item.totalVotes),
-  }))
+  }));
 }
