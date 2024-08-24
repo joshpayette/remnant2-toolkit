@@ -1,23 +1,23 @@
-'use client'
+'use client';
 
-import { BaseButton } from '@repo/ui/base/button'
-import { Skeleton } from '@repo/ui/skeleton'
-import { capitalize } from '@repo/utils/capitalize'
-import { useSession } from 'next-auth/react'
-import { Suspense } from 'react'
-import { useIsClient } from 'usehooks-ts'
+import { BaseButton } from '@repo/ui/base/button';
+import { Skeleton } from '@repo/ui/skeleton';
+import { capitalize } from '@repo/utils/capitalize';
+import { useSession } from 'next-auth/react';
+import { Suspense } from 'react';
+import { useIsClient } from 'usehooks-ts';
 
-import { ImportCsvDialog } from '@/app/(components)/dialogs/import-csv-dialog'
-import { ImportItemsDialog } from '@/app/(components)/dialogs/import-items-dialog'
-import { ItemTrackerFilters } from '@/app/(components)/filters/item-tracker/item-tracker-filters'
-import { PageHeader } from '@/app/(components)/page-header'
-import { useDiscoveredItems } from '@/app/(hooks)/use-discovered-items'
-import { getTrackerProgressLabel } from '@/app/(utils)/tracker/get-tracker-progress-label'
-import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants'
-import { useCsvFileUpload } from '@/app/tracker/hooks/use-csv-file-upload'
-import { useSaveFileUpload } from '@/app/tracker/hooks/use-save-file-upload'
-import { ItemList } from '@/app/tracker/item-list'
-import { ItemTrackerCategory } from '@/app/tracker/types'
+import { ImportCsvDialog } from '@/app/(components)/dialogs/import-csv-dialog';
+import { ImportItemsDialog } from '@/app/(components)/dialogs/import-items-dialog';
+import { ItemTrackerFilters } from '@/app/(components)/filters/item-tracker/item-tracker-filters';
+import { PageHeader } from '@/app/(components)/page-header';
+import { useDiscoveredItems } from '@/app/(hooks)/use-discovered-items';
+import { getTrackerProgressLabel } from '@/app/(utils)/tracker/get-tracker-progress-label';
+import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants';
+import { useCsvFileUpload } from '@/app/tracker/hooks/use-csv-file-upload';
+import { useSaveFileUpload } from '@/app/tracker/hooks/use-save-file-upload';
+import { ItemList } from '@/app/tracker/item-list';
+import { ItemTrackerCategory } from '@/app/tracker/types';
 
 /**
  * ----------------------------------------------
@@ -30,29 +30,29 @@ const subCategories: ItemTrackerCategory[] = [
   'Melee',
   'Mutator (Gun)',
   'Mutator (Melee)',
-]
+];
 
 let itemCategories = ALL_TRACKABLE_ITEMS
   // Remove the categories that will be replaced by subcategories
   .reduce((acc, item) => {
-    if (acc.includes(capitalize(item.category))) return acc
-    return [...acc, capitalize(item.category)]
-  }, [] as string[])
+    if (acc.includes(capitalize(item.category))) return acc;
+    return [...acc, capitalize(item.category)];
+  }, [] as string[]);
 // Add the subcategories
-itemCategories.push(...subCategories)
+itemCategories.push(...subCategories);
 // Sort alphabetically
-itemCategories = itemCategories.sort()
+itemCategories = itemCategories.sort();
 itemCategories = itemCategories.filter(
   (category) => category !== 'Weapon' && category !== 'Mutator',
-)
+);
 
 // #region Component
 export default function Page() {
-  const { status: sessionStatus } = useSession()
+  const { status: sessionStatus } = useSession();
 
-  const isClient = useIsClient()
+  const isClient = useIsClient();
 
-  const { discoveredItemIds, handleSetDiscoveredItems } = useDiscoveredItems()
+  const { discoveredItemIds, handleSetDiscoveredItems } = useDiscoveredItems();
 
   const {
     importSaveDialogOpen,
@@ -61,7 +61,7 @@ export default function Page() {
     setImportSaveDialogOpen,
   } = useSaveFileUpload({
     handleSetDiscoveredItems,
-  })
+  });
 
   const {
     csvFileInputRef,
@@ -72,17 +72,17 @@ export default function Page() {
   } = useCsvFileUpload({
     discoveredItemIds,
     handleSetDiscoveredItems,
-  })
+  });
 
   // Provide the tracker progress
   const totalProgress = getTrackerProgressLabel({
     items: ALL_TRACKABLE_ITEMS,
     discoveredItemIds,
-  })
+  });
 
   // #region Render
 
-  if (sessionStatus === 'loading') return null
+  if (sessionStatus === 'loading') return null;
 
   return (
     <>
@@ -156,5 +156,5 @@ export default function Page() {
         </div>
       </div>
     </>
-  )
+  );
 }
