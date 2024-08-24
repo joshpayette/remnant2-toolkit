@@ -1,14 +1,17 @@
 import {
   Textarea as HeadlessTextarea,
   type TextareaProps as HeadlessTextareaProps,
-} from '@headlessui/react'
-import { clsx } from 'clsx'
-import { forwardRef } from 'react'
+} from '@headlessui/react';
+import { clsx } from 'clsx';
+import { forwardRef } from 'react';
 
 export const BaseTextarea = forwardRef<
   HTMLTextAreaElement,
-  { resizable?: boolean } & HeadlessTextareaProps
->(function Textarea({ className, resizable = true, ...props }, ref) {
+  { resizable?: boolean; textareaClassName?: string } & HeadlessTextareaProps
+>(function Textarea(
+  { className, textareaClassName, resizable = true, ...props },
+  ref,
+) {
   return (
     <span
       data-slot="control"
@@ -16,7 +19,7 @@ export const BaseTextarea = forwardRef<
         className,
 
         // Basic layout
-        'ui-relative ui-block ui-w-full',
+        'ui-relative ui-grid ui-h-full ui-w-full',
 
         // Background color + shadow applied to inset pseudo element, so shadow blends with border in light mode
         'before:ui-bg-surface-solid before:ui-absolute before:ui-inset-px before:ui-rounded-[calc(theme(borderRadius.lg)-1px)] before:ui-shadow',
@@ -34,8 +37,10 @@ export const BaseTextarea = forwardRef<
       <HeadlessTextarea
         ref={ref}
         className={clsx([
+          textareaClassName,
+
           // Basic layout
-          'ui-relative ui-block ui-h-full ui-w-full ui-appearance-none ui-rounded-lg ui-px-[calc(theme(spacing[3.5])-1px)] ui-py-[calc(theme(spacing[2.5])-1px)] sm:ui-px-[calc(theme(spacing.3)-1px)] sm:ui-py-[calc(theme(spacing[1.5])-1px)]',
+          'ui-relative ui-block ui-h-full ui-box-border ui-w-full ui-appearance-none ui-rounded-lg ui-px-[calc(theme(spacing[3.5])-1px)] ui-py-[calc(theme(spacing[2.5])-1px)] sm:ui-px-[calc(theme(spacing.3)-1px)] sm:ui-py-[calc(theme(spacing[1.5])-1px)]',
 
           // Typography
           'ui-text-surface-solid ui-text-base/6 placeholder:ui-text-zinc-500 sm:ui-text-sm/6',
@@ -61,5 +66,5 @@ export const BaseTextarea = forwardRef<
         {...props}
       />
     </span>
-  )
-})
+  );
+});

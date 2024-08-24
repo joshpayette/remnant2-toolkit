@@ -1,39 +1,39 @@
-'use client'
+'use client';
 
-import { BuildTags } from '@repo/db'
-import { BaseButton } from '@repo/ui/base/button'
-import { BaseField, BaseFieldset, BaseLabel } from '@repo/ui/base/fieldset'
-import { BaseInput } from '@repo/ui/base/input'
-import { BaseSwitch } from '@repo/ui/base/switch'
-import { BaseTextarea } from '@repo/ui/base/textarea'
-import { cn } from '@repo/ui/classnames'
-import { Skeleton } from '@repo/ui/skeleton'
-import { useSession } from 'next-auth/react'
-import { useState } from 'react'
-import { IoDocumentTextSharp } from 'react-icons/io5'
-import { MdOutlineGeneratingTokens } from 'react-icons/md'
+import { BuildTags } from '@repo/db';
+import { BaseButton } from '@repo/ui/base/button';
+import { BaseField, BaseFieldset, BaseLabel } from '@repo/ui/base/fieldset';
+import { BaseInput } from '@repo/ui/base/input';
+import { BaseSwitch } from '@repo/ui/base/switch';
+import { BaseTextarea } from '@repo/ui/base/textarea';
+import { cn } from '@repo/ui/classnames';
+import { Skeleton } from '@repo/ui/skeleton';
+import { useSession } from 'next-auth/react';
+import { useState } from 'react';
+import { IoDocumentTextSharp } from 'react-icons/io5';
+import { MdOutlineGeneratingTokens } from 'react-icons/md';
 
-import { BuildDescriptionTemplateAlert } from '@/app/(components)/alerts/build-description-template-alert'
-import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
-import { DescriptionTokenDialog } from '@/app/(features)/builder/components/dialogs/description-token-dialog'
-import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(features)/builds/constants/max-build-description-length'
+import { BuildDescriptionTemplateAlert } from '@/app/(components)/alerts/build-description-template-alert';
+import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens';
+import { DescriptionTokenDialog } from '@/app/(features)/builder/components/dialogs/description-token-dialog';
+import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(features)/builds/constants/max-build-description-length';
 
-import { BuildTagsDisplay } from './build-tags/build-tags-display'
+import { BuildTagsDisplay } from './build-tags/build-tags-display';
 
 type Props = {
-  buildLink: string | null
-  buildTags: BuildTags[]
-  description: string | null
-  isEditable: boolean
-  isPatchAffected: boolean | null
-  isPublic: boolean | null
-  isScreenshotMode: boolean
-  onChangeBuildLink: (buildLink: string) => void
-  onChangeBuildTags: (tags: BuildTags[]) => void
-  onChangeDescription: (description: string) => void
-  onChangeIsPublic: (isPublic: boolean) => void
-  onChangeIsPatchAffected: (isPatchAffected: boolean) => void
-}
+  buildLink: string | null;
+  buildTags: BuildTags[];
+  description: string | null;
+  isEditable: boolean;
+  isPatchAffected: boolean | null;
+  isPublic: boolean | null;
+  isScreenshotMode: boolean;
+  onChangeBuildLink: (buildLink: string) => void;
+  onChangeBuildTags: (tags: BuildTags[]) => void;
+  onChangeDescription: (description: string) => void;
+  onChangeIsPublic: (isPublic: boolean) => void;
+  onChangeIsPatchAffected: (isPatchAffected: boolean) => void;
+};
 
 export function MemberFeatures({
   buildLink,
@@ -49,13 +49,13 @@ export function MemberFeatures({
   onChangeIsPublic,
   onChangeIsPatchAffected,
 }: Props) {
-  const { status } = useSession()
+  const { status } = useSession();
   const [buildDescriptionAlertOpen, setBuildDescriptionAlertOpen] =
-    useState(false)
+    useState(false);
 
-  const [buildTagsDialogOpen, setBuildTagsDialogOpen] = useState(false)
+  const [buildTagsDialogOpen, setBuildTagsDialogOpen] = useState(false);
 
-  if (status === 'loading') return <Loading />
+  if (status === 'loading') return <Loading />;
 
   return (
     <div className="relative w-full max-w-[700px] pt-4">
@@ -93,7 +93,7 @@ export function MemberFeatures({
           )}
         </div>
       ) : (
-        <div className="mb-8 w-full">
+        <div className="mb-8 h-full w-full">
           <BaseField>
             <BaseLabel>{`Build Description (${
               description?.length ?? 0
@@ -105,20 +105,22 @@ export function MemberFeatures({
               All item names will show up in bold and keywords as tokens. Not
               sure what to write? Use the Item Description Template link below!
             </p>
-            <BaseTextarea
-              name="description"
-              onChange={(e) => onChangeDescription(e.target.value)}
-              value={description ?? ''}
-              maxLength={MAX_BUILD_DESCRIPTION_LENGTH}
-              className="min-h-[215px] w-full"
-            />
+            <div className="grid h-full w-full">
+              <BaseTextarea
+                name="description"
+                onChange={(e) => onChangeDescription(e.target.value)}
+                value={description ?? ''}
+                maxLength={MAX_BUILD_DESCRIPTION_LENGTH}
+                textareaClassName="min-h-[200px]"
+              />
+            </div>
           </BaseField>
           <div className="flex w-full items-center justify-between">
             <BuildDescriptionTemplateAlert
               open={buildDescriptionAlertOpen}
               onClose={() => setBuildDescriptionAlertOpen(false)}
               onConfirm={() => {
-                setBuildDescriptionAlertOpen(false)
+                setBuildDescriptionAlertOpen(false);
                 onChangeDescription(
                   `
 This build is designed for [insert game difficulty here] and is a [insert build type here] build. It is designed to be played [insert solo or coop here] with a [insert weapon name here] but can be played with other weapons.
@@ -130,7 +132,7 @@ For an easier to obtain loot version of this build, see [insert link here].
 
 Watch the build in action: [insert Youtube link here]
 `.trim(),
-                )
+                );
               }}
             />
 
@@ -250,9 +252,9 @@ Watch the build in action: [insert Youtube link here]
         </>
       )}
     </div>
-  )
+  );
 }
 
 function Loading() {
-  return <Skeleton className="h-[300px] w-full" />
+  return <Skeleton className="h-[300px] w-full" />;
 }
