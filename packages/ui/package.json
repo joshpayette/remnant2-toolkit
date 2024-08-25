@@ -63,6 +63,7 @@
     "./icons/eyeslash": "./src/icons/eyeslash.tsx",
     "./icons/favorite": "./src/icons/favorite.tsx",
     "./icons/filter": "./src/icons/filter.tsx",
+    "./icons/inbox": "./src/icons/inbox.tsx",
     "./icons/info-circle": "./src/icons/info-circle.tsx",
     "./icons/item-lookup": "./src/icons/item-lookup.tsx",
     "./icons/item-tracker": "./src/icons/item-tracker.tsx",
