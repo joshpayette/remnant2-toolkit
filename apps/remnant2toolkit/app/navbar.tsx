@@ -13,11 +13,12 @@ import { Fragment } from 'react';
 import { ProfileButton } from '@/app/(components)/profile-button';
 import { NAV_ITEMS } from '@/app/(types)/navigation';
 
-export function Navbar() {
+export function Navbar({ showNotifications }: { showNotifications: boolean }) {
   const { status } = useSession();
 
   return (
     <NavbarContainer
+      showNotifications={showNotifications}
       logo={<Logo variant="remnant2toolkit" />}
       desktopProfileButton={<ProfileButton.Desktop />}
       mobileProfileButton={<ProfileButton.Mobile />}
@@ -462,6 +463,6 @@ export function Navbar() {
           </BaseLink>
         </>
       }
-    ></NavbarContainer>
+    />
   );
 }

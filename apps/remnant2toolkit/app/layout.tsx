@@ -7,8 +7,9 @@ import { Viewport } from 'next';
 import dynamic from 'next/dynamic';
 
 import { Footer } from '@/app/(components)/footer';
-import { Navbar } from '@/app/(components)/navbar';
 import { getSession } from '@/app/(features)/auth/services/sessionService';
+import { showNotificationsFlag } from '@/app/(features)/notifications/feature-flag';
+import { Navbar } from '@/app/navbar';
 
 export const viewport: Viewport = {};
 export { metadata } from './metadata';
@@ -23,6 +24,7 @@ export default async function Layout({
   children: React.ReactNode;
 }) {
   const session = await getSession();
+  const showNotifications = await showNotificationsFlag();
 
   return (
     <RootLayout
@@ -33,7 +35,7 @@ export default async function Layout({
         </AlertBanner>
       }
       footer={<Footer />}
-      navbar={<Navbar />}
+      navbar={<Navbar showNotifications={showNotifications} />}
       trackers={<Analytics />}
     >
       <GlobalActionButtons username={session?.user?.name || 'Unknown User'} />
