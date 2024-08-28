@@ -1,20 +1,23 @@
-'use client'
+'use client';
 
-import { Dialog } from '@headlessui/react'
-import { BaseButton } from '@repo/ui/base/button'
-import { cn } from '@repo/ui/classnames'
-import { BarsIcon } from '@repo/ui/icons/bars'
-import { CloseIcon } from '@repo/ui/icons/close'
-import { ZINDEXES } from '@repo/ui/zindexes'
-import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { Dialog } from '@headlessui/react';
+import { BaseButton } from '@repo/ui/base/button';
+import { cn } from '@repo/ui/classnames';
+import { BarsIcon } from '@repo/ui/icons/bars';
+import { CloseIcon } from '@repo/ui/icons/close';
+import { ZINDEXES } from '@repo/ui/zindexes';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+
+import { NotificationNavIcon } from './notifications/components/notification-nav-icon';
 
 interface Props {
-  desktopProfileButton: React.ReactNode
-  desktopChildren: React.ReactNode
-  logo: React.ReactNode
-  mobileProfileButton: React.ReactNode
-  mobileChildren: React.ReactNode
+  desktopProfileButton: React.ReactNode;
+  desktopChildren: React.ReactNode;
+  logo: React.ReactNode;
+  mobileProfileButton: React.ReactNode;
+  mobileChildren: React.ReactNode;
+  showNotifications: boolean;
 }
 
 export function NavbarContainer({
@@ -23,15 +26,15 @@ export function NavbarContainer({
   logo,
   mobileProfileButton,
   mobileChildren,
+  showNotifications,
 }: Props) {
-  const pathname = usePathname()
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Close the navmenu on route change
   // * useEffect is necessary to close the menu on route change
   useEffect(() => {
-    setMobileMenuOpen(false)
-  }, [pathname])
+    setMobileMenuOpen(false);
+  }, [pathname]);
 
   return (
     <>
@@ -60,6 +63,7 @@ export function NavbarContainer({
           {desktopChildren}
         </div>
         <div className="ui-hidden ui-w-[80px] ui-grow ui-items-end ui-justify-end lg:ui-flex">
+          {showNotifications && <NotificationNavIcon />}
           {desktopProfileButton}
         </div>
       </nav>
@@ -102,5 +106,5 @@ export function NavbarContainer({
         </Dialog.Panel>
       </Dialog>
     </>
-  )
+  );
 }
