@@ -1,24 +1,20 @@
-import { BaseButton } from '@repo/ui/base/button'
-import {
-  BaseCheckbox,
-  BaseCheckboxField,
-  BaseCheckboxGroup,
-} from '@repo/ui/base/checkbox'
-import { BaseFieldset, BaseLabel, BaseLegend } from '@repo/ui/base/fieldset'
+import { BaseButton } from '@repo/ui';
+import { BaseCheckbox, BaseCheckboxField, BaseCheckboxGroup } from '@repo/ui';
+import { BaseFieldset, BaseLabel, BaseLegend } from '@repo/ui';
 
 import {
   ALL_RELEASE_KEYS,
   RELEASE_TO_NAME,
-} from '@/app/(data)/releases/constants'
-import { ReleaseKey } from '@/app/(data)/releases/types'
+} from '@/app/(data)/releases/constants';
+import { ReleaseKey } from '@/app/(data)/releases/types';
 
-export const VALID_RELEASE_KEYS = ALL_RELEASE_KEYS
+export const VALID_RELEASE_KEYS = ALL_RELEASE_KEYS;
 
 interface Props {
-  values: string[]
-  onChange: (release: string, checked: boolean) => void
-  onCheckAll: () => void
-  onUncheckAll: () => void
+  values: string[];
+  onChange: (release: string, checked: boolean) => void;
+  onCheckAll: () => void;
+  onUncheckAll: () => void;
 }
 
 export function ReleasesFilter({
@@ -30,7 +26,7 @@ export function ReleasesFilter({
   const options = VALID_RELEASE_KEYS.map((release) => ({
     label: RELEASE_TO_NAME[release as ReleaseKey] as string,
     value: release,
-  }))
+  }));
 
   return (
     <BaseFieldset>
@@ -57,5 +53,5 @@ export function ReleasesFilter({
         ))}
       </BaseCheckboxGroup>
     </BaseFieldset>
-  )
+  );
 }

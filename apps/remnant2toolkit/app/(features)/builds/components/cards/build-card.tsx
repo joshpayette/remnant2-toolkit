@@ -1,14 +1,16 @@
 'use client';
 
-import { BaseButton } from '@repo/ui/base/button';
-import { BaseLink } from '@repo/ui/base/link';
-import { cn } from '@repo/ui/classnames';
-import { EyeIcon } from '@repo/ui/icons/eye';
-import { EyeSlashIcon } from '@repo/ui/icons/eyeslash';
-import { FavoriteIcon } from '@repo/ui/icons/favorite';
-import { PaperClipIcon } from '@repo/ui/icons/paperclip';
-import { VideoIcon } from '@repo/ui/icons/video';
-import { Skeleton } from '@repo/ui/skeleton';
+import { BaseButton } from '@repo/ui';
+import { BaseLink } from '@repo/ui';
+import { cn } from '@repo/ui';
+import { Skeleton } from '@repo/ui';
+import {
+  EyeIcon,
+  EyeOffIcon,
+  FavoriteIcon,
+  PaperClipIcon,
+  VideoIcon,
+} from '@repo/ui';
 import { isValidYoutubeUrl } from '@repo/utils/youtube';
 
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens';
@@ -183,7 +185,7 @@ export function BuildCard({
                       {build.isPublic ? (
                         <EyeIcon className="h-4 w-4" />
                       ) : (
-                        <EyeSlashIcon className="h-4 w-4" />
+                        <EyeOffIcon className="h-4 w-4" />
                       )}
                     </BaseButton>
                   </Tooltip>

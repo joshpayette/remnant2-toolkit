@@ -1,33 +1,35 @@
-'use client'
+'use client';
 
-import { BaseButton } from '@repo/ui/base/button'
-import isEqual from 'lodash.isequal'
-import { useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { BaseButton } from '@repo/ui';
+import isEqual from 'lodash.isequal';
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-import { WorldSaveCard } from '@/app/(components)/cards/world-save-card'
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
+import { WorldSaveCard } from '@/app/(components)/cards/world-save-card';
+import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
 import {
   FilteredWorldSave,
   WorldSaveFilters,
-} from '@/app/(components)/filters/world-saves/types'
-import { parseUrlFilters } from '@/app/(components)/filters/world-saves/utils'
-import { DEFAULT_WORLD_SAVE_FILTERS } from '@/app/(components)/filters/world-saves/world-save-filters'
-import { ALL_BOSSES } from '@/app/(data)/world-saves/constants'
-import { worldSaves } from '@/app/(data)/world-saves/world-saves'
+} from '@/app/(components)/filters/world-saves/types';
+import { parseUrlFilters } from '@/app/(components)/filters/world-saves/utils';
+import { DEFAULT_WORLD_SAVE_FILTERS } from '@/app/(components)/filters/world-saves/world-save-filters';
+import { ALL_BOSSES } from '@/app/(data)/world-saves/constants';
+import { worldSaves } from '@/app/(data)/world-saves/world-saves';
 
 function getFilteredSaves(filters: WorldSaveFilters): FilteredWorldSave[] {
   let filteredSaves: FilteredWorldSave[] = worldSaves.map((s) => {
-    const bossItem = ALL_BOSSES.find((b) => b.name === s.bossName)
+    const bossItem = ALL_BOSSES.find((b) => b.name === s.bossName);
     return {
       ...s,
       imagePath: bossItem?.imagePath || '',
-    }
-  })
+    };
+  });
 
   // If boss name is not default, filter by boss name
   if (filters.bossName !== DEFAULT_FILTER) {
-    filteredSaves = filteredSaves.filter((s) => s.bossName === filters.bossName)
+    filteredSaves = filteredSaves.filter(
+      (s) => s.bossName === filters.bossName,
+    );
   }
 
   // if boss affixes are not default, filter by boss affixes
@@ -42,14 +44,14 @@ function getFilteredSaves(filters: WorldSaveFilters): FilteredWorldSave[] {
         filters.bossAffixes
           .filter((affix) => affix !== DEFAULT_FILTER)
           .includes(affix),
-      )
+      );
 
       if (filters.bossAffixes.length === 1) {
-        return matchingAffixes.length > 0
+        return matchingAffixes.length > 0;
       } else {
-        return matchingAffixes.length >= 2
+        return matchingAffixes.length >= 2;
       }
-    })
+    });
   }
 
   // if releases are not default, filter by releases
@@ -61,40 +63,40 @@ function getFilteredSaves(filters: WorldSaveFilters): FilteredWorldSave[] {
       filters.releases
         .filter((release) => release !== DEFAULT_FILTER)
         .includes(save.release),
-    )
+    );
   }
 
   // sort by boss name, then by affixes
   filteredSaves = filteredSaves.sort((a, b) => {
-    if (a.bossName < b.bossName) return -1
-    if (a.bossName > b.bossName) return 1
-    if (a.bossAffixes.join('') < b.bossAffixes.join('')) return -1
-    if (a.bossAffixes.join('') > b.bossAffixes.join('')) return 1
-    return 0
-  })
+    if (a.bossName < b.bossName) return -1;
+    if (a.bossName > b.bossName) return 1;
+    if (a.bossAffixes.join('') < b.bossAffixes.join('')) return -1;
+    if (a.bossAffixes.join('') > b.bossAffixes.join('')) return 1;
+    return 0;
+  });
 
-  return filteredSaves
+  return filteredSaves;
 }
 
 export function WorldSaves() {
-  const searchParams = useSearchParams()
-  const [filters, setFilters] = useState(parseUrlFilters(searchParams))
+  const searchParams = useSearchParams();
+  const [filters, setFilters] = useState(parseUrlFilters(searchParams));
 
   const [areFiltersApplied, setAreFiltersApplied] = useState(
     !isEqual(filters, DEFAULT_WORLD_SAVE_FILTERS),
-  )
+  );
 
   useEffect(() => {
-    setFilters(parseUrlFilters(searchParams))
-  }, [searchParams])
+    setFilters(parseUrlFilters(searchParams));
+  }, [searchParams]);
 
   useEffect(() => {
     if (!isEqual(filters, DEFAULT_WORLD_SAVE_FILTERS)) {
-      setAreFiltersApplied(true)
+      setAreFiltersApplied(true);
     }
-  }, [filters])
+  }, [filters]);
 
-  const filteredSaves = getFilteredSaves(filters)
+  const filteredSaves = getFilteredSaves(filters);
 
   // #region Render
 
@@ -134,5 +136,5 @@ export function WorldSaves() {
         </div>
       ) : null}
     </div>
-  )
+  );
 }

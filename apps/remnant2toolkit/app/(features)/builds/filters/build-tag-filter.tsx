@@ -1,20 +1,16 @@
-import { BaseButton } from '@repo/ui/base/button'
-import {
-  BaseCheckbox,
-  BaseCheckboxField,
-  BaseCheckboxGroup,
-} from '@repo/ui/base/checkbox'
-import { BaseFieldset, BaseLabel, BaseLegend } from '@repo/ui/base/fieldset'
+import { BaseButton } from '@repo/ui';
+import { BaseCheckbox, BaseCheckboxField, BaseCheckboxGroup } from '@repo/ui';
+import { BaseFieldset, BaseLabel, BaseLegend } from '@repo/ui';
 
-import { ALL_BUILD_TAGS } from '@/app/(features)/builder/constants/all-build-tags'
+import { ALL_BUILD_TAGS } from '@/app/(features)/builder/constants/all-build-tags';
 
-export const VALID_BUILD_TAGS = ALL_BUILD_TAGS.map((item) => item.label)
+export const VALID_BUILD_TAGS = ALL_BUILD_TAGS.map((item) => item.label);
 
 interface Props {
-  values: string[]
-  onChange: (newTag: string, checked: boolean) => void
-  onCheckAll: () => void
-  onUncheckAll: () => void
+  values: string[];
+  onChange: (newTag: string, checked: boolean) => void;
+  onCheckAll: () => void;
+  onUncheckAll: () => void;
 }
 
 export function BuildTagFilter({
@@ -26,7 +22,7 @@ export function BuildTagFilter({
   const options = VALID_BUILD_TAGS.map((tag) => ({
     label: tag,
     value: tag,
-  }))
+  }));
 
   return (
     <BaseFieldset>
@@ -53,5 +49,5 @@ export function BuildTagFilter({
         ))}
       </BaseCheckboxGroup>
     </BaseFieldset>
-  )
+  );
 }

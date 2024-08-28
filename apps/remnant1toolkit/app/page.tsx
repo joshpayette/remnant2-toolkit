@@ -1,10 +1,9 @@
-import { BaseButton } from '@repo/ui/base/button'
-import { BaseText } from '@repo/ui/base/text'
+import { BaseButton, BaseText } from '@repo/ui';
 
-import { getSession } from '@/app/(features)/auth/services/sessionService'
+import { getSession } from '@/app/(features)/auth/services/sessionService';
 
 export default async function Page() {
-  const session = await getSession()
+  const session = await getSession();
 
   return (
     <div>
@@ -17,5 +16,5 @@ export default async function Page() {
         <BaseButton href="/api/auth/signin">Sign in</BaseButton>
       )}
     </div>
-  )
+  );
 }

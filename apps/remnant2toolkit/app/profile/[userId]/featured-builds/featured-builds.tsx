@@ -1,6 +1,6 @@
 'use client';
 
-import { Skeleton } from '@repo/ui/skeleton';
+import { Skeleton } from '@repo/ui';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 

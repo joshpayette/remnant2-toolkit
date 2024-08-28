@@ -1,7 +1,6 @@
 'use client';
 
-import { BaseLink } from '@repo/ui/base/link';
-import { EyeIcon } from '@repo/ui/icons/eye';
+import { BaseLink, EyeIcon } from '@repo/ui';
 import { useState } from 'react';
 
 import { Tooltip } from '@/app/(components)/tooltip';

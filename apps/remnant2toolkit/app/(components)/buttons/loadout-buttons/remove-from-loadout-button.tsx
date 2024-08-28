@@ -1,39 +1,39 @@
-import { BaseButton } from '@repo/ui/base/button'
-import { TrashIcon } from '@repo/ui/icons/trash'
-import { useState } from 'react'
-import { toast } from 'react-toastify'
+import { BaseButton } from '@repo/ui';
+import { TrashIcon } from '@repo/ui';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 
-import { removeBuildFromLoadout } from '@/app/(actions)/loadouts/remove-build-from-loadout'
-import { RemoveFromLoadoutAlert } from '@/app/(components)/alerts/remove-from-loadout-alert'
-import { Tooltip } from '@/app/(components)/tooltip'
+import { removeBuildFromLoadout } from '@/app/(actions)/loadouts/remove-build-from-loadout';
+import { RemoveFromLoadoutAlert } from '@/app/(components)/alerts/remove-from-loadout-alert';
+import { Tooltip } from '@/app/(components)/tooltip';
 
 export function RemoveFromLoadoutButton({
   buildId,
   slot,
   callback,
 }: {
-  buildId: string
-  slot: number
-  callback?: (success: boolean) => void
+  buildId: string;
+  slot: number;
+  callback?: (success: boolean) => void;
 }) {
-  const [alertOpen, setAlertOpen] = useState(false)
+  const [alertOpen, setAlertOpen] = useState(false);
 
   async function handleRemoveFromLoadout() {
-    const response = await removeBuildFromLoadout(buildId, slot)
+    const response = await removeBuildFromLoadout(buildId, slot);
     if (!response.success) {
-      if (callback) callback(false)
-      toast.error('Failed to remove build from loadout')
-      setAlertOpen(false)
-      return
+      if (callback) callback(false);
+      toast.error('Failed to remove build from loadout');
+      setAlertOpen(false);
+      return;
     }
-    if (callback) callback(true)
-    toast.success('Build removed from loadout')
-    setAlertOpen(false)
+    if (callback) callback(true);
+    toast.success('Build removed from loadout');
+    setAlertOpen(false);
   }
 
   function handleCancel() {
-    if (callback) callback(false)
-    setAlertOpen(false)
+    if (callback) callback(false);
+    setAlertOpen(false);
   }
 
   return (
@@ -55,5 +55,5 @@ export function RemoveFromLoadoutButton({
         </BaseButton>
       </Tooltip>
     </>
-  )
+  );
 }

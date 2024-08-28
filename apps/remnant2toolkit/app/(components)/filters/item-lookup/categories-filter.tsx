@@ -1,10 +1,6 @@
-import { BaseButton } from '@repo/ui/base/button'
-import {
-  BaseCheckbox,
-  BaseCheckboxField,
-  BaseCheckboxGroup,
-} from '@repo/ui/base/checkbox'
-import { BaseFieldset, BaseLabel, BaseLegend } from '@repo/ui/base/fieldset'
+import { BaseButton } from '@repo/ui';
+import { BaseCheckbox, BaseCheckboxField, BaseCheckboxGroup } from '@repo/ui';
+import { BaseFieldset, BaseLabel, BaseLegend } from '@repo/ui';
 
 export const VALID_ITEM_CATEGORIES = [
   'Helm',
@@ -27,13 +23,13 @@ export const VALID_ITEM_CATEGORIES = [
   'Mutator (Melee)',
   'Concoction',
   'Consumable',
-]
+];
 
 interface Props {
-  values: string[]
-  onChange: (category: string, checked: boolean) => void
-  onCheckAll: () => void
-  onUncheckAll: () => void
+  values: string[];
+  onChange: (category: string, checked: boolean) => void;
+  onCheckAll: () => void;
+  onUncheckAll: () => void;
 }
 
 export function CategoriesFilter({
@@ -246,5 +242,5 @@ export function CategoriesFilter({
         </BaseCheckboxGroup>
       </BaseCheckboxGroup>
     </BaseFieldset>
-  )
+  );
 }

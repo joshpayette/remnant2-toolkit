@@ -1,18 +1,14 @@
-import {
-  BaseDialog,
-  BaseDialogBody,
-  BaseDialogTitle,
-} from '@repo/ui/base/dialog'
-import { Skeleton } from '@repo/ui/skeleton'
+import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@repo/ui';
+import { Skeleton } from '@repo/ui';
 
 interface Props {
-  imageDownloadInfo: { imageLink: string; imageName: string } | null
-  onClose: () => void
+  imageDownloadInfo: { imageLink: string; imageName: string } | null;
+  onClose: () => void;
 }
 
 export function ImageDownloadInfoDialog({ imageDownloadInfo, onClose }: Props) {
-  if (!imageDownloadInfo) return null
-  const { imageLink, imageName } = imageDownloadInfo
+  if (!imageDownloadInfo) return null;
+  const { imageLink, imageName } = imageDownloadInfo;
 
   return (
     <BaseDialog
@@ -41,5 +37,5 @@ export function ImageDownloadInfoDialog({ imageDownloadInfo, onClose }: Props) {
         </div>
       </BaseDialogBody>
     </BaseDialog>
-  )
+  );
 }

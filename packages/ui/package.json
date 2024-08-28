@@ -7,11 +7,16 @@
   "files": [
     "dist/**"
   ],
+  "exports": {
+    ".": "./src/index.ts",
+    "./styles.css": "./dist/index.css",
+    "./alert-banner": "./src/common/alert-banner/index.tsx"
+  },
   "license": "MIT",
   "scripts": {
-    "build": "tailwindcss -i ./src/common/styles.css -o ./dist/index.css",
+    "build": "tailwindcss -i ./src/styles.css -o ./dist/index.css",
     "clean": "rm -rf dist",
-    "dev": "tailwindcss -i ./src/common/styles.css -o ./dist/index.css --watch",
+    "dev": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
     "lint": "eslint src/",
     "test": "jest",
     "typecheck": "tsc --noEmit"

@@ -1,15 +1,11 @@
-import {
-  BaseListbox,
-  BaseListboxLabel,
-  BaseListboxOption,
-} from '@repo/ui/base/listbox'
+import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@repo/ui';
 
-import { ItemTokenWithDefault } from '@/app/(components)/dialogs/item-tag-suggestion-dialog'
+import { ItemTokenWithDefault } from '@/app/(components)/dialogs/item-tag-suggestion-dialog';
 
 interface Props {
-  value: ItemTokenWithDefault
-  options: Array<{ label: string; value: ItemTokenWithDefault }>
-  onChange: (value: ItemTokenWithDefault) => void
+  value: ItemTokenWithDefault;
+  options: Array<{ label: string; value: ItemTokenWithDefault }>;
+  onChange: (value: ItemTokenWithDefault) => void;
 }
 
 export function ItemTagSelect({ value, options, onChange }: Props) {
@@ -26,5 +22,5 @@ export function ItemTagSelect({ value, options, onChange }: Props) {
         </BaseListboxOption>
       ))}
     </BaseListbox>
-  )
+  );
 }

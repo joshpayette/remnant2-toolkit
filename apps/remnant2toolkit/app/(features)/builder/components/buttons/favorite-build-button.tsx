@@ -1,8 +1,8 @@
-import { BaseButton } from '@repo/ui/base/button'
+import { BaseButton } from '@repo/ui';
 
 interface Props {
-  onClick: () => void
-  upvoted: boolean
+  onClick: () => void;
+  upvoted: boolean;
 }
 
 export function FavoriteBuildButton({ onClick, upvoted }: Props) {
@@ -15,5 +15,5 @@ export function FavoriteBuildButton({ onClick, upvoted }: Props) {
     >
       {upvoted ? 'Remove Favorite' : 'Favorite Build'}
     </BaseButton>
-  )
+  );
 }

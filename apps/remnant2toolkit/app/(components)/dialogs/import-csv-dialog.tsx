@@ -1,23 +1,23 @@
-import { BaseButton } from '@repo/ui/base/button'
+import { BaseButton } from '@repo/ui';
 import {
   BaseDialog,
   BaseDialogActions,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@repo/ui/base/dialog'
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
-import { BaseInput } from '@repo/ui/base/input'
+} from '@repo/ui';
+import { BaseInput } from '@repo/ui';
+import { BaseField, BaseLabel } from '@repo/ui';
 
-import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
-import { CsvItem } from '@/app/(types)/csv'
+import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button';
+import { CsvItem } from '@/app/(types)/csv';
 
 interface Props {
-  open: boolean
-  items: CsvItem[]
-  fileInputRef: React.RefObject<HTMLInputElement>
-  onClose: () => void
-  onSubmit: () => void
+  open: boolean;
+  items: CsvItem[];
+  fileInputRef: React.RefObject<HTMLInputElement>;
+  onClose: () => void;
+  onSubmit: () => void;
 }
 
 export function ImportCsvDialog({
@@ -58,5 +58,5 @@ export function ImportCsvDialog({
         />
       </BaseDialogActions>
     </BaseDialog>
-  )
+  );
 }

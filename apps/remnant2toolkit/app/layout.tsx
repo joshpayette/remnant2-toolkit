@@ -1,7 +1,6 @@
 import './globals.css';
 
-import { GlobalActionButtons } from '@repo/ui/global-action-buttons';
-import { RootLayout } from '@repo/ui/pages/root-layout';
+import { GlobalActionButtons, RootLayout } from '@repo/ui';
 import { Analytics } from '@vercel/analytics/react';
 import { Viewport } from 'next';
 import dynamic from 'next/dynamic';

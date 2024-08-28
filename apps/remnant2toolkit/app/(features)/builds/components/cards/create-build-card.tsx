@@ -1,7 +1,7 @@
-import { BaseLink } from '@repo/ui/base/link'
-import { cn } from '@repo/ui/classnames'
-import { getImageUrl } from '@repo/ui/utils/get-image-url'
-import Image from 'next/image'
+import { BaseLink } from '@repo/ui';
+import { cn } from '@repo/ui';
+import { getImageUrl } from '@repo/ui';
+import Image from 'next/image';
 
 export function CreateBuildCard() {
   return (
@@ -22,5 +22,5 @@ export function CreateBuildCard() {
         Create a New Build
       </p>
     </BaseLink>
-  )
+  );
 }

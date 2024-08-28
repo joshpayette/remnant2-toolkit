@@ -1,26 +1,24 @@
-'use client'
+'use client';
 
-import { Combobox } from '@headlessui/react'
-import { BaseInput } from '@repo/ui/base/input'
-import { cn } from '@repo/ui/classnames'
-import { CheckIcon } from '@repo/ui/icons/check'
-import { ChevronUpDownIcon } from '@repo/ui/icons/chevron-updown'
-import { Skeleton } from '@repo/ui/skeleton'
-import React, { useEffect, useState } from 'react'
-import { useIsClient, useMediaQuery } from 'usehooks-ts'
+import { Combobox } from '@headlessui/react';
+import { BaseInput } from '@repo/ui';
+import { cn } from '@repo/ui';
+import { CheckIcon, ChevronUpDownIcon, Skeleton } from '@repo/ui';
+import React, { useEffect, useState } from 'react';
+import { useIsClient, useMediaQuery } from 'usehooks-ts';
 
 type Item = {
-  id: string
-  name: string
-}
+  id: string;
+  name: string;
+};
 
 interface Props {
-  autoFocus?: boolean
-  onChange: (value: string) => void
-  onKeyDown?: () => void
-  items: Array<{ id: string; name: string }>
-  value: string
-  showLabel?: boolean
+  autoFocus?: boolean;
+  onChange: (value: string) => void;
+  onKeyDown?: () => void;
+  items: Array<{ id: string; name: string }>;
+  value: string;
+  showLabel?: boolean;
 }
 
 export function ItemSearchText({
@@ -38,24 +36,24 @@ export function ItemSearchText({
           id: '',
           name: value,
         },
-  )
+  );
 
   useEffect(() => {
-    if (!selectedItem) return
-    if (selectedItem.name === value && onKeyDown) onKeyDown()
-  }, [selectedItem, onKeyDown, value])
+    if (!selectedItem) return;
+    if (selectedItem.name === value && onKeyDown) onKeyDown();
+  }, [selectedItem, onKeyDown, value]);
 
   const filteredItems =
     value === ''
       ? items
       : items.filter((item) =>
           item.name.toLowerCase().includes(value.toLowerCase()),
-        )
+        );
 
-  const isClient = useIsClient()
-  const isLargeScreen = useMediaQuery('(min-width: 768px)')
+  const isClient = useIsClient();
+  const isLargeScreen = useMediaQuery('(min-width: 768px)');
 
-  if (!isClient) return <Skeleton className="h-[45px] w-[400px]" />
+  if (!isClient) return <Skeleton className="h-[45px] w-[400px]" />;
 
   return (
     <Combobox
@@ -63,13 +61,13 @@ export function ItemSearchText({
       value={selectedItem}
       onChange={(item) => {
         if (item) {
-          setSelectedItem(item)
-          onChange(item.name)
+          setSelectedItem(item);
+          onChange(item.name);
         }
       }}
       onKeyDown={(e: React.KeyboardEvent<HTMLElement>) => {
         if (e.key === 'Enter') {
-          if (onKeyDown) onKeyDown()
+          if (onKeyDown) onKeyDown();
         }
       }}
       className={cn('w-full')}
@@ -157,5 +155,5 @@ export function ItemSearchText({
         </Combobox.Options>
       </div>
     </Combobox>
-  )
+  );
 }

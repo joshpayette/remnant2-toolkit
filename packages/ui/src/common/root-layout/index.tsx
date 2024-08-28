@@ -1,4 +1,4 @@
-import '../../styles.css';
+import '@repo/ui/styles.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 import type { Viewport } from 'next';

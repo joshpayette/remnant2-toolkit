@@ -1,11 +1,11 @@
-import { BaseLink } from '@repo/ui/base/link'
-import { cn } from '@repo/ui/classnames'
+import { cn } from '@repo/ui';
+import { BaseLink } from '@repo/ui';
 
-import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem';
 
 interface Props {
-  item: WeaponItem
-  includeMod?: boolean
+  item: WeaponItem;
+  includeMod?: boolean;
 }
 
 export function WeaponInfo({ item, includeMod = true }: Props) {
@@ -131,5 +131,5 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
         </div>
       </dd>
     </dl>
-  )
+  );
 }

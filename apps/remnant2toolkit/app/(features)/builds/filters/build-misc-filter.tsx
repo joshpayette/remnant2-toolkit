@@ -1,9 +1,5 @@
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset';
-import {
-  BaseListbox,
-  BaseListboxLabel,
-  BaseListboxOption,
-} from '@repo/ui/base/listbox';
+import { BaseField, BaseLabel } from '@repo/ui';
+import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@repo/ui';
 
 import { BUILD_FILTER_KEYS } from '@/app/(features)/builds/filters/types';
 

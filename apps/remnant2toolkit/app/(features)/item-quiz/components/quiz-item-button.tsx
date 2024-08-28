@@ -1,21 +1,20 @@
-import { BaseButton } from '@repo/ui/base/button'
-import { cn } from '@repo/ui/classnames'
-import { ArrowUpIcon } from '@repo/ui/icons/arrow-up'
-import { getImageUrl } from '@repo/ui/utils/get-image-url'
-import Image from 'next/image'
+import { BaseButton } from '@repo/ui';
+import { cn } from '@repo/ui';
+import { ArrowUpIcon, getImageUrl } from '@repo/ui';
+import Image from 'next/image';
 
-import { ARROW_TO_INDEX } from '@/app/(features)/item-quiz/constants/arrow-to-index'
-import type { QuizItem } from '@/app/(features)/item-quiz/types/quiz-item'
+import { ARROW_TO_INDEX } from '@/app/(features)/item-quiz/constants/arrow-to-index';
+import type { QuizItem } from '@/app/(features)/item-quiz/types/quiz-item';
 
 interface Props {
-  item: QuizItem
-  itemIndex: number
-  onClick?: () => void
+  item: QuizItem;
+  itemIndex: number;
+  onClick?: () => void;
 }
 
 export function QuizItemButton({ item, itemIndex, onClick }: Props) {
   const wrapperClasses =
-    'flex h-[150px] max-h-[150px] w-[150px] max-w-[150px] md:h-[225px] md:max-h-[225px] md:w-[225px] md:max-w-[225px] flex-col items-center justify-center overflow-hidden border border-secondary-500 bg-secondary-900 p-2 text-lg hover:bg-secondary-700'
+    'flex h-[150px] max-h-[150px] w-[150px] max-w-[150px] md:h-[225px] md:max-h-[225px] md:w-[225px] md:max-w-[225px] flex-col items-center justify-center overflow-hidden border border-secondary-500 bg-secondary-900 p-2 text-lg hover:bg-secondary-700';
 
   if (!onClick) {
     return (
@@ -27,40 +26,40 @@ export function QuizItemButton({ item, itemIndex, onClick }: Props) {
           alt={`Image of the correct item, ${item.name}`}
         />
       </div>
-    )
+    );
   }
 
-  let arrowIcon = null
-  let numberLabel = ''
-  const arrowIndex = itemIndex + 1
+  let arrowIcon = null;
+  let numberLabel = '';
+  const arrowIndex = itemIndex + 1;
 
   switch (arrowIndex) {
     case ARROW_TO_INDEX.ArrowUp:
       arrowIcon = (
         <ArrowUpIcon className="text-background-solid h-3 w-3 md:h-4 md:w-4" />
-      )
-      numberLabel = '1'
-      break
+      );
+      numberLabel = '1';
+      break;
     case ARROW_TO_INDEX.ArrowRight:
       arrowIcon = (
         <ArrowUpIcon className="text-background-solid h-3 w-3 rotate-90 transform md:h-4 md:w-4" />
-      )
-      numberLabel = '3'
-      break
+      );
+      numberLabel = '3';
+      break;
     case ARROW_TO_INDEX.ArrowDown:
       arrowIcon = (
         <ArrowUpIcon className="text-background-solid h-3 w-3 rotate-180 transform md:h-4 md:w-4" />
-      )
-      numberLabel = '4'
-      break
+      );
+      numberLabel = '4';
+      break;
     case ARROW_TO_INDEX.ArrowLeft:
       arrowIcon = (
         <ArrowUpIcon className="text-background-solid h-3 w-3 -rotate-90 transform md:h-4 md:w-4" />
-      )
-      numberLabel = '2'
-      break
+      );
+      numberLabel = '2';
+      break;
     default:
-      break
+      break;
   }
 
   return (
@@ -85,5 +84,5 @@ export function QuizItemButton({ item, itemIndex, onClick }: Props) {
         alt={`Item Selection #${itemIndex + 1}`}
       />
     </BaseButton>
-  )
+  );
 }

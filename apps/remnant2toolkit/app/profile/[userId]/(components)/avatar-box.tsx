@@ -1,11 +1,11 @@
-import { getImageUrl } from '@repo/ui/utils/get-image-url'
-import Image from 'next/image'
+import { getImageUrl } from '@repo/ui';
+import Image from 'next/image';
 
-import { Avatar } from '@/app/profile/[userId]/(lib)/types'
+import { Avatar } from '@/app/profile/[userId]/(lib)/types';
 
 interface Props {
-  avatar: Avatar
-  showLabel?: boolean
+  avatar: Avatar;
+  showLabel?: boolean;
 }
 
 export function AvatarBox({
@@ -25,5 +25,5 @@ export function AvatarBox({
         <div className="bg-secondary-900 mt-1 py-1 text-center">{name}</div>
       ) : null}
     </div>
-  )
+  );
 }

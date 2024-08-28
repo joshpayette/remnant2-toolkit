@@ -1,19 +1,19 @@
-'use client'
+'use client';
 
-import { cn } from '@repo/ui/classnames'
-import { EyeIcon } from '@repo/ui/icons/eye'
-import { EyeSlashIcon } from '@repo/ui/icons/eyeslash'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { useIsClient } from 'usehooks-ts'
+import { cn } from '@repo/ui';
+import { EyeIcon } from '@repo/ui';
+import { EyeOffIcon } from '@repo/ui';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useIsClient } from 'usehooks-ts';
 
-import { NAV_ITEMS } from '@/app/(types)/navigation'
+import { NAV_ITEMS } from '@/app/(types)/navigation';
 
 interface Props {
-  isEditable: boolean
-  isLoadoutPublic: boolean
-  showPrivateLinks: boolean
-  userId: string
+  isEditable: boolean;
+  isLoadoutPublic: boolean;
+  showPrivateLinks: boolean;
+  userId: string;
 }
 
 export function ProfileNavbar({
@@ -22,8 +22,8 @@ export function ProfileNavbar({
   showPrivateLinks,
   userId,
 }: Props) {
-  const pathname = usePathname()
-  const isClient = useIsClient()
+  const pathname = usePathname();
+  const isClient = useIsClient();
 
   let navItems = [
     {
@@ -83,10 +83,10 @@ export function ProfileNavbar({
       current: pathname === `/profile/${userId}/loadouts`,
       private: !isLoadoutPublic,
     },
-  ]
+  ];
 
   if (!showPrivateLinks) {
-    navItems = navItems.filter((item) => !item.private)
+    navItems = navItems.filter((item) => !item.private);
   }
 
   return (
@@ -108,7 +108,7 @@ export function ProfileNavbar({
                 {isEditable ? (
                   <span className="mr-1">
                     {item.private ? (
-                      <EyeSlashIcon className="h-4 w-4" />
+                      <EyeOffIcon className="h-4 w-4" />
                     ) : (
                       <EyeIcon className="h-4 w-4" />
                     )}
@@ -120,5 +120,5 @@ export function ProfileNavbar({
           ))}
       </ul>
     </nav>
-  )
+  );
 }

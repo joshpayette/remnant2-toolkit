@@ -1,19 +1,15 @@
-import { BaseButton } from '@repo/ui/base/button';
+import { BaseButton } from '@repo/ui';
 import {
   BaseDialog,
   BaseDialogActions,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@repo/ui/base/dialog';
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset';
-import { BaseInput } from '@repo/ui/base/input';
-import {
-  BaseListbox,
-  BaseListboxLabel,
-  BaseListboxOption,
-} from '@repo/ui/base/listbox';
-import { BaseCode } from '@repo/ui/base/text';
+} from '@repo/ui';
+import { BaseField, BaseLabel } from '@repo/ui';
+import { BaseInput } from '@repo/ui';
+import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@repo/ui';
+import { BaseCode } from '@repo/ui';
 import { getArrayOfLength } from '@repo/utils/get-array-of-length';
 import type React from 'react';
 

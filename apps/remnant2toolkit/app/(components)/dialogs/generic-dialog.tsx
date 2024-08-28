@@ -1,15 +1,11 @@
-import {
-  BaseDialog,
-  BaseDialogBody,
-  BaseDialogTitle,
-} from '@repo/ui/base/dialog'
+import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@repo/ui';
 
 interface Props {
-  children: React.ReactNode
-  title: string
-  open: boolean
-  size?: 'sm' | 'md' | 'lg'
-  onClose: () => void
+  children: React.ReactNode;
+  title: string;
+  open: boolean;
+  size?: 'sm' | 'md' | 'lg';
+  onClose: () => void;
 }
 
 export default function GenericDialog({
@@ -27,5 +23,5 @@ export default function GenericDialog({
         </div>
       </BaseDialogBody>
     </BaseDialog>
-  )
+  );
 }

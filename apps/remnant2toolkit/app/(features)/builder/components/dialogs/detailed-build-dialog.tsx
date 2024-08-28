@@ -1,10 +1,6 @@
 'use client';
 
-import {
-  BaseDialog,
-  BaseDialogBody,
-  BaseDialogTitle,
-} from '@repo/ui/base/dialog';
+import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@repo/ui';
 import { useState } from 'react';
 
 import { ItemCard } from '@/app/(components)/cards/item-card';

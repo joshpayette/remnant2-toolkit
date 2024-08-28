@@ -1,25 +1,21 @@
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
-import {
-  BaseListbox,
-  BaseListboxLabel,
-  BaseListboxOption,
-} from '@repo/ui/base/listbox'
+import { BaseField, BaseLabel } from '@repo/ui';
+import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@repo/ui';
 
-import { relicItems } from '@/app/(data)/items/relic-items'
+import { relicItems } from '@/app/(data)/items/relic-items';
 
 interface Props {
-  value: string
-  onChange: (value: string) => void
+  value: string;
+  onChange: (value: string) => void;
 }
 
 export function RelicFilter({ value, onChange }: Props) {
-  const allRelics: string[] = relicItems.map((item) => item.name)
-  allRelics.unshift('All')
+  const allRelics: string[] = relicItems.map((item) => item.name);
+  allRelics.unshift('All');
 
   const options = allRelics.map((relic) => ({
     label: relic,
     value: relic,
-  }))
+  }));
 
   return (
     <BaseField>
@@ -37,5 +33,5 @@ export function RelicFilter({ value, onChange }: Props) {
         ))}
       </BaseListbox>
     </BaseField>
-  )
+  );
 }

@@ -1,7 +1,7 @@
 'use client';
 
-import { BaseButton } from '@repo/ui/base/button';
-import { DuplicateIcon } from '@repo/ui/icons/duplicate';
+import { BaseButton } from '@repo/ui';
+import { DuplicateIcon } from '@repo/ui';
 
 import { Tooltip } from '@/app/(components)/tooltip';
 import { DBBuild } from '@/app/(features)/builds/types/db-build';

@@ -1,27 +1,23 @@
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
-import {
-  BaseListbox,
-  BaseListboxLabel,
-  BaseListboxOption,
-} from '@repo/ui/base/listbox'
+import { BaseField, BaseLabel } from '@repo/ui';
+import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@repo/ui';
 
-import { weaponItems } from '@/app/(data)/items/weapon-items'
+import { weaponItems } from '@/app/(data)/items/weapon-items';
 
 interface Props {
-  value: string
-  onChange: (value: string) => void
+  value: string;
+  onChange: (value: string) => void;
 }
 
 export function MeleeFilter({ value, onChange }: Props) {
   const allMelee: string[] = weaponItems
     .filter((item) => item.type === 'melee')
-    .map((item) => item.name)
-  allMelee.unshift('All')
+    .map((item) => item.name);
+  allMelee.unshift('All');
 
   const options = allMelee.map((weapon) => ({
     label: weapon,
     value: weapon,
-  }))
+  }));
 
   return (
     <BaseField>
@@ -39,5 +35,5 @@ export function MeleeFilter({ value, onChange }: Props) {
         ))}
       </BaseListbox>
     </BaseField>
-  )
+  );
 }

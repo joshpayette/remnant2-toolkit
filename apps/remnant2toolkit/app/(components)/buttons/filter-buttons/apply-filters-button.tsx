@@ -1,10 +1,10 @@
-import { BaseButton } from '@repo/ui/base/button'
-import { cn } from '@repo/ui/classnames'
+import { BaseButton } from '@repo/ui';
+import { cn } from '@repo/ui';
 
 interface Props<T> {
-  areFiltersApplied: boolean
-  filters: T
-  onClick: (newData: T) => void
+  areFiltersApplied: boolean;
+  filters: T;
+  onClick: (newData: T) => void;
 }
 
 export function ApplyFiltersButton<T>({
@@ -21,5 +21,5 @@ export function ApplyFiltersButton<T>({
     >
       Apply Filters
     </BaseButton>
-  )
+  );
 }

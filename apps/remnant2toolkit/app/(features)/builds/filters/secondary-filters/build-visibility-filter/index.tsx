@@ -1,8 +1,4 @@
-import {
-  BaseListbox,
-  BaseListboxLabel,
-  BaseListboxOption,
-} from '@repo/ui/base/listbox';
+import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@repo/ui';
 
 import { useBuildVisibilityFilter } from '@/app/(features)/builds/filters/secondary-filters/build-visibility-filter/use-build-visibility-filter';
 

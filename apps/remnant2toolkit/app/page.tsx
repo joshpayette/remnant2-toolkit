@@ -1,6 +1,4 @@
-import { BaseLink } from '@repo/ui/base/link';
-import { LeaderBoard } from '@repo/ui/leader-board/components';
-import { getImageUrl } from '@repo/ui/utils/get-image-url';
+import { BaseLink, getImageUrl, LeaderBoard } from '@repo/ui';
 import Image from 'next/image';
 
 import { LandingPageCard } from '@/app/(components)/cards/landing-page-card';

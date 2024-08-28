@@ -1,13 +1,12 @@
 'use client';
 
 import { BuildTags } from '@repo/db';
-import { BaseButton } from '@repo/ui/base/button';
-import { BaseField, BaseFieldset, BaseLabel } from '@repo/ui/base/fieldset';
-import { BaseInput } from '@repo/ui/base/input';
-import { BaseSwitch } from '@repo/ui/base/switch';
-import { BaseTextarea } from '@repo/ui/base/textarea';
-import { cn } from '@repo/ui/classnames';
-import { Skeleton } from '@repo/ui/skeleton';
+import { BaseButton } from '@repo/ui';
+import { BaseField, BaseFieldset, BaseLabel } from '@repo/ui';
+import { BaseInput } from '@repo/ui';
+import { cn } from '@repo/ui';
+import { BaseSwitch, BaseTextarea } from '@repo/ui';
+import { Skeleton } from '@repo/ui';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 import { IoDocumentTextSharp } from 'react-icons/io5';

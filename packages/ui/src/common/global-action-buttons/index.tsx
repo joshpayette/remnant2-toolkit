@@ -7,15 +7,17 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { BaseButton } from '../../base/button';
 import { BugReportPrompt, reportBug } from '../bug-report';
-import { ArrowUpIcon, ChangeLogIcon, SettingsIcon, ThemeIcon } from '../icons';
+import { ArrowUpIcon } from '../icons/arrow-up';
+import { ChangeLogIcon } from '../icons/change-log';
+import { SettingsIcon } from '../icons/settings';
+import { ThemeIcon } from '../icons/theme';
 import { BugIcon } from '../icons/bug';
 import { ZINDEXES } from '../z-indexes';
 import { cn } from '../../utils/classnames';
 
 // Lazy-load the theme toggle, since it relies on client context
 const ThemeSelectButton = dynamic(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  () => import('../../theme/theme-select-button' as any),
+  () => import('../theme-select/theme-select-button'),
   {
     ssr: false,
     loading: () => (

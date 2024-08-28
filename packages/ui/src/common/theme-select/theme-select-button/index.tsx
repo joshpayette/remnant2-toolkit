@@ -88,3 +88,5 @@ export function ThemeSelectButton() {
     </>
   );
 }
+
+export default ThemeSelectButton;

@@ -1,18 +1,16 @@
-'use client'
+'use client';
 
-import { cn } from '@repo/ui/classnames'
-import { InfoCircleIcon } from '@repo/ui/icons/info-circle'
-import { getImageUrl } from '@repo/ui/utils/get-image-url'
-import { ZINDEXES } from '@repo/ui/zindexes'
-import Image from 'next/image'
-import { PiBagSimpleFill as OwnershipIcon } from 'react-icons/pi'
-import { TbHttpOptions } from 'react-icons/tb'
+import { cn } from '@repo/ui';
+import { getImageUrl, InfoCircleIcon, ZINDEXES } from '@repo/ui';
+import Image from 'next/image';
+import { PiBagSimpleFill as OwnershipIcon } from 'react-icons/pi';
+import { TbHttpOptions } from 'react-icons/tb';
 
-import { Tooltip } from '@/app/(components)/tooltip'
-import { Enemy, isEnemy } from '@/app/(data)/enemies/types'
-import { Item } from '@/app/(data)/items/types'
-import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
-import { SKIPPED_ITEM_TRACKER_CATEGORIES } from '@/app/tracker/constants'
+import { Tooltip } from '@/app/(components)/tooltip';
+import { Enemy, isEnemy } from '@/app/(data)/enemies/types';
+import { Item } from '@/app/(data)/items/types';
+import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem';
+import { SKIPPED_ITEM_TRACKER_CATEGORIES } from '@/app/tracker/constants';
 
 /**
  * Some words are too long to fit in the item label on the builder
@@ -21,48 +19,48 @@ import { SKIPPED_ITEM_TRACKER_CATEGORIES } from '@/app/tracker/constants'
 const MANUAL_ITEM_NAME_BREAKS: Array<{ name: string; break: string }> = [
   { name: 'Hyperconductor', break: 'Hyper-conductor' },
   { name: 'Microcompressor', break: 'Micro-compressor' },
-]
+];
 
 /**
  * Some labels are too long to fit the label, but can't be broken up
  * and need to be manually transformed to a smaller text size
  */
 const MANUAL_ITEM_NAME_TEXT_TRANSFORMS: Array<{
-  name: string
-  transform: string
-}> = [{ name: "Nightweaver's Grudge", transform: 'text-[9px]' }]
+  name: string;
+  transform: string;
+}> = [{ name: "Nightweaver's Grudge", transform: 'text-[9px]' }];
 
 type Props = {
   /** Whether a button is able to be edited, i.e. can change the item, toggle optional, etc. */
-  isEditable?: boolean
+  isEditable?: boolean;
   /** Whether the button is in screenshot mode, i.e. for image export */
-  isScreenshotMode?: boolean
+  isScreenshotMode?: boolean;
   /** Whether the button is toggled on or off, i.e. for item tracker or boss tracker */
-  isToggled?: boolean
+  isToggled?: boolean;
   /** The item to display on the button */
-  item: (Item & { isOwned?: boolean }) | Enemy | null
+  item: (Item & { isOwned?: boolean }) | Enemy | null;
   /** Used primarily to disable lazy loading for image export, as that breaks on Safari */
-  loadingType?: 'lazy' | 'eager'
+  loadingType?: 'lazy' | 'eager';
   /**
    * If true, will add manual word breaks for item names from MANUAL_ITEM_NAME_BREAKS constant.
    * This is because some item names are too long to wrap in the ItemButton label
    */
-  manualWordBreaks?: boolean
+  manualWordBreaks?: boolean;
   /** If true, will show the item ownership icon on the button */
-  showOwnership?: boolean
+  showOwnership?: boolean;
   /** If true, will disable the image info tooltip on the button */
-  tooltipDisabled?: boolean
+  tooltipDisabled?: boolean;
   /** Used primarily to disable image optimization for image export, as that breaks on Safari */
-  unoptimized?: boolean
+  unoptimized?: boolean;
   /** The variant of the button to display */
-  variant?: 'default' | 'large' | 'boss-tracker' | 'relic-fragment' | 'weapon'
+  variant?: 'default' | 'large' | 'boss-tracker' | 'relic-fragment' | 'weapon';
   /** The function to run when the button is clicked */
-  onClick?: () => void
+  onClick?: () => void;
   /** The function to run when the info icon button is clicked */
-  onItemInfoClick?: (item: Item) => void
+  onItemInfoClick?: (item: Item) => void;
   /** The function to run when the optional toggle icon button is clicked */
-  onToggleOptional?: (selectedItem: Item, optional: boolean) => void
-}
+  onToggleOptional?: (selectedItem: Item, optional: boolean) => void;
+};
 
 export function ItemButton({
   isEditable = true,
@@ -79,47 +77,47 @@ export function ItemButton({
   onItemInfoClick,
   onToggleOptional,
 }: Props) {
-  let tooltipDescription = item && !isEnemy(item) ? item.description : null
+  let tooltipDescription = item && !isEnemy(item) ? item.description : null;
   // Truncate text at 150 characters
   if (tooltipDescription && tooltipDescription.length > 150) {
-    tooltipDescription = `${tooltipDescription.substring(0, 150)}...`
+    tooltipDescription = `${tooltipDescription.substring(0, 150)}...`;
   }
 
   let imageDimensions = {
     height: 50,
     width: 50,
-  }
+  };
   switch (variant) {
     case 'default':
       imageDimensions = {
         height: 66,
         width: 66,
-      }
-      break
+      };
+      break;
     case 'large':
       imageDimensions = {
         height: 99,
         width: 99,
-      }
-      break
+      };
+      break;
     case 'boss-tracker':
       imageDimensions = {
         height: 200,
         width: 200,
-      }
-      break
+      };
+      break;
     case 'relic-fragment':
       imageDimensions = {
         height: 22,
         width: 22,
-      }
-      break
+      };
+      break;
     case 'weapon':
       imageDimensions = {
         height: 66,
         width: 149,
-      }
-      break
+      };
+      break;
   }
 
   /**
@@ -136,7 +134,7 @@ export function ItemButton({
     !isScreenshotMode &&
     !isEditable &&
     showOwnership &&
-    SKIPPED_ITEM_TRACKER_CATEGORIES.includes(item.category) === false
+    SKIPPED_ITEM_TRACKER_CATEGORIES.includes(item.category) === false;
 
   /**
    * Optional toggle should be shown if:
@@ -152,7 +150,7 @@ export function ItemButton({
     !isScreenshotMode &&
     isEditable &&
     onToggleOptional &&
-    onClick
+    onClick;
 
   /**
    * Clicking should show item info if:
@@ -166,7 +164,7 @@ export function ItemButton({
     !isEnemy(item) &&
     !isEditable &&
     onItemInfoClick &&
-    isToggled === undefined
+    isToggled === undefined;
 
   /**
    * The button click action should be:
@@ -175,7 +173,7 @@ export function ItemButton({
    */
   const buttonClickAction = clickShowsInfo
     ? () => onItemInfoClick(item)
-    : onClick
+    : onClick;
 
   return (
     <div
@@ -341,5 +339,5 @@ export function ItemButton({
         </div>
       )}
     </div>
-  )
+  );
 }

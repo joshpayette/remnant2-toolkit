@@ -1,10 +1,8 @@
 import { BuildTags } from '@repo/db';
-import { BaseInput } from '@repo/ui/base/input';
-import { BaseLink } from '@repo/ui/base/link';
-import { cn } from '@repo/ui/classnames';
-import { EyeIcon } from '@repo/ui/icons/eye';
-import { FavoriteIcon } from '@repo/ui/icons/favorite';
-import { Logo } from '@repo/ui/logo';
+import { BaseInput } from '@repo/ui';
+import { BaseLink } from '@repo/ui';
+import { cn } from '@repo/ui';
+import { EyeIcon, FavoriteIcon, Logo } from '@repo/ui';
 import { getArrayOfLength } from '@repo/utils/get-array-of-length';
 import { stripUnicode } from '@repo/utils/strip-unicode';
 import { useCallback, useMemo, useState } from 'react';

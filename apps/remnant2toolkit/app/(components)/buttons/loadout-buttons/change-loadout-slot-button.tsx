@@ -1,55 +1,55 @@
-'use client'
+'use client';
 
-import { BaseButton } from '@repo/ui/base/button'
-import { MoveIcon } from '@repo/ui/icons/move'
-import { useState } from 'react'
-import { toast } from 'react-toastify'
+import { BaseButton } from '@repo/ui';
+import { MoveIcon } from '@repo/ui';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 
-import { changeLoadoutSlot } from '@/app/(actions)/loadouts/change-loadout-slot'
-import { ChangeLoadoutSlotPrompt } from '@/app/(components)/alerts/change-loadout-slot-prompt'
-import { Tooltip } from '@/app/(components)/tooltip'
+import { changeLoadoutSlot } from '@/app/(actions)/loadouts/change-loadout-slot';
+import { ChangeLoadoutSlotPrompt } from '@/app/(components)/alerts/change-loadout-slot-prompt';
+import { Tooltip } from '@/app/(components)/tooltip';
 
 export function ChangeLoadoutSlotButton({
   buildId,
   callback,
 }: {
-  buildId: string
+  buildId: string;
   callback?: (
     success: boolean,
     newLoadouts: {
-      oldSlot: number
-      newSlot: number
+      oldSlot: number;
+      newSlot: number;
     } | null,
-  ) => void
+  ) => void;
 }) {
-  const [alertOpen, setAlertOpen] = useState(false)
+  const [alertOpen, setAlertOpen] = useState(false);
 
   async function handleConfirm(newSlot: string) {
-    const newSlotNumber = parseInt(newSlot)
+    const newSlotNumber = parseInt(newSlot);
     if (isNaN(newSlotNumber) || newSlotNumber < 1 || newSlotNumber > 8) {
-      if (callback) callback(false, null)
-      setAlertOpen(false)
-      toast.error('Invalid slot number')
-      return
+      if (callback) callback(false, null);
+      setAlertOpen(false);
+      toast.error('Invalid slot number');
+      return;
     }
 
-    const response = await changeLoadoutSlot(buildId, newSlotNumber)
+    const response = await changeLoadoutSlot(buildId, newSlotNumber);
     if (!response.success) {
-      if (callback) callback(false, null)
-      toast.error('Failed to change loadout slot')
-      setAlertOpen(false)
-      return
+      if (callback) callback(false, null);
+      toast.error('Failed to change loadout slot');
+      setAlertOpen(false);
+      return;
     }
-    if (callback) callback(true, response.newLoadouts ?? null)
-    toast.success('Loadout slot changed successfully')
-    setAlertOpen(false)
+    if (callback) callback(true, response.newLoadouts ?? null);
+    toast.success('Loadout slot changed successfully');
+    setAlertOpen(false);
   }
 
   function handleCancel() {
     if (callback) {
-      callback(false, null)
+      callback(false, null);
     }
-    setAlertOpen(false)
+    setAlertOpen(false);
   }
 
   return (
@@ -71,5 +71,5 @@ export function ChangeLoadoutSlotButton({
         </BaseButton>
       </Tooltip>
     </>
-  )
+  );
 }

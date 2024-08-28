@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import {
   BaseAlert,
@@ -6,16 +6,16 @@ import {
   BaseAlertBody,
   BaseAlertDescription,
   BaseAlertTitle,
-} from '@repo/ui/base/alert'
-import { BaseButton } from '@repo/ui/base/button'
-import { BaseInput } from '@repo/ui/base/input'
-import { useState } from 'react'
+  BaseButton,
+  BaseInput,
+} from '@repo/ui';
+import { useState } from 'react';
 
 interface Props {
-  open: boolean
-  onCancel: () => void
-  onClose: () => void
-  onConfirm: (newSlot: string) => void
+  open: boolean;
+  onCancel: () => void;
+  onClose: () => void;
+  onConfirm: (newSlot: string) => void;
 }
 
 export function ChangeLoadoutSlotPrompt({
@@ -24,8 +24,8 @@ export function ChangeLoadoutSlotPrompt({
   onClose,
   onConfirm,
 }: Props) {
-  const [input, setInput] = useState('')
-  const [isSubmitDisabled, setIsSubmitDisabled] = useState(false)
+  const [input, setInput] = useState('');
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
 
   return (
     <BaseAlert open={open} onClose={onClose}>
@@ -53,13 +53,13 @@ export function ChangeLoadoutSlotPrompt({
         <BaseButton
           disabled={isSubmitDisabled || input.trim() === ''}
           onClick={() => {
-            setIsSubmitDisabled(true)
-            onConfirm(input)
+            setIsSubmitDisabled(true);
+            onConfirm(input);
           }}
         >
           Save
         </BaseButton>
       </BaseAlertActions>
     </BaseAlert>
-  )
+  );
 }

@@ -3,14 +3,14 @@ import {
   BaseAlertActions,
   BaseAlertDescription,
   BaseAlertTitle,
-} from '@repo/ui/base/alert'
-import { BaseButton } from '@repo/ui/base/button'
+  BaseButton,
+} from '@repo/ui';
 
 interface Props {
-  open: boolean
-  onClose: () => void
-  onCancel: () => void
-  onConfirm: () => void
+  open: boolean;
+  onClose: () => void;
+  onCancel: () => void;
+  onConfirm: () => void;
 }
 
 export function RemoveFromLoadoutAlert({
@@ -32,5 +32,5 @@ export function RemoveFromLoadoutAlert({
         <BaseButton onClick={onConfirm}>Remove</BaseButton>
       </BaseAlertActions>
     </BaseAlert>
-  )
+  );
 }

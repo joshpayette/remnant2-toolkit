@@ -1,8 +1,8 @@
-import { cn } from '@repo/ui/classnames'
+import { cn } from '@repo/ui';
 
 interface Props {
-  label: string
-  showHover: boolean
+  label: string;
+  showHover: boolean;
 }
 
 export function EmptyLoadoutCard({ label, showHover }: Props) {
@@ -15,5 +15,5 @@ export function EmptyLoadoutCard({ label, showHover }: Props) {
     >
       <p className="mt-8 p-4 text-2xl font-semibold text-gray-700">{label}</p>
     </div>
-  )
+  );
 }

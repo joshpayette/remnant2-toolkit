@@ -1,10 +1,10 @@
-import { BaseButton } from '@repo/ui/base/button';
+import { BaseButton } from '@repo/ui';
 import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@repo/ui/base/dialog';
+} from '@repo/ui';
 import { useState } from 'react';
 
 import { ItemButton } from '@/app/(components)/buttons/item-button';

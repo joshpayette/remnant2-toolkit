@@ -1,7 +1,7 @@
 'use client';
 
 import { DISCORD_INVITE_URL } from '@repo/constants';
-import { BaseText, BaseTextLink } from '@repo/ui/base/text';
+import { BaseText, BaseTextLink } from '@repo/ui';
 import { useCallback, useState } from 'react';
 
 import { BuildFilters } from '@/app/(features)/builds/filters/build-filters';

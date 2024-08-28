@@ -1,13 +1,9 @@
-import { BaseButton } from '@repo/ui/base/button'
-import {
-  BaseCheckbox,
-  BaseCheckboxField,
-  BaseCheckboxGroup,
-} from '@repo/ui/base/checkbox'
-import { BaseFieldset, BaseLabel, BaseLegend } from '@repo/ui/base/fieldset'
+import { BaseButton } from '@repo/ui';
+import { BaseCheckbox, BaseCheckboxField, BaseCheckboxGroup } from '@repo/ui';
+import { BaseFieldset, BaseLabel, BaseLegend } from '@repo/ui';
 
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
-import { ItemTrackerCategory } from '@/app/tracker/types'
+import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
+import { ItemTrackerCategory } from '@/app/tracker/types';
 
 export const VALID_ITEM_CATEGORIES = [
   'Amulet',
@@ -28,13 +24,13 @@ export const VALID_ITEM_CATEGORIES = [
   'Ring',
   'Torso',
   'Trait',
-] as const satisfies ItemTrackerCategory[]
+] as const satisfies ItemTrackerCategory[];
 
 interface Props {
-  values: string[]
-  onChange: (category: string, checked: boolean) => void
-  onCheckAll: () => void
-  onUncheckAll: () => void
+  values: string[];
+  onChange: (category: string, checked: boolean) => void;
+  onCheckAll: () => void;
+  onUncheckAll: () => void;
 }
 
 export function CategoriesFilter({
@@ -46,8 +42,8 @@ export function CategoriesFilter({
   const options = VALID_ITEM_CATEGORIES.map((category) => ({
     label: category as string,
     value: category as string,
-  }))
-  options.unshift({ label: DEFAULT_FILTER, value: DEFAULT_FILTER })
+  }));
+  options.unshift({ label: DEFAULT_FILTER, value: DEFAULT_FILTER });
 
   return (
     <BaseFieldset>
@@ -235,5 +231,5 @@ export function CategoriesFilter({
         </BaseCheckboxGroup>
       </BaseCheckboxGroup>
     </BaseFieldset>
-  )
+  );
 }

@@ -1,10 +1,10 @@
-import { getImageUrl } from '@repo/ui/utils/get-image-url'
-import Image from 'next/image'
+import { getImageUrl } from '@repo/ui';
+import Image from 'next/image';
 
-import type { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
+import type { ArmorItem } from '@/app/(data)/items/types/ArmorItem';
 
 interface Props {
-  item: ArmorItem
+  item: ArmorItem;
 }
 
 export function ArmorInfo({ item }: Props) {
@@ -94,5 +94,5 @@ export function ArmorInfo({ item }: Props) {
         </div>
       </div>
     </div>
-  )
+  );
 }

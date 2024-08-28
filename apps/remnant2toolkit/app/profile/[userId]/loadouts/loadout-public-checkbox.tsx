@@ -1,13 +1,13 @@
-'use client'
+'use client';
 
-import { BaseCheckbox } from '@repo/ui/base/checkbox'
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
-import { toast } from 'react-toastify'
+import { BaseCheckbox } from '@repo/ui';
+import { BaseField, BaseLabel } from '@repo/ui';
+import { toast } from 'react-toastify';
 
-import { setIsLoadoutPublic } from '@/app/(actions)/loadouts/set-is-loadout-public'
+import { setIsLoadoutPublic } from '@/app/(actions)/loadouts/set-is-loadout-public';
 
 interface Props {
-  isLoadoutPublic: boolean
+  isLoadoutPublic: boolean;
 }
 
 export function LoadoutPublicCheckbox({ isLoadoutPublic }: Props) {
@@ -18,14 +18,14 @@ export function LoadoutPublicCheckbox({ isLoadoutPublic }: Props) {
         name="isLoadoutPublic"
         checked={isLoadoutPublic}
         onChange={async () => {
-          const response = await setIsLoadoutPublic(!isLoadoutPublic)
+          const response = await setIsLoadoutPublic(!isLoadoutPublic);
           if (!response.success) {
-            toast.error(response.message)
+            toast.error(response.message);
           } else {
-            toast.success(response.message)
+            toast.success(response.message);
           }
         }}
       />
     </BaseField>
-  )
+  );
 }

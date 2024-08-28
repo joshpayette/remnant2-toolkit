@@ -1,13 +1,9 @@
 'use client';
 
-import { BaseDivider } from '@repo/ui/base/divider';
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset';
-import {
-  BaseListbox,
-  BaseListboxLabel,
-  BaseListboxOption,
-} from '@repo/ui/base/listbox';
-import { cn } from '@repo/ui/classnames';
+import { BaseDivider } from '@repo/ui';
+import { BaseField, BaseLabel } from '@repo/ui';
+import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@repo/ui';
+import { cn } from '@repo/ui';
 import { urlNoCache } from '@repo/utils/url-no-cache';
 import copy from 'clipboard-copy';
 import { useRouter } from 'next/navigation';

@@ -1,18 +1,14 @@
-import {
-  BaseDialog,
-  BaseDialogBody,
-  BaseDialogTitle,
-} from '@repo/ui/base/dialog'
-import { groupBy } from '@repo/utils/object-utils'
+import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@repo/ui';
+import { groupBy } from '@repo/utils/object-utils';
 
-import { getCategoryProgressStats } from '@/app/(components)/filters/item-tracker/utils'
-import { Item } from '@/app/(data)/items/types'
+import { getCategoryProgressStats } from '@/app/(components)/filters/item-tracker/utils';
+import { Item } from '@/app/(data)/items/types';
 
 interface Props {
-  open: boolean
-  onClose: () => void
-  filteredItems: Item[]
-  discoveredItemIds: string[]
+  open: boolean;
+  onClose: () => void;
+  filteredItems: Item[];
+  discoveredItemIds: string[];
 }
 
 export function ItemLocationsDialog({
@@ -24,32 +20,32 @@ export function ItemLocationsDialog({
   const categoryItemsByLocation = groupBy(
     filteredItems,
     (item) => `${item.location?.world}`,
-  )
-  const undefinedItems = categoryItemsByLocation.undefined
+  );
+  const undefinedItems = categoryItemsByLocation.undefined;
   if (undefinedItems) {
     if (categoryItemsByLocation.Any) {
-      categoryItemsByLocation.Any.concat(undefinedItems)
+      categoryItemsByLocation.Any.concat(undefinedItems);
     } else {
-      categoryItemsByLocation.Any = undefinedItems
+      categoryItemsByLocation.Any = undefinedItems;
     }
   }
-  delete categoryItemsByLocation.undefined
+  delete categoryItemsByLocation.undefined;
 
-  let total = 0
+  let total = 0;
   const categoryStats = Object.entries(categoryItemsByLocation).map(
     ([locationName, items]) => {
       const progressStats = getCategoryProgressStats({
         filteredItems: items,
         discoveredItemIds,
-      })
-      total += progressStats.undiscoveredCount
+      });
+      total += progressStats.undiscoveredCount;
       return {
         locationName,
         locationStats: `Missing ${progressStats.undiscoveredCount} of ${progressStats.filteredItemsCount}`,
-      }
+      };
     },
-  )
-  categoryStats.sort((a, b) => a.locationName.localeCompare(b.locationName))
+  );
+  categoryStats.sort((a, b) => a.locationName.localeCompare(b.locationName));
 
   return (
     <BaseDialog open={open} onClose={onClose} size="sm">
@@ -80,5 +76,5 @@ export function ItemLocationsDialog({
         </div>
       </BaseDialogBody>
     </BaseDialog>
-  )
+  );
 }

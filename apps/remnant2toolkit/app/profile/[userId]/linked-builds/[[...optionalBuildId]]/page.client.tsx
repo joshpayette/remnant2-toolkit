@@ -1,32 +1,34 @@
-'use client'
+'use client';
 
-import { BaseButton } from '@repo/ui/base/button'
-import { BaseLink } from '@repo/ui/base/link'
-import { EditIcon } from '@repo/ui/icons/edit'
-import { EyeIcon } from '@repo/ui/icons/eye'
-import { ShareIcon } from '@repo/ui/icons/share'
-import { TrashIcon } from '@repo/ui/icons/trash'
-import { Skeleton } from '@repo/ui/skeleton'
-import { urlNoCache } from '@repo/utils/url-no-cache'
-import copy from 'clipboard-copy'
-import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
+import {
+  BaseButton,
+  BaseLink,
+  EditIcon,
+  EyeIcon,
+  ShareIcon,
+  Skeleton,
+  TrashIcon,
+} from '@repo/ui';
+import { urlNoCache } from '@repo/utils/url-no-cache';
+import copy from 'clipboard-copy';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
-import { DeleteBuildAlert } from '@/app/(components)/alerts/delete-build-alert'
-import { BuildList } from '@/app/(components)/build-list'
-import { Tooltip } from '@/app/(components)/tooltip'
-import { deleteLinkedBuild } from '@/app/(features)/linked-builds/actions/delete-linked-build'
-import { LinkedBuildCard } from '@/app/(features)/linked-builds/components/linked-build-card'
-import type { LinkedBuildState } from '@/app/(types)/linked-builds'
-import { usePagination } from '@/app/(utils)/pagination/use-pagination'
-import getLinkedBuilds from '@/app/profile/[userId]/linked-builds/[[...optionalBuildId]]/actions/get-linked-builds'
+import { DeleteBuildAlert } from '@/app/(components)/alerts/delete-build-alert';
+import { BuildList } from '@/app/(components)/build-list';
+import { Tooltip } from '@/app/(components)/tooltip';
+import { deleteLinkedBuild } from '@/app/(features)/linked-builds/actions/delete-linked-build';
+import { LinkedBuildCard } from '@/app/(features)/linked-builds/components/linked-build-card';
+import type { LinkedBuildState } from '@/app/(types)/linked-builds';
+import { usePagination } from '@/app/(utils)/pagination/use-pagination';
+import getLinkedBuilds from '@/app/profile/[userId]/linked-builds/[[...optionalBuildId]]/actions/get-linked-builds';
 
 interface Props {
-  itemsPerPage?: number
-  isEditable: boolean
-  userId: string
-  buildId: string | undefined
+  itemsPerPage?: number;
+  isEditable: boolean;
+  userId: string;
+  buildId: string | undefined;
 }
 
 export function PageClient({
@@ -35,15 +37,15 @@ export function PageClient({
   itemsPerPage = 8,
   userId,
 }: Props) {
-  const router = useRouter()
+  const router = useRouter();
 
-  const [linkedBuilds, setLinkedBuilds] = useState<LinkedBuildState[]>([])
+  const [linkedBuilds, setLinkedBuilds] = useState<LinkedBuildState[]>([]);
 
-  const [totalBuildCount, setTotalBuildCount] = useState(0)
+  const [totalBuildCount, setTotalBuildCount] = useState(0);
   const [requestedBuildName, setRequestedBuildName] = useState<
     string | undefined
-  >(undefined)
-  const [isLoading, setIsLoading] = useState(true)
+  >(undefined);
+  const [isLoading, setIsLoading] = useState(true);
 
   const {
     currentPage,
@@ -57,24 +59,24 @@ export function PageClient({
   } = usePagination({
     totalItemCount: totalBuildCount,
     itemsPerPage,
-  })
+  });
 
   // Fetch data
   useEffect(() => {
     const getItemsAsync = async () => {
-      setIsLoading(true)
+      setIsLoading(true);
       const response = await getLinkedBuilds({
         buildId,
         itemsPerPage,
         pageNumber: currentPage,
         userId,
-      })
-      setIsLoading(false)
-      setTotalBuildCount(response.totalCount)
-      setLinkedBuilds(response.linkedBuilds)
-      setRequestedBuildName(response.requestedBuildName)
-    }
-    getItemsAsync()
+      });
+      setIsLoading(false);
+      setTotalBuildCount(response.totalCount);
+      setLinkedBuilds(response.linkedBuilds);
+      setRequestedBuildName(response.requestedBuildName);
+    };
+    getItemsAsync();
   }, [
     buildId,
     currentPage,
@@ -82,38 +84,38 @@ export function PageClient({
     setLinkedBuilds,
     setTotalBuildCount,
     userId,
-  ])
+  ]);
 
-  const [isDeleteAlertOpen, setIsDeletePromptOpen] = useState(false)
+  const [isDeleteAlertOpen, setIsDeletePromptOpen] = useState(false);
   const [linkedBuildToDelete, setLinkedBuildToDelete] = useState<string | null>(
     null,
-  )
+  );
 
   async function handleDeleteBuild() {
-    if (!linkedBuildToDelete) return
-    const response = await deleteLinkedBuild(linkedBuildToDelete)
+    if (!linkedBuildToDelete) return;
+    const response = await deleteLinkedBuild(linkedBuildToDelete);
     if (response.errors) {
-      toast.error(response.errors[0])
-      return
+      toast.error(response.errors[0]);
+      return;
     }
     setLinkedBuilds((prev) =>
       prev.filter((linkedBuild) => linkedBuild.id !== linkedBuildToDelete),
-    )
-    setIsDeletePromptOpen(false)
-    setLinkedBuildToDelete(null)
-    toast.success(response.message)
+    );
+    setIsDeletePromptOpen(false);
+    setLinkedBuildToDelete(null);
+    toast.success(response.message);
   }
 
   function handleCopyBuild(linkedBuildId: string) {
     const url = urlNoCache(
       `${window.location.origin}/builder/linked/${linkedBuildId}`,
-    )
-    copy(url)
-    toast.success('Copied linked build URL to clipboard!')
+    );
+    copy(url);
+    toast.success('Copied linked build URL to clipboard!');
   }
 
   if (isLoading) {
-    return <Skeleton className="min-h-[1100px] w-full" />
+    return <Skeleton className="min-h-[1100px] w-full" />;
   }
 
   return (
@@ -212,8 +214,8 @@ export function PageClient({
                               color="red"
                               aria-label="Delete Build"
                               onClick={() => {
-                                setLinkedBuildToDelete(linkedBuildState.id)
-                                setIsDeletePromptOpen(true)
+                                setLinkedBuildToDelete(linkedBuildState.id);
+                                setIsDeletePromptOpen(true);
                               }}
                             >
                               <TrashIcon className="h-4 w-4" />
@@ -230,5 +232,5 @@ export function PageClient({
         </ul>
       </BuildList>
     </>
-  )
+  );
 }

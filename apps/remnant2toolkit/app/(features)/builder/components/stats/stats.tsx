@@ -1,7 +1,6 @@
-import { cn } from '@repo/ui/classnames';
-import { InfoCircleIcon } from '@repo/ui/icons/info-circle';
-import { getImageUrl } from '@repo/ui/utils/get-image-url';
-import { ZINDEXES } from '@repo/ui/zindexes';
+import { cn } from '@repo/ui';
+import { getImageUrl, InfoCircleIcon } from '@repo/ui';
+import { ZINDEXES } from '@repo/ui';
 import Image from 'next/image';
 import { useState } from 'react';
 

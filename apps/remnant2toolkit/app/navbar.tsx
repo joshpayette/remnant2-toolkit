@@ -1,12 +1,14 @@
 'use client';
 
 import { Menu, Transition } from '@headlessui/react';
-import { BaseLink } from '@repo/ui/base/link';
-import { cn } from '@repo/ui/classnames';
-import { ChevronDownIcon } from '@repo/ui/icons/chevron-down';
-import { Logo } from '@repo/ui/logo';
-import { NavbarContainer } from '@repo/ui/navbar-container';
-import { ZINDEXES } from '@repo/ui/zindexes';
+import {
+  BaseLink,
+  ChevronDownIcon,
+  cn,
+  Logo,
+  NavbarContainer,
+  ZINDEXES,
+} from '@repo/ui';
 import { useSession } from 'next-auth/react';
 import { Fragment } from 'react';
 

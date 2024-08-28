@@ -3,13 +3,13 @@ import {
   BaseAlertActions,
   BaseAlertDescription,
   BaseAlertTitle,
-} from '@repo/ui/base/alert'
-import { BaseButton } from '@repo/ui/base/button'
+  BaseButton,
+} from '@repo/ui';
 
 interface Props {
-  open: boolean
-  onClose: () => void
-  onDelete: () => void
+  open: boolean;
+  onClose: () => void;
+  onDelete: () => void;
 }
 
 export function DeleteBuildAlert({ open, onClose, onDelete }: Props) {
@@ -26,5 +26,5 @@ export function DeleteBuildAlert({ open, onClose, onDelete }: Props) {
         <BaseButton onClick={onDelete}>Delete</BaseButton>
       </BaseAlertActions>
     </BaseAlert>
-  )
+  );
 }

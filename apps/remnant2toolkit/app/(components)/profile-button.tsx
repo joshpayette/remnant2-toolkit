@@ -1,38 +1,36 @@
-'use client'
+'use client';
 
-import { Menu, Transition } from '@headlessui/react'
-import { BaseLink } from '@repo/ui/base/link'
-import { cn } from '@repo/ui/classnames'
-import { getImageUrl } from '@repo/ui/utils/get-image-url'
-import { useSession } from 'next-auth/react'
-import { Fragment, useEffect, useState } from 'react'
+import { Menu, Transition } from '@headlessui/react';
+import { BaseLink, cn, getImageUrl } from '@repo/ui';
+import { useSession } from 'next-auth/react';
+import { Fragment, useEffect, useState } from 'react';
 
-import getAvatarId from '@/app/(actions)/profile/get-avatar-id'
-import { PlaceHolderIcon } from '@/app/(components)/placeholder-icon'
-import { NAV_ITEMS } from '@/app/(types)/navigation'
-import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id'
+import getAvatarId from '@/app/(actions)/profile/get-avatar-id';
+import { PlaceHolderIcon } from '@/app/(components)/placeholder-icon';
+import { NAV_ITEMS } from '@/app/(types)/navigation';
+import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id';
 
 function ProfileButtonComponent({
   variant,
 }: {
-  variant: 'mobile' | 'desktop'
+  variant: 'mobile' | 'desktop';
 }) {
-  const { data: session, status } = useSession()
+  const { data: session, status } = useSession();
 
   const [profileImage, setProfileImage] = useState<string | undefined>(
     session?.user?.image ?? undefined,
-  )
+  );
 
   useEffect(() => {
     async function getAvatarIdAsync() {
-      const response = await getAvatarId()
+      const response = await getAvatarId();
       if (response.avatarId) {
-        const avatar = getAvatarById(response.avatarId)
-        setProfileImage(getImageUrl(avatar.imagePath))
+        const avatar = getAvatarById(response.avatarId);
+        setProfileImage(getImageUrl(avatar.imagePath));
       }
     }
-    getAvatarIdAsync()
-  }, [])
+    getAvatarIdAsync();
+  }, []);
 
   if (variant === 'mobile')
     return (
@@ -162,7 +160,7 @@ function ProfileButtonComponent({
           </BaseLink>
         )}
       </div>
-    )
+    );
 
   // Desktop
   return status !== 'authenticated' || !session?.user ? (
@@ -305,10 +303,10 @@ function ProfileButtonComponent({
         </Menu.Items>
       </Transition>
     </Menu>
-  )
+  );
 }
 
 export const ProfileButton = {
   Desktop: () => <ProfileButtonComponent variant="desktop" />,
   Mobile: () => <ProfileButtonComponent variant="mobile" />,
-}
+};

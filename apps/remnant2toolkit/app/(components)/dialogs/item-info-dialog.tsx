@@ -1,14 +1,14 @@
-import { BaseButton } from '@repo/ui/base/button';
+import { BaseButton } from '@repo/ui';
 import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@repo/ui/base/dialog';
-import { BaseLink } from '@repo/ui/base/link';
-import { BaseTextLink } from '@repo/ui/base/text';
-import { cn } from '@repo/ui/classnames';
-import { getImageUrl } from '@repo/ui/utils/get-image-url';
+} from '@repo/ui';
+import { BaseLink } from '@repo/ui';
+import { BaseTextLink } from '@repo/ui';
+import { cn } from '@repo/ui';
+import { getImageUrl } from '@repo/ui';
 import { capitalize } from '@repo/utils/capitalize';
 import copy from 'clipboard-copy';
 import Image from 'next/image';

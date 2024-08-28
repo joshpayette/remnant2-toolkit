@@ -1,4 +1,4 @@
-import { BaseButton } from '@repo/ui/base/button'
+import { BaseButton } from '@repo/ui'
 
 /**
  * Converts an array of objects to a CSV file and starts the download

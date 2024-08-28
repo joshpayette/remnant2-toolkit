@@ -1,24 +1,20 @@
-import { BaseField } from '@repo/ui/base/fieldset'
-import {
-  BaseListbox,
-  BaseListboxLabel,
-  BaseListboxOption,
-} from '@repo/ui/base/listbox'
+import { BaseField } from '@repo/ui';
+import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@repo/ui';
 
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
-import { ALL_BOSSES } from '@/app/(data)/world-saves/constants'
+import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
+import { ALL_BOSSES } from '@/app/(data)/world-saves/constants';
 
 interface Props {
-  value: string
-  onChange: (value: string) => void
+  value: string;
+  onChange: (value: string) => void;
 }
 
 export function BossNameFilter({ value, onChange }: Props) {
   const options = ALL_BOSSES.map((boss) => ({
     label: boss.name as string,
     value: boss.name as string,
-  }))
-  options.unshift({ label: DEFAULT_FILTER, value: DEFAULT_FILTER })
+  }));
+  options.unshift({ label: DEFAULT_FILTER, value: DEFAULT_FILTER });
 
   return (
     <BaseField>
@@ -30,5 +26,5 @@ export function BossNameFilter({ value, onChange }: Props) {
         ))}
       </BaseListbox>
     </BaseField>
-  )
+  );
 }

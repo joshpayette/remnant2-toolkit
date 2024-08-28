@@ -1,6 +1,6 @@
 'use client';
 
-import { BaseButton } from '@repo/ui/base/button';
+import { BaseButton } from '@repo/ui';
 import { capitalize } from '@repo/utils/capitalize';
 import isEqual from 'lodash.isequal';
 import { useSearchParams } from 'next/navigation';

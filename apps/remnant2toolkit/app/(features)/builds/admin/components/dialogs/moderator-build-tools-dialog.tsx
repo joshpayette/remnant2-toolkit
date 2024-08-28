@@ -1,15 +1,15 @@
-import { BaseButton } from '@repo/ui/base/button';
+import { BaseButton } from '@repo/ui';
 import {
   BaseDialog,
   BaseDialogActions,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@repo/ui/base/dialog';
-import { BaseDivider } from '@repo/ui/base/divider';
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset';
-import { BaseInput } from '@repo/ui/base/input';
-import { BaseTextarea } from '@repo/ui/base/textarea';
+} from '@repo/ui';
+import { BaseField, BaseLabel } from '@repo/ui';
+import { BaseInput } from '@repo/ui';
+import { BaseTextarea } from '@repo/ui';
+import { BaseDivider } from '@repo/ui';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 import { toast } from 'react-toastify';

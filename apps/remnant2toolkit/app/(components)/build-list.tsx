@@ -1,21 +1,21 @@
-import { cn } from '@repo/ui/classnames'
+import { cn } from '@repo/ui';
 
-import { Pagination } from '@/app/(components)/pagination'
+import { Pagination } from '@/app/(components)/pagination';
 
 interface Props {
-  children: React.ReactNode
-  currentPage: number
-  firstVisibleItemNumber: number
-  lastVisibleItemNumber: number
-  headerActions: React.ReactNode | undefined
-  isLoading: boolean
-  label?: string
-  pageNumbers: number[]
-  totalItems: number
-  totalPages: number
-  onPreviousPage: () => void
-  onNextPage: () => void
-  onSpecificPage: (pageNumber: number) => void
+  children: React.ReactNode;
+  currentPage: number;
+  firstVisibleItemNumber: number;
+  lastVisibleItemNumber: number;
+  headerActions: React.ReactNode | undefined;
+  isLoading: boolean;
+  label?: string;
+  pageNumbers: number[];
+  totalItems: number;
+  totalPages: number;
+  onPreviousPage: () => void;
+  onNextPage: () => void;
+  onSpecificPage: (pageNumber: number) => void;
 }
 
 export function BuildList({
@@ -65,5 +65,5 @@ export function BuildList({
         onSpecificPage={onSpecificPage}
       />
     </div>
-  )
+  );
 }

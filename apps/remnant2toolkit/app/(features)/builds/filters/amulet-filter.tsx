@@ -1,25 +1,21 @@
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
-import {
-  BaseListbox,
-  BaseListboxLabel,
-  BaseListboxOption,
-} from '@repo/ui/base/listbox'
+import { BaseField, BaseLabel } from '@repo/ui';
+import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@repo/ui';
 
-import { amuletItems } from '@/app/(data)/items/amulet-items'
+import { amuletItems } from '@/app/(data)/items/amulet-items';
 
 interface Props {
-  value: string
-  onChange: (value: string) => void
+  value: string;
+  onChange: (value: string) => void;
 }
 
 export function AmuletFilter({ value, onChange }: Props) {
-  const allAmulets: string[] = amuletItems.map((item) => item.name)
-  allAmulets.unshift('All')
+  const allAmulets: string[] = amuletItems.map((item) => item.name);
+  allAmulets.unshift('All');
 
   const options = allAmulets.map((amulet) => ({
     label: amulet,
     value: amulet,
-  }))
+  }));
 
   return (
     <BaseField>
@@ -37,5 +33,5 @@ export function AmuletFilter({ value, onChange }: Props) {
         ))}
       </BaseListbox>
     </BaseField>
-  )
+  );
 }

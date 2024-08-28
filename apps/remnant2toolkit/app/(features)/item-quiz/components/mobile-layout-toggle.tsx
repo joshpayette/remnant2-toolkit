@@ -1,12 +1,12 @@
-import { BaseCheckbox } from '@repo/ui/base/checkbox'
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
-import { AiFillLayout as LayoutIcon } from 'react-icons/ai'
+import { BaseCheckbox } from '@repo/ui';
+import { BaseField, BaseLabel } from '@repo/ui';
+import { AiFillLayout as LayoutIcon } from 'react-icons/ai';
 
-import type { LayoutPreference } from '@/app/(features)/item-quiz/types/layout-preference'
+import type { LayoutPreference } from '@/app/(features)/item-quiz/types/layout-preference';
 
 interface Props {
-  layoutPreference: LayoutPreference
-  onToggleLayoutPreference: () => void
+  layoutPreference: LayoutPreference;
+  onToggleLayoutPreference: () => void;
 }
 
 export function MobileLayoutToggle({
@@ -25,5 +25,5 @@ export function MobileLayoutToggle({
         />
       </BaseField>
     </div>
-  )
+  );
 }

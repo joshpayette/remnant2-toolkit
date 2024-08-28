@@ -1,23 +1,23 @@
-import { BaseButton } from '@repo/ui/base/button'
-import React from 'react'
+import { BaseButton } from '@repo/ui';
+import React from 'react';
 
-import { Divider } from '@/app/(features)/item-quiz/components/divider'
-import { Heading } from '@/app/(features)/item-quiz/components/heading'
-import { MobileLayoutToggle } from '@/app/(features)/item-quiz/components/mobile-layout-toggle'
-import { QuizItemButton } from '@/app/(features)/item-quiz/components/quiz-item-button'
-import { TopScoresLeaderBoard } from '@/app/(features)/item-quiz/components/top-scores-leader-board'
-import type { LayoutPreference } from '@/app/(features)/item-quiz/types/layout-preference'
-import type { QuizItem } from '@/app/(features)/item-quiz/types/quiz-item'
-import type { QuizQuestion } from '@/app/(features)/item-quiz/types/quiz-question'
+import { Divider } from '@/app/(features)/item-quiz/components/divider';
+import { Heading } from '@/app/(features)/item-quiz/components/heading';
+import { MobileLayoutToggle } from '@/app/(features)/item-quiz/components/mobile-layout-toggle';
+import { QuizItemButton } from '@/app/(features)/item-quiz/components/quiz-item-button';
+import { TopScoresLeaderBoard } from '@/app/(features)/item-quiz/components/top-scores-leader-board';
+import type { LayoutPreference } from '@/app/(features)/item-quiz/types/layout-preference';
+import type { QuizItem } from '@/app/(features)/item-quiz/types/quiz-item';
+import type { QuizQuestion } from '@/app/(features)/item-quiz/types/quiz-question';
 
 interface Props {
-  correctItem: QuizItem | undefined
-  gameTimer: number
-  history: QuizQuestion[]
-  layoutPreference: LayoutPreference
-  score: number
-  onStartGame: () => void
-  onToggleLayoutPreference: () => void
+  correctItem: QuizItem | undefined;
+  gameTimer: number;
+  history: QuizQuestion[];
+  layoutPreference: LayoutPreference;
+  score: number;
+  onStartGame: () => void;
+  onToggleLayoutPreference: () => void;
 }
 
 export const GameOverStage = React.memo(
@@ -102,6 +102,6 @@ export const GameOverStage = React.memo(
       </div>
     </div>
   ),
-)
+);
 
-GameOverStage.displayName = 'GameOverStage'
+GameOverStage.displayName = 'GameOverStage';

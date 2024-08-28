@@ -1,7 +1,7 @@
 'use client';
 
-import { BaseButton } from '@repo/ui/base/button';
-import { Skeleton } from '@repo/ui/skeleton';
+import { BaseButton } from '@repo/ui';
+import { Skeleton } from '@repo/ui';
 import { useEffect, useState } from 'react';
 
 import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list';

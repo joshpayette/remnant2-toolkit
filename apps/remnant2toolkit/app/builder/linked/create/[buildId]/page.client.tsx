@@ -1,9 +1,9 @@
 'use client';
 
-import { BaseButton } from '@repo/ui/base/button';
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset';
-import { BaseInput } from '@repo/ui/base/input';
-import { BaseTextarea } from '@repo/ui/base/textarea';
+import { BaseButton } from '@repo/ui';
+import { BaseField, BaseLabel } from '@repo/ui';
+import { BaseInput } from '@repo/ui';
+import { BaseTextarea } from '@repo/ui';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { FaUnlink } from 'react-icons/fa';

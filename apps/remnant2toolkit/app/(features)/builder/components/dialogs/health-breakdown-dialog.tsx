@@ -3,19 +3,19 @@ import {
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@repo/ui/base/dialog'
+} from '@repo/ui';
 
-import { Item } from '@/app/(data)/items/types'
-import { TraitItem } from '@/app/(data)/items/types/TraitItem'
-import { ListItem } from '@/app/(features)/builder/components/stats/list-item'
-import { Section } from '@/app/(features)/builder/components/stats/section'
+import { Item } from '@/app/(data)/items/types';
+import { TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { ListItem } from '@/app/(features)/builder/components/stats/list-item';
+import { Section } from '@/app/(features)/builder/components/stats/section';
 
 function getHealthStepLabel(
   item: TraitItem,
   equippedHealthStepItems: TraitItem[],
 ) {
   const traitAmount =
-    equippedHealthStepItems.find((t) => t.name === item.name)?.amount ?? 0
+    equippedHealthStepItems.find((t) => t.name === item.name)?.amount ?? 0;
 
   return (
     <>
@@ -24,7 +24,7 @@ function getHealthStepLabel(
         traitAmount * (item.healthStep ?? 0)
       })`}</span>
     </>
-  )
+  );
 }
 
 function getHealthIncreaseLabel(item: Item) {
@@ -33,7 +33,7 @@ function getHealthIncreaseLabel(item: Item) {
       <span className="text-surface-solid font-bold">{item.name}</span>{' '}
       <span className="text-gray-300">({item.health})</span>
     </>
-  )
+  );
 }
 
 function getHealthPercentLabel(item: Item) {
@@ -48,7 +48,7 @@ function getHealthPercentLabel(item: Item) {
         ({((item.healthPercent ?? 0) * 100).toFixed(2)}%)
       </span>
     </>
-  )
+  );
 }
 
 function ggetHealthStepPercentLabel(
@@ -57,7 +57,7 @@ function ggetHealthStepPercentLabel(
 ) {
   const traitAmount =
     equippedHealthStepPercentItems.find((t) => t.name === item.name)?.amount ??
-    0
+    0;
 
   return (
     <>
@@ -66,7 +66,7 @@ function ggetHealthStepPercentLabel(
         {`(${traitAmount * (item.healthStepPercent ?? 0) * 100}%)`}
       </span>
     </>
-  )
+  );
 }
 
 function getHealthCapLabel(item: Item) {
@@ -77,24 +77,24 @@ function getHealthCapLabel(item: Item) {
         ({(item.healthCap ?? 0) * 100 * -1}%)
       </span>
     </>
-  )
+  );
 }
 
 interface Props {
-  open: boolean
+  open: boolean;
   breakdown: {
-    equippedHealthIncreaseItems: Item[]
-    equippedHealthPercentItems: Item[]
-    equippedHealthStepItems: TraitItem[]
-    equippedHealthStepPercentItems: TraitItem[]
-    equippedHealthCapItems: Item[]
-    totalHealthCapReduction: number
-    totalHealthIncrease: number
-    totalHealthPercent: number
-    totalHealthStep: number
-    totalHealthStepPercent: number
-  }
-  onClose: () => void
+    equippedHealthIncreaseItems: Item[];
+    equippedHealthPercentItems: Item[];
+    equippedHealthStepItems: TraitItem[];
+    equippedHealthStepPercentItems: TraitItem[];
+    equippedHealthCapItems: Item[];
+    totalHealthCapReduction: number;
+    totalHealthIncrease: number;
+    totalHealthPercent: number;
+    totalHealthStep: number;
+    totalHealthStepPercent: number;
+  };
+  onClose: () => void;
 }
 
 export function HealthBreakdownDialog({ open, breakdown, onClose }: Props) {
@@ -181,5 +181,5 @@ export function HealthBreakdownDialog({ open, breakdown, onClose }: Props) {
         </div>
       </BaseDialogBody>
     </BaseDialog>
-  )
+  );
 }

@@ -1,20 +1,22 @@
-import { cn } from '@repo/ui/classnames'
-import { ChevronLeftIcon } from '@repo/ui/icons/chevron-left'
-import { ChevronRightIcon } from '@repo/ui/icons/chevron-right'
-import { ChevronsLeftIcon } from '@repo/ui/icons/chevrons-left'
-import { ChevronsRightIcon } from '@repo/ui/icons/chevrons-right'
+import { cn } from '@repo/ui';
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ChevronsLeftIcon,
+  ChevronsRightIcon,
+} from '@repo/ui';
 
 interface Props {
-  currentPage: number
-  isLoading: boolean
-  firstVisibleItemNumber: number
-  lastVisibleItemNumber: number
-  pageNumbers: number[]
-  totalItems: number
-  totalPages: number
-  onPreviousPage: () => void
-  onNextPage: () => void
-  onSpecificPage: (pageNumber: number) => void
+  currentPage: number;
+  isLoading: boolean;
+  firstVisibleItemNumber: number;
+  lastVisibleItemNumber: number;
+  pageNumbers: number[];
+  totalItems: number;
+  totalPages: number;
+  onPreviousPage: () => void;
+  onNextPage: () => void;
+  onSpecificPage: (pageNumber: number) => void;
 }
 
 export function Pagination({
@@ -144,5 +146,5 @@ export function Pagination({
         )}
       </div>
     </div>
-  )
+  );
 }

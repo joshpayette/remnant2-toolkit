@@ -1,7 +1,7 @@
-import { BaseButton } from '@repo/ui/base/button'
+import { BaseButton } from '@repo/ui';
 
 interface Props {
-  onClick: () => void
+  onClick: () => void;
 }
 
 export function RandomBuildButton({ onClick }: Props) {
@@ -14,5 +14,5 @@ export function RandomBuildButton({ onClick }: Props) {
     >
       Random Build
     </BaseButton>
-  )
+  );
 }

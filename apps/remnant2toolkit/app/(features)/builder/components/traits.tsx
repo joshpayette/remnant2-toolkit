@@ -1,8 +1,8 @@
-import { BaseButton } from '@repo/ui/base/button';
-import { BaseInput } from '@repo/ui/base/input';
-import { cn } from '@repo/ui/classnames';
-import { CloseCircleIcon } from '@repo/ui/icons/close-circle';
-import { ZINDEXES } from '@repo/ui/zindexes';
+import { BaseButton } from '@repo/ui';
+import { BaseInput } from '@repo/ui';
+import { cn } from '@repo/ui';
+import { ZINDEXES } from '@repo/ui';
+import { CloseCircleIcon } from '@repo/ui';
 import { useState } from 'react';
 import { PiBagSimpleFill as OwnershipIcon } from 'react-icons/pi';
 import { TbHttpOptions } from 'react-icons/tb';

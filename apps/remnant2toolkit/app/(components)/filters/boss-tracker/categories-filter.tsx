@@ -1,25 +1,21 @@
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
-import {
-  BaseListbox,
-  BaseListboxLabel,
-  BaseListboxOption,
-} from '@repo/ui/base/listbox'
+import { BaseField, BaseLabel } from '@repo/ui';
+import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@repo/ui';
 
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
+import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
 
-export const VALID_BOSS_CATEGORIES = ['World Boss', 'Boss', 'Aberration']
+export const VALID_BOSS_CATEGORIES = ['World Boss', 'Boss', 'Aberration'];
 
 interface Props {
-  value: string[]
-  onChange: (value: string[]) => void
+  value: string[];
+  onChange: (value: string[]) => void;
 }
 
 export function CategoriesFilter({ value, onChange }: Props) {
   const options = VALID_BOSS_CATEGORIES.map((category) => ({
     label: category as string,
     value: category,
-  }))
-  options.unshift({ label: DEFAULT_FILTER, value: DEFAULT_FILTER })
+  }));
+  options.unshift({ label: DEFAULT_FILTER, value: DEFAULT_FILTER });
 
   return (
     <BaseField>
@@ -32,5 +28,5 @@ export function CategoriesFilter({ value, onChange }: Props) {
         ))}
       </BaseListbox>
     </BaseField>
-  )
+  );
 }

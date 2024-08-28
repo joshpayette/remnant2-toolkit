@@ -1,6 +1,6 @@
-import { cn } from '@repo/ui/classnames'
+import { cn } from '@repo/ui';
 
-import { ARCHETYPE_COLORS } from '@/app/(data)/items/constants'
+import { ARCHETYPE_COLORS } from '@/app/(data)/items/constants';
 
 export function ArchetypeLabel({ name }: { name: string }) {
   return (
@@ -37,5 +37,5 @@ export function ArchetypeLabel({ name }: { name: string }) {
     >
       {name}
     </span>
-  )
+  );
 }

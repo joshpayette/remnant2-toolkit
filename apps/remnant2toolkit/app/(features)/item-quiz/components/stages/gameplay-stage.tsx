@@ -1,18 +1,18 @@
-import { cn } from '@repo/ui/classnames'
-import { getArrayOfLength } from '@repo/utils/get-array-of-length'
-import React from 'react'
+import { cn } from '@repo/ui';
+import { getArrayOfLength } from '@repo/utils/get-array-of-length';
+import React from 'react';
 
-import { Heading } from '@/app/(features)/item-quiz/components/heading'
-import { QuizItemButton } from '@/app/(features)/item-quiz/components/quiz-item-button'
-import { TOTAL_CHOICES } from '@/app/(features)/item-quiz/constants/total-choices'
-import type { LayoutPreference } from '@/app/(features)/item-quiz/types/layout-preference'
-import type { QuizItem } from '@/app/(features)/item-quiz/types/quiz-item'
+import { Heading } from '@/app/(features)/item-quiz/components/heading';
+import { QuizItemButton } from '@/app/(features)/item-quiz/components/quiz-item-button';
+import { TOTAL_CHOICES } from '@/app/(features)/item-quiz/constants/total-choices';
+import type { LayoutPreference } from '@/app/(features)/item-quiz/types/layout-preference';
+import type { QuizItem } from '@/app/(features)/item-quiz/types/quiz-item';
 
 interface Props {
-  correctItemName: string
-  layoutPreference: LayoutPreference
-  questionsForUI: QuizItem[]
-  onAnswerQuestion: (id: string) => void
+  correctItemName: string;
+  layoutPreference: LayoutPreference;
+  questionsForUI: QuizItem[];
+  onAnswerQuestion: (id: string) => void;
 }
 
 export const GameplayStage = React.memo(
@@ -39,26 +39,26 @@ export const GameplayStage = React.memo(
         )}
       >
         {getArrayOfLength(TOTAL_CHOICES).map((_, index) => {
-          let cssOrder: string | undefined = undefined
+          let cssOrder: string | undefined = undefined;
           if (layoutPreference === 'mobile') {
             switch (index) {
               case 0:
-                cssOrder = 'order-1'
-                break
+                cssOrder = 'order-1';
+                break;
               case 1:
-                cssOrder = 'order-3'
-                break
+                cssOrder = 'order-3';
+                break;
               case 2:
-                cssOrder = 'order-4'
-                break
+                cssOrder = 'order-4';
+                break;
               case 3:
-                cssOrder = 'order-2'
-                break
+                cssOrder = 'order-2';
+                break;
             }
           }
 
-          const question = questionsForUI[index]
-          if (!question) return null
+          const question = questionsForUI[index];
+          if (!question) return null;
 
           return (
             <div key={question.id} className={cn(cssOrder)}>
@@ -68,7 +68,7 @@ export const GameplayStage = React.memo(
                 onClick={() => onAnswerQuestion(question.id)}
               />
             </div>
-          )
+          );
         })}
       </div>
 
@@ -130,6 +130,6 @@ export const GameplayStage = React.memo(
       </div>
     </>
   ),
-)
+);
 
-GameplayStage.displayName = 'GameplayStage'
+GameplayStage.displayName = 'GameplayStage';

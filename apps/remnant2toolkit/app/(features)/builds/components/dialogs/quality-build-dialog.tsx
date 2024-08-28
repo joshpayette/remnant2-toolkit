@@ -1,8 +1,4 @@
-import {
-  BaseDialog,
-  BaseDialogBody,
-  BaseDialogTitle,
-} from '@repo/ui/base/dialog';
+import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@repo/ui';
 
 import { MINIMUM_QUALITY_DESCRIPTION_LENGTH } from '@/app/(features)/builds/filters/build-misc-filter';
 

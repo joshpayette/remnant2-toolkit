@@ -1,24 +1,24 @@
-'use client'
+'use client';
 
-import { BaseButton } from '@repo/ui/base/button'
-import { BaseField } from '@repo/ui/base/fieldset'
-import { BaseInput } from '@repo/ui/base/input'
-import { BaseTextarea } from '@repo/ui/base/textarea'
-import { EditIcon } from '@repo/ui/icons/edit'
-import { useState } from 'react'
-import { toast } from 'react-toastify'
+import { BaseButton } from '@repo/ui';
+import { BaseField } from '@repo/ui';
+import { BaseInput } from '@repo/ui';
+import { BaseTextarea } from '@repo/ui';
+import { EditIcon } from '@repo/ui';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 
-import { AvatarSelectDialog } from '@/app/(components)/dialogs/avatar-select-dialog'
-import { saveProfile } from '@/app/profile/[userId]/(actions)/save-profile'
-import { AvatarBox } from '@/app/profile/[userId]/(components)/avatar-box'
-import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id'
+import { AvatarSelectDialog } from '@/app/(components)/dialogs/avatar-select-dialog';
+import { saveProfile } from '@/app/profile/[userId]/(actions)/save-profile';
+import { AvatarBox } from '@/app/profile/[userId]/(components)/avatar-box';
+import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id';
 
 interface Props {
-  avatarId: string
-  bio: string
-  displayName: string
-  isEditable: boolean
-  userId: string
+  avatarId: string;
+  bio: string;
+  displayName: string;
+  isEditable: boolean;
+  userId: string;
 }
 
 export function ProfileHeader({
@@ -28,21 +28,21 @@ export function ProfileHeader({
   isEditable,
   userId,
 }: Props) {
-  const [isEditing, setIsEditing] = useState(false)
-  const [newDisplayName, setNewDisplayName] = useState(displayName)
-  const [newBio, setNewBio] = useState(bio)
+  const [isEditing, setIsEditing] = useState(false);
+  const [newDisplayName, setNewDisplayName] = useState(displayName);
+  const [newBio, setNewBio] = useState(bio);
 
-  const [newAvatarId, setNewAvatarId] = useState(avatarId)
-  const avatar = getAvatarById(newAvatarId)
+  const [newAvatarId, setNewAvatarId] = useState(avatarId);
+  const avatar = getAvatarById(newAvatarId);
 
   const [isAvatarSelectDialogOpen, setIsAvatarSelectDialogOpen] =
-    useState(false)
+    useState(false);
 
   function resetForm() {
-    setNewDisplayName(displayName)
-    setNewBio(bio)
-    setNewAvatarId(avatarId)
-    setIsEditing(false)
+    setNewDisplayName(displayName);
+    setNewBio(bio);
+    setNewAvatarId(avatarId);
+    setIsEditing(false);
   }
 
   return (
@@ -51,8 +51,8 @@ export function ProfileHeader({
         open={isAvatarSelectDialogOpen}
         onClose={() => setIsAvatarSelectDialogOpen(false)}
         onSelect={(avatarId) => {
-          setNewAvatarId(avatarId)
-          setIsAvatarSelectDialogOpen(false)
+          setNewAvatarId(avatarId);
+          setIsAvatarSelectDialogOpen(false);
         }}
       />
       <div className="flex w-full flex-col items-center justify-center gap-y-2 sm:w-auto sm:items-start">
@@ -123,15 +123,15 @@ export function ProfileHeader({
                   newDisplayName,
                   newBio,
                   newAvatarId,
-                })
+                });
 
                 if (!response.success) {
-                  toast.error(response.message)
+                  toast.error(response.message);
                 } else {
-                  toast.success(response.message)
-                  setNewDisplayName(newDisplayName)
-                  setNewBio(newBio)
-                  setIsEditing(false)
+                  toast.success(response.message);
+                  setNewDisplayName(newDisplayName);
+                  setNewBio(newBio);
+                  setIsEditing(false);
                 }
               }}
             >
@@ -141,5 +141,5 @@ export function ProfileHeader({
         )}
       </div>
     </>
-  )
+  );
 }

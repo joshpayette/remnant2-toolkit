@@ -1,20 +1,20 @@
-import { cn } from '@repo/ui/classnames'
-import { getImageUrl } from '@repo/ui/utils/get-image-url'
-import Image from 'next/image'
+import { cn } from '@repo/ui';
+import { getImageUrl } from '@repo/ui';
+import Image from 'next/image';
 
-import { ItemButton } from '@/app/(components)/buttons/item-button'
-import { WEIGHT_CLASSES } from '@/app/(data)/items/constants'
-import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
+import { ItemButton } from '@/app/(components)/buttons/item-button';
+import { WEIGHT_CLASSES } from '@/app/(data)/items/constants';
+import { ArmorItem } from '@/app/(data)/items/types/ArmorItem';
 import type {
   ArmorSuggestion,
   WeightClassKeysWithDefault,
-} from '@/app/(types)/armor-calculator'
+} from '@/app/(types)/armor-calculator';
 
 interface Props {
-  desiredWeightClass: WeightClassKeysWithDefault
-  isItemInfoOpen: boolean
-  onItemInfoOpen: (item: ArmorItem) => void
-  suggestion: ArmorSuggestion
+  desiredWeightClass: WeightClassKeysWithDefault;
+  isItemInfoOpen: boolean;
+  onItemInfoOpen: (item: ArmorItem) => void;
+  suggestion: ArmorSuggestion;
 }
 
 export function ArmorSuggestionCard({
@@ -134,5 +134,5 @@ export function ArmorSuggestionCard({
         />
       </div>
     </>
-  )
+  );
 }

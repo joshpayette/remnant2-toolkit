@@ -1,46 +1,44 @@
-import { BaseButton } from '@repo/ui/base/button'
-import { BaseLink } from '@repo/ui/base/link'
-import { cn } from '@repo/ui/classnames'
-import { MagnifyMinusIcon } from '@repo/ui/icons/magnify-minus'
-import { MagnifyPlusIcon } from '@repo/ui/icons/magnify-plus'
-import { StatsIcon } from '@repo/ui/icons/stats'
-import { getImageUrl } from '@repo/ui/utils/get-image-url'
-import { capitalize } from '@repo/utils/capitalize'
-import copy from 'clipboard-copy'
-import Image from 'next/image'
-import { useState } from 'react'
-import { toast } from 'react-toastify'
-import { useLocalStorage } from 'usehooks-ts'
+import { BaseButton } from '@repo/ui';
+import { BaseLink } from '@repo/ui';
+import { cn } from '@repo/ui';
+import { getImageUrl } from '@repo/ui';
+import { MagnifyMinusIcon, MagnifyPlusIcon, StatsIcon } from '@repo/ui';
+import { capitalize } from '@repo/utils/capitalize';
+import copy from 'clipboard-copy';
+import Image from 'next/image';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
+import { useLocalStorage } from 'usehooks-ts';
 
 import getItemBuildStats, {
   ItemBuildStats,
-} from '@/app/(actions)/items/get-item-build-stats'
-import { ArmorInfo } from '@/app/(components)/armor-info'
-import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
-import { Tooltip } from '@/app/(components)/tooltip'
-import { WeaponInfo } from '@/app/(components)/weapon-info'
-import { Item } from '@/app/(data)/items/types'
-import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem'
-import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
-import { ModItem } from '@/app/(data)/items/types/ModItem'
-import { MutatorItem } from '@/app/(data)/items/types/MutatorItem'
-import { PerkItem } from '@/app/(data)/items/types/PerkItem'
-import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
-import { SkillItem } from '@/app/(data)/items/types/SkillItem'
-import { TraitItem } from '@/app/(data)/items/types/TraitItem'
-import { WeaponItem } from '@/app/(data)/items/types/WeaponItem'
+} from '@/app/(actions)/items/get-item-build-stats';
+import { ArmorInfo } from '@/app/(components)/armor-info';
+import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens';
+import { Tooltip } from '@/app/(components)/tooltip';
+import { WeaponInfo } from '@/app/(components)/weapon-info';
+import { Item } from '@/app/(data)/items/types';
+import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem';
+import { ArmorItem } from '@/app/(data)/items/types/ArmorItem';
+import { ModItem } from '@/app/(data)/items/types/ModItem';
+import { MutatorItem } from '@/app/(data)/items/types/MutatorItem';
+import { PerkItem } from '@/app/(data)/items/types/PerkItem';
+import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem';
+import { SkillItem } from '@/app/(data)/items/types/SkillItem';
+import { TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { WeaponItem } from '@/app/(data)/items/types/WeaponItem';
 import {
   DEFAULT_ITEM_COMPARE_LIST,
   LOCALSTORAGE_KEY,
-} from '@/app/(types)/localstorage'
-import { itemShareEndpoint } from '@/app/(utils)/get-item-endpoint'
+} from '@/app/(types)/localstorage';
+import { itemShareEndpoint } from '@/app/(utils)/get-item-endpoint';
 
 interface Props {
-  allowItemCompare?: boolean
-  index?: number
-  data: Item
-  width?: number
-  onMoreInfoClick: (item: Item) => void
+  allowItemCompare?: boolean;
+  index?: number;
+  data: Item;
+  width?: number;
+  onMoreInfoClick: (item: Item) => void;
 }
 
 export function ItemCard({
@@ -52,61 +50,61 @@ export function ItemCard({
     LOCALSTORAGE_KEY.ITEM_COMPARE,
     DEFAULT_ITEM_COMPARE_LIST,
     { initializeWithValue: false },
-  )
-  const itemBeingCompared = itemsToCompare.includes(item.id)
+  );
+  const itemBeingCompared = itemsToCompare.includes(item.id);
 
   const [itemBuildStats, setItemBuildStats] = useState<ItemBuildStats | null>(
     null,
-  )
+  );
 
-  const { imagePath, category, name, description } = item
+  const { imagePath, category, name, description } = item;
 
   let sizes = {
     width: 96,
     height: 96,
-  }
+  };
 
   if (TraitItem.isTraitItem(item)) {
     sizes = {
       width: 48,
       height: 96,
-    }
+    };
   }
 
   if (WeaponItem.isWeaponItem(item)) {
     sizes = {
       width: 128,
       height: 64,
-    }
+    };
   }
 
   function handleAddItemToCompare() {
     // If no empty slots, return
-    const emptySlots = itemsToCompare.filter((id) => id === '')
-    if (emptySlots.length === 0) return
+    const emptySlots = itemsToCompare.filter((id) => id === '');
+    if (emptySlots.length === 0) return;
 
     // Find the next empty slot and add to it
-    const itemIndex = itemsToCompare.findIndex((id) => id === '')
-    const newItemsToCompare = [...itemsToCompare]
-    newItemsToCompare[itemIndex] = item.id
-    setItemsToCompare(newItemsToCompare)
+    const itemIndex = itemsToCompare.findIndex((id) => id === '');
+    const newItemsToCompare = [...itemsToCompare];
+    newItemsToCompare[itemIndex] = item.id;
+    setItemsToCompare(newItemsToCompare);
   }
 
   function handleRemoveItemFromCompare() {
     const newItemsToCompare = itemsToCompare.map((id) =>
       id === item.id ? '' : id,
-    )
-    setItemsToCompare(newItemsToCompare)
+    );
+    setItemsToCompare(newItemsToCompare);
   }
 
-  let itemCategory: string = capitalize(category)
+  let itemCategory: string = capitalize(category);
   if (RelicFragmentItem.isRelicFragmentItem(item)) {
-    itemCategory = 'Relic Fragment'
+    itemCategory = 'Relic Fragment';
   }
   if (PerkItem.isPerkItem(item)) {
     itemCategory = `${item.linkedItems?.archetype?.name} ${capitalize(
       item.type,
-    )} Perk`
+    )} Perk`;
   }
 
   // #region Render
@@ -141,12 +139,12 @@ export function ItemCard({
                   <BaseButton
                     outline
                     onClick={async () => {
-                      const response = await getItemBuildStats(item.id)
+                      const response = await getItemBuildStats(item.id);
                       if (!response.success) {
-                        toast.error('Failed to get build stats')
-                        return
+                        toast.error('Failed to get build stats');
+                        return;
                       }
-                      setItemBuildStats(response.stats)
+                      setItemBuildStats(response.stats);
                     }}
                   >
                     <StatsIcon className="h-5 w-5" />
@@ -377,8 +375,8 @@ export function ItemCard({
             className="relative flex items-center justify-center"
             aria-label="Share Item Link"
             onClick={() => {
-              copy(itemShareEndpoint(item.name))
-              toast.success('Copied link to clipboard')
+              copy(itemShareEndpoint(item.name));
+              toast.success('Copied link to clipboard');
             }}
           >
             Share
@@ -397,5 +395,5 @@ export function ItemCard({
         </div>
       </div>
     </div>
-  )
+  );
 }

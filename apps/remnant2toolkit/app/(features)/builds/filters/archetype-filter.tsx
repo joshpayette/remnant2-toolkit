@@ -1,20 +1,16 @@
-import { BaseButton } from '@repo/ui/base/button'
-import {
-  BaseCheckbox,
-  BaseCheckboxField,
-  BaseCheckboxGroup,
-} from '@repo/ui/base/checkbox'
-import { BaseFieldset, BaseLabel, BaseLegend } from '@repo/ui/base/fieldset'
+import { BaseButton } from '@repo/ui';
+import { BaseCheckbox, BaseCheckboxField, BaseCheckboxGroup } from '@repo/ui';
+import { BaseFieldset, BaseLabel, BaseLegend } from '@repo/ui';
 
-import { archetypeItems } from '@/app/(data)/items/archetype-items'
+import { archetypeItems } from '@/app/(data)/items/archetype-items';
 
-export const VALID_ARCHETYPES = archetypeItems.map((item) => item.name)
+export const VALID_ARCHETYPES = archetypeItems.map((item) => item.name);
 
 interface Props {
-  values: string[]
-  onChange: (archetype: string, checked: boolean) => void
-  onCheckAll: () => void
-  onUncheckAll: () => void
+  values: string[];
+  onChange: (archetype: string, checked: boolean) => void;
+  onCheckAll: () => void;
+  onUncheckAll: () => void;
 }
 
 export function ArchetypeFilter({
@@ -26,7 +22,7 @@ export function ArchetypeFilter({
   const options = VALID_ARCHETYPES.map((archetype) => ({
     label: archetype,
     value: archetype,
-  }))
+  }));
 
   return (
     <BaseFieldset>
@@ -53,5 +49,5 @@ export function ArchetypeFilter({
         ))}
       </BaseCheckboxGroup>
     </BaseFieldset>
-  )
+  );
 }

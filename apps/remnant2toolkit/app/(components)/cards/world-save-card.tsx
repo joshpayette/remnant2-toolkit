@@ -1,17 +1,17 @@
-import { BaseButton } from '@repo/ui/base/button'
-import { DownloadIcon } from '@repo/ui/icons/download'
-import { getImageUrl } from '@repo/ui/utils/get-image-url'
-import Image from 'next/image'
-import { v4 as uuidv4 } from 'uuid'
+import { BaseButton } from '@repo/ui';
+import { getImageUrl } from '@repo/ui';
+import { DownloadIcon } from '@repo/ui';
+import Image from 'next/image';
+import { v4 as uuidv4 } from 'uuid';
 
-import { FilteredWorldSave } from '@/app/(components)/filters/world-saves/types'
-import { getDownloadUrl } from '@/app/(components)/filters/world-saves/utils'
-import { Tooltip } from '@/app/(components)/tooltip'
-import { RELEASE_TO_NAME } from '@/app/(data)/releases/constants'
-import { ALL_BOSS_AFFIXES } from '@/app/(data)/world-saves/constants'
+import { FilteredWorldSave } from '@/app/(components)/filters/world-saves/types';
+import { getDownloadUrl } from '@/app/(components)/filters/world-saves/utils';
+import { Tooltip } from '@/app/(components)/tooltip';
+import { RELEASE_TO_NAME } from '@/app/(data)/releases/constants';
+import { ALL_BOSS_AFFIXES } from '@/app/(data)/world-saves/constants';
 
 interface Props {
-  saveItem: FilteredWorldSave
+  saveItem: FilteredWorldSave;
 }
 
 export function WorldSaveCard({ saveItem }: Props) {
@@ -63,5 +63,5 @@ export function WorldSaveCard({ saveItem }: Props) {
         </Tooltip>
       </div>
     </div>
-  )
+  );
 }

@@ -1,18 +1,14 @@
-import { BaseButton } from '@repo/ui/base/button'
-import {
-  BaseCheckbox,
-  BaseCheckboxField,
-  BaseCheckboxGroup,
-} from '@repo/ui/base/checkbox'
-import { BaseFieldset, BaseLabel, BaseLegend } from '@repo/ui/base/fieldset'
+import { BaseButton } from '@repo/ui';
+import { BaseCheckbox, BaseCheckboxField, BaseCheckboxGroup } from '@repo/ui';
+import { BaseFieldset, BaseLabel, BaseLegend } from '@repo/ui';
 
-export const VALID_DISCOVERED_FILTERS = ['Discovered', 'Undiscovered']
+export const VALID_DISCOVERED_FILTERS = ['Discovered', 'Undiscovered'];
 
 interface Props {
-  values: string[]
-  onChange: (value: string, checked: boolean) => void
-  onCheckAll: () => void
-  onUncheckAll: () => void
+  values: string[];
+  onChange: (value: string, checked: boolean) => void;
+  onCheckAll: () => void;
+  onUncheckAll: () => void;
 }
 
 export function DiscoveredFilter({
@@ -24,7 +20,7 @@ export function DiscoveredFilter({
   const options = VALID_DISCOVERED_FILTERS.map((value) => ({
     label: value as string,
     value: value,
-  }))
+  }));
 
   return (
     <BaseFieldset>
@@ -51,7 +47,7 @@ export function DiscoveredFilter({
         ))}
       </BaseCheckboxGroup>
     </BaseFieldset>
-  )
+  );
 
   // return (
   //   <BaseField>

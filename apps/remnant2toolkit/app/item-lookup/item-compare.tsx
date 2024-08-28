@@ -1,28 +1,28 @@
-import { cn } from '@repo/ui/classnames'
-import { useState } from 'react'
-import { useLocalStorage } from 'usehooks-ts'
+import { cn } from '@repo/ui';
+import { useState } from 'react';
+import { useLocalStorage } from 'usehooks-ts';
 
-import { ItemCard } from '@/app/(components)/cards/item-card'
-import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
-import { allItems } from '@/app/(data)/items/all-items'
-import { Item } from '@/app/(data)/items/types'
+import { ItemCard } from '@/app/(components)/cards/item-card';
+import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
+import { allItems } from '@/app/(data)/items/all-items';
+import { Item } from '@/app/(data)/items/types';
 import {
   DEFAULT_ITEM_COMPARE_LIST,
   LOCALSTORAGE_KEY,
-} from '@/app/(types)/localstorage'
+} from '@/app/(types)/localstorage';
 
 export function ItemCompareList() {
   const [itemsToCompare, _setItemsToCompare] = useLocalStorage<string[]>(
     LOCALSTORAGE_KEY.ITEM_COMPARE,
     DEFAULT_ITEM_COMPARE_LIST,
     { initializeWithValue: false },
-  )
+  );
 
-  const [selectedItem, setSelectedItem] = useState<Item | null>(null)
-  const infoOpen = selectedItem !== null
+  const [selectedItem, setSelectedItem] = useState<Item | null>(null);
+  const infoOpen = selectedItem !== null;
 
   function handleMoreInfoClick(item: Item) {
-    setSelectedItem(item)
+    setSelectedItem(item);
   }
 
   return (
@@ -39,12 +39,12 @@ export function ItemCompareList() {
       <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {itemsToCompare.map((itemId, index) => {
           if (itemId === '') {
-            return <EmptyItemCard key={index} />
+            return <EmptyItemCard key={index} />;
           }
 
-          const item = allItems.find((item) => item.id === itemId)
+          const item = allItems.find((item) => item.id === itemId);
           if (!item) {
-            return <EmptyItemCard key={index} />
+            return <EmptyItemCard key={index} />;
           }
           return (
             <ItemCard
@@ -53,11 +53,11 @@ export function ItemCompareList() {
               onMoreInfoClick={handleMoreInfoClick}
               allowItemCompare={true}
             />
-          )
+          );
         })}
       </div>
     </div>
-  )
+  );
 }
 
 function EmptyItemCard() {
@@ -71,5 +71,5 @@ function EmptyItemCard() {
         No item to compare.
       </p>
     </div>
-  )
+  );
 }

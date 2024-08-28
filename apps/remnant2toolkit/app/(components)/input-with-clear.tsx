@@ -1,6 +1,4 @@
-import { BaseButton } from '@repo/ui/base/button'
-import { BaseInput, BaseInputProps } from '@repo/ui/base/input'
-import { CloseIcon } from '@repo/ui/icons/close'
+import { BaseButton, BaseInput, BaseInputProps, CloseIcon } from '@repo/ui';
 
 export function InputWithClear({
   onChange,
@@ -27,5 +25,5 @@ export function InputWithClear({
         )}
       </div>
     </div>
-  )
+  );
 }

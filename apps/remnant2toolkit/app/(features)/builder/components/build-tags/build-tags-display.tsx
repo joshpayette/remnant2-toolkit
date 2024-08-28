@@ -1,20 +1,20 @@
-import { BuildTags } from '@repo/db'
-import { BaseButton } from '@repo/ui/base/button'
-import { BaseFieldset, BaseLabel } from '@repo/ui/base/fieldset'
-import { cn } from '@repo/ui/classnames'
+import { BuildTags } from '@repo/db';
+import { BaseButton } from '@repo/ui';
+import { BaseFieldset, BaseLabel } from '@repo/ui';
+import { cn } from '@repo/ui';
 
-import { ALL_BUILD_TAGS } from '@/app/(features)/builder/constants/all-build-tags'
-import { MAX_BUILD_TAGS } from '@/app/(features)/builder/constants/max-build-tags'
-import type { BuildTag } from '@/app/(features)/builder/types/build-tag'
+import { ALL_BUILD_TAGS } from '@/app/(features)/builder/constants/all-build-tags';
+import { MAX_BUILD_TAGS } from '@/app/(features)/builder/constants/max-build-tags';
+import type { BuildTag } from '@/app/(features)/builder/types/build-tag';
 
-import { BuildTagItem } from './build-tag-item'
+import { BuildTagItem } from './build-tag-item';
 
 interface Props {
-  buildTags: BuildTags[] | null
-  isEditable: boolean
-  isScreenshotMode: boolean
-  showLabel?: boolean
-  onChange?: (tags: BuildTags[]) => void
+  buildTags: BuildTags[] | null;
+  isEditable: boolean;
+  isScreenshotMode: boolean;
+  showLabel?: boolean;
+  onChange?: (tags: BuildTags[]) => void;
 }
 
 export function BuildTagsDisplay({
@@ -24,20 +24,20 @@ export function BuildTagsDisplay({
   showLabel = true,
   onChange,
 }: Props) {
-  if (!buildTags) return null
+  if (!buildTags) return null;
 
   function handleTagClick({
     tag,
     isActive,
   }: {
-    tag: BuildTag
-    isActive: boolean
+    tag: BuildTag;
+    isActive: boolean;
   }) {
-    if (!onChange) return
-    if (!buildTags) return
+    if (!onChange) return;
+    if (!buildTags) return;
 
     if (isActive) {
-      onChange(buildTags.filter((t) => t.tag !== tag.value))
+      onChange(buildTags.filter((t) => t.tag !== tag.value));
     } else {
       onChange([
         ...buildTags,
@@ -48,7 +48,7 @@ export function BuildTagsDisplay({
           updatedAt: new Date(),
           buildId: '',
         },
-      ])
+      ]);
     }
   }
 
@@ -67,9 +67,9 @@ export function BuildTagsDisplay({
         )}
       >
         {ALL_BUILD_TAGS.map((tag, index) => {
-          const isActive = buildTags.some((t) => t.tag === tag.value)
+          const isActive = buildTags.some((t) => t.tag === tag.value);
 
-          if (!isEditable && !isActive) return null
+          if (!isEditable && !isActive) return null;
 
           return isEditable ? (
             <BaseButton
@@ -92,9 +92,9 @@ export function BuildTagsDisplay({
               isScreenshotMode={isScreenshotMode}
               tag={tag}
             />
-          )
+          );
         })}
       </div>
     </BaseFieldset>
-  )
+  );
 }

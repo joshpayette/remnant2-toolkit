@@ -1,100 +1,100 @@
-'use client'
+'use client';
 
-import { Disclosure } from '@headlessui/react'
-import { BaseButton } from '@repo/ui/base/button'
-import { BaseFieldGroup, BaseFieldset } from '@repo/ui/base/fieldset'
-import { BaseText, BaseTextLink } from '@repo/ui/base/text'
-import { cn } from '@repo/ui/classnames'
-import { FilterIcon } from '@repo/ui/icons/filter'
-import isEqual from 'lodash.isequal'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { useMemo, useState } from 'react'
+import { Disclosure } from '@headlessui/react';
+import { BaseButton } from '@repo/ui';
+import { BaseFieldGroup, BaseFieldset } from '@repo/ui';
+import { BaseText, BaseTextLink } from '@repo/ui';
+import { cn } from '@repo/ui';
+import { FilterIcon } from '@repo/ui';
+import isEqual from 'lodash.isequal';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useMemo, useState } from 'react';
 
-import { BossNameFilter } from '@/app/(components)/filters/boss-name-filter'
+import { BossNameFilter } from '@/app/(components)/filters/boss-name-filter';
 import {
   ReleasesFilter,
   VALID_RELEASE_KEYS,
-} from '@/app/(components)/filters/releases-filter'
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
-import { BossAffixFilter } from '@/app/(components)/filters/world-saves/boss-affix-filter'
+} from '@/app/(components)/filters/releases-filter';
+import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
+import { BossAffixFilter } from '@/app/(components)/filters/world-saves/boss-affix-filter';
 import {
   WORLD_SAVE_FILTER_KEYS,
   WorldSaveFilters as Filters,
-} from '@/app/(components)/filters/world-saves/types'
-import { parseUrlFilters } from '@/app/(components)/filters/world-saves/utils'
+} from '@/app/(components)/filters/world-saves/types';
+import { parseUrlFilters } from '@/app/(components)/filters/world-saves/utils';
 
 export const DEFAULT_WORLD_SAVE_FILTERS = {
   bossName: DEFAULT_FILTER,
   bossAffixes: [DEFAULT_FILTER],
   releases: VALID_RELEASE_KEYS,
-} as const satisfies Filters
+} as const satisfies Filters;
 
 // #region Component
 
 export function WorldSaveFilters() {
-  const searchParams = useSearchParams()
-  const filters = parseUrlFilters(searchParams)
+  const searchParams = useSearchParams();
+  const filters = parseUrlFilters(searchParams);
 
-  const [unappliedFilters, setUnappliedFilters] = useState(filters)
+  const [unappliedFilters, setUnappliedFilters] = useState(filters);
 
   function clearFilters() {
-    setUnappliedFilters(DEFAULT_WORLD_SAVE_FILTERS)
-    applyUrlFilters(DEFAULT_WORLD_SAVE_FILTERS)
+    setUnappliedFilters(DEFAULT_WORLD_SAVE_FILTERS);
+    applyUrlFilters(DEFAULT_WORLD_SAVE_FILTERS);
   }
 
   const areAnyFiltersActive = useMemo(() => {
-    if (isEqual(filters, DEFAULT_WORLD_SAVE_FILTERS)) return false
-    return true
-  }, [filters])
+    if (isEqual(filters, DEFAULT_WORLD_SAVE_FILTERS)) return false;
+    return true;
+  }, [filters]);
 
   // #region Apply Filters Handler
-  const pathname = usePathname()
-  const router = useRouter()
+  const pathname = usePathname();
+  const router = useRouter();
   function applyUrlFilters(filtersToApply: Filters) {
-    let url = `${pathname}?t=${Date.now()}&`
+    let url = `${pathname}?t=${Date.now()}&`;
 
     // Add the boss name filter
     if (filtersToApply.bossName !== DEFAULT_FILTER) {
-      url += `${WORLD_SAVE_FILTER_KEYS.BOSSNAME}=${filtersToApply.bossName}&`
+      url += `${WORLD_SAVE_FILTER_KEYS.BOSSNAME}=${filtersToApply.bossName}&`;
     }
 
     // Add the boss affixes filter
     if (!filtersToApply.bossAffixes.some((i) => i === DEFAULT_FILTER)) {
       url += `${
         WORLD_SAVE_FILTER_KEYS.BOSSAFFIXES
-      }=${filtersToApply.bossAffixes.join(',')}&`
+      }=${filtersToApply.bossAffixes.join(',')}&`;
     }
 
     // Add the releases filter
     if (!filtersToApply.releases.some((i) => i === DEFAULT_FILTER)) {
       url += `${WORLD_SAVE_FILTER_KEYS.RELEASES}=${filtersToApply.releases.join(
         ',',
-      )}&`
+      )}&`;
     }
 
     // trim the final &
     if (url.endsWith('&')) {
-      url = url.slice(0, -1)
+      url = url.slice(0, -1);
     }
 
-    router.push(url, { scroll: false })
+    router.push(url, { scroll: false });
   }
 
   // #region Filter Change Handlers
 
   function handleBossNameChange(newBossName: string) {
-    const newFilters = { ...unappliedFilters, bossName: newBossName }
-    setUnappliedFilters(newFilters)
-    applyUrlFilters(newFilters)
+    const newFilters = { ...unappliedFilters, bossName: newBossName };
+    setUnappliedFilters(newFilters);
+    applyUrlFilters(newFilters);
   }
 
   function handleBossAffixesChange(newBossAffixes: string[]) {
     // if the newBossAffixes length is 0, set to the default value
     if (newBossAffixes.length === 0) {
-      const newFilters = { ...unappliedFilters, bossAffixes: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      applyUrlFilters(newFilters)
-      return
+      const newFilters = { ...unappliedFilters, bossAffixes: [DEFAULT_FILTER] };
+      setUnappliedFilters(newFilters);
+      applyUrlFilters(newFilters);
+      return;
     }
 
     // if the first item is the default value ("All"), apply the filters after removing the default value
@@ -102,27 +102,27 @@ export function WorldSaveFilters() {
       const newFilters = {
         ...unappliedFilters,
         bossAffixes: newBossAffixes.filter((i) => i !== DEFAULT_FILTER),
-      }
-      setUnappliedFilters(newFilters)
-      applyUrlFilters(newFilters)
-      return
+      };
+      setUnappliedFilters(newFilters);
+      applyUrlFilters(newFilters);
+      return;
     }
 
     // if any of the filters contain the default value of "All", just apply the filters
     if (newBossAffixes.includes(DEFAULT_FILTER)) {
-      const newFilters = { ...unappliedFilters, bossAffixes: [DEFAULT_FILTER] }
-      setUnappliedFilters(newFilters)
-      applyUrlFilters(newFilters)
-      return
+      const newFilters = { ...unappliedFilters, bossAffixes: [DEFAULT_FILTER] };
+      setUnappliedFilters(newFilters);
+      applyUrlFilters(newFilters);
+      return;
     }
 
     // If we got here, remove the default value from the list
     const newFilters = {
       ...unappliedFilters,
       bossAffixes: newBossAffixes.filter((i) => i !== DEFAULT_FILTER),
-    }
-    setUnappliedFilters(newFilters)
-    applyUrlFilters(newFilters)
+    };
+    setUnappliedFilters(newFilters);
+    applyUrlFilters(newFilters);
   }
 
   function handleReleasesChange(newReleases: string, checked: boolean) {
@@ -131,19 +131,19 @@ export function WorldSaveFilters() {
       const newFilters = {
         ...unappliedFilters,
         releases: unappliedFilters.releases.filter((i) => i !== newReleases),
-      }
-      setUnappliedFilters(newFilters)
-      applyUrlFilters(newFilters)
-      return
+      };
+      setUnappliedFilters(newFilters);
+      applyUrlFilters(newFilters);
+      return;
     }
 
     // if the release is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
       releases: [...unappliedFilters.releases, newReleases],
-    }
-    setUnappliedFilters(newFilters)
-    applyUrlFilters(newFilters)
+    };
+    setUnappliedFilters(newFilters);
+    applyUrlFilters(newFilters);
   }
 
   // #region Render
@@ -197,17 +197,17 @@ export function WorldSaveFilters() {
                         const newFilters = {
                           ...unappliedFilters,
                           releases: VALID_RELEASE_KEYS,
-                        }
-                        setUnappliedFilters(newFilters)
-                        applyUrlFilters(newFilters)
+                        };
+                        setUnappliedFilters(newFilters);
+                        applyUrlFilters(newFilters);
                       }}
                       onUncheckAll={() => {
                         const newFilters = {
                           ...unappliedFilters,
                           releases: [],
-                        }
-                        setUnappliedFilters(newFilters)
-                        applyUrlFilters(newFilters)
+                        };
+                        setUnappliedFilters(newFilters);
+                        applyUrlFilters(newFilters);
                       }}
                     />
                     <BaseText className="mt-2">
@@ -229,5 +229,5 @@ export function WorldSaveFilters() {
         </div>
       )}
     </Disclosure>
-  )
+  );
 }

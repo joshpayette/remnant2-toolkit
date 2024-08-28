@@ -1,8 +1,4 @@
-import {
-  BaseListbox,
-  BaseListboxLabel,
-  BaseListboxOption,
-} from '@repo/ui/base/listbox';
+import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@repo/ui';
 
 import {
   type OrderBy,

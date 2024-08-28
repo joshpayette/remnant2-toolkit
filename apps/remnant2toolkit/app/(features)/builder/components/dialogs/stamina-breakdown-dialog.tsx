@@ -3,19 +3,19 @@ import {
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@repo/ui/base/dialog'
+} from '@repo/ui';
 
-import { Item } from '@/app/(data)/items/types'
-import { TraitItem } from '@/app/(data)/items/types/TraitItem'
-import { ListItem } from '@/app/(features)/builder/components/stats/list-item'
-import { Section } from '@/app/(features)/builder/components/stats/section'
+import { Item } from '@/app/(data)/items/types';
+import { TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { ListItem } from '@/app/(features)/builder/components/stats/list-item';
+import { Section } from '@/app/(features)/builder/components/stats/section';
 
 function getStaminaStepLabel(
   item: TraitItem,
   equippedStaminaStepItems: TraitItem[],
 ) {
   const traitAmount =
-    equippedStaminaStepItems.find((t) => t.name === item.name)?.amount ?? 0
+    equippedStaminaStepItems.find((t) => t.name === item.name)?.amount ?? 0;
 
   return (
     <>
@@ -24,7 +24,7 @@ function getStaminaStepLabel(
         {`(${traitAmount * (item.staminaStep ?? 0)})`}
       </span>
     </>
-  )
+  );
 }
 
 function getStaminaIncreaseLabel(item: Item) {
@@ -33,7 +33,7 @@ function getStaminaIncreaseLabel(item: Item) {
       <span className="text-surface-solid font-bold">{item.name}</span>{' '}
       <span className="text-gray-300">({item.stamina})</span>
     </>
-  )
+  );
 }
 
 function getStaminaPercentLabel(item: Item) {
@@ -47,7 +47,7 @@ function getStaminaPercentLabel(item: Item) {
         ({((item.staminaPercent ?? 0) * 100).toFixed(2)}%)
       </span>
     </>
-  )
+  );
 }
 
 function getStaminaStepPercentLabel(
@@ -56,7 +56,7 @@ function getStaminaStepPercentLabel(
 ) {
   const traitAmount =
     equippedStaminaStepPercentItems.find((t) => t.name === item.name)?.amount ??
-    0
+    0;
 
   return (
     <>
@@ -65,22 +65,22 @@ function getStaminaStepPercentLabel(
         {`(${traitAmount * (item.staminaStepPercent ?? 0) * 100}%)`}
       </span>
     </>
-  )
+  );
 }
 
 interface Props {
-  open: boolean
-  onClose: () => void
+  open: boolean;
+  onClose: () => void;
   breakdown: {
-    equippedStaminaIncreaseItems: Item[]
-    equippedStaminaPercentItems: Item[]
-    equippedStaminaStepItems: TraitItem[]
-    equippedStaminaStepPercentItems: TraitItem[]
-    totalStaminaIncrease: number
-    totalStaminaPercent: number
-    totalStaminaStep: number
-    totalStaminaStepPercent: number
-  }
+    equippedStaminaIncreaseItems: Item[];
+    equippedStaminaPercentItems: Item[];
+    equippedStaminaStepItems: TraitItem[];
+    equippedStaminaStepPercentItems: TraitItem[];
+    totalStaminaIncrease: number;
+    totalStaminaPercent: number;
+    totalStaminaStep: number;
+    totalStaminaStepPercent: number;
+  };
 }
 
 export function StaminaBreakdownDialog({ open, breakdown, onClose }: Props) {
@@ -153,5 +153,5 @@ export function StaminaBreakdownDialog({ open, breakdown, onClose }: Props) {
         </div>
       </BaseDialogBody>
     </BaseDialog>
-  )
+  );
 }

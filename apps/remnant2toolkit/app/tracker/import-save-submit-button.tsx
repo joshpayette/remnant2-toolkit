@@ -1,19 +1,19 @@
-'use client'
+'use client';
 
-import { BaseButton } from '@repo/ui/base/button'
-import { Skeleton } from '@repo/ui/skeleton'
-import { useFormStatus } from 'react-dom'
+import { BaseButton } from '@repo/ui';
+import { Skeleton } from '@repo/ui';
+import { useFormStatus } from 'react-dom';
 
 export function ImportSaveSubmitButton({
   className,
   disabled = false,
   label,
 }: {
-  className: string
-  disabled?: boolean
-  label: string
+  className: string;
+  disabled?: boolean;
+  label: string;
 }) {
-  const { pending } = useFormStatus()
+  const { pending } = useFormStatus();
 
   return (
     <BaseButton
@@ -25,5 +25,5 @@ export function ImportSaveSubmitButton({
     >
       {!pending ? label : <Skeleton className="h-8 w-8" />}
     </BaseButton>
-  )
+  );
 }

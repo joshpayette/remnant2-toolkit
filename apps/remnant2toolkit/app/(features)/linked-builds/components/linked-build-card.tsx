@@ -1,16 +1,16 @@
-'use client'
+'use client';
 
-import { BaseLink } from '@repo/ui/base/link'
-import { cn } from '@repo/ui/classnames'
-import { Skeleton } from '@repo/ui/skeleton'
+import { BaseLink } from '@repo/ui';
+import { cn } from '@repo/ui';
+import { Skeleton } from '@repo/ui';
 
-import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens'
-import type { LinkedBuildState } from '@/app/(types)/linked-builds'
+import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens';
+import type { LinkedBuildState } from '@/app/(types)/linked-builds';
 
 interface Props {
-  linkedBuildState: LinkedBuildState
-  footerActions?: React.ReactNode
-  isLoading: boolean
+  linkedBuildState: LinkedBuildState;
+  footerActions?: React.ReactNode;
+  isLoading: boolean;
 }
 
 export function LinkedBuildCard({
@@ -83,5 +83,5 @@ export function LinkedBuildCard({
         </div>
       )}
     </div>
-  )
+  );
 }

@@ -1,5 +1,5 @@
 import { BuildTags } from '@repo/db';
-import { cn } from '@repo/ui/classnames';
+import { cn } from '@repo/ui';
 import { ReactNode, RefObject } from 'react';
 
 import { BuildState } from '@/app/(features)/builds/types/build-state';

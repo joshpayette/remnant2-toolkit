@@ -1,17 +1,17 @@
-'use server'
+'use server';
 
-import { BaseLink } from '@repo/ui/base/link'
-import { cn } from '@repo/ui/classnames'
-import { ZINDEXES } from '@repo/ui/zindexes'
-import { Metadata } from 'next'
-import React from 'react'
+import { BaseLink } from '@repo/ui';
+import { cn } from '@repo/ui';
+import { ZINDEXES } from '@repo/ui';
+import { Metadata } from 'next';
+import React from 'react';
 
-import { getSession } from '@/app/(features)/auth/services/sessionService'
-import { NAV_ITEMS } from '@/app/(types)/navigation'
+import { getSession } from '@/app/(features)/auth/services/sessionService';
+import { NAV_ITEMS } from '@/app/(types)/navigation';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Build Creation Tool - Remnant 2 Toolkit`
-  const description = NAV_ITEMS.createBuild.description
+  const title = `Build Creation Tool - Remnant 2 Toolkit`;
+  const description = NAV_ITEMS.createBuild.description;
 
   return {
     title,
@@ -34,15 +34,15 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
     },
-  }
+  };
 }
 
 export default async function Layout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  const session = await getSession()
+  const session = await getSession();
 
   if (!session) {
     return (
@@ -76,8 +76,8 @@ export default async function Layout({
           {children}
         </div>
       </>
-    )
+    );
   }
 
-  return <>{children}</>
+  return <>{children}</>;
 }

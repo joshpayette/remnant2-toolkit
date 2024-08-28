@@ -1,5 +1,5 @@
-import { BaseButton } from '@repo/ui/base/button'
-import { Skeleton } from '@repo/ui/skeleton'
+import { BaseButton } from '@repo/ui';
+import { Skeleton } from '@repo/ui';
 
 export function LoadingButton() {
   return (
@@ -11,5 +11,5 @@ export function LoadingButton() {
     >
       <Skeleton className="h-full w-full" />
     </BaseButton>
-  )
+  );
 }

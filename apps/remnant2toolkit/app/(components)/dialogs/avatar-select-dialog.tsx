@@ -1,18 +1,18 @@
-import { BaseButton } from '@repo/ui/base/button'
+import { BaseButton } from '@repo/ui';
 import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@repo/ui/base/dialog'
+} from '@repo/ui';
 
-import { AVATARS } from '@/app/(constants)/profile'
-import { AvatarBox } from '@/app/profile/[userId]/(components)/avatar-box'
+import { AVATARS } from '@/app/(constants)/profile';
+import { AvatarBox } from '@/app/profile/[userId]/(components)/avatar-box';
 
 interface Props {
-  open: boolean
-  onClose: () => void
-  onSelect: (avatarId: string) => void
+  open: boolean;
+  onClose: () => void;
+  onSelect: (avatarId: string) => void;
 }
 
 export function AvatarSelectDialog({ open, onClose, onSelect }: Props) {
@@ -36,5 +36,5 @@ export function AvatarSelectDialog({ open, onClose, onSelect }: Props) {
         </div>
       </BaseDialogBody>
     </BaseDialog>
-  )
+  );
 }

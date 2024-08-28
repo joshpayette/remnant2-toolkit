@@ -1,34 +1,34 @@
-'use client'
+'use client';
 
-import { BaseLink } from '@repo/ui/base/link'
-import { Skeleton } from '@repo/ui/skeleton'
-import { useSession } from 'next-auth/react'
-import { useRef, useState } from 'react'
+import { BaseLink } from '@repo/ui';
+import { Skeleton } from '@repo/ui';
+import { useSession } from 'next-auth/react';
+import { useRef, useState } from 'react';
 
-import { LongUrlAlert } from '@/app/(components)/alerts/long-url-alert'
-import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button'
-import { PageHeader } from '@/app/(components)/page-header'
-import { BuilderContainer } from '@/app/(features)/builder/components/builder-container'
-import { DetailedViewButton } from '@/app/(features)/builder/components/buttons/detailed-view-button'
-import { GenerateBuildImageButton } from '@/app/(features)/builder/components/buttons/generate-build-image'
-import { SaveBuildButton } from '@/app/(features)/builder/components/buttons/save-build-button'
-import { ShareBuildButton } from '@/app/(features)/builder/components/buttons/share-build-button'
-import { DetailedBuildDialog } from '@/app/(features)/builder/components/dialogs/detailed-build-dialog'
-import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dialogs/image-download-info-dialog'
-import { useUrlBuildState } from '@/app/(features)/builds/utils/hooks/use-url-build-state'
-import { useBuildActions } from '@/app/(hooks)/use-build-actions'
+import { LongUrlAlert } from '@/app/(components)/alerts/long-url-alert';
+import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button';
+import { PageHeader } from '@/app/(components)/page-header';
+import { BuilderContainer } from '@/app/(features)/builder/components/builder-container';
+import { DetailedViewButton } from '@/app/(features)/builder/components/buttons/detailed-view-button';
+import { GenerateBuildImageButton } from '@/app/(features)/builder/components/buttons/generate-build-image';
+import { SaveBuildButton } from '@/app/(features)/builder/components/buttons/save-build-button';
+import { ShareBuildButton } from '@/app/(features)/builder/components/buttons/share-build-button';
+import { DetailedBuildDialog } from '@/app/(features)/builder/components/dialogs/detailed-build-dialog';
+import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dialogs/image-download-info-dialog';
+import { useUrlBuildState } from '@/app/(features)/builds/utils/hooks/use-url-build-state';
+import { useBuildActions } from '@/app/(hooks)/use-build-actions';
 
 export default function Page() {
-  const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false)
-  const [shareBuildAlertOpen, setShareBuildAlertOpen] = useState(false)
+  const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);
+  const [shareBuildAlertOpen, setShareBuildAlertOpen] = useState(false);
 
-  const { data: session, status: sessionStatus } = useSession()
+  const { data: session, status: sessionStatus } = useSession();
 
   const {
     csvItems,
     urlBuildState: buildState,
     updateUrlBuildState,
-  } = useUrlBuildState()
+  } = useUrlBuildState();
 
   const {
     isScreenshotMode,
@@ -37,9 +37,9 @@ export default function Page() {
     imageDownloadInfo,
     handleClearImageDownloadInfo,
     handleImageExport,
-  } = useBuildActions()
+  } = useBuildActions();
 
-  const buildContainerRef = useRef<HTMLDivElement>(null)
+  const buildContainerRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="flex w-full flex-col items-center">
@@ -164,5 +164,5 @@ export default function Page() {
         }
       />
     </div>
-  )
+  );
 }

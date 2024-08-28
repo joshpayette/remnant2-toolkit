@@ -1,17 +1,17 @@
-'use client'
+'use client';
 
-import { cn } from '@repo/ui/classnames'
-import { stripUnicode } from '@repo/utils/strip-unicode'
-import { ReactNode, useState } from 'react'
-import reactStringReplace from 'react-string-replace'
-import { v4 as uuidv4 } from 'uuid'
+import { cn } from '@repo/ui';
+import { stripUnicode } from '@repo/utils/strip-unicode';
+import { ReactNode, useState } from 'react';
+import reactStringReplace from 'react-string-replace';
+import { v4 as uuidv4 } from 'uuid';
 
-import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
-import { Tooltip } from '@/app/(components)/tooltip'
-import { allItems } from '@/app/(data)/items/all-items'
-import { Item } from '@/app/(data)/items/types'
-import { ALL_BUILD_TAGS } from '@/app/(features)/builder/constants/all-build-tags'
-import { EXTERNAL_TOKENS, INLINE_TOKENS } from '@/app/(types)/tokens'
+import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
+import { Tooltip } from '@/app/(components)/tooltip';
+import { allItems } from '@/app/(data)/items/all-items';
+import { Item } from '@/app/(data)/items/types';
+import { ALL_BUILD_TAGS } from '@/app/(features)/builder/constants/all-build-tags';
+import { EXTERNAL_TOKENS, INLINE_TOKENS } from '@/app/(types)/tokens';
 
 // Start with all description tokens, which are always included
 export const ALL_DESCRIPTION_TOKENS: string[] = [
@@ -19,7 +19,7 @@ export const ALL_DESCRIPTION_TOKENS: string[] = [
   ...EXTERNAL_TOKENS.map((tag) => tag.token).sort(
     (a, b) => b.length - a.length,
   ), // Sort in descending order of length,
-]
+];
 
 function parseStringForToken({
   description,
@@ -28,29 +28,29 @@ function parseStringForToken({
   highlightItems,
   handleShowItemInfo,
 }: {
-  description: string
-  highlightItems: boolean
-  highlightBuildTokens: boolean
-  highlightExternalTokens: boolean
-  handleShowItemInfo: (itemName: string | undefined) => void
+  description: string;
+  highlightItems: boolean;
+  highlightBuildTokens: boolean;
+  highlightExternalTokens: boolean;
+  handleShowItemInfo: (itemName: string | undefined) => void;
 }): ReactNode[] {
   // Escape special characters in the tokens
   const escapeRegExp = (string: string) =>
-    string.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&') // $& means the whole matched string
+    string.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
 
   const allDescriptionTokensRegex = new RegExp(
     `(${ALL_DESCRIPTION_TOKENS.map((token) => escapeRegExp(token)).join('|')})`,
     'g',
-  )
+  );
 
   let replacedText = reactStringReplace(
     description,
     allDescriptionTokensRegex,
     (match, _i) => {
-      const inlineToken = INLINE_TOKENS.find((tag) => tag.token === match)
-      const externalToken = EXTERNAL_TOKENS.find((tag) => tag.token === match)
+      const inlineToken = INLINE_TOKENS.find((tag) => tag.token === match);
+      const externalToken = EXTERNAL_TOKENS.find((tag) => tag.token === match);
 
-      const key = uuidv4()
+      const key = uuidv4();
 
       if (inlineToken) {
         if (inlineToken.description) {
@@ -64,16 +64,16 @@ function parseStringForToken({
                 {inlineToken.token}
               </button>
             </Tooltip>
-          )
+          );
         } else {
           return (
             <span key={key} className={cn('font-semibold', inlineToken.color)}>
               {inlineToken.token}
             </span>
-          )
+          );
         }
       } else if (externalToken) {
-        if (!highlightExternalTokens) return match
+        if (!highlightExternalTokens) return match;
         if (externalToken.description) {
           return (
             <Tooltip key={key} content={externalToken.description}>
@@ -85,24 +85,24 @@ function parseStringForToken({
                 {externalToken.token}
               </button>
             </Tooltip>
-          )
+          );
         }
       } else {
-        return match
+        return match;
       }
     },
-  )
+  );
 
   if (highlightItems) {
     const allItemNames = allItems
       .filter((item) => item.category !== 'relicfragment')
       .map((item) => item.name)
-      .sort((a, b) => b.length - a.length) // Sort in descending order of length
+      .sort((a, b) => b.length - a.length); // Sort in descending order of length
 
     const allItemNamesRegex = new RegExp(
       `(${allItemNames.map((token) => escapeRegExp(token)).join('|')})`,
       'gi',
-    )
+    );
 
     replacedText = reactStringReplace(
       replacedText,
@@ -110,8 +110,8 @@ function parseStringForToken({
       (match, _i) => {
         const itemName = allItemNames.find(
           (itemName) => itemName.toLowerCase() === match.toLowerCase(),
-        )
-        const item = allItems.find((item) => item.name === itemName)
+        );
+        const item = allItems.find((item) => item.name === itemName);
         const itemNameButton = (
           <button
             key={uuidv4()}
@@ -120,7 +120,7 @@ function parseStringForToken({
           >
             {itemName}
           </button>
-        )
+        );
 
         return item && item.description ? (
           <Tooltip
@@ -135,43 +135,43 @@ function parseStringForToken({
           </Tooltip>
         ) : (
           itemNameButton
-        )
+        );
       },
-    )
+    );
   }
 
   if (highlightBuildTokens) {
     const allBuildTags = ALL_BUILD_TAGS.map((tag) => tag.label).sort(
       (a, b) => b.length - a.length,
-    ) // Sort in descending order of length
+    ); // Sort in descending order of length
     const allBuildTagsRegex = new RegExp(
       `(${allBuildTags.map((token) => escapeRegExp(token)).join('|')})`,
       'gi',
-    )
+    );
 
     replacedText = reactStringReplace(
       replacedText,
       allBuildTagsRegex,
       (match, _i) => {
-        const tag = ALL_BUILD_TAGS.find((tag) => tag.label === match)
-        if (!tag) return match
+        const tag = ALL_BUILD_TAGS.find((tag) => tag.label === match);
+        if (!tag) return match;
         return (
           <span key={uuidv4()} className={cn('font-semibold', tag.colors.text)}>
             {match}
           </span>
-        )
+        );
       },
-    )
+    );
   }
 
-  return replacedText
+  return replacedText;
 }
 
 interface Props {
-  description: string
-  highlightItems: boolean
-  highlightBuildTokens: boolean
-  highlightExternalTokens: boolean
+  description: string;
+  highlightItems: boolean;
+  highlightBuildTokens: boolean;
+  highlightExternalTokens: boolean;
 }
 
 export function DescriptionWithTokens({
@@ -180,14 +180,14 @@ export function DescriptionWithTokens({
   highlightBuildTokens,
   highlightExternalTokens,
 }: Props) {
-  const [item, setItem] = useState<Item | null>(null)
-  const isItemInfoOpen = Boolean(item)
+  const [item, setItem] = useState<Item | null>(null);
+  const isItemInfoOpen = Boolean(item);
 
   function handleShowItemInfo(itemName: string | undefined) {
-    if (!itemName) return
-    const item = allItems.find((item) => item.name === itemName)
-    if (!item) return
-    setItem(item)
+    if (!itemName) return;
+    const item = allItems.find((item) => item.name === itemName);
+    if (!item) return;
+    setItem(item);
   }
 
   return (
@@ -208,5 +208,5 @@ export function DescriptionWithTokens({
         })}
       </div>
     </>
-  )
+  );
 }

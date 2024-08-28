@@ -1,5 +1,5 @@
-import { BaseDialogBody, BaseDialogTitle } from '@repo/ui/base/dialog'
-import { BaseCode, BaseText, BaseTextLink } from '@repo/ui/base/text'
+import { BaseDialogBody, BaseDialogTitle } from '@repo/ui';
+import { BaseCode, BaseText, BaseTextLink } from '@repo/ui';
 
 export default function LocatingProfileSav() {
   return (
@@ -50,5 +50,5 @@ export default function LocatingProfileSav() {
         </BaseText>
       </BaseDialogBody>
     </div>
-  )
+  );
 }

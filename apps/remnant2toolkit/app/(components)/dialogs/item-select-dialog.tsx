@@ -1,11 +1,7 @@
-import { BaseButton } from '@repo/ui/base/button';
-import {
-  BaseDialog,
-  BaseDialogBody,
-  BaseDialogTitle,
-} from '@repo/ui/base/dialog';
-import { cn } from '@repo/ui/classnames';
-import { SortIcon } from '@repo/ui/icons/sort';
+import { BaseButton } from '@repo/ui';
+import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@repo/ui';
+import { cn } from '@repo/ui';
+import { SortIcon } from '@repo/ui';
 import { capitalize } from '@repo/utils/capitalize';
 import { useCallback, useEffect, useState } from 'react';
 import { useDebounceValue, useLocalStorage } from 'usehooks-ts';

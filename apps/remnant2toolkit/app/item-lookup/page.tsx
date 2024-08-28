@@ -1,6 +1,6 @@
 'use client';
 
-import { Skeleton } from '@repo/ui/skeleton';
+import { Skeleton } from '@repo/ui';
 import { Suspense } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
 

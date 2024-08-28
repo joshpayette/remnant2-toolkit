@@ -48,3 +48,5 @@ export function AlertBanner({
     </div>
   );
 }
+
+export default AlertBanner;

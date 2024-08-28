@@ -1,34 +1,34 @@
-'use client'
+'use client';
 
-import { Disclosure } from '@headlessui/react'
-import { cn } from '@repo/ui/classnames'
-import { ChevronDownIcon } from '@repo/ui/icons/chevron-down'
-import { useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
-import { useIsClient, useLocalStorage } from 'usehooks-ts'
+import { Disclosure } from '@headlessui/react';
+import { cn } from '@repo/ui';
+import { ChevronDownIcon } from '@repo/ui';
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useIsClient, useLocalStorage } from 'usehooks-ts';
 
-import { BossTrackerCard } from '@/app/(components)/cards/boss-tracker-card'
-import { BossTrackerFilters } from '@/app/(components)/filters/boss-tracker/types'
-import { parseUrlFilters } from '@/app/(components)/filters/boss-tracker/utils'
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
+import { BossTrackerCard } from '@/app/(components)/cards/boss-tracker-card';
+import { BossTrackerFilters } from '@/app/(components)/filters/boss-tracker/types';
+import { parseUrlFilters } from '@/app/(components)/filters/boss-tracker/utils';
+import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
 import {
   aberrationEnemies,
   bossEnemies,
   worldBossEnemies,
-} from '@/app/(data)/enemies/remnant-enemies'
-import { BossCategory, Enemy } from '@/app/(data)/enemies/types'
+} from '@/app/(data)/enemies/remnant-enemies';
+import { BossCategory, Enemy } from '@/app/(data)/enemies/types';
 import {
   BossTrackerLocalStorage,
   LOCALSTORAGE_KEY,
-} from '@/app/(types)/localstorage'
-import { BossTrackerCategory } from '@/app/boss-tracker/types'
-import { getTrackerProgress } from '@/app/boss-tracker/utils'
+} from '@/app/(types)/localstorage';
+import { BossTrackerCategory } from '@/app/boss-tracker/types';
+import { getTrackerProgress } from '@/app/boss-tracker/utils';
 
 const TRACKABLE_BOSSES = [
   ...bossEnemies,
   ...worldBossEnemies,
   ...aberrationEnemies,
-]
+];
 
 function getFilteredBossList(
   filters: BossTrackerFilters,
@@ -38,8 +38,8 @@ function getFilteredBossList(
     return {
       ...b,
       discovered: discoveredBossIds.includes(b.id),
-    }
-  })
+    };
+  });
 
   // If category is not default, filter by category
   if (
@@ -51,26 +51,26 @@ function getFilteredBossList(
         .map((c) => c.toLowerCase())
         .filter((i) => i !== DEFAULT_FILTER)
         .includes(b.category.toLowerCase()),
-    )
+    );
   }
 
   // If search text is not empty, filter by search text
   if (filters.searchText.length > 0) {
     filteredBosses = filteredBosses.filter((b) =>
       b.name.toLowerCase().includes(filters.searchText.toLowerCase()),
-    )
+    );
   }
 
-  return filteredBosses
+  return filteredBosses;
 }
 
 export function BossList() {
-  const searchParams = useSearchParams()
-  const [filters, setFilters] = useState(parseUrlFilters(searchParams))
+  const searchParams = useSearchParams();
+  const [filters, setFilters] = useState(parseUrlFilters(searchParams));
 
   useEffect(() => {
-    setFilters(parseUrlFilters(searchParams))
-  }, [searchParams])
+    setFilters(parseUrlFilters(searchParams));
+  }, [searchParams]);
 
   const [tracker, setTracker] = useLocalStorage<BossTrackerLocalStorage>(
     LOCALSTORAGE_KEY.BOSS_TRACKER,
@@ -79,10 +79,10 @@ export function BossList() {
       collapsedBossCategories: [],
     },
     { initializeWithValue: false },
-  )
-  const { discoveredBossIds, collapsedBossCategories } = tracker
+  );
+  const { discoveredBossIds, collapsedBossCategories } = tracker;
 
-  const filteredBosses = getFilteredBossList(filters, discoveredBossIds)
+  const filteredBosses = getFilteredBossList(filters, discoveredBossIds);
 
   const bossCategories: BossTrackerCategory[] = [
     { category: 'world boss' as BossCategory, label: 'World Boss' },
@@ -96,22 +96,22 @@ export function BossList() {
         filters.categories
           .map((category) => category.toLowerCase())
           .includes(category) || filters.categories.includes(DEFAULT_FILTER),
-    )
+    );
 
-    return visibleBossCategories.includes(bossCategory.category)
-  })
+    return visibleBossCategories.includes(bossCategory.category);
+  });
 
   function handleCategoryToggle(bossCategory: BossCategory) {
     const newCollapsedBossCategories = collapsedBossCategories.includes(
       bossCategory,
     )
       ? collapsedBossCategories.filter((type) => type !== bossCategory)
-      : [...collapsedBossCategories, bossCategory]
+      : [...collapsedBossCategories, bossCategory];
 
     setTracker({
       ...tracker,
       collapsedBossCategories: newCollapsedBossCategories,
-    })
+    });
   }
 
   function handleListItemClicked(bossId: string) {
@@ -119,20 +119,20 @@ export function BossList() {
     if (discoveredBossIds.includes(bossId)) {
       const newDiscoveredBossIds = discoveredBossIds.filter(
         (id) => id !== bossId,
-      )
-      setTracker({ ...tracker, discoveredBossIds: newDiscoveredBossIds })
+      );
+      setTracker({ ...tracker, discoveredBossIds: newDiscoveredBossIds });
       // We need to set the user item insert needed flag
       // so that the next time they filter builds by collection,
       // their items will be updated
-      return
+      return;
     }
 
-    const newDiscoveredBossIds = [...discoveredBossIds, bossId]
-    setTracker({ ...tracker, discoveredBossIds: newDiscoveredBossIds })
+    const newDiscoveredBossIds = [...discoveredBossIds, bossId];
+    setTracker({ ...tracker, discoveredBossIds: newDiscoveredBossIds });
   }
 
-  const isClient = useIsClient()
-  if (!isClient) return null
+  const isClient = useIsClient();
+  if (!isClient) return null;
 
   // #region Render
   return (
@@ -156,7 +156,7 @@ export function BossList() {
                     {isClient
                       ? getTrackerProgress(
                           filteredBosses.filter((boss) => {
-                            return boss.category === bossCategory.category
+                            return boss.category === bossCategory.category;
                           }),
                           bossCategory,
                         )
@@ -173,7 +173,7 @@ export function BossList() {
               <Disclosure.Panel className="grid w-full grid-cols-1 gap-4 py-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
                 {filteredBosses
                   .filter((boss) => {
-                    return boss.category === bossCategory.category
+                    return boss.category === bossCategory.category;
                   }) // Filter by category
                   .map((boss) => (
                     <BossTrackerCard
@@ -188,5 +188,5 @@ export function BossList() {
         </Disclosure>
       ))}
     </div>
-  )
+  );
 }

@@ -1,9 +1,9 @@
-import { cn } from '@repo/ui/classnames'
+import { cn } from '@repo/ui';
 
 interface Props {
-  stat: { name: string; value: number; unit?: string }
-  index: number
-  footer?: React.ReactNode
+  stat: { name: string; value: number; unit?: string };
+  index: number;
+  footer?: React.ReactNode;
 }
 
 export function StatBox({ stat, index, footer }: Props) {
@@ -32,5 +32,5 @@ export function StatBox({ stat, index, footer }: Props) {
       </p>
       {footer ?? null}
     </div>
-  )
+  );
 }

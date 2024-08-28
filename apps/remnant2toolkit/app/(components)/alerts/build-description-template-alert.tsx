@@ -3,13 +3,13 @@ import {
   BaseAlertActions,
   BaseAlertDescription,
   BaseAlertTitle,
-} from '@repo/ui/base/alert'
-import { BaseButton } from '@repo/ui/base/button'
+  BaseButton,
+} from '@repo/ui';
 
 interface Props {
-  open: boolean
-  onClose: () => void
-  onConfirm: () => void
+  open: boolean;
+  onClose: () => void;
+  onConfirm: () => void;
 }
 
 export function BuildDescriptionTemplateAlert({
@@ -31,5 +31,5 @@ export function BuildDescriptionTemplateAlert({
         <BaseButton onClick={onConfirm}>Continue</BaseButton>
       </BaseAlertActions>
     </BaseAlert>
-  )
+  );
 }

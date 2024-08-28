@@ -1,3 +1,5 @@
+'use client';
+
 import * as Headless from '@headlessui/react';
 import { forwardRef } from 'react';
 import { cn } from '../../utils/classnames';

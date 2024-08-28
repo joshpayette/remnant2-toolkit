@@ -1,6 +1,6 @@
 'use client';
 
-import { BaseButton } from '@repo/ui/base/button';
+import { BaseButton } from '@repo/ui';
 import { useEffect, useRef, useState } from 'react';
 import { useFormState } from 'react-dom';
 import { toast } from 'react-toastify';

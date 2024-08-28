@@ -1,17 +1,19 @@
 import { CHANGELOG_URL, DISCORD_INVITE_URL } from '@repo/constants';
-import { ChangeLogIcon } from '@repo/ui/icons/changelog';
-import { CommunityBuildsIcon } from '@repo/ui/icons/community-builds';
-import { CreateBuildIcon } from '@repo/ui/icons/create-build';
-import { DiscordIcon } from '@repo/ui/icons/discord';
-import { FavoriteIcon } from '@repo/ui/icons/favorite';
-import { ItemLookupIcon } from '@repo/ui/icons/item-lookup';
-import { ItemTrackerIcon } from '@repo/ui/icons/item-tracker';
-import { MyBuildsIcon } from '@repo/ui/icons/my-builds';
-import { ProfileIcon } from '@repo/ui/icons/profile';
-import { ResourcesIcon } from '@repo/ui/icons/resources';
-import { SignInIcon } from '@repo/ui/icons/signin';
-import { SignOutIcon } from '@repo/ui/icons/signout';
-import { SupportIcon } from '@repo/ui/icons/support';
+import {
+  ChangeLogIcon,
+  CommunityBuildsIcon,
+  CreateBuildIcon,
+  DiscordIcon,
+  FavoriteIcon,
+  ItemLookupIcon,
+  ItemTrackerIcon,
+  MyBuildsIcon,
+  ProfileIcon,
+  ResourcesIcon,
+  SignInIcon,
+  SignOutIcon,
+  SupportIcon,
+} from '@repo/ui';
 import { BiSolidPyramid as BaseGameBuildsIcon } from 'react-icons/bi';
 import { FaStaylinked as LinkedBuildsIcon } from 'react-icons/fa';
 import { GiChestArmor as ArmorGeneratorIcon } from 'react-icons/gi';

@@ -1,27 +1,23 @@
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
-import {
-  BaseListbox,
-  BaseListboxLabel,
-  BaseListboxOption,
-} from '@repo/ui/base/listbox'
+import { BaseField, BaseLabel } from '@repo/ui';
+import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@repo/ui';
 
-import { weaponItems } from '@/app/(data)/items/weapon-items'
+import { weaponItems } from '@/app/(data)/items/weapon-items';
 
 interface Props {
-  value: string
-  onChange: (value: string) => void
+  value: string;
+  onChange: (value: string) => void;
 }
 
 export function LongGunFilter({ value, onChange }: Props) {
   const allLongGuns: string[] = weaponItems
     .filter((item) => item.type === 'long gun')
-    .map((item) => item.name)
-  allLongGuns.unshift('All')
+    .map((item) => item.name);
+  allLongGuns.unshift('All');
 
   const options = allLongGuns.map((weapon) => ({
     label: weapon,
     value: weapon,
-  }))
+  }));
 
   return (
     <BaseField>
@@ -39,5 +35,5 @@ export function LongGunFilter({ value, onChange }: Props) {
         ))}
       </BaseListbox>
     </BaseField>
-  )
+  );
 }

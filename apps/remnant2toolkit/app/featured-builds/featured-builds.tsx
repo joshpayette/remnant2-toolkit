@@ -1,8 +1,8 @@
 'use client';
 
-import { BaseLink } from '@repo/ui/base/link';
-import { EyeIcon } from '@repo/ui/icons/eye';
-import { Skeleton } from '@repo/ui/skeleton';
+import { BaseLink } from '@repo/ui';
+import { EyeIcon } from '@repo/ui';
+import { Skeleton } from '@repo/ui';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 

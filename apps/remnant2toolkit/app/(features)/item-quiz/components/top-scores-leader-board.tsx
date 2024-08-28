@@ -1,6 +1,6 @@
-import { LeaderBoard } from '@repo/ui/leader-board/components'
+import { LeaderBoard } from '@repo/ui';
 
-import { getLeaderBoard } from '@/app/(features)/item-quiz/actions/get-leader-board'
+import { getLeaderBoard } from '@/app/(features)/item-quiz/actions/get-leader-board';
 
 export function TopScoresLeaderBoard() {
   return (
@@ -10,5 +10,5 @@ export function TopScoresLeaderBoard() {
       itemCount={20}
       title="Leaderboard"
     />
-  )
+  );
 }

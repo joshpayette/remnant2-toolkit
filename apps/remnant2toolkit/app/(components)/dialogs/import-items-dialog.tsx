@@ -1,24 +1,24 @@
-import { BaseButton } from '@repo/ui/base/button'
+import { BaseButton } from '@repo/ui';
 import {
   BaseDialog,
   BaseDialogActions,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@repo/ui/base/dialog'
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
-import { BaseInput } from '@repo/ui/base/input'
-import { BaseCode } from '@repo/ui/base/text'
-import type React from 'react'
+} from '@repo/ui';
+import { BaseField, BaseLabel } from '@repo/ui';
+import { BaseInput } from '@repo/ui';
+import { BaseCode } from '@repo/ui';
+import type React from 'react';
 
-import LocatingProfileSav from '@/app/(components)/dialogs/partial/locating-profile-sav'
-import { ImportSaveSubmitButton } from '@/app/tracker/import-save-submit-button'
+import LocatingProfileSav from '@/app/(components)/dialogs/partial/locating-profile-sav';
+import { ImportSaveSubmitButton } from '@/app/tracker/import-save-submit-button';
 
 interface Props {
-  open: boolean
-  fileInputRef: React.RefObject<HTMLInputElement>
-  onClose: () => void
-  onSubmit: (payload: FormData) => void
+  open: boolean;
+  fileInputRef: React.RefObject<HTMLInputElement>;
+  onClose: () => void;
+  onSubmit: (payload: FormData) => void;
 }
 
 export function ImportItemsDialog({
@@ -59,5 +59,5 @@ export function ImportItemsDialog({
       </form>
       <LocatingProfileSav />
     </BaseDialog>
-  )
+  );
 }

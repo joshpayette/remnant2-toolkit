@@ -1,12 +1,12 @@
-import { BaseLink } from '@repo/ui/base/link'
-import { ArrowRightIcon } from '@repo/ui/icons/arrow-right'
+import { BaseLink } from '@repo/ui';
+import { ArrowRightIcon } from '@repo/ui';
 
 interface Props {
-  href: string
-  target?: '_blank'
-  label: string
-  description: string
-  icon: React.ReactNode
+  href: string;
+  target?: '_blank';
+  label: string;
+  description: string;
+  icon: React.ReactNode;
 }
 
 export function LandingPageCard({
@@ -35,5 +35,5 @@ export function LandingPageCard({
         </div>
       </div>
     </BaseLink>
-  )
+  );
 }

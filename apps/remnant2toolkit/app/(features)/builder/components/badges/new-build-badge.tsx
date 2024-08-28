@@ -1,13 +1,13 @@
-import { BaseButton } from '@repo/ui/base/button'
-import { getImageUrl } from '@repo/ui/utils/get-image-url'
-import Image from 'next/image'
+import { BaseButton } from '@repo/ui';
+import { getImageUrl } from '@repo/ui';
+import Image from 'next/image';
 
-import { Tooltip } from '@/app/(components)/tooltip'
+import { Tooltip } from '@/app/(components)/tooltip';
 
 export function NewBuildBadge({
   unoptimized = false,
 }: {
-  unoptimized?: boolean
+  unoptimized?: boolean;
 }) {
   return (
     <Tooltip content={`Denotes a build created in the past 24 hours.`}>
@@ -25,5 +25,5 @@ export function NewBuildBadge({
         />
       </BaseButton>
     </Tooltip>
-  )
+  );
 }

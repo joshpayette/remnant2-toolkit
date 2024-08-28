@@ -1,37 +1,36 @@
-'use client'
+'use client';
 
-import { Disclosure } from '@headlessui/react'
-import { BaseButton } from '@repo/ui/base/button'
-import { BaseFieldGroup, BaseFieldset } from '@repo/ui/base/fieldset'
-import { cn } from '@repo/ui/classnames'
-import { FilterIcon } from '@repo/ui/icons/filter'
-import { TrashIcon } from '@repo/ui/icons/trash'
-import isEqual from 'lodash.isequal'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { useMemo, useRef, useState } from 'react'
+import { Disclosure } from '@headlessui/react';
+import { BaseButton } from '@repo/ui';
+import { BaseFieldGroup, BaseFieldset } from '@repo/ui';
+import { cn } from '@repo/ui';
+import { FilterIcon, TrashIcon } from '@repo/ui';
+import isEqual from 'lodash.isequal';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useMemo, useRef, useState } from 'react';
 
 import {
   DiscoveredFilter,
   VALID_DISCOVERED_FILTERS,
-} from '@/app/(components)/filters/discovered-filter'
+} from '@/app/(components)/filters/discovered-filter';
 import {
   CategoriesFilter,
   VALID_ITEM_CATEGORIES,
-} from '@/app/(components)/filters/item-lookup/categories-filter'
-import { ItemSearchText } from '@/app/(components)/filters/item-lookup/item-search-text'
+} from '@/app/(components)/filters/item-lookup/categories-filter';
+import { ItemSearchText } from '@/app/(components)/filters/item-lookup/item-search-text';
 import {
   ITEM_FILTER_KEYS,
   ItemLookupFilters as Filters,
-} from '@/app/(components)/filters/item-lookup/types'
-import { parseUrlFilters } from '@/app/(components)/filters/item-lookup/utils'
+} from '@/app/(components)/filters/item-lookup/types';
+import { parseUrlFilters } from '@/app/(components)/filters/item-lookup/utils';
 import {
   ReleasesFilter,
   VALID_RELEASE_KEYS,
-} from '@/app/(components)/filters/releases-filter'
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
-import { WorldFilter } from '@/app/(components)/filters/world-filter'
-import { allItems } from '@/app/(data)/items/all-items'
-import { ITEM_TOKENS } from '@/app/(types)/tokens'
+} from '@/app/(components)/filters/releases-filter';
+import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
+import { WorldFilter } from '@/app/(components)/filters/world-filter';
+import { allItems } from '@/app/(data)/items/all-items';
+import { ITEM_TOKENS } from '@/app/(types)/tokens';
 
 function buildItemSearchTextItems() {
   {
@@ -40,22 +39,22 @@ function buildItemSearchTextItems() {
       .map((item) => ({
         id: item.id,
         name: item.name,
-      }))
+      }));
 
     items = ITEM_TOKENS.map((tag) => ({
       id: tag as string,
       name: tag as string,
-    })).concat(items)
+    })).concat(items);
 
-    items = items.sort((a, b) => a.name.localeCompare(b.name))
+    items = items.sort((a, b) => a.name.localeCompare(b.name));
 
     // remove duplicates
     items = items.filter(
       (item, index, self) =>
         index === self.findIndex((i) => i.name === item.name),
-    )
+    );
 
-    return items
+    return items;
   }
 }
 
@@ -66,34 +65,34 @@ export const DEFAULT_ITEM_LOOKUP_FILTERS = {
   searchText: '',
   world: DEFAULT_FILTER,
   dungeon: DEFAULT_FILTER,
-} as const satisfies Filters
+} as const satisfies Filters;
 
 // #region Component
 export function ItemLookupFilters() {
-  const searchParams = useSearchParams()
-  const filters = parseUrlFilters(searchParams)
+  const searchParams = useSearchParams();
+  const filters = parseUrlFilters(searchParams);
 
   /** Used to clear the SearchTextAutocomplete field when clear filters is pressed */
-  const searchTextFieldKey = useRef(new Date().getTime())
+  const searchTextFieldKey = useRef(new Date().getTime());
 
-  const [unappliedFilters, setUnappliedFilters] = useState(filters)
+  const [unappliedFilters, setUnappliedFilters] = useState(filters);
 
   function clearFilters() {
-    setUnappliedFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
-    applyUrlFilters(DEFAULT_ITEM_LOOKUP_FILTERS)
-    searchTextFieldKey.current = new Date().getTime()
+    setUnappliedFilters(DEFAULT_ITEM_LOOKUP_FILTERS);
+    applyUrlFilters(DEFAULT_ITEM_LOOKUP_FILTERS);
+    searchTextFieldKey.current = new Date().getTime();
   }
 
   const areAnyFiltersActive = useMemo(() => {
-    if (isEqual(filters, DEFAULT_ITEM_LOOKUP_FILTERS)) return false
-    return true
-  }, [filters])
+    if (isEqual(filters, DEFAULT_ITEM_LOOKUP_FILTERS)) return false;
+    return true;
+  }, [filters]);
 
   // #region Apply Filters Handler
-  const pathname = usePathname()
-  const router = useRouter()
+  const pathname = usePathname();
+  const router = useRouter();
   function applyUrlFilters(filtersToApply: Filters) {
-    let url = `${pathname}?`
+    let url = `${pathname}?`;
 
     // Add the categories filter
     if (
@@ -102,50 +101,50 @@ export function ItemLookupFilters() {
     ) {
       url += `${ITEM_FILTER_KEYS.CATEGORIES}=${filtersToApply.categories.join(
         ',',
-      )}&`
+      )}&`;
     }
 
     // Add the collections filter
     if (filtersToApply.collections.length !== VALID_DISCOVERED_FILTERS.length) {
       url += `${ITEM_FILTER_KEYS.COLLECTIONS}=${filtersToApply.collections.join(
         ',',
-      )}&`
+      )}&`;
     }
 
     // Add the releases filter
     if (filtersToApply.releases.length !== VALID_RELEASE_KEYS.length) {
       url += `${ITEM_FILTER_KEYS.RELEASES}=${filtersToApply.releases.join(
         ',',
-      )}&`
+      )}&`;
     }
 
     // Add the search text filter
     if (filtersToApply.searchText.length > 0) {
-      url += `${ITEM_FILTER_KEYS.SEARCHTEXT}=${filtersToApply.searchText}&`
+      url += `${ITEM_FILTER_KEYS.SEARCHTEXT}=${filtersToApply.searchText}&`;
     }
 
     // Add the world filter
     if (filtersToApply.world !== DEFAULT_FILTER) {
-      url += `${ITEM_FILTER_KEYS.WORLD}=${filtersToApply.world}&`
+      url += `${ITEM_FILTER_KEYS.WORLD}=${filtersToApply.world}&`;
     }
 
     // Add the dungeon filter
     if (filtersToApply.dungeon !== DEFAULT_FILTER) {
-      url += `${ITEM_FILTER_KEYS.DUNGEON}=${filtersToApply.dungeon}&`
+      url += `${ITEM_FILTER_KEYS.DUNGEON}=${filtersToApply.dungeon}&`;
     }
 
     // trim the final &
     if (url.endsWith('&')) {
-      url = url.slice(0, -1)
+      url = url.slice(0, -1);
     }
 
-    router.push(url, { scroll: false })
+    router.push(url, { scroll: false });
   }
 
   // #region Filter Change Handlers
 
   function handleSearchTextChange(newSearchText: string) {
-    setUnappliedFilters((prev) => ({ ...prev, searchText: newSearchText }))
+    setUnappliedFilters((prev) => ({ ...prev, searchText: newSearchText }));
   }
 
   function handleCategoriesChange(category: string, checked: boolean) {
@@ -154,19 +153,19 @@ export function ItemLookupFilters() {
       const newFilters = {
         ...unappliedFilters,
         categories: unappliedFilters.categories.filter((i) => i !== category),
-      }
-      setUnappliedFilters(newFilters)
-      applyUrlFilters(newFilters)
-      return
+      };
+      setUnappliedFilters(newFilters);
+      applyUrlFilters(newFilters);
+      return;
     }
 
     // if the category is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
       categories: [...unappliedFilters.categories, category],
-    }
-    setUnappliedFilters(newFilters)
-    applyUrlFilters(newFilters)
+    };
+    setUnappliedFilters(newFilters);
+    applyUrlFilters(newFilters);
   }
 
   function handleCollectionsChange(value: string, checked: boolean) {
@@ -175,19 +174,19 @@ export function ItemLookupFilters() {
       const newFilters = {
         ...unappliedFilters,
         collections: unappliedFilters.collections.filter((i) => i !== value),
-      }
-      setUnappliedFilters(newFilters)
-      applyUrlFilters(newFilters)
-      return
+      };
+      setUnappliedFilters(newFilters);
+      applyUrlFilters(newFilters);
+      return;
     }
 
     // if the collection is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
       collections: [...unappliedFilters.collections, value],
-    }
-    setUnappliedFilters(newFilters)
-    applyUrlFilters(newFilters)
+    };
+    setUnappliedFilters(newFilters);
+    applyUrlFilters(newFilters);
   }
 
   function handleReleasesChange(newReleases: string, checked: boolean) {
@@ -196,19 +195,19 @@ export function ItemLookupFilters() {
       const newFilters = {
         ...unappliedFilters,
         releases: unappliedFilters.releases.filter((i) => i !== newReleases),
-      }
-      setUnappliedFilters(newFilters)
-      applyUrlFilters(newFilters)
-      return
+      };
+      setUnappliedFilters(newFilters);
+      applyUrlFilters(newFilters);
+      return;
     }
 
     // if the release is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
       releases: [...unappliedFilters.releases, newReleases],
-    }
-    setUnappliedFilters(newFilters)
-    applyUrlFilters(newFilters)
+    };
+    setUnappliedFilters(newFilters);
+    applyUrlFilters(newFilters);
   }
 
   function handleWorldChange(newWorld: string) {
@@ -217,10 +216,10 @@ export function ItemLookupFilters() {
         ...unappliedFilters,
         world: DEFAULT_FILTER,
         dungeon: DEFAULT_FILTER,
-      }
-      setUnappliedFilters(newFilters)
-      applyUrlFilters(newFilters)
-      return
+      };
+      setUnappliedFilters(newFilters);
+      applyUrlFilters(newFilters);
+      return;
     }
 
     // if the world is not in the list, add it
@@ -228,9 +227,9 @@ export function ItemLookupFilters() {
       ...unappliedFilters,
       world: newWorld,
       dungeon: DEFAULT_FILTER,
-    }
-    setUnappliedFilters(newFilters)
-    applyUrlFilters(newFilters)
+    };
+    setUnappliedFilters(newFilters);
+    applyUrlFilters(newFilters);
   }
 
   function handleDungeonChange(newDungeon: string) {
@@ -238,19 +237,19 @@ export function ItemLookupFilters() {
       const newFilters = {
         ...unappliedFilters,
         dungeon: DEFAULT_FILTER,
-      }
-      setUnappliedFilters(newFilters)
-      applyUrlFilters(newFilters)
-      return
+      };
+      setUnappliedFilters(newFilters);
+      applyUrlFilters(newFilters);
+      return;
     }
 
     // if the dungeon is not in the list, add it
     const newFilters = {
       ...unappliedFilters,
       dungeon: newDungeon,
-    }
-    setUnappliedFilters(newFilters)
-    applyUrlFilters(newFilters)
+    };
+    setUnappliedFilters(newFilters);
+    applyUrlFilters(newFilters);
   }
 
   // #region Render
@@ -277,12 +276,12 @@ export function ItemLookupFilters() {
                 <BaseButton
                   color="red"
                   onClick={() => {
-                    handleSearchTextChange('')
+                    handleSearchTextChange('');
                     applyUrlFilters({
                       ...unappliedFilters,
                       searchText: '',
-                    })
-                    searchTextFieldKey.current = new Date().getTime()
+                    });
+                    searchTextFieldKey.current = new Date().getTime();
                   }}
                   className="mt-2"
                 >
@@ -315,17 +314,17 @@ export function ItemLookupFilters() {
                         const newFilters = {
                           ...unappliedFilters,
                           releases: VALID_RELEASE_KEYS,
-                        }
-                        setUnappliedFilters(newFilters)
-                        applyUrlFilters(newFilters)
+                        };
+                        setUnappliedFilters(newFilters);
+                        applyUrlFilters(newFilters);
                       }}
                       onUncheckAll={() => {
                         const newFilters = {
                           ...unappliedFilters,
                           releases: [DEFAULT_FILTER],
-                        }
-                        setUnappliedFilters(newFilters)
-                        applyUrlFilters(newFilters)
+                        };
+                        setUnappliedFilters(newFilters);
+                        applyUrlFilters(newFilters);
                       }}
                     />
                   </div>
@@ -337,17 +336,17 @@ export function ItemLookupFilters() {
                         const newFilters = {
                           ...unappliedFilters,
                           collections: VALID_ITEM_CATEGORIES,
-                        }
-                        setUnappliedFilters(newFilters)
-                        applyUrlFilters(newFilters)
+                        };
+                        setUnappliedFilters(newFilters);
+                        applyUrlFilters(newFilters);
                       }}
                       onUncheckAll={() => {
                         const newFilters = {
                           ...unappliedFilters,
                           collections: [DEFAULT_FILTER],
-                        }
-                        setUnappliedFilters(newFilters)
-                        applyUrlFilters(newFilters)
+                        };
+                        setUnappliedFilters(newFilters);
+                        applyUrlFilters(newFilters);
                       }}
                     />
                   </div>
@@ -359,17 +358,17 @@ export function ItemLookupFilters() {
                         const newFilters = {
                           ...unappliedFilters,
                           categories: VALID_ITEM_CATEGORIES,
-                        }
-                        setUnappliedFilters(newFilters)
-                        applyUrlFilters(newFilters)
+                        };
+                        setUnappliedFilters(newFilters);
+                        applyUrlFilters(newFilters);
                       }}
                       onUncheckAll={() => {
                         const newFilters = {
                           ...unappliedFilters,
                           categories: [],
-                        }
-                        setUnappliedFilters(newFilters)
-                        applyUrlFilters(newFilters)
+                        };
+                        setUnappliedFilters(newFilters);
+                        applyUrlFilters(newFilters);
                       }}
                     />
                   </div>
@@ -393,5 +392,5 @@ export function ItemLookupFilters() {
         </div>
       )}
     </Disclosure>
-  )
+  );
 }

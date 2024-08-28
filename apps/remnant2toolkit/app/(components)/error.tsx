@@ -1,23 +1,23 @@
-'use client'
+'use client';
 
-import { BaseButton } from '@repo/ui/base/button'
-import { useEffect } from 'react'
+import { BaseButton } from '@repo/ui';
+import { useEffect } from 'react';
 
-import { PageHeader } from '@/app/(components)/page-header'
+import { PageHeader } from '@/app/(components)/page-header';
 
 export function Error({
   error,
   reset,
 }: {
-  error: Error & { digest?: string }
-  reset?: () => void
+  error: Error & { digest?: string };
+  reset?: () => void;
 }) {
   // * useEffect necessary here to update the document title
   useEffect(() => {
     // Log the error to an error reporting service
-    console.error(error)
-    document.title = 'Oops! | Remnant 2 Toolkit'
-  }, [error])
+    console.error(error);
+    document.title = 'Oops! | Remnant 2 Toolkit';
+  }, [error]);
 
   return (
     <div className="flex max-w-lg flex-col">
@@ -28,5 +28,5 @@ export function Error({
         </BaseButton>
       ) : null}
     </div>
-  )
+  );
 }

@@ -3,19 +3,19 @@ import {
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@repo/ui/base/dialog'
+} from '@repo/ui';
 
-import { Item } from '@/app/(data)/items/types'
-import { TraitItem } from '@/app/(data)/items/types/TraitItem'
-import { ListItem } from '@/app/(features)/builder/components/stats/list-item'
-import { Section } from '@/app/(features)/builder/components/stats/section'
+import { Item } from '@/app/(data)/items/types';
+import { TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { ListItem } from '@/app/(features)/builder/components/stats/list-item';
+import { Section } from '@/app/(features)/builder/components/stats/section';
 
 function getArmorStepLabel(
   item: TraitItem,
   equippedArmorStepItems: TraitItem[],
 ) {
   const traitAmount =
-    equippedArmorStepItems.find((t) => t.name === item.name)?.amount ?? 0
+    equippedArmorStepItems.find((t) => t.name === item.name)?.amount ?? 0;
 
   return (
     <>
@@ -24,7 +24,7 @@ function getArmorStepLabel(
         {`(${traitAmount * (item.armorStep ?? 0)})`}
       </span>
     </>
-  )
+  );
 }
 
 function getArmorIncreaseLabel(item: Item) {
@@ -33,7 +33,7 @@ function getArmorIncreaseLabel(item: Item) {
       <span className="text-surface-solid font-bold">{item.name}</span>{' '}
       <span className="text-gray-300">({item.armor})</span>
     </>
-  )
+  );
 }
 
 function getArmorPercentLabel(item: Item) {
@@ -47,7 +47,7 @@ function getArmorPercentLabel(item: Item) {
         ({((item.armorPercent ?? 0) * 100).toFixed(2)}%)
       </span>
     </>
-  )
+  );
 }
 
 function getArmorStepPercentLabel(
@@ -55,7 +55,8 @@ function getArmorStepPercentLabel(
   equippedArmorStepPercentItems: TraitItem[],
 ) {
   const traitAmount =
-    equippedArmorStepPercentItems.find((t) => t.name === item.name)?.amount ?? 0
+    equippedArmorStepPercentItems.find((t) => t.name === item.name)?.amount ??
+    0;
 
   return (
     <>
@@ -64,22 +65,22 @@ function getArmorStepPercentLabel(
         {`(${traitAmount * (item.armorStepPercent ?? 0) * 100}%)`}
       </span>
     </>
-  )
+  );
 }
 
 interface Props {
-  open: boolean
-  onClose: () => void
+  open: boolean;
+  onClose: () => void;
   breakdown: {
-    equippedArmorIncreaseItems: Item[]
-    equippedArmorPercentItems: Item[]
-    equippedArmorStepItems: TraitItem[]
-    equippedArmorStepPercentItems: TraitItem[]
-    totalArmorIncrease: number
-    totalArmorPercent: number
-    totalArmorStep: number
-    totalArmorStepPercent: number
-  }
+    equippedArmorIncreaseItems: Item[];
+    equippedArmorPercentItems: Item[];
+    equippedArmorStepItems: TraitItem[];
+    equippedArmorStepPercentItems: TraitItem[];
+    totalArmorIncrease: number;
+    totalArmorPercent: number;
+    totalArmorStep: number;
+    totalArmorStepPercent: number;
+  };
 }
 
 export function ArmorBreakdownDialog({ open, breakdown, onClose }: Props) {
@@ -147,5 +148,5 @@ export function ArmorBreakdownDialog({ open, breakdown, onClose }: Props) {
         </div>
       </BaseDialogBody>
     </BaseDialog>
-  )
+  );
 }

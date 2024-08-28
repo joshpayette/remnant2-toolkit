@@ -1,9 +1,9 @@
-import { cn } from '@repo/ui/classnames'
+import { cn } from '@repo/ui';
 
 interface Props {
-  children: React.ReactNode
-  title: string
-  description: React.ReactNode
+  children: React.ReactNode;
+  title: string;
+  description: React.ReactNode;
 }
 
 export function LandingPageContainer({ children, title, description }: Props) {
@@ -43,5 +43,5 @@ export function LandingPageContainer({ children, title, description }: Props) {
         {children}
       </div>
     </div>
-  )
+  );
 }

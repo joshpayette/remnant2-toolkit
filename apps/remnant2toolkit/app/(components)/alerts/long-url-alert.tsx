@@ -3,15 +3,15 @@ import {
   BaseAlertActions,
   BaseAlertDescription,
   BaseAlertTitle,
-} from '@repo/ui/base/alert'
-import { BaseButton } from '@repo/ui/base/button'
-import { urlNoCache } from '@repo/utils/url-no-cache'
-import copy from 'clipboard-copy'
-import { toast } from 'react-toastify'
+  BaseButton,
+} from '@repo/ui';
+import { urlNoCache } from '@repo/utils/url-no-cache';
+import copy from 'clipboard-copy';
+import { toast } from 'react-toastify';
 
 interface Props {
-  open: boolean
-  onClose: () => void
+  open: boolean;
+  onClose: () => void;
 }
 
 export function LongUrlAlert({ open, onClose }: Props) {
@@ -28,19 +28,19 @@ export function LongUrlAlert({ open, onClose }: Props) {
         </BaseButton>
         <BaseButton
           onClick={() => {
-            const url = urlNoCache(window.location.href)
+            const url = urlNoCache(window.location.href);
 
             const message =
-              'Build url copied to clipboard. Sign in next time for a shorter URL!'
+              'Build url copied to clipboard. Sign in next time for a shorter URL!';
             // need to add a query param to the current url
-            copy(url)
-            toast.success(message)
-            onClose()
+            copy(url);
+            toast.success(message);
+            onClose();
           }}
         >
           Copy Build URL
         </BaseButton>
       </BaseAlertActions>
     </BaseAlert>
-  )
+  );
 }

@@ -1,26 +1,22 @@
-import { BaseField, BaseLabel } from '@repo/ui/base/fieldset'
-import {
-  BaseListbox,
-  BaseListboxLabel,
-  BaseListboxOption,
-} from '@repo/ui/base/listbox'
+import { BaseField, BaseLabel } from '@repo/ui';
+import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@repo/ui';
 
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
-import { ringItems } from '@/app/(data)/items/ring-items'
+import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
+import { ringItems } from '@/app/(data)/items/ring-items';
 
 interface Props {
-  value: string[]
-  onChange: (value: string[]) => void
+  value: string[];
+  onChange: (value: string[]) => void;
 }
 
 export function RingFilter({ value, onChange }: Props) {
-  const allRings: string[] = ringItems.map((item) => item.name)
-  allRings.unshift(DEFAULT_FILTER)
+  const allRings: string[] = ringItems.map((item) => item.name);
+  allRings.unshift(DEFAULT_FILTER);
 
   const options = allRings.map((ring) => ({
     label: ring,
     value: ring,
-  }))
+  }));
 
   return (
     <BaseField>
@@ -33,5 +29,5 @@ export function RingFilter({ value, onChange }: Props) {
         ))}
       </BaseListbox>
     </BaseField>
-  )
+  );
 }

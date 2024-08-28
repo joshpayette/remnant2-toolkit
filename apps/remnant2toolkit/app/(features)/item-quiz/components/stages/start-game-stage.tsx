@@ -1,18 +1,18 @@
-import { BaseButton } from '@repo/ui/base/button'
-import React from 'react'
+import { BaseButton } from '@repo/ui';
+import React from 'react';
 
-import { Divider } from '@/app/(features)/item-quiz/components/divider'
-import { Heading } from '@/app/(features)/item-quiz/components/heading'
-import { MobileLayoutToggle } from '@/app/(features)/item-quiz/components/mobile-layout-toggle'
-import { TopScoresLeaderBoard } from '@/app/(features)/item-quiz/components/top-scores-leader-board'
-import type { LayoutPreference } from '@/app/(features)/item-quiz/types/layout-preference'
+import { Divider } from '@/app/(features)/item-quiz/components/divider';
+import { Heading } from '@/app/(features)/item-quiz/components/heading';
+import { MobileLayoutToggle } from '@/app/(features)/item-quiz/components/mobile-layout-toggle';
+import { TopScoresLeaderBoard } from '@/app/(features)/item-quiz/components/top-scores-leader-board';
+import type { LayoutPreference } from '@/app/(features)/item-quiz/types/layout-preference';
 
 interface Props {
-  topScore: number
-  showTopScore: boolean
-  layoutPreference: LayoutPreference
-  onToggleLayoutPreference: () => void
-  onStartGame: () => void
+  topScore: number;
+  showTopScore: boolean;
+  layoutPreference: LayoutPreference;
+  onToggleLayoutPreference: () => void;
+  onStartGame: () => void;
 }
 
 export const StartGameStage = React.memo(
@@ -59,6 +59,6 @@ export const StartGameStage = React.memo(
       </div>
     </div>
   ),
-)
+);
 
-StartGameStage.displayName = 'StartGameStage'
+StartGameStage.displayName = 'StartGameStage';

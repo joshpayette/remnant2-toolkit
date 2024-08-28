@@ -1,9 +1,9 @@
-import { BaseButton } from '@repo/ui/base/button'
-import React from 'react'
+import { BaseButton } from '@repo/ui';
+import React from 'react';
 
 interface Props {
-  countdownTimer: number
-  onSkipCountdown: () => void
+  countdownTimer: number;
+  onSkipCountdown: () => void;
 }
 
 export const CountdownStage = React.memo(
@@ -30,6 +30,6 @@ export const CountdownStage = React.memo(
       </p>
     </div>
   ),
-)
+);
 
-CountdownStage.displayName = 'CountdownStage'
+CountdownStage.displayName = 'CountdownStage';

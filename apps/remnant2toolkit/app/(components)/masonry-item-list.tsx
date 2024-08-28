@@ -1,19 +1,19 @@
-'use client'
+'use client';
 
-import { Skeleton } from '@repo/ui/skeleton'
-import { getArrayOfLength } from '@repo/utils/get-array-of-length'
-import { Masonry } from 'masonic'
-import { useState } from 'react'
-import { useIsClient } from 'usehooks-ts'
+import { Skeleton } from '@repo/ui';
+import { getArrayOfLength } from '@repo/utils/get-array-of-length';
+import { Masonry } from 'masonic';
+import { useState } from 'react';
+import { useIsClient } from 'usehooks-ts';
 
-import { ItemCard } from '@/app/(components)/cards/item-card'
-import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog'
-import { Item } from '@/app/(data)/items/types'
+import { ItemCard } from '@/app/(components)/cards/item-card';
+import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
+import { Item } from '@/app/(data)/items/types';
 
 interface Props {
-  allowItemCompare?: boolean
-  label?: string
-  items: Item[]
+  allowItemCompare?: boolean;
+  label?: string;
+  items: Item[];
 }
 
 export function MasonryItemList({
@@ -21,16 +21,16 @@ export function MasonryItemList({
   items,
   label,
 }: Props) {
-  const isClient = useIsClient()
-  const [selectedItem, setSelectedItem] = useState<Item | null>(null)
-  const infoOpen = selectedItem !== null
+  const isClient = useIsClient();
+  const [selectedItem, setSelectedItem] = useState<Item | null>(null);
+  const infoOpen = selectedItem !== null;
 
   function handleMoreInfoClick(item: Item) {
-    setSelectedItem(item)
+    setSelectedItem(item);
   }
 
-  if (!isClient) return <Loading />
-  if (items.length === 0) return null
+  if (!isClient) return <Loading />;
+  if (items.length === 0) return null;
 
   return (
     <>
@@ -60,7 +60,7 @@ export function MasonryItemList({
         />
       </div>
     </>
-  )
+  );
 }
 
 function Loading() {
@@ -70,5 +70,5 @@ function Loading() {
         <Skeleton key={i} className="h-[300px] w-[250px]" />
       ))}
     </div>
-  )
+  );
 }
