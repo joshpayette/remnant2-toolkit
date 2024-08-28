@@ -559,9 +559,6 @@ importers:
       '@repo/utils':
         specifier: workspace:*
         version: link:../utils
-      '@vercel/flags':
-        specifier: ^2.6.0
-        version: 2.6.0(next@14.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx:
         specifier: 2.1.1
         version: 2.1.1
