@@ -1,7 +1,6 @@
 'use client';
 
-import { cn } from '@repo/ui';
-import { getImageUrl, InfoCircleIcon, ZINDEXES } from '@repo/ui';
+import { cn, getImageUrl, InfoCircleIcon, ZINDEXES } from '@repo/ui';
 import Image from 'next/image';
 import { PiBagSimpleFill as OwnershipIcon } from 'react-icons/pi';
 import { TbHttpOptions } from 'react-icons/tb';

@@ -1,5 +1,4 @@
-import { BaseButton } from '@repo/ui';
-import { getImageUrl } from '@repo/ui';
+import { BaseButton, getImageUrl } from '@repo/ui';
 import Image from 'next/image';
 
 import { Tooltip } from '@/app/(components)/tooltip';

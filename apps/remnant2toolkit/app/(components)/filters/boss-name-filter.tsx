@@ -1,5 +1,9 @@
-import { BaseField } from '@repo/ui';
-import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@repo/ui';
+import {
+  BaseField,
+  BaseListbox,
+  BaseListboxLabel,
+  BaseListboxOption,
+} from '@repo/ui';
 
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
 import { ALL_BOSSES } from '@/app/(data)/world-saves/constants';

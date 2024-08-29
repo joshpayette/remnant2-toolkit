@@ -1,7 +1,6 @@
 'use client';
 
-import { BaseButton } from '@repo/ui';
-import { TrashIcon } from '@repo/ui';
+import { BaseButton, TrashIcon } from '@repo/ui';
 import { useState } from 'react';
 
 import { DeleteBuildAlert } from '@/app/(components)/alerts/delete-build-alert';

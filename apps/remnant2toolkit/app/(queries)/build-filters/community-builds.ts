@@ -1,5 +1,4 @@
-import { Prisma } from '@repo/db';
-import { prisma } from '@repo/db';
+import { Prisma, prisma } from '@repo/db';
 
 import { CommunityBuildQueryResponse } from '@/app/(features)/builds/types/community-build-query-response';
 import { CommunityBuildTotalCount } from '@/app/(features)/builds/types/community-build-total-count';

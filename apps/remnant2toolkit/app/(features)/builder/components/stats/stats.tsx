@@ -1,6 +1,4 @@
-import { cn } from '@repo/ui';
-import { getImageUrl, InfoCircleIcon } from '@repo/ui';
-import { ZINDEXES } from '@repo/ui';
+import { cn, getImageUrl, InfoCircleIcon, ZINDEXES } from '@repo/ui';
 import Image from 'next/image';
 import { useState } from 'react';
 

@@ -1,11 +1,13 @@
-import { BaseButton } from '@repo/ui';
 import {
+  BaseButton,
   BaseDialog,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
+  BaseListbox,
+  BaseListboxLabel,
+  BaseListboxOption,
 } from '@repo/ui';
-import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@repo/ui';
 import { useEffect, useState } from 'react';
 
 import { ArmorSuggestionCard } from '@/app/(components)/cards/armor-suggestion-card';

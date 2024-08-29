@@ -1,5 +1,10 @@
-import { BaseField, BaseLabel } from '@repo/ui';
-import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@repo/ui';
+import {
+  BaseField,
+  BaseLabel,
+  BaseListbox,
+  BaseListboxLabel,
+  BaseListboxOption,
+} from '@repo/ui';
 
 import { relicItems } from '@/app/(data)/items/relic-items';
 

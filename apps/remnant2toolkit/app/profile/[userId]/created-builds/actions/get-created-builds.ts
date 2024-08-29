@@ -1,7 +1,6 @@
 'use server';
 
-import { Prisma } from '@repo/db';
-import { prisma } from '@repo/db';
+import { Prisma, prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils/big-int-fix';
 
 import { BuildVisibility } from '@/app/(features)/builds/filters/secondary-filters/build-visibility-filter/use-build-visibility-filter';

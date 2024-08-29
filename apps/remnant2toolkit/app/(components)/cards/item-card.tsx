@@ -1,8 +1,12 @@
-import { BaseButton } from '@repo/ui';
-import { BaseLink } from '@repo/ui';
-import { cn } from '@repo/ui';
-import { getImageUrl } from '@repo/ui';
-import { MagnifyMinusIcon, MagnifyPlusIcon, StatsIcon } from '@repo/ui';
+import {
+  BaseButton,
+  BaseLink,
+  cn,
+  getImageUrl,
+  MagnifyMinusIcon,
+  MagnifyPlusIcon,
+  StatsIcon,
+} from '@repo/ui';
 import { capitalize } from '@repo/utils/capitalize';
 import copy from 'clipboard-copy';
 import Image from 'next/image';

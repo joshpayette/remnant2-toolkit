@@ -1,5 +1,4 @@
-import { cn } from '@repo/ui';
-import { BaseLink } from '@repo/ui';
+import { BaseLink, cn } from '@repo/ui';
 
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem';
 

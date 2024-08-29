@@ -1,7 +1,6 @@
 'use client';
 
-import { BaseButton } from '@repo/ui';
-import { EditIcon } from '@repo/ui';
+import { BaseButton, EditIcon } from '@repo/ui';
 import { useRouter } from 'next/navigation';
 
 import { Tooltip } from '@/app/(components)/tooltip';

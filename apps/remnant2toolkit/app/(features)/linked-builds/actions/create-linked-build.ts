@@ -1,7 +1,6 @@
 'use server';
 
-import { LinkedBuild } from '@repo/db';
-import { prisma } from '@repo/db';
+import { LinkedBuild, prisma } from '@repo/db';
 
 import { getSession } from '@/app/(features)/auth/services/sessionService';
 import { badWordFilter } from '@/app/(features)/bad-word-filter';

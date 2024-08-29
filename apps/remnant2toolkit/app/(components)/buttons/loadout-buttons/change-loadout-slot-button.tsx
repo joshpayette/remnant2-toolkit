@@ -1,7 +1,6 @@
 'use client';
 
-import { BaseButton } from '@repo/ui';
-import { MoveIcon } from '@repo/ui';
+import { BaseButton, MoveIcon } from '@repo/ui';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 

@@ -1,5 +1,4 @@
-import { BaseLink } from '@repo/ui';
-import { ArrowRightIcon } from '@repo/ui';
+import { ArrowRightIcon, BaseLink } from '@repo/ui';
 
 interface Props {
   href: string;

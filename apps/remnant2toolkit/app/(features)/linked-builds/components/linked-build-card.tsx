@@ -1,8 +1,6 @@
 'use client';
 
-import { BaseLink } from '@repo/ui';
-import { cn } from '@repo/ui';
-import { Skeleton } from '@repo/ui';
+import { BaseLink, cn, Skeleton } from '@repo/ui';
 
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens';
 import type { LinkedBuildState } from '@/app/(types)/linked-builds';

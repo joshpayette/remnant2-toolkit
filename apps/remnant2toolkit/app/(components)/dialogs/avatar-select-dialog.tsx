@@ -1,5 +1,5 @@
-import { BaseButton } from '@repo/ui';
 import {
+  BaseButton,
   BaseDialog,
   BaseDialogBody,
   BaseDialogDescription,

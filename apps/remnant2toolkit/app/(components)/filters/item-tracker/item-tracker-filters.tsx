@@ -1,10 +1,14 @@
 'use client';
 
 import { Disclosure } from '@headlessui/react';
-import { BaseButton } from '@repo/ui';
-import { BaseField, BaseFieldGroup, BaseFieldset } from '@repo/ui';
-import { cn } from '@repo/ui';
-import { FilterIcon } from '@repo/ui';
+import {
+  BaseButton,
+  BaseField,
+  BaseFieldGroup,
+  BaseFieldset,
+  cn,
+  FilterIcon,
+} from '@repo/ui';
 import isEqual from 'lodash.isequal';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
@@ -13,8 +17,10 @@ import {
   DiscoveredFilter,
   VALID_DISCOVERED_FILTERS,
 } from '@/app/(components)/filters/discovered-filter';
-import { VALID_ITEM_CATEGORIES } from '@/app/(components)/filters/item-tracker/categories-filter';
-import { CategoriesFilter } from '@/app/(components)/filters/item-tracker/categories-filter';
+import {
+  CategoriesFilter,
+  VALID_ITEM_CATEGORIES,
+} from '@/app/(components)/filters/item-tracker/categories-filter';
 import {
   ITEM_TRACKER_KEYS,
   ItemTrackerFilters as Filters,

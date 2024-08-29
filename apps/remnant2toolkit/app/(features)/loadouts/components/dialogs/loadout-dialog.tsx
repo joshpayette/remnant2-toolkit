@@ -1,11 +1,11 @@
-import { BaseButton } from '@repo/ui';
 import {
+  BaseButton,
   BaseDialog,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
+  Skeleton,
 } from '@repo/ui';
-import { Skeleton } from '@repo/ui';
 import { getArrayOfLength } from '@repo/utils/get-array-of-length';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';

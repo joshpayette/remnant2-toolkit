@@ -1,14 +1,14 @@
 'use client';
 
-import { BaseButton } from '@repo/ui';
-import { BaseLink } from '@repo/ui';
-import { cn } from '@repo/ui';
-import { Skeleton } from '@repo/ui';
 import {
+  BaseButton,
+  BaseLink,
+  cn,
   EyeIcon,
   EyeOffIcon,
   FavoriteIcon,
   PaperClipIcon,
+  Skeleton,
   VideoIcon,
 } from '@repo/ui';
 import { isValidYoutubeUrl } from '@repo/utils/youtube';

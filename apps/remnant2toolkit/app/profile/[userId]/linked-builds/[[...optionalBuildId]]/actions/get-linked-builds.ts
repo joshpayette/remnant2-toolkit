@@ -1,7 +1,5 @@
 'use server';
-
-import type { Build } from '@repo/db';
-import { prisma } from '@repo/db';
+import { type Build, prisma } from '@repo/db';
 
 import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile';
 import type { LinkedBuildState } from '@/app/(types)/linked-builds';

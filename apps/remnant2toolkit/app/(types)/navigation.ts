@@ -16,16 +16,24 @@ import {
 } from '@repo/ui';
 import { BiSolidPyramid as BaseGameBuildsIcon } from 'react-icons/bi';
 import { FaStaylinked as LinkedBuildsIcon } from 'react-icons/fa';
-import { GiChestArmor as ArmorGeneratorIcon } from 'react-icons/gi';
-import { GiBarbute as LoadoutIcon } from 'react-icons/gi';
-import { GiStrong as HardcoreVeteranIcon } from 'react-icons/gi';
-import { IoArchive as WorldSaveArchiveIcon } from 'react-icons/io5';
-import { IoShieldCheckmark as BossTrackerIcon } from 'react-icons/io5';
+import {
+  GiBarbute as LoadoutIcon,
+  GiChestArmor as ArmorGeneratorIcon,
+  GiStrong as HardcoreVeteranIcon,
+} from 'react-icons/gi';
+import {
+  IoArchive as WorldSaveArchiveIcon,
+  IoShieldCheckmark as BossTrackerIcon,
+} from 'react-icons/io5';
 import { LuBanana as GimmickBuildsIcon } from 'react-icons/lu';
-import { MdQuiz as ItemQuizIcon } from 'react-icons/md';
-import { MdCollectionsBookmark as BuildsByCollectionIcon } from 'react-icons/md';
-import { PiLadder as BeginnerBuildsIcon } from 'react-icons/pi';
-import { PiCubeFocus as FeaturedBuildsIcon } from 'react-icons/pi';
+import {
+  MdCollectionsBookmark as BuildsByCollectionIcon,
+  MdQuiz as ItemQuizIcon,
+} from 'react-icons/md';
+import {
+  PiCubeFocus as FeaturedBuildsIcon,
+  PiLadder as BeginnerBuildsIcon,
+} from 'react-icons/pi';
 import { SiModrinth as ModdingDiscordIcon } from 'react-icons/si';
 
 import VashIcon from '@/app/(components)/images/vash-icon';

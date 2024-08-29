@@ -1,9 +1,13 @@
 'use client';
 
 import { Combobox } from '@headlessui/react';
-import { BaseInput } from '@repo/ui';
-import { cn } from '@repo/ui';
-import { CheckIcon, ChevronUpDownIcon, Skeleton } from '@repo/ui';
+import {
+  BaseInput,
+  CheckIcon,
+  ChevronUpDownIcon,
+  cn,
+  Skeleton,
+} from '@repo/ui';
 import React, { useEffect, useState } from 'react';
 import { useIsClient, useMediaQuery } from 'usehooks-ts';
 

@@ -1,8 +1,6 @@
 'use server';
 
-import { BaseLink } from '@repo/ui';
-import { cn } from '@repo/ui';
-import { ZINDEXES } from '@repo/ui';
+import { BaseLink, cn, ZINDEXES } from '@repo/ui';
 import { Metadata } from 'next';
 import React from 'react';
 

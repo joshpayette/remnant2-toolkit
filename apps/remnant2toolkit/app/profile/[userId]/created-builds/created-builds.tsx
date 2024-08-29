@@ -4,6 +4,8 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 
 import { BuildList } from '@/app/(components)/build-list';
+import { BuildCard } from '@/app/(features)/builds/components/cards/build-card';
+import { CreateBuildCard } from '@/app/(features)/builds/components/cards/create-build-card';
 import { DEFAULT_BUILD_FILTERS } from '@/app/(features)/builds/filters/build-filters';
 import { BuildVisibilityFilter } from '@/app/(features)/builds/filters/secondary-filters/build-visibility-filter';
 import { useBuildVisibilityFilter } from '@/app/(features)/builds/filters/secondary-filters/build-visibility-filter/use-build-visibility-filter';
@@ -13,8 +15,6 @@ import { TimeRangeFilter } from '@/app/(features)/builds/filters/secondary-filte
 import { useTimeRangeFilter } from '@/app/(features)/builds/filters/secondary-filters/time-range-filter/use-time-range-filter';
 import { BuildListFilters } from '@/app/(features)/builds/filters/types';
 import { parseUrlFilters } from '@/app/(features)/builds/filters/utils';
-import { BuildCard } from '@/app/(features)/builds/components/cards/build-card';
-import { CreateBuildCard } from '@/app/(features)/builds/components/cards/create-build-card';
 import { useBuildListState } from '@/app/(features)/builds/utils/hooks/use-build-list-state';
 import { usePagination } from '@/app/(utils)/pagination/use-pagination';
 import { CreatedBuildCardActions } from '@/app/profile/[userId]/(components)/created-build-card-actions';

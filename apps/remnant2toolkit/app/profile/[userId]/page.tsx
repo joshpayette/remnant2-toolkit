@@ -1,25 +1,24 @@
-import { Prisma } from '@repo/db'
-import { prisma } from '@repo/db'
-import { bigIntFix } from '@repo/utils/big-int-fix'
+import { Prisma, prisma } from '@repo/db';
+import { bigIntFix } from '@repo/utils/big-int-fix';
 
-import { BuildCard } from '@/app/(features)/builds/components/cards/build-card'
-import { communityBuildsQuery } from '@/app/(queries)/build-filters/community-builds'
+import { BuildCard } from '@/app/(features)/builds/components/cards/build-card';
+import { communityBuildsQuery } from '@/app/(queries)/build-filters/community-builds';
 
 async function getCreatedBuilds(userId: string) {
-  const itemsToFetch = 4
+  const itemsToFetch = 4;
 
   const whereConditionsAllTime = Prisma.sql`
   WHERE Build.createdById = ${userId}
   AND Build.isPublic = true
-  `
+  `;
 
   const whereConditionsCurrent = Prisma.sql`
   WHERE Build.createdById = ${userId}
   AND Build.isPublic = true
   AND Build.isPatchAffected = false
-  `
+  `;
 
-  const orderBySegment = Prisma.sql`ORDER BY totalUpvotes DESC`
+  const orderBySegment = Prisma.sql`ORDER BY totalUpvotes DESC`;
 
   const [topBuildsAllTime, topBuildsCurrent] = await prisma.$transaction([
     communityBuildsQuery({
@@ -38,45 +37,45 @@ async function getCreatedBuilds(userId: string) {
       whereConditions: whereConditionsCurrent,
       searchText: '',
     }),
-  ])
+  ]);
 
   // Then, for each Build, get the associated BuildItems
   for (const build of topBuildsAllTime) {
     const buildItems = await prisma.buildItems.findMany({
       where: { buildId: build.id },
-    })
-    build.buildItems = buildItems
+    });
+    build.buildItems = buildItems;
   }
   for (const build of topBuildsCurrent) {
     const buildItems = await prisma.buildItems.findMany({
       where: { buildId: build.id },
-    })
-    build.buildItems = buildItems
+    });
+    build.buildItems = buildItems;
   }
 
   // Then, for each Build, get the associated BuildTags
   for (const build of topBuildsAllTime) {
     const buildTags = await prisma.buildTags.findMany({
       where: { buildId: build.id },
-    })
-    build.buildTags = buildTags
+    });
+    build.buildTags = buildTags;
   }
   for (const build of topBuildsCurrent) {
     const buildTags = await prisma.buildTags.findMany({
       where: { buildId: build.id },
-    })
-    build.buildTags = buildTags
+    });
+    build.buildTags = buildTags;
   }
 
-  return bigIntFix({ topBuildsAllTime, topBuildsCurrent })
+  return bigIntFix({ topBuildsAllTime, topBuildsCurrent });
 }
 
 export default async function Page({
   params: { userId },
 }: {
-  params: { userId: string }
+  params: { userId: string };
 }) {
-  const { topBuildsAllTime, topBuildsCurrent } = await getCreatedBuilds(userId)
+  const { topBuildsAllTime, topBuildsCurrent } = await getCreatedBuilds(userId);
 
   return (
     <>
@@ -117,5 +116,5 @@ export default async function Page({
         </ul>
       </div>
     </>
-  )
+  );
 }

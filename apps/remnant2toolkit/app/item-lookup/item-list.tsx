@@ -5,7 +5,7 @@ import { capitalize } from '@repo/utils/capitalize';
 import isEqual from 'lodash.isequal';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useIsClient, useLocalStorage } from 'usehooks-ts';
+import { useIsClient } from 'usehooks-ts';
 import { v4 as uuidv4 } from 'uuid';
 
 import { DEFAULT_ITEM_LOOKUP_FILTERS } from '@/app/(components)/filters/item-lookup/item-lookup-filters';

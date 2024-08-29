@@ -1,7 +1,6 @@
 'use client';
 
-import { BaseLink } from '@repo/ui';
-import { Skeleton } from '@repo/ui';
+import { BaseLink, Skeleton } from '@repo/ui';
 import { useSession } from 'next-auth/react';
 import { useRef, useState } from 'react';
 

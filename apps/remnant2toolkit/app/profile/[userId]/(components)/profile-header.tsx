@@ -1,10 +1,12 @@
 'use client';
 
-import { BaseButton } from '@repo/ui';
-import { BaseField } from '@repo/ui';
-import { BaseInput } from '@repo/ui';
-import { BaseTextarea } from '@repo/ui';
-import { EditIcon } from '@repo/ui';
+import {
+  BaseButton,
+  BaseField,
+  BaseInput,
+  BaseTextarea,
+  EditIcon,
+} from '@repo/ui';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 

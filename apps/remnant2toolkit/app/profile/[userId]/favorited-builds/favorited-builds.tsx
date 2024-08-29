@@ -4,13 +4,13 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 
 import { BuildList } from '@/app/(components)/build-list';
+import { BuildCard } from '@/app/(features)/builds/components/cards/build-card';
 import { DEFAULT_BUILD_FILTERS } from '@/app/(features)/builds/filters/build-filters';
 import { BuildSecondaryFilters } from '@/app/(features)/builds/filters/secondary-filters';
 import { useOrderByFilter } from '@/app/(features)/builds/filters/secondary-filters/order-by-filter/use-order-by-filter';
 import { useTimeRangeFilter } from '@/app/(features)/builds/filters/secondary-filters/time-range-filter/use-time-range-filter';
 import { BuildListFilters } from '@/app/(features)/builds/filters/types';
 import { parseUrlFilters } from '@/app/(features)/builds/filters/utils';
-import { BuildCard } from '@/app/(features)/builds/components/cards/build-card';
 import { useBuildListState } from '@/app/(features)/builds/utils/hooks/use-build-list-state';
 import { usePagination } from '@/app/(utils)/pagination/use-pagination';
 import { getFavoritedBuilds } from '@/app/profile/[userId]/favorited-builds/actions/get-favorite-builds';

@@ -1,6 +1,4 @@
-import { BaseButton } from '@repo/ui';
-import { getImageUrl } from '@repo/ui';
-import { DownloadIcon } from '@repo/ui';
+import { BaseButton, DownloadIcon, getImageUrl } from '@repo/ui';
 import Image from 'next/image';
 import { v4 as uuidv4 } from 'uuid';
 

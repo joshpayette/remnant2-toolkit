@@ -1,5 +1,4 @@
-import { BaseLink } from '@repo/ui';
-import { Skeleton } from '@repo/ui';
+import { BaseLink, Skeleton } from '@repo/ui';
 import { Suspense } from 'react';
 
 import { WorldSaveFilters } from '@/app/(components)/filters/world-saves/world-save-filters';

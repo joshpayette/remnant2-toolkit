@@ -1,7 +1,6 @@
 'use client';
 
-import { BaseCheckbox } from '@repo/ui';
-import { BaseField, BaseLabel } from '@repo/ui';
+import { BaseCheckbox, BaseField, BaseLabel } from '@repo/ui';
 import { toast } from 'react-toastify';
 
 import { setIsLoadoutPublic } from '@/app/(actions)/loadouts/set-is-loadout-public';

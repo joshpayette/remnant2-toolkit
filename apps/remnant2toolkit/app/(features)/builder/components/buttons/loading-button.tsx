@@ -1,5 +1,4 @@
-import { BaseButton } from '@repo/ui';
-import { Skeleton } from '@repo/ui';
+import { BaseButton, Skeleton } from '@repo/ui';
 
 export function LoadingButton() {
   return (

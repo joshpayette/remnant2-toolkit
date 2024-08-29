@@ -1,7 +1,5 @@
 import { BuildTags } from '@repo/db';
-import { BaseButton } from '@repo/ui';
-import { BaseFieldset, BaseLabel } from '@repo/ui';
-import { cn } from '@repo/ui';
+import { BaseButton, BaseFieldset, BaseLabel, cn } from '@repo/ui';
 
 import { ALL_BUILD_TAGS } from '@/app/(features)/builder/constants/all-build-tags';
 import { MAX_BUILD_TAGS } from '@/app/(features)/builder/constants/max-build-tags';

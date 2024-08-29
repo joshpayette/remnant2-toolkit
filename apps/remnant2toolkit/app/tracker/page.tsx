@@ -1,7 +1,6 @@
 'use client';
 
-import { BaseButton } from '@repo/ui';
-import { Skeleton } from '@repo/ui';
+import { BaseButton, Skeleton } from '@repo/ui';
 import { capitalize } from '@repo/utils/capitalize';
 import { useSession } from 'next-auth/react';
 import { Suspense } from 'react';

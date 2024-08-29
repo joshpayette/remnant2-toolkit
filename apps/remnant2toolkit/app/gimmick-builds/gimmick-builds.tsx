@@ -1,19 +1,17 @@
 'use client';
 
-import { BaseLink } from '@repo/ui';
-import { EyeIcon } from '@repo/ui';
-import { Skeleton } from '@repo/ui';
+import { BaseLink, EyeIcon, Skeleton } from '@repo/ui';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { BuildList } from '@/app/(components)/build-list';
+import { Tooltip } from '@/app/(components)/tooltip';
+import { getGimmickBuilds } from '@/app/(features)/builds/actions/get-gimmick-builds';
+import { BuildCard } from '@/app/(features)/builds/components/cards/build-card';
 import { BuildSecondaryFilters } from '@/app/(features)/builds/filters/secondary-filters';
 import { useOrderByFilter } from '@/app/(features)/builds/filters/secondary-filters/order-by-filter/use-order-by-filter';
 import { useTimeRangeFilter } from '@/app/(features)/builds/filters/secondary-filters/time-range-filter/use-time-range-filter';
 import { parseUrlFilters } from '@/app/(features)/builds/filters/utils';
-import { Tooltip } from '@/app/(components)/tooltip';
-import { getGimmickBuilds } from '@/app/(features)/builds/actions/get-gimmick-builds';
-import { BuildCard } from '@/app/(features)/builds/components/cards/build-card';
 import { useBuildListState } from '@/app/(features)/builds/utils/hooks/use-build-list-state';
 import { usePagination } from '@/app/(utils)/pagination/use-pagination';
 

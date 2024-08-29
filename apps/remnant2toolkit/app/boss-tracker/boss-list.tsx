@@ -1,8 +1,7 @@
 'use client';
 
 import { Disclosure } from '@headlessui/react';
-import { cn } from '@repo/ui';
-import { ChevronDownIcon } from '@repo/ui';
+import { ChevronDownIcon, cn } from '@repo/ui';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useIsClient, useLocalStorage } from 'usehooks-ts';

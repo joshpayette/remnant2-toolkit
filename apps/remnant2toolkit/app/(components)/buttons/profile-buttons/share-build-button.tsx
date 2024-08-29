@@ -1,7 +1,6 @@
 'use client';
 
-import { BaseButton } from '@repo/ui';
-import { ShareIcon } from '@repo/ui';
+import { BaseButton, ShareIcon } from '@repo/ui';
 import { urlNoCache } from '@repo/utils/url-no-cache';
 import copy from 'clipboard-copy';
 import { toast } from 'react-toastify';

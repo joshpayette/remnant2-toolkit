@@ -3,8 +3,8 @@
 import { BaseText, BaseTextLink } from '@repo/ui';
 import { useCallback, useState } from 'react';
 
-import { BuildFilters } from '@/app/(features)/builds/filters/build-filters';
 import { PageHeader } from '@/app/(components)/page-header';
+import { BuildFilters } from '@/app/(features)/builds/filters/build-filters';
 import { NAV_ITEMS } from '@/app/(types)/navigation';
 import { DEFAULT_ITEMS_PER_PAGE } from '@/app/(utils)/pagination/constants';
 import { BaseGameBuilds } from '@/app/base-game-builds/base-game-builds';

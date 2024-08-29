@@ -1,6 +1,4 @@
-import { BaseButton } from '@repo/ui';
-import { cn } from '@repo/ui';
-import { ArrowUpIcon, getImageUrl } from '@repo/ui';
+import { ArrowUpIcon, BaseButton, cn, getImageUrl } from '@repo/ui';
 import Image from 'next/image';
 
 import { ARROW_TO_INDEX } from '@/app/(features)/item-quiz/constants/arrow-to-index';

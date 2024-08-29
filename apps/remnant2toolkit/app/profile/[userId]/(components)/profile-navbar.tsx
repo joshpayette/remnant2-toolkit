@@ -1,8 +1,6 @@
 'use client';
 
-import { cn } from '@repo/ui';
-import { EyeIcon } from '@repo/ui';
-import { EyeOffIcon } from '@repo/ui';
+import { cn, EyeIcon, EyeOffIcon } from '@repo/ui';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useIsClient } from 'usehooks-ts';

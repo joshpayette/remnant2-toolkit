@@ -1,6 +1,5 @@
 import { DISCORD_INVITE_URL } from '@repo/constants';
-import { cn } from '@repo/ui';
-import { FooterContainer } from '@repo/ui';
+import { cn, FooterContainer } from '@repo/ui';
 
 import { NAV_ITEMS } from '@/app/(types)/navigation';
 

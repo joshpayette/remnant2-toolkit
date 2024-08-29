@@ -1,9 +1,9 @@
-import { cn } from '@repo/ui';
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
   ChevronsLeftIcon,
   ChevronsRightIcon,
+  cn,
 } from '@repo/ui';
 
 interface Props {

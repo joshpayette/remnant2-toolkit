@@ -1,6 +1,11 @@
 import isEqual from 'lodash.isequal';
 import { ReadonlyURLSearchParams } from 'next/navigation';
 
+import { VALID_RELEASE_KEYS } from '@/app/(components)/filters/releases-filter';
+import { amuletItems } from '@/app/(data)/items/amulet-items';
+import { relicItems } from '@/app/(data)/items/relic-items';
+import { ringItems } from '@/app/(data)/items/ring-items';
+import { weaponItems } from '@/app/(data)/items/weapon-items';
 import { VALID_ARCHETYPES } from '@/app/(features)/builds/filters/archetype-filter';
 import { DEFAULT_BUILD_FILTERS } from '@/app/(features)/builds/filters/build-filters';
 import { VALID_BUILD_TAGS } from '@/app/(features)/builds/filters/build-tag-filter';
@@ -9,11 +14,6 @@ import {
   BuildListFilters,
   MAX_RINGS,
 } from '@/app/(features)/builds/filters/types';
-import { VALID_RELEASE_KEYS } from '@/app/(components)/filters/releases-filter';
-import { amuletItems } from '@/app/(data)/items/amulet-items';
-import { relicItems } from '@/app/(data)/items/relic-items';
-import { ringItems } from '@/app/(data)/items/ring-items';
-import { weaponItems } from '@/app/(data)/items/weapon-items';
 
 export function parseUrlFilters(
   searchParams: ReadonlyURLSearchParams,

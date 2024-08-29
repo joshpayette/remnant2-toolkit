@@ -4,8 +4,8 @@ import { DISCORD_INVITE_URL } from '@repo/constants';
 import { BaseText, BaseTextLink } from '@repo/ui';
 import { useCallback, useState } from 'react';
 
-import { BuildFilters } from '@/app/(features)/builds/filters/build-filters';
 import { PageHeader } from '@/app/(components)/page-header';
+import { BuildFilters } from '@/app/(features)/builds/filters/build-filters';
 import { NAV_ITEMS } from '@/app/(types)/navigation';
 import { DEFAULT_ITEMS_PER_PAGE } from '@/app/(utils)/pagination/constants';
 import { GimmickBuilds } from '@/app/gimmick-builds/gimmick-builds';
