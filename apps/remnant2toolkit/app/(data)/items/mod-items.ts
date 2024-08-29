@@ -1,4 +1,4 @@
-import { ModItem } from './types/ModItem'
+import { ModItem } from './types/ModItem';
 
 export const modItems: ModItem[] = [
   {
@@ -524,7 +524,7 @@ export const modItems: ModItem[] = [
     wikiLinks: [`https://remnant.wiki/Nightfall`],
     linkedItems: {
       weapon: {
-        name: ' Nightfall',
+        name: 'Nightfall',
       },
     },
     location: { world: 'Any', dungeon: 'Linked Item' },
@@ -1623,4 +1623,4 @@ export const modItems: ModItem[] = [
     wikiLinks: [`https://remnant.wiki/Witchfire`],
     location: { world: 'Losomn', dungeon: [`Cotton's Kiln`] },
   },
-]
+];
