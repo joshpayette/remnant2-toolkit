@@ -1,5 +1,5 @@
 import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@repo/ui';
-import { groupBy } from '@repo/utils/object-utils';
+import { groupBy } from '@repo/utils';
 
 import { getCategoryProgressStats } from '@/app/(components)/filters/item-tracker/utils';
 import { Item } from '@/app/(data)/items/types';

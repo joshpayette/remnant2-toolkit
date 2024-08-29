@@ -1,5 +1,5 @@
 import { BaseText, BaseTextLink, getImageUrl } from '@repo/ui';
-import { cleanItemName } from '@repo/utils/clean-item-name';
+import { cleanItemName } from '@repo/utils';
 import { Metadata, ResolvingMetadata } from 'next';
 
 import { allItems } from '@/app/(data)/items/all-items';

@@ -1,7 +1,7 @@
 'use server';
 
 import { Prisma, prisma } from '@repo/db';
-import { bigIntFix } from '@repo/utils/big-int-fix';
+import { bigIntFix } from '@repo/utils';
 
 import { getSession } from '@/app/(features)/auth/services/sessionService';
 import { CommunityBuildQueryResponse } from '@/app/(features)/builds/types/community-build-query-response';

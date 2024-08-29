@@ -2,7 +2,7 @@
 
 import { Disclosure } from '@headlessui/react';
 import { BaseButton, ChevronDownIcon, cn, InfoCircleIcon } from '@repo/ui';
-import { capitalize } from '@repo/utils/capitalize';
+import { capitalize } from '@repo/utils';
 import isEqual from 'lodash.isequal';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';

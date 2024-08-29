@@ -2,7 +2,7 @@
 
 import { prisma } from '@repo/db';
 import type { LeaderBoardItem } from '@repo/ui';
-import { bigIntFix } from '@repo/utils/big-int-fix';
+import { bigIntFix } from '@repo/utils';
 
 export async function getFavoritesLeaderboard(): Promise<LeaderBoardItem[]> {
   // Excluding remnant2toolkit account

@@ -1,4 +1,4 @@
-import { getArrayOfLength } from '@repo/utils/get-array-of-length';
+import { getArrayOfLength } from '@repo/utils';
 
 import { perkItems } from '@/app/(data)/items/perk-items';
 import { Item } from '@/app/(data)/items/types';

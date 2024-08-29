@@ -9,7 +9,7 @@ import {
   cn,
   getImageUrl,
 } from '@repo/ui';
-import { capitalize } from '@repo/utils/capitalize';
+import { capitalize } from '@repo/utils';
 import copy from 'clipboard-copy';
 import Image from 'next/image';
 import { toast } from 'react-toastify';

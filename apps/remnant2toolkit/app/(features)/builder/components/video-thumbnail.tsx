@@ -2,7 +2,7 @@ import {
   isValidYoutubeUrl,
   videoUrlToThumbnailUrl,
   videoUrlToWatchUrl,
-} from '@repo/utils/youtube';
+} from '@repo/utils';
 import Image from 'next/image';
 
 import { BuildState } from '@/app/(features)/builds/types/build-state';

@@ -1,7 +1,7 @@
 'use client';
 
 import { BaseButton, Skeleton } from '@repo/ui';
-import { capitalize } from '@repo/utils/capitalize';
+import { capitalize } from '@repo/utils';
 import { useSession } from 'next-auth/react';
 import { Suspense } from 'react';
 import { useIsClient } from 'usehooks-ts';

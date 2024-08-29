@@ -11,7 +11,7 @@ import {
   Skeleton,
   VideoIcon,
 } from '@repo/ui';
-import { isValidYoutubeUrl } from '@repo/utils/youtube';
+import { isValidYoutubeUrl } from '@repo/utils';
 
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens';
 import { Tooltip } from '@/app/(components)/tooltip';

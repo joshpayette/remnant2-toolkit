@@ -1,6 +1,6 @@
 'use client';
 
-import { getArrayOfLength } from '@repo/utils/get-array-of-length';
+import { getArrayOfLength } from '@repo/utils';
 import { useEffect, useState } from 'react';
 import { BaseLink } from '../../base/link';
 import {
@@ -99,6 +99,7 @@ export function LeaderBoard({
 }
 
 function TopScoresSkeleton({ itemCount }: { itemCount: number }) {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
   return getArrayOfLength(itemCount).map((_, index) => (
     // eslint-disable-next-line react/no-array-index-key
     <BaseTableRow key={index}>
@@ -110,5 +111,5 @@ function TopScoresSkeleton({ itemCount }: { itemCount: number }) {
         <Skeleton className="ui-h-[25px] ui-w-full" />
       </BaseTableHeader>
     </BaseTableRow>
-  ));
+  )) as React.ReactNode;
 }

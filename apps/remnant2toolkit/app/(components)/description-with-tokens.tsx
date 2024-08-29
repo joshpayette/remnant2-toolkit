@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@repo/ui';
-import { stripUnicode } from '@repo/utils/strip-unicode';
+import { stripUnicode } from '@repo/utils';
 import { ReactNode, useState } from 'react';
 import reactStringReplace from 'react-string-replace';
 import { v4 as uuidv4 } from 'uuid';

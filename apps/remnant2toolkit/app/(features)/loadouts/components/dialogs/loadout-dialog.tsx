@@ -6,7 +6,7 @@ import {
   BaseDialogTitle,
   Skeleton,
 } from '@repo/ui';
-import { getArrayOfLength } from '@repo/utils/get-array-of-length';
+import { getArrayOfLength } from '@repo/utils';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 

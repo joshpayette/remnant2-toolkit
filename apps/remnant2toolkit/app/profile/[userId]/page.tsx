@@ -1,5 +1,5 @@
 import { Prisma, prisma } from '@repo/db';
-import { bigIntFix } from '@repo/utils/big-int-fix';
+import { bigIntFix } from '@repo/utils';
 
 import { BuildCard } from '@/app/(features)/builds/components/cards/build-card';
 import { communityBuildsQuery } from '@/app/(queries)/build-filters/community-builds';

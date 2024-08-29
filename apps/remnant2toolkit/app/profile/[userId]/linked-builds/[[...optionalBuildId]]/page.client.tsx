@@ -9,7 +9,7 @@ import {
   Skeleton,
   TrashIcon,
 } from '@repo/ui';
-import { urlNoCache } from '@repo/utils/url-no-cache';
+import { urlNoCache } from '@repo/utils';
 import copy from 'clipboard-copy';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';

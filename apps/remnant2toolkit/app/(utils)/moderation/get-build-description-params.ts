@@ -1,30 +1,32 @@
-import { urlNoCache } from '@repo/utils/url-no-cache'
-import { diffTrimmedLines } from 'diff'
+import { urlNoCache } from '@repo/utils';
+import { diffTrimmedLines } from 'diff';
 
-import { DiscordWebhookParams } from './types'
+import { DiscordWebhookParams } from './types';
 
 export function getBuildDescriptionParams({
   buildId,
   newDescription,
   oldDescription,
 }: {
-  buildId: string
-  newDescription: string
-  oldDescription: string
+  buildId: string;
+  newDescription: string;
+  oldDescription: string;
 }): DiscordWebhookParams {
   const diff = diffTrimmedLines(oldDescription, newDescription, {
     ignoreCase: true,
-  })
+  });
 
   const content = diff
     ?.map((part) => {
       if (part.added) {
-        return `${part.value.replace(/\n/g, '')}`.trim()
+        return `${part.value.replace(/\n/g, '')}`.trim();
       }
     })
-    .join('\n')
+    .join('\n');
 
-  const buildLink = urlNoCache(`https://remnant2toolkit.com/builder/${buildId}`)
+  const buildLink = urlNoCache(
+    `https://remnant2toolkit.com/builder/${buildId}`,
+  );
 
   return {
     embeds: [
@@ -43,5 +45,5 @@ export function getBuildDescriptionParams({
         ],
       },
     ],
-  }
+  };
 }

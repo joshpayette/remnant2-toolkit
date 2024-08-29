@@ -13,7 +13,7 @@ import {
   BaseListboxLabel,
   BaseListboxOption,
 } from '@repo/ui';
-import { getArrayOfLength } from '@repo/utils/get-array-of-length';
+import { getArrayOfLength } from '@repo/utils';
 import type React from 'react';
 
 import LocatingProfileSav from '@/app/(components)/dialogs/partial/locating-profile-sav';

@@ -1,7 +1,7 @@
 'use client';
 
 import { Skeleton } from '@repo/ui';
-import { getArrayOfLength } from '@repo/utils/get-array-of-length';
+import { getArrayOfLength } from '@repo/utils';
 import { Masonry } from 'masonic';
 import { useState } from 'react';
 import { useIsClient } from 'usehooks-ts';

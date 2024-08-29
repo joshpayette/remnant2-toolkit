@@ -1,7 +1,7 @@
 'use server';
 
 import { prisma } from '@repo/db';
-import { bigIntFix } from '@repo/utils/big-int-fix';
+import { bigIntFix } from '@repo/utils';
 
 import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile';
 import { getSession } from '@/app/(features)/auth/services/sessionService';

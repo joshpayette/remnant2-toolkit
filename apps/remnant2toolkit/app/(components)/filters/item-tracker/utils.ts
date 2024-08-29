@@ -1,4 +1,4 @@
-import { capitalize } from '@repo/utils/capitalize';
+import { capitalize } from '@repo/utils';
 import { ReadonlyURLSearchParams } from 'next/navigation';
 
 import { VALID_DISCOVERED_FILTERS } from '@/app/(components)/filters/discovered-filter';

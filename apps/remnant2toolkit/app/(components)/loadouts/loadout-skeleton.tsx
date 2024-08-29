@@ -1,5 +1,5 @@
 import { Skeleton } from '@repo/ui';
-import { getArrayOfLength } from '@repo/utils/get-array-of-length';
+import { getArrayOfLength } from '@repo/utils';
 
 export function LoadoutSkeleton() {
   return getArrayOfLength(8).map((_, index) => (

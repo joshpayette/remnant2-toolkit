@@ -1,4 +1,4 @@
-import { getArrayOfLength } from '@repo/utils/get-array-of-length';
+import { getArrayOfLength } from '@repo/utils';
 import { useState } from 'react';
 
 import { DBBuild } from '@/app/(features)/builds/types/db-build';

@@ -5,7 +5,7 @@ import {
   BaseAlertTitle,
   BaseButton,
 } from '@repo/ui';
-import { urlNoCache } from '@repo/utils/url-no-cache';
+import { urlNoCache } from '@repo/utils';
 import copy from 'clipboard-copy';
 import { toast } from 'react-toastify';
 

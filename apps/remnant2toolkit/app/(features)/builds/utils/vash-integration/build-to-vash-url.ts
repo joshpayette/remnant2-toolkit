@@ -1,4 +1,4 @@
-import { getArrayOfLength } from '@repo/utils/get-array-of-length';
+import { getArrayOfLength } from '@repo/utils';
 
 import { BuildState } from '@/app/(features)/builds/types/build-state';
 

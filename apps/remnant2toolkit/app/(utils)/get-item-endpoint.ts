@@ -1,11 +1,10 @@
-import { cleanItemName } from '@repo/utils/clean-item-name'
-import { urlNoCache } from '@repo/utils/url-no-cache'
+import { cleanItemName, urlNoCache } from '@repo/utils';
 
 /**
  * Builds a link to the provided item's endpoint.
  */
 export function itemEndpoint(itemName: string) {
-  return `https://remnant2toolkit.com/i/${cleanItemName(itemName)}`
+  return `https://remnant2toolkit.com/i/${cleanItemName(itemName)}`;
 }
 
 /**
@@ -13,5 +12,5 @@ export function itemEndpoint(itemName: string) {
  * This is useful for cases such as shared URLs where caching is undesirable.
  */
 export function itemShareEndpoint(itemName: string) {
-  return `${urlNoCache(itemEndpoint(itemName))}`
+  return `${urlNoCache(itemEndpoint(itemName))}`;
 }

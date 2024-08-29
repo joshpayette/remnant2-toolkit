@@ -1,7 +1,7 @@
 'use server';
 
 import { prisma } from '@repo/db';
-import { bigIntFix } from '@repo/utils/big-int-fix';
+import { bigIntFix } from '@repo/utils';
 import { revalidatePath } from 'next/cache';
 
 import { getSession } from '@/app/(features)/auth/services/sessionService';

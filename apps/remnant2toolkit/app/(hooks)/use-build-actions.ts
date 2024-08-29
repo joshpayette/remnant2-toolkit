@@ -1,6 +1,6 @@
 // TODO Remove this god hook and replace with separate functions
 
-import { getArrayOfLength } from '@repo/utils/get-array-of-length';
+import { getArrayOfLength } from '@repo/utils';
 import html2canvas from 'html2canvas';
 import cloneDeep from 'lodash.clonedeep';
 import { useRouter } from 'next/navigation';

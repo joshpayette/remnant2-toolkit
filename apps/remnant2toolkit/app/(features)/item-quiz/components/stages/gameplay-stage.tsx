@@ -1,5 +1,5 @@
 import { cn } from '@repo/ui';
-import { getArrayOfLength } from '@repo/utils/get-array-of-length';
+import { getArrayOfLength } from '@repo/utils';
 import React from 'react';
 
 import { Heading } from '@/app/(features)/item-quiz/components/heading';

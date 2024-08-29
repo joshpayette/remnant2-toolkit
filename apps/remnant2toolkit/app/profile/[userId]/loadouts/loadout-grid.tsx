@@ -1,25 +1,25 @@
-'use server'
+'use server';
 
-import { getArrayOfLength } from '@repo/utils/get-array-of-length'
+import { getArrayOfLength } from '@repo/utils';
 
-import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list'
-import { EmptyLoadoutCard } from '@/app/(features)/loadouts/components/cards/empty-loadout-card'
-import { LoadoutCard } from '@/app/(features)/loadouts/components/cards/loadout-card'
+import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list';
+import { EmptyLoadoutCard } from '@/app/(features)/loadouts/components/cards/empty-loadout-card';
+import { LoadoutCard } from '@/app/(features)/loadouts/components/cards/loadout-card';
 
 interface Props {
-  isEditable: boolean
-  userId?: string
+  isEditable: boolean;
+  userId?: string;
 }
 
 export async function LoadoutGrid({ isEditable, userId }: Props) {
-  const userLoadoutBuilds = await getLoadoutList(userId)
+  const userLoadoutBuilds = await getLoadoutList(userId);
 
   return (
     <div className="my-4 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
       {getArrayOfLength(8).map((_, index) => {
         const userLoadoutBuild = userLoadoutBuilds.find(
           (build) => build.slot - 1 === index,
-        )
+        );
 
         if (!userLoadoutBuild) {
           return (
@@ -28,7 +28,7 @@ export async function LoadoutGrid({ isEditable, userId }: Props) {
               showHover={false}
               label="No loadout selected for this slot."
             />
-          )
+          );
         }
 
         return (
@@ -37,8 +37,8 @@ export async function LoadoutGrid({ isEditable, userId }: Props) {
             build={userLoadoutBuild}
             isEditable={isEditable}
           />
-        )
+        );
       })}
     </div>
-  )
+  );
 }
