@@ -6,21 +6,21 @@ import { useIsClient } from 'usehooks-ts';
 
 import { ItemTagSuggestionDialog } from '@/app/(components)/dialogs/item-tag-suggestion-dialog';
 import { PageHeader } from '@/app/(components)/page-header';
-import { BuilderContainer } from '@/app/(features)/builder/components/builder-container';
-import { ArmorCalculatorButton } from '@/app/(features)/builder/components/buttons/armor-calculator-button';
-import { DeleteBuildButton } from '@/app/(features)/builder/components/buttons/delete-build-button';
-import { DetailedViewButton } from '@/app/(features)/builder/components/buttons/detailed-view-button';
-import { ItemSuggestionsButton } from '@/app/(features)/builder/components/buttons/item-suggestions-button';
-import { SaveBuildButton } from '@/app/(features)/builder/components/buttons/save-build-button';
-import { ArmorSuggestionDialog } from '@/app/(features)/builder/components/dialogs/armor-suggestion-dialog';
-import { DetailedBuildDialog } from '@/app/(features)/builder/components/dialogs/detailed-build-dialog';
-import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dialogs/image-download-info-dialog';
 import { BuildState } from '@/app/(features)/builds/types/build-state';
 import { DBBuild } from '@/app/(features)/builds/types/db-build';
 import { cleanUpBuildState } from '@/app/(features)/builds/utils/clean-up-build-state';
 import { dbBuildToBuildState } from '@/app/(features)/builds/utils/db-build-to-build-state';
 import { useDBBuildState } from '@/app/(features)/builds/utils/hooks/use-db-build-state';
 import { useBuildActions } from '@/app/(hooks)/use-build-actions';
+import { BuilderContainer } from '@/app/builder/_components/builder-container';
+import { ArmorCalculatorButton } from '@/app/builder/_components/buttons/armor-calculator-button';
+import { DeleteBuildButton } from '@/app/builder/_components/buttons/delete-build-button';
+import { DetailedViewButton } from '@/app/builder/_components/buttons/detailed-view-button';
+import { ItemSuggestionsButton } from '@/app/builder/_components/buttons/item-suggestions-button';
+import { SaveBuildButton } from '@/app/builder/_components/buttons/save-build-button';
+import { ArmorSuggestionDialog } from '@/app/builder/_components/dialogs/armor-suggestion-dialog';
+import { DetailedBuildDialog } from '@/app/builder/_components/dialogs/detailed-build-dialog';
+import { ImageDownloadInfoDialog } from '@/app/builder/_components/dialogs/image-download-info-dialog';
 
 interface Props {
   build: DBBuild;

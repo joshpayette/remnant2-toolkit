@@ -6,12 +6,12 @@ import { signIn, useSession } from 'next-auth/react';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { LoadingButton } from '@/app/(features)/builder/components/buttons/loading-button';
 import { createBuild } from '@/app/(features)/builds/actions/create-build';
 import { updateBuild } from '@/app/(features)/builds/actions/update-build';
 import { BuildActionResponse } from '@/app/(features)/builds/types/build-action-response';
 import { BuildState } from '@/app/(features)/builds/types/build-state';
 import { isErrorResponse } from '@/app/(utils)/is-error-response';
+import { LoadingButton } from '@/app/builder/_components/buttons/loading-button';
 
 interface Props {
   buildState: BuildState;

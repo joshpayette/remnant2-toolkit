@@ -10,8 +10,8 @@ import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
 import { Tooltip } from '@/app/(components)/tooltip';
 import { allItems } from '@/app/(data)/items/all-items';
 import { Item } from '@/app/(data)/items/types';
-import { ALL_BUILD_TAGS } from '@/app/(features)/builder/constants/all-build-tags';
 import { EXTERNAL_TOKENS, INLINE_TOKENS } from '@/app/(types)/tokens';
+import { ALL_BUILD_TAGS } from '@/app/builder/_constants/all-build-tags';
 
 // Start with all description tokens, which are always included
 export const ALL_DESCRIPTION_TOKENS: string[] = [

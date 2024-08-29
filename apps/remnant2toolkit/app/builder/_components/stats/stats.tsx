@@ -3,9 +3,6 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 import { Tooltip } from '@/app/(components)/tooltip';
-import { ArmorBreakdownDialog } from '@/app/(features)/builder/components/dialogs/armor-breakdown-dialog';
-import { HealthBreakdownDialog } from '@/app/(features)/builder/components/dialogs/health-breakdown-dialog';
-import { StaminaBreakdownDialog } from '@/app/(features)/builder/components/dialogs/stamina-breakdown-dialog';
 import { BuildState } from '@/app/(features)/builds/types/build-state';
 import { getTotalArmor } from '@/app/(features)/builds/utils/get-totals/get-total-armor';
 import { getTotalHealth } from '@/app/(features)/builds/utils/get-totals/get-total-health';
@@ -14,6 +11,9 @@ import { getTotalStamina } from '@/app/(features)/builds/utils/get-totals/get-to
 import { getTotalWeight } from '@/app/(features)/builds/utils/get-totals/get-total-weight';
 import { getWeightClass } from '@/app/(features)/builds/utils/get-totals/get-weight-class';
 import { buildToVashUrl } from '@/app/(features)/builds/utils/vash-integration/build-to-vash-url';
+import { ArmorBreakdownDialog } from '@/app/builder/_components/dialogs/armor-breakdown-dialog';
+import { HealthBreakdownDialog } from '@/app/builder/_components/dialogs/health-breakdown-dialog';
+import { StaminaBreakdownDialog } from '@/app/builder/_components/dialogs/stamina-breakdown-dialog';
 
 interface Props {
   buildState: BuildState;

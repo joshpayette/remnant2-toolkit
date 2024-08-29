@@ -1,6 +1,6 @@
-import { BUILD_TAG, Prisma } from '@repo/db'
+import { BUILD_TAG, Prisma } from '@repo/db';
 
-import { ALL_BUILD_TAGS } from '@/app/(features)/builder/constants/all-build-tags'
+import { ALL_BUILD_TAGS } from '@/app/builder/_constants/all-build-tags';
 
 export function limitByBuildTagsSegment(tagValues: BUILD_TAG[]) {
   // ! Excluding this for now because it seems like we'd want to do this
@@ -21,7 +21,7 @@ export function limitByBuildTagsSegment(tagValues: BUILD_TAG[]) {
   //   `
 
   if (tagValues.length === 0) {
-    return Prisma.empty
+    return Prisma.empty;
   }
 
   if (tagValues.length === 1) {
@@ -30,7 +30,7 @@ export function limitByBuildTagsSegment(tagValues: BUILD_TAG[]) {
   FROM BuildTags
   WHERE BuildTags.buildId = Build.id
   AND BuildTags.tag = ${tagValues[0]}
-)`
+)`;
   }
 
   if (tagValues.length >= 2) {
@@ -39,7 +39,7 @@ export function limitByBuildTagsSegment(tagValues: BUILD_TAG[]) {
   FROM BuildTags
   WHERE BuildTags.buildId = Build.id
   AND BuildTags.tag IN (${Prisma.join(tagValues)})
-) = ${tagValues.length}`
+) = ${tagValues.length}`;
     //     return Prisma.sql`AND (
     //   SELECT COUNT(*)
     //   FROM BuildTags
@@ -55,7 +55,7 @@ export function buildTagsFilterToValues(buildTags: string[]): BUILD_TAG[] {
     ALL_BUILD_TAGS.some(
       (validTag) => validTag.value.toLowerCase() === tag.toLowerCase(),
     ),
-  )
+  );
 
-  return validTags as BUILD_TAG[]
+  return validTags as BUILD_TAG[];
 }

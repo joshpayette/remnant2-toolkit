@@ -1,5 +1,5 @@
-import type { TraitItem } from '@/app/(data)/items/types/TraitItem'
-import { DEFAULT_TRAIT_AMOUNT } from '@/app/(features)/builder/constants/default-trait-amount'
+import type { TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { DEFAULT_TRAIT_AMOUNT } from '@/app/builder/_constants/default-trait-amount';
 
 export const traitItems: TraitItem[] = [
   {
@@ -641,4 +641,4 @@ export const traitItems: TraitItem[] = [
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: 'Any', dungeon: 'Linked Item' },
   },
-]
+];

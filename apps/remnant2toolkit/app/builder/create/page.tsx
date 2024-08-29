@@ -5,20 +5,20 @@ import { useIsClient } from 'usehooks-ts';
 
 import { ItemTagSuggestionDialog } from '@/app/(components)/dialogs/item-tag-suggestion-dialog';
 import { PageHeader } from '@/app/(components)/page-header';
-import { BuilderContainer } from '@/app/(features)/builder/components/builder-container';
-import { ArmorCalculatorButton } from '@/app/(features)/builder/components/buttons/armor-calculator-button';
-import { DetailedViewButton } from '@/app/(features)/builder/components/buttons/detailed-view-button';
-import { GenerateBuildImageButton } from '@/app/(features)/builder/components/buttons/generate-build-image';
-import { ItemSuggestionsButton } from '@/app/(features)/builder/components/buttons/item-suggestions-button';
-import { RandomBuildButton } from '@/app/(features)/builder/components/buttons/random-build-button';
-import { SaveBuildButton } from '@/app/(features)/builder/components/buttons/save-build-button';
-import { ArmorSuggestionDialog } from '@/app/(features)/builder/components/dialogs/armor-suggestion-dialog';
-import { DetailedBuildDialog } from '@/app/(features)/builder/components/dialogs/detailed-build-dialog';
-import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dialogs/image-download-info-dialog';
 import { INITIAL_BUILD_STATE } from '@/app/(features)/builds/constants/initial-build-state';
 import { BuildState } from '@/app/(features)/builds/types/build-state';
 import { useDBBuildState } from '@/app/(features)/builds/utils/hooks/use-db-build-state';
 import { useBuildActions } from '@/app/(hooks)/use-build-actions';
+import { BuilderContainer } from '@/app/builder/_components/builder-container';
+import { ArmorCalculatorButton } from '@/app/builder/_components/buttons/armor-calculator-button';
+import { DetailedViewButton } from '@/app/builder/_components/buttons/detailed-view-button';
+import { GenerateBuildImageButton } from '@/app/builder/_components/buttons/generate-build-image';
+import { ItemSuggestionsButton } from '@/app/builder/_components/buttons/item-suggestions-button';
+import { RandomBuildButton } from '@/app/builder/_components/buttons/random-build-button';
+import { SaveBuildButton } from '@/app/builder/_components/buttons/save-build-button';
+import { ArmorSuggestionDialog } from '@/app/builder/_components/dialogs/armor-suggestion-dialog';
+import { DetailedBuildDialog } from '@/app/builder/_components/dialogs/detailed-build-dialog';
+import { ImageDownloadInfoDialog } from '@/app/builder/_components/dialogs/image-download-info-dialog';
 
 export default function Page() {
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);

@@ -7,15 +7,15 @@ import { useRef, useState } from 'react';
 import { LongUrlAlert } from '@/app/(components)/alerts/long-url-alert';
 import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button';
 import { PageHeader } from '@/app/(components)/page-header';
-import { BuilderContainer } from '@/app/(features)/builder/components/builder-container';
-import { DetailedViewButton } from '@/app/(features)/builder/components/buttons/detailed-view-button';
-import { GenerateBuildImageButton } from '@/app/(features)/builder/components/buttons/generate-build-image';
-import { SaveBuildButton } from '@/app/(features)/builder/components/buttons/save-build-button';
-import { ShareBuildButton } from '@/app/(features)/builder/components/buttons/share-build-button';
-import { DetailedBuildDialog } from '@/app/(features)/builder/components/dialogs/detailed-build-dialog';
-import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dialogs/image-download-info-dialog';
 import { useUrlBuildState } from '@/app/(features)/builds/utils/hooks/use-url-build-state';
 import { useBuildActions } from '@/app/(hooks)/use-build-actions';
+import { BuilderContainer } from '@/app/builder/_components/builder-container';
+import { DetailedViewButton } from '@/app/builder/_components/buttons/detailed-view-button';
+import { GenerateBuildImageButton } from '@/app/builder/_components/buttons/generate-build-image';
+import { SaveBuildButton } from '@/app/builder/_components/buttons/save-build-button';
+import { ShareBuildButton } from '@/app/builder/_components/buttons/share-build-button';
+import { DetailedBuildDialog } from '@/app/builder/_components/dialogs/detailed-build-dialog';
+import { ImageDownloadInfoDialog } from '@/app/builder/_components/dialogs/image-download-info-dialog';
 
 export default function Page() {
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);

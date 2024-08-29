@@ -1,4 +1,4 @@
-import type { BuildTag } from '@/app/(features)/builder/types/build-tag'
+import { type BuildTag } from '@/app/builder/_types/build-tag';
 
 export const ALL_BUILD_TAGS: BuildTag[] = [
   {
@@ -64,4 +64,4 @@ export const ALL_BUILD_TAGS: BuildTag[] = [
       text: 'text-red-700 dark:text-red-500',
     },
   },
-]
+];

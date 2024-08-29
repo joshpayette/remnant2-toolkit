@@ -19,8 +19,8 @@ import { MdOutlineGeneratingTokens } from 'react-icons/md';
 
 import { BuildDescriptionTemplateAlert } from '@/app/(components)/alerts/build-description-template-alert';
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens';
-import { DescriptionTokenDialog } from '@/app/(features)/builder/components/dialogs/description-token-dialog';
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(features)/builds/constants/max-build-description-length';
+import { DescriptionTokenDialog } from '@/app/builder/_components/dialogs/description-token-dialog';
 
 import { BuildTagsDisplay } from './build-tags/build-tags-display';
 

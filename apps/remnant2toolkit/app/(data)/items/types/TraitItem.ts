@@ -1,111 +1,111 @@
-import { BuildItems } from '@repo/db'
+import { BuildItems } from '@repo/db';
 
-import { archetypeItems } from '@/app/(data)/items/archetype-items'
-import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
-import { traitItems } from '@/app/(data)/items/trait-items'
-import { Item } from '@/app/(data)/items/types'
-import { BaseItem } from '@/app/(data)/items/types/BaseItem'
-import { DEFAULT_TRAIT_AMOUNT } from '@/app/(features)/builder/constants/default-trait-amount'
+import { archetypeItems } from '@/app/(data)/items/archetype-items';
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants';
+import { traitItems } from '@/app/(data)/items/trait-items';
+import { Item } from '@/app/(data)/items/types';
+import { BaseItem } from '@/app/(data)/items/types/BaseItem';
+import { DEFAULT_TRAIT_AMOUNT } from '@/app/builder/_constants/default-trait-amount';
 
-const allItems = [...traitItems, ...archetypeItems]
+const allItems = [...traitItems, ...archetypeItems];
 
 interface BaseTraitItem extends BaseItem {
-  amount: number
-  type: 'archetype' | 'core' | 'trait'
-  inGameOrder: number // the positioning of the trait in the game
-  elementalResistanceStep?: number // The amount to increase the elemental resistance per level
-  elementalResistanceStepPercent?: number // The percentage to increase the elemental resistance per level
-  elementalResistanceThresholds?: number[] // The elemental resistance thresholds for the elemental resistance step
-  healthStep?: number // The amount to increase the health per level
-  healthStepPercent?: number // The percentage to increase the health per level
-  staminaStep?: number // The amount to increase the stamina per level
-  staminaStepPercent?: number // The percentage to increase the stamina per level
-  armorStep?: number // The amount to increase the armor per level
-  armorStepPercent?: number // The percentage to increase the armor per level
-  weightStep?: number // The amount to increase the weight per level
-  weightStepPercent?: number // The percentage to increase the weight per level
-  weightThresholds?: number[] // The weight thresholds for the weight step
+  amount: number;
+  type: 'archetype' | 'core' | 'trait';
+  inGameOrder: number; // the positioning of the trait in the game
+  elementalResistanceStep?: number; // The amount to increase the elemental resistance per level
+  elementalResistanceStepPercent?: number; // The percentage to increase the elemental resistance per level
+  elementalResistanceThresholds?: number[]; // The elemental resistance thresholds for the elemental resistance step
+  healthStep?: number; // The amount to increase the health per level
+  healthStepPercent?: number; // The percentage to increase the health per level
+  staminaStep?: number; // The amount to increase the stamina per level
+  staminaStepPercent?: number; // The percentage to increase the stamina per level
+  armorStep?: number; // The amount to increase the armor per level
+  armorStepPercent?: number; // The percentage to increase the armor per level
+  weightStep?: number; // The amount to increase the weight per level
+  weightStepPercent?: number; // The percentage to increase the weight per level
+  weightThresholds?: number[]; // The weight thresholds for the weight step
 }
 
 export class TraitItem extends BaseItem implements BaseTraitItem {
-  public category: BaseTraitItem['category'] = 'trait'
-  public type: BaseTraitItem['type'] = 'trait'
-  public inGameOrder: BaseTraitItem['inGameOrder'] = 0
-  public amount: BaseTraitItem['amount'] = DEFAULT_TRAIT_AMOUNT
-  public elementalResistanceStep?: BaseTraitItem['elementalResistanceStep'] = 0
-  public elementalResistanceStepPercent?: BaseTraitItem['elementalResistanceStepPercent'] = 0
+  public category: BaseTraitItem['category'] = 'trait';
+  public type: BaseTraitItem['type'] = 'trait';
+  public inGameOrder: BaseTraitItem['inGameOrder'] = 0;
+  public amount: BaseTraitItem['amount'] = DEFAULT_TRAIT_AMOUNT;
+  public elementalResistanceStep?: BaseTraitItem['elementalResistanceStep'] = 0;
+  public elementalResistanceStepPercent?: BaseTraitItem['elementalResistanceStepPercent'] = 0;
   public elementalResistanceThresholds?: BaseTraitItem['elementalResistanceThresholds'] =
-    []
-  public healthStep?: BaseTraitItem['healthStep'] = 0
-  public healthStepPercent?: BaseTraitItem['healthStepPercent'] = 0
-  public staminaStep?: BaseTraitItem['staminaStep'] = 0
-  public staminaStepPercent?: BaseTraitItem['staminaStepPercent'] = 0
-  public armorStep?: BaseTraitItem['armorStep'] = 0
-  public weightStep?: BaseTraitItem['weightStep'] = 0
-  public armorStepPercent?: BaseTraitItem['armorStepPercent'] = 0
-  public weightThresholds?: BaseTraitItem['weightThresholds'] = []
-  public weightStepPercent?: BaseTraitItem['weightStepPercent'] = 0
+    [];
+  public healthStep?: BaseTraitItem['healthStep'] = 0;
+  public healthStepPercent?: BaseTraitItem['healthStepPercent'] = 0;
+  public staminaStep?: BaseTraitItem['staminaStep'] = 0;
+  public staminaStepPercent?: BaseTraitItem['staminaStepPercent'] = 0;
+  public armorStep?: BaseTraitItem['armorStep'] = 0;
+  public weightStep?: BaseTraitItem['weightStep'] = 0;
+  public armorStepPercent?: BaseTraitItem['armorStepPercent'] = 0;
+  public weightThresholds?: BaseTraitItem['weightThresholds'] = [];
+  public weightStepPercent?: BaseTraitItem['weightStepPercent'] = 0;
 
   constructor(props: BaseTraitItem) {
-    super(props)
-    this.amount = props.amount
-    this.type = props.type
-    this.inGameOrder = props.inGameOrder
-    this.elementalResistanceStep = props.elementalResistanceStep
-    this.elementalResistanceStepPercent = props.elementalResistanceStepPercent
-    this.elementalResistanceThresholds = props.elementalResistanceThresholds
-    this.healthStep = props.healthStep
-    this.healthStepPercent = props.healthStepPercent
-    this.staminaStep = props.staminaStep
-    this.staminaStepPercent = props.staminaStepPercent
-    this.armorStep = props.armorStep
-    this.armorStepPercent = props.armorStepPercent
-    this.weightStep = props.weightStep
-    this.weightStepPercent = props.weightStepPercent
-    this.weightThresholds = props.weightThresholds
+    super(props);
+    this.amount = props.amount;
+    this.type = props.type;
+    this.inGameOrder = props.inGameOrder;
+    this.elementalResistanceStep = props.elementalResistanceStep;
+    this.elementalResistanceStepPercent = props.elementalResistanceStepPercent;
+    this.elementalResistanceThresholds = props.elementalResistanceThresholds;
+    this.healthStep = props.healthStep;
+    this.healthStepPercent = props.healthStepPercent;
+    this.staminaStep = props.staminaStep;
+    this.staminaStepPercent = props.staminaStepPercent;
+    this.armorStep = props.armorStep;
+    this.armorStepPercent = props.armorStepPercent;
+    this.weightStep = props.weightStep;
+    this.weightStepPercent = props.weightStepPercent;
+    this.weightThresholds = props.weightThresholds;
   }
 
   public static isTraitItem = (item?: Item): item is TraitItem => {
-    if (!item) return false
-    return item.category === 'trait'
-  }
+    if (!item) return false;
+    return item.category === 'trait';
+  };
 
   static toParams(
     items: Array<{
-      id: BaseTraitItem['id']
-      amount: number
-      optional?: boolean
+      id: BaseTraitItem['id'];
+      amount: number;
+      optional?: boolean;
     }>,
   ): string[] {
     return items.map((i) => {
-      if (!i || !i.id) return ''
+      if (!i || !i.id) return '';
       return i.optional
         ? `${i.id}${OPTIONAL_ITEM_SYMBOL};${i.amount}`
-        : `${i.id};${i.amount}`
-    })
+        : `${i.id};${i.amount}`;
+    });
   }
 
   static fromParams(params: string): TraitItem[] {
-    const itemIds = params.split(',')
-    if (!itemIds) return []
+    const itemIds = params.split(',');
+    if (!itemIds) return [];
 
-    const items: TraitItem[] = []
+    const items: TraitItem[] = [];
     itemIds.forEach((itemId, _index) => {
       // We need to split the trait id at the ; to get the amount
-      const [originalTraitId, amount] = itemId.split(';')
+      const [originalTraitId, amount] = itemId.split(';');
 
-      if (!originalTraitId) return
+      if (!originalTraitId) return;
 
-      const optional = originalTraitId.includes(OPTIONAL_ITEM_SYMBOL)
-      const traitId = originalTraitId.replace(OPTIONAL_ITEM_SYMBOL, '')
+      const optional = originalTraitId.includes(OPTIONAL_ITEM_SYMBOL);
+      const traitId = originalTraitId.replace(OPTIONAL_ITEM_SYMBOL, '');
 
-      const item = traitItems.find((i) => i.id === traitId)
-      if (!item) return []
+      const item = traitItems.find((i) => i.id === traitId);
+      if (!item) return [];
 
-      let validAmount = amount ? Number(amount) : DEFAULT_TRAIT_AMOUNT
-      if (isNaN(validAmount)) validAmount = DEFAULT_TRAIT_AMOUNT
-      if (validAmount < 1) validAmount = DEFAULT_TRAIT_AMOUNT
-      if (validAmount > 10) validAmount = DEFAULT_TRAIT_AMOUNT
+      let validAmount = amount ? Number(amount) : DEFAULT_TRAIT_AMOUNT;
+      if (isNaN(validAmount)) validAmount = DEFAULT_TRAIT_AMOUNT;
+      if (validAmount < 1) validAmount = DEFAULT_TRAIT_AMOUNT;
+      if (validAmount > 10) validAmount = DEFAULT_TRAIT_AMOUNT;
 
       if (TraitItem.isTraitItem(item)) {
         items.push(
@@ -138,22 +138,22 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
             weightStepPercent: item.weightStepPercent ?? 0,
             weightThresholds: item.weightThresholds ?? [],
           }),
-        )
+        );
       }
-    })
-    return items
+    });
+    return items;
   }
 
   static fromDBValue(
     buildItems: Array<BuildItems & { isOwned?: boolean }>,
   ): Array<TraitItem & { isOwned?: boolean }> {
-    if (!buildItems) return []
+    if (!buildItems) return [];
 
-    const traitValues: Array<TraitItem> = []
-    const archtypeValues: Array<BaseItem> = []
+    const traitValues: Array<TraitItem> = [];
+    const archtypeValues: Array<BaseItem> = [];
     for (const buildItem of buildItems) {
-      const item = allItems.find((i) => i.id === buildItem.itemId)
-      if (!item) continue
+      const item = allItems.find((i) => i.id === buildItem.itemId);
+      if (!item) continue;
       if (item.category === 'archetype') {
         // insert the archtype at the index
         buildItem.index
@@ -164,13 +164,13 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
           : archtypeValues.push({
               ...item,
               optional: buildItem.optional,
-            })
-        continue
+            });
+        continue;
       }
       const traitItem = {
         ...item,
         amount: buildItem.amount,
-      } as TraitItem
+      } as TraitItem;
       buildItem.index
         ? (traitValues[buildItem.index] = {
             ...traitItem,
@@ -179,54 +179,54 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
         : traitValues.push({
             ...traitItem,
             optional: buildItem.optional,
-          })
+          });
     }
 
-    const newTraitItems: TraitItem[] = []
-    const primaryTraits: TraitItem[] = []
+    const newTraitItems: TraitItem[] = [];
+    const primaryTraits: TraitItem[] = [];
 
     // Add the archtype items to the trait items
     for (let i = 0; i < archtypeValues.length; i++) {
-      const archtypeItem = archtypeValues[i]
-      if (!archtypeItem) continue
+      const archtypeItem = archtypeValues[i];
+      if (!archtypeItem) continue;
 
       // if the archtype is primary, get all linked items
       // if the archtype is secondary, get only the main trait
       const linkedTraits =
         i === 0
           ? archtypeItem.linkedItems?.traits
-          : archtypeItem.linkedItems?.traits?.filter((t) => t.amount === 10)
-      if (!linkedTraits) continue
+          : archtypeItem.linkedItems?.traits?.filter((t) => t.amount === 10);
+      if (!linkedTraits) continue;
 
       for (const linkedTrait of linkedTraits) {
-        const traitItem = traitValues.find((i) => i.name === linkedTrait.name)
-        if (!traitItem) continue
+        const traitItem = traitValues.find((i) => i.name === linkedTrait.name);
+        if (!traitItem) continue;
 
         if (linkedTrait.amount === 10) {
-          primaryTraits.push(traitItem)
+          primaryTraits.push(traitItem);
         }
 
         // if traititem not already in newTraitItems, add it
         if (!newTraitItems.find((i) => i.name === traitItem.name)) {
-          newTraitItems.push(traitItem)
+          newTraitItems.push(traitItem);
         }
       }
     }
 
-    const sortedTraitItems = [...newTraitItems]
+    const sortedTraitItems = [...newTraitItems];
 
     // All non-archetype linked traits
     const remainingTraits = traitValues.filter(
       (i) => !newTraitItems.find((j) => j.name === i.name),
-    )
+    );
 
     // Add the remaining traits to the end of the array
     for (const remainingTrait of remainingTraits) {
-      sortedTraitItems.push(remainingTrait)
+      sortedTraitItems.push(remainingTrait);
     }
 
     // Alphabetize the traits by inGameOrder
-    sortedTraitItems.sort((a, b) => a.inGameOrder - b.inGameOrder)
+    sortedTraitItems.sort((a, b) => a.inGameOrder - b.inGameOrder);
 
     // Traits should be ordered by type:
     // 1. Archetype
@@ -237,23 +237,23 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
         .filter((i) => i.type === 'archetype')
         .map((i) => {
           const isOwned =
-            buildItems.find((j) => j.itemId === i.id)?.isOwned || false
-          return { ...i, isOwned }
+            buildItems.find((j) => j.itemId === i.id)?.isOwned || false;
+          return { ...i, isOwned };
         }),
       ...sortedTraitItems
         .filter((i) => i.type === 'core')
         .map((i) => {
           const isOwned =
-            buildItems.find((j) => j.itemId === i.id)?.isOwned || false
-          return { ...i, isOwned }
+            buildItems.find((j) => j.itemId === i.id)?.isOwned || false;
+          return { ...i, isOwned };
         }),
       ...sortedTraitItems
         .filter((i) => i.type === 'trait')
         .map((i) => {
           const isOwned =
-            buildItems.find((j) => j.itemId === i.id)?.isOwned || false
-          return { ...i, isOwned }
+            buildItems.find((j) => j.itemId === i.id)?.isOwned || false;
+          return { ...i, isOwned };
         }),
-    ]
+    ];
   }
 }

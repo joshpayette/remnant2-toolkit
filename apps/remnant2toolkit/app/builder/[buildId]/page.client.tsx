@@ -9,23 +9,6 @@ import { toast } from 'react-toastify';
 import { useLocalStorage } from 'usehooks-ts';
 
 import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button';
-import { BuilderContainer } from '@/app/(features)/builder/components/builder-container';
-import { DeleteBuildButton } from '@/app/(features)/builder/components/buttons/delete-build-button';
-import { DetailedViewButton } from '@/app/(features)/builder/components/buttons/detailed-view-button';
-import { DuplicateBuildButton } from '@/app/(features)/builder/components/buttons/duplicate-build-button';
-import { EditBuildButton } from '@/app/(features)/builder/components/buttons/edit-build-button';
-import { FavoriteBuildButton } from '@/app/(features)/builder/components/buttons/favorite-build-button';
-import { GenerateBuildImageButton } from '@/app/(features)/builder/components/buttons/generate-build-image';
-import { ItemOwnershipPreferenceButton } from '@/app/(features)/builder/components/buttons/item-ownership-preference-button';
-import { LoadoutManagementButton } from '@/app/(features)/builder/components/buttons/loadout-management-button';
-import { ModeratorToolsButton } from '@/app/(features)/builder/components/buttons/moderator-tools-button';
-import { NewLinkedBuildButton } from '@/app/(features)/builder/components/buttons/new-linked-build-button';
-import { ShareBuildButton } from '@/app/(features)/builder/components/buttons/share-build-button';
-import { ViewLinkedBuildButton } from '@/app/(features)/builder/components/buttons/view-linked-builds';
-import { DetailedBuildDialog } from '@/app/(features)/builder/components/dialogs/detailed-build-dialog';
-import { FavoriteBuildDialog } from '@/app/(features)/builder/components/dialogs/favorite-build-dialog';
-import { ImageDownloadInfoDialog } from '@/app/(features)/builder/components/dialogs/image-download-info-dialog';
-import { VideoThumbnail } from '@/app/(features)/builder/components/video-thumbnail';
 import { incrementViewCount } from '@/app/(features)/builds/actions/increment-view-count';
 import { ModeratorBuildToolsDialog } from '@/app/(features)/builds/admin/components/dialogs/moderator-build-tools-dialog';
 import { DBBuild } from '@/app/(features)/builds/types/db-build';
@@ -40,6 +23,23 @@ import {
   ItemOwnershipPreference,
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage';
+import { BuilderContainer } from '@/app/builder/_components/builder-container';
+import { DeleteBuildButton } from '@/app/builder/_components/buttons/delete-build-button';
+import { DetailedViewButton } from '@/app/builder/_components/buttons/detailed-view-button';
+import { DuplicateBuildButton } from '@/app/builder/_components/buttons/duplicate-build-button';
+import { EditBuildButton } from '@/app/builder/_components/buttons/edit-build-button';
+import { FavoriteBuildButton } from '@/app/builder/_components/buttons/favorite-build-button';
+import { GenerateBuildImageButton } from '@/app/builder/_components/buttons/generate-build-image';
+import { ItemOwnershipPreferenceButton } from '@/app/builder/_components/buttons/item-ownership-preference-button';
+import { LoadoutManagementButton } from '@/app/builder/_components/buttons/loadout-management-button';
+import { ModeratorToolsButton } from '@/app/builder/_components/buttons/moderator-tools-button';
+import { NewLinkedBuildButton } from '@/app/builder/_components/buttons/new-linked-build-button';
+import { ShareBuildButton } from '@/app/builder/_components/buttons/share-build-button';
+import { ViewLinkedBuildButton } from '@/app/builder/_components/buttons/view-linked-builds';
+import { DetailedBuildDialog } from '@/app/builder/_components/dialogs/detailed-build-dialog';
+import { FavoriteBuildDialog } from '@/app/builder/_components/dialogs/favorite-build-dialog';
+import { ImageDownloadInfoDialog } from '@/app/builder/_components/dialogs/image-download-info-dialog';
+import { VideoThumbnail } from '@/app/builder/_components/video-thumbnail';
 
 interface Props {
   build: DBBuild;

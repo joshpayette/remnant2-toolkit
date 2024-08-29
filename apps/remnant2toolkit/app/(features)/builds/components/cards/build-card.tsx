@@ -15,11 +15,6 @@ import { isValidYoutubeUrl } from '@repo/utils';
 
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens';
 import { Tooltip } from '@/app/(components)/tooltip';
-import { ArchetypeLabel } from '@/app/(features)/builder/components/archetype-label';
-import { FeaturedBuildBadge } from '@/app/(features)/builder/components/badges/featured-build-badge';
-import { NewBuildBadge } from '@/app/(features)/builder/components/badges/new-build-badge';
-import { PopularBuildBadge } from '@/app/(features)/builder/components/badges/popular-build-badge';
-import { BuildTagsDisplay } from '@/app/(features)/builder/components/build-tags/build-tags-display';
 import { DBBuild } from '@/app/(features)/builds/types/db-build';
 import { buildHasFeaturedBadge } from '@/app/(features)/builds/utils/build-has-featured-badge';
 import { dbBuildToBuildState } from '@/app/(features)/builds/utils/db-build-to-build-state';
@@ -30,6 +25,11 @@ import {
 } from '@/app/(features)/builds/utils/get-archetype-combo-name';
 import { isBuildNew } from '@/app/(features)/builds/utils/is-build-new';
 import { isBuildPopular } from '@/app/(features)/builds/utils/is-build-popular';
+import { ArchetypeLabel } from '@/app/builder/_components/archetype-label';
+import { FeaturedBuildBadge } from '@/app/builder/_components/badges/featured-build-badge';
+import { NewBuildBadge } from '@/app/builder/_components/badges/new-build-badge';
+import { PopularBuildBadge } from '@/app/builder/_components/badges/popular-build-badge';
+import { BuildTagsDisplay } from '@/app/builder/_components/build-tags/build-tags-display';
 
 interface Props {
   build: DBBuild;

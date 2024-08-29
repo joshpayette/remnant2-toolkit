@@ -13,11 +13,6 @@ import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants';
 import { perkItems } from '@/app/(data)/items/perk-items';
 import { Item } from '@/app/(data)/items/types';
 import { TraitItem } from '@/app/(data)/items/types/TraitItem';
-import { FeaturedBuildBadge } from '@/app/(features)/builder/components/badges/featured-build-badge';
-import { NewBuildBadge } from '@/app/(features)/builder/components/badges/new-build-badge';
-import { PopularBuildBadge } from '@/app/(features)/builder/components/badges/popular-build-badge';
-import { DEFAULT_TRAIT_AMOUNT } from '@/app/(features)/builder/constants/default-trait-amount';
-import { MAX_BUILD_TAGS } from '@/app/(features)/builder/constants/max-build-tags';
 import { BuildState } from '@/app/(features)/builds/types/build-state';
 import { ItemCategory } from '@/app/(features)/builds/types/item-category';
 import { buildHasFeaturedBadge } from '@/app/(features)/builds/utils/build-has-featured-badge';
@@ -30,6 +25,11 @@ import { getConcoctionSlotCount } from '@/app/(features)/builds/utils/get-concoc
 import { getItemListForSlot } from '@/app/(features)/builds/utils/get-item-list-for-slot';
 import { isBuildNew } from '@/app/(features)/builds/utils/is-build-new';
 import { isBuildPopular } from '@/app/(features)/builds/utils/is-build-popular';
+import { FeaturedBuildBadge } from '@/app/builder/_components/badges/featured-build-badge';
+import { NewBuildBadge } from '@/app/builder/_components/badges/new-build-badge';
+import { PopularBuildBadge } from '@/app/builder/_components/badges/popular-build-badge';
+import { DEFAULT_TRAIT_AMOUNT } from '@/app/builder/_constants/default-trait-amount';
+import { MAX_BUILD_TAGS } from '@/app/builder/_constants/max-build-tags';
 
 import { MemberFeatures } from './member-features';
 import { Stats } from './stats/stats';

@@ -6,9 +6,9 @@ import { TbHttpOptions } from 'react-icons/tb';
 import { Tooltip } from '@/app/(components)/tooltip';
 import { Item } from '@/app/(data)/items/types';
 import { TraitItem } from '@/app/(data)/items/types/TraitItem';
-import { DEFAULT_TRAIT_AMOUNT } from '@/app/(features)/builder/constants/default-trait-amount';
-import { MAX_TRAIT_AMOUNT } from '@/app/(features)/builder/constants/max-trait-amount';
 import { BuildState } from '@/app/(features)/builds/types/build-state';
+import { DEFAULT_TRAIT_AMOUNT } from '@/app/builder/_constants/default-trait-amount';
+import { MAX_TRAIT_AMOUNT } from '@/app/builder/_constants/max-trait-amount';
 
 export function Traits({
   buildState,
