@@ -9,12 +9,12 @@ import { useIsClient } from 'usehooks-ts';
 import { v4 as uuidv4 } from 'uuid';
 
 import { DEFAULT_ITEM_LOOKUP_FILTERS } from '@/app/(components)/filters/item-lookup/item-lookup-filters';
-import { ItemLookupFilters } from '@/app/(components)/filters/item-lookup/types';
+import { type ItemLookupFilters } from '@/app/(components)/filters/item-lookup/types';
 import { parseUrlFilters } from '@/app/(components)/filters/item-lookup/utils';
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
 import { MasonryItemList } from '@/app/(components)/masonry-item-list';
 import { allItems } from '@/app/(data)/items/all-items';
-import { Item } from '@/app/(data)/items/types';
+import { type Item } from '@/app/(data)/items/types';
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem';
 import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem';
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem';

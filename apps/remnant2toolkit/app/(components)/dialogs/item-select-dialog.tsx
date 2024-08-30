@@ -10,13 +10,13 @@ import { capitalize } from '@repo/utils';
 import { useCallback, useEffect, useState } from 'react';
 import { useDebounceValue, useLocalStorage } from 'usehooks-ts';
 
+import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { ItemButton } from '@/app/(components)/buttons/item-button';
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
 import { ItemSearchText } from '@/app/(components)/filters/item-lookup/item-search-text';
-import { Item } from '@/app/(data)/items/types';
-import { TraitItem } from '@/app/(data)/items/types/TraitItem';
-import { ItemCategory } from '@/app/(features)/builds/types/item-category';
-import { SortingPreference } from '@/app/(types)/localstorage';
+import { type Item } from '@/app/(data)/items/types';
+import { type TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { type SortingPreference } from '@/app/(types)/localstorage';
 import { ITEM_TOKENS } from '@/app/(types)/tokens';
 import { itemMatchesSearchText } from '@/app/(utils)/items/item-matches-search-text';
 

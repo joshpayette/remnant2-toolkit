@@ -2,7 +2,7 @@
 import { type Build, prisma } from '@repo/db';
 
 import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile';
-import type { LinkedBuildState } from '@/app/(types)/linked-builds';
+import { type LinkedBuildState } from '@/app/(types)/linked-builds';
 
 export default async function getLinkedBuilds({
   buildId,

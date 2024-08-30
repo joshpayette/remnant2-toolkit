@@ -3,49 +3,49 @@
 import { Prisma, prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
-import { BuildVisibility } from '@/app/(features)/builds/filters/secondary-filters/build-visibility-filter/use-build-visibility-filter';
-import { OrderBy } from '@/app/(features)/builds/filters/secondary-filters/order-by-filter/use-order-by-filter';
-import { TimeRange } from '@/app/(features)/builds/filters/secondary-filters/time-range-filter/use-time-range-filter';
-import { BuildListFilters } from '@/app/(features)/builds/filters/types';
-import { DBBuild } from '@/app/(features)/builds/types/db-build';
+import { type BuildVisibility } from '@/app/(builds)/_components/filters/secondary-filters/build-visibility-filter/use-build-visibility-filter';
+import { type OrderBy } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
+import { type TimeRange } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
+import { type BuildListFilters } from '@/app/(builds)/_components/filters/types';
 import {
   communityBuildsCountQuery,
   communityBuildsQuery,
-} from '@/app/(queries)/build-filters/community-builds';
-import { getOrderBySegment } from '@/app/(queries)/build-filters/segments/get-order-by';
+} from '@/app/(builds)/_queries/build-filters/community-builds';
+import { getOrderBySegment } from '@/app/(builds)/_queries/build-filters/segments/get-order-by';
 import {
   amuletFilterToId,
   limitByAmuletSegment,
-} from '@/app/(queries)/build-filters/segments/limit-by-amulet';
+} from '@/app/(builds)/_queries/build-filters/segments/limit-by-amulet';
 import {
   archetypeFiltersToIds,
   limitByArchetypesSegment,
-} from '@/app/(queries)/build-filters/segments/limit-by-archetypes';
+} from '@/app/(builds)/_queries/build-filters/segments/limit-by-archetypes';
 import {
   buildTagsFilterToValues,
   limitByBuildTagsSegment,
-} from '@/app/(queries)/build-filters/segments/limit-by-build-tags';
-import { limitByCollectionSegment } from '@/app/(queries)/build-filters/segments/limit-by-collection';
-import { limitByFeatured } from '@/app/(queries)/build-filters/segments/limit-by-featured';
-import { limitByPatchAffected } from '@/app/(queries)/build-filters/segments/limit-by-patch-affected';
-import { limitToQualityBuilds } from '@/app/(queries)/build-filters/segments/limit-by-quality';
-import { limitByReferenceLink } from '@/app/(queries)/build-filters/segments/limit-by-reference-link';
-import { limitByReleasesSegment } from '@/app/(queries)/build-filters/segments/limit-by-release';
+} from '@/app/(builds)/_queries/build-filters/segments/limit-by-build-tags';
+import { limitByCollectionSegment } from '@/app/(builds)/_queries/build-filters/segments/limit-by-collection';
+import { limitByFeatured } from '@/app/(builds)/_queries/build-filters/segments/limit-by-featured';
+import { limitByPatchAffected } from '@/app/(builds)/_queries/build-filters/segments/limit-by-patch-affected';
+import { limitToQualityBuilds } from '@/app/(builds)/_queries/build-filters/segments/limit-by-quality';
+import { limitByReferenceLink } from '@/app/(builds)/_queries/build-filters/segments/limit-by-reference-link';
+import { limitByReleasesSegment } from '@/app/(builds)/_queries/build-filters/segments/limit-by-release';
 import {
   limitByRelicSegment,
   relicFilterToId,
-} from '@/app/(queries)/build-filters/segments/limit-by-relic';
+} from '@/app/(builds)/_queries/build-filters/segments/limit-by-relic';
 import {
   limitByRingsSegment,
   ringsFilterToIds,
-} from '@/app/(queries)/build-filters/segments/limit-by-rings';
-import { limitByTimeConditionSegment } from '@/app/(queries)/build-filters/segments/limit-by-time-condition';
-import { limitToBuildsWithVideo } from '@/app/(queries)/build-filters/segments/limit-by-video';
+} from '@/app/(builds)/_queries/build-filters/segments/limit-by-rings';
+import { limitByTimeConditionSegment } from '@/app/(builds)/_queries/build-filters/segments/limit-by-time-condition';
+import { limitToBuildsWithVideo } from '@/app/(builds)/_queries/build-filters/segments/limit-by-video';
 import {
   limitByWeaponsSegment,
   weaponFiltersToIds,
-} from '@/app/(queries)/build-filters/segments/limit-by-weapons';
-import { PaginationResponse } from '@/app/(utils)/pagination/use-pagination';
+} from '@/app/(builds)/_queries/build-filters/segments/limit-by-weapons';
+import { type DBBuild } from '@/app/(builds)/_types/db-build';
+import { type PaginationResponse } from '@/app/(utils)/pagination/use-pagination';
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes';
 

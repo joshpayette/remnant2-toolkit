@@ -1,6 +1,6 @@
-import 'tippy.js/dist/tippy.css'
+import 'tippy.js/dist/tippy.css';
 
-import Tippy, { TippyProps } from '@tippyjs/react'
+import Tippy, { type TippyProps } from '@tippyjs/react';
 
 export function Tooltip({
   arrow = true,
@@ -22,5 +22,5 @@ export function Tooltip({
     >
       {children}
     </Tippy>
-  )
+  );
 }

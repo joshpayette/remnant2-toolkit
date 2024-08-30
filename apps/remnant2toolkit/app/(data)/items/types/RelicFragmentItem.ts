@@ -1,9 +1,9 @@
-import { BuildItems } from '@repo/db'
+import { type BuildItems } from '@repo/db';
 
-import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants'
-import { relicFragmentItems } from '@/app/(data)/items/relic-fragment-items'
-import { Item } from '@/app/(data)/items/types'
-import { BaseItem } from '@/app/(data)/items/types/BaseItem'
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants';
+import { relicFragmentItems } from '@/app/(data)/items/relic-fragment-items';
+import { type Item } from '@/app/(data)/items/types';
+import { BaseItem } from '@/app/(data)/items/types/BaseItem';
 
 interface BaseRelicFragmentItem extends BaseItem {}
 
@@ -11,56 +11,56 @@ export class RelicFragmentItem
   extends BaseItem
   implements BaseRelicFragmentItem
 {
-  public category: BaseRelicFragmentItem['category'] = 'relicfragment'
+  public category: BaseRelicFragmentItem['category'] = 'relicfragment';
 
   constructor(props: BaseRelicFragmentItem) {
-    super(props)
+    super(props);
   }
 
   public static isRelicFragmentItem = (
     item?: Item,
   ): item is RelicFragmentItem => {
-    if (!item) return false
-    return item.category === 'relicfragment'
-  }
+    if (!item) return false;
+    return item.category === 'relicfragment';
+  };
 
   static toParams(items: Array<RelicFragmentItem | null>): string[] {
     return items.map((i) => {
-      if (!i || !i.id) return ''
-      return i.optional ? `${i.id}${OPTIONAL_ITEM_SYMBOL}` : i.id
-    })
+      if (!i || !i.id) return '';
+      return i.optional ? `${i.id}${OPTIONAL_ITEM_SYMBOL}` : i.id;
+    });
   }
 
   static fromParams(params: string): RelicFragmentItem[] | null {
-    const itemIds = params.split(',')
-    if (!itemIds) return null
+    const itemIds = params.split(',');
+    if (!itemIds) return null;
 
-    const items: RelicFragmentItem[] = []
+    const items: RelicFragmentItem[] = [];
     itemIds.forEach((itemId, index) => {
-      const optional = itemId.includes(OPTIONAL_ITEM_SYMBOL)
-      itemId = itemId.replace(OPTIONAL_ITEM_SYMBOL, '')
+      const optional = itemId.includes(OPTIONAL_ITEM_SYMBOL);
+      itemId = itemId.replace(OPTIONAL_ITEM_SYMBOL, '');
 
-      const item = relicFragmentItems.find((i) => i.id === itemId)
-      if (!item) return
-      items[index] = optional ? { ...item, optional } : item
-    })
+      const item = relicFragmentItems.find((i) => i.id === itemId);
+      if (!item) return;
+      items[index] = optional ? { ...item, optional } : item;
+    });
 
-    if (items.length === 0) return null
+    if (items.length === 0) return null;
 
-    return items
+    return items;
   }
 
   static fromDBValue(
     buildItems: Array<BuildItems & { isOwned?: boolean }>,
   ): Array<(RelicFragmentItem & { isOwned?: boolean }) | null> {
-    if (!buildItems) return []
+    if (!buildItems) return [];
 
     const relicFragmentValues: Array<
       (RelicFragmentItem & { isOwned?: boolean }) | null
-    > = []
+    > = [];
     for (const buildItem of buildItems) {
-      const item = relicFragmentItems.find((i) => i.id === buildItem.itemId)
-      if (!item) continue
+      const item = relicFragmentItems.find((i) => i.id === buildItem.itemId);
+      if (!item) continue;
       buildItem.index
         ? (relicFragmentValues[buildItem.index] = {
             ...item,
@@ -71,9 +71,9 @@ export class RelicFragmentItem
             ...item,
             optional: buildItem.optional,
             isOwned: buildItem.isOwned,
-          })
+          });
     }
 
-    return relicFragmentValues
+    return relicFragmentValues;
   }
 }

@@ -19,13 +19,13 @@ import {
   getFilteredItemsForCategory,
   parseUrlFilters,
 } from '@/app/(components)/filters/item-tracker/utils';
-import { Item } from '@/app/(data)/items/types';
+import { type Item } from '@/app/(data)/items/types';
 import {
-  ItemTrackerLocalStorage,
+  type ItemTrackerLocalStorage,
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage';
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants';
-import { ItemTrackerCategory } from '@/app/tracker/types';
+import { type ItemTrackerCategory } from '@/app/tracker/types';
 
 interface Props {
   discoveredItemIds: string[];

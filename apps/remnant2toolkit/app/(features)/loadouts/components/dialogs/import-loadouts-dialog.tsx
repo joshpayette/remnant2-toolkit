@@ -14,10 +14,10 @@ import {
   BaseListboxOption,
 } from '@repo/ui';
 import { getArrayOfLength } from '@repo/utils';
-import type React from 'react';
+import React from 'react';
 
+import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import LocatingProfileSav from '@/app/(components)/dialogs/partial/locating-profile-sav';
-import { DBBuild } from '@/app/(features)/builds/types/db-build';
 import { ImportSaveSubmitButton } from '@/app/tracker/import-save-submit-button';
 
 interface Props {

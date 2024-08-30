@@ -10,15 +10,15 @@ import {
 } from '@repo/ui';
 import { useEffect, useState } from 'react';
 
+import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { ArmorSuggestionCard } from '@/app/(components)/cards/armor-suggestion-card';
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
 import { Pagination } from '@/app/(components)/pagination';
-import { Item } from '@/app/(data)/items/types';
+import { type Item } from '@/app/(data)/items/types';
 import { getArmorSuggestions } from '@/app/(features)/armor-calculator/utils/get-armor-suggestions';
-import { BuildState } from '@/app/(features)/builds/types/build-state';
 import {
-  ArmorSuggestion,
-  WeightClassKeysWithDefault,
+  type ArmorSuggestion,
+  type WeightClassKeysWithDefault,
 } from '@/app/(types)/armor-calculator';
 import { usePagination } from '@/app/(utils)/pagination/use-pagination';
 

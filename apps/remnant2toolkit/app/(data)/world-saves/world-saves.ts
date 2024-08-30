@@ -1,4 +1,4 @@
-import { WorldSave } from '@/app/(components)/filters/world-saves/types'
+import { type WorldSave } from '@/app/(components)/filters/world-saves/types';
 
 export const worldSaves = [
   {
@@ -836,4 +836,4 @@ export const worldSaves = [
     release: 'dlc2',
     isCursed: undefined,
   },
-] as const satisfies WorldSave[]
+] as const satisfies WorldSave[];

@@ -15,11 +15,11 @@ import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(features)/builds/constants/max-build-description-length';
+import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
 import { lockLinkedBuild } from '@/app/(features)/linked-builds/admin/actions/lock-linked-build';
 import { unlockLinkedBuild } from '@/app/(features)/linked-builds/admin/actions/unlock-linked-build';
 import { updateLinkedBuild } from '@/app/(features)/linked-builds/admin/actions/update-linked-build';
-import type { LinkedBuildState } from '@/app/(types)/linked-builds';
+import { type LinkedBuildState } from '@/app/(types)/linked-builds';
 
 interface Props {
   open: boolean;

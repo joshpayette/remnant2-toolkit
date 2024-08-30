@@ -1,11 +1,11 @@
-import { ItemButton } from '@/app/(components)/buttons/item-button'
-import { Item } from '@/app/(data)/items/types'
+import { ItemButton } from '@/app/(components)/buttons/item-button';
+import { type Item } from '@/app/(data)/items/types';
 
 interface Props {
-  item: Item & { discovered: boolean }
-  tooltipDisabled: boolean
-  onClick: (itemId: string) => void
-  onShowItemInfo: (itemId: string) => void
+  item: Item & { discovered: boolean };
+  tooltipDisabled: boolean;
+  onClick: (itemId: string) => void;
+  onShowItemInfo: (itemId: string) => void;
 }
 
 export function ItemTrackerCard({
@@ -25,5 +25,5 @@ export function ItemTrackerCard({
       tooltipDisabled={tooltipDisabled}
       variant="large"
     />
-  )
+  );
 }

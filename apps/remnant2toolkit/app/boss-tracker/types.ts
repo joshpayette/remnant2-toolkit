@@ -1,6 +1,6 @@
-import { BossCategory } from '@/app/(data)/enemies/types'
+import { type BossCategory } from '@/app/(data)/enemies/types';
 
 export interface BossTrackerCategory {
-  category: BossCategory
-  label: string
+  category: BossCategory;
+  label: string;
 }

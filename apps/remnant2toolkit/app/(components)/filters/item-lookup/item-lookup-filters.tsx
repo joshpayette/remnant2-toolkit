@@ -24,7 +24,7 @@ import {
 import { ItemSearchText } from '@/app/(components)/filters/item-lookup/item-search-text';
 import {
   ITEM_FILTER_KEYS,
-  ItemLookupFilters as Filters,
+  type ItemLookupFilters as Filters,
 } from '@/app/(components)/filters/item-lookup/types';
 import { parseUrlFilters } from '@/app/(components)/filters/item-lookup/utils';
 import {

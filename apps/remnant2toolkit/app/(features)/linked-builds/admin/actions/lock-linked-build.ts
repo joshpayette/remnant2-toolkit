@@ -1,37 +1,37 @@
-'use server'
+'use server';
 
-import { prisma } from '@repo/db'
-import { revalidatePath } from 'next/cache'
+import { prisma } from '@repo/db';
+import { revalidatePath } from 'next/cache';
 
-import { getSession } from '@/app/(features)/auth/services/sessionService'
-import type { AdminToolResponse } from '@/app/(features)/builds/types/admin-tool-response'
-import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
+import { type AdminToolResponse } from '@/app/(builds)/_types/admin-tool-response';
+import { getSession } from '@/app/(features)/auth/services/sessionService';
+import { sendWebhook } from '@/app/(utils)/moderation/send-webhook';
 
 export async function lockLinkedBuild(
   buildId: string | null,
 ): Promise<AdminToolResponse> {
-  if (!buildId) return { status: 'error', message: 'No buildId provided!' }
+  if (!buildId) return { status: 'error', message: 'No buildId provided!' };
 
-  const session = await getSession()
+  const session = await getSession();
   if (!session || !session.user) {
     return {
       status: 'error',
       message: 'You must be logged in.',
-    }
+    };
   }
 
   if (session.user.role !== 'admin') {
     return {
       status: 'error',
       message: 'You must be an admin to lock builds.',
-    }
+    };
   }
 
   try {
     const build = await prisma.linkedBuild.update({
       where: { id: buildId },
       data: { isModeratorLocked: true },
-    })
+    });
 
     // write to the audit log
     await prisma.auditLog.create({
@@ -41,7 +41,7 @@ export async function lockLinkedBuild(
         action: 'LOCK_LINKED_BUILD',
         details: '',
       },
-    })
+    });
 
     // Send to webhook
     sendWebhook({
@@ -68,19 +68,19 @@ export async function lockLinkedBuild(
           },
         ],
       },
-    })
+    });
 
-    revalidatePath('/builder/linked/[linkedBuildId]', 'page')
+    revalidatePath('/builder/linked/[linkedBuildId]', 'page');
 
     return {
       status: 'success',
       message: 'Build locked.',
-    }
+    };
   } catch (e) {
-    console.error(e)
+    console.error(e);
     return {
       status: 'error',
       message: 'Failed to lock build.',
-    }
+    };
   }
 }

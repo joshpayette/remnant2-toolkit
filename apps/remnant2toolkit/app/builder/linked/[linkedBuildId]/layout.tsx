@@ -1,17 +1,17 @@
-import { Metadata, ResolvingMetadata } from 'next'
+import { type Metadata, type ResolvingMetadata } from 'next';
 
-import { PageHeader } from '@/app/(components)/page-header'
-import { getLinkedBuild } from '@/app/(features)/linked-builds/actions/get-linked-build'
-import { NAV_ITEMS } from '@/app/(types)/navigation'
-import { isErrorResponse } from '@/app/(utils)/is-error-response'
+import { PageHeader } from '@/app/(components)/page-header';
+import { getLinkedBuild } from '@/app/(features)/linked-builds/actions/get-linked-build';
+import { NAV_ITEMS } from '@/app/(types)/navigation';
+import { isErrorResponse } from '@/app/(utils)/is-error-response';
 
 export async function generateMetadata(
   { params: { linkedBuildId } }: { params: { linkedBuildId: string } },
   _parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const buildData = await getLinkedBuild(linkedBuildId)
+  const buildData = await getLinkedBuild(linkedBuildId);
   if (isErrorResponse(buildData)) {
-    console.info(buildData.errors)
+    console.info(buildData.errors);
     return {
       title: 'Error loading build',
       description:
@@ -35,10 +35,10 @@ export async function generateMetadata(
         description:
           'There was an error loading this build. It may have been removed',
       },
-    }
+    };
   }
 
-  const { linkedBuildState } = buildData
+  const { linkedBuildState } = buildData;
 
   if (!linkedBuildState) {
     return {
@@ -64,14 +64,14 @@ export async function generateMetadata(
         description:
           'There was an error loading this build. It may have been removed',
       },
-    }
+    };
   }
 
-  const title = `${linkedBuildState.name} by ${linkedBuildState.createdByDisplayName}`
+  const title = `${linkedBuildState.name} by ${linkedBuildState.createdByDisplayName}`;
   const description =
     linkedBuildState.description && linkedBuildState.description !== ''
       ? linkedBuildState.description
-      : NAV_ITEMS.linkedBuilds.description
+      : NAV_ITEMS.linkedBuilds.description;
 
   return {
     title,
@@ -94,19 +94,19 @@ export async function generateMetadata(
       title,
       description,
     },
-  }
+  };
 }
 
 export default async function Layout({
   params: { linkedBuildId },
   children,
 }: {
-  params: { linkedBuildId: string }
-  children: React.ReactNode
+  params: { linkedBuildId: string };
+  children: React.ReactNode;
 }) {
-  const buildData = await getLinkedBuild(linkedBuildId)
+  const buildData = await getLinkedBuild(linkedBuildId);
   if (isErrorResponse(buildData)) {
-    console.info(buildData.errors)
+    console.info(buildData.errors);
     return (
       <div className="flex max-w-lg flex-col">
         <PageHeader
@@ -114,8 +114,8 @@ export default async function Layout({
           subtitle="The build either can't be found or is marked private."
         />
       </div>
-    )
+    );
   }
 
-  return <>{children}</>
+  return <>{children}</>;
 }

@@ -1,4 +1,4 @@
-import { RingItem } from './types/RingItem'
+import { type RingItem } from './types/RingItem';
 
 export const ringItems: RingItem[] = [
   {
@@ -2599,4 +2599,4 @@ export const ringItems: RingItem[] = [
     dlc: 'base',
     location: { world: 'Yaesha', dungeon: ['The Red Throne'] },
   },
-]
+];

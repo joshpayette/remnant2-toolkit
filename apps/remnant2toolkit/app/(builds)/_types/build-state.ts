@@ -1,0 +1,66 @@
+import { type BuildTags } from '@repo/db';
+
+import { type AmuletItem } from '@/app/(data)/items/types/AmuletItem';
+import { type ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem';
+import { type ArmorItem } from '@/app/(data)/items/types/ArmorItem';
+import { type ConcoctionItem } from '@/app/(data)/items/types/ConcoctionItem';
+import { type ConsumableItem } from '@/app/(data)/items/types/ConsumableItem';
+import { type ModItem } from '@/app/(data)/items/types/ModItem';
+import { type MutatorItem } from '@/app/(data)/items/types/MutatorItem';
+import { type PerkItem } from '@/app/(data)/items/types/PerkItem';
+import { type RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem';
+import { type RelicItem } from '@/app/(data)/items/types/RelicItem';
+import { type RingItem } from '@/app/(data)/items/types/RingItem';
+import { type SkillItem } from '@/app/(data)/items/types/SkillItem';
+import { type TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { type WeaponItem } from '@/app/(data)/items/types/WeaponItem';
+
+export interface BuildState {
+  buildId: string | null;
+  name: string;
+  createdAt: Date;
+  updatedAt: Date | null;
+  createdById: string | null;
+  createdByDisplayName: string | null;
+  isMember: boolean;
+  isPublic: boolean;
+  isFeaturedBuild: boolean;
+  isBeginnerBuild: boolean;
+  isBaseGameBuild: boolean;
+  isGimmickBuild: boolean;
+  isModeratorApproved: boolean;
+  isModeratorLocked: boolean;
+  dateFeatured: Date | null;
+  isPatchAffected: boolean;
+  thumbnailUrl: string | null;
+  videoUrl: string | null;
+  buildLinkUpdatedAt: Date | null;
+  buildTags: BuildTags[] | null;
+  buildLink: string | null;
+  description: string | null;
+  upvoted: boolean;
+  totalUpvotes: number;
+  viewCount: number;
+  validatedViewCount: number;
+  duplicateCount: number;
+  reported: boolean;
+  items: {
+    helm: (ArmorItem & { isOwned?: boolean }) | null;
+    torso: (ArmorItem & { isOwned?: boolean }) | null;
+    legs: (ArmorItem & { isOwned?: boolean }) | null;
+    gloves: (ArmorItem & { isOwned?: boolean }) | null;
+    relic: (RelicItem & { isOwned?: boolean }) | null;
+    amulet: (AmuletItem & { isOwned?: boolean }) | null;
+    weapon: Array<(WeaponItem & { isOwned?: boolean }) | null>;
+    ring: Array<(RingItem & { isOwned?: boolean }) | null>;
+    archetype: Array<(ArchetypeItem & { isOwned?: boolean }) | null>;
+    skill: Array<(SkillItem & { isOwned?: boolean }) | null>;
+    concoction: Array<(ConcoctionItem & { isOwned?: boolean }) | null>;
+    consumable: Array<(ConsumableItem & { isOwned?: boolean }) | null>;
+    mod: Array<(ModItem & { isOwned?: boolean }) | null>;
+    mutator: Array<(MutatorItem & { isOwned?: boolean }) | null>;
+    relicfragment: Array<(RelicFragmentItem & { isOwned?: boolean }) | null>;
+    trait: Array<TraitItem & { isOwned?: boolean }>;
+    perk: Array<(PerkItem & { isOwned?: boolean }) | null>;
+  };
+}

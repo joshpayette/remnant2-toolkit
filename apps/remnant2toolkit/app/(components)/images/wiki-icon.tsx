@@ -1,5 +1,5 @@
-import * as React from "react"
-import { SVGProps } from "react"
+import * as React from 'react';
+import { type SVGProps } from 'react';
 const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -11,15 +11,15 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
     <path
       d="M1.497 4.516V.77L2.932.042v5.56ZM4.853 5.166V1.343L3.418.75v5.559Z"
       style={{
-        display: "inline",
+        display: 'inline',
         fillOpacity: 1,
-        stroke: "none",
-        strokeWidth: ".0240141px",
-        strokeLinecap: "butt",
-        strokeLinejoin: "miter",
+        stroke: 'none',
+        strokeWidth: '.0240141px',
+        strokeLinecap: 'butt',
+        strokeLinejoin: 'miter',
         strokeOpacity: 1,
       }}
     />
   </svg>
-)
-export default SvgComponent
+);
+export default SvgComponent;

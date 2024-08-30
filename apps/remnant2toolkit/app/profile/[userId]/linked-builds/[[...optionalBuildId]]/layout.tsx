@@ -1,23 +1,23 @@
-import { DEFAULT_BIO } from '@repo/constants'
-import { prisma } from '@repo/db'
-import { Metadata } from 'next'
+import { DEFAULT_BIO } from '@repo/constants';
+import { prisma } from '@repo/db';
+import { type Metadata } from 'next';
 
-import { NAV_ITEMS } from '@/app/(types)/navigation'
-import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id'
+import { NAV_ITEMS } from '@/app/(types)/navigation';
+import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id';
 
 export async function generateMetadata({
   params: { userId },
 }: {
-  params: { userId: string }
+  params: { userId: string };
 }): Promise<Metadata> {
   const userData = await prisma.user.findUnique({
     where: {
       id: userId,
     },
-  })
+  });
 
   if (!userData) {
-    console.info('User or profile not found', { userId, userData })
+    console.info('User or profile not found', { userId, userData });
 
     return {
       title: 'Error loading profile',
@@ -41,14 +41,14 @@ export async function generateMetadata({
         description:
           'There was an error loading this profile. It may have been removed.',
       },
-    }
+    };
   }
 
   let profileData = await prisma.userProfile.findFirst({
     where: {
       userId,
     },
-  })
+  });
 
   if (!profileData) {
     profileData = await prisma.userProfile.upsert({
@@ -60,15 +60,15 @@ export async function generateMetadata({
         bio: DEFAULT_BIO,
       },
       update: {},
-    })
+    });
   }
 
-  const userName = userData.displayName ?? userData.name
-  const title = `${userName}'s Linked Builds - Remnant2Toolkit`
-  const description = NAV_ITEMS.linkedBuilds.description
+  const userName = userData.displayName ?? userData.name;
+  const title = `${userName}'s Linked Builds - Remnant2Toolkit`;
+  const description = NAV_ITEMS.linkedBuilds.description;
 
-  const avatarId = profileData.avatarId
-  const avatar = getAvatarById(avatarId)
+  const avatarId = profileData.avatarId;
+  const avatar = getAvatarById(avatarId);
 
   return {
     title,
@@ -89,15 +89,15 @@ export async function generateMetadata({
       title,
       description,
     },
-  }
+  };
 }
 
 export default async function Layout({
   params: _params,
   children,
 }: {
-  params: { userId: string }
-  children: React.ReactNode
+  params: { userId: string };
+  children: React.ReactNode;
 }) {
-  return <>{children}</>
+  return <>{children}</>;
 }

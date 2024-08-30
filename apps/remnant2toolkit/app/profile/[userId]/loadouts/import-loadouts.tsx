@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useFormState } from 'react-dom';
 import { toast } from 'react-toastify';
 
-import { DBBuild } from '@/app/(features)/builds/types/db-build';
+import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { ImportLoadoutsDialog } from '@/app/(features)/loadouts/components/dialogs/import-loadouts-dialog';
 import { parseSaveFile } from '@/app/profile/[userId]/loadouts/actions/parse-save-file';
 

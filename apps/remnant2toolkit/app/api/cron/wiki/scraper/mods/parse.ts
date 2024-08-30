@@ -1,14 +1,14 @@
-import { CheerioAPI } from 'cheerio'
+import { type CheerioAPI } from 'cheerio';
 
-import { removeTooltips } from '@/app/api/cron/wiki/scraper/utils'
+import { removeTooltips } from '@/app/api/cron/wiki/scraper/utils';
 
 export function modDataParse(
   $: CheerioAPI,
   isLinkedMod: boolean,
 ): {
-  description: string
+  description: string;
 } {
-  removeTooltips($)
+  removeTooltips($);
 
   const description = isLinkedMod
     ? $('.infobox div.infobox-attachment-description')
@@ -22,9 +22,9 @@ export function modDataParse(
         .replaceWith('\n')
         .end()
         .text()
-        .replaceAll('[sic]', '')
+        .replaceAll('[sic]', '');
 
   return {
     description,
-  }
+  };
 }

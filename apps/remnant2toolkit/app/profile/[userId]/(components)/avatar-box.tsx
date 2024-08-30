@@ -1,7 +1,7 @@
 import { getImageUrl } from '@repo/ui';
 import Image from 'next/image';
 
-import { Avatar } from '@/app/profile/[userId]/(lib)/types';
+import { type Avatar } from '@/app/profile/[userId]/(lib)/types';
 
 interface Props {
   avatar: Avatar;

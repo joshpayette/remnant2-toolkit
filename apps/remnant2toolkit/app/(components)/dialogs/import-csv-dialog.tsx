@@ -11,7 +11,7 @@ import {
 } from '@repo/ui';
 
 import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button';
-import { CsvItem } from '@/app/(types)/csv';
+import { type CsvItem } from '@/app/(types)/csv';
 
 interface Props {
   open: boolean;

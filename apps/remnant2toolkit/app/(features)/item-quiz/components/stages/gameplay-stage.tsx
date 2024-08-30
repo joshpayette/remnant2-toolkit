@@ -5,8 +5,8 @@ import React from 'react';
 import { Heading } from '@/app/(features)/item-quiz/components/heading';
 import { QuizItemButton } from '@/app/(features)/item-quiz/components/quiz-item-button';
 import { TOTAL_CHOICES } from '@/app/(features)/item-quiz/constants/total-choices';
-import type { LayoutPreference } from '@/app/(features)/item-quiz/types/layout-preference';
-import type { QuizItem } from '@/app/(features)/item-quiz/types/quiz-item';
+import { type LayoutPreference } from '@/app/(features)/item-quiz/types/layout-preference';
+import { type QuizItem } from '@/app/(features)/item-quiz/types/quiz-item';
 
 interface Props {
   correctItemName: string;

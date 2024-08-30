@@ -1,9 +1,9 @@
-import { ItemButton } from '@/app/(components)/buttons/item-button'
-import { Enemy } from '@/app/(data)/enemies/types'
+import { ItemButton } from '@/app/(components)/buttons/item-button';
+import { type Enemy } from '@/app/(data)/enemies/types';
 
 interface Props {
-  boss: Enemy & { discovered: boolean }
-  onClick: (bossId: string) => void
+  boss: Enemy & { discovered: boolean };
+  onClick: (bossId: string) => void;
 }
 
 export function BossTrackerCard({ boss, onClick }: Props) {
@@ -18,5 +18,5 @@ export function BossTrackerCard({ boss, onClick }: Props) {
         variant="boss-tracker"
       />
     </div>
-  )
+  );
 }

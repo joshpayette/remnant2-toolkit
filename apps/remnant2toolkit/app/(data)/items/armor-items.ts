@@ -1,4 +1,4 @@
-import { ArmorItem } from './types/ArmorItem'
+import { type ArmorItem } from './types/ArmorItem';
 
 export const armorItems: ArmorItem[] = [
   {
@@ -2119,4 +2119,4 @@ export const armorItems: ArmorItem[] = [
     wikiLinks: [`https://remnant.wiki/Zealot's_Wraps`],
     location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
-]
+];

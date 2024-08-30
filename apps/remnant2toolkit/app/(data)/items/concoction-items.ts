@@ -1,4 +1,4 @@
-import { ConcoctionItem } from './types/ConcoctionItem'
+import { type ConcoctionItem } from './types/ConcoctionItem';
 
 export const concoctionItems: ConcoctionItem[] = [
   {
@@ -270,4 +270,4 @@ export const concoctionItems: ConcoctionItem[] = [
     wikiLinks: [`https://remnant.wiki/Xenoplasm`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
-]
+];

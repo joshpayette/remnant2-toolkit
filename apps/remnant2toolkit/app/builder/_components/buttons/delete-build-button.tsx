@@ -5,8 +5,8 @@ import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 
+import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
 import { DeleteBuildAlert } from '@/app/(components)/alerts/delete-build-alert';
-import { useBuildActions } from '@/app/(hooks)/use-build-actions';
 
 interface Props {
   buildId: string;

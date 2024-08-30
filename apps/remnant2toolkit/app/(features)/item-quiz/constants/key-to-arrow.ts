@@ -1,4 +1,4 @@
-import type { ARROW_TO_INDEX } from '@/app/(features)/item-quiz/constants/arrow-to-index'
+import { type ARROW_TO_INDEX } from '@/app/(features)/item-quiz/constants/arrow-to-index';
 
 export const KEY_TO_ARROW: Record<
   1 | 2 | 3 | 4 | 'W' | 'A' | 'S' | 'D',
@@ -12,4 +12,4 @@ export const KEY_TO_ARROW: Record<
   A: 'ArrowLeft',
   S: 'ArrowDown',
   D: 'ArrowRight',
-}
+};

@@ -1,11 +1,11 @@
 import { BaseButton, getImageUrl } from '@repo/ui';
 import Image from 'next/image';
 
-import { Tooltip } from '@/app/(components)/tooltip';
 import {
   POPULAR_VOTE_THRESHOLD1,
   POPULAR_VOTE_THRESHOLD2,
-} from '@/app/(features)/builds/constants/popular-vote-thresholds';
+} from '@/app/(builds)/_constants/popular-vote-thresholds';
+import { Tooltip } from '@/app/(components)/tooltip';
 
 export function PopularBuildBadge({
   level,

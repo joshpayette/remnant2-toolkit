@@ -1,12 +1,12 @@
-import ImageKit from 'imagekit'
-import { NextRequest } from 'next/server'
+import ImageKit from 'imagekit';
+import { type NextRequest } from 'next/server';
 
 export async function GET(request: NextRequest) {
-  const authHeader = request.headers.get('authorization')
+  const authHeader = request.headers.get('authorization');
   if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
     return new Response('Unauthorized', {
       status: 401,
-    })
+    });
   }
 
   try {
@@ -14,29 +14,29 @@ export async function GET(request: NextRequest) {
       publicKey: process.env.IMAGEKIT_CLIENT_ID ?? '',
       privateKey: process.env.IMAGEKIT_CLIENT_SECRET ?? '',
       urlEndpoint: 'https://ik.imagekit.io/remnant2toolkit/',
-    })
+    });
 
     // Get all files created over an hour ago
     const files = await imagekit.listFiles({
       path: 'build-uploads-temp',
       searchQuery: 'createdAt < "1h"',
-    })
+    });
 
     if (files.length > 0) {
-      const fileIds = files.map((file) => file.fileId)
+      const fileIds = files.map((file) => file.fileId);
 
       // Delete each file
-      await imagekit.bulkDeleteFiles(fileIds)
+      await imagekit.bulkDeleteFiles(fileIds);
 
-      console.info('Deleted files:', fileIds.join(', '))
+      console.info('Deleted files:', fileIds.join(', '));
     }
 
     // Purge the cache
     await imagekit.purgeCache(
       'https://ik.imagekit.io/remnant2toolkit/build-uploads-temp*',
-    )
+    );
 
-    console.info('Purged cache for build-uploads-temp')
+    console.info('Purged cache for build-uploads-temp');
 
     // Trigger webhook
     const params = {
@@ -54,7 +54,7 @@ export async function GET(request: NextRequest) {
           ],
         },
       ],
-    }
+    };
 
     const res = await fetch(`${process.env.WEBHOOK_CRON_LOGS}`, {
       method: 'POST',
@@ -62,17 +62,17 @@ export async function GET(request: NextRequest) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(params),
-    })
+    });
 
     if (!res.ok) {
-      console.error('Error in sending imagekit webhook to Discord!')
+      console.error('Error in sending imagekit webhook to Discord!');
     }
 
-    console.info('ImageKit image cleanup script succeeded')
+    console.info('ImageKit image cleanup script succeeded');
 
-    return Response.json({ success: true })
+    return Response.json({ success: true });
   } catch (e) {
-    console.error(e)
+    console.error(e);
 
     const params = {
       embeds: [
@@ -89,7 +89,7 @@ export async function GET(request: NextRequest) {
           ],
         },
       ],
-    }
+    };
 
     await fetch(`${process.env.WEBHOOK_CRON_LOGS}`, {
       method: 'POST',
@@ -97,8 +97,8 @@ export async function GET(request: NextRequest) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(params),
-    })
+    });
 
-    return Response.json({ success: false })
+    return Response.json({ success: false });
   }
 }

@@ -3,15 +3,15 @@
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 
+import { BuildCard } from '@/app/(builds)/_components/cards/build-card';
+import { DEFAULT_BUILD_FILTERS } from '@/app/(builds)/_components/filters/build-filters';
+import { BuildSecondaryFilters } from '@/app/(builds)/_components/filters/secondary-filters';
+import { useOrderByFilter } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
+import { useTimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
+import { type BuildListFilters } from '@/app/(builds)/_components/filters/types';
+import { parseUrlFilters } from '@/app/(builds)/_components/filters/utils';
+import { useBuildListState } from '@/app/(builds)/_utils/hooks/use-build-list-state';
 import { BuildList } from '@/app/(components)/build-list';
-import { BuildCard } from '@/app/(features)/builds/components/cards/build-card';
-import { DEFAULT_BUILD_FILTERS } from '@/app/(features)/builds/filters/build-filters';
-import { BuildSecondaryFilters } from '@/app/(features)/builds/filters/secondary-filters';
-import { useOrderByFilter } from '@/app/(features)/builds/filters/secondary-filters/order-by-filter/use-order-by-filter';
-import { useTimeRangeFilter } from '@/app/(features)/builds/filters/secondary-filters/time-range-filter/use-time-range-filter';
-import { BuildListFilters } from '@/app/(features)/builds/filters/types';
-import { parseUrlFilters } from '@/app/(features)/builds/filters/utils';
-import { useBuildListState } from '@/app/(features)/builds/utils/hooks/use-build-list-state';
 import { usePagination } from '@/app/(utils)/pagination/use-pagination';
 import { getFavoritedBuilds } from '@/app/profile/[userId]/favorited-builds/actions/get-favorite-builds';
 

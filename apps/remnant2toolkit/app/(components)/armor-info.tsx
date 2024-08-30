@@ -1,7 +1,7 @@
 import { getImageUrl } from '@repo/ui';
 import Image from 'next/image';
 
-import type { ArmorItem } from '@/app/(data)/items/types/ArmorItem';
+import { type ArmorItem } from '@/app/(data)/items/types/ArmorItem';
 
 interface Props {
   item: ArmorItem;

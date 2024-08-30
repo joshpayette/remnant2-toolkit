@@ -1,11 +1,11 @@
 'use server';
 
-import { LinkedBuild, prisma } from '@repo/db';
+import { type LinkedBuild, prisma } from '@repo/db';
 import { revalidatePath } from 'next/cache';
 
+import { isPermittedBuilder } from '@/app/(builds)/_utils/is-permitted-builder';
 import { getSession } from '@/app/(features)/auth/services/sessionService';
 import { badWordFilter } from '@/app/(features)/bad-word-filter';
-import { isPermittedBuilder } from '@/app/(features)/builds/utils/is-permitted-builder';
 import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(features)/linked-builds/constants/max-linked-build-description-length';
 import { sendWebhook } from '@/app/(utils)/moderation/send-webhook';
 import { validateLinkedBuild } from '@/app/(validators)/validate-linked-build';

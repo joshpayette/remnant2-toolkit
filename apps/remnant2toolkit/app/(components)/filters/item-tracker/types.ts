@@ -1,12 +1,12 @@
-import { DefaultFilter } from '@/app/(components)/filters/types'
+import { type DefaultFilter } from '@/app/(components)/filters/types';
 
 export interface ItemTrackerFilters {
-  categories: string[] | [DefaultFilter]
-  collections: string[] | [DefaultFilter]
-  releases: string[] | [DefaultFilter]
-  searchText: string | ''
-  world: string | DefaultFilter
-  dungeon: string | DefaultFilter
+  categories: string[] | [DefaultFilter];
+  collections: string[] | [DefaultFilter];
+  releases: string[] | [DefaultFilter];
+  searchText: string | '';
+  world: string | DefaultFilter;
+  dungeon: string | DefaultFilter;
 }
 
 export const ITEM_TRACKER_KEYS = {
@@ -16,4 +16,4 @@ export const ITEM_TRACKER_KEYS = {
   SEARCHTEXT: 'searchText',
   WORLD: 'world',
   DUNGEON: 'dungeon',
-} as const satisfies Record<string, keyof ItemTrackerFilters>
+} as const satisfies Record<string, keyof ItemTrackerFilters>;

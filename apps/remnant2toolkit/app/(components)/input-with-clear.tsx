@@ -1,4 +1,9 @@
-import { BaseButton, BaseInput, BaseInputProps, CloseIcon } from '@repo/ui';
+import {
+  BaseButton,
+  BaseInput,
+  type BaseInputProps,
+  CloseIcon,
+} from '@repo/ui';
 
 export function InputWithClear({
   onChange,

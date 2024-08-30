@@ -1,4 +1,4 @@
-import { MutatorItem } from './types/MutatorItem'
+import { type MutatorItem } from './types/MutatorItem';
 
 export const mutatorItems: MutatorItem[] = [
   {
@@ -935,4 +935,4 @@ export const mutatorItems: MutatorItem[] = [
     wikiLinks: [`https://remnant.wiki/Weaponlord`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
-]
+];

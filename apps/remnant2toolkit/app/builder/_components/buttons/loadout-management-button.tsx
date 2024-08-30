@@ -4,7 +4,7 @@ import { BaseButton, Skeleton } from '@repo/ui';
 import { useEffect, useState } from 'react';
 
 import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list';
-import { DBBuild } from '@/app/(features)/builds/types/db-build';
+import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
 interface Props {
   buildId: string | null;

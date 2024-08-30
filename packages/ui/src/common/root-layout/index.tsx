@@ -1,7 +1,7 @@
 import '@repo/ui/styles.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-import type { Viewport } from 'next';
+import { type Viewport } from 'next';
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 import { ToastContainer } from 'react-toastify';

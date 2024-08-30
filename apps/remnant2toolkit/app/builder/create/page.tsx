@@ -3,12 +3,12 @@
 import { useRef, useState } from 'react';
 import { useIsClient } from 'usehooks-ts';
 
+import { INITIAL_BUILD_STATE } from '@/app/(builds)/_constants/initial-build-state';
+import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
+import { type BuildState } from '@/app/(builds)/_types/build-state';
+import { useDBBuildState } from '@/app/(builds)/_utils/hooks/use-db-build-state';
 import { ItemTagSuggestionDialog } from '@/app/(components)/dialogs/item-tag-suggestion-dialog';
 import { PageHeader } from '@/app/(components)/page-header';
-import { INITIAL_BUILD_STATE } from '@/app/(features)/builds/constants/initial-build-state';
-import { BuildState } from '@/app/(features)/builds/types/build-state';
-import { useDBBuildState } from '@/app/(features)/builds/utils/hooks/use-db-build-state';
-import { useBuildActions } from '@/app/(hooks)/use-build-actions';
 import { BuilderContainer } from '@/app/builder/_components/builder-container';
 import { ArmorCalculatorButton } from '@/app/builder/_components/buttons/armor-calculator-button';
 import { DetailedViewButton } from '@/app/builder/_components/buttons/detailed-view-button';

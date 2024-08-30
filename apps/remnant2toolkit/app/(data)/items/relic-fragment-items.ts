@@ -1,4 +1,4 @@
-import { RelicFragmentItem } from './types/RelicFragmentItem'
+import { type RelicFragmentItem } from './types/RelicFragmentItem';
 
 export const relicFragmentItems: RelicFragmentItem[] = [
   {
@@ -435,4 +435,4 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     description: 'Weapon Swap, +20% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
-]
+];

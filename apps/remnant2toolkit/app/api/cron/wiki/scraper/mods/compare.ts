@@ -1,19 +1,19 @@
-import { ModItem } from '@/app/(data)/items/types/ModItem'
+import { type ModItem } from '@/app/(data)/items/types/ModItem';
 
 export function modDataCompare(
   newData: {
-    description: string
+    description: string;
   },
   currentItem: ModItem,
 ): {
-  descriptionMatches: boolean
-  dataDiffers: boolean
+  descriptionMatches: boolean;
+  dataDiffers: boolean;
 } {
-  const descriptionMatches = newData.description === currentItem.description
-  const dataDiffers = !descriptionMatches
+  const descriptionMatches = newData.description === currentItem.description;
+  const dataDiffers = !descriptionMatches;
 
   return {
     descriptionMatches,
     dataDiffers,
-  }
+  };
 }

@@ -15,13 +15,13 @@ import { toast } from 'react-toastify';
 import { useLocalStorage } from 'usehooks-ts';
 
 import getItemBuildStats, {
-  ItemBuildStats,
+  type ItemBuildStats,
 } from '@/app/(actions)/items/get-item-build-stats';
 import { ArmorInfo } from '@/app/(components)/armor-info';
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens';
 import { Tooltip } from '@/app/(components)/tooltip';
 import { WeaponInfo } from '@/app/(components)/weapon-info';
-import { Item } from '@/app/(data)/items/types';
+import { type Item } from '@/app/(data)/items/types';
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem';
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem';
 import { ModItem } from '@/app/(data)/items/types/ModItem';

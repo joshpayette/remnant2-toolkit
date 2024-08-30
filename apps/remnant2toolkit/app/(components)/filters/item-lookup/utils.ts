@@ -1,10 +1,10 @@
-import { ReadonlyURLSearchParams } from 'next/navigation';
+import { type ReadonlyURLSearchParams } from 'next/navigation';
 
 import { VALID_DISCOVERED_FILTERS } from '@/app/(components)/filters/discovered-filter';
 import { VALID_ITEM_CATEGORIES } from '@/app/(components)/filters/item-lookup/categories-filter';
 import {
   ITEM_FILTER_KEYS,
-  ItemLookupFilters,
+  type ItemLookupFilters,
 } from '@/app/(components)/filters/item-lookup/types';
 import { VALID_RELEASE_KEYS } from '@/app/(components)/filters/releases-filter';
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types';

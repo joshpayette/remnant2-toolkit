@@ -1,4 +1,4 @@
-import type { QuizItemCategory } from '@/app/(features)/item-quiz/types/quiz-item-category'
+import { type QuizItemCategory } from '@/app/(features)/item-quiz/types/quiz-item-category';
 
 export const GAME_ITEM_CATEGORIES: QuizItemCategory[] = [
   'Helm',
@@ -20,4 +20,4 @@ export const GAME_ITEM_CATEGORIES: QuizItemCategory[] = [
   'Mutator (Melee)',
   'Concoction',
   'Consumable',
-]
+];

@@ -6,9 +6,9 @@ import { Heading } from '@/app/(features)/item-quiz/components/heading';
 import { MobileLayoutToggle } from '@/app/(features)/item-quiz/components/mobile-layout-toggle';
 import { QuizItemButton } from '@/app/(features)/item-quiz/components/quiz-item-button';
 import { TopScoresLeaderBoard } from '@/app/(features)/item-quiz/components/top-scores-leader-board';
-import type { LayoutPreference } from '@/app/(features)/item-quiz/types/layout-preference';
-import type { QuizItem } from '@/app/(features)/item-quiz/types/quiz-item';
-import type { QuizQuestion } from '@/app/(features)/item-quiz/types/quiz-question';
+import { type LayoutPreference } from '@/app/(features)/item-quiz/types/layout-preference';
+import { type QuizItem } from '@/app/(features)/item-quiz/types/quiz-item';
+import { type QuizQuestion } from '@/app/(features)/item-quiz/types/quiz-question';
 
 interface Props {
   correctItem: QuizItem | undefined;

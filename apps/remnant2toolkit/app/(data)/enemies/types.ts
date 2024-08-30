@@ -1,6 +1,6 @@
-import { Item } from '@/app/(data)/items/types';
-import { ReleaseKey } from '@/app/(data)/releases/types';
-import { ItemLocation } from '@/app/(features)/items/types/locations';
+import { type Item } from '@/app/(data)/items/types';
+import { type ReleaseKey } from '@/app/(data)/releases/types';
+import { type ItemLocation } from '@/app/(features)/items/types/locations';
 
 export type EnemyCategory =
   | 'add'

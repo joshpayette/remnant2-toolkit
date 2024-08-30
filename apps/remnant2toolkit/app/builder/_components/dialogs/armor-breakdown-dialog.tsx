@@ -5,8 +5,8 @@ import {
   BaseDialogTitle,
 } from '@repo/ui';
 
-import { Item } from '@/app/(data)/items/types';
-import { TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { type Item } from '@/app/(data)/items/types';
+import { type TraitItem } from '@/app/(data)/items/types/TraitItem';
 import { ListItem } from '@/app/builder/_components/stats/list-item';
 import { Section } from '@/app/builder/_components/stats/section';
 

@@ -6,10 +6,10 @@ import { signIn, useSession } from 'next-auth/react';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { createBuild } from '@/app/(features)/builds/actions/create-build';
-import { updateBuild } from '@/app/(features)/builds/actions/update-build';
-import { BuildActionResponse } from '@/app/(features)/builds/types/build-action-response';
-import { BuildState } from '@/app/(features)/builds/types/build-state';
+import { createBuild } from '@/app/(builds)/_actions/create-build';
+import { updateBuild } from '@/app/(builds)/_actions/update-build';
+import { type BuildActionResponse } from '@/app/(builds)/_types/build-action-response';
+import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { isErrorResponse } from '@/app/(utils)/is-error-response';
 import { LoadingButton } from '@/app/builder/_components/buttons/loading-button';
 

@@ -9,7 +9,7 @@ import {
 } from '@repo/ui';
 
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
-import { ItemTrackerCategory } from '@/app/tracker/types';
+import { type ItemTrackerCategory } from '@/app/tracker/types';
 
 export const VALID_ITEM_CATEGORIES = [
   'Amulet',

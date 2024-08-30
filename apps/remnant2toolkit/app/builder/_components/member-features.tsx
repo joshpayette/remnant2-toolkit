@@ -1,6 +1,6 @@
 'use client';
 
-import { BuildTags } from '@repo/db';
+import { type BuildTags } from '@repo/db';
 import {
   BaseButton,
   BaseField,
@@ -17,9 +17,9 @@ import { useState } from 'react';
 import { IoDocumentTextSharp } from 'react-icons/io5';
 import { MdOutlineGeneratingTokens } from 'react-icons/md';
 
+import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
 import { BuildDescriptionTemplateAlert } from '@/app/(components)/alerts/build-description-template-alert';
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens';
-import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(features)/builds/constants/max-build-description-length';
 import { DescriptionTokenDialog } from '@/app/builder/_components/dialogs/description-token-dialog';
 
 import { BuildTagsDisplay } from './build-tags/build-tags-display';

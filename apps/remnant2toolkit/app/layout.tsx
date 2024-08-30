@@ -2,7 +2,7 @@ import './globals.css';
 
 import { GlobalActionButtons, RootLayout } from '@repo/ui';
 import { Analytics } from '@vercel/analytics/react';
-import { Viewport } from 'next';
+import { type Viewport } from 'next';
 import dynamic from 'next/dynamic';
 
 import { Footer } from '@/app/(components)/footer';

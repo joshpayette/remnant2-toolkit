@@ -1,6 +1,6 @@
 import { BaseLink, cn } from '@repo/ui';
 
-import { WeaponItem } from '@/app/(data)/items/types/WeaponItem';
+import { type WeaponItem } from '@/app/(data)/items/types/WeaponItem';
 
 interface Props {
   item: WeaponItem;

@@ -12,7 +12,7 @@ import { toast } from 'react-toastify';
 
 import { addBuildToLoadout } from '@/app/(actions)/loadouts/add-build-to-loadout';
 import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list';
-import { DBBuild } from '@/app/(features)/builds/types/db-build';
+import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { EmptyLoadoutCard } from '@/app/(features)/loadouts/components/cards/empty-loadout-card';
 import { LoadoutCard } from '@/app/(features)/loadouts/components/cards/loadout-card';
 

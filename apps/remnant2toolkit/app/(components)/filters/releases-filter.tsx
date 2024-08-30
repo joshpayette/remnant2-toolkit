@@ -12,7 +12,7 @@ import {
   ALL_RELEASE_KEYS,
   RELEASE_TO_NAME,
 } from '@/app/(data)/releases/constants';
-import { ReleaseKey } from '@/app/(data)/releases/types';
+import { type ReleaseKey } from '@/app/(data)/releases/types';
 
 export const VALID_RELEASE_KEYS = ALL_RELEASE_KEYS;
 

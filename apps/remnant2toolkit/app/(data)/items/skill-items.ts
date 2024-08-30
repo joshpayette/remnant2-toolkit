@@ -1,4 +1,4 @@
-import { SkillItem } from './types/SkillItem'
+import { type SkillItem } from './types/SkillItem';
 
 export const skillItems: SkillItem[] = [
   {
@@ -835,4 +835,4 @@ export const skillItems: SkillItem[] = [
       },
     },
   },
-]
+];

@@ -1,5 +1,5 @@
 import { prisma } from '@repo/db';
-import { MetadataRoute } from 'next';
+import { type MetadataRoute } from 'next';
 
 const baseUrl = 'https://remnant2toolkit.com';
 const currentDate = new Date().toISOString().split('T')[0];

@@ -3,10 +3,10 @@ import { useState } from 'react';
 import { PiBagSimpleFill as OwnershipIcon } from 'react-icons/pi';
 import { TbHttpOptions } from 'react-icons/tb';
 
+import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { Tooltip } from '@/app/(components)/tooltip';
-import { Item } from '@/app/(data)/items/types';
+import { type Item } from '@/app/(data)/items/types';
 import { TraitItem } from '@/app/(data)/items/types/TraitItem';
-import { BuildState } from '@/app/(features)/builds/types/build-state';
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/builder/_constants/default-trait-amount';
 import { MAX_TRAIT_AMOUNT } from '@/app/builder/_constants/max-trait-amount';
 

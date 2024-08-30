@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { useIsClient, useLocalStorage } from 'usehooks-ts';
 
 import { BossTrackerCard } from '@/app/(components)/cards/boss-tracker-card';
-import { BossTrackerFilters } from '@/app/(components)/filters/boss-tracker/types';
+import { type BossTrackerFilters } from '@/app/(components)/filters/boss-tracker/types';
 import { parseUrlFilters } from '@/app/(components)/filters/boss-tracker/utils';
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
 import {
@@ -15,12 +15,12 @@ import {
   bossEnemies,
   worldBossEnemies,
 } from '@/app/(data)/enemies/remnant-enemies';
-import { BossCategory, Enemy } from '@/app/(data)/enemies/types';
+import { type BossCategory, type Enemy } from '@/app/(data)/enemies/types';
 import {
-  BossTrackerLocalStorage,
+  type BossTrackerLocalStorage,
   LOCALSTORAGE_KEY,
 } from '@/app/(types)/localstorage';
-import { BossTrackerCategory } from '@/app/boss-tracker/types';
+import { type BossTrackerCategory } from '@/app/boss-tracker/types';
 import { getTrackerProgress } from '@/app/boss-tracker/utils';
 
 const TRACKABLE_BOSSES = [

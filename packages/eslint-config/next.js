@@ -59,5 +59,12 @@ module.exports = {
       },
     ],
     'no-duplicate-imports': 'warn',
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      {
+        prefer: 'type-imports',
+        fixStyle: 'inline-type-imports',
+      },
+    ],
   },
 };

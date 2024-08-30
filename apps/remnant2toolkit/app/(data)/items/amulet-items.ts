@@ -1,4 +1,4 @@
-import { AmuletItem } from './types/AmuletItem'
+import { type AmuletItem } from './types/AmuletItem';
 
 export const amuletItems: AmuletItem[] = [
   {
@@ -1165,4 +1165,4 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: ['https://remnant.wiki/Zero_Divide'],
     location: { world: `N'Erud`, dungeon: 'World Drop' },
   },
-]
+];

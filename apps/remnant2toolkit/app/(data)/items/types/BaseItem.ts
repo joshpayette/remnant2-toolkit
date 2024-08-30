@@ -1,7 +1,7 @@
-import { LinkedItems } from '@/app/(data)/items/types';
-import { ReleaseKey } from '@/app/(data)/releases/types';
-import { ItemLocation } from '@/app/(features)/items/types/locations';
-import { ExternalToken, ItemToken } from '@/app/(types)/tokens';
+import { type LinkedItems } from '@/app/(data)/items/types';
+import { type ReleaseKey } from '@/app/(data)/releases/types';
+import { type ItemLocation } from '@/app/(features)/items/types/locations';
+import { type ExternalToken, type ItemToken } from '@/app/(types)/tokens';
 
 type ItemCategory =
   | 'helm'

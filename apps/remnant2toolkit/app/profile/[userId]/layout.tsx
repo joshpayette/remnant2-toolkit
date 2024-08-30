@@ -1,16 +1,16 @@
-import { DEFAULT_BIO } from '@repo/constants'
-import { prisma } from '@repo/db'
-import { Metadata, ResolvingMetadata } from 'next'
-import { revalidatePath } from 'next/cache'
+import { DEFAULT_BIO } from '@repo/constants';
+import { prisma } from '@repo/db';
+import { type Metadata, type ResolvingMetadata } from 'next';
+import { revalidatePath } from 'next/cache';
 
-import { getIsLoadoutPublic } from '@/app/(actions)/loadouts/get-is-loadout-public'
-import { PageHeader } from '@/app/(components)/page-header'
-import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile'
-import { getSession } from '@/app/(features)/auth/services/sessionService'
-import { ProfileHeader } from '@/app/profile/[userId]/(components)/profile-header'
-import { ProfileNavbar } from '@/app/profile/[userId]/(components)/profile-navbar'
-import { ProfileStats } from '@/app/profile/[userId]/(components)/profile-stats'
-import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id'
+import { getIsLoadoutPublic } from '@/app/(actions)/loadouts/get-is-loadout-public';
+import { PageHeader } from '@/app/(components)/page-header';
+import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile';
+import { getSession } from '@/app/(features)/auth/services/sessionService';
+import { ProfileHeader } from '@/app/profile/[userId]/(components)/profile-header';
+import { ProfileNavbar } from '@/app/profile/[userId]/(components)/profile-navbar';
+import { ProfileStats } from '@/app/profile/[userId]/(components)/profile-stats';
+import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id';
 
 export async function generateMetadata(
   { params: { userId } }: { params: { userId: string } },
@@ -20,10 +20,10 @@ export async function generateMetadata(
     where: {
       id: userId,
     },
-  })
+  });
 
   if (!userData) {
-    console.info('User or profile not found', { userId, userData })
+    console.info('User or profile not found', { userId, userData });
 
     return {
       title: 'Error loading profile',
@@ -47,14 +47,14 @@ export async function generateMetadata(
         description:
           'There was an error loading this profile. It may have been removed.',
       },
-    }
+    };
   }
 
   let profileData = await prisma.userProfile.findFirst({
     where: {
       userId,
     },
-  })
+  });
 
   if (!profileData) {
     profileData = await prisma.userProfile.upsert({
@@ -66,18 +66,18 @@ export async function generateMetadata(
         bio: DEFAULT_BIO,
       },
       update: {},
-    })
+    });
   }
 
   // const previousOGImages = (await parent).openGraph?.images || []
   // const previousTwitterImages = (await parent).twitter?.images || []
-  const userName = userData.displayName ?? userData.name
-  const title = `${userName} Profile - Remnant2Toolkit`
+  const userName = userData.displayName ?? userData.name;
+  const title = `${userName} Profile - Remnant2Toolkit`;
   const description =
-    profileData.bio ?? `View ${userName}'s profile on Remnant 2 Toolkit.`
+    profileData.bio ?? `View ${userName}'s profile on Remnant 2 Toolkit.`;
 
-  const avatarId = profileData.avatarId
-  const avatar = getAvatarById(avatarId)
+  const avatarId = profileData.avatarId;
+  const avatar = getAvatarById(avatarId);
 
   return {
     title,
@@ -98,24 +98,24 @@ export async function generateMetadata(
       title,
       description,
     },
-  }
+  };
 }
 
 export default async function Layout({
   children,
   params: { userId },
 }: {
-  children: React.ReactNode
-  params: { userId: string }
+  children: React.ReactNode;
+  params: { userId: string };
 }) {
-  const session = await getSession()
-  const isEditable = session?.user?.id === userId
+  const session = await getSession();
+  const isEditable = session?.user?.id === userId;
 
   const user = await prisma.user.findUnique({
     where: {
       id: userId,
     },
-  })
+  });
 
   if (!user) {
     return (
@@ -125,14 +125,14 @@ export default async function Layout({
           The user or user profile you are looking for could not be found.
         </p>
       </>
-    )
+    );
   }
 
   let profile = await prisma.userProfile.findFirst({
     where: {
       userId,
     },
-  })
+  });
 
   if (!profile) {
     profile = await prisma.userProfile.upsert({
@@ -144,11 +144,11 @@ export default async function Layout({
         bio: DEFAULT_BIO,
       },
       update: {},
-    })
-    revalidatePath(`/profile/${userId}`)
+    });
+    revalidatePath(`/profile/${userId}`);
   }
 
-  const isLoadoutPublic = await getIsLoadoutPublic(userId)
+  const isLoadoutPublic = await getIsLoadoutPublic(userId);
 
   return (
     <div className="w-full">
@@ -174,5 +174,5 @@ export default async function Layout({
       </header>
       <div className="border-surface-solid/10 border-t pt-4">{children}</div>
     </div>
-  )
+  );
 }

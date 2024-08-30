@@ -1,9 +1,9 @@
+import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { allItems } from '@/app/(data)/items/all-items';
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem';
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem';
-import { ItemCategory } from '@/app/(features)/builds/types/item-category';
-import type { QuizItem } from '@/app/(features)/item-quiz/types/quiz-item';
-import type { QuizItemCategory } from '@/app/(features)/item-quiz/types/quiz-item-category';
+import { type QuizItem } from '@/app/(features)/item-quiz/types/quiz-item';
+import { type QuizItemCategory } from '@/app/(features)/item-quiz/types/quiz-item-category';
 
 const excludedCategories: ItemCategory[] = [
   'relicfragment',

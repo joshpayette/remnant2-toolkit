@@ -1,4 +1,4 @@
-import { ItemCategory } from '@/app/(features)/builds/types/item-category';
+import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 
 /**
  * The minimum information that should be

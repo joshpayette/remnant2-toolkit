@@ -1,33 +1,33 @@
-'use server'
+'use server';
 
-import { prisma } from '@repo/db'
-import { revalidatePath } from 'next/cache'
+import { prisma } from '@repo/db';
+import { revalidatePath } from 'next/cache';
 
-import { getSession } from '@/app/(features)/auth/services/sessionService'
-import type { AdminToolResponse } from '@/app/(features)/builds/types/admin-tool-response'
-import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(features)/linked-builds/constants/max-linked-build-description-length'
-import type { LinkedBuildState } from '@/app/(types)/linked-builds'
-import { sendWebhook } from '@/app/(utils)/moderation/send-webhook'
+import { type AdminToolResponse } from '@/app/(builds)/_types/admin-tool-response';
+import { getSession } from '@/app/(features)/auth/services/sessionService';
+import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(features)/linked-builds/constants/max-linked-build-description-length';
+import { type LinkedBuildState } from '@/app/(types)/linked-builds';
+import { sendWebhook } from '@/app/(utils)/moderation/send-webhook';
 
 export async function updateLinkedBuild(
   linkedBuild: LinkedBuildState,
 ): Promise<AdminToolResponse> {
   if (!linkedBuild.id)
-    return { status: 'error', message: 'No linked build id provided!' }
+    return { status: 'error', message: 'No linked build id provided!' };
 
-  const session = await getSession()
+  const session = await getSession();
   if (!session || !session.user) {
     return {
       status: 'error',
       message: 'You must be logged in.',
-    }
+    };
   }
 
   if (session.user.role !== 'admin') {
     return {
       status: 'error',
       message: 'You must be an admin to update builds.',
-    }
+    };
   }
 
   // if the description is longer than allowed, truncate it
@@ -39,7 +39,7 @@ export async function updateLinkedBuild(
       linkedBuild.description.slice(
         0,
         MAX_LINKED_BUILD_DESCRIPTION_LENGTH - 3,
-      ) + '...'
+      ) + '...';
   }
 
   try {
@@ -48,7 +48,7 @@ export async function updateLinkedBuild(
       where: {
         linkedBuildId: linkedBuild.id,
       },
-    })
+    });
 
     const build = await prisma.linkedBuild.update({
       where: { id: linkedBuild.id },
@@ -63,7 +63,7 @@ export async function updateLinkedBuild(
           })),
         },
       },
-    })
+    });
 
     // write to the audit log
     await prisma.auditLog.create({
@@ -73,7 +73,7 @@ export async function updateLinkedBuild(
         action: 'UPDATE_LINKED_BUILD',
         details: '',
       },
-    })
+    });
 
     // Send to webhook
     sendWebhook({
@@ -100,19 +100,19 @@ export async function updateLinkedBuild(
           },
         ],
       },
-    })
+    });
 
-    revalidatePath('/builder/[buildId]', 'page')
+    revalidatePath('/builder/[buildId]', 'page');
 
     return {
       status: 'success',
       message: 'Build updated.',
-    }
+    };
   } catch (e) {
-    console.error(e)
+    console.error(e);
     return {
       status: 'error',
       message: 'Failed to update build.',
-    }
+    };
   }
 }

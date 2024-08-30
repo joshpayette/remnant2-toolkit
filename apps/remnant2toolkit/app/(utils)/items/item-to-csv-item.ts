@@ -1,5 +1,5 @@
-import { Item } from '@/app/(data)/items/types'
-import { CsvItem } from '@/app/(types)/csv'
+import { type Item } from '@/app/(data)/items/types';
+import { type CsvItem } from '@/app/(types)/csv';
 
 /**
  * Converts an Item to a CSV item for export
@@ -12,7 +12,7 @@ export function itemToCsvItem(item: Item): CsvItem {
         .replaceAll(',', ' ')
         // replace line breaks with spaces
         .replace(/(?:\r\n|\r|\n)/g, ' ')
-    )
+    );
   }
 
   return {
@@ -21,5 +21,5 @@ export function itemToCsvItem(item: Item): CsvItem {
     category: item.category,
     description: cleanString(item.description || ''),
     wikiLinks: item.wikiLinks?.join('; ') || '',
-  }
+  };
 }

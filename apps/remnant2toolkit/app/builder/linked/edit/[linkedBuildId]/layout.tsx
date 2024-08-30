@@ -1,17 +1,17 @@
-'use server'
+'use server';
 
-import { Metadata } from 'next'
-import React from 'react'
+import { type Metadata } from 'next';
+import React from 'react';
 
-import { PageHeader } from '@/app/(components)/page-header'
-import { getSession } from '@/app/(features)/auth/services/sessionService'
-import { getLinkedBuild } from '@/app/(features)/linked-builds/actions/get-linked-build'
-import { NAV_ITEMS } from '@/app/(types)/navigation'
-import { isErrorResponse } from '@/app/(utils)/is-error-response'
+import { PageHeader } from '@/app/(components)/page-header';
+import { getSession } from '@/app/(features)/auth/services/sessionService';
+import { getLinkedBuild } from '@/app/(features)/linked-builds/actions/get-linked-build';
+import { NAV_ITEMS } from '@/app/(types)/navigation';
+import { isErrorResponse } from '@/app/(utils)/is-error-response';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Build Linking Tool - Remnant 2 Toolkit`
-  const description = NAV_ITEMS.linkedBuilds.description
+  const title = `Build Linking Tool - Remnant 2 Toolkit`;
+  const description = NAV_ITEMS.linkedBuilds.description;
 
   return {
     title,
@@ -34,17 +34,17 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
     },
-  }
+  };
 }
 
 export default async function Layout({
   children,
   params: { linkedBuildId },
 }: {
-  children: React.ReactNode
-  params: { linkedBuildId: string }
+  children: React.ReactNode;
+  params: { linkedBuildId: string };
 }) {
-  const session = await getSession()
+  const session = await getSession();
 
   if (!session) {
     return (
@@ -54,14 +54,14 @@ export default async function Layout({
           subtitle="This feature requires you to be logged in, as it saves information to the database."
         />
       </div>
-    )
+    );
   }
 
   // If build doesn't exist, show error message
-  const buildData = await getLinkedBuild(linkedBuildId)
+  const buildData = await getLinkedBuild(linkedBuildId);
 
   if (isErrorResponse(buildData)) {
-    console.info(buildData.errors)
+    console.info(buildData.errors);
     return (
       <div className="flex max-w-lg flex-col">
         <PageHeader
@@ -69,11 +69,11 @@ export default async function Layout({
           subtitle="The build either can't be found or is marked private."
         />
       </div>
-    )
+    );
   }
 
   // if the build is not public, show error message
-  const { linkedBuildState } = buildData
+  const { linkedBuildState } = buildData;
   if (!linkedBuildState) {
     return (
       <div className="flex max-w-lg flex-col">
@@ -82,7 +82,7 @@ export default async function Layout({
           subtitle="The linked build id provided is not found."
         />
       </div>
-    )
+    );
   }
 
   // if the user is not the creator of the build, show error message
@@ -94,8 +94,8 @@ export default async function Layout({
           subtitle="You must be the creator of the build to link it to other builds."
         />
       </div>
-    )
+    );
   }
 
-  return <>{children}</>
+  return <>{children}</>;
 }

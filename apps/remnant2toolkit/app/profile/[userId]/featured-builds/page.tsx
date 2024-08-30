@@ -3,8 +3,8 @@
 import { useSession } from 'next-auth/react';
 import { useCallback, useState } from 'react';
 
-import { BuildFilters } from '@/app/(features)/builds/filters/build-filters';
-import { BuildListFilters } from '@/app/(features)/builds/filters/types';
+import { BuildFilters } from '@/app/(builds)/_components/filters/build-filters';
+import { type BuildListFilters } from '@/app/(builds)/_components/filters/types';
 import { FeaturedBuilds } from '@/app/profile/[userId]/featured-builds/featured-builds';
 
 const buildFilters: Partial<BuildListFilters> = {

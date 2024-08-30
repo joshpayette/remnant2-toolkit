@@ -1,11 +1,11 @@
-import { Metadata } from 'next'
+import { type Metadata } from 'next';
 
-import { PageHeader } from '@/app/(components)/page-header'
-import { NAV_ITEMS } from '@/app/(types)/navigation'
+import { PageHeader } from '@/app/(components)/page-header';
+import { NAV_ITEMS } from '@/app/(types)/navigation';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Item Quiz - Remnant 2 Toolkit'
-  const description = NAV_ITEMS.itemQuiz.description
+  const title = 'Item Quiz - Remnant 2 Toolkit';
+  const description = NAV_ITEMS.itemQuiz.description;
 
   return {
     title,
@@ -28,13 +28,13 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
     },
-  }
+  };
 }
 
 export default async function Layout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <div
@@ -52,5 +52,5 @@ export default async function Layout({
         {children}
       </div>
     </div>
-  )
+  );
 }

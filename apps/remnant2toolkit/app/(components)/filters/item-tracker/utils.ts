@@ -1,15 +1,15 @@
 import { capitalize } from '@repo/utils';
-import { ReadonlyURLSearchParams } from 'next/navigation';
+import { type ReadonlyURLSearchParams } from 'next/navigation';
 
 import { VALID_DISCOVERED_FILTERS } from '@/app/(components)/filters/discovered-filter';
 import { VALID_ITEM_CATEGORIES } from '@/app/(components)/filters/item-tracker/categories-filter';
 import {
   ITEM_TRACKER_KEYS,
-  ItemTrackerFilters,
+  type ItemTrackerFilters,
 } from '@/app/(components)/filters/item-tracker/types';
 import { VALID_RELEASE_KEYS } from '@/app/(components)/filters/releases-filter';
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
-import { Item } from '@/app/(data)/items/types';
+import { type Item } from '@/app/(data)/items/types';
 import { MutatorItem } from '@/app/(data)/items/types/MutatorItem';
 import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem';
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem';
@@ -22,7 +22,7 @@ import {
   YAESHA_DUNGEONS,
 } from '@/app/(features)/items/types/locations';
 import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants';
-import { ItemTrackerCategory } from '@/app/tracker/types';
+import { type ItemTrackerCategory } from '@/app/tracker/types';
 
 export function parseUrlFilters(
   searchParams: ReadonlyURLSearchParams,

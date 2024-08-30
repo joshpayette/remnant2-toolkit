@@ -23,7 +23,7 @@ import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
 import { BossAffixFilter } from '@/app/(components)/filters/world-saves/boss-affix-filter';
 import {
   WORLD_SAVE_FILTER_KEYS,
-  WorldSaveFilters as Filters,
+  type WorldSaveFilters as Filters,
 } from '@/app/(components)/filters/world-saves/types';
 import { parseUrlFilters } from '@/app/(components)/filters/world-saves/utils';
 

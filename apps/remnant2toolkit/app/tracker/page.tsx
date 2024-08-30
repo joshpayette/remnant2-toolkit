@@ -16,7 +16,7 @@ import { ALL_TRACKABLE_ITEMS } from '@/app/tracker/constants';
 import { useCsvFileUpload } from '@/app/tracker/hooks/use-csv-file-upload';
 import { useSaveFileUpload } from '@/app/tracker/hooks/use-save-file-upload';
 import { ItemList } from '@/app/tracker/item-list';
-import { ItemTrackerCategory } from '@/app/tracker/types';
+import { type ItemTrackerCategory } from '@/app/tracker/types';
 
 /**
  * ----------------------------------------------

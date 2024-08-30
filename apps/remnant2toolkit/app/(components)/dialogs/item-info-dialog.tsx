@@ -17,7 +17,7 @@ import { toast } from 'react-toastify';
 import { ArmorInfo } from '@/app/(components)/armor-info';
 import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens';
 import { WeaponInfo } from '@/app/(components)/weapon-info';
-import { Item } from '@/app/(data)/items/types';
+import { type Item } from '@/app/(data)/items/types';
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem';
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem';
 import { ModItem } from '@/app/(data)/items/types/ModItem';
@@ -27,7 +27,10 @@ import { SkillItem } from '@/app/(data)/items/types/SkillItem';
 import { TraitItem } from '@/app/(data)/items/types/TraitItem';
 import { WeaponItem } from '@/app/(data)/items/types/WeaponItem';
 import { RELEASE_TO_NAME } from '@/app/(data)/releases/constants';
-import { BIOMES, ItemLocation } from '@/app/(features)/items/types/locations';
+import {
+  BIOMES,
+  type ItemLocation,
+} from '@/app/(features)/items/types/locations';
 import { itemShareEndpoint } from '@/app/(utils)/get-item-endpoint';
 
 function generateDungeonLabel(location: ItemLocation) {

@@ -1,4 +1,4 @@
-import { ModItem } from './types/ModItem';
+import { type ModItem } from './types/ModItem';
 
 export const modItems: ModItem[] = [
   {

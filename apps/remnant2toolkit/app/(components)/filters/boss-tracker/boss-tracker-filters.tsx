@@ -15,7 +15,7 @@ import { useMemo, useState } from 'react';
 import { CategoriesFilter } from '@/app/(components)/filters/boss-tracker/categories-filter';
 import {
   BOSS_TRACKER_KEYS,
-  BossTrackerFilters as Filters,
+  type BossTrackerFilters as Filters,
 } from '@/app/(components)/filters/boss-tracker/types';
 import { parseUrlFilters } from '@/app/(components)/filters/boss-tracker/utils';
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types';

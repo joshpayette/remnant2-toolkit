@@ -5,7 +5,7 @@ import { useLocalStorage } from 'usehooks-ts';
 import { ItemCard } from '@/app/(components)/cards/item-card';
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
 import { allItems } from '@/app/(data)/items/all-items';
-import { Item } from '@/app/(data)/items/types';
+import { type Item } from '@/app/(data)/items/types';
 import {
   DEFAULT_ITEM_COMPARE_LIST,
   LOCALSTORAGE_KEY,

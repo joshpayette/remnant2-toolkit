@@ -2,7 +2,7 @@ import { BaseButton, DownloadIcon, getImageUrl } from '@repo/ui';
 import Image from 'next/image';
 import { v4 as uuidv4 } from 'uuid';
 
-import { FilteredWorldSave } from '@/app/(components)/filters/world-saves/types';
+import { type FilteredWorldSave } from '@/app/(components)/filters/world-saves/types';
 import { getDownloadUrl } from '@/app/(components)/filters/world-saves/utils';
 import { Tooltip } from '@/app/(components)/tooltip';
 import { RELEASE_TO_NAME } from '@/app/(data)/releases/constants';

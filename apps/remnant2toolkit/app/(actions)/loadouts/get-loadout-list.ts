@@ -3,9 +3,9 @@
 import { prisma } from '@repo/db';
 
 import { getIsLoadoutPublic } from '@/app/(actions)/loadouts/get-is-loadout-public';
+import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile';
 import { getSession } from '@/app/(features)/auth/services/sessionService';
-import { DBBuild } from '@/app/(features)/builds/types/db-build';
 
 export async function getLoadoutList(userId?: string) {
   const session = await getSession();

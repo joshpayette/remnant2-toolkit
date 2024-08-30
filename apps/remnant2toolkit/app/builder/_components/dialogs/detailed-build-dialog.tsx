@@ -3,11 +3,11 @@
 import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@repo/ui';
 import { useState } from 'react';
 
+import { type BuildState } from '@/app/(builds)/_types/build-state';
+import { buildStateToMasonryItems } from '@/app/(builds)/_utils/build-state-to-masonry-items';
 import { ItemCard } from '@/app/(components)/cards/item-card';
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
-import { Item } from '@/app/(data)/items/types';
-import { BuildState } from '@/app/(features)/builds/types/build-state';
-import { buildStateToMasonryItems } from '@/app/(features)/builds/utils/build-state-to-masonry-items';
+import { type Item } from '@/app/(data)/items/types';
 
 interface Props {
   open: boolean;

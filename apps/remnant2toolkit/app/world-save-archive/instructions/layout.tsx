@@ -1,9 +1,9 @@
-import { Metadata } from 'next'
+import { type Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'World Save Archive Instructions - Remnant2Toolkit'
+  const title = 'World Save Archive Instructions - Remnant2Toolkit';
   const description =
-    'Instructions on using the World Save Archive files provided by the Remnant 2 Toolkit.'
+    'Instructions on using the World Save Archive files provided by the Remnant 2 Toolkit.';
 
   return {
     title,
@@ -26,17 +26,17 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
     },
-  }
+  };
 }
 
 export default async function Layout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <div className="flex w-full max-w-2xl flex-col items-start justify-start text-left">
       {children}
     </div>
-  )
+  );
 }

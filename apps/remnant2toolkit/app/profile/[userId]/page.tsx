@@ -1,8 +1,8 @@
 import { Prisma, prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
-import { BuildCard } from '@/app/(features)/builds/components/cards/build-card';
-import { communityBuildsQuery } from '@/app/(queries)/build-filters/community-builds';
+import { BuildCard } from '@/app/(builds)/_components/cards/build-card';
+import { communityBuildsQuery } from '@/app/(builds)/_queries/build-filters/community-builds';
 
 async function getCreatedBuilds(userId: string) {
   const itemsToFetch = 4;

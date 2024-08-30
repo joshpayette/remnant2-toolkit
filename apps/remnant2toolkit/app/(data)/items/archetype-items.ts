@@ -1,4 +1,4 @@
-import { ArchetypeItem } from './types/ArchetypeItem';
+import { type ArchetypeItem } from './types/ArchetypeItem';
 
 export const archetypeItems: ArchetypeItem[] = [
   {

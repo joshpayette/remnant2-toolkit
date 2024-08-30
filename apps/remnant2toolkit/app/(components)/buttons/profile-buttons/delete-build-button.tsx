@@ -3,9 +3,9 @@
 import { BaseButton, TrashIcon } from '@repo/ui';
 import { useState } from 'react';
 
+import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
 import { DeleteBuildAlert } from '@/app/(components)/alerts/delete-build-alert';
 import { Tooltip } from '@/app/(components)/tooltip';
-import { useBuildActions } from '@/app/(hooks)/use-build-actions';
 
 export function DeleteBuildButton({
   buildId,

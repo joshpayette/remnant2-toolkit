@@ -1,5 +1,5 @@
-import type { DiscordWebhookParams } from '@/app/(utils)/moderation/types'
-import { validateEnv } from '@/app/(validators)/validate-env'
+import { type DiscordWebhookParams } from '@/app/(utils)/moderation/types';
+import { validateEnv } from '@/app/(validators)/validate-env';
 
 const {
   WEBHOOK_AUDIT_LOG,
@@ -7,7 +7,7 @@ const {
   WEBHOOK_CRON_LOGS,
   WEBHOOK_MOD_QUEUE,
   WEBHOOK_NEW_BUILD_FEED,
-} = validateEnv()
+} = validateEnv();
 
 const WEBHOOKS = {
   auditLog: WEBHOOK_AUDIT_LOG,
@@ -15,14 +15,14 @@ const WEBHOOKS = {
   cronLogs: WEBHOOK_CRON_LOGS,
   modQueue: WEBHOOK_MOD_QUEUE,
   newBuildFeed: WEBHOOK_NEW_BUILD_FEED,
-} as const
+} as const;
 
 export async function sendWebhook({
   params,
   webhook,
 }: {
-  params: DiscordWebhookParams
-  webhook: keyof typeof WEBHOOKS
+  params: DiscordWebhookParams;
+  webhook: keyof typeof WEBHOOKS;
 }) {
   const res = await fetch(`${WEBHOOKS[webhook]}`, {
     method: 'POST',
@@ -30,10 +30,10 @@ export async function sendWebhook({
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(params),
-  })
+  });
 
   if (!res.ok) {
-    console.error(`Error in sending ${webhook} webhook to Discord!`)
-    console.error(res.statusText)
+    console.error(`Error in sending ${webhook} webhook to Discord!`);
+    console.error(res.statusText);
   }
 }

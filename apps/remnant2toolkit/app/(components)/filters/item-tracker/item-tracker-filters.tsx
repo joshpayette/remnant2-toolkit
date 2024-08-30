@@ -23,7 +23,7 @@ import {
 } from '@/app/(components)/filters/item-tracker/categories-filter';
 import {
   ITEM_TRACKER_KEYS,
-  ItemTrackerFilters as Filters,
+  type ItemTrackerFilters as Filters,
 } from '@/app/(components)/filters/item-tracker/types';
 import { parseUrlFilters } from '@/app/(components)/filters/item-tracker/utils';
 import {

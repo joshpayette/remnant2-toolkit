@@ -4,7 +4,7 @@ import { prisma } from '@repo/db';
 
 import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile';
 import { getSession } from '@/app/(features)/auth/services/sessionService';
-import type { LinkedBuildState } from '@/app/(types)/linked-builds';
+import { type LinkedBuildState } from '@/app/(types)/linked-builds';
 
 export async function getLinkedBuild(linkedBuildId: string): Promise<{
   status: 'success' | 'error';

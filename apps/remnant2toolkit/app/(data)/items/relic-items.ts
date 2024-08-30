@@ -1,4 +1,4 @@
-import { RelicItem } from './types/RelicItem'
+import { type RelicItem } from './types/RelicItem';
 
 export const relicItems: RelicItem[] = [
   {
@@ -311,4 +311,4 @@ export const relicItems: RelicItem[] = [
     wikiLinks: [`https://remnant.wiki/Void_Heart`],
     location: { world: `N'Erud`, dungeon: ['Alepsis-Taura'] },
   },
-]
+];

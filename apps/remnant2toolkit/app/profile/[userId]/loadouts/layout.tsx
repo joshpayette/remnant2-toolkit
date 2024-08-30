@@ -1,20 +1,20 @@
-import { DEFAULT_BIO } from '@repo/constants'
-import { prisma } from '@repo/db'
-import { Metadata } from 'next'
+import { DEFAULT_BIO } from '@repo/constants';
+import { prisma } from '@repo/db';
+import { type Metadata } from 'next';
 
-import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list'
-import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id'
+import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list';
+import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id';
 
 export async function generateMetadata({
   params: { userId },
 }: {
-  params: { userId: string }
+  params: { userId: string };
 }): Promise<Metadata> {
   const user = await prisma.user.findUnique({
     where: {
       id: userId,
     },
-  })
+  });
 
   if (!user) {
     return {
@@ -36,14 +36,14 @@ export async function generateMetadata({
         title: 'Error loading user loadouts',
         description: `There was an error loading this user's loadouts. The user may no longer exist.`,
       },
-    }
+    };
   }
 
   let profileData = await prisma.userProfile.findFirst({
     where: {
       userId,
     },
-  })
+  });
 
   if (!profileData) {
     profileData = await prisma.userProfile.upsert({
@@ -55,11 +55,11 @@ export async function generateMetadata({
         bio: DEFAULT_BIO,
       },
       update: {},
-    })
+    });
   }
 
-  const avatarId = profileData?.avatarId
-  const avatar = getAvatarById(avatarId)
+  const avatarId = profileData?.avatarId;
+  const avatar = getAvatarById(avatarId);
 
   if (!profileData?.isLoadoutPublic) {
     return {
@@ -81,21 +81,21 @@ export async function generateMetadata({
         title: 'User Loadouts Private',
         description: `This user has not made their loadouts public.`,
       },
-    }
+    };
   }
 
-  const loadoutsBuilds = await getLoadoutList(userId)
+  const loadoutsBuilds = await getLoadoutList(userId);
   const loadoutNames = loadoutsBuilds.map(
     (build) =>
       `${build.name} by ${build.createdByDisplayName ?? build.createdByName}`,
-  )
+  );
 
-  const title = `${user.displayName ?? user.name} Loadouts - Remnant2Toolkit`
+  const title = `${user.displayName ?? user.name} Loadouts - Remnant2Toolkit`;
 
-  let description = ''
+  let description = '';
   for (let i = 0; i < loadoutNames.length; i++) {
-    description += `${i + 1}. ${loadoutNames[i]}\r\n`
-    description += ``
+    description += `${i + 1}. ${loadoutNames[i]}\r\n`;
+    description += ``;
   }
 
   return {
@@ -117,15 +117,15 @@ export async function generateMetadata({
       title,
       description,
     },
-  }
+  };
 }
 
 export default async function Layout({
   params: _params,
   children,
 }: {
-  params: { userId: string }
-  children: React.ReactNode
+  params: { userId: string };
+  children: React.ReactNode;
 }) {
-  return <>{children}</>
+  return <>{children}</>;
 }

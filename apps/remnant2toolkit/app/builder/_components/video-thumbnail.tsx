@@ -5,7 +5,7 @@ import {
 } from '@repo/utils';
 import Image from 'next/image';
 
-import { BuildState } from '@/app/(features)/builds/types/build-state';
+import { type BuildState } from '@/app/(builds)/_types/build-state';
 
 interface Props {
   buildState: BuildState;

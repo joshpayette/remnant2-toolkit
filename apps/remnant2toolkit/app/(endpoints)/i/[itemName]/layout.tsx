@@ -1,6 +1,6 @@
 import { getImageUrl } from '@repo/ui';
 import { cleanItemName } from '@repo/utils';
-import { Metadata, ResolvingMetadata } from 'next';
+import { type Metadata, type ResolvingMetadata } from 'next';
 
 import { allItems } from '@/app/(data)/items/all-items';
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem';

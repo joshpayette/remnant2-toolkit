@@ -3,10 +3,10 @@ import Image from 'next/image';
 
 import { ItemButton } from '@/app/(components)/buttons/item-button';
 import { WEIGHT_CLASSES } from '@/app/(data)/items/constants';
-import { ArmorItem } from '@/app/(data)/items/types/ArmorItem';
-import type {
-  ArmorSuggestion,
-  WeightClassKeysWithDefault,
+import { type ArmorItem } from '@/app/(data)/items/types/ArmorItem';
+import {
+  type ArmorSuggestion,
+  type WeightClassKeysWithDefault,
 } from '@/app/(types)/armor-calculator';
 
 interface Props {

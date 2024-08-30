@@ -1,4 +1,4 @@
-import { PerkItem } from './types/PerkItem'
+import { type PerkItem } from './types/PerkItem';
 
 export const perkItems: PerkItem[] = [
   {
@@ -1538,4 +1538,4 @@ export const perkItems: PerkItem[] = [
       },
     },
   },
-]
+];

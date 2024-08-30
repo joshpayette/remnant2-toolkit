@@ -1,11 +1,11 @@
-import type {
-  GetServerSidePropsContext,
+import {
+  type GetServerSidePropsContext,
   NextApiRequest,
   NextApiResponse,
-} from 'next'
-import { getServerSession } from 'next-auth'
+} from 'next';
+import { getServerSession } from 'next-auth';
 
-import { authOptions } from '@/app/(features)/auth/configs/authOptions'
+import { authOptions } from '@/app/(features)/auth/configs/authOptions';
 
 export function getSession(
   ...args:
@@ -13,5 +13,5 @@ export function getSession(
     | [NextApiRequest, NextApiResponse]
     | []
 ) {
-  return getServerSession(...args, authOptions)
+  return getServerSession(...args, authOptions);
 }

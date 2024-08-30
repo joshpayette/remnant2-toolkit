@@ -2,14 +2,14 @@
 
 import { cn } from '@repo/ui';
 import { stripUnicode } from '@repo/utils';
-import { ReactNode, useState } from 'react';
+import { type ReactNode, useState } from 'react';
 import reactStringReplace from 'react-string-replace';
 import { v4 as uuidv4 } from 'uuid';
 
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
 import { Tooltip } from '@/app/(components)/tooltip';
 import { allItems } from '@/app/(data)/items/all-items';
-import { Item } from '@/app/(data)/items/types';
+import { type Item } from '@/app/(data)/items/types';
 import { EXTERNAL_TOKENS, INLINE_TOKENS } from '@/app/(types)/tokens';
 import { ALL_BUILD_TAGS } from '@/app/builder/_constants/all-build-tags';
 

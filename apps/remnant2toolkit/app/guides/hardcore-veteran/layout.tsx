@@ -1,9 +1,9 @@
-import { Metadata } from 'next'
+import { type Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Hardcore Veteran Guide - Remnant2Toolkit'
+  const title = 'Hardcore Veteran Guide - Remnant2Toolkit';
   const description =
-    'This guide is intended to help players who have some experience with the game, but are new to hardcore. It is not a complete guide to the game, nor is it an exhaustive list of the many strategies you can use to clear hardcore veteran. It is intended to be an opinionated guide to best help you complete your hardcore veteran run.'
+    'This guide is intended to help players who have some experience with the game, but are new to hardcore. It is not a complete guide to the game, nor is it an exhaustive list of the many strategies you can use to clear hardcore veteran. It is intended to be an opinionated guide to best help you complete your hardcore veteran run.';
 
   return {
     title,
@@ -26,17 +26,17 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
     },
-  }
+  };
 }
 
 export default async function Layout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <div className="flex w-full max-w-2xl flex-col items-start justify-start text-left">
       {children}
     </div>
-  )
+  );
 }

@@ -1,13 +1,13 @@
-'use server'
+'use server';
 
-import { Metadata } from 'next'
-import { Suspense } from 'react'
+import { type Metadata } from 'next';
+import { Suspense } from 'react';
 
-import { NAV_ITEMS } from '@/app/(types)/navigation'
+import { NAV_ITEMS } from '@/app/(types)/navigation';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Build Creation Tool - Remnant 2 Toolkit`
-  const description = NAV_ITEMS.createBuild.description
+  const title = `Build Creation Tool - Remnant 2 Toolkit`;
+  const description = NAV_ITEMS.createBuild.description;
 
   return {
     title,
@@ -30,13 +30,13 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
     },
-  }
+  };
 }
 
 export default async function Layout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  return <Suspense>{children}</Suspense>
+  return <Suspense>{children}</Suspense>;
 }

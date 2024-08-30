@@ -1,12 +1,12 @@
+import { type BuildState } from '@/app/(builds)/_types/build-state';
+import { getTotalArmor } from '@/app/(builds)/_utils/get-totals/get-total-armor';
+import { getTotalResistances } from '@/app/(builds)/_utils/get-totals/get-total-resistances';
+import { getTotalWeight } from '@/app/(builds)/_utils/get-totals/get-total-weight';
+import { getWeightThreshold } from '@/app/(builds)/_utils/get-totals/get-weight-threshold';
 import { armorItems } from '@/app/(data)/items/armor-items';
 import { WEIGHT_CLASSES } from '@/app/(data)/items/constants';
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem';
-import { BuildState } from '@/app/(features)/builds/types/build-state';
-import { getTotalArmor } from '@/app/(features)/builds/utils/get-totals/get-total-armor';
-import { getTotalResistances } from '@/app/(features)/builds/utils/get-totals/get-total-resistances';
-import { getTotalWeight } from '@/app/(features)/builds/utils/get-totals/get-total-weight';
-import { getWeightThreshold } from '@/app/(features)/builds/utils/get-totals/get-weight-threshold';
-import type { ArmorSuggestion } from '@/app/(types)/armor-calculator';
+import { type ArmorSuggestion } from '@/app/(types)/armor-calculator';
 
 export function getArmorSuggestions({
   buildState,

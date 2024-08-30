@@ -8,8 +8,8 @@ import { useEffect, useState } from 'react';
 import { WorldSaveCard } from '@/app/(components)/cards/world-save-card';
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
 import {
-  FilteredWorldSave,
-  WorldSaveFilters,
+  type FilteredWorldSave,
+  type WorldSaveFilters,
 } from '@/app/(components)/filters/world-saves/types';
 import { parseUrlFilters } from '@/app/(components)/filters/world-saves/utils';
 import { DEFAULT_WORLD_SAVE_FILTERS } from '@/app/(components)/filters/world-saves/world-save-filters';

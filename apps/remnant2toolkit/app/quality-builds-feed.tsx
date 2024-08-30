@@ -3,10 +3,10 @@
 import { BaseLink, EyeIcon } from '@repo/ui';
 import { useState } from 'react';
 
+import { BuildCard } from '@/app/(builds)/_components/cards/build-card';
+import { QualityBuildDialog } from '@/app/(builds)/_components/dialogs/quality-build-dialog';
+import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { Tooltip } from '@/app/(components)/tooltip';
-import { BuildCard } from '@/app/(features)/builds/components/cards/build-card';
-import { QualityBuildDialog } from '@/app/(features)/builds/components/dialogs/quality-build-dialog';
-import { DBBuild } from '@/app/(features)/builds/types/db-build';
 
 interface Props {
   builds: DBBuild[];

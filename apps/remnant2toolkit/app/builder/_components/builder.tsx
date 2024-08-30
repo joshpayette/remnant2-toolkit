@@ -1,30 +1,30 @@
-import { BuildTags } from '@repo/db';
+import { type BuildTags } from '@repo/db';
 import { BaseInput, BaseLink, cn, EyeIcon, FavoriteIcon, Logo } from '@repo/ui';
 import { getArrayOfLength, stripUnicode } from '@repo/utils';
 import { useCallback, useMemo, useState } from 'react';
 import { FaRegEye } from 'react-icons/fa';
 import { HiOutlineDuplicate as DuplicateIcon } from 'react-icons/hi';
 
+import { type BuildState } from '@/app/(builds)/_types/build-state';
+import { type ItemCategory } from '@/app/(builds)/_types/item-category';
+import { buildHasFeaturedBadge } from '@/app/(builds)/_utils/build-has-featured-badge';
+import { formatUpdatedAt } from '@/app/(builds)/_utils/format-updated-at';
+import {
+  type ArchetypeName,
+  getArchetypeComboName,
+} from '@/app/(builds)/_utils/get-archetype-combo-name';
+import { getConcoctionSlotCount } from '@/app/(builds)/_utils/get-concoction-slot-count';
+import { getItemListForSlot } from '@/app/(builds)/_utils/get-item-list-for-slot';
+import { isBuildNew } from '@/app/(builds)/_utils/is-build-new';
+import { isBuildPopular } from '@/app/(builds)/_utils/is-build-popular';
 import { ItemButton } from '@/app/(components)/buttons/item-button';
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
 import { ItemSelectDialog } from '@/app/(components)/dialogs/item-select-dialog';
 import { Tooltip } from '@/app/(components)/tooltip';
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants';
 import { perkItems } from '@/app/(data)/items/perk-items';
-import { Item } from '@/app/(data)/items/types';
+import { type Item } from '@/app/(data)/items/types';
 import { TraitItem } from '@/app/(data)/items/types/TraitItem';
-import { BuildState } from '@/app/(features)/builds/types/build-state';
-import { ItemCategory } from '@/app/(features)/builds/types/item-category';
-import { buildHasFeaturedBadge } from '@/app/(features)/builds/utils/build-has-featured-badge';
-import { formatUpdatedAt } from '@/app/(features)/builds/utils/format-updated-at';
-import {
-  ArchetypeName,
-  getArchetypeComboName,
-} from '@/app/(features)/builds/utils/get-archetype-combo-name';
-import { getConcoctionSlotCount } from '@/app/(features)/builds/utils/get-concoction-slot-count';
-import { getItemListForSlot } from '@/app/(features)/builds/utils/get-item-list-for-slot';
-import { isBuildNew } from '@/app/(features)/builds/utils/is-build-new';
-import { isBuildPopular } from '@/app/(features)/builds/utils/is-build-popular';
 import { FeaturedBuildBadge } from '@/app/builder/_components/badges/featured-build-badge';
 import { NewBuildBadge } from '@/app/builder/_components/badges/new-build-badge';
 import { PopularBuildBadge } from '@/app/builder/_components/badges/popular-build-badge';

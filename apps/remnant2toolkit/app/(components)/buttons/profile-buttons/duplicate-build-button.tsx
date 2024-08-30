@@ -2,10 +2,10 @@
 
 import { BaseButton, DuplicateIcon } from '@repo/ui';
 
+import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
+import { type DBBuild } from '@/app/(builds)/_types/db-build';
+import { dbBuildToBuildState } from '@/app/(builds)/_utils/db-build-to-build-state';
 import { Tooltip } from '@/app/(components)/tooltip';
-import { DBBuild } from '@/app/(features)/builds/types/db-build';
-import { dbBuildToBuildState } from '@/app/(features)/builds/utils/db-build-to-build-state';
-import { useBuildActions } from '@/app/(hooks)/use-build-actions';
 
 export function DuplicateBuildButton({ build }: { build: DBBuild }) {
   const buildState = dbBuildToBuildState(build);

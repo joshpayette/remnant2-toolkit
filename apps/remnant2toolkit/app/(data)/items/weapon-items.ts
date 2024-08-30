@@ -1,4 +1,4 @@
-import { WeaponItem } from './types/WeaponItem'
+import { type WeaponItem } from './types/WeaponItem';
 
 export const weaponItems: WeaponItem[] = [
   {
@@ -2415,4 +2415,4 @@ export const weaponItems: WeaponItem[] = [
     weakspot: 105,
     stagger: 5,
   },
-]
+];

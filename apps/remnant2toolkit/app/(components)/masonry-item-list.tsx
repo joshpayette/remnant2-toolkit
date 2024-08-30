@@ -8,7 +8,7 @@ import { useIsClient } from 'usehooks-ts';
 
 import { ItemCard } from '@/app/(components)/cards/item-card';
 import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
-import { Item } from '@/app/(data)/items/types';
+import { type Item } from '@/app/(data)/items/types';
 
 interface Props {
   allowItemCompare?: boolean;

@@ -1,4 +1,4 @@
-import { Enemy } from './types'
+import { type Enemy } from './types';
 
 export const aberrationEnemies = [
   {
@@ -724,7 +724,7 @@ export const aberrationEnemies = [
     wikiLinks: [],
     id: 'Pa46sk',
   },
-] as const satisfies Enemy[]
+] as const satisfies Enemy[];
 
 const addsEnemies = [
   {
@@ -793,7 +793,7 @@ const addsEnemies = [
     wikiLinks: [],
     bleedResistance: 25,
   },
-] as const satisfies Enemy[]
+] as const satisfies Enemy[];
 
 export const bossEnemies = [
   {
@@ -1051,7 +1051,7 @@ export const bossEnemies = [
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Venom'],
     id: '5GEAx3',
   },
-] as const satisfies Enemy[]
+] as const satisfies Enemy[];
 
 const enemies = [
   {
@@ -1413,7 +1413,7 @@ const enemies = [
     bleedResistance: 'immune',
     notes: 'Immune to Bleeding Status',
   },
-] as const satisfies Enemy[]
+] as const satisfies Enemy[];
 
 export const worldBossEnemies = [
   {
@@ -1546,7 +1546,7 @@ export const worldBossEnemies = [
     location: { world: 'Losomn', dungeon: ['Chamber of the Faithless'] },
     wikiLinks: ['https://remnant2.wiki.fextralife.com/One+True+King'],
   },
-] as const satisfies Enemy[]
+] as const satisfies Enemy[];
 
 export const remnantEnemies: Enemy[] = [
   ...aberrationEnemies,
@@ -1554,4 +1554,4 @@ export const remnantEnemies: Enemy[] = [
   ...bossEnemies,
   ...enemies,
   ...worldBossEnemies,
-]
+];

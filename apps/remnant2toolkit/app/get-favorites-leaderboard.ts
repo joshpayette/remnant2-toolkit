@@ -1,7 +1,7 @@
 'use server';
 
 import { prisma } from '@repo/db';
-import type { LeaderBoardItem } from '@repo/ui';
+import { type LeaderBoardItem } from '@repo/ui';
 import { bigIntFix } from '@repo/utils';
 
 export async function getFavoritesLeaderboard(): Promise<LeaderBoardItem[]> {

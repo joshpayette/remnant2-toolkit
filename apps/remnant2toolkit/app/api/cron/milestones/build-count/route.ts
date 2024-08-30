@@ -1,6 +1,6 @@
 import { prisma } from '@repo/db';
 import { urlNoCache } from '@repo/utils';
-import type { NextRequest } from 'next/server';
+import { type NextRequest } from 'next/server';
 
 /**  The number of builds to add when a milestone is reached */
 const MILESTONE_STEP = 500;

@@ -1,4 +1,4 @@
-import { BuildTags } from '@repo/db';
+import { type BuildTags } from '@repo/db';
 import { BaseButton, BaseFieldset, BaseLabel, cn } from '@repo/ui';
 
 import { ALL_BUILD_TAGS } from '@/app/builder/_constants/all-build-tags';

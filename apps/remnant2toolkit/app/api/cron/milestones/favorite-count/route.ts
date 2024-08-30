@@ -1,6 +1,6 @@
 import { prisma } from '@repo/db';
 import { urlNoCache } from '@repo/utils';
-import type { NextRequest } from 'next/server';
+import { type NextRequest } from 'next/server';
 
 /** Ignore all milestones before this date. */
 const MILESTONE_START_DATE = '2024-08-03T00:00:00.000Z';

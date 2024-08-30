@@ -1,4 +1,4 @@
-import type { TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { type TraitItem } from '@/app/(data)/items/types/TraitItem';
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/builder/_constants/default-trait-amount';
 
 export const traitItems: TraitItem[] = [

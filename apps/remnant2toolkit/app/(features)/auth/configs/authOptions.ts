@@ -1,12 +1,12 @@
-import { PrismaAdapter } from '@auth/prisma-adapter'
-import { prisma } from '@repo/db'
-import { redirect } from 'next/navigation'
-import { NextAuthOptions } from 'next-auth'
-import { type Adapter, AdapterUser } from 'next-auth/adapters'
-import DiscordProvider from 'next-auth/providers/discord'
-import RedditProvider from 'next-auth/providers/reddit'
+import { PrismaAdapter } from '@auth/prisma-adapter';
+import { prisma } from '@repo/db';
+import { redirect } from 'next/navigation';
+import { type NextAuthOptions } from 'next-auth';
+import { type Adapter, type AdapterUser } from 'next-auth/adapters';
+import DiscordProvider from 'next-auth/providers/discord';
+import RedditProvider from 'next-auth/providers/reddit';
 
-import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile'
+import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile';
 
 export const authOptions: NextAuthOptions = {
   callbacks: {
@@ -19,11 +19,11 @@ export const authOptions: NextAuthOptions = {
         .catch((e) => {
           console.info(
             `${e.message}. No banned user found for User ID: ${user.id}`,
-          )
-        })
-      if (isBanned) return false
+          );
+        });
+      if (isBanned) return false;
 
-      return true
+      return true;
     },
 
     async session({ session, user }) {
@@ -35,17 +35,17 @@ export const authOptions: NextAuthOptions = {
         .catch((e) => {
           console.error(
             `Session callback error on ban check, ${e.message} - User ID: ${user.id}`,
-          )
-        })
+          );
+        });
       if (isBanned) {
-        console.info(`User ${user.id} is banned`)
-        redirect('/api/auth/signout')
+        console.info(`User ${user.id} is banned`);
+        redirect('/api/auth/signout');
       }
 
       // Create user profile if it doesn't exist
       const existingProfile = await prisma.userProfile.findFirst({
         where: { userId: user.id },
-      })
+      });
       if (!existingProfile) {
         await prisma.userProfile
           .create({
@@ -57,14 +57,14 @@ export const authOptions: NextAuthOptions = {
           .catch((e) => {
             console.error(
               `Session callback error on profile creation: ${e.message} - User ID: ${user.id}`,
-            )
-          })
+            );
+          });
       }
 
       // Update the user's avatar
       // Ensure the user's display name is defaulted
       const displayName = (user as AdapterUser & { displayName: string })
-        .displayName
+        .displayName;
 
       await prisma.user
         .update({
@@ -77,17 +77,17 @@ export const authOptions: NextAuthOptions = {
         .catch((e) => {
           console.error(
             `Session callback error on avatar update: ${e.message} - User ID: ${user.id}`,
-          )
-        })
+          );
+        });
 
       // Update the session user object
       if (session.user) {
-        session.user.id = user.id
-        session.user.role = (user as AdapterUser & { role: string }).role
-        session.user.displayName = displayName
+        session.user.id = user.id;
+        session.user.role = (user as AdapterUser & { role: string }).role;
+        session.user.displayName = displayName;
       }
 
-      return session
+      return session;
     },
   },
   adapter: PrismaAdapter(prisma) as Adapter,
@@ -106,4 +106,4 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
-}
+};

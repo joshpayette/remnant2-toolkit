@@ -6,8 +6,8 @@ import { PiBagSimpleFill as OwnershipIcon } from 'react-icons/pi';
 import { TbHttpOptions } from 'react-icons/tb';
 
 import { Tooltip } from '@/app/(components)/tooltip';
-import { Enemy, isEnemy } from '@/app/(data)/enemies/types';
-import { Item } from '@/app/(data)/items/types';
+import { type Enemy, isEnemy } from '@/app/(data)/enemies/types';
+import { type Item } from '@/app/(data)/items/types';
 import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem';
 import { SKIPPED_ITEM_TRACKER_CATEGORIES } from '@/app/tracker/constants';
 

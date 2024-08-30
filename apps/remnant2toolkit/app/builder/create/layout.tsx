@@ -1,7 +1,7 @@
 'use server';
 
 import { BaseLink, cn, ZINDEXES } from '@repo/ui';
-import { Metadata } from 'next';
+import { type Metadata } from 'next';
 import React from 'react';
 
 import { getSession } from '@/app/(features)/auth/services/sessionService';

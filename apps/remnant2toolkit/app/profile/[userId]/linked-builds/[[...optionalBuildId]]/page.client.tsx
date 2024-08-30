@@ -20,7 +20,7 @@ import { BuildList } from '@/app/(components)/build-list';
 import { Tooltip } from '@/app/(components)/tooltip';
 import { deleteLinkedBuild } from '@/app/(features)/linked-builds/actions/delete-linked-build';
 import { LinkedBuildCard } from '@/app/(features)/linked-builds/components/linked-build-card';
-import type { LinkedBuildState } from '@/app/(types)/linked-builds';
+import { type LinkedBuildState } from '@/app/(types)/linked-builds';
 import { usePagination } from '@/app/(utils)/pagination/use-pagination';
 import getLinkedBuilds from '@/app/profile/[userId]/linked-builds/[[...optionalBuildId]]/actions/get-linked-builds';
 

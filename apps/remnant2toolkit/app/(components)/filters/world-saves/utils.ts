@@ -1,11 +1,11 @@
 import { getImageUrl } from '@repo/ui';
-import { ReadonlyURLSearchParams } from 'next/navigation';
+import { type ReadonlyURLSearchParams } from 'next/navigation';
 
 import { VALID_RELEASE_KEYS } from '@/app/(components)/filters/releases-filter';
 import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
 import {
   WORLD_SAVE_FILTER_KEYS,
-  WorldSaveFilters,
+  type WorldSaveFilters,
 } from '@/app/(components)/filters/world-saves/types';
 import { ALL_BOSSES } from '@/app/(data)/world-saves/constants';
 

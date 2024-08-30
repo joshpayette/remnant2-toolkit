@@ -1,4 +1,4 @@
-import { ConsumableItem } from './types/ConsumableItem'
+import { type ConsumableItem } from './types/ConsumableItem';
 
 export const consumableItems: ConsumableItem[] = [
   {
@@ -433,4 +433,4 @@ Cooldown: 60m.`,
     wikiLinks: [`https://remnant.wiki/Walker%27s_Dream`],
     location: { world: 'Root Earth', dungeon: ['Corrupted Harbor'] },
   },
-]
+];

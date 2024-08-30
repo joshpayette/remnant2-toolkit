@@ -3,11 +3,11 @@
 import { revalidatePath } from 'next/cache';
 
 import { addBuildToLoadout } from '@/app/(actions)/loadouts/add-build-to-loadout';
+import { createBuild } from '@/app/(builds)/_actions/create-build';
+import type { BuildState } from '@/app/(builds)/_types/build-state';
+import { type SuccessResponse } from '@/app/(builds)/_types/success-response';
+import { importedLoadoutToBuildState } from '@/app/(builds)/_utils/imported-loadout-to-build-state';
 import { getSession } from '@/app/(features)/auth/services/sessionService';
-import { createBuild } from '@/app/(features)/builds/actions/create-build';
-import type { BuildState } from '@/app/(features)/builds/types/build-state';
-import { SuccessResponse } from '@/app/(features)/builds/types/success-response';
-import { importedLoadoutToBuildState } from '@/app/(features)/builds/utils/imported-loadout-to-build-state';
 import {
   MAX_PROFILE_SAV_SIZE,
   type ParsedLoadoutItem,

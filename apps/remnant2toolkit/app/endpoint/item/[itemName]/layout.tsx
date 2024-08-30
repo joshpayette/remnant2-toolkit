@@ -1,6 +1,6 @@
 import { BaseText, BaseTextLink, getImageUrl } from '@repo/ui';
 import { cleanItemName } from '@repo/utils';
-import { Metadata, ResolvingMetadata } from 'next';
+import { type Metadata, type ResolvingMetadata } from 'next';
 
 import { allItems } from '@/app/(data)/items/all-items';
 import { ArmorItem } from '@/app/(data)/items/types/ArmorItem';
@@ -39,7 +39,7 @@ export async function generateMetadata(
   const title = `${item.name} (${
     item.category === 'relicfragment' ? 'relic fragment' : item.category
   })`;
-  let description = `${item.description}\r\n` ?? 'An item for Remnant 2.';
+  let description = `${item.description}\r\n` || 'An item for Remnant 2.';
 
   if (MutatorItem.isMutatorItem(item)) {
     description += '';

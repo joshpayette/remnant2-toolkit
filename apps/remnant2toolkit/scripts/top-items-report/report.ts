@@ -2,6 +2,7 @@ import { prisma } from '@repo/db';
 import { writeFile } from 'fs';
 import path from 'path';
 
+import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { allItems } from '@/app/(data)/items/all-items';
 import { amuletItems } from '@/app/(data)/items/amulet-items';
 import { archetypeItems } from '@/app/(data)/items/archetype-items';
@@ -16,9 +17,8 @@ import { relicItems } from '@/app/(data)/items/relic-items';
 import { ringItems } from '@/app/(data)/items/ring-items';
 import { skillItems } from '@/app/(data)/items/skill-items';
 import { traitItems } from '@/app/(data)/items/trait-items';
-import { Item } from '@/app/(data)/items/types';
+import { type Item } from '@/app/(data)/items/types';
 import { weaponItems } from '@/app/(data)/items/weapon-items';
-import { ItemCategory } from '@/app/(features)/builds/types/item-category';
 
 type Result = {
   id: string;

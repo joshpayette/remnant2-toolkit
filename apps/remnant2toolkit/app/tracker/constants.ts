@@ -1,6 +1,6 @@
+import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { allItems } from '@/app/(data)/items/all-items';
-import { Item } from '@/app/(data)/items/types';
-import { ItemCategory } from '@/app/(features)/builds/types/item-category';
+import { type Item } from '@/app/(data)/items/types';
 
 /** We don't track these categories at all */
 export const SKIPPED_ITEM_TRACKER_CATEGORIES: Array<ItemCategory> = [

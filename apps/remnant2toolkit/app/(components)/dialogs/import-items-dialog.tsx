@@ -10,7 +10,7 @@ import {
   BaseInput,
   BaseLabel,
 } from '@repo/ui';
-import type React from 'react';
+import React from 'react';
 
 import LocatingProfileSav from '@/app/(components)/dialogs/partial/locating-profile-sav';
 import { ImportSaveSubmitButton } from '@/app/tracker/import-save-submit-button';

@@ -1,10 +1,10 @@
-import { Metadata } from 'next'
+import { type Metadata } from 'next';
 
-import { NAV_ITEMS } from '@/app/(types)/navigation'
+import { NAV_ITEMS } from '@/app/(types)/navigation';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Resources - Remnant 2 Toolkit'
-  const description = NAV_ITEMS.resources.description
+  const title = 'Resources - Remnant 2 Toolkit';
+  const description = NAV_ITEMS.resources.description;
 
   return {
     title,
@@ -27,13 +27,13 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
     },
-  }
+  };
 }
 
 export default async function Layout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  return <>{children}</>
+  return <>{children}</>;
 }
