@@ -16,6 +16,8 @@ import { useSession } from 'next-auth/react';
 import { useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 
+import { ToCsvButton } from '@/app/_components/buttons/to-csv-button';
+import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
 import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
 import { buildStateToCsvData } from '@/app/(builds)/_utils/build-state-to-csv-data';
 import { cleanUpBuildState } from '@/app/(builds)/_utils/clean-up-build-state';
@@ -35,8 +37,6 @@ import { DetailedBuildDialog } from '@/app/(builds)/builder/_components/dialogs/
 import { FavoriteBuildDialog } from '@/app/(builds)/builder/_components/dialogs/favorite-build-dialog';
 import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/dialogs/image-download-info-dialog';
 import { VideoThumbnail } from '@/app/(builds)/builder/_components/video-thumbnail';
-import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button';
-import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens';
 import { ModeratorLinkedBuildToolsDialog } from '@/app/(features)/linked-builds/admin/components/dialogs/moderator-linkedbuild-tools-dialog';
 import { LoadoutDialog } from '@/app/(features)/loadouts/components/dialogs/loadout-dialog';
 import {

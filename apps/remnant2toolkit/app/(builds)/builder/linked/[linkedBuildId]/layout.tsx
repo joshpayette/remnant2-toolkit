@@ -1,6 +1,6 @@
 import { type Metadata, type ResolvingMetadata } from 'next';
 
-import { PageHeader } from '@/app/(components)/page-header';
+import { PageHeader } from '@/app/_components/page-header';
 import { getLinkedBuild } from '@/app/(features)/linked-builds/actions/get-linked-build';
 import { NAV_ITEMS } from '@/app/(types)/navigation';
 import { isErrorResponse } from '@/app/(utils)/is-error-response';

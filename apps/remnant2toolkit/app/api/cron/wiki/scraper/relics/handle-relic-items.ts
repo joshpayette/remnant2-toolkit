@@ -1,7 +1,7 @@
 import { getImageUrl } from '@repo/ui';
 import * as cheerio from 'cheerio';
 
-import { relicItems } from '@/app/(data)/items/relic-items';
+import { relicItems } from '@/app/(items)/_data/relic-items';
 import { validateEnv } from '@/app/(validators)/validate-env';
 import { REQUEST_DELAY } from '@/app/api/cron/wiki/scraper/constants';
 import { relicDataCompare } from '@/app/api/cron/wiki/scraper/relics/compare';

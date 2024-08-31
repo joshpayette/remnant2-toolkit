@@ -6,8 +6,8 @@ import {
   BaseListboxOption,
 } from '@repo/ui';
 
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
-import { ringItems } from '@/app/(data)/items/ring-items';
+import { DEFAULT_FILTER } from '@/app/_types/default-filter';
+import { ringItems } from '@/app/(items)/_data/ring-items';
 
 interface Props {
   value: string[];

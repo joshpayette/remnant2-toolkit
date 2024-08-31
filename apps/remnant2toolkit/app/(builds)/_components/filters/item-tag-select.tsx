@@ -1,6 +1,6 @@
 import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@repo/ui';
 
-import { type ItemTokenWithDefault } from '@/app/(components)/dialogs/item-tag-suggestion-dialog';
+import { type ItemTokenWithDefault } from '@/app/(items)/_components/item-tag-suggestion-dialog';
 
 interface Props {
   value: ItemTokenWithDefault;

@@ -1,17 +1,17 @@
-'use server'
+'use server';
 
-import { prisma } from '@repo/db'
+import { prisma } from '@repo/db';
 
-import { DiscoveredItemsStatBox } from '@/app/profile/[userId]/(components)/discovered-items-stat-box'
-import { StatBox } from '@/app/profile/[userId]/(components)/stat-box'
 import {
   ALL_TRACKABLE_ITEMS,
   TOTAL_TRACKABLE_ITEM_COUNT,
-} from '@/app/tracker/constants'
+} from '@/app/(items)/item-tracker/_constants';
+import { DiscoveredItemsStatBox } from '@/app/profile/[userId]/(components)/discovered-items-stat-box';
+import { StatBox } from '@/app/profile/[userId]/(components)/stat-box';
 
 interface Props {
-  isEditable: boolean
-  userId: string
+  isEditable: boolean;
+  userId: string;
 }
 
 export async function ProfileStats({ isEditable, userId }: Props) {
@@ -58,7 +58,7 @@ export async function ProfileStats({ isEditable, userId }: Props) {
       where: { userId },
       select: { itemId: true },
     }),
-  ])
+  ]);
 
   // const discoveredItemIdCount = Array.from(new Set(discoveredItemIds)).filter(
   //   (item) => ALL_TRACKABLE_ITEMS.some((i) => i.id === item.itemId),
@@ -66,10 +66,10 @@ export async function ProfileStats({ isEditable, userId }: Props) {
 
   const uniqueItemIds = Array.from(
     new Set(discoveredItemIds.map((item) => item.itemId)),
-  )
+  );
   const discoveredItemIdCount = uniqueItemIds.filter((itemId) =>
     ALL_TRACKABLE_ITEMS.some((i) => i.id === itemId),
-  ).length
+  ).length;
 
   return (
     <div className="grid grid-cols-2 bg-gray-700/10 sm:grid-cols-3 lg:grid-cols-6">
@@ -109,5 +109,5 @@ export async function ProfileStats({ isEditable, userId }: Props) {
         index={5}
       />
     </div>
-  )
+  );
 }

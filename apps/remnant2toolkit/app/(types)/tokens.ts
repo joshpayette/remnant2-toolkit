@@ -1,4 +1,4 @@
-import { ARCHETYPE_COLORS } from '@/app/(data)/items/constants'
+import { ARCHETYPE_COLORS } from '@/app/(constants)/constants';
 
 export const INLINE_TOKENS = [
   {
@@ -406,12 +406,12 @@ export const INLINE_TOKENS = [
     description: undefined,
   },
 ] as const satisfies {
-  type: string
-  token: string
-  color: string
-  description: string | undefined
-}[]
-export type InlineToken = (typeof INLINE_TOKENS)[number]
+  type: string;
+  token: string;
+  color: string;
+  description: string | undefined;
+}[];
+export type InlineToken = (typeof INLINE_TOKENS)[number];
 
 export const EXTERNAL_TOKENS = [
   {
@@ -468,8 +468,7 @@ export const EXTERNAL_TOKENS = [
   {
     token: `Navigator's Set`,
     color: 'text-[#6d6650] dark:text-[#fff1bc]',
-    description:
-      `Wearing either Navigator's Pendant alongside the Navigator's Helm gives +15 BLIGHT resistance.`,
+    description: `Wearing either Navigator's Pendant alongside the Navigator's Helm gives +15 BLIGHT resistance.`,
   },
   {
     token: 'Bug',
@@ -478,11 +477,11 @@ export const EXTERNAL_TOKENS = [
       'This item is currently bugged and MAY not function as expected. Check remnant.wiki for more information.',
   },
 ] as const satisfies {
-  token: string
-  color: string
-  description: string | undefined
-}[]
-export type ExternalToken = (typeof EXTERNAL_TOKENS)[number]
+  token: string;
+  color: string;
+  description: string | undefined;
+}[];
+export type ExternalToken = (typeof EXTERNAL_TOKENS)[number];
 
 export const ITEM_TOKENS = [
   'Ammo Reserves', // Only plural one due to wording in game
@@ -550,5 +549,5 @@ export const ITEM_TOKENS = [
   'Weakspot Damage',
   'Weakspot Hit',
   'Weapon Damage',
-] as const satisfies string[]
-export type ItemToken = (typeof ITEM_TOKENS)[number]
+] as const satisfies string[];
+export type ItemToken = (typeof ITEM_TOKENS)[number];

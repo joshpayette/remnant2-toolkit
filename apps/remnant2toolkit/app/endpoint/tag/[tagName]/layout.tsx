@@ -1,9 +1,9 @@
 import { type Metadata, type ResolvingMetadata } from 'next';
 
-import { allItems } from '@/app/(data)/items/all-items';
-import { type Item } from '@/app/(data)/items/types';
+import { allItems } from '@/app/(items)/_data/all-items';
+import { type Item } from '@/app/(items)/_types/item';
+import { itemMatchesSearchText } from '@/app/(items)/_utils/item-matches-search-text';
 import { INLINE_TOKENS, ITEM_TOKENS } from '@/app/(types)/tokens';
-import { itemMatchesSearchText } from '@/app/(utils)/items/item-matches-search-text';
 
 import TagPage from './page';
 

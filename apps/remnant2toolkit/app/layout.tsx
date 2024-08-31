@@ -5,7 +5,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { type Viewport } from 'next';
 import dynamic from 'next/dynamic';
 
-import { Footer } from '@/app/(components)/footer';
+import { Footer } from '@/app/_components/footer';
 import { getSession } from '@/app/(features)/auth/services/sessionService';
 import { showNotificationsFlag } from '@/app/(features)/notifications/feature-flag';
 import { Navbar } from '@/app/navbar';

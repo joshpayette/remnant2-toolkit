@@ -1,7 +1,7 @@
 import { getImageUrl } from '@repo/ui';
 import * as cheerio from 'cheerio';
 
-import { traitItems } from '@/app/(data)/items/trait-items';
+import { traitItems } from '@/app/(items)/_data/trait-items';
 import { validateEnv } from '@/app/(validators)/validate-env';
 import { REQUEST_DELAY } from '@/app/api/cron/wiki/scraper/constants';
 import { traitDataCompare } from '@/app/api/cron/wiki/scraper/traits/compare';

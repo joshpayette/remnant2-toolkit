@@ -1,10 +1,10 @@
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
-import { allItems } from '@/app/(data)/items/all-items';
-import { type Item } from '@/app/(data)/items/types';
-import { type ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem';
-import { MutatorItem } from '@/app/(data)/items/types/MutatorItem';
-import { WeaponItem } from '@/app/(data)/items/types/WeaponItem';
+import { allItems } from '@/app/(items)/_data/all-items';
+import { type ArchetypeItem } from '@/app/(items)/_types/archetype-item';
+import { type Item } from '@/app/(items)/_types/item';
+import { MutatorItem } from '@/app/(items)/_types/mutator-item';
+import { WeaponItem } from '@/app/(items)/_types/weapon-item';
 
 /**
  * Returns a list of items that match the selected slot

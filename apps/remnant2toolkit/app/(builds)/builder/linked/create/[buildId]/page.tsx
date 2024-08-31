@@ -1,6 +1,6 @@
+import { PageHeader } from '@/app/_components/page-header';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
 import PageClient from '@/app/(builds)/builder/linked/create/[buildId]/page.client';
-import { PageHeader } from '@/app/(components)/page-header';
 import { getSession } from '@/app/(features)/auth/services/sessionService';
 import { isErrorResponse } from '@/app/(utils)/is-error-response';
 

@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react';
 import { useIsClient } from 'usehooks-ts';
 
+import { PageHeader } from '@/app/_components/page-header';
 import { INITIAL_BUILD_STATE } from '@/app/(builds)/_constants/initial-build-state';
 import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
@@ -17,8 +18,7 @@ import { SaveBuildButton } from '@/app/(builds)/builder/_components/buttons/save
 import { ArmorSuggestionDialog } from '@/app/(builds)/builder/_components/dialogs/armor-suggestion-dialog';
 import { DetailedBuildDialog } from '@/app/(builds)/builder/_components/dialogs/detailed-build-dialog';
 import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/dialogs/image-download-info-dialog';
-import { ItemTagSuggestionDialog } from '@/app/(components)/dialogs/item-tag-suggestion-dialog';
-import { PageHeader } from '@/app/(components)/page-header';
+import { ItemTagSuggestionDialog } from '@/app/(items)/_components/item-tag-suggestion-dialog';
 
 export default function Page() {
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);

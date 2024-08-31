@@ -1,4 +1,4 @@
-import { type ArmorItem } from '@/app/(data)/items/types/ArmorItem';
+import { type ArmorItem } from '@/app/(items)/_types/armor-item';
 
 export function armorDataCompare(
   newData: {

@@ -3,8 +3,8 @@
 import { type Metadata } from 'next';
 import React from 'react';
 
+import { PageHeader } from '@/app/_components/page-header';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
-import { PageHeader } from '@/app/(components)/page-header';
 import { getSession } from '@/app/(features)/auth/services/sessionService';
 import { NAV_ITEMS } from '@/app/(types)/navigation';
 import { isErrorResponse } from '@/app/(utils)/is-error-response';

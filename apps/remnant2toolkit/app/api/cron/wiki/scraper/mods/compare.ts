@@ -1,4 +1,4 @@
-import { type ModItem } from '@/app/(data)/items/types/ModItem';
+import { type ModItem } from '@/app/(items)/_types/mod-item';
 
 export function modDataCompare(
   newData: {

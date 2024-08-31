@@ -1,7 +1,7 @@
 import { getImageUrl } from '@repo/ui';
 import * as cheerio from 'cheerio';
 
-import { perkItems } from '@/app/(data)/items/perk-items';
+import { perkItems } from '@/app/(items)/_data/perk-items';
 import { validateEnv } from '@/app/(validators)/validate-env';
 import { REQUEST_DELAY } from '@/app/api/cron/wiki/scraper/constants';
 import { perkDataCompare } from '@/app/api/cron/wiki/scraper/perks/compare';

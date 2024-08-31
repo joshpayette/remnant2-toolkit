@@ -1,4 +1,4 @@
-import { type ConsumableItem } from '@/app/(data)/items/types/ConsumableItem';
+import { type ConsumableItem } from '@/app/(items)/_types/consumable-item';
 
 export function consumableDataCompare(
   newData: {

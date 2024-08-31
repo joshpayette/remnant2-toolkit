@@ -1,5 +1,5 @@
+import { PageHeader } from '@/app/_components/page-header';
 import PageClient from '@/app/(builds)/builder/linked/edit/[linkedBuildId]/page.client';
-import { PageHeader } from '@/app/(components)/page-header';
 import { getSession } from '@/app/(features)/auth/services/sessionService';
 import { getLinkedBuild } from '@/app/(features)/linked-builds/actions/get-linked-build';
 import { isErrorResponse } from '@/app/(utils)/is-error-response';

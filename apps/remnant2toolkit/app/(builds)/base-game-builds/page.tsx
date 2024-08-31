@@ -3,9 +3,9 @@
 import { BaseText, BaseTextLink } from '@repo/ui';
 import { useCallback, useState } from 'react';
 
+import { PageHeader } from '@/app/_components/page-header';
 import { BuildFilters } from '@/app/(builds)/_components/filters/build-filters';
 import { BaseGameBuilds } from '@/app/(builds)/base-game-builds/base-game-builds';
-import { PageHeader } from '@/app/(components)/page-header';
 import { NAV_ITEMS } from '@/app/(types)/navigation';
 import { DEFAULT_ITEMS_PER_PAGE } from '@/app/(utils)/pagination/constants';
 

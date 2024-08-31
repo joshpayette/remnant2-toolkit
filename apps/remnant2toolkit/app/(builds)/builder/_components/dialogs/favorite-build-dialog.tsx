@@ -1,8 +1,8 @@
-import GenericDialog from '@/app/(components)/dialogs/generic-dialog'
+import GenericDialog from '@/app/_components/dialogs/generic-dialog';
 
 interface Props {
-  open: boolean
-  onClose: () => void
+  open: boolean;
+  onClose: () => void;
 }
 
 export function FavoriteBuildDialog({ open, onClose }: Props) {
@@ -19,5 +19,5 @@ export function FavoriteBuildDialog({ open, onClose }: Props) {
       </p>
       <p>Sign in or create an account to favorite this build.</p>
     </GenericDialog>
-  )
+  );
 }

@@ -1,6 +1,6 @@
-import { remnantEnemies } from '@/app/(data)/enemies/remnant-enemies'
-import { amuletItems } from '@/app/(data)/items/amulet-items'
-import { armorItems } from '@/app/(data)/items/armor-items'
+import { remnantEnemies } from '@/app/(data)/enemies/remnant-enemies';
+import { amuletItems } from '@/app/(items)/_data/amulet-items';
+import { armorItems } from '@/app/(items)/_data/armor-items';
 
 const enemyImages = remnantEnemies
   .sort((a, b) => a.name.localeCompare(b.name))
@@ -9,7 +9,7 @@ const enemyImages = remnantEnemies
     id: enemy.id,
     name: enemy.name,
     imagePath: enemy.imagePath as string,
-  }))
+  }));
 
 const helmImages = armorItems
   .filter((item) => item.category === 'helm' && item.imagePath)
@@ -17,7 +17,7 @@ const helmImages = armorItems
     id: item.id,
     name: item.name,
     imagePath: item.imagePath as string,
-  }))
+  }));
 
 const amuletImages = amuletItems
   .filter((item) => item.imagePath)
@@ -25,7 +25,7 @@ const amuletImages = amuletItems
     id: item.id,
     name: item.name,
     imagePath: item.imagePath as string,
-  }))
+  }));
 
 export const ADDITIONAL_AVATARS = [
   {
@@ -213,7 +213,7 @@ export const ADDITIONAL_AVATARS = [
     name: 'Whispers',
     imagePath: '/avatars/whispers.jpg',
   },
-]
+];
 
 /**
  * The list of avatars that a user can choose from
@@ -224,14 +224,14 @@ export const AVATARS = [
   ...amuletImages,
   ...ADDITIONAL_AVATARS,
 ].sort((a, b) => a.name.localeCompare(b.name)) satisfies Array<{
-  id: string
-  name: string
-  imagePath: string
-}>
+  id: string;
+  name: string;
+  imagePath: string;
+}>;
 
-export const DEFAULT_AVATAR_ID = '2zr34P' // Gorge
+export const DEFAULT_AVATAR_ID = '2zr34P'; // Gorge
 
 /**
  * The initial display name for a user if none is set
  */
-export const DEFAULT_DISPLAY_NAME = 'Traveler'
+export const DEFAULT_DISPLAY_NAME = 'Traveler';

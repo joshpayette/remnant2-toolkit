@@ -1,6 +1,6 @@
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { modItems } from '@/app/(data)/items/mod-items';
-import { type ModItem } from '@/app/(data)/items/types/ModItem';
+import { modItems } from '@/app/(items)/_data/mod-items';
+import { type ModItem } from '@/app/(items)/_types/mod-item';
 
 /**
  * Checks the build weapons and equips any mods

@@ -1,6 +1,6 @@
-import { LandingPageCard } from '@/app/(components)/cards/landing-page-card'
-import { LandingPageContainer } from '@/app/(components)/landing-page-container'
-import { NAV_ITEMS } from '@/app/(types)/navigation'
+import { LandingPageCard } from '@/app/_components/cards/landing-page-card';
+import { LandingPageContainer } from '@/app/_components/landing-page-container';
+import { NAV_ITEMS } from '@/app/(types)/navigation';
 
 export default async function Page() {
   return (
@@ -22,7 +22,7 @@ export default async function Page() {
           target="_blank"
           icon={
             <NAV_ITEMS.supportR2TK.icon
-              className="h-7 w-7 flex-none text-primary-500"
+              className="text-primary-500 h-7 w-7 flex-none"
               aria-hidden="true"
             />
           }
@@ -35,7 +35,7 @@ export default async function Page() {
           target="_blank"
           icon={
             <NAV_ITEMS.supportR2TK.icon
-              className="h-7 w-7 flex-none text-primary-500"
+              className="text-primary-500 h-7 w-7 flex-none"
               aria-hidden="true"
             />
           }
@@ -48,12 +48,12 @@ export default async function Page() {
           target="_blank"
           icon={
             <NAV_ITEMS.supportR2TK.icon
-              className="h-7 w-7 flex-none text-primary-500"
+              className="text-primary-500 h-7 w-7 flex-none"
               aria-hidden="true"
             />
           }
         />
       </div>
     </LandingPageContainer>
-  )
+  );
 }

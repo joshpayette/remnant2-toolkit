@@ -17,10 +17,10 @@ import { useState } from 'react';
 import { IoDocumentTextSharp } from 'react-icons/io5';
 import { MdOutlineGeneratingTokens } from 'react-icons/md';
 
+import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
+import { BuildDescriptionTemplateAlert } from '@/app/(builds)/_components/build-description-template-alert';
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
 import { DescriptionTokenDialog } from '@/app/(builds)/builder/_components/dialogs/description-token-dialog';
-import { BuildDescriptionTemplateAlert } from '@/app/(components)/alerts/build-description-template-alert';
-import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens';
 
 import { BuildTagsDisplay } from './build-tags/build-tags-display';
 

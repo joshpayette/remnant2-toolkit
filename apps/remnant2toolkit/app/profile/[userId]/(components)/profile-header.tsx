@@ -10,7 +10,7 @@ import {
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { AvatarSelectDialog } from '@/app/(components)/dialogs/avatar-select-dialog';
+import { AvatarSelectDialog } from '@/app/_components/dialogs/avatar-select-dialog';
 import { saveProfile } from '@/app/profile/[userId]/(actions)/save-profile';
 import { AvatarBox } from '@/app/profile/[userId]/(components)/avatar-box';
 import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id';

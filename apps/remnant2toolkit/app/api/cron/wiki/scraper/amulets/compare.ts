@@ -1,4 +1,4 @@
-import { type AmuletItem } from '@/app/(data)/items/types/AmuletItem';
+import { type AmuletItem } from '@/app/(items)/_types/amulet-item';
 
 export function amuletDataCompare(
   newData: {

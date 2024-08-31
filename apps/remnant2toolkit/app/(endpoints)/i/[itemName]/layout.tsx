@@ -2,11 +2,11 @@ import { getImageUrl } from '@repo/ui';
 import { cleanItemName } from '@repo/utils';
 import { type Metadata, type ResolvingMetadata } from 'next';
 
-import { allItems } from '@/app/(data)/items/all-items';
-import { ArmorItem } from '@/app/(data)/items/types/ArmorItem';
-import { MutatorItem } from '@/app/(data)/items/types/MutatorItem';
-import { WeaponItem } from '@/app/(data)/items/types/WeaponItem';
-import { itemEndpoint } from '@/app/(utils)/get-item-endpoint';
+import { allItems } from '@/app/(items)/_data/all-items';
+import { ArmorItem } from '@/app/(items)/_types/armor-item';
+import { MutatorItem } from '@/app/(items)/_types/mutator-item';
+import { WeaponItem } from '@/app/(items)/_types/weapon-item';
+import { itemEndpoint } from '@/app/(items)/_utils/get-item-endpoint';
 
 import ItemPage from './page';
 

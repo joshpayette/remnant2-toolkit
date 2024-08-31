@@ -1,4 +1,4 @@
-import { type SkillItem } from '@/app/(data)/items/types/SkillItem';
+import { type SkillItem } from '@/app/(items)/_types/skill-item';
 
 export function skillDataCompare(
   newData: {

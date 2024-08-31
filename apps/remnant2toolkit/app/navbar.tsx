@@ -12,7 +12,7 @@ import {
 import { useSession } from 'next-auth/react';
 import { Fragment } from 'react';
 
-import { ProfileButton } from '@/app/(components)/profile-button';
+import { ProfileButton } from '@/app/_components/profile-button';
 import { NAV_ITEMS } from '@/app/(types)/navigation';
 
 export function Navbar({ showNotifications }: { showNotifications: boolean }) {

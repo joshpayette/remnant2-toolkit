@@ -1,7 +1,7 @@
 import { getImageUrl } from '@repo/ui';
 import * as cheerio from 'cheerio';
 
-import { amuletItems } from '@/app/(data)/items/amulet-items';
+import { amuletItems } from '@/app/(items)/_data/amulet-items';
 import { validateEnv } from '@/app/(validators)/validate-env';
 import { amuletDataCompare } from '@/app/api/cron/wiki/scraper/amulets/compare';
 import { amuletDataParse } from '@/app/api/cron/wiki/scraper/amulets/parse';

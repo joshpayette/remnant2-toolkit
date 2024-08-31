@@ -1,19 +1,19 @@
 import { type BuildTags } from '@repo/db';
 
-import { type AmuletItem } from '@/app/(data)/items/types/AmuletItem';
-import { type ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem';
-import { type ArmorItem } from '@/app/(data)/items/types/ArmorItem';
-import { type ConcoctionItem } from '@/app/(data)/items/types/ConcoctionItem';
-import { type ConsumableItem } from '@/app/(data)/items/types/ConsumableItem';
-import { type ModItem } from '@/app/(data)/items/types/ModItem';
-import { type MutatorItem } from '@/app/(data)/items/types/MutatorItem';
-import { type PerkItem } from '@/app/(data)/items/types/PerkItem';
-import { type RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem';
-import { type RelicItem } from '@/app/(data)/items/types/RelicItem';
-import { type RingItem } from '@/app/(data)/items/types/RingItem';
-import { type SkillItem } from '@/app/(data)/items/types/SkillItem';
-import { type TraitItem } from '@/app/(data)/items/types/TraitItem';
-import { type WeaponItem } from '@/app/(data)/items/types/WeaponItem';
+import { type AmuletItem } from '@/app/(items)/_types/amulet-item';
+import { type ArchetypeItem } from '@/app/(items)/_types/archetype-item';
+import { type ArmorItem } from '@/app/(items)/_types/armor-item';
+import { type ConcoctionItem } from '@/app/(items)/_types/concotion-item';
+import { type ConsumableItem } from '@/app/(items)/_types/consumable-item';
+import { type ModItem } from '@/app/(items)/_types/mod-item';
+import { type MutatorItem } from '@/app/(items)/_types/mutator-item';
+import { type PerkItem } from '@/app/(items)/_types/perk-item';
+import { type RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
+import { type RelicItem } from '@/app/(items)/_types/relic-item';
+import { type RingItem } from '@/app/(items)/_types/ring-item';
+import { type SkillItem } from '@/app/(items)/_types/skill-item';
+import { type TraitItem } from '@/app/(items)/_types/trait-item';
+import { type WeaponItem } from '@/app/(items)/_types/weapon-item';
 
 export interface BuildState {
   buildId: string | null;

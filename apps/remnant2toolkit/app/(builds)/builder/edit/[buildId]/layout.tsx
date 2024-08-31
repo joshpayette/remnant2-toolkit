@@ -1,5 +1,5 @@
+import { PageHeader } from '@/app/_components/page-header';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
-import { PageHeader } from '@/app/(components)/page-header';
 import { isErrorResponse } from '@/app/(utils)/is-error-response';
 
 export default async function Layout({

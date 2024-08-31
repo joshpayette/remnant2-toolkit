@@ -2,6 +2,7 @@ import { cn, getImageUrl, InfoCircleIcon, ZINDEXES } from '@repo/ui';
 import Image from 'next/image';
 import { useState } from 'react';
 
+import { Tooltip } from '@/app/_components/tooltip';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { getTotalArmor } from '@/app/(builds)/_utils/get-totals/get-total-armor';
 import { getTotalHealth } from '@/app/(builds)/_utils/get-totals/get-total-health';
@@ -13,7 +14,6 @@ import { buildToVashUrl } from '@/app/(builds)/_utils/vash-integration/build-to-
 import { ArmorBreakdownDialog } from '@/app/(builds)/builder/_components/dialogs/armor-breakdown-dialog';
 import { HealthBreakdownDialog } from '@/app/(builds)/builder/_components/dialogs/health-breakdown-dialog';
 import { StaminaBreakdownDialog } from '@/app/(builds)/builder/_components/dialogs/stamina-breakdown-dialog';
-import { Tooltip } from '@/app/(components)/tooltip';
 
 interface Props {
   buildState: BuildState;

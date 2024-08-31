@@ -5,14 +5,14 @@ import isEqual from 'lodash.isequal';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { WorldSaveCard } from '@/app/(components)/cards/world-save-card';
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
+import { WorldSaveCard } from '@/app/_components/cards/world-save-card';
 import {
   type FilteredWorldSave,
   type WorldSaveFilters,
-} from '@/app/(components)/filters/world-saves/types';
-import { parseUrlFilters } from '@/app/(components)/filters/world-saves/utils';
-import { DEFAULT_WORLD_SAVE_FILTERS } from '@/app/(components)/filters/world-saves/world-save-filters';
+} from '@/app/_components/filters/world-saves/types';
+import { parseUrlFilters } from '@/app/_components/filters/world-saves/utils';
+import { DEFAULT_WORLD_SAVE_FILTERS } from '@/app/_components/filters/world-saves/world-save-filters';
+import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 import { ALL_BOSSES } from '@/app/(data)/world-saves/constants';
 import { worldSaves } from '@/app/(data)/world-saves/world-saves';
 

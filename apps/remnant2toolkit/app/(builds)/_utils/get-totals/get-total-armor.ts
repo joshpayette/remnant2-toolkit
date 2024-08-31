@@ -1,6 +1,6 @@
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { type Item } from '@/app/(data)/items/types';
-import { type TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { type Item } from '@/app/(items)/_types/item';
+import { type TraitItem } from '@/app/(items)/_types/trait-item';
 
 import { getItemsByKey, getTraitItemsByKey } from './utils';
 

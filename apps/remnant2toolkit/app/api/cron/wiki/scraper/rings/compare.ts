@@ -1,4 +1,4 @@
-import { type RingItem } from '@/app/(data)/items/types/RingItem';
+import { type RingItem } from '@/app/(items)/_types/ring-item';
 
 export function ringDataCompare(
   newData: {

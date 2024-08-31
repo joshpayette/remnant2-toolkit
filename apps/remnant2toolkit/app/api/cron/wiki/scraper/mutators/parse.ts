@@ -1,6 +1,6 @@
 import { type CheerioAPI } from 'cheerio';
 
-import { type MutatorItem } from '@/app/(data)/items/types/MutatorItem';
+import { type MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { removeTooltips } from '@/app/api/cron/wiki/scraper/utils';
 
 const mutatorsWithBowDescriptions = ['Bandit', 'Extender', 'Transpose'];

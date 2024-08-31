@@ -6,10 +6,10 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useIsClient, useLocalStorage } from 'usehooks-ts';
 
-import { BossTrackerCard } from '@/app/(components)/cards/boss-tracker-card';
-import { type BossTrackerFilters } from '@/app/(components)/filters/boss-tracker/types';
-import { parseUrlFilters } from '@/app/(components)/filters/boss-tracker/utils';
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
+import { BossTrackerCard } from '@/app/_components/cards/boss-tracker-card';
+import { type BossTrackerFilters } from '@/app/_components/filters/boss-tracker/types';
+import { parseUrlFilters } from '@/app/_components/filters/boss-tracker/utils';
+import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 import {
   aberrationEnemies,
   bossEnemies,

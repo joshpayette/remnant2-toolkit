@@ -1,7 +1,7 @@
 import { getImageUrl } from '@repo/ui';
 import * as cheerio from 'cheerio';
 
-import { consumableItems } from '@/app/(data)/items/consumable-items';
+import { consumableItems } from '@/app/(items)/_data/consumable-items';
 import { validateEnv } from '@/app/(validators)/validate-env';
 import { REQUEST_DELAY } from '@/app/api/cron/wiki/scraper/constants';
 import { consumableDataCompare } from '@/app/api/cron/wiki/scraper/consumables/compare';

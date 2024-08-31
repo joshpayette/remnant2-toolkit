@@ -10,12 +10,12 @@ import {
 } from '@repo/ui';
 import { useEffect, useState } from 'react';
 
+import { Pagination } from '@/app/_components/pagination';
+import { ArmorSuggestionCard } from '@/app/(builds)/_components/armor-suggestion-card';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { ArmorSuggestionCard } from '@/app/(components)/cards/armor-suggestion-card';
-import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
-import { Pagination } from '@/app/(components)/pagination';
-import { type Item } from '@/app/(data)/items/types';
 import { getArmorSuggestions } from '@/app/(features)/armor-calculator/utils/get-armor-suggestions';
+import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
+import { type Item } from '@/app/(items)/_types/item';
 import {
   type ArmorSuggestion,
   type WeightClassKeysWithDefault,

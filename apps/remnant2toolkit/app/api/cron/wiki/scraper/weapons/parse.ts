@@ -1,6 +1,6 @@
 import { type CheerioAPI } from 'cheerio';
 
-import { type WeaponItem } from '@/app/(data)/items/types/WeaponItem';
+import { type WeaponItem } from '@/app/(items)/_types/weapon-item';
 import { removeTooltips } from '@/app/api/cron/wiki/scraper/utils';
 
 export function weaponDataParse(

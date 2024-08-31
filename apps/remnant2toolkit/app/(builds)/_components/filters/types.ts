@@ -1,4 +1,4 @@
-import { type DefaultFilter } from '@/app/(components)/filters/types';
+import { type DefaultFilter } from '@/app/_types/default-filter';
 
 export interface BuildListFilters {
   amulet: string | DefaultFilter;

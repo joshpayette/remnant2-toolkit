@@ -1,6 +1,6 @@
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { perkItems } from '@/app/(data)/items/perk-items';
-import { PerkItem } from '@/app/(data)/items/types/PerkItem';
+import { perkItems } from '@/app/(items)/_data/perk-items';
+import { PerkItem } from '@/app/(items)/_types/perk-item';
 
 /**
  * Checks the build archtypes and equips any perks

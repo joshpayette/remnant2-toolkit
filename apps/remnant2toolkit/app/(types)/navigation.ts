@@ -36,8 +36,8 @@ import {
 } from 'react-icons/pi';
 import { SiModrinth as ModdingDiscordIcon } from 'react-icons/si';
 
-import VashIcon from '@/app/(components)/images/vash-icon';
-import WikiIcon from '@/app/(components)/images/wiki-icon';
+import VashIcon from '@/app/_components/images/vash-icon';
+import WikiIcon from '@/app/_components/images/wiki-icon';
 
 /**
  * The base pages for the site
@@ -143,7 +143,7 @@ export const NAV_ITEMS = {
     label: 'Item Tracker',
     description:
       'A Remnant 2 item tracker to track which items you have collected, and the ones you still need to find.',
-    href: '/tracker',
+    href: '/item-tracker',
     icon: ItemTrackerIcon,
   },
   linkedBuilds: {

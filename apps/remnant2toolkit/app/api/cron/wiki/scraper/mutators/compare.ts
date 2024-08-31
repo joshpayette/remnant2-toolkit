@@ -1,4 +1,4 @@
-import { type MutatorItem } from '@/app/(data)/items/types/MutatorItem';
+import { type MutatorItem } from '@/app/(items)/_types/mutator-item';
 
 export function mutatorDataCompare(
   newData: {

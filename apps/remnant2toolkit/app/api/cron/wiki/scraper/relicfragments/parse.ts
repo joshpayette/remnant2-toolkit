@@ -1,6 +1,6 @@
 import { type CheerioAPI } from 'cheerio';
 
-import { type RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem';
+import { type RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 
 /**
  * Relic Fragments are a single table on a page

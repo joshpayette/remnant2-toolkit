@@ -1,4 +1,4 @@
-import { type RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem';
+import { type RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 
 export function relicfragmentDataCompare(
   newData: {

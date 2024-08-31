@@ -1,17 +1,17 @@
-import { Prisma } from '@repo/db'
+import { Prisma } from '@repo/db';
 
-import { archetypeItems } from '@/app/(data)/items/archetype-items'
+import { archetypeItems } from '@/app/(items)/_data/archetype-items';
 
-const archetypeCount = archetypeItems.length
+const archetypeCount = archetypeItems.length;
 
 export function limitByArchetypesSegment(archetypeIds: string[]) {
   if (archetypeIds.length === archetypeCount) {
-    return Prisma.empty
+    return Prisma.empty;
   }
 
   const allExcludedArchetypeIds = archetypeItems
     .map((item) => item.id)
-    .filter((id) => !archetypeIds.includes(id))
+    .filter((id) => !archetypeIds.includes(id));
 
   const excludeArchetypeIdsQuery =
     allExcludedArchetypeIds.length === 0
@@ -22,10 +22,10 @@ export function limitByArchetypesSegment(archetypeIds: string[]) {
           FROM BuildItems
           WHERE BuildItems.itemId IN (${Prisma.join(allExcludedArchetypeIds)})
         )
-      `
+      `;
 
   if (archetypeIds.length === 0) {
-    return Prisma.empty
+    return Prisma.empty;
   }
 
   if (archetypeIds.length === 1) {
@@ -34,7 +34,7 @@ export function limitByArchetypesSegment(archetypeIds: string[]) {
   FROM BuildItems
   WHERE BuildItems.buildId = Build.id
   AND BuildItems.itemId = ${archetypeIds[0]}
-)`
+)`;
   }
 
   if (archetypeIds.length >= 2) {
@@ -44,23 +44,23 @@ export function limitByArchetypesSegment(archetypeIds: string[]) {
   WHERE BuildItems.buildId = Build.id
   AND BuildItems.itemId IN (${Prisma.join(archetypeIds)})
   ${excludeArchetypeIdsQuery}
-)`
+)`;
   }
 }
 
 export function archetypeFiltersToIds({
   archetypes,
 }: {
-  archetypes: string[]
+  archetypes: string[];
 }): string[] {
-  const archetypeIds: string[] = []
+  const archetypeIds: string[] = [];
 
   for (const archetype of archetypes) {
     const item = archetypeItems.find(
       (item) => item.name.toLowerCase() === archetype.toLowerCase(),
-    )?.id
-    if (item) archetypeIds.push(item)
+    )?.id;
+    if (item) archetypeIds.push(item);
   }
 
-  return archetypeIds
+  return archetypeIds;
 }

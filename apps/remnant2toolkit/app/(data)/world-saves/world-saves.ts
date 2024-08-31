@@ -1,4 +1,4 @@
-import { type WorldSave } from '@/app/(components)/filters/world-saves/types';
+import { type WorldSave } from '@/app/_components/filters/world-saves/types';
 
 export const worldSaves = [
   {

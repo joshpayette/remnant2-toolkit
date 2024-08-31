@@ -13,6 +13,8 @@ import {
 } from '@repo/ui';
 import { isValidYoutubeUrl } from '@repo/utils';
 
+import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
+import { Tooltip } from '@/app/_components/tooltip';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { buildHasFeaturedBadge } from '@/app/(builds)/_utils/build-has-featured-badge';
 import { dbBuildToBuildState } from '@/app/(builds)/_utils/db-build-to-build-state';
@@ -28,8 +30,6 @@ import { FeaturedBuildBadge } from '@/app/(builds)/builder/_components/badges/fe
 import { NewBuildBadge } from '@/app/(builds)/builder/_components/badges/new-build-badge';
 import { PopularBuildBadge } from '@/app/(builds)/builder/_components/badges/popular-build-badge';
 import { BuildTagsDisplay } from '@/app/(builds)/builder/_components/build-tags/build-tags-display';
-import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens';
-import { Tooltip } from '@/app/(components)/tooltip';
 
 interface Props {
   build: DBBuild;

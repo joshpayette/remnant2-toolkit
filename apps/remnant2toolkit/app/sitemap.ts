@@ -44,7 +44,7 @@ const staticRoutes = [
     changeFrequency: 'weekly' as ChangeFrequency,
   },
   {
-    url: `${baseUrl}/tracker`,
+    url: `${baseUrl}/item-tracker`,
     lastModified: currentDate,
     changeFrequency: 'weekly' as ChangeFrequency,
   },

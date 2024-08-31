@@ -1,4 +1,4 @@
-import { type RelicItem } from '@/app/(data)/items/types/RelicItem';
+import { type RelicItem } from '@/app/(items)/_types/relic-item';
 
 export function relicDataCompare(
   newData: {

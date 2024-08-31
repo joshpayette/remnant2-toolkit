@@ -1,0 +1,80 @@
+import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@repo/ui';
+import { groupBy } from '@repo/utils';
+
+import { type Item } from '@/app/(items)/_types/item';
+import { getCategoryProgressStats } from '@/app/(items)/item-tracker/_utils/get-category-progress-stats';
+
+interface Props {
+  open: boolean;
+  onClose: () => void;
+  filteredItems: Item[];
+  discoveredItemIds: string[];
+}
+
+export function ItemLocationsDialog({
+  open,
+  onClose,
+  filteredItems,
+  discoveredItemIds,
+}: Props) {
+  const categoryItemsByLocation = groupBy(
+    filteredItems,
+    (item) => `${item.location?.world}`,
+  );
+  const undefinedItems = categoryItemsByLocation.undefined;
+  if (undefinedItems) {
+    if (categoryItemsByLocation.Any) {
+      categoryItemsByLocation.Any.concat(undefinedItems);
+    } else {
+      categoryItemsByLocation.Any = undefinedItems;
+    }
+  }
+  delete categoryItemsByLocation.undefined;
+
+  let total = 0;
+  const categoryStats = Object.entries(categoryItemsByLocation).map(
+    ([locationName, items]) => {
+      const progressStats = getCategoryProgressStats({
+        filteredItems: items,
+        discoveredItemIds,
+      });
+      total += progressStats.undiscoveredCount;
+      return {
+        locationName,
+        locationStats: `Missing ${progressStats.undiscoveredCount} of ${progressStats.filteredItemsCount}`,
+      };
+    },
+  );
+  categoryStats.sort((a, b) => a.locationName.localeCompare(b.locationName));
+
+  return (
+    <BaseDialog open={open} onClose={onClose} size="sm">
+      <BaseDialogTitle>Missing Item Locations</BaseDialogTitle>
+      <BaseDialogBody>
+        <div className="text-left text-sm">
+          <ol>
+            {categoryStats.map((entry) => (
+              <div
+                key={entry.locationName}
+                className="col-auto ml-8 grid grid-cols-2"
+              >
+                <li className="list-disc text-gray-300">
+                  {entry.locationName}
+                </li>
+                <li className="list-none text-gray-300">
+                  {entry.locationStats}
+                </li>
+              </div>
+            ))}
+          </ol>
+          <h3 className="text-md text-surface-solid col-span-full my-2 font-semibold">
+            Total:{' '}
+            <span className="text-md text-surface-solid font-bold">
+              {total.toFixed(0)}
+            </span>
+          </h3>
+        </div>
+      </BaseDialogBody>
+    </BaseDialog>
+  );
+}

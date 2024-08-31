@@ -4,9 +4,9 @@ import { DISCORD_INVITE_URL } from '@repo/constants';
 import { BaseText, BaseTextLink } from '@repo/ui';
 import { useCallback, useState } from 'react';
 
+import { PageHeader } from '@/app/_components/page-header';
 import { BuildFilters } from '@/app/(builds)/_components/filters/build-filters';
 import { BeginnerBuilds } from '@/app/(builds)/beginner-builds/beginner-builds';
-import { PageHeader } from '@/app/(components)/page-header';
 import { NAV_ITEMS } from '@/app/(types)/navigation';
 import { DEFAULT_ITEMS_PER_PAGE } from '@/app/(utils)/pagination/constants';
 

@@ -1,14 +1,14 @@
 import { getArrayOfLength } from '@repo/utils';
 
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { perkItems } from '@/app/(data)/items/perk-items';
-import { type Item } from '@/app/(data)/items/types';
-import { type ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem';
-import { type MutatorItem } from '@/app/(data)/items/types/MutatorItem';
-import { type RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem';
-import { type RingItem } from '@/app/(data)/items/types/RingItem';
-import { type SkillItem } from '@/app/(data)/items/types/SkillItem';
-import { type WeaponItem } from '@/app/(data)/items/types/WeaponItem';
+import { perkItems } from '@/app/(items)/_data/perk-items';
+import { type ArchetypeItem } from '@/app/(items)/_types/archetype-item';
+import { type Item } from '@/app/(items)/_types/item';
+import { type MutatorItem } from '@/app/(items)/_types/mutator-item';
+import { type RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
+import { type RingItem } from '@/app/(items)/_types/ring-item';
+import { type SkillItem } from '@/app/(items)/_types/skill-item';
+import { type WeaponItem } from '@/app/(items)/_types/weapon-item';
 
 export function buildStateToMasonryItems(build: BuildState): Item[] {
   const masonryItems: Item[] = [];

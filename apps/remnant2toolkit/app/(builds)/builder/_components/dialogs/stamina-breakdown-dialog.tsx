@@ -7,8 +7,8 @@ import {
 
 import { ListItem } from '@/app/(builds)/builder/_components/stats/list-item';
 import { Section } from '@/app/(builds)/builder/_components/stats/section';
-import { type Item } from '@/app/(data)/items/types';
-import { type TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { type Item } from '@/app/(items)/_types/item';
+import { type TraitItem } from '@/app/(items)/_types/trait-item';
 
 function getStaminaStepLabel(
   item: TraitItem,

@@ -5,6 +5,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { FaRegEye } from 'react-icons/fa';
 import { HiOutlineDuplicate as DuplicateIcon } from 'react-icons/hi';
 
+import { Tooltip } from '@/app/_components/tooltip';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { buildHasFeaturedBadge } from '@/app/(builds)/_utils/build-has-featured-badge';
@@ -22,14 +23,13 @@ import { NewBuildBadge } from '@/app/(builds)/builder/_components/badges/new-bui
 import { PopularBuildBadge } from '@/app/(builds)/builder/_components/badges/popular-build-badge';
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/builder/_constants/default-trait-amount';
 import { MAX_BUILD_TAGS } from '@/app/(builds)/builder/_constants/max-build-tags';
-import { ItemButton } from '@/app/(components)/buttons/item-button';
-import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
-import { ItemSelectDialog } from '@/app/(components)/dialogs/item-select-dialog';
-import { Tooltip } from '@/app/(components)/tooltip';
-import { OPTIONAL_ITEM_SYMBOL } from '@/app/(data)/items/constants';
-import { perkItems } from '@/app/(data)/items/perk-items';
-import { type Item } from '@/app/(data)/items/types';
-import { TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/(constants)/constants';
+import { ItemButton } from '@/app/(items)/_components/item-button';
+import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
+import { ItemSelectDialog } from '@/app/(items)/_components/item-select-dialog';
+import { perkItems } from '@/app/(items)/_data/perk-items';
+import { type Item } from '@/app/(items)/_types/item';
+import { TraitItem } from '@/app/(items)/_types/trait-item';
 
 import { MemberFeatures } from './member-features';
 import { Stats } from './stats/stats';

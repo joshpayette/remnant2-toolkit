@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { PiBagSimpleFill as OwnershipIcon } from 'react-icons/pi';
 import { TbHttpOptions } from 'react-icons/tb';
 
+import { Tooltip } from '@/app/_components/tooltip';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/builder/_constants/default-trait-amount';
 import { MAX_TRAIT_AMOUNT } from '@/app/(builds)/builder/_constants/max-trait-amount';
-import { Tooltip } from '@/app/(components)/tooltip';
-import { type Item } from '@/app/(data)/items/types';
-import { TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { type Item } from '@/app/(items)/_types/item';
+import { TraitItem } from '@/app/(items)/_types/trait-item';
 
 export function Traits({
   buildState,

@@ -1,6 +1,6 @@
 import { cn } from '@repo/ui';
 
-import { ARCHETYPE_COLORS } from '@/app/(data)/items/constants';
+import { ARCHETYPE_COLORS } from '@/app/(constants)/constants';
 
 export function ArchetypeLabel({ name }: { name: string }) {
   return (

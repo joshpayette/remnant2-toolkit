@@ -3,7 +3,7 @@
 import { type Metadata } from 'next';
 import React from 'react';
 
-import { PageHeader } from '@/app/(components)/page-header';
+import { PageHeader } from '@/app/_components/page-header';
 import { getSession } from '@/app/(features)/auth/services/sessionService';
 import { getLinkedBuild } from '@/app/(features)/linked-builds/actions/get-linked-build';
 import { NAV_ITEMS } from '@/app/(types)/navigation';

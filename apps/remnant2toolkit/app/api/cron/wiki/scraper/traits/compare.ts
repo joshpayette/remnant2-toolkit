@@ -1,4 +1,4 @@
-import { type TraitItem } from '@/app/(data)/items/types/TraitItem';
+import { type TraitItem } from '@/app/(items)/_types/trait-item';
 
 export function traitDataCompare(
   newData: {

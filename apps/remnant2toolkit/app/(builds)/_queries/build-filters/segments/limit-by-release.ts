@@ -1,11 +1,10 @@
-import { Prisma } from '@repo/db'
+import { Prisma } from '@repo/db';
 
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types'
+import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 
 export function limitByReleasesSegment(releases: string[]) {
-  if (releases[0] === DEFAULT_FILTER) return Prisma.empty
-  if (releases.length === 0) return Prisma.empty
-
+  if (releases[0] === DEFAULT_FILTER) return Prisma.empty;
+  if (releases.length === 0) return Prisma.empty;
 
   return Prisma.sql`AND NOT EXISTS (
       SELECT 1
@@ -16,5 +15,5 @@ export function limitByReleasesSegment(releases: string[]) {
         releases,
       )}) AND BuildItems.itemId != '')
     )
-`
+`;
 }

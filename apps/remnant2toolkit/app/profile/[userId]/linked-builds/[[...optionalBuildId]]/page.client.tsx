@@ -15,9 +15,9 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { DeleteBuildAlert } from '@/app/(components)/alerts/delete-build-alert';
-import { BuildList } from '@/app/(components)/build-list';
-import { Tooltip } from '@/app/(components)/tooltip';
+import { Tooltip } from '@/app/_components/tooltip';
+import { BuildList } from '@/app/(builds)/_components/build-list';
+import { DeleteBuildAlert } from '@/app/(builds)/_components/delete-build-alert';
 import { deleteLinkedBuild } from '@/app/(features)/linked-builds/actions/delete-linked-build';
 import { LinkedBuildCard } from '@/app/(features)/linked-builds/components/linked-build-card';
 import { type LinkedBuildState } from '@/app/(types)/linked-builds';

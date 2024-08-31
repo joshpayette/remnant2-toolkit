@@ -1,5 +1,5 @@
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { archetypeItems } from '@/app/(data)/items/archetype-items';
+import { archetypeItems } from '@/app/(items)/_data/archetype-items';
 
 /**
  * Checks the build skills and equips any archetypes

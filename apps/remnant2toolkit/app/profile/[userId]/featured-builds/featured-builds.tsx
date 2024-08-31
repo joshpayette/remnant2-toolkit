@@ -4,6 +4,7 @@ import { Skeleton } from '@repo/ui';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 
+import { BuildList } from '@/app/(builds)/_components/build-list';
 import { BuildCard } from '@/app/(builds)/_components/cards/build-card';
 import { CreateBuildCard } from '@/app/(builds)/_components/cards/create-build-card';
 import { DEFAULT_BUILD_FILTERS } from '@/app/(builds)/_components/filters/build-filters';
@@ -13,7 +14,6 @@ import { useTimeRangeFilter } from '@/app/(builds)/_components/filters/secondary
 import { type BuildListFilters } from '@/app/(builds)/_components/filters/types';
 import { parseUrlFilters } from '@/app/(builds)/_components/filters/utils';
 import { useBuildListState } from '@/app/(builds)/_utils/hooks/use-build-list-state';
-import { BuildList } from '@/app/(components)/build-list';
 import { usePagination } from '@/app/(utils)/pagination/use-pagination';
 import { CreatedBuildCardActions } from '@/app/profile/[userId]/(components)/created-build-card-actions';
 import { getCreatedBuilds } from '@/app/profile/[userId]/created-builds/actions/get-created-builds';

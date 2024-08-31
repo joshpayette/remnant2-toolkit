@@ -14,6 +14,12 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { useMemo, useState } from 'react';
 
+import {
+  ReleasesFilter,
+  VALID_RELEASE_KEYS,
+} from '@/app/_components/filters/releases-filter';
+import { InputWithClear } from '@/app/_components/input-with-clear';
+import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 import { QualityBuildDialog } from '@/app/(builds)/_components/dialogs/quality-build-dialog';
 import { AmuletFilter } from '@/app/(builds)/_components/filters/amulet-filter';
 import {
@@ -36,12 +42,6 @@ import {
   MAX_RINGS,
 } from '@/app/(builds)/_components/filters/types';
 import { parseUrlFilters } from '@/app/(builds)/_components/filters/utils';
-import {
-  ReleasesFilter,
-  VALID_RELEASE_KEYS,
-} from '@/app/(components)/filters/releases-filter';
-import { DEFAULT_FILTER } from '@/app/(components)/filters/types';
-import { InputWithClear } from '@/app/(components)/input-with-clear';
 
 export const DEFAULT_BUILD_FILTERS = {
   archetypes: VALID_ARCHETYPES,

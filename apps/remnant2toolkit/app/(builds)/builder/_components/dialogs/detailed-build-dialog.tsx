@@ -5,9 +5,9 @@ import { useState } from 'react';
 
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { buildStateToMasonryItems } from '@/app/(builds)/_utils/build-state-to-masonry-items';
-import { ItemCard } from '@/app/(components)/cards/item-card';
-import { ItemInfoDialog } from '@/app/(components)/dialogs/item-info-dialog';
-import { type Item } from '@/app/(data)/items/types';
+import { ItemCard } from '@/app/(items)/_components/item-card';
+import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
+import { type Item } from '@/app/(items)/_types/item';
 
 interface Props {
   open: boolean;

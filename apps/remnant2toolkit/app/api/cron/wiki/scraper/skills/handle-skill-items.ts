@@ -1,7 +1,7 @@
 import { getImageUrl } from '@repo/ui';
 import * as cheerio from 'cheerio';
 
-import { skillItems } from '@/app/(data)/items/skill-items';
+import { skillItems } from '@/app/(items)/_data/skill-items';
 import { validateEnv } from '@/app/(validators)/validate-env';
 import { REQUEST_DELAY } from '@/app/api/cron/wiki/scraper/constants';
 import { skillDataCompare } from '@/app/api/cron/wiki/scraper/skills/compare';

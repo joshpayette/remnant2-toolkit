@@ -6,7 +6,7 @@ import {
   BaseListboxOption,
 } from '@repo/ui';
 
-import { weaponItems } from '@/app/(data)/items/weapon-items';
+import { weaponItems } from '@/app/(items)/_data/weapon-items';
 
 interface Props {
   value: string;

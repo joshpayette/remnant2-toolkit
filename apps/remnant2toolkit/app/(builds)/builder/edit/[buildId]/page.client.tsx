@@ -4,6 +4,7 @@ import { useSession } from 'next-auth/react';
 import { useRef, useState } from 'react';
 import { useIsClient } from 'usehooks-ts';
 
+import { PageHeader } from '@/app/_components/page-header';
 import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
@@ -19,8 +20,7 @@ import { SaveBuildButton } from '@/app/(builds)/builder/_components/buttons/save
 import { ArmorSuggestionDialog } from '@/app/(builds)/builder/_components/dialogs/armor-suggestion-dialog';
 import { DetailedBuildDialog } from '@/app/(builds)/builder/_components/dialogs/detailed-build-dialog';
 import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/dialogs/image-download-info-dialog';
-import { ItemTagSuggestionDialog } from '@/app/(components)/dialogs/item-tag-suggestion-dialog';
-import { PageHeader } from '@/app/(components)/page-header';
+import { ItemTagSuggestionDialog } from '@/app/(items)/_components/item-tag-suggestion-dialog';
 
 interface Props {
   build: DBBuild;

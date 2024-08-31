@@ -1,6 +1,6 @@
 import { type NextRequest } from 'next/server';
 
-import { allItems } from '@/app/(data)/items/all-items';
+import { allItems } from '@/app/(items)/_data/all-items';
 import { validateEnv } from '@/app/(validators)/validate-env';
 
 /** The amount of time between each request to not flood the wiki */

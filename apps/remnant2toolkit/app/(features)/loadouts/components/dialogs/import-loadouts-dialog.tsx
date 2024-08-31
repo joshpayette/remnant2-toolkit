@@ -16,9 +16,9 @@ import {
 import { getArrayOfLength } from '@repo/utils';
 import React from 'react';
 
+import LocatingProfileSav from '@/app/_components/dialogs/partial/locating-profile-sav';
+import { ImportSaveSubmitButton } from '@/app/_components/import-save-submit-button';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
-import LocatingProfileSav from '@/app/(components)/dialogs/partial/locating-profile-sav';
-import { ImportSaveSubmitButton } from '@/app/tracker/import-save-submit-button';
 
 interface Props {
   open: boolean;

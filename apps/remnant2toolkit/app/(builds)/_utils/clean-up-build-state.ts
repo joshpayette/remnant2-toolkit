@@ -1,9 +1,9 @@
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { linkArchetypesToPerks } from '@/app/(builds)/_utils/link-archetypes-to-perks';
-import { traitItems } from '@/app/(data)/items/trait-items';
-import { type ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem';
-import { type TraitItem } from '@/app/(data)/items/types/TraitItem';
-import { weaponItems } from '@/app/(data)/items/weapon-items';
+import { traitItems } from '@/app/(items)/_data/trait-items';
+import { weaponItems } from '@/app/(items)/_data/weapon-items';
+import { type ArchetypeItem } from '@/app/(items)/_types/archetype-item';
+import { type TraitItem } from '@/app/(items)/_types/trait-item';
 
 import { getConcoctionSlotCount } from './get-concoction-slot-count';
 import { linkArchetypesToTraits } from './link-archetypes-to-traits';

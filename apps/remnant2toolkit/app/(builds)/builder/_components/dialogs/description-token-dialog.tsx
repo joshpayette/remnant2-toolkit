@@ -5,7 +5,7 @@ import {
   BaseDialogTitle,
 } from '@repo/ui';
 
-import { DescriptionWithTokens } from '@/app/(components)/description-with-tokens';
+import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
 import { INLINE_TOKENS } from '@/app/(types)/tokens';
 
 interface Props {

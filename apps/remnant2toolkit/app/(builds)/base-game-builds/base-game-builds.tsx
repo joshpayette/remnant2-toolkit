@@ -4,15 +4,15 @@ import { BaseLink, EyeIcon, Skeleton } from '@repo/ui';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
+import { Tooltip } from '@/app/_components/tooltip';
 import { getBaseGameBuilds } from '@/app/(builds)/_actions/get-base-game-builds';
+import { BuildList } from '@/app/(builds)/_components/build-list';
 import { BuildCard } from '@/app/(builds)/_components/cards/build-card';
 import { BuildSecondaryFilters } from '@/app/(builds)/_components/filters/secondary-filters';
 import { useOrderByFilter } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
 import { useTimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
 import { parseUrlFilters } from '@/app/(builds)/_components/filters/utils';
 import { useBuildListState } from '@/app/(builds)/_utils/hooks/use-build-list-state';
-import { BuildList } from '@/app/(components)/build-list';
-import { Tooltip } from '@/app/(components)/tooltip';
 import { usePagination } from '@/app/(utils)/pagination/use-pagination';
 
 interface Props {

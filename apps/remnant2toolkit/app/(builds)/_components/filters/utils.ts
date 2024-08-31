@@ -1,6 +1,7 @@
 import isEqual from 'lodash.isequal';
 import { type ReadonlyURLSearchParams } from 'next/navigation';
 
+import { VALID_RELEASE_KEYS } from '@/app/_components/filters/releases-filter';
 import { VALID_ARCHETYPES } from '@/app/(builds)/_components/filters/archetype-filter';
 import { DEFAULT_BUILD_FILTERS } from '@/app/(builds)/_components/filters/build-filters';
 import { VALID_BUILD_TAGS } from '@/app/(builds)/_components/filters/build-tag-filter';
@@ -9,11 +10,10 @@ import {
   type BuildListFilters,
   MAX_RINGS,
 } from '@/app/(builds)/_components/filters/types';
-import { VALID_RELEASE_KEYS } from '@/app/(components)/filters/releases-filter';
-import { amuletItems } from '@/app/(data)/items/amulet-items';
-import { relicItems } from '@/app/(data)/items/relic-items';
-import { ringItems } from '@/app/(data)/items/ring-items';
-import { weaponItems } from '@/app/(data)/items/weapon-items';
+import { amuletItems } from '@/app/(items)/_data/amulet-items';
+import { relicItems } from '@/app/(items)/_data/relic-items';
+import { ringItems } from '@/app/(items)/_data/ring-items';
+import { weaponItems } from '@/app/(items)/_data/weapon-items';
 
 export function parseUrlFilters(
   searchParams: ReadonlyURLSearchParams,

@@ -6,20 +6,20 @@ import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { buildStateToCsvData } from '@/app/(builds)/_utils/build-state-to-csv-data';
 import { buildStateToMasonryItems } from '@/app/(builds)/_utils/build-state-to-masonry-items';
 import { cleanUpBuildState } from '@/app/(builds)/_utils/clean-up-build-state';
-import { type Item } from '@/app/(data)/items/types';
-import { AmuletItem } from '@/app/(data)/items/types/AmuletItem';
-import { ArchetypeItem } from '@/app/(data)/items/types/ArchetypeItem';
-import { ArmorItem } from '@/app/(data)/items/types/ArmorItem';
-import { ConcoctionItem } from '@/app/(data)/items/types/ConcoctionItem';
-import { ConsumableItem } from '@/app/(data)/items/types/ConsumableItem';
-import { ModItem } from '@/app/(data)/items/types/ModItem';
-import { MutatorItem } from '@/app/(data)/items/types/MutatorItem';
-import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem';
-import { RelicItem } from '@/app/(data)/items/types/RelicItem';
-import { RingItem } from '@/app/(data)/items/types/RingItem';
-import { SkillItem } from '@/app/(data)/items/types/SkillItem';
-import { TraitItem } from '@/app/(data)/items/types/TraitItem';
-import { WeaponItem } from '@/app/(data)/items/types/WeaponItem';
+import { AmuletItem } from '@/app/(items)/_types/amulet-item';
+import { ArchetypeItem } from '@/app/(items)/_types/archetype-item';
+import { ArmorItem } from '@/app/(items)/_types/armor-item';
+import { ConcoctionItem } from '@/app/(items)/_types/concotion-item';
+import { ConsumableItem } from '@/app/(items)/_types/consumable-item';
+import { type Item } from '@/app/(items)/_types/item';
+import { ModItem } from '@/app/(items)/_types/mod-item';
+import { MutatorItem } from '@/app/(items)/_types/mutator-item';
+import { RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
+import { RelicItem } from '@/app/(items)/_types/relic-item';
+import { RingItem } from '@/app/(items)/_types/ring-item';
+import { SkillItem } from '@/app/(items)/_types/skill-item';
+import { TraitItem } from '@/app/(items)/_types/trait-item';
+import { WeaponItem } from '@/app/(items)/_types/weapon-item';
 
 export function useDBBuildState(initialBuildState: BuildState) {
   // )

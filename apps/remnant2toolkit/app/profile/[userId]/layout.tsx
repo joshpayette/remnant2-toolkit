@@ -3,8 +3,8 @@ import { prisma } from '@repo/db';
 import { type Metadata, type ResolvingMetadata } from 'next';
 import { revalidatePath } from 'next/cache';
 
+import { PageHeader } from '@/app/_components/page-header';
 import { getIsLoadoutPublic } from '@/app/(actions)/loadouts/get-is-loadout-public';
-import { PageHeader } from '@/app/(components)/page-header';
 import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile';
 import { getSession } from '@/app/(features)/auth/services/sessionService';
 import { ProfileHeader } from '@/app/profile/[userId]/(components)/profile-header';

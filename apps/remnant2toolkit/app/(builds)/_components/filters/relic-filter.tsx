@@ -6,7 +6,7 @@ import {
   BaseListboxOption,
 } from '@repo/ui';
 
-import { relicItems } from '@/app/(data)/items/relic-items';
+import { relicItems } from '@/app/(items)/_data/relic-items';
 
 interface Props {
   value: string;

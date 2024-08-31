@@ -3,22 +3,22 @@ import { writeFile } from 'fs';
 import path from 'path';
 
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
-import { allItems } from '@/app/(data)/items/all-items';
-import { amuletItems } from '@/app/(data)/items/amulet-items';
-import { archetypeItems } from '@/app/(data)/items/archetype-items';
-import { armorItems } from '@/app/(data)/items/armor-items';
-import { concoctionItems } from '@/app/(data)/items/concoction-items';
-import { consumableItems } from '@/app/(data)/items/consumable-items';
-import { modItems } from '@/app/(data)/items/mod-items';
-import { mutatorItems } from '@/app/(data)/items/mutator-items';
-import { perkItems } from '@/app/(data)/items/perk-items';
-import { relicFragmentItems } from '@/app/(data)/items/relic-fragment-items';
-import { relicItems } from '@/app/(data)/items/relic-items';
-import { ringItems } from '@/app/(data)/items/ring-items';
-import { skillItems } from '@/app/(data)/items/skill-items';
-import { traitItems } from '@/app/(data)/items/trait-items';
-import { type Item } from '@/app/(data)/items/types';
-import { weaponItems } from '@/app/(data)/items/weapon-items';
+import { allItems } from '@/app/(items)/_data/all-items';
+import { amuletItems } from '@/app/(items)/_data/amulet-items';
+import { archetypeItems } from '@/app/(items)/_data/archetype-items';
+import { armorItems } from '@/app/(items)/_data/armor-items';
+import { concoctionItems } from '@/app/(items)/_data/concoction-items';
+import { consumableItems } from '@/app/(items)/_data/consumable-items';
+import { modItems } from '@/app/(items)/_data/mod-items';
+import { mutatorItems } from '@/app/(items)/_data/mutator-items';
+import { perkItems } from '@/app/(items)/_data/perk-items';
+import { relicFragmentItems } from '@/app/(items)/_data/relic-fragment-items';
+import { relicItems } from '@/app/(items)/_data/relic-items';
+import { ringItems } from '@/app/(items)/_data/ring-items';
+import { skillItems } from '@/app/(items)/_data/skill-items';
+import { traitItems } from '@/app/(items)/_data/trait-items';
+import { weaponItems } from '@/app/(items)/_data/weapon-items';
+import { type Item } from '@/app/(items)/_types/item';
 
 type Result = {
   id: string;

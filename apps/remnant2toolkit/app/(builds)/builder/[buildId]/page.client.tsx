@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useLocalStorage } from 'usehooks-ts';
 
+import { ToCsvButton } from '@/app/_components/buttons/to-csv-button';
 import { incrementViewCount } from '@/app/(builds)/_actions/increment-view-count';
 import { ModeratorBuildToolsDialog } from '@/app/(builds)/_admin/components/dialogs/moderator-build-tools-dialog';
 import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
@@ -33,9 +34,8 @@ import { DetailedBuildDialog } from '@/app/(builds)/builder/_components/dialogs/
 import { FavoriteBuildDialog } from '@/app/(builds)/builder/_components/dialogs/favorite-build-dialog';
 import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/dialogs/image-download-info-dialog';
 import { VideoThumbnail } from '@/app/(builds)/builder/_components/video-thumbnail';
-import { ToCsvButton } from '@/app/(components)/buttons/to-csv-button';
 import { LoadoutDialog } from '@/app/(features)/loadouts/components/dialogs/loadout-dialog';
-import { useDiscoveredItems } from '@/app/(hooks)/use-discovered-items';
+import { useDiscoveredItems } from '@/app/(items)/_hooks/use-discovered-items';
 import {
   type ItemOwnershipPreference,
   LOCALSTORAGE_KEY,

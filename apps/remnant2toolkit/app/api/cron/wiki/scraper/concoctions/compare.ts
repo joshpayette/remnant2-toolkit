@@ -1,4 +1,4 @@
-import { type ConcoctionItem } from '@/app/(data)/items/types/ConcoctionItem';
+import { type ConcoctionItem } from '@/app/(items)/_types/concotion-item';
 
 export function concoctionDataCompare(
   newData: {

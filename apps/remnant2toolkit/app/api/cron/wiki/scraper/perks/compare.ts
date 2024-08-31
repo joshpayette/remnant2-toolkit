@@ -1,4 +1,4 @@
-import { type PerkItem } from '@/app/(data)/items/types/PerkItem';
+import { type PerkItem } from '@/app/(items)/_types/perk-item';
 
 export function perkDataCompare(
   newData: {

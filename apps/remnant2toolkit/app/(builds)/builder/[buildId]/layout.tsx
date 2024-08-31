@@ -1,12 +1,12 @@
 import { type Metadata, type ResolvingMetadata } from 'next';
 
+import { PageHeader } from '@/app/_components/page-header';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
 import { dbBuildToBuildState } from '@/app/(builds)/_utils/db-build-to-build-state';
 import {
   type ArchetypeName,
   getArchetypeComboName,
 } from '@/app/(builds)/_utils/get-archetype-combo-name';
-import { PageHeader } from '@/app/(components)/page-header';
 import { isErrorResponse } from '@/app/(utils)/is-error-response';
 
 export async function generateMetadata(
