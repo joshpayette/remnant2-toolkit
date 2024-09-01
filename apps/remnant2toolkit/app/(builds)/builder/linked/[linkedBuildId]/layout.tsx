@@ -1,8 +1,8 @@
 import { type Metadata, type ResolvingMetadata } from 'next';
 
 import { PageHeader } from '@/app/_components/page-header';
-import { NAV_ITEMS } from '@/app/_types/navigation';
 import { isErrorResponse } from '@/app/_libs/is-error-response';
+import { NAV_ITEMS } from '@/app/_types/navigation';
 import { getLinkedBuild } from '@/app/(builds)/builder/linked/_actions/get-linked-build';
 
 export async function generateMetadata(

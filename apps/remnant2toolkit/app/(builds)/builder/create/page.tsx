@@ -1,133 +1,89 @@
-'use client';
-
-import { useRef, useState } from 'react';
-import { useIsClient } from 'usehooks-ts';
+import { BaseLink, cn, ZINDEXES } from '@repo/ui';
+import { type Metadata } from 'next';
+import React from 'react';
 
 import { PageHeader } from '@/app/_components/page-header';
-import { INITIAL_BUILD_STATE } from '@/app/(builds)/_constants/initial-build-state';
-import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
-import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { useDBBuildState } from '@/app/(builds)/_utils/hooks/use-db-build-state';
-import { BuilderContainer } from '@/app/(builds)/builder/_components/builder-container';
-import { ArmorCalculatorButton } from '@/app/(builds)/builder/_components/buttons/armor-calculator-button';
-import { DetailedViewButton } from '@/app/(builds)/builder/_components/buttons/detailed-view-button';
-import { GenerateBuildImageButton } from '@/app/(builds)/builder/_components/buttons/generate-build-image';
-import { ItemSuggestionsButton } from '@/app/(builds)/builder/_components/buttons/item-suggestions-button';
-import { RandomBuildButton } from '@/app/(builds)/builder/_components/buttons/random-build-button';
-import { SaveBuildButton } from '@/app/(builds)/builder/_components/buttons/save-build-button';
-import { ArmorSuggestionDialog } from '@/app/(builds)/builder/_components/dialogs/armor-suggestion-dialog';
-import { DetailedBuildDialog } from '@/app/(builds)/builder/_components/dialogs/detailed-build-dialog';
-import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/dialogs/image-download-info-dialog';
-import { ItemTagSuggestionDialog } from '@/app/(items)/_components/item-tag-suggestion-dialog';
+import { NAV_ITEMS } from '@/app/_types/navigation';
+import { CreateBuild } from '@/app/(builds)/builder/create/create-build';
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
-export default function Page() {
-  const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);
+export async function generateMetadata(): Promise<Metadata> {
+  const title = `Build Creation Tool - Remnant 2 Toolkit`;
+  const description = NAV_ITEMS.createBuild.description;
 
-  const { dbBuildState, setNewBuildState, updateDBBuildState } =
-    useDBBuildState(INITIAL_BUILD_STATE);
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description: description,
+      siteName: 'Remnant 2 Toolkit',
+      url: `https://remnant2toolkit.com/builder/create`,
+      images: [
+        {
+          url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
+          width: 150,
+          height: 150,
+        },
+      ],
+      type: 'website',
+    },
+    twitter: {
+      title,
+      description,
+    },
+  };
+}
 
-  const {
-    isScreenshotMode,
-    showControls,
-    imageDownloadInfo,
-    imageExportLoading,
-    handleClearImageDownloadInfo,
-    handleImageExport,
-    handleRandomBuild,
-  } = useBuildActions();
-
-  const buildContainerRef = useRef<HTMLDivElement>(null);
-
-  const [showArmorCalculator, setShowArmorCalculator] = useState(false);
-  const [showItemSuggestions, setShowItemSuggestions] = useState(false);
-
-  function handleApplySuggestions(newBuildState: BuildState) {
-    setNewBuildState(newBuildState);
-    setShowArmorCalculator(false);
-    setShowItemSuggestions(false);
-  }
-
-  const isClient = useIsClient();
-  if (!isClient) return;
-
+function PageContent() {
   return (
     <div className="flex w-full flex-col items-center">
-      <DetailedBuildDialog
-        buildState={dbBuildState}
-        open={detailedBuildDialogOpen}
-        onClose={() => setDetailedBuildDialogOpen(false)}
-      />
-
-      <ImageDownloadInfoDialog
-        onClose={handleClearImageDownloadInfo}
-        imageDownloadInfo={imageDownloadInfo}
-      />
-
       <PageHeader
         title="Remnant 2 Build Tool"
         subtitle="Create your builds and share them with your friends and the community."
       />
-
-      <ArmorSuggestionDialog
-        buildState={dbBuildState}
-        open={showArmorCalculator}
-        onClose={() => setShowArmorCalculator(false)}
-        onApplySuggestions={handleApplySuggestions}
-        key={`${JSON.stringify(dbBuildState)}-armor-suggestions`}
-      />
-
-      <ItemTagSuggestionDialog
-        buildState={dbBuildState}
-        open={showItemSuggestions}
-        onClose={() => setShowItemSuggestions(false)}
-        onApplySuggestions={handleApplySuggestions}
-        key={`${JSON.stringify(dbBuildState)}-item-suggestions`}
-      />
-
-      <BuilderContainer
-        buildContainerRef={buildContainerRef}
-        buildState={dbBuildState}
-        isScreenshotMode={isScreenshotMode}
-        isEditable={true}
-        itemOwnershipPreference={false}
-        onUpdateBuildState={updateDBBuildState}
-        showControls={showControls}
-        showCreatedBy={false}
-        builderActions={
-          <>
-            <SaveBuildButton buildState={dbBuildState} editMode={false} />
-
-            <GenerateBuildImageButton
-              imageExportLoading={imageExportLoading}
-              onClick={() =>
-                handleImageExport(
-                  buildContainerRef.current,
-                  `${dbBuildState.name}`,
-                )
-              }
-            />
-
-            <ArmorCalculatorButton
-              onClick={() => setShowArmorCalculator(true)}
-            />
-
-            <ItemSuggestionsButton
-              onClick={() => setShowItemSuggestions(true)}
-            />
-
-            <DetailedViewButton
-              onClick={() => setDetailedBuildDialogOpen(true)}
-            />
-
-            <RandomBuildButton
-              onClick={() => {
-                const randomBuild = handleRandomBuild();
-                setNewBuildState(randomBuild);
-              }}
-            />
-          </>
-        }
-      />
+      <CreateBuild />
     </div>
   );
+}
+
+export default async function Page() {
+  const session = await getSession();
+
+  if (!session) {
+    return (
+      <>
+        <div className="relative flex w-full flex-col items-center">
+          <div
+            id="disabled-overlay"
+            className={cn(
+              'bg-background-solid/90 absolute inset-0 h-full',
+              ZINDEXES.BUILD_FEATURES_DISABLED,
+            )}
+          />
+          <div
+            className={cn(
+              'absolute mb-2 flex h-full w-full flex-col items-center justify-start p-2 text-2xl font-bold text-red-500',
+              ZINDEXES.BUILD_FEATURES_DISABLED,
+            )}
+          >
+            <p className="w-full text-center">
+              This enhanced build tool requires you to be logged in to use it,
+              as it saves your builds to the database. If you prefer not to sign
+              in, you can still use the <br />
+              <BaseLink
+                href="/builder"
+                className="text-surface-solid underline"
+              >
+                non-database builder by clicking here!
+              </BaseLink>
+            </p>
+          </div>
+          <PageContent />
+        </div>
+      </>
+    );
+  }
+
+  return <PageContent />;
 }

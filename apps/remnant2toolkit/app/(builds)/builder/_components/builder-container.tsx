@@ -3,6 +3,7 @@ import { cn } from '@repo/ui';
 import { type ReactNode, type RefObject } from 'react';
 
 import { type BuildState } from '@/app/(builds)/_types/build-state';
+import { type UpdateBuildCategory } from '@/app/(builds)/_utils/update-build-state';
 
 import { Builder } from './builder';
 
@@ -20,13 +21,13 @@ type Props = {
   | {
       isEditable: true;
       onUpdateBuildState: ({
+        buildState,
         category,
         value,
-        scroll,
       }: {
-        category: string;
+        buildState: BuildState;
+        category: UpdateBuildCategory;
         value: string | Array<string | undefined> | BuildTags[];
-        scroll?: boolean;
       }) => void;
     }
 );

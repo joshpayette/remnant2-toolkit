@@ -1,57 +1,55 @@
 'use client';
 
 import { type BuildTags } from '@repo/db';
-import { useSession } from 'next-auth/react';
+import cloneDeep from 'lodash.clonedeep';
 import { useRef, useState } from 'react';
+import { useIsClient } from 'usehooks-ts';
 
+import { INITIAL_BUILD_STATE } from '@/app/(builds)/_constants/initial-build-state';
 import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { type DBBuild } from '@/app/(builds)/_types/db-build';
-import { dbBuildToBuildState } from '@/app/(builds)/_utils/db-build-to-build-state';
 import {
   type UpdateBuildCategory,
   updateBuildState,
 } from '@/app/(builds)/_utils/update-build-state';
 import { BuilderContainer } from '@/app/(builds)/builder/_components/builder-container';
 import { ArmorCalculatorButton } from '@/app/(builds)/builder/_components/buttons/armor-calculator-button';
-import { DeleteBuildButton } from '@/app/(builds)/builder/_components/buttons/delete-build-button';
 import { DetailedViewButton } from '@/app/(builds)/builder/_components/buttons/detailed-view-button';
+import { GenerateBuildImageButton } from '@/app/(builds)/builder/_components/buttons/generate-build-image';
 import { ItemSuggestionsButton } from '@/app/(builds)/builder/_components/buttons/item-suggestions-button';
+import { RandomBuildButton } from '@/app/(builds)/builder/_components/buttons/random-build-button';
 import { SaveBuildButton } from '@/app/(builds)/builder/_components/buttons/save-build-button';
 import { ArmorSuggestionDialog } from '@/app/(builds)/builder/_components/dialogs/armor-suggestion-dialog';
 import { DetailedBuildDialog } from '@/app/(builds)/builder/_components/dialogs/detailed-build-dialog';
 import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/dialogs/image-download-info-dialog';
 import { ItemTagSuggestionDialog } from '@/app/(items)/_components/item-tag-suggestion-dialog';
 
-interface Props {
-  build: DBBuild;
-}
-
-export function EditBuild({ build }: Props) {
-  const { data: session } = useSession();
+export function CreateBuild() {
+  const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);
 
   const [buildState, setBuildState] = useState<BuildState>(
-    dbBuildToBuildState(build),
+    cloneDeep(INITIAL_BUILD_STATE),
   );
-
-  const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);
 
   const {
     isScreenshotMode,
     showControls,
     imageDownloadInfo,
+    imageExportLoading,
     handleClearImageDownloadInfo,
+    handleImageExport,
+    handleRandomBuild,
   } = useBuildActions();
 
   const buildContainerRef = useRef<HTMLDivElement>(null);
 
   const [showArmorCalculator, setShowArmorCalculator] = useState(false);
-  const [showItemTagSuggestions, setShowItemTagSuggestions] = useState(false);
+  const [showItemSuggestions, setShowItemSuggestions] = useState(false);
 
-  function handleSelectArmorSuggestion(newBuildState: BuildState) {
+  function handleApplySuggestions(newBuildState: BuildState) {
     setBuildState(newBuildState);
     setShowArmorCalculator(false);
-    setShowItemTagSuggestions(false);
+    setShowItemSuggestions(false);
   }
 
   function handleUpdateBuildState({
@@ -71,14 +69,18 @@ export function EditBuild({ build }: Props) {
     setBuildState(updatedBuildState);
   }
 
+  const isClient = useIsClient();
+  if (!isClient) return null;
+
   return (
     <BuilderContainer
       buildContainerRef={buildContainerRef}
       buildState={buildState}
-      isEditable={true}
       isScreenshotMode={isScreenshotMode}
+      isEditable={true}
       itemOwnershipPreference={false}
       showControls={showControls}
+      showCreatedBy={false}
       onUpdateBuildState={handleUpdateBuildState}
       builderActions={
         <>
@@ -97,32 +99,40 @@ export function EditBuild({ build }: Props) {
             buildState={buildState}
             open={showArmorCalculator}
             onClose={() => setShowArmorCalculator(false)}
-            onApplySuggestions={handleSelectArmorSuggestion}
+            onApplySuggestions={handleApplySuggestions}
+            key={`${JSON.stringify(buildState)}-armor-suggestions`}
           />
 
           <ItemTagSuggestionDialog
             buildState={buildState}
-            open={showItemTagSuggestions}
-            onClose={() => setShowItemTagSuggestions(false)}
-            onApplySuggestions={handleSelectArmorSuggestion}
+            open={showItemSuggestions}
+            onClose={() => setShowItemSuggestions(false)}
+            onApplySuggestions={handleApplySuggestions}
+            key={`${JSON.stringify(buildState)}-item-suggestions`}
           />
 
-          <SaveBuildButton buildState={buildState} editMode={true} />
+          <SaveBuildButton buildState={buildState} editMode={false} />
+
+          <GenerateBuildImageButton
+            imageExportLoading={imageExportLoading}
+            onClick={() =>
+              handleImageExport(buildContainerRef.current, `${buildState.name}`)
+            }
+          />
 
           <ArmorCalculatorButton onClick={() => setShowArmorCalculator(true)} />
 
-          <ItemSuggestionsButton
-            onClick={() => setShowItemTagSuggestions(true)}
-          />
-
-          {session &&
-            session.user?.id === buildState.createdById &&
-            buildState.buildId && (
-              <DeleteBuildButton buildId={buildState.buildId} />
-            )}
+          <ItemSuggestionsButton onClick={() => setShowItemSuggestions(true)} />
 
           <DetailedViewButton
             onClick={() => setDetailedBuildDialogOpen(true)}
+          />
+
+          <RandomBuildButton
+            onClick={() => {
+              const randomBuild = handleRandomBuild();
+              setBuildState(randomBuild);
+            }}
           />
         </>
       }

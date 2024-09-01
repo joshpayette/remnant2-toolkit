@@ -21,6 +21,7 @@ import { getConcoctionSlotCount } from '@/app/(builds)/_utils/get-concoction-slo
 import { getItemListForSlot } from '@/app/(builds)/_utils/get-item-list-for-slot';
 import { isBuildNew } from '@/app/(builds)/_utils/is-build-new';
 import { isBuildPopular } from '@/app/(builds)/_utils/is-build-popular';
+import { type UpdateBuildCategory } from '@/app/(builds)/_utils/update-build-state';
 import { FeaturedBuildBadge } from '@/app/(builds)/builder/_components/badges/featured-build-badge';
 import { NewBuildBadge } from '@/app/(builds)/builder/_components/badges/new-build-badge';
 import { PopularBuildBadge } from '@/app/(builds)/builder/_components/badges/popular-build-badge';
@@ -48,13 +49,13 @@ type BuilderProps = {
   | {
       isEditable: true;
       onUpdateBuildState: ({
+        buildState,
         category,
         value,
-        scroll,
       }: {
-        category: string;
+        buildState: BuildState;
+        category: UpdateBuildCategory;
         value: string | Array<string | undefined> | BuildTags[];
-        scroll?: boolean;
       }) => void;
     }
 );
@@ -139,11 +140,13 @@ export function Builder({
           );
           const newItemIds = newBuildItems.map((i) => i?.id ?? '');
           onUpdateBuildState({
+            buildState,
             category: selectedItemSlot.category,
             value: newItemIds,
           });
         } else {
           onUpdateBuildState({
+            buildState,
             category: selectedItemSlot.category,
             value: '',
           });
@@ -181,7 +184,11 @@ export function Builder({
             newBuildItems as TraitItem[],
           );
 
-          onUpdateBuildState({ category: 'trait', value: newTraitItemParams });
+          onUpdateBuildState({
+            buildState,
+            category: 'trait',
+            value: newTraitItemParams,
+          });
           setSelectedItemSlot({ category: null });
           return;
         }
@@ -191,6 +198,7 @@ export function Builder({
           i?.optional ? `${i?.id}${OPTIONAL_ITEM_SYMBOL}` : i?.id,
         );
         onUpdateBuildState({
+          buildState,
           category: selectedItem.category,
           value: newItemIds,
         });
@@ -205,12 +213,13 @@ export function Builder({
       if (itemAlreadyInBuild) return;
 
       onUpdateBuildState({
+        buildState,
         category: selectedItem.category,
         value: selectedItem.id,
       });
       setSelectedItemSlot({ category: null });
     },
-    [buildState.items, selectedItemSlot, onUpdateBuildState],
+    [buildState, selectedItemSlot, onUpdateBuildState],
   );
 
   function handleToggleOptional(selectedItem: Item, optional: boolean) {
@@ -233,6 +242,7 @@ export function Builder({
       );
 
       onUpdateBuildState({
+        buildState,
         category: selectedItem.category,
         value: newItemIds,
       });
@@ -241,6 +251,7 @@ export function Builder({
 
     const newBuildItem = { ...categoryItemOrItems, optional };
     onUpdateBuildState({
+      buildState,
       category: selectedItem.category,
       value: newBuildItem.optional
         ? `${newBuildItem.id}${OPTIONAL_ITEM_SYMBOL}`
@@ -251,19 +262,28 @@ export function Builder({
   function handleChangeBuildLink(newBuildLink: string) {
     if (!isEditable) return;
     if (!onUpdateBuildState) return;
-    onUpdateBuildState({ category: 'buildLink', value: newBuildLink });
+    onUpdateBuildState({
+      buildState,
+      category: 'buildLink',
+      value: newBuildLink,
+    });
   }
 
   function handleChangeDescription(description: string) {
     if (!isEditable) return;
     if (!onUpdateBuildState) return;
-    onUpdateBuildState({ category: 'description', value: description });
+    onUpdateBuildState({
+      buildState,
+      category: 'description',
+      value: description,
+    });
   }
 
   function handleToggleIsPublic(isPublic: boolean) {
     if (!isEditable) return;
     if (!onUpdateBuildState) return;
     onUpdateBuildState({
+      buildState,
       category: 'isPublic',
       value: isPublic ? 'true' : 'false',
     });
@@ -273,6 +293,7 @@ export function Builder({
     if (!isEditable) return;
     if (!onUpdateBuildState) return;
     onUpdateBuildState({
+      buildState,
       category: 'isPatchAffected',
       value: isPatchAffected ? 'true' : 'false',
     });
@@ -283,6 +304,7 @@ export function Builder({
     if (!onUpdateBuildState) return;
 
     onUpdateBuildState({
+      buildState,
       category: 'tags',
       value:
         tags.length > MAX_BUILD_TAGS ? tags.slice(0, MAX_BUILD_TAGS) : tags,
@@ -301,7 +323,7 @@ export function Builder({
   function handleChangeBuildName(newBuildName: string) {
     if (!isEditable) return;
     if (!onUpdateBuildState) return;
-    onUpdateBuildState({ category: 'name', value: newBuildName });
+    onUpdateBuildState({ buildState, category: 'name', value: newBuildName });
   }
 
   function handleRemoveTrait(traitItem: TraitItem) {
@@ -312,7 +334,11 @@ export function Builder({
       (i) => i.name !== traitItem.name,
     );
     const newTraitItemParams = TraitItem.toParams(newTraitItems);
-    onUpdateBuildState({ category: 'trait', value: newTraitItemParams });
+    onUpdateBuildState({
+      buildState,
+      category: 'trait',
+      value: newTraitItemParams,
+    });
   }
 
   function handleUpdateTraitAmount(newTraitItem: TraitItem) {
@@ -376,7 +402,11 @@ export function Builder({
     });
 
     const newTraitItemParams = TraitItem.toParams(validatedTraitItems);
-    onUpdateBuildState({ category: 'trait', value: newTraitItemParams });
+    onUpdateBuildState({
+      buildState,
+      category: 'trait',
+      value: newTraitItemParams,
+    });
   }
 
   const primePerkName =
