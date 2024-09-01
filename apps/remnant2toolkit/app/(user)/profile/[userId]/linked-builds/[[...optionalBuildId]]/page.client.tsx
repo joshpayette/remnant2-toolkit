@@ -21,7 +21,7 @@ import { BuildList } from '@/app/(builds)/_components/build-list';
 import { DeleteBuildAlert } from '@/app/(builds)/_components/delete-build-alert';
 import { deleteLinkedBuild } from '@/app/(builds)/builder/linked/_actions/delete-linked-build';
 import { LinkedBuildCard } from '@/app/(builds)/builder/linked/_components/linked-build-card';
-import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-builds';
+import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
 import getLinkedBuilds from '@/app/(user)/profile/_actions/get-linked-builds';
 
 interface Props {

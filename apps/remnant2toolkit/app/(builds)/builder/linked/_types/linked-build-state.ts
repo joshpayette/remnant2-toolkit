@@ -1,10 +1,4 @@
-import { type DBBuild } from '@/app/(builds)/_types/db-build';
-
-export interface LinkedBuildItem {
-  id: string;
-  label: string;
-  build: DBBuild;
-}
+import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
 
 export interface LinkedBuildState {
   id: string;

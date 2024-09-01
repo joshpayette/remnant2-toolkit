@@ -2,7 +2,7 @@
 
 import { prisma } from '@repo/db';
 
-import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-builds';
+import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { DEFAULT_DISPLAY_NAME } from '@/app/(user)/profile/_constants/default-display-name';
 

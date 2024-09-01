@@ -3,7 +3,7 @@
 import { BaseLink, cn, Skeleton } from '@repo/ui';
 
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
-import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-builds';
+import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
 
 interface Props {
   linkedBuildState: LinkedBuildState;

@@ -5,7 +5,7 @@ import { revalidatePath } from 'next/cache';
 
 import { type AdminToolResponse } from '@/app/(builds)/_types/admin-tool-response';
 import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/builder/linked/_constants/max-linked-build-description-length';
-import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-builds';
+import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
 import { sendWebhook } from '@/app/(user)/_auth/moderation/send-webhook';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 

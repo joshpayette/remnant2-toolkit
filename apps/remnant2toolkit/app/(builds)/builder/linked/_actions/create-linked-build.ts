@@ -4,7 +4,7 @@ import { type LinkedBuild, prisma } from '@repo/db';
 
 import { badWordFilter } from '@/app/_libs/bad-word-filter';
 import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/builder/linked/_constants/max-linked-build-description-length';
-import { validateLinkedBuild } from '@/app/(builds)/builder/linked/_utils/validate-linked-build';
+import { validateLinkedBuild } from '@/app/(builds)/builder/linked/_libs/validate-linked-build';
 import { sendWebhook } from '@/app/(user)/_auth/moderation/send-webhook';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 

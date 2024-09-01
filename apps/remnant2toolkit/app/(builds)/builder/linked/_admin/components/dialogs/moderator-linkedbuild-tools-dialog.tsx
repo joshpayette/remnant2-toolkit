@@ -19,7 +19,7 @@ import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-buil
 import { lockLinkedBuild } from '@/app/(builds)/builder/linked/_admin/actions/lock-linked-build';
 import { unlockLinkedBuild } from '@/app/(builds)/builder/linked/_admin/actions/unlock-linked-build';
 import { updateLinkedBuild } from '@/app/(builds)/builder/linked/_admin/actions/update-linked-build';
-import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-builds';
+import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
 
 interface Props {
   open: boolean;

@@ -24,28 +24,33 @@ import { TimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-fi
 import { useTimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
 import { useBuildListState } from '@/app/(builds)/_libs/hooks/use-build-list-state';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
-import { createLinkedBuild } from '@/app/(builds)/builder/linked/_actions/create-linked-build';
+import { updateLinkedBuild } from '@/app/(builds)/builder/linked/_actions/update-linked-build';
 import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/builder/linked/_constants/max-linked-build-description-length';
 import { MAX_LINKED_BUILD_ITEMS } from '@/app/(builds)/builder/linked/_constants/max-linked-build-items';
 import { MAX_LINKED_BUILD_LABEL_LENGTH } from '@/app/(builds)/builder/linked/_constants/max-linked-build-label-length';
-import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/create/[buildId]/type';
+import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
+import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
 
 const ITEMS_PER_PAGE = 16;
 
 interface Props {
-  initialBuild: DBBuild;
+  currentLinkedBuildState: LinkedBuildState;
   userId: string;
 }
 
-export default function PageClient({ initialBuild, userId }: Props) {
+export function EditLinkedBuild({ currentLinkedBuildState, userId }: Props) {
   const router = useRouter();
 
-  const [name, setName] = useState('My Linked Build');
-  const [description, setDescription] = useState<string>('');
+  const [name, setName] = useState(currentLinkedBuildState.name);
+  const [description, setDescription] = useState(
+    currentLinkedBuildState.description,
+  );
 
-  const [linkedBuildItems, setLinkedBuildItems] = useState<LinkedBuildItem[]>([
-    { label: 'Variation #1', build: initialBuild },
-  ]);
+  const [linkedBuildItems, setLinkedBuildItems] = useState<LinkedBuildItem[]>(
+    currentLinkedBuildState.linkedBuildItems.map(
+      (linkedBuildItem) => linkedBuildItem,
+    ),
+  );
 
   const { buildListState, setBuildListState } = useBuildListState();
   const { builds, totalBuildCount, isLoading } = buildListState;
@@ -131,9 +136,12 @@ export default function PageClient({ initialBuild, userId }: Props) {
   async function handleSaveLinkedBuild() {
     setSaveInProgress(true);
 
-    const response = await createLinkedBuild({
+    const response = await updateLinkedBuild({
       name,
-      description,
+      description: description ?? '',
+      id: currentLinkedBuildState.id,
+      createdById: userId,
+      isModeratorLocked: currentLinkedBuildState.isModeratorLocked,
       linkedBuildItems: linkedBuildItems.map((linkedBuildItem) => ({
         label: linkedBuildItem.label,
         buildId: linkedBuildItem.build.id,
@@ -141,13 +149,13 @@ export default function PageClient({ initialBuild, userId }: Props) {
     });
 
     if (response.status === 'error') {
-      toast.error(response.message);
       setSaveInProgress(false);
+      toast.error(response.message);
       return;
     }
     if (!response.linkedBuild) {
       setSaveInProgress(false);
-      toast.error('An error occurred while creating the linked build.');
+      toast.error('An error occurred while updating the linked build.');
       return;
     }
     toast.success(response.message);
@@ -157,9 +165,7 @@ export default function PageClient({ initialBuild, userId }: Props) {
   return (
     <div className="flex w-full flex-col gap-y-8">
       <BaseField className="max-w-[500px]">
-        <BaseLabel>
-          <span className="text-primary-500">Linked Build Name</span>
-        </BaseLabel>
+        <BaseLabel>Linked Build Name</BaseLabel>
         <BaseInput
           name="linked-build-name"
           value={name}

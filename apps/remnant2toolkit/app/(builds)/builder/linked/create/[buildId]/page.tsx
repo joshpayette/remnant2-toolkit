@@ -1,8 +1,39 @@
+import { type Metadata } from 'next';
+
 import { PageHeader } from '@/app/_components/page-header';
 import { isErrorResponse } from '@/app/_libs/is-error-response';
+import { NAV_ITEMS } from '@/app/_types/navigation';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
-import PageClient from '@/app/(builds)/builder/linked/create/[buildId]/page.client';
+import { CreateLinkedBuild } from '@/app/(builds)/builder/linked/create/[buildId]/created-linked-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const title = `Build Linking Tool - Remnant 2 Toolkit`;
+  const description = NAV_ITEMS.linkedBuilds.description;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description: description,
+      siteName: 'Remnant 2 Toolkit',
+      url: `https://remnant2toolkit.com/builder/linked/create`,
+      images: [
+        {
+          url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
+          width: 150,
+          height: 150,
+        },
+      ],
+      type: 'website',
+    },
+    twitter: {
+      title,
+      description,
+    },
+  };
+}
 
 export default async function Page({
   params: { buildId },
@@ -61,7 +92,9 @@ export default async function Page({
         title="Link Builds"
         subtitle="Link multiple variations of a build together in one convenient URL."
       />
-      <PageClient initialBuild={build} userId={userId} />
+      <div className="flex w-full flex-col gap-y-8">
+        <CreateLinkedBuild initialBuild={build} userId={userId} />
+      </div>
     </>
   );
 }
