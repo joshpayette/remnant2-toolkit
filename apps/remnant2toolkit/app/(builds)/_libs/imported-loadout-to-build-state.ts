@@ -1,6 +1,6 @@
+import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type ParsedLoadoutItem } from '@/app/(builds)/_types/parsed-loadout-item';
-import { cleanUpBuildState } from '@/app/(builds)/_utils/clean-up-build-state';
 import { allItems } from '@/app/(items)/_constants/all-items';
 import { traitItems } from '@/app/(items)/_constants/trait-items';
 import { AmuletItem } from '@/app/(items)/_types/amulet-item';

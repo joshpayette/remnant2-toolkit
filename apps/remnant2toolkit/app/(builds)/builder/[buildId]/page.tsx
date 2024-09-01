@@ -2,12 +2,12 @@ import { type Metadata, type ResolvingMetadata } from 'next';
 
 import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
-import { cleanUpBuildState } from '@/app/(builds)/_utils/clean-up-build-state';
-import { dbBuildToBuildState } from '@/app/(builds)/_utils/db-build-to-build-state';
+import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
+import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
 import {
   type ArchetypeName,
   getArchetypeComboName,
-} from '@/app/(builds)/_utils/get-archetype-combo-name';
+} from '@/app/(builds)/_libs/get-archetype-combo-name';
 import { VideoThumbnail } from '@/app/(builds)/builder/_components/video-thumbnail';
 import { ViewBuild } from '@/app/(builds)/builder/[buildId]/view-build';
 

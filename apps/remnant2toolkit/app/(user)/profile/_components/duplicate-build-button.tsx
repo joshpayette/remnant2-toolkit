@@ -4,8 +4,8 @@ import { BaseButton, DuplicateIcon } from '@repo/ui';
 
 import { Tooltip } from '@/app/_components/tooltip';
 import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
+import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
-import { dbBuildToBuildState } from '@/app/(builds)/_utils/db-build-to-build-state';
 
 export function DuplicateBuildButton({ build }: { build: DBBuild }) {
   const buildState = dbBuildToBuildState(build);

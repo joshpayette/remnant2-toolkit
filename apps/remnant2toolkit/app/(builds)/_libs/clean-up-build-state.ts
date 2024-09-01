@@ -1,5 +1,5 @@
+import { linkArchetypesToPerks } from '@/app/(builds)/_libs/link-archetypes-to-perks';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { linkArchetypesToPerks } from '@/app/(builds)/_utils/link-archetypes-to-perks';
 import { traitItems } from '@/app/(items)/_constants/trait-items';
 import { weaponItems } from '@/app/(items)/_constants/weapon-items';
 import { type ArchetypeItem } from '@/app/(items)/_types/archetype-item';

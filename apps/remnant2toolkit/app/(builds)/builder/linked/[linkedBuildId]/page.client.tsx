@@ -20,9 +20,9 @@ import { DescriptionWithTokens } from '@/app/_components/description-with-tokens
 import { ToCsvButton } from '@/app/_components/to-csv-button';
 import { LoadoutDialog } from '@/app/(builds)/_components/loadout-dialog';
 import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
-import { buildStateToCsvData } from '@/app/(builds)/_utils/build-state-to-csv-data';
-import { cleanUpBuildState } from '@/app/(builds)/_utils/clean-up-build-state';
-import { dbBuildToBuildState } from '@/app/(builds)/_utils/db-build-to-build-state';
+import { buildStateToCsvData } from '@/app/(builds)/_libs/build-state-to-csv-data';
+import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
+import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
 import { BuilderContainer } from '@/app/(builds)/builder/_components/builder-container';
 import { DeleteBuildButton } from '@/app/(builds)/builder/_components/buttons/delete-build-button';
 import { DetailedViewButton } from '@/app/(builds)/builder/_components/buttons/detailed-view-button';

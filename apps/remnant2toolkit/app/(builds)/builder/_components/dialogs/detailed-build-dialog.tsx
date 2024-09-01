@@ -3,8 +3,8 @@
 import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@repo/ui';
 import { useState } from 'react';
 
+import { buildStateToMasonryItems } from '@/app/(builds)/_libs/build-state-to-masonry-items';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { buildStateToMasonryItems } from '@/app/(builds)/_utils/build-state-to-masonry-items';
 import { ItemCard } from '@/app/(items)/_components/item-card';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { type Item } from '@/app/(items)/_types/item';

@@ -1,9 +1,9 @@
 import { type BuildTags } from '@repo/db';
 
 import { isStringArray } from '@/app/_libs/is-string-array';
+import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
-import { cleanUpBuildState } from '@/app/(builds)/_utils/clean-up-build-state';
 import { AmuletItem } from '@/app/(items)/_types/amulet-item';
 import { ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { ArmorItem } from '@/app/(items)/_types/armor-item';

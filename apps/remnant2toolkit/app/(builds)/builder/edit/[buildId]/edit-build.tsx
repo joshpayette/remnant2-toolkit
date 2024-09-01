@@ -5,13 +5,13 @@ import { useSession } from 'next-auth/react';
 import { useRef, useState } from 'react';
 
 import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
-import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { type DBBuild } from '@/app/(builds)/_types/db-build';
-import { dbBuildToBuildState } from '@/app/(builds)/_utils/db-build-to-build-state';
+import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
 import {
   type UpdateBuildCategory,
   updateBuildState,
-} from '@/app/(builds)/_utils/update-build-state';
+} from '@/app/(builds)/_libs/update-build-state';
+import { type BuildState } from '@/app/(builds)/_types/build-state';
+import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { BuilderContainer } from '@/app/(builds)/builder/_components/builder-container';
 import { ArmorCalculatorButton } from '@/app/(builds)/builder/_components/buttons/armor-calculator-button';
 import { DeleteBuildButton } from '@/app/(builds)/builder/_components/buttons/delete-build-button';

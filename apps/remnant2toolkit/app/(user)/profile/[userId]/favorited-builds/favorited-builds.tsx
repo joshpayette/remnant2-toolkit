@@ -12,7 +12,7 @@ import { useOrderByFilter } from '@/app/(builds)/_components/filters/secondary-f
 import { useTimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
 import { type BuildListFilters } from '@/app/(builds)/_components/filters/types';
 import { parseUrlFilters } from '@/app/(builds)/_components/filters/utils';
-import { useBuildListState } from '@/app/(builds)/_utils/hooks/use-build-list-state';
+import { useBuildListState } from '@/app/(builds)/_libs/hooks/use-build-list-state';
 import { getFavoritedBuilds } from '@/app/(user)/profile/_actions/get-favorite-builds';
 
 const ITEMS_PER_PAGE = 16;

@@ -13,12 +13,12 @@ import { useEffect, useState } from 'react';
 import { Pagination } from '@/app/_components/pagination';
 import { usePagination } from '@/app/_libs/pagination/use-pagination';
 import { ArmorSuggestionCard } from '@/app/(builds)/_components/armor-suggestion-card';
+import { getArmorSuggestions } from '@/app/(builds)/_libs/get-armor-suggestions';
 import {
   type ArmorSuggestion,
   type WeightClassKeysWithDefault,
 } from '@/app/(builds)/_types/armor-calculator';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { getArmorSuggestions } from '@/app/(builds)/_utils/get-armor-suggestions';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { type Item } from '@/app/(items)/_types/item';
 

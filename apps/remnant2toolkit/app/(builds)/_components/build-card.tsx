@@ -15,16 +15,16 @@ import { isValidYoutubeUrl } from '@repo/utils';
 
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
 import { Tooltip } from '@/app/_components/tooltip';
-import { type DBBuild } from '@/app/(builds)/_types/db-build';
-import { buildHasFeaturedBadge } from '@/app/(builds)/_utils/build-has-featured-badge';
-import { dbBuildToBuildState } from '@/app/(builds)/_utils/db-build-to-build-state';
-import { formatUpdatedAt } from '@/app/(builds)/_utils/format-updated-at';
+import { buildHasFeaturedBadge } from '@/app/(builds)/_libs/build-has-featured-badge';
+import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
+import { formatUpdatedAt } from '@/app/(builds)/_libs/format-updated-at';
 import {
   type ArchetypeName,
   getArchetypeComboName,
-} from '@/app/(builds)/_utils/get-archetype-combo-name';
-import { isBuildNew } from '@/app/(builds)/_utils/is-build-new';
-import { isBuildPopular } from '@/app/(builds)/_utils/is-build-popular';
+} from '@/app/(builds)/_libs/get-archetype-combo-name';
+import { isBuildNew } from '@/app/(builds)/_libs/is-build-new';
+import { isBuildPopular } from '@/app/(builds)/_libs/is-build-popular';
+import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { ArchetypeLabel } from '@/app/(builds)/builder/_components/archetype-label';
 import { FeaturedBuildBadge } from '@/app/(builds)/builder/_components/badges/featured-build-badge';
 import { NewBuildBadge } from '@/app/(builds)/builder/_components/badges/new-build-badge';

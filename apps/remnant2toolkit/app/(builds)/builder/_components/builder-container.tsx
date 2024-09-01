@@ -2,8 +2,8 @@ import { type BuildTags } from '@repo/db';
 import { cn } from '@repo/ui';
 import { type ReactNode, type RefObject } from 'react';
 
+import { type UpdateBuildCategory } from '@/app/(builds)/_libs/update-build-state';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { type UpdateBuildCategory } from '@/app/(builds)/_utils/update-build-state';
 
 import { Builder } from './builder';
 

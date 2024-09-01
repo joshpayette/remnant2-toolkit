@@ -7,11 +7,11 @@ import { useIsClient } from 'usehooks-ts';
 
 import { INITIAL_BUILD_STATE } from '@/app/(builds)/_constants/initial-build-state';
 import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
-import { type BuildState } from '@/app/(builds)/_types/build-state';
 import {
   type UpdateBuildCategory,
   updateBuildState,
-} from '@/app/(builds)/_utils/update-build-state';
+} from '@/app/(builds)/_libs/update-build-state';
+import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { BuilderContainer } from '@/app/(builds)/builder/_components/builder-container';
 import { ArmorCalculatorButton } from '@/app/(builds)/builder/_components/buttons/armor-calculator-button';
 import { DetailedViewButton } from '@/app/(builds)/builder/_components/buttons/detailed-view-button';

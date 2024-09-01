@@ -9,19 +9,19 @@ import { Tooltip } from '@/app/_components/tooltip';
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/optional-item-symbol';
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/_constants/default-trait-amount';
 import { MAX_BUILD_TAGS } from '@/app/(builds)/_constants/max-build-tags';
-import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { type ItemCategory } from '@/app/(builds)/_types/item-category';
-import { buildHasFeaturedBadge } from '@/app/(builds)/_utils/build-has-featured-badge';
-import { formatUpdatedAt } from '@/app/(builds)/_utils/format-updated-at';
+import { buildHasFeaturedBadge } from '@/app/(builds)/_libs/build-has-featured-badge';
+import { formatUpdatedAt } from '@/app/(builds)/_libs/format-updated-at';
 import {
   type ArchetypeName,
   getArchetypeComboName,
-} from '@/app/(builds)/_utils/get-archetype-combo-name';
-import { getConcoctionSlotCount } from '@/app/(builds)/_utils/get-concoction-slot-count';
-import { getItemListForSlot } from '@/app/(builds)/_utils/get-item-list-for-slot';
-import { isBuildNew } from '@/app/(builds)/_utils/is-build-new';
-import { isBuildPopular } from '@/app/(builds)/_utils/is-build-popular';
-import { type UpdateBuildCategory } from '@/app/(builds)/_utils/update-build-state';
+} from '@/app/(builds)/_libs/get-archetype-combo-name';
+import { getConcoctionSlotCount } from '@/app/(builds)/_libs/get-concoction-slot-count';
+import { getItemListForSlot } from '@/app/(builds)/_libs/get-item-list-for-slot';
+import { isBuildNew } from '@/app/(builds)/_libs/is-build-new';
+import { isBuildPopular } from '@/app/(builds)/_libs/is-build-popular';
+import { type UpdateBuildCategory } from '@/app/(builds)/_libs/update-build-state';
+import { type BuildState } from '@/app/(builds)/_types/build-state';
+import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { FeaturedBuildBadge } from '@/app/(builds)/builder/_components/badges/featured-build-badge';
 import { NewBuildBadge } from '@/app/(builds)/builder/_components/badges/new-build-badge';
 import { PopularBuildBadge } from '@/app/(builds)/builder/_components/badges/popular-build-badge';

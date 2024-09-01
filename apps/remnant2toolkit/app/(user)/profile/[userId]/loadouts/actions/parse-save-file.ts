@@ -6,10 +6,10 @@ import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { validateEnv } from '@/app/_libs/validate-env';
 import { addBuildToLoadout } from '@/app/(builds)/_actions/add-build-to-loadout';
 import { createBuild } from '@/app/(builds)/_actions/create-build';
+import { importedLoadoutToBuildState } from '@/app/(builds)/_libs/imported-loadout-to-build-state';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type ParsedLoadoutItem } from '@/app/(builds)/_types/parsed-loadout-item';
 import { type SuccessResponse } from '@/app/(builds)/_types/success-response';
-import { importedLoadoutToBuildState } from '@/app/(builds)/_utils/imported-loadout-to-build-state';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { MAX_PROFILE_SAV_SIZE } from '@/app/(user)/profile/_constants/max-profile-sav-size';
 

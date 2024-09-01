@@ -16,7 +16,7 @@ import { TimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-fi
 import { useTimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
 import { type BuildListFilters } from '@/app/(builds)/_components/filters/types';
 import { parseUrlFilters } from '@/app/(builds)/_components/filters/utils';
-import { useBuildListState } from '@/app/(builds)/_utils/hooks/use-build-list-state';
+import { useBuildListState } from '@/app/(builds)/_libs/hooks/use-build-list-state';
 import { getCreatedBuilds } from '@/app/(user)/profile/_actions/get-created-builds';
 import { CreatedBuildCardActions } from '@/app/(user)/profile/_components/created-build-card-actions';
 
