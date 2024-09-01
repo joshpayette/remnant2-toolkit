@@ -2,8 +2,8 @@
 
 import { revalidatePath } from 'next/cache';
 
-import { isErrorResponse } from '@/app/_utils/is-error-response';
-import { validateEnv } from '@/app/_utils/validate-env';
+import { isErrorResponse } from '@/app/_libs/is-error-response';
+import { validateEnv } from '@/app/_libs/validate-env';
 import { addBuildToLoadout } from '@/app/(builds)/_actions/add-build-to-loadout';
 import { createBuild } from '@/app/(builds)/_actions/create-build';
 import { type BuildState } from '@/app/(builds)/_types/build-state';

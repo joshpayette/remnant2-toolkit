@@ -3,7 +3,7 @@
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 
-import { usePagination } from '@/app/_utils/pagination/use-pagination';
+import { usePagination } from '@/app/_libs/pagination/use-pagination';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';
 import { CreateBuildCard } from '@/app/(builds)/_components/create-build-card';

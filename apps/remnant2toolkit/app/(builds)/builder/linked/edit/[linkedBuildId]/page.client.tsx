@@ -14,7 +14,7 @@ import { FaLink } from 'react-icons/fa6';
 import { toast } from 'react-toastify';
 
 import { Tooltip } from '@/app/_components/tooltip';
-import { usePagination } from '@/app/_utils/pagination/use-pagination';
+import { usePagination } from '@/app/_libs/pagination/use-pagination';
 import { getCreatedBuilds } from '@/app/(builds)/_actions/get-created-builds';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';

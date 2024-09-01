@@ -1,4 +1,4 @@
-import { isErrorResponse } from '@/app/_utils/is-error-response';
+import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
 import { PageClient } from '@/app/(builds)/builder/[buildId]/page.client';
 

@@ -1,7 +1,7 @@
 import { getImageUrl } from '@repo/ui';
 import * as cheerio from 'cheerio';
 
-import { validateEnv } from '@/app/_utils/validate-env';
+import { validateEnv } from '@/app/_libs/validate-env';
 import { mutatorItems } from '@/app/(items)/_constants/mutator-items';
 import { REQUEST_DELAY } from '@/app/api/cron/wiki/scraper/constants';
 import { mutatorDataCompare } from '@/app/api/cron/wiki/scraper/mutators/compare';

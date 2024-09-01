@@ -3,7 +3,7 @@
 import { type LinkedBuild, prisma } from '@repo/db';
 import { revalidatePath } from 'next/cache';
 
-import { badWordFilter } from '@/app/_utils/bad-word-filter';
+import { badWordFilter } from '@/app/_libs/bad-word-filter';
 import { isPermittedBuilder } from '@/app/(builds)/_utils/is-permitted-builder';
 import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/builder/linked/_constants/max-linked-build-description-length';
 import { validateLinkedBuild } from '@/app/(builds)/builder/linked/_utils/validate-linked-build';

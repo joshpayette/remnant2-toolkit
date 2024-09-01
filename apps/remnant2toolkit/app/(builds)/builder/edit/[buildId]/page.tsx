@@ -1,6 +1,7 @@
-import { isErrorResponse } from '@/app/_utils/is-error-response';
+import { PageHeader } from '@/app/_components/page-header';
+import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
-import { PageClient } from '@/app/(builds)/builder/edit/[buildId]/page.client';
+import { EditBuild } from '@/app/(builds)/builder/edit/[buildId]/edit-build';
 
 export default async function Page({
   params: { buildId },
@@ -8,6 +9,7 @@ export default async function Page({
   params: { buildId: string };
 }) {
   const buildData = await getBuild(buildId);
+
   if (isErrorResponse(buildData)) {
     console.info(buildData.errors);
     return (
@@ -18,5 +20,13 @@ export default async function Page({
   }
   const { build } = buildData;
 
-  return <PageClient build={build} />;
+  return (
+    <div className="flex w-full flex-col items-center">
+      <PageHeader
+        title="Remnant 2 Build Tool"
+        subtitle="Edit your builds and share them with your friends and the community."
+      />
+      <EditBuild build={build} />
+    </div>
+  );
 }

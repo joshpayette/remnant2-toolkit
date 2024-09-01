@@ -1,4 +1,4 @@
-import { validateEnv } from '@/app/_utils/validate-env';
+import { validateEnv } from '@/app/_libs/validate-env';
 import { type DiscordWebhookParams } from '@/app/(user)/_auth/moderation/types';
 
 const {

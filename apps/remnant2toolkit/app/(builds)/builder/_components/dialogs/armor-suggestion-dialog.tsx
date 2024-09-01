@@ -11,7 +11,7 @@ import {
 import { useEffect, useState } from 'react';
 
 import { Pagination } from '@/app/_components/pagination';
-import { usePagination } from '@/app/_utils/pagination/use-pagination';
+import { usePagination } from '@/app/_libs/pagination/use-pagination';
 import { ArmorSuggestionCard } from '@/app/(builds)/_components/armor-suggestion-card';
 import {
   type ArmorSuggestion,

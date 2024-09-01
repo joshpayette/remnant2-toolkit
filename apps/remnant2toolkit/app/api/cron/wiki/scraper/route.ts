@@ -1,6 +1,6 @@
 import { type NextRequest } from 'next/server';
 
-import { validateEnv } from '@/app/_utils/validate-env';
+import { validateEnv } from '@/app/_libs/validate-env';
 import { handleAmuletItems } from '@/app/api/cron/wiki/scraper/amulets/handle-amulet-items';
 import { handleArmorItems } from '@/app/api/cron/wiki/scraper/armor/handle-armor-items';
 import { handleConcoctionItems } from '@/app/api/cron/wiki/scraper/concoctions/handle-concoction-items';

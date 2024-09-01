@@ -6,7 +6,7 @@ import { signIn, useSession } from 'next-auth/react';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { isErrorResponse } from '@/app/_utils/is-error-response';
+import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { createBuild } from '@/app/(builds)/_actions/create-build';
 import { updateBuild } from '@/app/(builds)/_actions/update-build';
 import { type BuildActionResponse } from '@/app/(builds)/_types/build-action-response';

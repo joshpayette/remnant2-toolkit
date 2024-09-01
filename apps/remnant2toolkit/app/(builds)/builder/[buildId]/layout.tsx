@@ -1,7 +1,7 @@
 import { type Metadata, type ResolvingMetadata } from 'next';
 
 import { PageHeader } from '@/app/_components/page-header';
-import { isErrorResponse } from '@/app/_utils/is-error-response';
+import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
 import { dbBuildToBuildState } from '@/app/(builds)/_utils/db-build-to-build-state';
 import {

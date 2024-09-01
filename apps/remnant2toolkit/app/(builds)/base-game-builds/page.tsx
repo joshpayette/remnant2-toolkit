@@ -4,8 +4,8 @@ import { BaseText, BaseTextLink } from '@repo/ui';
 import { useCallback, useState } from 'react';
 
 import { PageHeader } from '@/app/_components/page-header';
+import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_libs/pagination/constants';
 import { NAV_ITEMS } from '@/app/_types/navigation';
-import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_utils/pagination/constants';
 import { BuildFilters } from '@/app/(builds)/_components/filters/build-filters';
 import { BaseGameBuilds } from '@/app/(builds)/base-game-builds/base-game-builds';
 

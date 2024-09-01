@@ -4,7 +4,7 @@ import { type BuildTags, prisma } from '@repo/db';
 import { isValidYoutubeUrl, urlNoCache } from '@repo/utils';
 import { revalidatePath } from 'next/cache';
 
-import { badWordFilter } from '@/app/_utils/bad-word-filter';
+import { badWordFilter } from '@/app/_libs/bad-word-filter';
 import { BUILD_REVALIDATE_PATHS } from '@/app/(builds)/_constants/build-revalidate-paths';
 import { DEFAULT_BUILD_NAME } from '@/app/(builds)/_constants/default-build-name';
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';

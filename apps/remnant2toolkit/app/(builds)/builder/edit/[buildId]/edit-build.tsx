@@ -2,9 +2,7 @@
 
 import { useSession } from 'next-auth/react';
 import { useRef, useState } from 'react';
-import { useIsClient } from 'usehooks-ts';
 
-import { PageHeader } from '@/app/_components/page-header';
 import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
@@ -26,7 +24,7 @@ interface Props {
   build: DBBuild;
 }
 
-export function PageClient({ build }: Props) {
+export function EditBuild({ build }: Props) {
   const { data: session } = useSession();
 
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);
@@ -52,73 +50,64 @@ export function PageClient({ build }: Props) {
     setShowItemTagSuggestions(false);
   }
 
-  const isClient = useIsClient();
-  if (!isClient) return;
+  // const isClient = useIsClient();
+  // if (!isClient) return;
 
   return (
-    <div className="flex w-full flex-col items-center">
-      <DetailedBuildDialog
-        buildState={dbBuildState}
-        open={detailedBuildDialogOpen}
-        onClose={() => setDetailedBuildDialogOpen(false)}
-      />
+    <BuilderContainer
+      buildContainerRef={buildContainerRef}
+      buildState={dbBuildState}
+      isEditable={true}
+      isScreenshotMode={isScreenshotMode}
+      itemOwnershipPreference={false}
+      showControls={showControls}
+      onUpdateBuildState={updateDBBuildState}
+      builderActions={
+        <>
+          <DetailedBuildDialog
+            buildState={dbBuildState}
+            open={detailedBuildDialogOpen}
+            onClose={() => setDetailedBuildDialogOpen(false)}
+          />
 
-      <ImageDownloadInfoDialog
-        onClose={handleClearImageDownloadInfo}
-        imageDownloadInfo={imageDownloadInfo}
-      />
+          <ImageDownloadInfoDialog
+            onClose={handleClearImageDownloadInfo}
+            imageDownloadInfo={imageDownloadInfo}
+          />
 
-      <PageHeader
-        title="Remnant 2 Build Tool"
-        subtitle="Edit your builds and share them with your friends and the community."
-      />
+          <ArmorSuggestionDialog
+            buildState={dbBuildState}
+            open={showArmorCalculator}
+            onClose={() => setShowArmorCalculator(false)}
+            onApplySuggestions={handleSelectArmorSuggestion}
+          />
 
-      <ArmorSuggestionDialog
-        buildState={dbBuildState}
-        open={showArmorCalculator}
-        onClose={() => setShowArmorCalculator(false)}
-        onApplySuggestions={handleSelectArmorSuggestion}
-      />
+          <ItemTagSuggestionDialog
+            buildState={dbBuildState}
+            open={showItemTagSuggestions}
+            onClose={() => setShowItemTagSuggestions(false)}
+            onApplySuggestions={handleSelectArmorSuggestion}
+          />
 
-      <ItemTagSuggestionDialog
-        buildState={dbBuildState}
-        open={showItemTagSuggestions}
-        onClose={() => setShowItemTagSuggestions(false)}
-        onApplySuggestions={handleSelectArmorSuggestion}
-      />
+          <SaveBuildButton buildState={dbBuildState} editMode={true} />
 
-      <BuilderContainer
-        buildContainerRef={buildContainerRef}
-        buildState={dbBuildState}
-        isEditable={true}
-        isScreenshotMode={isScreenshotMode}
-        itemOwnershipPreference={false}
-        showControls={showControls}
-        onUpdateBuildState={updateDBBuildState}
-        builderActions={
-          <>
-            <SaveBuildButton buildState={dbBuildState} editMode={true} />
+          <ArmorCalculatorButton onClick={() => setShowArmorCalculator(true)} />
 
-            <ArmorCalculatorButton
-              onClick={() => setShowArmorCalculator(true)}
-            />
+          <ItemSuggestionsButton
+            onClick={() => setShowItemTagSuggestions(true)}
+          />
 
-            <ItemSuggestionsButton
-              onClick={() => setShowItemTagSuggestions(true)}
-            />
+          {session &&
+            session.user?.id === dbBuildState.createdById &&
+            dbBuildState.buildId && (
+              <DeleteBuildButton buildId={dbBuildState.buildId} />
+            )}
 
-            {session &&
-              session.user?.id === dbBuildState.createdById &&
-              dbBuildState.buildId && (
-                <DeleteBuildButton buildId={dbBuildState.buildId} />
-              )}
-
-            <DetailedViewButton
-              onClick={() => setDetailedBuildDialogOpen(true)}
-            />
-          </>
-        }
-      />
-    </div>
+          <DetailedViewButton
+            onClick={() => setDetailedBuildDialogOpen(true)}
+          />
+        </>
+      }
+    />
   );
 }

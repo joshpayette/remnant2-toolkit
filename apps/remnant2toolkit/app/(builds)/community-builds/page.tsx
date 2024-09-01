@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from 'react';
 
-import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_utils/pagination/constants';
+import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_libs/pagination/constants';
 import { BuildFilters } from '@/app/(builds)/_components/filters/build-filters';
 
 import { CommunityBuilds } from './community-builds';

@@ -4,8 +4,8 @@ import { type Metadata } from 'next';
 import React from 'react';
 
 import { PageHeader } from '@/app/_components/page-header';
+import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { NAV_ITEMS } from '@/app/_types/navigation';
-import { isErrorResponse } from '@/app/_utils/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
