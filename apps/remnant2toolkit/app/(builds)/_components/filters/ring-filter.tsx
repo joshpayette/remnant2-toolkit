@@ -7,7 +7,7 @@ import {
 } from '@repo/ui';
 
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
-import { ringItems } from '@/app/(items)/_data/ring-items';
+import { ringItems } from '@/app/(items)/_constants/ring-items';
 
 interface Props {
   value: string[];

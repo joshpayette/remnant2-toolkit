@@ -1,7 +1,7 @@
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { linkArchetypesToPerks } from '@/app/(builds)/_utils/link-archetypes-to-perks';
-import { traitItems } from '@/app/(items)/_data/trait-items';
-import { weaponItems } from '@/app/(items)/_data/weapon-items';
+import { traitItems } from '@/app/(items)/_constants/trait-items';
+import { weaponItems } from '@/app/(items)/_constants/weapon-items';
 import { type ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { type TraitItem } from '@/app/(items)/_types/trait-item';
 

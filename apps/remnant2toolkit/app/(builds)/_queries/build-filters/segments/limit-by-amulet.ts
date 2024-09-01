@@ -1,6 +1,6 @@
 import { Prisma } from '@repo/db';
 
-import { amuletItems } from '@/app/(items)/_data/amulet-items';
+import { amuletItems } from '@/app/(items)/_constants/amulet-items';
 
 export function limitByAmuletSegment(amuletId: string) {
   if (amuletId === '') return Prisma.empty;

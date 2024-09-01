@@ -4,8 +4,8 @@ import { BaseLink, cn, ZINDEXES } from '@repo/ui';
 import { type Metadata } from 'next';
 import React from 'react';
 
-import { getSession } from '@/app/(features)/auth/services/sessionService';
-import { NAV_ITEMS } from '@/app/(types)/navigation';
+import { NAV_ITEMS } from '@/app/_types/navigation';
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Build Creation Tool - Remnant 2 Toolkit`;

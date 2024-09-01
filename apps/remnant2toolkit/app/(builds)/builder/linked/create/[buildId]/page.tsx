@@ -1,8 +1,8 @@
 import { PageHeader } from '@/app/_components/page-header';
+import { isErrorResponse } from '@/app/_utils/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
 import PageClient from '@/app/(builds)/builder/linked/create/[buildId]/page.client';
-import { getSession } from '@/app/(features)/auth/services/sessionService';
-import { isErrorResponse } from '@/app/(utils)/is-error-response';
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export default async function Page({
   params: { buildId },

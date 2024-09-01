@@ -1,8 +1,8 @@
 import { getImageUrl } from '@repo/ui';
 import * as cheerio from 'cheerio';
 
-import { skillItems } from '@/app/(items)/_data/skill-items';
-import { validateEnv } from '@/app/(validators)/validate-env';
+import { validateEnv } from '@/app/_utils/validate-env';
+import { skillItems } from '@/app/(items)/_constants/skill-items';
 import { REQUEST_DELAY } from '@/app/api/cron/wiki/scraper/constants';
 import { skillDataCompare } from '@/app/api/cron/wiki/scraper/skills/compare';
 import { skillDataParse } from '@/app/api/cron/wiki/scraper/skills/parse';

@@ -1,7 +1,7 @@
 import { type BuildItems } from '@repo/db';
 
-import { OPTIONAL_ITEM_SYMBOL } from '@/app/(constants)/constants';
-import { mutatorItems } from '@/app/(items)/_data/mutator-items';
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/optional-item-symbol';
+import { mutatorItems } from '@/app/(items)/_constants/mutator-items';
 import { BaseItem } from '@/app/(items)/_types/base-item';
 import { type Item } from '@/app/(items)/_types/item';
 

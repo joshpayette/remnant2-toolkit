@@ -1,6 +1,6 @@
 import { Prisma } from '@repo/db';
 
-import { relicItems } from '@/app/(items)/_data/relic-items';
+import { relicItems } from '@/app/(items)/_constants/relic-items';
 
 export function limitByRelicSegment(relicId: string) {
   if (relicId === '') return Prisma.empty;

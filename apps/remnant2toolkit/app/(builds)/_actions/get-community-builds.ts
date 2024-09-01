@@ -3,6 +3,7 @@
 import { Prisma, prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
+import { type PaginationResponse } from '@/app/_utils/pagination/use-pagination';
 import { type OrderBy } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
 import { type TimeRange } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
 import { type BuildListFilters } from '@/app/(builds)/_components/filters/types';
@@ -43,8 +44,7 @@ import {
   weaponFiltersToIds,
 } from '@/app/(builds)/_queries/build-filters/segments/limit-by-weapons';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
-import { getSession } from '@/app/(features)/auth/services/sessionService';
-import { type PaginationResponse } from '@/app/(utils)/pagination/use-pagination';
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function getCommunityBuilds({
   buildListFilters,

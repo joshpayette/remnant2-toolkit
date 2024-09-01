@@ -1,5 +1,5 @@
+import { type CsvItem } from '@/app/_types/csv';
 import { type Item } from '@/app/(items)/_types/item';
-import { type CsvItem } from '@/app/(types)/csv';
 
 /**
  * Converts an Item to a CSV item for export

@@ -8,7 +8,7 @@ import {
   BaseLegend,
 } from '@repo/ui';
 
-import { ALL_BUILD_TAGS } from '@/app/(builds)/builder/_constants/all-build-tags';
+import { ALL_BUILD_TAGS } from '@/app/(builds)/_constants/all-build-tags';
 
 export const VALID_BUILD_TAGS = ALL_BUILD_TAGS.map((item) => item.label);
 

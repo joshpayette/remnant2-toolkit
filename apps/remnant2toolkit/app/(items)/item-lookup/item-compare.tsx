@@ -2,14 +2,14 @@ import { cn } from '@repo/ui';
 import { useState } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
 
-import { ItemCard } from '@/app/(items)/_components/item-card';
-import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
-import { allItems } from '@/app/(items)/_data/all-items';
-import { type Item } from '@/app/(items)/_types/item';
 import {
   DEFAULT_ITEM_COMPARE_LIST,
   LOCALSTORAGE_KEY,
-} from '@/app/(types)/localstorage';
+} from '@/app/_types/localstorage';
+import { ItemCard } from '@/app/(items)/_components/item-card';
+import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
+import { allItems } from '@/app/(items)/_constants/all-items';
+import { type Item } from '@/app/(items)/_types/item';
 
 export function ItemCompareList() {
   const [itemsToCompare, _setItemsToCompare] = useLocalStorage<string[]>(

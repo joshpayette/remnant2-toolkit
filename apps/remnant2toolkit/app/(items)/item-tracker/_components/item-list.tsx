@@ -8,6 +8,10 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useIsClient, useLocalStorage } from 'usehooks-ts';
 
+import {
+  type ItemTrackerLocalStorage,
+  LOCALSTORAGE_KEY,
+} from '@/app/_types/localstorage';
 import { DEFAULT_ITEM_TRACKER_FILTERS } from '@/app/(items)/_components/filters/item-tracker/item-tracker-filters';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { ItemLocationsDialog } from '@/app/(items)/_components/item-locations-dialog';
@@ -20,10 +24,6 @@ import { getFilteredItemCategories } from '@/app/(items)/item-tracker/_utils/get
 import { getFilteredItemList } from '@/app/(items)/item-tracker/_utils/get-filtered-item-list';
 import { getFilteredItemsForCategory } from '@/app/(items)/item-tracker/_utils/get-filtered-items-for-category';
 import { parseUrlFilters } from '@/app/(items)/item-tracker/_utils/parse-url-filters';
-import {
-  type ItemTrackerLocalStorage,
-  LOCALSTORAGE_KEY,
-} from '@/app/(types)/localstorage';
 
 interface Props {
   discoveredItemIds: string[];

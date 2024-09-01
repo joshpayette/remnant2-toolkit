@@ -1,7 +1,7 @@
 import { type BuildItems } from '@repo/db';
 
-import { OPTIONAL_ITEM_SYMBOL } from '@/app/(constants)/constants';
-import { modItems } from '@/app/(items)/_data/mod-items';
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/optional-item-symbol';
+import { modItems } from '@/app/(items)/_constants/mod-items';
 import { BaseItem } from '@/app/(items)/_types/base-item';
 import { type Item } from '@/app/(items)/_types/item';
 

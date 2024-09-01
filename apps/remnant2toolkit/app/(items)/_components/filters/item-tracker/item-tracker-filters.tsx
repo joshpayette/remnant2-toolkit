@@ -16,18 +16,18 @@ import { useMemo, useState } from 'react';
 import {
   DiscoveredFilter,
   VALID_DISCOVERED_FILTERS,
-} from '@/app/_components/filters/discovered-filter';
+} from '@/app/_components/discovered-filter';
+import { InputWithClear } from '@/app/_components/input-with-clear';
 import {
   ReleasesFilter,
   VALID_RELEASE_KEYS,
-} from '@/app/_components/filters/releases-filter';
-import { WorldFilter } from '@/app/_components/filters/world-filter';
-import { InputWithClear } from '@/app/_components/input-with-clear';
+} from '@/app/_components/releases-filter';
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 import {
   ITEM_TRACKER_KEYS,
   type ItemTrackerFilters,
 } from '@/app/(items)/_components/filters/item-tracker/types';
+import { WorldFilter } from '@/app/(items)/_components/filters/world-filter';
 import {
   CategoriesFilter,
   VALID_ITEM_CATEGORIES,

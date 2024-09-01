@@ -6,7 +6,7 @@ import { revalidatePath } from 'next/cache';
 
 import { BUILD_REVALIDATE_PATHS } from '@/app/(builds)/_constants/build-revalidate-paths';
 import { type BuildActionResponse } from '@/app/(builds)/_types/build-action-response';
-import { getSession } from '@/app/(features)/auth/services/sessionService';
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function addVoteForBuild({
   buildId,

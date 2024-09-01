@@ -8,7 +8,7 @@ import {
   BaseLegend,
 } from '@repo/ui';
 
-import { archetypeItems } from '@/app/(items)/_data/archetype-items';
+import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
 
 export const VALID_ARCHETYPES = archetypeItems.map((item) => item.name);
 

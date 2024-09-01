@@ -1,6 +1,6 @@
 import { BaseButton, BaseText } from '@repo/ui';
 
-import { getSession } from '@/app/(features)/auth/services/sessionService';
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export default async function Page() {
   const session = await getSession();

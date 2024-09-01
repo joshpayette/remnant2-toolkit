@@ -1,7 +1,7 @@
 import { getArrayOfLength } from '@repo/utils';
 
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { perkItems } from '@/app/(items)/_data/perk-items';
+import { perkItems } from '@/app/(items)/_constants/perk-items';
 import { type ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { type Item } from '@/app/(items)/_types/item';
 import { type MutatorItem } from '@/app/(items)/_types/mutator-item';

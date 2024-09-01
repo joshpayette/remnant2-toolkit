@@ -1,7 +1,8 @@
 import { type BuildState } from '@/app/(builds)/_types/build-state';
+import { type ParsedLoadoutItem } from '@/app/(builds)/_types/parsed-loadout-item';
 import { cleanUpBuildState } from '@/app/(builds)/_utils/clean-up-build-state';
-import { allItems } from '@/app/(items)/_data/all-items';
-import { traitItems } from '@/app/(items)/_data/trait-items';
+import { allItems } from '@/app/(items)/_constants/all-items';
+import { traitItems } from '@/app/(items)/_constants/trait-items';
 import { AmuletItem } from '@/app/(items)/_types/amulet-item';
 import { ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { ArmorItem } from '@/app/(items)/_types/armor-item';
@@ -13,7 +14,6 @@ import { RingItem } from '@/app/(items)/_types/ring-item';
 import { SkillItem } from '@/app/(items)/_types/skill-item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
-import { type ParsedLoadoutItem } from '@/app/(types)/sav-file';
 
 const USABLE_ITEMS = allItems.filter((item) => item.saveFileSlug !== undefined);
 

@@ -1,15 +1,15 @@
-'use server'
+'use server';
 
-import { prisma } from '@repo/db'
+import { prisma } from '@repo/db';
 
-import { getSession } from '@/app/(features)/auth/services/sessionService'
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function getTotalBuildFavorites(userId?: string) {
-  const session = await getSession()
+  const session = await getSession();
 
-  if (!session?.user && !userId) return 0
+  if (!session?.user && !userId) return 0;
 
-  const createdById = userId ?? session?.user?.id
+  const createdById = userId ?? session?.user?.id;
 
   const totalVoteCount = await prisma.buildVoteCounts.count({
     where: {
@@ -17,7 +17,7 @@ export async function getTotalBuildFavorites(userId?: string) {
         createdById,
       },
     },
-  })
+  });
 
-  return totalVoteCount
+  return totalVoteCount;
 }

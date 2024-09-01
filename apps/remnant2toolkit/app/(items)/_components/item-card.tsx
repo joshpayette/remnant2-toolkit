@@ -14,13 +14,17 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useLocalStorage } from 'usehooks-ts';
 
-import { ArmorInfo } from '@/app/_components/armor-info';
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
 import { Tooltip } from '@/app/_components/tooltip';
-import { WeaponInfo } from '@/app/_components/weapon-info';
+import {
+  DEFAULT_ITEM_COMPARE_LIST,
+  LOCALSTORAGE_KEY,
+} from '@/app/_types/localstorage';
 import getItemBuildStats, {
   type ItemBuildStats,
 } from '@/app/(items)/_actions/get-item-build-stats';
+import { ArmorInfo } from '@/app/(items)/_components/armor-info';
+import { WeaponInfo } from '@/app/(items)/_components/weapon-info';
 import { ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { ArmorItem } from '@/app/(items)/_types/armor-item';
 import { type Item } from '@/app/(items)/_types/item';
@@ -32,10 +36,6 @@ import { SkillItem } from '@/app/(items)/_types/skill-item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
 import { itemShareEndpoint } from '@/app/(items)/_utils/get-item-endpoint';
-import {
-  DEFAULT_ITEM_COMPARE_LIST,
-  LOCALSTORAGE_KEY,
-} from '@/app/(types)/localstorage';
 
 interface Props {
   allowItemCompare?: boolean;

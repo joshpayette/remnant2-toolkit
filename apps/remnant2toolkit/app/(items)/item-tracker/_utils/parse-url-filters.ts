@@ -1,7 +1,7 @@
 import { type ReadonlyURLSearchParams } from 'next/navigation';
 
-import { VALID_DISCOVERED_FILTERS } from '@/app/_components/filters/discovered-filter';
-import { VALID_RELEASE_KEYS } from '@/app/_components/filters/releases-filter';
+import { VALID_DISCOVERED_FILTERS } from '@/app/_components/discovered-filter';
+import { VALID_RELEASE_KEYS } from '@/app/_components/releases-filter';
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 import {
   ITEM_TRACKER_KEYS,

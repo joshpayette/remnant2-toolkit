@@ -2,7 +2,7 @@ import { getImageUrl } from '@repo/ui';
 import { cleanItemName } from '@repo/utils';
 import { type Metadata, type ResolvingMetadata } from 'next';
 
-import { allItems } from '@/app/(items)/_data/all-items';
+import { allItems } from '@/app/(items)/_constants/all-items';
 import { ArmorItem } from '@/app/(items)/_types/armor-item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';

@@ -8,8 +8,8 @@
 
 import zlib from 'zlib';
 
-import { allItems } from '@/app/(items)/_data/all-items';
-import { MAX_PROFILE_SAV_SIZE } from '@/app/(types)/sav-file';
+import { allItems } from '@/app/(items)/_constants/all-items';
+import { MAX_PROFILE_SAV_SIZE } from '@/app/(user)/profile/_constants/max-profile-sav-size';
 
 /**
  * Helper function for parsing save file

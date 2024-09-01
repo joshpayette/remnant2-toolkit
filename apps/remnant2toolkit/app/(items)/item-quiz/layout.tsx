@@ -1,7 +1,7 @@
 import { type Metadata } from 'next';
 
 import { PageHeader } from '@/app/_components/page-header';
-import { NAV_ITEMS } from '@/app/(types)/navigation';
+import { NAV_ITEMS } from '@/app/_types/navigation';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `${NAV_ITEMS.itemQuiz.label} - Remnant 2 Toolkit`;

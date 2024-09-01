@@ -1,6 +1,6 @@
 import { cn } from '@repo/ui';
 
-import { type BuildTag } from '@/app/(builds)/builder/_types/build-tag';
+import { type BuildTag } from '@/app/(builds)/_types/build-tag';
 
 function itemClasses({
   tag,

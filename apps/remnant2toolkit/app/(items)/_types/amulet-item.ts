@@ -1,7 +1,7 @@
 import { type BuildItems } from '@repo/db';
 
-import { OPTIONAL_ITEM_SYMBOL } from '@/app/(constants)/constants';
-import { amuletItems } from '@/app/(items)/_data/amulet-items';
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/optional-item-symbol';
+import { amuletItems } from '@/app/(items)/_constants/amulet-items';
 import { type Item } from '@/app/(items)/_types/item';
 
 import { BaseItem } from './base-item';

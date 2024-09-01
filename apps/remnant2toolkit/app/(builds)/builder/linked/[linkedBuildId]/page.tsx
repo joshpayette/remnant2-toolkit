@@ -1,6 +1,6 @@
+import { isErrorResponse } from '@/app/_utils/is-error-response';
+import { getLinkedBuild } from '@/app/(builds)/builder/linked/_actions/get-linked-build';
 import { PageClient } from '@/app/(builds)/builder/linked/[linkedBuildId]/page.client';
-import { getLinkedBuild } from '@/app/(features)/linked-builds/actions/get-linked-build';
-import { isErrorResponse } from '@/app/(utils)/is-error-response';
 
 export default async function Page({
   params: { linkedBuildId },

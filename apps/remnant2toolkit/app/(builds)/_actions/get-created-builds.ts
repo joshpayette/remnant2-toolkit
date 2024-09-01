@@ -3,6 +3,7 @@
 import { Prisma, prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
+import { type PaginationResponse } from '@/app/_utils/pagination/use-pagination';
 import { type OrderBy } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
 import { type TimeRange } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
 import {
@@ -12,8 +13,7 @@ import {
 import { getOrderBySegment } from '@/app/(builds)/_queries/build-filters/segments/get-order-by';
 import { limitByTimeConditionSegment } from '@/app/(builds)/_queries/build-filters/segments/limit-by-time-condition';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
-import { getSession } from '@/app/(features)/auth/services/sessionService';
-import { type PaginationResponse } from '@/app/(utils)/pagination/use-pagination';
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes';
 

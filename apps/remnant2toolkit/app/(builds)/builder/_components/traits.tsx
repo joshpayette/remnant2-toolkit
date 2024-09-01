@@ -4,9 +4,9 @@ import { PiBagSimpleFill as OwnershipIcon } from 'react-icons/pi';
 import { TbHttpOptions } from 'react-icons/tb';
 
 import { Tooltip } from '@/app/_components/tooltip';
+import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/_constants/default-trait-amount';
+import { MAX_TRAIT_AMOUNT } from '@/app/(builds)/_constants/max-trait-amount';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/builder/_constants/default-trait-amount';
-import { MAX_TRAIT_AMOUNT } from '@/app/(builds)/builder/_constants/max-trait-amount';
 import { type Item } from '@/app/(items)/_types/item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
 

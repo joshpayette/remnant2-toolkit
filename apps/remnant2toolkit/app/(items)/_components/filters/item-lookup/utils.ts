@@ -1,14 +1,15 @@
 import { type ReadonlyURLSearchParams } from 'next/navigation';
 
-import { VALID_DISCOVERED_FILTERS } from '@/app/_components/filters/discovered-filter';
-import { VALID_RELEASE_KEYS } from '@/app/_components/filters/releases-filter';
+import { VALID_DISCOVERED_FILTERS } from '@/app/_components/discovered-filter';
+import { VALID_RELEASE_KEYS } from '@/app/_components/releases-filter';
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
+import { ITEM_TOKENS } from '@/app/(builds)/_constants/tokens';
 import { VALID_ITEM_CATEGORIES } from '@/app/(items)/_components/filters/item-lookup/categories-filter';
 import {
   ITEM_FILTER_KEYS,
   type ItemLookupFilters,
 } from '@/app/(items)/_components/filters/item-lookup/types';
-import { allItems } from '@/app/(items)/_data/all-items';
+import { allItems } from '@/app/(items)/_constants/all-items';
 import {
   LABYRINTH_DUNGEONS,
   LOSOMN_DUNGEONS,
@@ -16,7 +17,6 @@ import {
   ROOT_EARTH_DUNGEONS,
   YAESHA_DUNGEONS,
 } from '@/app/(items)/_types/locations';
-import { ITEM_TOKENS } from '@/app/(types)/tokens';
 
 export function buildAutoCompleteSuggestions(): Array<{
   id: string;

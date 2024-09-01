@@ -2,12 +2,12 @@ import { cn, getImageUrl } from '@repo/ui';
 import Image from 'next/image';
 
 import { WEIGHT_CLASSES } from '@/app/(builds)/_constants/weight-classes';
-import { ItemButton } from '@/app/(items)/_components/item-button';
-import { type ArmorItem } from '@/app/(items)/_types/armor-item';
 import {
   type ArmorSuggestion,
   type WeightClassKeysWithDefault,
-} from '@/app/(types)/armor-calculator';
+} from '@/app/(builds)/_types/armor-calculator';
+import { ItemButton } from '@/app/(items)/_components/item-button';
+import { type ArmorItem } from '@/app/(items)/_types/armor-item';
 
 interface Props {
   desiredWeightClass: WeightClassKeysWithDefault;

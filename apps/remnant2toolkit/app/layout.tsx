@@ -6,8 +6,8 @@ import { type Viewport } from 'next';
 import dynamic from 'next/dynamic';
 
 import { Footer } from '@/app/_components/footer';
-import { getSession } from '@/app/(features)/auth/services/sessionService';
-import { showNotificationsFlag } from '@/app/(features)/notifications/feature-flag';
+import { showNotificationsFlag } from '@/app/_constants/feature-flag';
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { Navbar } from '@/app/navbar';
 
 export const viewport: Viewport = {};

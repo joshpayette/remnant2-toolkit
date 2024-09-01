@@ -6,7 +6,7 @@ import {
 } from '@repo/ui';
 
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
-import { INLINE_TOKENS } from '@/app/(types)/tokens';
+import { INLINE_TOKENS } from '@/app/(builds)/_constants/tokens';
 
 interface Props {
   open: boolean;

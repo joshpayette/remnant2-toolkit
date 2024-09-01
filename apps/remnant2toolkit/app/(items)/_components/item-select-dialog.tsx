@@ -10,6 +10,8 @@ import { capitalize } from '@repo/utils';
 import { useCallback, useEffect, useState } from 'react';
 import { useDebounceValue, useLocalStorage } from 'usehooks-ts';
 
+import { type SortingPreference } from '@/app/_types/localstorage';
+import { ITEM_TOKENS } from '@/app/(builds)/_constants/tokens';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { ItemSearchText } from '@/app/(items)/_components/filters/item-lookup/item-search-text';
 import { ItemButton } from '@/app/(items)/_components/item-button';
@@ -17,8 +19,6 @@ import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { type Item } from '@/app/(items)/_types/item';
 import { type TraitItem } from '@/app/(items)/_types/trait-item';
 import { itemMatchesSearchText } from '@/app/(items)/_utils/item-matches-search-text';
-import { type SortingPreference } from '@/app/(types)/localstorage';
-import { ITEM_TOKENS } from '@/app/(types)/tokens';
 
 function buildSearchTextOptions(): Array<{ id: string; name: string }> {
   let items = ITEM_TOKENS.map((tag) => ({

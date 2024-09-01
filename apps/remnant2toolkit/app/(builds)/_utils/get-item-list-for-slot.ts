@@ -1,6 +1,6 @@
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
-import { allItems } from '@/app/(items)/_data/all-items';
+import { allItems } from '@/app/(items)/_constants/all-items';
 import { type ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { type Item } from '@/app/(items)/_types/item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';

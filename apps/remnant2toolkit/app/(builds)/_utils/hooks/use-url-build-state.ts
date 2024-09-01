@@ -2,13 +2,13 @@ import { type BuildTags } from '@repo/db';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useCallback, useEffect } from 'react';
 
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/optional-item-symbol';
 import { INITIAL_BUILD_STATE } from '@/app/(builds)/_constants/initial-build-state';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { buildStateToCsvData } from '@/app/(builds)/_utils/build-state-to-csv-data';
 import { buildStateToMasonryItems } from '@/app/(builds)/_utils/build-state-to-masonry-items';
 import { cleanUpBuildState } from '@/app/(builds)/_utils/clean-up-build-state';
 import { vashUrlToBuild } from '@/app/(builds)/_utils/vash-integration/vash-url-to-build';
-import { OPTIONAL_ITEM_SYMBOL } from '@/app/(constants)/constants';
 import { AmuletItem } from '@/app/(items)/_types/amulet-item';
 import { ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { ArmorItem } from '@/app/(items)/_types/armor-item';

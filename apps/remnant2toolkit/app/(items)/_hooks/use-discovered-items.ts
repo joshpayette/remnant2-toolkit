@@ -3,13 +3,13 @@ import { useEffect, useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useLocalStorage } from 'usehooks-ts';
 
-import { getDiscoveredItems } from '@/app/(items)/item-tracker/_actions/get-discovered-items';
-import { setDiscoveredItems } from '@/app/(items)/item-tracker/_actions/set-discovered-items';
-import { ALL_TRACKABLE_ITEMS } from '@/app/(items)/item-tracker/_constants';
 import {
   type ItemTrackerLocalStorage,
   LOCALSTORAGE_KEY,
-} from '@/app/(types)/localstorage';
+} from '@/app/_types/localstorage';
+import { getDiscoveredItems } from '@/app/(items)/item-tracker/_actions/get-discovered-items';
+import { setDiscoveredItems } from '@/app/(items)/item-tracker/_actions/set-discovered-items';
+import { ALL_TRACKABLE_ITEMS } from '@/app/(items)/item-tracker/_constants';
 
 export function useDiscoveredItems() {
   const { data: sessionData, status: sessionStatus } = useSession();

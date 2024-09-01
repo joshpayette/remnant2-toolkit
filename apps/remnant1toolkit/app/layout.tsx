@@ -3,7 +3,7 @@ import './globals.css';
 import { GlobalActionButtons, RootLayout } from '@repo/ui';
 import { Viewport } from 'next';
 
-import { getSession } from '@/app/(features)/auth/services/sessionService';
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export const viewport: Viewport = {};
 export { metadata } from './metadata';

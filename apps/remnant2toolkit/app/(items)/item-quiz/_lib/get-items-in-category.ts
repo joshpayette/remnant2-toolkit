@@ -1,5 +1,5 @@
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
-import { allItems } from '@/app/(items)/_data/all-items';
+import { allItems } from '@/app/(items)/_constants/all-items';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
 import { type QuizItem } from '@/app/(items)/item-quiz/_types/quiz-item';

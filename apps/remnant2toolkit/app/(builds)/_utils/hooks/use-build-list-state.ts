@@ -1,8 +1,8 @@
 import { getArrayOfLength } from '@repo/utils';
 import { useState } from 'react';
 
+import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_utils/pagination/constants';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
-import { DEFAULT_ITEMS_PER_PAGE } from '@/app/(utils)/pagination/constants';
 
 interface State {
   builds: DBBuild[];

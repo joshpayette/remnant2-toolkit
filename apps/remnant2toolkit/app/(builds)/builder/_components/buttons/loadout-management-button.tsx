@@ -3,7 +3,7 @@
 import { BaseButton, Skeleton } from '@repo/ui';
 import { useEffect, useState } from 'react';
 
-import { getLoadoutList } from '@/app/(actions)/loadouts/get-loadout-list';
+import { getLoadoutList } from '@/app/(builds)/_actions/get-loadout-list';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
 interface Props {

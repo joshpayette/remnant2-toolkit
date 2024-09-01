@@ -1,6 +1,6 @@
+import { isErrorResponse } from '@/app/_utils/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
 import { PageClient } from '@/app/(builds)/builder/[buildId]/page.client';
-import { isErrorResponse } from '@/app/(utils)/is-error-response';
 
 export default async function Page({
   params: { buildId },

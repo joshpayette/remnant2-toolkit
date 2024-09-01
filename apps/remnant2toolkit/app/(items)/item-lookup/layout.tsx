@@ -2,7 +2,7 @@
 
 import { type Metadata } from 'next';
 
-import { NAV_ITEMS } from '@/app/(types)/navigation';
+import { NAV_ITEMS } from '@/app/_types/navigation';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Item Lookup - Remnant 2 Toolkit`;

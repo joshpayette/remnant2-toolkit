@@ -1,8 +1,8 @@
 import { getImageUrl } from '@repo/ui';
 import * as cheerio from 'cheerio';
 
-import { ringItems } from '@/app/(items)/_data/ring-items';
-import { validateEnv } from '@/app/(validators)/validate-env';
+import { validateEnv } from '@/app/_utils/validate-env';
+import { ringItems } from '@/app/(items)/_constants/ring-items';
 import { REQUEST_DELAY } from '@/app/api/cron/wiki/scraper/constants';
 import { ringDataCompare } from '@/app/api/cron/wiki/scraper/rings/compare';
 import { ringDataParse } from '@/app/api/cron/wiki/scraper/rings/parse';

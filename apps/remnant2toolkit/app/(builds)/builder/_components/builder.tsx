@@ -6,6 +6,9 @@ import { FaRegEye } from 'react-icons/fa';
 import { HiOutlineDuplicate as DuplicateIcon } from 'react-icons/hi';
 
 import { Tooltip } from '@/app/_components/tooltip';
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/optional-item-symbol';
+import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/_constants/default-trait-amount';
+import { MAX_BUILD_TAGS } from '@/app/(builds)/_constants/max-build-tags';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { buildHasFeaturedBadge } from '@/app/(builds)/_utils/build-has-featured-badge';
@@ -21,13 +24,10 @@ import { isBuildPopular } from '@/app/(builds)/_utils/is-build-popular';
 import { FeaturedBuildBadge } from '@/app/(builds)/builder/_components/badges/featured-build-badge';
 import { NewBuildBadge } from '@/app/(builds)/builder/_components/badges/new-build-badge';
 import { PopularBuildBadge } from '@/app/(builds)/builder/_components/badges/popular-build-badge';
-import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/builder/_constants/default-trait-amount';
-import { MAX_BUILD_TAGS } from '@/app/(builds)/builder/_constants/max-build-tags';
-import { OPTIONAL_ITEM_SYMBOL } from '@/app/(constants)/constants';
 import { ItemButton } from '@/app/(items)/_components/item-button';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { ItemSelectDialog } from '@/app/(items)/_components/item-select-dialog';
-import { perkItems } from '@/app/(items)/_data/perk-items';
+import { perkItems } from '@/app/(items)/_constants/perk-items';
 import { type Item } from '@/app/(items)/_types/item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
 

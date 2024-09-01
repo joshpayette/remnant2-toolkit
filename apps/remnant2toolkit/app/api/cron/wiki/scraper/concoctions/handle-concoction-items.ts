@@ -1,8 +1,8 @@
 import { getImageUrl } from '@repo/ui';
 import * as cheerio from 'cheerio';
 
-import { concoctionItems } from '@/app/(items)/_data/concoction-items';
-import { validateEnv } from '@/app/(validators)/validate-env';
+import { validateEnv } from '@/app/_utils/validate-env';
+import { concoctionItems } from '@/app/(items)/_constants/concoction-items';
 import { concoctionDataCompare } from '@/app/api/cron/wiki/scraper/concoctions/compare';
 import { concoctionDataParse } from '@/app/api/cron/wiki/scraper/concoctions/parse';
 import { REQUEST_DELAY } from '@/app/api/cron/wiki/scraper/constants';

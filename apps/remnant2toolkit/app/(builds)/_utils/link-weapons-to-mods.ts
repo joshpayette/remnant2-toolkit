@@ -1,5 +1,5 @@
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { modItems } from '@/app/(items)/_data/mod-items';
+import { modItems } from '@/app/(items)/_constants/mod-items';
 import { type ModItem } from '@/app/(items)/_types/mod-item';
 
 /**

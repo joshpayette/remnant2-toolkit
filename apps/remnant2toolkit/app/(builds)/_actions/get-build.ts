@@ -3,10 +3,10 @@
 import { prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
+import { type ErrorResponse } from '@/app/_types/error-response';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
-import { DEFAULT_DISPLAY_NAME } from '@/app/(constants)/profile';
-import { getSession } from '@/app/(features)/auth/services/sessionService';
-import { type ErrorResponse } from '@/app/(types)/error-response';
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
+import { DEFAULT_DISPLAY_NAME } from '@/app/(user)/profile/_constants/default-display-name';
 
 export async function getBuild(
   buildId: string,

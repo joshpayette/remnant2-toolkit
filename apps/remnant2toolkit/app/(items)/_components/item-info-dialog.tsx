@@ -14,10 +14,10 @@ import copy from 'clipboard-copy';
 import Image from 'next/image';
 import { toast } from 'react-toastify';
 
-import { ArmorInfo } from '@/app/_components/armor-info';
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
-import { WeaponInfo } from '@/app/_components/weapon-info';
-import { RELEASE_TO_NAME } from '@/app/(data)/releases/constants';
+import { RELEASE_TO_NAME } from '@/app/_constants/releases';
+import { ArmorInfo } from '@/app/(items)/_components/armor-info';
+import { WeaponInfo } from '@/app/(items)/_components/weapon-info';
 import { ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { ArmorItem } from '@/app/(items)/_types/armor-item';
 import { type Item } from '@/app/(items)/_types/item';

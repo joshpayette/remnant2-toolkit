@@ -10,8 +10,8 @@ import {
   BaseLabel,
 } from '@repo/ui';
 
-import { ToCsvButton } from '@/app/_components/buttons/to-csv-button';
-import { type CsvItem } from '@/app/(types)/csv';
+import { ToCsvButton } from '@/app/_components/to-csv-button';
+import { type CsvItem } from '@/app/_types/csv';
 
 interface Props {
   open: boolean;

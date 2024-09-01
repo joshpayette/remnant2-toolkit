@@ -4,6 +4,7 @@ import { type BuildTags, prisma } from '@repo/db';
 import { isValidYoutubeUrl, urlNoCache } from '@repo/utils';
 import { revalidatePath } from 'next/cache';
 
+import { badWordFilter } from '@/app/_utils/bad-word-filter';
 import { BUILD_REVALIDATE_PATHS } from '@/app/(builds)/_constants/build-revalidate-paths';
 import { DEFAULT_BUILD_NAME } from '@/app/(builds)/_constants/default-build-name';
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
@@ -11,9 +12,8 @@ import { type BuildActionResponse } from '@/app/(builds)/_types/build-action-res
 import { buildStateToBuildItems } from '@/app/(builds)/_utils/build-state-to-build-items';
 import { isPermittedBuilder } from '@/app/(builds)/_utils/is-permitted-builder';
 import { validateBuildState } from '@/app/(builds)/_utils/validate-build-state';
-import { getSession } from '@/app/(features)/auth/services/sessionService';
-import { badWordFilter } from '@/app/(features)/bad-word-filter';
-import { sendWebhook } from '@/app/(utils)/moderation/send-webhook';
+import { sendWebhook } from '@/app/(user)/_auth/moderation/send-webhook';
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function createBuild(data: string): Promise<BuildActionResponse> {
   // session validation

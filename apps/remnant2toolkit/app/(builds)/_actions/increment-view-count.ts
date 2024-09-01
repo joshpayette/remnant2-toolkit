@@ -3,7 +3,7 @@
 import { prisma } from '@repo/db';
 
 import { type BuildActionResponse } from '@/app/(builds)/_types/build-action-response';
-import { getSession } from '@/app/(features)/auth/services/sessionService';
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function incrementViewCount({
   buildId,

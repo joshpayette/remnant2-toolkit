@@ -1,23 +1,23 @@
-'use server'
+'use server';
 
-import { prisma } from '@repo/db'
+import { prisma } from '@repo/db';
 
-import { getSession } from '@/app/(features)/auth/services/sessionService'
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function getTopScore({
   userId,
 }: {
-  userId: string
+  userId: string;
 }): Promise<number> {
-  const session = await getSession()
+  const session = await getSession();
   if (!session || !session.user) {
-    return 0
+    return 0;
   }
 
   const user = await prisma.userProfile.findUnique({
     where: { userId },
     select: { topItemQuizScore: true },
-  })
+  });
 
-  return user?.topItemQuizScore ?? 0
+  return user?.topItemQuizScore ?? 0;
 }

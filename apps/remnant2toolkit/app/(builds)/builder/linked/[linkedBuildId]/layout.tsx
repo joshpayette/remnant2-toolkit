@@ -1,9 +1,9 @@
 import { type Metadata, type ResolvingMetadata } from 'next';
 
 import { PageHeader } from '@/app/_components/page-header';
-import { getLinkedBuild } from '@/app/(features)/linked-builds/actions/get-linked-build';
-import { NAV_ITEMS } from '@/app/(types)/navigation';
-import { isErrorResponse } from '@/app/(utils)/is-error-response';
+import { NAV_ITEMS } from '@/app/_types/navigation';
+import { isErrorResponse } from '@/app/_utils/is-error-response';
+import { getLinkedBuild } from '@/app/(builds)/builder/linked/_actions/get-linked-build';
 
 export async function generateMetadata(
   { params: { linkedBuildId } }: { params: { linkedBuildId: string } },

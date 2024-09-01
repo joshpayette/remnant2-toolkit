@@ -3,21 +3,21 @@ import { writeFile } from 'fs';
 import path from 'path';
 
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
-import { allItems } from '@/app/(items)/_data/all-items';
-import { amuletItems } from '@/app/(items)/_data/amulet-items';
-import { archetypeItems } from '@/app/(items)/_data/archetype-items';
-import { armorItems } from '@/app/(items)/_data/armor-items';
-import { concoctionItems } from '@/app/(items)/_data/concoction-items';
-import { consumableItems } from '@/app/(items)/_data/consumable-items';
-import { modItems } from '@/app/(items)/_data/mod-items';
-import { mutatorItems } from '@/app/(items)/_data/mutator-items';
-import { perkItems } from '@/app/(items)/_data/perk-items';
-import { relicFragmentItems } from '@/app/(items)/_data/relic-fragment-items';
-import { relicItems } from '@/app/(items)/_data/relic-items';
-import { ringItems } from '@/app/(items)/_data/ring-items';
-import { skillItems } from '@/app/(items)/_data/skill-items';
-import { traitItems } from '@/app/(items)/_data/trait-items';
-import { weaponItems } from '@/app/(items)/_data/weapon-items';
+import { allItems } from '@/app/(items)/_constants/all-items';
+import { amuletItems } from '@/app/(items)/_constants/amulet-items';
+import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
+import { armorItems } from '@/app/(items)/_constants/armor-items';
+import { concoctionItems } from '@/app/(items)/_constants/concoction-items';
+import { consumableItems } from '@/app/(items)/_constants/consumable-items';
+import { modItems } from '@/app/(items)/_constants/mod-items';
+import { mutatorItems } from '@/app/(items)/_constants/mutator-items';
+import { perkItems } from '@/app/(items)/_constants/perk-items';
+import { relicFragmentItems } from '@/app/(items)/_constants/relic-fragment-items';
+import { relicItems } from '@/app/(items)/_constants/relic-items';
+import { ringItems } from '@/app/(items)/_constants/ring-items';
+import { skillItems } from '@/app/(items)/_constants/skill-items';
+import { traitItems } from '@/app/(items)/_constants/trait-items';
+import { weaponItems } from '@/app/(items)/_constants/weapon-items';
 import { type Item } from '@/app/(items)/_types/item';
 
 type Result = {

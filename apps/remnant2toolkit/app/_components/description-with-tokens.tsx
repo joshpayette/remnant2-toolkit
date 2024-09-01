@@ -7,11 +7,14 @@ import reactStringReplace from 'react-string-replace';
 import { v4 as uuidv4 } from 'uuid';
 
 import { Tooltip } from '@/app/_components/tooltip';
-import { ALL_BUILD_TAGS } from '@/app/(builds)/builder/_constants/all-build-tags';
+import { ALL_BUILD_TAGS } from '@/app/(builds)/_constants/all-build-tags';
+import {
+  EXTERNAL_TOKENS,
+  INLINE_TOKENS,
+} from '@/app/(builds)/_constants/tokens';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
-import { allItems } from '@/app/(items)/_data/all-items';
+import { allItems } from '@/app/(items)/_constants/all-items';
 import { type Item } from '@/app/(items)/_types/item';
-import { EXTERNAL_TOKENS, INLINE_TOKENS } from '@/app/(types)/tokens';
 
 // Start with all description tokens, which are always included
 export const ALL_DESCRIPTION_TOKENS: string[] = [

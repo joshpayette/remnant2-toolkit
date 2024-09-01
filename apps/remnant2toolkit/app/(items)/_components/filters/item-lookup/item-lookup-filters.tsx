@@ -16,13 +16,13 @@ import { useMemo, useRef, useState } from 'react';
 import {
   DiscoveredFilter,
   VALID_DISCOVERED_FILTERS,
-} from '@/app/_components/filters/discovered-filter';
+} from '@/app/_components/discovered-filter';
 import {
   ReleasesFilter,
   VALID_RELEASE_KEYS,
-} from '@/app/_components/filters/releases-filter';
-import { WorldFilter } from '@/app/_components/filters/world-filter';
+} from '@/app/_components/releases-filter';
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
+import { ITEM_TOKENS } from '@/app/(builds)/_constants/tokens';
 import {
   CategoriesFilter,
   VALID_ITEM_CATEGORIES,
@@ -33,8 +33,8 @@ import {
   type ItemLookupFilters as Filters,
 } from '@/app/(items)/_components/filters/item-lookup/types';
 import { parseUrlFilters } from '@/app/(items)/_components/filters/item-lookup/utils';
-import { allItems } from '@/app/(items)/_data/all-items';
-import { ITEM_TOKENS } from '@/app/(types)/tokens';
+import { WorldFilter } from '@/app/(items)/_components/filters/world-filter';
+import { allItems } from '@/app/(items)/_constants/all-items';
 
 function buildItemSearchTextItems() {
   {

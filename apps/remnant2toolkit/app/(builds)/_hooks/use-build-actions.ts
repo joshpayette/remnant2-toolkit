@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
+import { isErrorResponse } from '@/app/_utils/is-error-response';
 import { addVoteForBuild } from '@/app/(builds)/_actions/add-vote-for-build';
 import { createBuild } from '@/app/(builds)/_actions/create-build';
 import { deleteBuild } from '@/app/(builds)/_actions/delete-build';
@@ -18,8 +19,8 @@ import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { cleanUpBuildState } from '@/app/(builds)/_utils/clean-up-build-state';
 import { getConcoctionSlotCount } from '@/app/(builds)/_utils/get-concoction-slot-count';
 import { getItemListForSlot } from '@/app/(builds)/_utils/get-item-list-for-slot';
-import { modItems } from '@/app/(items)/_data/mod-items';
-import { traitItems } from '@/app/(items)/_data/trait-items';
+import { modItems } from '@/app/(items)/_constants/mod-items';
+import { traitItems } from '@/app/(items)/_constants/trait-items';
 import { type AmuletItem } from '@/app/(items)/_types/amulet-item';
 import { type ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { type ArmorItem } from '@/app/(items)/_types/armor-item';
@@ -34,7 +35,6 @@ import { type RingItem } from '@/app/(items)/_types/ring-item';
 import { type SkillItem } from '@/app/(items)/_types/skill-item';
 import { type TraitItem } from '@/app/(items)/_types/trait-item';
 import { type WeaponItem } from '@/app/(items)/_types/weapon-item';
-import { isErrorResponse } from '@/app/(utils)/is-error-response';
 
 function getRandomItem(
   buildState: BuildState,

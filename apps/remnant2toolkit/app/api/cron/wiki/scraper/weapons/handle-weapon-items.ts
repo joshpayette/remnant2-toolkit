@@ -1,8 +1,8 @@
 import { getImageUrl } from '@repo/ui';
 import * as cheerio from 'cheerio';
 
-import { weaponItems } from '@/app/(items)/_data/weapon-items';
-import { validateEnv } from '@/app/(validators)/validate-env';
+import { validateEnv } from '@/app/_utils/validate-env';
+import { weaponItems } from '@/app/(items)/_constants/weapon-items';
 import { REQUEST_DELAY } from '@/app/api/cron/wiki/scraper/constants';
 import { weaponDataCompare } from '@/app/api/cron/wiki/scraper/weapons/compare';
 import { weaponDataParse } from '@/app/api/cron/wiki/scraper/weapons/parse';

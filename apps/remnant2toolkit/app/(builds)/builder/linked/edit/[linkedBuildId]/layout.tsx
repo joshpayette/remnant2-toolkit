@@ -4,10 +4,10 @@ import { type Metadata } from 'next';
 import React from 'react';
 
 import { PageHeader } from '@/app/_components/page-header';
-import { getSession } from '@/app/(features)/auth/services/sessionService';
-import { getLinkedBuild } from '@/app/(features)/linked-builds/actions/get-linked-build';
-import { NAV_ITEMS } from '@/app/(types)/navigation';
-import { isErrorResponse } from '@/app/(utils)/is-error-response';
+import { NAV_ITEMS } from '@/app/_types/navigation';
+import { isErrorResponse } from '@/app/_utils/is-error-response';
+import { getLinkedBuild } from '@/app/(builds)/builder/linked/_actions/get-linked-build';
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Build Linking Tool - Remnant 2 Toolkit`;

@@ -1,9 +1,9 @@
 import { type BuildTags } from '@repo/db';
 import { BaseButton, BaseFieldset, BaseLabel, cn } from '@repo/ui';
 
-import { ALL_BUILD_TAGS } from '@/app/(builds)/builder/_constants/all-build-tags';
-import { MAX_BUILD_TAGS } from '@/app/(builds)/builder/_constants/max-build-tags';
-import { type BuildTag } from '@/app/(builds)/builder/_types/build-tag';
+import { ALL_BUILD_TAGS } from '@/app/(builds)/_constants/all-build-tags';
+import { MAX_BUILD_TAGS } from '@/app/(builds)/_constants/max-build-tags';
+import { type BuildTag } from '@/app/(builds)/_types/build-tag';
 
 import { BuildTagItem } from './build-tag-item';
 

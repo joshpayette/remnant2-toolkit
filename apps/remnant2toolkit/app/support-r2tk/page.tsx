@@ -1,6 +1,6 @@
-import { LandingPageCard } from '@/app/_components/cards/landing-page-card';
+import { LandingPageCard } from '@/app/_components/landing-page-card';
 import { LandingPageContainer } from '@/app/_components/landing-page-container';
-import { NAV_ITEMS } from '@/app/(types)/navigation';
+import { NAV_ITEMS } from '@/app/_types/navigation';
 
 export default async function Page() {
   return (

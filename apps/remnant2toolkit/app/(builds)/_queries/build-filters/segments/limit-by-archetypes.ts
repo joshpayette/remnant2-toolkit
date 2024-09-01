@@ -1,6 +1,6 @@
 import { Prisma } from '@repo/db';
 
-import { archetypeItems } from '@/app/(items)/_data/archetype-items';
+import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
 
 const archetypeCount = archetypeItems.length;
 

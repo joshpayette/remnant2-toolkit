@@ -6,9 +6,9 @@ import { useSession } from 'next-auth/react';
 import { Fragment, useEffect, useState } from 'react';
 
 import { PlaceHolderIcon } from '@/app/_components/placeholder-icon';
-import getAvatarId from '@/app/(actions)/profile/get-avatar-id';
-import { NAV_ITEMS } from '@/app/(types)/navigation';
-import { getAvatarById } from '@/app/profile/[userId]/(lib)/get-avatar-by-id';
+import { NAV_ITEMS } from '@/app/_types/navigation';
+import getAvatarId from '@/app/(user)/profile/_actions/get-avatar-id';
+import { getAvatarById } from '@/app/(user)/profile/_utils/get-avatar-by-id';
 
 function ProfileButtonComponent({
   variant,

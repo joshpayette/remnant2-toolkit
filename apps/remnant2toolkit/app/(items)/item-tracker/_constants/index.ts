@@ -1,5 +1,5 @@
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
-import { allItems } from '@/app/(items)/_data/all-items';
+import { allItems } from '@/app/(items)/_constants/all-items';
 import { type Item } from '@/app/(items)/_types/item';
 
 /** We don't track these categories at all */

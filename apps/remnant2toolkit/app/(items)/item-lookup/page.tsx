@@ -4,18 +4,18 @@ import { Skeleton } from '@repo/ui';
 import { Suspense } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
 
-import { ToCsvButton } from '@/app/_components/buttons/to-csv-button';
 import { PageHeader } from '@/app/_components/page-header';
+import { ToCsvButton } from '@/app/_components/to-csv-button';
+import {
+  DEFAULT_ITEM_COMPARE_LIST,
+  LOCALSTORAGE_KEY,
+} from '@/app/_types/localstorage';
 import { ItemLookupFilters } from '@/app/(items)/_components/filters/item-lookup/item-lookup-filters';
-import { allItems } from '@/app/(items)/_data/all-items';
+import { allItems } from '@/app/(items)/_constants/all-items';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { itemToCsvItem } from '@/app/(items)/_utils/item-to-csv-item';
 import { ItemCompareList } from '@/app/(items)/item-lookup/item-compare';
 import { ItemList } from '@/app/(items)/item-lookup/item-list';
-import {
-  DEFAULT_ITEM_COMPARE_LIST,
-  LOCALSTORAGE_KEY,
-} from '@/app/(types)/localstorage';
 
 const csvItems = allItems
   // Modify the data for use. Adds a discovered flag,

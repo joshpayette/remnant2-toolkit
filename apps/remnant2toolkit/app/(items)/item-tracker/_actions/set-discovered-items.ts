@@ -3,9 +3,9 @@
 import { prisma } from '@repo/db';
 import { revalidatePath } from 'next/cache';
 
-import { getSession } from '@/app/(features)/auth/services/sessionService';
-import { modItems } from '@/app/(items)/_data/mod-items';
+import { modItems } from '@/app/(items)/_constants/mod-items';
 import { ALL_TRACKABLE_ITEMS } from '@/app/(items)/item-tracker/_constants';
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function setDiscoveredItems(
   discoveredItemIds: string[],

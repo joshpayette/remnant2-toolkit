@@ -1,9 +1,9 @@
 import { type BuildItems } from '@repo/db';
 
-import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/builder/_constants/default-trait-amount';
-import { OPTIONAL_ITEM_SYMBOL } from '@/app/(constants)/constants';
-import { archetypeItems } from '@/app/(items)/_data/archetype-items';
-import { traitItems } from '@/app/(items)/_data/trait-items';
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/optional-item-symbol';
+import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/_constants/default-trait-amount';
+import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
+import { traitItems } from '@/app/(items)/_constants/trait-items';
 import { BaseItem } from '@/app/(items)/_types/base-item';
 import { type Item } from '@/app/(items)/_types/item';
 

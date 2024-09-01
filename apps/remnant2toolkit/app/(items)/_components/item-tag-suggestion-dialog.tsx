@@ -8,13 +8,14 @@ import {
 import { useState } from 'react';
 
 import { ItemTagSelect } from '@/app/(builds)/_components/filters/item-tag-select';
+import { ITEM_TOKENS, type ItemToken } from '@/app/(builds)/_constants/tokens';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { cleanUpBuildState } from '@/app/(builds)/_utils/clean-up-build-state';
 import { getConcoctionSlotCount } from '@/app/(builds)/_utils/get-concoction-slot-count';
 import { ItemButton } from '@/app/(items)/_components/item-button';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
-import { allItems } from '@/app/(items)/_data/all-items';
-import { archetypeItems } from '@/app/(items)/_data/archetype-items';
+import { allItems } from '@/app/(items)/_constants/all-items';
+import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
 import { ConcoctionItem } from '@/app/(items)/_types/concotion-item';
 import { ConsumableItem } from '@/app/(items)/_types/consumable-item';
 import { type Item } from '@/app/(items)/_types/item';
@@ -22,7 +23,6 @@ import { ModItem } from '@/app/(items)/_types/mod-item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
 import { itemMatchesSearchText } from '@/app/(items)/_utils/item-matches-search-text';
-import { ITEM_TOKENS, type ItemToken } from '@/app/(types)/tokens';
 
 /**
  * Combines the tags found in item.descriptions, as well as the item.tags

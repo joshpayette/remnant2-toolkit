@@ -4,8 +4,8 @@ import { type Metadata } from 'next';
 import { Suspense } from 'react';
 
 import { PageHeader } from '@/app/_components/page-header';
+import { NAV_ITEMS } from '@/app/_types/navigation';
 import { getTotalBuildCount } from '@/app/(builds)/_actions/get-total-build-count';
-import { NAV_ITEMS } from '@/app/(types)/navigation';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Community Builds - Remnant 2 Toolkit`;

@@ -1,5 +1,5 @@
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { perkItems } from '@/app/(items)/_data/perk-items';
+import { perkItems } from '@/app/(items)/_constants/perk-items';
 import { PerkItem } from '@/app/(items)/_types/perk-item';
 
 /**

@@ -6,7 +6,7 @@ import {
   BaseListboxOption,
 } from '@repo/ui';
 
-import { amuletItems } from '@/app/(items)/_data/amulet-items';
+import { amuletItems } from '@/app/(items)/_constants/amulet-items';
 
 interface Props {
   value: string;

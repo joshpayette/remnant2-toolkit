@@ -13,10 +13,10 @@ import { DEFAULT_ITEM_LOOKUP_FILTERS } from '@/app/(items)/_components/filters/i
 import { type ItemLookupFilters } from '@/app/(items)/_components/filters/item-lookup/types';
 import { parseUrlFilters } from '@/app/(items)/_components/filters/item-lookup/utils';
 import { MasonryItemList } from '@/app/(items)/_components/masonry-item-list';
-import { allItems } from '@/app/(items)/_data/all-items';
-import { archetypeItems } from '@/app/(items)/_data/archetype-items';
-import { perkItems } from '@/app/(items)/_data/perk-items';
-import { skillItems } from '@/app/(items)/_data/skill-items';
+import { allItems } from '@/app/(items)/_constants/all-items';
+import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
+import { perkItems } from '@/app/(items)/_constants/perk-items';
+import { skillItems } from '@/app/(items)/_constants/skill-items';
 import { useDiscoveredItems } from '@/app/(items)/_hooks/use-discovered-items';
 import { type Item } from '@/app/(items)/_types/item';
 import { BIOMES } from '@/app/(items)/_types/locations';

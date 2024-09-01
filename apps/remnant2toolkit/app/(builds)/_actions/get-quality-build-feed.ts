@@ -6,7 +6,7 @@ import { bigIntFix } from '@repo/utils';
 import { limitToQualityBuilds } from '@/app/(builds)/_queries/build-filters/segments/limit-by-quality';
 import { type CommunityBuildQueryResponse } from '@/app/(builds)/_types/community-build-query-response';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
-import { getSession } from '@/app/(features)/auth/services/sessionService';
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function getQualityBuildFeed(): Promise<{ builds: DBBuild[] }> {
   const session = await getSession();
