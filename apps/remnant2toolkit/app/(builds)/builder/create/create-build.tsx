@@ -12,16 +12,16 @@ import {
   updateBuildState,
 } from '@/app/(builds)/_libs/update-build-state';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
+import { ArmorCalculatorButton } from '@/app/(builds)/builder/_components/armor-calculator-button';
+import { ArmorSuggestionDialog } from '@/app/(builds)/builder/_components/armor-suggestion-dialog';
 import { BuilderContainer } from '@/app/(builds)/builder/_components/builder-container';
-import { ArmorCalculatorButton } from '@/app/(builds)/builder/_components/buttons/armor-calculator-button';
-import { DetailedViewButton } from '@/app/(builds)/builder/_components/buttons/detailed-view-button';
-import { GenerateBuildImageButton } from '@/app/(builds)/builder/_components/buttons/generate-build-image';
-import { ItemSuggestionsButton } from '@/app/(builds)/builder/_components/buttons/item-suggestions-button';
-import { RandomBuildButton } from '@/app/(builds)/builder/_components/buttons/random-build-button';
-import { SaveBuildButton } from '@/app/(builds)/builder/_components/buttons/save-build-button';
-import { ArmorSuggestionDialog } from '@/app/(builds)/builder/_components/dialogs/armor-suggestion-dialog';
-import { DetailedBuildDialog } from '@/app/(builds)/builder/_components/dialogs/detailed-build-dialog';
-import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/dialogs/image-download-info-dialog';
+import { SaveBuildButton } from '@/app/(builds)/builder/_components/save-build-button';
+import { DetailedBuildDialog } from '@/app/(builds)/builder/_components/detailed-build-dialog';
+import { DetailedViewButton } from '@/app/(builds)/builder/_components/detailed-view-button';
+import { GenerateBuildImageButton } from '@/app/(builds)/builder/_components/generate-build-image';
+import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/image-download-info-dialog';
+import { ItemSuggestionsButton } from '@/app/(builds)/builder/_components/item-suggestions-button';
+import { RandomBuildButton } from '@/app/(builds)/builder/_components/random-build-button';
 import { ItemTagSuggestionDialog } from '@/app/(items)/_components/item-tag-suggestion-dialog';
 
 export function CreateBuild() {

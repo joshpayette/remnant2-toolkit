@@ -11,9 +11,9 @@ import { getTotalWeight } from '@/app/(builds)/_libs/get-totals/get-total-weight
 import { getWeightClass } from '@/app/(builds)/_libs/get-totals/get-weight-class';
 import { buildToVashUrl } from '@/app/(builds)/_libs/vash-integration/build-to-vash-url';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { ArmorBreakdownDialog } from '@/app/(builds)/builder/_components/dialogs/armor-breakdown-dialog';
-import { HealthBreakdownDialog } from '@/app/(builds)/builder/_components/dialogs/health-breakdown-dialog';
-import { StaminaBreakdownDialog } from '@/app/(builds)/builder/_components/dialogs/stamina-breakdown-dialog';
+import { ArmorBreakdownDialog } from '@/app/(builds)/builder/_components/armor-breakdown-dialog';
+import { HealthBreakdownDialog } from '@/app/(builds)/builder/_components/health-breakdown-dialog';
+import { StaminaBreakdownDialog } from '@/app/(builds)/builder/_components/stamina-breakdown-dialog';
 
 interface Props {
   buildState: BuildState;

@@ -26,10 +26,10 @@ import { isBuildNew } from '@/app/(builds)/_libs/is-build-new';
 import { isBuildPopular } from '@/app/(builds)/_libs/is-build-popular';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { ArchetypeLabel } from '@/app/(builds)/builder/_components/archetype-label';
-import { FeaturedBuildBadge } from '@/app/(builds)/builder/_components/badges/featured-build-badge';
-import { NewBuildBadge } from '@/app/(builds)/builder/_components/badges/new-build-badge';
-import { PopularBuildBadge } from '@/app/(builds)/builder/_components/badges/popular-build-badge';
-import { BuildTagsDisplay } from '@/app/(builds)/builder/_components/build-tags/build-tags-display';
+import { BuildTagsDisplay } from '@/app/(builds)/builder/_components/build-tags-display';
+import { FeaturedBuildBadge } from '@/app/(builds)/builder/_components/featured-build-badge';
+import { NewBuildBadge } from '@/app/(builds)/builder/_components/new-build-badge';
+import { PopularBuildBadge } from '@/app/(builds)/builder/_components/popular-build-badge';
 
 interface Props {
   build: DBBuild;

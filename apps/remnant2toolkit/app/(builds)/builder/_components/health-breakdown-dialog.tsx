@@ -5,8 +5,8 @@ import {
   BaseDialogTitle,
 } from '@repo/ui';
 
-import { ListItem } from '@/app/(builds)/builder/_components/stats/list-item';
-import { Section } from '@/app/(builds)/builder/_components/stats/section';
+import { StatsListItem } from '@/app/(builds)/builder/_components/stats-list-item';
+import { StatsSection } from '@/app/(builds)/builder/_components/stats-section';
 import { type Item } from '@/app/(items)/_types/item';
 import { type TraitItem } from '@/app/(items)/_types/trait-item';
 
@@ -114,22 +114,22 @@ export function HealthBreakdownDialog({ open, breakdown, onClose }: Props) {
 
           {(breakdown.equippedHealthIncreaseItems.length > 0 ||
             breakdown.equippedHealthStepItems.length > 0) && (
-            <Section
+            <StatsSection
               total={breakdown.totalHealthIncrease + breakdown.totalHealthStep}
               listItems={
                 <>
                   {breakdown.equippedHealthIncreaseItems.map((item) => (
-                    <ListItem key={item.id}>
+                    <StatsListItem key={item.id}>
                       {getHealthIncreaseLabel(item)}
-                    </ListItem>
+                    </StatsListItem>
                   ))}
                   {breakdown.equippedHealthStepItems.map((item) => (
-                    <ListItem key={item.id}>
+                    <StatsListItem key={item.id}>
                       {getHealthStepLabel(
                         item,
                         breakdown.equippedHealthStepItems,
                       )}
-                    </ListItem>
+                    </StatsListItem>
                   ))}
                 </>
               }
@@ -138,7 +138,7 @@ export function HealthBreakdownDialog({ open, breakdown, onClose }: Props) {
 
           {(breakdown.equippedHealthPercentItems.length > 0 ||
             breakdown.equippedHealthStepPercentItems.length > 0) && (
-            <Section
+            <StatsSection
               isPercent={true}
               total={
                 (breakdown.totalHealthPercent +
@@ -148,17 +148,17 @@ export function HealthBreakdownDialog({ open, breakdown, onClose }: Props) {
               listItems={
                 <>
                   {breakdown.equippedHealthPercentItems.map((item) => (
-                    <ListItem key={item.id}>
+                    <StatsListItem key={item.id}>
                       {getHealthPercentLabel(item)}
-                    </ListItem>
+                    </StatsListItem>
                   ))}
                   {breakdown.equippedHealthStepPercentItems.map((item) => (
-                    <ListItem key={item.id}>
+                    <StatsListItem key={item.id}>
                       {ggetHealthStepPercentLabel(
                         item,
                         breakdown.equippedHealthStepPercentItems,
                       )}
-                    </ListItem>
+                    </StatsListItem>
                   ))}
                 </>
               }
@@ -166,13 +166,15 @@ export function HealthBreakdownDialog({ open, breakdown, onClose }: Props) {
           )}
 
           {breakdown.equippedHealthCapItems.length > 0 && (
-            <Section
+            <StatsSection
               isPercent={true}
               total={breakdown.totalHealthCapReduction * 100}
               listItems={
                 <>
                   {breakdown.equippedHealthCapItems.map((item) => (
-                    <ListItem key={item.id}>{getHealthCapLabel(item)}</ListItem>
+                    <StatsListItem key={item.id}>
+                      {getHealthCapLabel(item)}
+                    </StatsListItem>
                   ))}
                 </>
               }

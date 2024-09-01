@@ -13,14 +13,14 @@ import {
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { BuilderContainer } from '@/app/(builds)/builder/_components/builder-container';
-import { ArmorCalculatorButton } from '@/app/(builds)/builder/_components/buttons/armor-calculator-button';
-import { DeleteBuildButton } from '@/app/(builds)/builder/_components/buttons/delete-build-button';
-import { DetailedViewButton } from '@/app/(builds)/builder/_components/buttons/detailed-view-button';
-import { ItemSuggestionsButton } from '@/app/(builds)/builder/_components/buttons/item-suggestions-button';
-import { SaveBuildButton } from '@/app/(builds)/builder/_components/buttons/save-build-button';
-import { ArmorSuggestionDialog } from '@/app/(builds)/builder/_components/dialogs/armor-suggestion-dialog';
-import { DetailedBuildDialog } from '@/app/(builds)/builder/_components/dialogs/detailed-build-dialog';
-import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/dialogs/image-download-info-dialog';
+import { ArmorCalculatorButton } from '@/app/(builds)/builder/_components/armor-calculator-button';
+import { DeleteBuildButton } from '@/app/(builds)/builder/_components/delete-build-button';
+import { DetailedViewButton } from '@/app/(builds)/builder/_components/detailed-view-button';
+import { ItemSuggestionsButton } from '@/app/(builds)/builder/_components/item-suggestions-button';
+import { SaveBuildButton } from '@/app/(builds)/builder/_components/save-build-button';
+import { ArmorSuggestionDialog } from '@/app/(builds)/builder/_components/armor-suggestion-dialog';
+import { DetailedBuildDialog } from '@/app/(builds)/builder/_components/detailed-build-dialog';
+import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/image-download-info-dialog';
 import { ItemTagSuggestionDialog } from '@/app/(items)/_components/item-tag-suggestion-dialog';
 
 interface Props {

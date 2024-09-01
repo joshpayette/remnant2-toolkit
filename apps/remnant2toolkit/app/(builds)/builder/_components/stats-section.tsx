@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react';
 
-export function Section({
+export function StatsSection({
   listItems,
   total,
   isPercent = false,

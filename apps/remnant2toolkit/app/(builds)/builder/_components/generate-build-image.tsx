@@ -1,6 +1,6 @@
 import { BaseButton } from '@repo/ui';
 
-import { LoadingButton } from '@/app/(builds)/builder/_components/buttons/loading-button';
+import { LoadingButton } from '@/app/(builds)/builder/_components/loading-button';
 
 interface Props {
   onClick: () => void;

@@ -5,8 +5,8 @@ import {
   BaseDialogTitle,
 } from '@repo/ui';
 
-import { ListItem } from '@/app/(builds)/builder/_components/stats/list-item';
-import { Section } from '@/app/(builds)/builder/_components/stats/section';
+import { StatsListItem } from '@/app/(builds)/builder/_components/stats-list-item';
+import { StatsSection } from '@/app/(builds)/builder/_components/stats-section';
 import { type Item } from '@/app/(items)/_types/item';
 import { type TraitItem } from '@/app/(items)/_types/trait-item';
 
@@ -98,24 +98,24 @@ export function StaminaBreakdownDialog({ open, breakdown, onClose }: Props) {
           </h3>
           {(breakdown.equippedStaminaIncreaseItems.length > 0 ||
             breakdown.equippedStaminaStepItems.length > 0) && (
-            <Section
+            <StatsSection
               total={
                 breakdown.totalStaminaIncrease + breakdown.totalStaminaStep
               }
               listItems={
                 <>
                   {breakdown.equippedStaminaIncreaseItems.map((item) => (
-                    <ListItem key={item.id}>
+                    <StatsListItem key={item.id}>
                       {getStaminaIncreaseLabel(item)}
-                    </ListItem>
+                    </StatsListItem>
                   ))}
                   {breakdown.equippedStaminaStepItems.map((item) => (
-                    <ListItem key={item.id}>
+                    <StatsListItem key={item.id}>
                       {getStaminaStepLabel(
                         item,
                         breakdown.equippedStaminaStepItems,
                       )}
-                    </ListItem>
+                    </StatsListItem>
                   ))}
                 </>
               }
@@ -124,7 +124,7 @@ export function StaminaBreakdownDialog({ open, breakdown, onClose }: Props) {
 
           {(breakdown.equippedStaminaPercentItems.length > 0 ||
             breakdown.equippedStaminaStepPercentItems.length > 0) && (
-            <Section
+            <StatsSection
               isPercent={true}
               total={
                 (breakdown.totalStaminaPercent +
@@ -134,17 +134,17 @@ export function StaminaBreakdownDialog({ open, breakdown, onClose }: Props) {
               listItems={
                 <>
                   {breakdown.equippedStaminaPercentItems.map((item) => (
-                    <ListItem key={item.id}>
+                    <StatsListItem key={item.id}>
                       {getStaminaPercentLabel(item)}
-                    </ListItem>
+                    </StatsListItem>
                   ))}
                   {breakdown.equippedStaminaStepPercentItems.map((item) => (
-                    <ListItem key={item.id}>
+                    <StatsListItem key={item.id}>
                       {getStaminaStepPercentLabel(
                         item,
                         breakdown.equippedStaminaStepPercentItems,
                       )}
-                    </ListItem>
+                    </StatsListItem>
                   ))}
                 </>
               }

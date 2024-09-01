@@ -20,9 +20,9 @@ import { MdOutlineGeneratingTokens } from 'react-icons/md';
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
 import { BuildDescriptionTemplateAlert } from '@/app/(builds)/_components/build-description-template-alert';
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
-import { DescriptionTokenDialog } from '@/app/(builds)/builder/_components/dialogs/description-token-dialog';
+import { DescriptionTokenDialog } from '@/app/(builds)/builder/_components/description-token-dialog';
 
-import { BuildTagsDisplay } from './build-tags/build-tags-display';
+import { BuildTagsDisplay } from './build-tags-display';
 
 type Props = {
   buildLink: string | null;

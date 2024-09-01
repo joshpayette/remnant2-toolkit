@@ -21,21 +21,21 @@ import { buildStateToCsvData } from '@/app/(builds)/_libs/build-state-to-csv-dat
 import { setLocalBuildItemOwnership } from '@/app/(builds)/_libs/set-local-build-item-ownership';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { BuilderContainer } from '@/app/(builds)/builder/_components/builder-container';
-import { DeleteBuildButton } from '@/app/(builds)/builder/_components/buttons/delete-build-button';
-import { DetailedViewButton } from '@/app/(builds)/builder/_components/buttons/detailed-view-button';
-import { DuplicateBuildButton } from '@/app/(builds)/builder/_components/buttons/duplicate-build-button';
-import { EditBuildButton } from '@/app/(builds)/builder/_components/buttons/edit-build-button';
-import { FavoriteBuildButton } from '@/app/(builds)/builder/_components/buttons/favorite-build-button';
-import { GenerateBuildImageButton } from '@/app/(builds)/builder/_components/buttons/generate-build-image';
-import { ItemOwnershipPreferenceButton } from '@/app/(builds)/builder/_components/buttons/item-ownership-preference-button';
-import { LoadoutManagementButton } from '@/app/(builds)/builder/_components/buttons/loadout-management-button';
-import { ModeratorToolsButton } from '@/app/(builds)/builder/_components/buttons/moderator-tools-button';
-import { NewLinkedBuildButton } from '@/app/(builds)/builder/_components/buttons/new-linked-build-button';
-import { ShareBuildButton } from '@/app/(builds)/builder/_components/buttons/share-build-button';
-import { ViewLinkedBuildButton } from '@/app/(builds)/builder/_components/buttons/view-linked-builds';
-import { DetailedBuildDialog } from '@/app/(builds)/builder/_components/dialogs/detailed-build-dialog';
-import { FavoriteBuildDialog } from '@/app/(builds)/builder/_components/dialogs/favorite-build-dialog';
-import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/dialogs/image-download-info-dialog';
+import { DeleteBuildButton } from '@/app/(builds)/builder/_components/delete-build-button';
+import { DetailedBuildDialog } from '@/app/(builds)/builder/_components/detailed-build-dialog';
+import { DetailedViewButton } from '@/app/(builds)/builder/_components/detailed-view-button';
+import { DuplicateBuildButton } from '@/app/(builds)/builder/_components/duplicate-build-button';
+import { EditBuildButton } from '@/app/(builds)/builder/_components/edit-build-button';
+import { FavoriteBuildButton } from '@/app/(builds)/builder/_components/favorite-build-button';
+import { FavoriteBuildDialog } from '@/app/(builds)/builder/_components/favorite-build-dialog';
+import { GenerateBuildImageButton } from '@/app/(builds)/builder/_components/generate-build-image';
+import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/image-download-info-dialog';
+import { ItemOwnershipPreferenceButton } from '@/app/(builds)/builder/_components/item-ownership-preference-button';
+import { LoadoutManagementButton } from '@/app/(builds)/builder/_components/loadout-management-button';
+import { ModeratorToolsButton } from '@/app/(builds)/builder/_components/moderator-tools-button';
+import { ShareBuildButton } from '@/app/(builds)/builder/_components/share-build-button';
+import { NewLinkedBuildButton } from '@/app/(builds)/builder/linked/_components/new-linked-build-button';
+import { ViewLinkedBuildButton } from '@/app/(builds)/builder/linked/_components/view-linked-builds-button';
 import { useDiscoveredItems } from '@/app/(items)/_hooks/use-discovered-items';
 
 interface Props {

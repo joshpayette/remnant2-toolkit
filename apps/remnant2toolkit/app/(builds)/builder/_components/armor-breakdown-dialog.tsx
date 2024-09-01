@@ -5,8 +5,8 @@ import {
   BaseDialogTitle,
 } from '@repo/ui';
 
-import { ListItem } from '@/app/(builds)/builder/_components/stats/list-item';
-import { Section } from '@/app/(builds)/builder/_components/stats/section';
+import { StatsListItem } from '@/app/(builds)/builder/_components/stats-list-item';
+import { StatsSection } from '@/app/(builds)/builder/_components/stats-section';
 import { type Item } from '@/app/(items)/_types/item';
 import { type TraitItem } from '@/app/(items)/_types/trait-item';
 
@@ -95,22 +95,22 @@ export function ArmorBreakdownDialog({ open, breakdown, onClose }: Props) {
         <div className="text-left text-sm">
           {(breakdown.equippedArmorIncreaseItems.length > 0 ||
             breakdown.equippedArmorStepItems.length > 0) && (
-            <Section
+            <StatsSection
               total={breakdown.totalArmorIncrease + breakdown.totalArmorStep}
               listItems={
                 <>
                   {breakdown.equippedArmorIncreaseItems.map((item) => (
-                    <ListItem key={item.id}>
+                    <StatsListItem key={item.id}>
                       {getArmorIncreaseLabel(item)}
-                    </ListItem>
+                    </StatsListItem>
                   ))}
                   {breakdown.equippedArmorStepItems.map((item) => (
-                    <ListItem key={item.id}>
+                    <StatsListItem key={item.id}>
                       {getArmorStepLabel(
                         item,
                         breakdown.equippedArmorStepItems,
                       )}
-                    </ListItem>
+                    </StatsListItem>
                   ))}
                 </>
               }
@@ -119,7 +119,7 @@ export function ArmorBreakdownDialog({ open, breakdown, onClose }: Props) {
 
           {(breakdown.equippedArmorPercentItems.length > 0 ||
             breakdown.equippedArmorStepPercentItems.length > 0) && (
-            <Section
+            <StatsSection
               isPercent={true}
               total={
                 (breakdown.totalArmorPercent +
@@ -129,17 +129,17 @@ export function ArmorBreakdownDialog({ open, breakdown, onClose }: Props) {
               listItems={
                 <>
                   {breakdown.equippedArmorPercentItems.map((item) => (
-                    <ListItem key={item.id}>
+                    <StatsListItem key={item.id}>
                       {getArmorPercentLabel(item)}
-                    </ListItem>
+                    </StatsListItem>
                   ))}
                   {breakdown.equippedArmorStepPercentItems.map((item) => (
-                    <ListItem key={item.id}>
+                    <StatsListItem key={item.id}>
                       {getArmorStepPercentLabel(
                         item,
                         breakdown.equippedArmorStepPercentItems,
                       )}
-                    </ListItem>
+                    </StatsListItem>
                   ))}
                 </>
               }

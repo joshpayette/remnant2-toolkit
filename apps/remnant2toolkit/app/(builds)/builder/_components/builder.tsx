@@ -22,9 +22,9 @@ import { isBuildPopular } from '@/app/(builds)/_libs/is-build-popular';
 import { type UpdateBuildCategory } from '@/app/(builds)/_libs/update-build-state';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
-import { FeaturedBuildBadge } from '@/app/(builds)/builder/_components/badges/featured-build-badge';
-import { NewBuildBadge } from '@/app/(builds)/builder/_components/badges/new-build-badge';
-import { PopularBuildBadge } from '@/app/(builds)/builder/_components/badges/popular-build-badge';
+import { FeaturedBuildBadge } from '@/app/(builds)/builder/_components/featured-build-badge';
+import { NewBuildBadge } from '@/app/(builds)/builder/_components/new-build-badge';
+import { PopularBuildBadge } from '@/app/(builds)/builder/_components/popular-build-badge';
 import { ItemButton } from '@/app/(items)/_components/item-button';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { ItemSelectDialog } from '@/app/(items)/_components/item-select-dialog';
@@ -33,7 +33,7 @@ import { type Item } from '@/app/(items)/_types/item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
 
 import { MemberFeatures } from './member-features';
-import { Stats } from './stats/stats';
+import { Stats } from './stats';
 import { Traits } from './traits';
 
 type BuilderProps = {

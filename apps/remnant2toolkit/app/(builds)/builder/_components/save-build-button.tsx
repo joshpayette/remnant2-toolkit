@@ -11,7 +11,7 @@ import { createBuild } from '@/app/(builds)/_actions/create-build';
 import { updateBuild } from '@/app/(builds)/_actions/update-build';
 import { type BuildActionResponse } from '@/app/(builds)/_types/build-action-response';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { LoadingButton } from '@/app/(builds)/builder/_components/buttons/loading-button';
+import { LoadingButton } from '@/app/(builds)/builder/_components/loading-button';
 
 interface Props {
   buildState: BuildState;
