@@ -5,7 +5,7 @@ import { BaseText, BaseTextLink } from '@repo/ui';
 import { useCallback, useState } from 'react';
 
 import { PageHeader } from '@/app/_components/page-header';
-import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_libs/pagination/constants';
+import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_constants/pagination';
 import { NAV_ITEMS } from '@/app/_types/navigation';
 import { BuildFilters } from '@/app/(builds)/_components/filters/build-filters';
 import { GimmickBuilds } from '@/app/(builds)/gimmick-builds/gimmick-builds';

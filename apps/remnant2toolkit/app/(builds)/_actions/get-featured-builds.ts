@@ -3,7 +3,7 @@
 import { Prisma, prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
-import { type PaginationResponse } from '@/app/_libs/pagination/use-pagination';
+import { type PaginationResponse } from '@/app/_hooks/use-pagination';
 import { type OrderBy } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
 import { type TimeRange } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
 import { type BuildListFilters } from '@/app/(builds)/_components/filters/types';

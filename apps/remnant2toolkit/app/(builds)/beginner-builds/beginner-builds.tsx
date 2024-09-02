@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { Tooltip } from '@/app/_components/tooltip';
-import { usePagination } from '@/app/_libs/pagination/use-pagination';
+import { usePagination } from '@/app/_hooks/use-pagination';
 import { getBeginnerBuilds } from '@/app/(builds)/_actions/get-beginner-builds';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';

@@ -16,7 +16,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { Tooltip } from '@/app/_components/tooltip';
-import { usePagination } from '@/app/_libs/pagination/use-pagination';
+import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildList } from '@/app/(builds)/_components/build-list';
 import { DeleteBuildAlert } from '@/app/(builds)/_components/delete-build-alert';
 import { deleteLinkedBuild } from '@/app/(builds)/builder/linked/_actions/delete-linked-build';
