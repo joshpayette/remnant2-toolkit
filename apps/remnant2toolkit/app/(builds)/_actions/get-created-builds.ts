@@ -9,9 +9,9 @@ import { type TimeRange } from '@/app/(builds)/_components/filters/secondary-fil
 import {
   communityBuildsCountQuery,
   communityBuildsQuery,
-} from '@/app/(builds)/_queries/build-filters/community-builds';
-import { getOrderBySegment } from '@/app/(builds)/_queries/build-filters/segments/get-order-by';
-import { limitByTimeConditionSegment } from '@/app/(builds)/_queries/build-filters/segments/limit-by-time-condition';
+} from '@/app/(builds)/_libs/build-filters/community-builds';
+import { getOrderBySegment } from '@/app/(builds)/_libs/build-filters/get-order-by';
+import { limitByTimeConditionSegment } from '@/app/(builds)/_libs/build-filters/limit-by-time-condition';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 

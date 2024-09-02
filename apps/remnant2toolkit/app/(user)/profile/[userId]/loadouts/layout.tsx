@@ -2,6 +2,7 @@ import { DEFAULT_BIO } from '@repo/constants';
 import { prisma } from '@repo/db';
 import { type Metadata } from 'next';
 
+import { OG_IMAGE_URL } from '@/app/_constants/meta';
 import { getLoadoutList } from '@/app/(builds)/_actions/get-loadout-list';
 import { getAvatarById } from '@/app/(user)/profile/_utils/get-avatar-by-id';
 
@@ -26,7 +27,7 @@ export async function generateMetadata({
         url: `https://remnant2toolkit.com/profile/${userId}/loadouts`,
         images: [
           {
-            url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
+            url: OG_IMAGE_URL,
             width: 150,
             height: 150,
           },
@@ -107,7 +108,7 @@ export async function generateMetadata({
       url: `https://remnant2toolkit.com/profile/${userId}/loadout`,
       images: [
         {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
+          url: OG_IMAGE_URL,
           width: 150,
           height: 150,
         },

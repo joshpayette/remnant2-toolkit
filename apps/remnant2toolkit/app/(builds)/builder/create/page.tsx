@@ -3,12 +3,13 @@ import { type Metadata } from 'next';
 import React from 'react';
 
 import { PageHeader } from '@/app/_components/page-header';
+import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_types/navigation';
 import { CreateBuild } from '@/app/(builds)/builder/create/create-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Build Creation Tool - Remnant 2 Toolkit`;
+  const title = `${NAV_ITEMS.createBuild.label} - ${SITE_TITLE}`;
   const description = NAV_ITEMS.createBuild.description;
 
   return {
@@ -17,11 +18,11 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title,
       description: description,
-      siteName: 'Remnant 2 Toolkit',
+      siteName: SITE_TITLE,
       url: `https://remnant2toolkit.com/builder/create`,
       images: [
         {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
+          url: OG_IMAGE_URL,
           width: 150,
           height: 150,
         },

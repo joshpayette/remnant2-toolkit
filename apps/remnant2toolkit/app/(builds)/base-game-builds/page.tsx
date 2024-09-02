@@ -1,22 +1,40 @@
-'use client';
-
 import { BaseText, BaseTextLink } from '@repo/ui';
-import { useCallback, useState } from 'react';
+import { type Metadata } from 'next';
 
 import { PageHeader } from '@/app/_components/page-header';
-import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_libs/pagination/constants';
+import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_types/navigation';
-import { BuildFilters } from '@/app/(builds)/_components/filters/build-filters';
-import { BaseGameBuilds } from '@/app/(builds)/base-game-builds/base-game-builds';
+import { BaseGameBuilds } from '@/app/(builds)/base-game-builds/_components/base-game-builds';
 
-export default function Page() {
-  const [loadingResults, setLoadingResults] = useState(false);
+export async function generateMetadata(): Promise<Metadata> {
+  const title = `${NAV_ITEMS.baseGameBuilds.label} - ${SITE_TITLE}`;
+  const description = NAV_ITEMS.baseGameBuilds.description;
 
-  const handleToggleLoadingResults = useCallback(
-    (isLoading: boolean) => setLoadingResults(isLoading),
-    [],
-  );
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description: description,
+      siteName: SITE_TITLE,
+      url: `https://remnant2toolkit.com/${NAV_ITEMS.baseGameBuilds.href}`,
+      images: [
+        {
+          url: OG_IMAGE_URL,
+          width: 150,
+          height: 150,
+        },
+      ],
+      type: 'website',
+    },
+    twitter: {
+      title,
+      description,
+    },
+  };
+}
 
+export default async function Page() {
   return (
     <>
       <PageHeader
@@ -34,18 +52,7 @@ export default function Page() {
         }
       />
 
-      <div className="flex w-full items-center justify-center sm:mb-6">
-        <BuildFilters
-          key="beginner-build-filters"
-          loadingResults={loadingResults}
-        />
-      </div>
-      <div className="mb-2 grid w-full grid-cols-1 gap-2">
-        <BaseGameBuilds
-          itemsPerPage={DEFAULT_ITEMS_PER_PAGE}
-          onToggleLoadingResults={handleToggleLoadingResults}
-        />
-      </div>
+      <BaseGameBuilds />
     </>
   );
 }

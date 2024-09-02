@@ -1,9 +1,10 @@
 import { type Metadata } from 'next';
 
+import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_types/navigation';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `World Save Archive - Remnant 2 Toolkit`;
+  const title = `${NAV_ITEMS.worldSaveArchive.label} - ${SITE_TITLE}`;
   const description = NAV_ITEMS.worldSaveArchive.description;
 
   return {
@@ -12,11 +13,11 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title,
       description: description,
-      siteName: 'Remnant 2 Toolkit',
-      url: `https://remnant2toolkit.com/world-save-archive`,
+      siteName: SITE_TITLE,
+      url: `https://remnant2toolkit.com/${NAV_ITEMS.worldSaveArchive.href}`,
       images: [
         {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
+          url: OG_IMAGE_URL,
           width: 150,
           height: 150,
         },

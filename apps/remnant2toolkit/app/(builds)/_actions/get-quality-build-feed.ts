@@ -3,7 +3,7 @@
 import { Prisma, prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
-import { limitToQualityBuilds } from '@/app/(builds)/_queries/build-filters/segments/limit-by-quality';
+import { limitToQualityBuilds } from '@/app/(builds)/_libs/build-filters/limit-by-quality';
 import { type CommunityBuildQueryResponse } from '@/app/(builds)/_types/community-build-query-response';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';

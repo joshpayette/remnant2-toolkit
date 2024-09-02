@@ -1,9 +1,11 @@
 import { type Metadata } from 'next';
 
+import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
+import { NAV_ITEMS } from '@/app/_types/navigation';
+
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Hardcore Veteran Guide - Remnant2Toolkit';
-  const description =
-    'This guide is intended to help players who have some experience with the game, but are new to hardcore. It is not a complete guide to the game, nor is it an exhaustive list of the many strategies you can use to clear hardcore veteran. It is intended to be an opinionated guide to best help you complete your hardcore veteran run.';
+  const title = `${NAV_ITEMS.hardcoreVeteran.label} - ${SITE_TITLE}`;
+  const description = NAV_ITEMS.hardcoreVeteran.description;
 
   return {
     title,
@@ -11,11 +13,11 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      siteName: 'Remnant 2 Toolkit',
-      url: `https://remnant2toolkit.com/guides/hardcore-veteran`,
+      siteName: SITE_TITLE,
+      url: `https://remnant2toolkit.com/${NAV_ITEMS.hardcoreVeteran.href}`,
       images: [
         {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
+          url: OG_IMAGE_URL,
           width: 150,
           height: 150,
         },

@@ -4,6 +4,7 @@ import { type Metadata, type ResolvingMetadata } from 'next';
 import { revalidatePath } from 'next/cache';
 
 import { PageHeader } from '@/app/_components/page-header';
+import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { getIsLoadoutPublic } from '@/app/(builds)/_actions/get-is-loadout-public';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { ProfileHeader } from '@/app/(user)/profile/_components/profile-header';
@@ -36,7 +37,7 @@ export async function generateMetadata(
         url: `https://remnant2toolkit.com/profile/${userId}`,
         images: [
           {
-            url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
+            url: OG_IMAGE_URL,
             width: 150,
             height: 150,
           },
@@ -72,9 +73,9 @@ export async function generateMetadata(
   // const previousOGImages = (await parent).openGraph?.images || []
   // const previousTwitterImages = (await parent).twitter?.images || []
   const userName = userData.displayName ?? userData.name;
-  const title = `${userName} Profile - Remnant2Toolkit`;
+  const title = `${userName} Profile - ${SITE_TITLE}`;
   const description =
-    profileData.bio ?? `View ${userName}'s profile on Remnant 2 Toolkit.`;
+    profileData.bio ?? `View ${userName}'s profile on ${SITE_TITLE}.`;
 
   const avatarId = profileData.avatarId;
   const avatar = getAvatarById(avatarId);

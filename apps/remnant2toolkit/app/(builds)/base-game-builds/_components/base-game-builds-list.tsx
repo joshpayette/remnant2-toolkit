@@ -20,7 +20,7 @@ interface Props {
   onToggleLoadingResults: (isLoading: boolean) => void;
 }
 
-export function BaseGameBuilds({
+export function BaseGameBuildsList({
   itemsPerPage = 8,
   onToggleLoadingResults,
 }: Props) {

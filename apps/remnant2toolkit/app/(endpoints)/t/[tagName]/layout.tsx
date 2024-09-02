@@ -1,5 +1,6 @@
 import { type Metadata, type ResolvingMetadata } from 'next';
 
+import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { INLINE_TOKENS, ITEM_TOKENS } from '@/app/(builds)/_constants/tokens';
 import { allItems } from '@/app/(items)/_constants/all-items';
 import { type Item } from '@/app/(items)/_types/item';
@@ -127,11 +128,11 @@ export async function generateMetadata(
     openGraph: {
       title,
       description,
-      siteName: 'Remnant 2 Toolkit',
+      siteName: SITE_TITLE,
       url: `https://remnant2toolkit.com/endpoint/tag/${tagName}`,
       images: [
         {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
+          url: OG_IMAGE_URL,
           width: 150,
           height: 150,
         },
@@ -144,7 +145,7 @@ export async function generateMetadata(
       card: 'summary',
       images: [
         {
-          url: `https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg`,
+          url: OG_IMAGE_URL,
           width: 150,
           height: 150,
         },

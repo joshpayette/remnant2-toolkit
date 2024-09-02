@@ -121,7 +121,7 @@ export const NAV_ITEMS = {
   hardcoreVeteran: {
     label: 'Hardcore Veteran Guide',
     description:
-      'A guide on getting started with, and completing, your first hardcore veteran run.',
+      'An opinionated guide to best help you complete your first Remnant 2 hardcore veteran run.',
     href: '/guides/hardcore-veteran',
     icon: HardcoreVeteranIcon,
   },
@@ -149,7 +149,7 @@ export const NAV_ITEMS = {
   linkedBuilds: {
     label: 'Linked Builds',
     description:
-      'Link multiple Remnant 2 builds together to share them as a single link. Great for alternate versions of the same build, coop builds meant to be played together, or budget alternatives!',
+      'Link multiple Remnant 2 builds together in a single link. Great for coop builds, or build variations such as boss/mobbing/budget!',
     href: '/profile/linked-builds',
     icon: LinkedBuildsIcon,
   },

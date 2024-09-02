@@ -2,6 +2,7 @@ import { getImageUrl } from '@repo/ui';
 import { cleanItemName } from '@repo/utils';
 import { type Metadata, type ResolvingMetadata } from 'next';
 
+import { SITE_TITLE } from '@/app/_constants/meta';
 import { allItems } from '@/app/(items)/_constants/all-items';
 import { ArmorItem } from '@/app/(items)/_types/armor-item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
@@ -76,7 +77,7 @@ export async function generateMetadata(
     openGraph: {
       title,
       description,
-      siteName: 'Remnant 2 Toolkit',
+      siteName: SITE_TITLE,
       url: itemEndpoint(item.name),
       images: [
         {

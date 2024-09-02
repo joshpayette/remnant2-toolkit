@@ -10,40 +10,40 @@ import { type BuildListFilters } from '@/app/(builds)/_components/filters/types'
 import {
   communityBuildsCountQuery,
   communityBuildsQuery,
-} from '@/app/(builds)/_queries/build-filters/community-builds';
-import { getOrderBySegment } from '@/app/(builds)/_queries/build-filters/segments/get-order-by';
+} from '@/app/(builds)/_libs/build-filters/community-builds';
+import { getOrderBySegment } from '@/app/(builds)/_libs/build-filters/get-order-by';
 import {
   amuletFilterToId,
   limitByAmuletSegment,
-} from '@/app/(builds)/_queries/build-filters/segments/limit-by-amulet';
+} from '@/app/(builds)/_libs/build-filters/limit-by-amulet';
 import {
   archetypeFiltersToIds,
   limitByArchetypesSegment,
-} from '@/app/(builds)/_queries/build-filters/segments/limit-by-archetypes';
+} from '@/app/(builds)/_libs/build-filters/limit-by-archetypes';
 import {
   buildTagsFilterToValues,
   limitByBuildTagsSegment,
-} from '@/app/(builds)/_queries/build-filters/segments/limit-by-build-tags';
-import { limitByCollectionSegment } from '@/app/(builds)/_queries/build-filters/segments/limit-by-collection';
-import { limitByFavorited } from '@/app/(builds)/_queries/build-filters/segments/limit-by-favorited';
-import { limitByPatchAffected } from '@/app/(builds)/_queries/build-filters/segments/limit-by-patch-affected';
-import { limitToQualityBuilds } from '@/app/(builds)/_queries/build-filters/segments/limit-by-quality';
-import { limitByReferenceLink } from '@/app/(builds)/_queries/build-filters/segments/limit-by-reference-link';
-import { limitByReleasesSegment } from '@/app/(builds)/_queries/build-filters/segments/limit-by-release';
+} from '@/app/(builds)/_libs/build-filters/limit-by-build-tags';
+import { limitByCollectionSegment } from '@/app/(builds)/_libs/build-filters/limit-by-collection';
+import { limitByFavorited } from '@/app/(builds)/_libs/build-filters/limit-by-favorited';
+import { limitByPatchAffected } from '@/app/(builds)/_libs/build-filters/limit-by-patch-affected';
+import { limitToQualityBuilds } from '@/app/(builds)/_libs/build-filters/limit-by-quality';
+import { limitByReferenceLink } from '@/app/(builds)/_libs/build-filters/limit-by-reference-link';
+import { limitByReleasesSegment } from '@/app/(builds)/_libs/build-filters/limit-by-release';
 import {
   limitByRelicSegment,
   relicFilterToId,
-} from '@/app/(builds)/_queries/build-filters/segments/limit-by-relic';
+} from '@/app/(builds)/_libs/build-filters/limit-by-relic';
 import {
   limitByRingsSegment,
   ringsFilterToIds,
-} from '@/app/(builds)/_queries/build-filters/segments/limit-by-rings';
-import { limitByTimeConditionSegment } from '@/app/(builds)/_queries/build-filters/segments/limit-by-time-condition';
-import { limitToBuildsWithVideo } from '@/app/(builds)/_queries/build-filters/segments/limit-by-video';
+} from '@/app/(builds)/_libs/build-filters/limit-by-rings';
+import { limitByTimeConditionSegment } from '@/app/(builds)/_libs/build-filters/limit-by-time-condition';
+import { limitToBuildsWithVideo } from '@/app/(builds)/_libs/build-filters/limit-by-video';
 import {
   limitByWeaponsSegment,
   weaponFiltersToIds,
-} from '@/app/(builds)/_queries/build-filters/segments/limit-by-weapons';
+} from '@/app/(builds)/_libs/build-filters/limit-by-weapons';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 

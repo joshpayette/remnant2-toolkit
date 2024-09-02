@@ -2,6 +2,7 @@ import { DEFAULT_BIO } from '@repo/constants';
 import { prisma } from '@repo/db';
 import { type Metadata } from 'next';
 
+import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_types/navigation';
 import { getAvatarById } from '@/app/(user)/profile/_utils/get-avatar-by-id';
 
@@ -30,7 +31,7 @@ export async function generateMetadata({
         url: `https://remnant2toolkit.com/profile/${userId}/linked-builds`,
         images: [
           {
-            url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
+            url: OG_IMAGE_URL,
             width: 150,
             height: 150,
           },
@@ -64,7 +65,7 @@ export async function generateMetadata({
   }
 
   const userName = userData.displayName ?? userData.name;
-  const title = `${userName}'s Linked Builds - Remnant2Toolkit`;
+  const title = `${userName}'s Linked Builds - ${SITE_TITLE}`;
   const description = NAV_ITEMS.linkedBuilds.description;
 
   const avatarId = profileData.avatarId;

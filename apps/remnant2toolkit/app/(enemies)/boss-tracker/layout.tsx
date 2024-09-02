@@ -3,10 +3,11 @@
 import { type Metadata } from 'next';
 import { Suspense } from 'react';
 
+import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_types/navigation';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Boss Tracker - Remnant 2 Toolkit`;
+  const title = `${NAV_ITEMS.bossTracker.label} - ${SITE_TITLE}`;
   const description = NAV_ITEMS.bossTracker.description;
 
   return {
@@ -15,11 +16,11 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title,
       description: description,
-      siteName: 'Remnant 2 Toolkit',
-      url: `https://remnant2toolkit.com/boss-tracker`,
+      siteName: SITE_TITLE,
+      url: `https://remnant2toolkit.com/${NAV_ITEMS.bossTracker.href}`,
       images: [
         {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
+          url: OG_IMAGE_URL,
           width: 150,
           height: 150,
         },

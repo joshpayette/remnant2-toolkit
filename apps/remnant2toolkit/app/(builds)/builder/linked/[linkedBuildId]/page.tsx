@@ -1,5 +1,6 @@
 import { type Metadata, type ResolvingMetadata } from 'next';
 
+import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { NAV_ITEMS } from '@/app/_types/navigation';
 import { getLinkedBuild } from '@/app/(builds)/builder/linked/_actions/get-linked-build';
@@ -10,6 +11,7 @@ export async function generateMetadata(
   _parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const buildData = await getLinkedBuild(linkedBuildId);
+
   if (isErrorResponse(buildData)) {
     console.info(buildData.errors);
     return {
@@ -23,7 +25,7 @@ export async function generateMetadata(
         url: `https://remnant2toolkit.com/builder/linked/${linkedBuildId}`,
         images: [
           {
-            url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
+            url: OG_IMAGE_URL,
             width: 150,
             height: 150,
           },
@@ -52,7 +54,7 @@ export async function generateMetadata(
         url: `https://remnant2toolkit.com/builder/linked/${linkedBuildId}`,
         images: [
           {
-            url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
+            url: OG_IMAGE_URL,
             width: 150,
             height: 150,
           },
@@ -79,11 +81,11 @@ export async function generateMetadata(
     openGraph: {
       title,
       description: description,
-      siteName: 'Remnant 2 Toolkit',
+      siteName: SITE_TITLE,
       url: `https://remnant2toolkit.com/builder/linked/${linkedBuildState.id}`,
       images: [
         {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
+          url: OG_IMAGE_URL,
           width: 150,
           height: 150,
         },

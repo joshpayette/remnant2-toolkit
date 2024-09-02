@@ -2,7 +2,7 @@ import { Prisma, prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
 import { BuildCard } from '@/app/(builds)/_components/build-card';
-import { communityBuildsQuery } from '@/app/(builds)/_queries/build-filters/community-builds';
+import { communityBuildsQuery } from '@/app/(builds)/_libs/build-filters/community-builds';
 
 async function getCreatedBuilds(userId: string) {
   const itemsToFetch = 4;

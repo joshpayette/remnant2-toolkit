@@ -1,6 +1,7 @@
 import { type Metadata } from 'next';
 
 import { PageHeader } from '@/app/_components/page-header';
+import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { NAV_ITEMS } from '@/app/_types/navigation';
 import { getLinkedBuild } from '@/app/(builds)/builder/linked/_actions/get-linked-build';
@@ -8,7 +9,7 @@ import { EditLinkedBuild } from '@/app/(builds)/builder/linked/edit/[linkedBuild
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Build Linking Tool - Remnant 2 Toolkit`;
+  const title = `${NAV_ITEMS.linkedBuilds.label} - ${SITE_TITLE}`;
   const description = NAV_ITEMS.linkedBuilds.description;
 
   return {
@@ -17,11 +18,11 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title,
       description: description,
-      siteName: 'Remnant 2 Toolkit',
+      siteName: SITE_TITLE,
       url: `https://remnant2toolkit.com/builder/linked/edit`,
       images: [
         {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
+          url: OG_IMAGE_URL,
           width: 150,
           height: 150,
         },

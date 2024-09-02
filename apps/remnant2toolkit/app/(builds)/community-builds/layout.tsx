@@ -4,11 +4,12 @@ import { type Metadata } from 'next';
 import { Suspense } from 'react';
 
 import { PageHeader } from '@/app/_components/page-header';
+import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_types/navigation';
 import { getTotalBuildCount } from '@/app/(builds)/_actions/get-total-build-count';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Community Builds - Remnant 2 Toolkit`;
+  const title = `${NAV_ITEMS.communityBuilds.label} - ${SITE_TITLE}`;
   const description = NAV_ITEMS.communityBuilds.description;
 
   return {
@@ -17,11 +18,11 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title,
       description: description,
-      siteName: 'Remnant 2 Toolkit',
+      siteName: SITE_TITLE,
       url: `https://remnant2toolkit.com/community-builds`,
       images: [
         {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
+          url: OG_IMAGE_URL,
           width: 150,
           height: 150,
         },

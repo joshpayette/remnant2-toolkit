@@ -1,7 +1,9 @@
 import { type Metadata } from 'next';
 
+import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
+
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'World Save Archive Instructions - Remnant2Toolkit';
+  const title = `World Save Archive Instructions - ${SITE_TITLE}`;
   const description =
     'Instructions on using the World Save Archive files provided by the Remnant 2 Toolkit.';
 
@@ -11,11 +13,11 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      siteName: 'Remnant 2 Toolkit',
+      siteName: SITE_TITLE,
       url: `https://remnant2toolkit.com/world-save-archive/instructions`,
       images: [
         {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
+          url: OG_IMAGE_URL,
           width: 150,
           height: 150,
         },
