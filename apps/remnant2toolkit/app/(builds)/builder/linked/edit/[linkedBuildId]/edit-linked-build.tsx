@@ -22,7 +22,7 @@ import { OrderByFilter } from '@/app/(builds)/_components/filters/secondary-filt
 import { useOrderByFilter } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
 import { TimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter';
 import { useTimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
-import { useBuildListState } from '@/app/(builds)/_libs/hooks/use-build-list-state';
+import { useBuildListState } from '@/app/(builds)/_hooks/use-build-list-state';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { updateLinkedBuild } from '@/app/(builds)/builder/linked/_actions/update-linked-build';
 import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/builder/linked/_constants/max-linked-build-description-length';

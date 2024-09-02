@@ -13,7 +13,7 @@ import { BuildSecondaryFilters } from '@/app/(builds)/_components/filters/second
 import { useOrderByFilter } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
 import { useTimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
 import { parseUrlFilters } from '@/app/(builds)/_components/filters/utils';
-import { useBuildListState } from '@/app/(builds)/_libs/hooks/use-build-list-state';
+import { useBuildListState } from '@/app/(builds)/_hooks/use-build-list-state';
 
 interface Props {
   itemsPerPage?: number;

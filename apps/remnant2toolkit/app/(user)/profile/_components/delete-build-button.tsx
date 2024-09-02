@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 import { Tooltip } from '@/app/_components/tooltip';
 import { DeleteBuildAlert } from '@/app/(builds)/_components/delete-build-alert';
-import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
+import { handleDeleteBuild } from '@/app/(builds)/_libs/handlers/handle-delete-build';
 
 export function DeleteBuildButton({
   buildId,
@@ -15,7 +15,6 @@ export function DeleteBuildButton({
   onDelete: (buildId: string) => void;
 }) {
   const [deleteAlertOpen, setDeleteAlertOpen] = useState(false);
-  const { handleDeleteBuild } = useBuildActions();
 
   return (
     <>

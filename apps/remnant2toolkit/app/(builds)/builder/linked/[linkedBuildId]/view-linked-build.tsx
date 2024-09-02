@@ -19,10 +19,12 @@ import { toast } from 'react-toastify';
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
 import { ToCsvButton } from '@/app/_components/to-csv-button';
 import { LoadoutDialog } from '@/app/(builds)/_components/loadout-dialog';
-import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
+import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
 import { buildStateToCsvData } from '@/app/(builds)/_libs/build-state-to-csv-data';
 import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
 import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
+import { handleDuplicateBuild } from '@/app/(builds)/_libs/handlers/handle-duplicate-build';
+import { handleFavoriteBuild } from '@/app/(builds)/_libs/handlers/handle-favorite-build';
 import { BuilderContainer } from '@/app/(builds)/builder/_components/builder-container';
 import { DeleteBuildButton } from '@/app/(builds)/builder/_components/delete-build-button';
 import { DetailedBuildDialog } from '@/app/(builds)/builder/_components/detailed-build-dialog';
@@ -73,10 +75,8 @@ export function ViewLinkedBuild({ linkedBuildState }: Props) {
     imageDownloadInfo,
     imageExportLoading,
     handleClearImageDownloadInfo,
-    handleDuplicateBuild,
-    handleFavoriteBuild,
     handleImageExport,
-  } = useBuildActions();
+  } = useImageExport();
 
   const buildContainerRef = useRef<HTMLDivElement>(null);
 
@@ -274,7 +274,13 @@ export function ViewLinkedBuild({ linkedBuildState }: Props) {
                       setSignInRequiredDialogOpen(true);
                       return;
                     }
-                    handleFavoriteBuild(buildState, session?.user?.id);
+
+                    handleFavoriteBuild({
+                      buildState,
+                      userId: session?.user?.id,
+                      onFavorite: () => router.refresh(),
+                    });
+
                     setCurrentLinkedBuild({
                       ...currentLinkedBuild,
                       build: {
@@ -300,7 +306,13 @@ export function ViewLinkedBuild({ linkedBuildState }: Props) {
               />
 
               <DuplicateBuildButton
-                onClick={() => handleDuplicateBuild(buildState)}
+                onClick={() =>
+                  handleDuplicateBuild({
+                    buildState,
+                    onDuplicate: (buildId: string) =>
+                      router.push(`/builder/${buildId}`),
+                  })
+                }
               />
 
               <ToCsvButton

@@ -1,6 +1,6 @@
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 
-import { getItemsByKey } from './utils';
+import { getItemsByKey } from './lib';
 
 export function getTotalWeight(buildState: BuildState) {
   const equippedWeightIncreaseItems = getItemsByKey(buildState, 'weight');

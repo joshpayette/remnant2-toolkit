@@ -1,6 +1,6 @@
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 
-import { getItemsByKey, getTraitItemsByKey } from './utils';
+import { getItemsByKey, getTraitItemsByKey } from './lib';
 
 export function getTotalResistances(
   buildState: BuildState,

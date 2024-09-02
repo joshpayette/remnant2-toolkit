@@ -4,7 +4,7 @@ import { type BuildTags } from '@repo/db';
 import { useSession } from 'next-auth/react';
 import { useRef, useState } from 'react';
 
-import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
+import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
 import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
 import {
   type UpdateBuildCategory,
@@ -12,15 +12,15 @@ import {
 } from '@/app/(builds)/_libs/update-build-state';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
-import { BuilderContainer } from '@/app/(builds)/builder/_components/builder-container';
 import { ArmorCalculatorButton } from '@/app/(builds)/builder/_components/armor-calculator-button';
+import { ArmorSuggestionDialog } from '@/app/(builds)/builder/_components/armor-suggestion-dialog';
+import { BuilderContainer } from '@/app/(builds)/builder/_components/builder-container';
 import { DeleteBuildButton } from '@/app/(builds)/builder/_components/delete-build-button';
+import { DetailedBuildDialog } from '@/app/(builds)/builder/_components/detailed-build-dialog';
 import { DetailedViewButton } from '@/app/(builds)/builder/_components/detailed-view-button';
+import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/image-download-info-dialog';
 import { ItemSuggestionsButton } from '@/app/(builds)/builder/_components/item-suggestions-button';
 import { SaveBuildButton } from '@/app/(builds)/builder/_components/save-build-button';
-import { ArmorSuggestionDialog } from '@/app/(builds)/builder/_components/armor-suggestion-dialog';
-import { DetailedBuildDialog } from '@/app/(builds)/builder/_components/detailed-build-dialog';
-import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/image-download-info-dialog';
 import { ItemTagSuggestionDialog } from '@/app/(items)/_components/item-tag-suggestion-dialog';
 
 interface Props {
@@ -41,7 +41,7 @@ export function EditBuild({ build }: Props) {
     showControls,
     imageDownloadInfo,
     handleClearImageDownloadInfo,
-  } = useBuildActions();
+  } = useImageExport();
 
   const buildContainerRef = useRef<HTMLDivElement>(null);
 

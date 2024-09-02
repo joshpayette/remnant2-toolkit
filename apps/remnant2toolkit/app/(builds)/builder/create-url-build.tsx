@@ -10,18 +10,18 @@ import { ToCsvButton } from '@/app/_components/to-csv-button';
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/optional-item-symbol';
 import { LongUrlAlert } from '@/app/(builds)/_components/long-url-alert';
 import { INITIAL_BUILD_STATE } from '@/app/(builds)/_constants/initial-build-state';
-import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
+import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
 import { buildStateToCsvData } from '@/app/(builds)/_libs/build-state-to-csv-data';
 import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
 import { vashUrlToBuild } from '@/app/(builds)/_libs/vash-integration/vash-url-to-build';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { BuilderContainer } from '@/app/(builds)/builder/_components/builder-container';
+import { DetailedBuildDialog } from '@/app/(builds)/builder/_components/detailed-build-dialog';
 import { DetailedViewButton } from '@/app/(builds)/builder/_components/detailed-view-button';
 import { GenerateBuildImageButton } from '@/app/(builds)/builder/_components/generate-build-image';
+import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/image-download-info-dialog';
 import { SaveBuildButton } from '@/app/(builds)/builder/_components/save-build-button';
 import { ShareBuildButton } from '@/app/(builds)/builder/_components/share-build-button';
-import { DetailedBuildDialog } from '@/app/(builds)/builder/_components/detailed-build-dialog';
-import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/image-download-info-dialog';
 import { AmuletItem } from '@/app/(items)/_types/amulet-item';
 import { ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { ArmorItem } from '@/app/(items)/_types/armor-item';
@@ -325,7 +325,7 @@ export function CreateUrlBuild() {
     imageDownloadInfo,
     handleClearImageDownloadInfo,
     handleImageExport,
-  } = useBuildActions();
+  } = useImageExport();
 
   const buildContainerRef = useRef<HTMLDivElement>(null);
 

@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 
 import { DeleteBuildAlert } from '@/app/(builds)/_components/delete-build-alert';
-import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
+import { handleDeleteBuild } from '@/app/(builds)/_libs/handlers/handle-delete-build';
 
 interface Props {
   buildId: string;
@@ -14,7 +14,6 @@ interface Props {
 
 export function DeleteBuildButton({ buildId }: Props) {
   const [deleteAlertOpen, setDeleteAlertOpen] = useState(false);
-  const { handleDeleteBuild } = useBuildActions();
 
   const router = useRouter();
   const { data: session } = useSession();

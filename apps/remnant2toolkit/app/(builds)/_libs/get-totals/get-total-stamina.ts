@@ -2,7 +2,7 @@ import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type Item } from '@/app/(items)/_types/item';
 import { type TraitItem } from '@/app/(items)/_types/trait-item';
 
-import { getItemsByKey, getTraitItemsByKey } from './utils';
+import { getItemsByKey, getTraitItemsByKey } from './lib';
 
 export function getTotalStamina(buildState: BuildState): {
   totalStamina: string;

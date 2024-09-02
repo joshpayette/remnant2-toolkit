@@ -16,8 +16,10 @@ import {
 import { incrementViewCount } from '@/app/(builds)/_actions/increment-view-count';
 import { ModeratorBuildToolsDialog } from '@/app/(builds)/_admin/components/dialogs/moderator-build-tools-dialog';
 import { LoadoutDialog } from '@/app/(builds)/_components/loadout-dialog';
-import { useBuildActions } from '@/app/(builds)/_hooks/use-build-actions';
+import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
 import { buildStateToCsvData } from '@/app/(builds)/_libs/build-state-to-csv-data';
+import { handleDuplicateBuild } from '@/app/(builds)/_libs/handlers/handle-duplicate-build';
+import { handleFavoriteBuild } from '@/app/(builds)/_libs/handlers/handle-favorite-build';
 import { setLocalBuildItemOwnership } from '@/app/(builds)/_libs/set-local-build-item-ownership';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { BuilderContainer } from '@/app/(builds)/builder/_components/builder-container';
@@ -74,10 +76,8 @@ export function ViewBuild({ buildState }: Props) {
     imageDownloadInfo,
     imageExportLoading,
     handleClearImageDownloadInfo,
-    handleDuplicateBuild,
-    handleFavoriteBuild,
     handleImageExport,
-  } = useBuildActions();
+  } = useImageExport();
 
   const buildContainerRef = useRef<HTMLDivElement>(null);
 
@@ -201,7 +201,11 @@ export function ViewBuild({ buildState }: Props) {
                     setSignInRequiredDialogOpen(true);
                     return;
                   }
-                  handleFavoriteBuild(buildState, session?.user?.id);
+                  handleFavoriteBuild({
+                    buildState,
+                    userId: session?.user?.id,
+                    onFavorite: () => router.refresh(),
+                  });
                 }}
               />
             )}
@@ -231,7 +235,13 @@ export function ViewBuild({ buildState }: Props) {
             />
 
             <DuplicateBuildButton
-              onClick={() => handleDuplicateBuild(buildState)}
+              onClick={() =>
+                handleDuplicateBuild({
+                  buildState,
+                  onDuplicate: (buildId: string) =>
+                    router.push(`/builder/${buildId}`),
+                })
+              }
             />
 
             <ToCsvButton
