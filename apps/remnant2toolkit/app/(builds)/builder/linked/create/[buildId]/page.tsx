@@ -68,7 +68,6 @@ export default async function Page({
     );
   }
 
-  const userId = session.user.id;
   const { build } = buildData;
 
   if (!build.isPublic) {
@@ -94,7 +93,7 @@ export default async function Page({
         subtitle="Link multiple variations of a build together in one convenient URL."
       />
       <div className="flex w-full flex-col gap-y-8">
-        <CreateLinkedBuild initialBuild={build} userId={userId} />
+        <CreateLinkedBuild initialBuild={build} />
       </div>
     </>
   );

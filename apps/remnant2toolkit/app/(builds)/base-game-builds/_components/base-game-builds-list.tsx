@@ -1,18 +1,11 @@
 'use client';
 
 import { BaseLink, EyeIcon, Skeleton } from '@repo/ui';
-import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
 import { Tooltip } from '@/app/_components/tooltip';
-import { usePagination } from '@/app/_hooks/use-pagination';
-import { getBaseGameBuilds } from '@/app/(builds)/_actions/get-base-game-builds';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';
 import { BuildSecondaryFilters } from '@/app/(builds)/_components/filters/secondary-filters';
-import { useOrderByFilter } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
-import { useTimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
-import { parseUrlFilters } from '@/app/(builds)/_components/filters/utils';
 import { useBuildListState } from '@/app/(builds)/_hooks/use-build-list-state';
 
 interface Props {
@@ -24,61 +17,28 @@ export function BaseGameBuildsList({
   itemsPerPage = 8,
   onToggleLoadingResults,
 }: Props) {
-  const searchParams = useSearchParams();
-  const [buildListFilters, setBuildListFilters] = useState(
-    parseUrlFilters(searchParams),
-  );
-
-  const { buildListState, setBuildListState } = useBuildListState();
-  const { builds, totalBuildCount, isLoading } = buildListState;
-
-  const { orderBy, handleOrderByChange } = useOrderByFilter('newest');
-  const { timeRange, handleTimeRangeChange } = useTimeRangeFilter('all-time');
-
   const {
+    buildList,
+    buildListFilters,
     currentPage,
     firstVisibleItemNumber,
     lastVisibleItemNumber,
+    isLoading,
+    orderBy,
+    handleOrderByChange,
     pageNumbers,
+    timeRange,
+    handleTimeRangeChange,
+    totalBuildCount,
     totalPages,
     handleSpecificPageClick,
     handleNextPageClick,
     handlePreviousPageClick,
-  } = usePagination({
-    totalItemCount: totalBuildCount,
+  } = useBuildListState({
+    apiEndpoint: '/api/builds/get-base-game-builds',
     itemsPerPage,
+    onToggleLoadingResults,
   });
-
-  useEffect(() => {
-    setBuildListFilters(parseUrlFilters(searchParams));
-    setBuildListState((prevState) => ({ ...prevState, isLoading: true }));
-  }, [searchParams, setBuildListState]);
-
-  useEffect(() => {
-    onToggleLoadingResults(isLoading);
-  }, [isLoading, onToggleLoadingResults]);
-
-  // Whenever loading is set to true, we should update the build items
-  useEffect(() => {
-    const getItemsAsync = async () => {
-      if (!isLoading) return;
-      const response = await getBaseGameBuilds({
-        itemsPerPage,
-        pageNumber: currentPage,
-        timeRange,
-        orderBy,
-        buildListFilters,
-      });
-      setBuildListState((prevState) => ({
-        ...prevState,
-        isLoading: false,
-        builds: response.items,
-        totalBuildCount: response.totalItemCount,
-      }));
-    };
-    getItemsAsync();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoading]);
 
   if (!buildListFilters) {
     return <Skeleton className="min-h-[1100px] w-full" />;
@@ -103,18 +63,10 @@ export function BaseGameBuildsList({
             orderBy={orderBy}
             onOrderByChange={(value) => {
               handleOrderByChange(value);
-              setBuildListState((prevState) => ({
-                ...prevState,
-                isLoading: true,
-              }));
             }}
             timeRange={timeRange}
             onTimeRangeChange={(value) => {
               handleTimeRangeChange(value);
-              setBuildListState((prevState) => ({
-                ...prevState,
-                isLoading: true,
-              }));
             }}
           />
         }
@@ -123,7 +75,7 @@ export function BaseGameBuildsList({
           role="list"
           className="my-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         >
-          {builds.map((build) => (
+          {buildList.map((build) => (
             <div key={build.id} className="w-full">
               <BuildCard
                 build={build}

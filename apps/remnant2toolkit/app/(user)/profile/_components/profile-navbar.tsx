@@ -11,14 +11,14 @@ interface Props {
   isEditable: boolean;
   isLoadoutPublic: boolean;
   showPrivateLinks: boolean;
-  userId: string;
+  profileId: string;
 }
 
 export function ProfileNavbar({
   isEditable,
   isLoadoutPublic,
   showPrivateLinks,
-  userId,
+  profileId,
 }: Props) {
   const pathname = usePathname();
   const isClient = useIsClient();
@@ -27,58 +27,58 @@ export function ProfileNavbar({
     {
       name: 'Overview',
       href: {
-        pathname: `/profile/${userId}`,
+        pathname: `/profile/${profileId}`,
         query: { t: Date.now() },
       },
-      current: pathname === `/profile/${userId}`,
+      current: pathname === `/profile/${profileId}`,
     },
     {
       name: showPrivateLinks ? NAV_ITEMS.myBuilds.label : 'Created Builds',
       href: {
-        pathname: `/profile/${userId}/created-builds`,
+        pathname: `/profile/${profileId}/created-builds`,
         query: {
           t: Date.now(),
         },
       },
-      current: pathname === `/profile/${userId}/created-builds`,
+      current: pathname === `/profile/${profileId}/created-builds`,
     },
     {
       name: NAV_ITEMS.featuredBuilds.label,
       href: {
-        pathname: `/profile/${userId}/featured-builds`,
+        pathname: `/profile/${profileId}/featured-builds`,
         query: {
           t: Date.now(),
         },
       },
-      current: pathname === `/profile/${userId}/featured-builds`,
+      current: pathname === `/profile/${profileId}/featured-builds`,
     },
     {
       name: NAV_ITEMS.linkedBuilds.label,
       href: {
-        pathname: `/profile/${userId}/linked-builds`,
+        pathname: `/profile/${profileId}/linked-builds`,
         query: { t: Date.now() },
       },
-      current: pathname === `/profile/${userId}/linked-builds`,
+      current: pathname === `/profile/${profileId}/linked-builds`,
       private: false,
     },
     {
       name: NAV_ITEMS.favoritedBuilds.label,
       href: {
-        pathname: `/profile/${userId}/favorited-builds`,
+        pathname: `/profile/${profileId}/favorited-builds`,
         query: {
           t: Date.now(),
         },
       },
-      current: pathname === `/profile/${userId}/favorited-builds`,
+      current: pathname === `/profile/${profileId}/favorited-builds`,
       private: true,
     },
     {
       name: NAV_ITEMS.loadouts.label,
       href: {
-        pathname: `/profile/${userId}/loadouts`,
+        pathname: `/profile/${profileId}/loadouts`,
         query: { t: Date.now() },
       },
-      current: pathname === `/profile/${userId}/loadouts`,
+      current: pathname === `/profile/${profileId}/loadouts`,
       private: !isLoadoutPublic,
     },
   ];

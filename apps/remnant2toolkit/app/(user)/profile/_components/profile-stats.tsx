@@ -11,10 +11,10 @@ import { StatBox } from '@/app/(user)/profile/_components/stat-box';
 
 interface Props {
   isEditable: boolean;
-  userId: string;
+  profileId: string;
 }
 
-export async function ProfileStats({ isEditable, userId }: Props) {
+export async function ProfileStats({ isEditable, profileId }: Props) {
   // get a count of all the builds created by the current user
   const [
     buildsCreated,
@@ -25,12 +25,12 @@ export async function ProfileStats({ isEditable, userId }: Props) {
     discoveredItemIds,
   ] = await Promise.all([
     await prisma.build.count({
-      where: { createdById: userId, isPublic: true },
+      where: { createdById: profileId, isPublic: true },
     }),
     await prisma.buildVoteCounts.count({
       where: {
         build: {
-          createdById: userId,
+          createdById: profileId,
           isPublic: true,
         },
       },
@@ -38,24 +38,24 @@ export async function ProfileStats({ isEditable, userId }: Props) {
     await prisma.userLoadouts.count({
       where: {
         build: {
-          createdById: userId,
+          createdById: profileId,
           isPublic: true,
         },
       },
     }),
     await prisma.build.count({
       where: {
-        createdById: userId,
+        createdById: profileId,
         isFeaturedBuild: true,
         isPublic: true,
       },
     }),
     await prisma.userProfile.findFirst({
-      where: { userId },
+      where: { userId: profileId },
       select: { topItemQuizScore: true },
     }),
     await prisma.userItems.findMany({
-      where: { userId },
+      where: { userId: profileId },
       select: { itemId: true },
     }),
   ]);

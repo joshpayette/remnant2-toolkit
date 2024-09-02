@@ -6,7 +6,7 @@ import { ShareBuildButton } from '@/app/(user)/profile/_components/share-build-b
 
 interface Props {
   build: DBBuild;
-  onDelete: (buildId: string) => void;
+  onDelete: () => void;
 }
 
 export function CreatedBuildCardActions({ build, onDelete }: Props) {

@@ -37,20 +37,22 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Page() {
   return (
     <>
-      <PageHeader
-        title="Base Game Builds"
-        subtitle={
-          <div className="flex flex-col">
-            <BaseText>{NAV_ITEMS.baseGameBuilds.description}</BaseText>
-            <BaseTextLink href="/community-builds?releases=base&withQuality=true">
-              <span className="text-primary-500">
-                Want more? Click here to browse all community submitted base
-                game builds.
-              </span>
-            </BaseTextLink>
-          </div>
-        }
-      />
+      <div className="flex w-full items-start justify-start sm:items-center sm:justify-center">
+        <PageHeader
+          title={NAV_ITEMS.baseGameBuilds.label}
+          subtitle={
+            <div className="flex flex-col">
+              <BaseText>{NAV_ITEMS.baseGameBuilds.description}</BaseText>
+              <BaseTextLink href="/community-builds?releases=base&withQuality=true">
+                <span className="text-primary-500">
+                  Want more? Click here to browse all community submitted base
+                  game builds.
+                </span>
+              </BaseTextLink>
+            </div>
+          }
+        />
+      </div>
 
       <BaseGameBuilds />
     </>

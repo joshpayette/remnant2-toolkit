@@ -20,7 +20,7 @@ interface Props {
   bio: string;
   displayName: string;
   isEditable: boolean;
-  userId: string;
+  profileId: string;
 }
 
 export function ProfileHeader({
@@ -28,7 +28,7 @@ export function ProfileHeader({
   bio,
   displayName,
   isEditable,
-  userId,
+  profileId,
 }: Props) {
   const [isEditing, setIsEditing] = useState(false);
   const [newDisplayName, setNewDisplayName] = useState(displayName);
@@ -121,7 +121,7 @@ export function ProfileHeader({
               className="flex items-center justify-center"
               onClick={async () => {
                 const response = await saveProfile({
-                  userId,
+                  userId: profileId,
                   newDisplayName,
                   newBio,
                   newAvatarId,

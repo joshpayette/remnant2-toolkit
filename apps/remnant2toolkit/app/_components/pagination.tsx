@@ -4,6 +4,7 @@ import {
   ChevronsLeftIcon,
   ChevronsRightIcon,
   cn,
+  Skeleton,
 } from '@repo/ui';
 
 interface Props {
@@ -69,25 +70,31 @@ export function Pagination({
       </div>
       {/** Desktop */}
       <div className="hidden h-[36px] sm:flex sm:flex-1 sm:items-center sm:justify-between">
-        <div>
-          <p className="text-sm text-gray-200">
-            Showing{' '}
-            <span id="start_page_count" className="font-medium">
-              {firstVisibleItemNumber}
-            </span>{' '}
-            to{' '}
-            <span id="end_page_count" className="font-medium">
-              {lastVisibleItemNumber}
-            </span>{' '}
-            of{' '}
-            <span className="font-medium">
-              {totalItems > 1000 ? '1000+' : totalItems}
-            </span>{' '}
-            results
-          </p>
-        </div>
+        {isLoading ? (
+          <Skeleton className="h-full w-[250px]" />
+        ) : (
+          <div>
+            <p className="text-sm text-gray-200">
+              Showing{' '}
+              <span id="start_page_count" className="font-medium">
+                {firstVisibleItemNumber}
+              </span>{' '}
+              to{' '}
+              <span id="end_page_count" className="font-medium">
+                {lastVisibleItemNumber}
+              </span>{' '}
+              of{' '}
+              <span className="font-medium">
+                {totalItems > 1000 ? '1000+' : totalItems}
+              </span>{' '}
+              results
+            </p>
+          </div>
+        )}
 
-        {isLoading ? null : (
+        {isLoading ? (
+          <Skeleton className="h-full w-[250px]" />
+        ) : (
           <div>
             <nav
               className="isolate inline-flex -space-x-px rounded-md shadow-sm"

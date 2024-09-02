@@ -8,20 +8,16 @@ import {
   BaseTextarea,
 } from '@repo/ui';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { FaUnlink } from 'react-icons/fa';
 import { FaLink } from 'react-icons/fa6';
 import { toast } from 'react-toastify';
 
 import { Tooltip } from '@/app/_components/tooltip';
-import { usePagination } from '@/app/_hooks/use-pagination';
-import { getCreatedBuilds } from '@/app/(builds)/_actions/get-created-builds';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';
 import { OrderByFilter } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter';
-import { useOrderByFilter } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
 import { TimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter';
-import { useTimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
 import { useBuildListState } from '@/app/(builds)/_hooks/use-build-list-state';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { createLinkedBuild } from '@/app/(builds)/builder/linked/_actions/create-linked-build';
@@ -34,60 +30,47 @@ const ITEMS_PER_PAGE = 16;
 
 interface Props {
   initialBuild: DBBuild;
-  userId: string;
 }
 
-export function CreateLinkedBuild({ initialBuild, userId }: Props) {
+export function CreateLinkedBuild({ initialBuild }: Props) {
   const router = useRouter();
 
   const [name, setName] = useState('My Linked Build');
   const [description, setDescription] = useState<string>('');
 
+  const [saveInProgress, setSaveInProgress] = useState(false);
+
   const [linkedBuildItems, setLinkedBuildItems] = useState<LinkedBuildItem[]>([
     { label: 'Variation #1', build: initialBuild },
   ]);
 
-  const { buildListState, setBuildListState } = useBuildListState();
-  const { builds, totalBuildCount, isLoading } = buildListState;
+  const [isLoading, setIsLoading] = useState(false);
 
-  const [saveInProgress, setSaveInProgress] = useState(false);
-
-  const { orderBy, handleOrderByChange } = useOrderByFilter('newest');
-  const { timeRange, handleTimeRangeChange } = useTimeRangeFilter('all-time');
+  const handleToggleLoadingResults = useCallback(
+    (isLoading: boolean) => setIsLoading(isLoading),
+    [],
+  );
 
   const {
+    buildList,
     currentPage,
     firstVisibleItemNumber,
     lastVisibleItemNumber,
+    orderBy,
+    handleOrderByChange,
     pageNumbers,
+    timeRange,
+    handleTimeRangeChange,
+    totalBuildCount,
     totalPages,
-    handleSpecificPageClick,
-    handleNextPageClick,
     handlePreviousPageClick,
-  } = usePagination({
-    totalItemCount: totalBuildCount,
+    handleNextPageClick,
+    handleSpecificPageClick,
+  } = useBuildListState({
+    apiEndpoint: '/api/builds/get-user-created-builds',
     itemsPerPage: ITEMS_PER_PAGE,
+    onToggleLoadingResults: handleToggleLoadingResults,
   });
-
-  useEffect(() => {
-    const getItemsAsync = async () => {
-      setBuildListState((prevState) => ({ ...prevState, isLoading: true }));
-      const response = await getCreatedBuilds({
-        itemsPerPage: ITEMS_PER_PAGE,
-        orderBy,
-        pageNumber: currentPage,
-        timeRange,
-        userId,
-      });
-      setBuildListState((prevState) => ({
-        ...prevState,
-        isLoading: false,
-        builds: response.items,
-        totalBuildCount: response.totalItemCount,
-      }));
-    };
-    getItemsAsync();
-  }, [currentPage, orderBy, setBuildListState, timeRange, userId]);
 
   function handleAddLinkedBuildItem(buildToAdd: DBBuild) {
     // If the build is already linked, don't add it again
@@ -260,10 +243,6 @@ export function CreateLinkedBuild({ initialBuild, userId }: Props) {
                 value={timeRange}
                 onChange={(value) => {
                   handleTimeRangeChange(value);
-                  setBuildListState((prevState) => ({
-                    ...prevState,
-                    isLoading: true,
-                  }));
                 }}
               />
             </div>
@@ -273,10 +252,6 @@ export function CreateLinkedBuild({ initialBuild, userId }: Props) {
                 value={orderBy}
                 onChange={(value) => {
                   handleOrderByChange(value);
-                  setBuildListState((prevState) => ({
-                    ...prevState,
-                    isLoading: true,
-                  }));
                 }}
               />
             </div>
@@ -287,7 +262,7 @@ export function CreateLinkedBuild({ initialBuild, userId }: Props) {
           role="list"
           className="mb-4 mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {builds.map((build) => (
+          {buildList.map((build) => (
             <div key={build.id} className="w-full">
               <BuildCard
                 build={build}
