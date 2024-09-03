@@ -1,19 +1,19 @@
-import { RingItem } from '@/app/(data)/items/types/RingItem'
+import { type RingItem } from '@/app/(items)/_types/ring-item';
 
 export function ringDataCompare(
   newData: {
-    description: string
+    description: string;
   },
   currentItem: RingItem,
 ): {
-  descriptionMatches: boolean
-  dataDiffers: boolean
+  descriptionMatches: boolean;
+  dataDiffers: boolean;
 } {
-  const descriptionMatches = newData.description === currentItem.description
-  const dataDiffers = !descriptionMatches
+  const descriptionMatches = newData.description === currentItem.description;
+  const dataDiffers = !descriptionMatches;
 
   return {
     descriptionMatches,
     dataDiffers,
-  }
+  };
 }

@@ -1,9 +1,11 @@
 {
-  "extends": "@repo/typescript-config/base.json",
+  "extends": "@repo/typescript-config/react-library.json",
   "compilerOptions": {
-    "outDir": "dist",
-    "rootDir": "src"
+    "module": "esnext",
+    "moduleResolution": "Bundler",
+    "lib": ["dom", "ES2015"],
+    "types": ["jest", "node"]
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["."],
+  "exclude": ["dist", "build", "node_modules"]
 }

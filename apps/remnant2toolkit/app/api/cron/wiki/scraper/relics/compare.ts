@@ -1,19 +1,19 @@
-import { RelicItem } from '@/app/(data)/items/types/RelicItem'
+import { type RelicItem } from '@/app/(items)/_types/relic-item';
 
 export function relicDataCompare(
   newData: {
-    description: string
+    description: string;
   },
   currentItem: RelicItem,
 ): {
-  descriptionMatches: boolean
-  dataDiffers: boolean
+  descriptionMatches: boolean;
+  dataDiffers: boolean;
 } {
-  const descriptionMatches = newData.description === currentItem.description
-  const dataDiffers = !descriptionMatches
+  const descriptionMatches = newData.description === currentItem.description;
+  const dataDiffers = !descriptionMatches;
 
   return {
     descriptionMatches,
     dataDiffers,
-  }
+  };
 }

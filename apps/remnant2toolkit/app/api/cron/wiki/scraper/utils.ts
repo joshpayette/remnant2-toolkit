@@ -1,4 +1,4 @@
-import type { CheerioAPI } from 'cheerio'
+import { type CheerioAPI } from 'cheerio';
 
 /**
  * The wiki has tooltips for key words like BULWARK and HASTE.
@@ -7,10 +7,10 @@ import type { CheerioAPI } from 'cheerio'
  */
 export function removeTooltips($: CheerioAPI, containerClass = '.infobox') {
   // Bulwark, Haste, etc. tooltips messes up the description
-  const $tooltips = $(containerClass).find('.rw-tooltip')
+  const $tooltips = $(containerClass).find('.rw-tooltip');
   for (const $tooltip of $tooltips.toArray()) {
-    const $tooltipText = $($tooltip).find('.rw-tooltip__hoverable').text()
+    const $tooltipText = $($tooltip).find('.rw-tooltip__hoverable').text();
     // Remove and replace the tooltip with the text
-    $($tooltip).replaceWith($tooltipText)
+    $($tooltip).replaceWith($tooltipText);
   }
 }

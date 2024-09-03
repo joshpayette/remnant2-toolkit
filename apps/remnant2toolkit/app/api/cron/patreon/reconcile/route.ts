@@ -6,11 +6,11 @@
  * It also adds a build vote for each user in PaidUsers from the toolkit account
  */
 
-import { prisma } from '@repo/db'
-import type { NextRequest } from 'next/server'
-import { patreon as patreonAPI } from 'patreon'
+import { prisma } from '@repo/db';
+import { type NextRequest } from 'next/server';
+import { patreon as patreonAPI } from 'patreon';
 
-const toolkitUserId = 'clql3zq8k0000a6m41vtnvldq'
+const toolkitUserId = 'clql3zq8k0000a6m41vtnvldq';
 
 /**
  * Gives specific users the benefits of a paid user
@@ -21,57 +21,57 @@ const allowListUserIds: string[] = [
   'clrle2v5s0000ydtr0a15wt61', // alexij
   'clqsdi836000aqhqitf2m49mi', // thatguylegit69
   'clvki57920000132727ovfegx', // synder
-]
+];
 
 /**
  * CRON script that runs to moderate reported users and builds
  */
 export async function GET(request: NextRequest) {
-  const authHeader = request.headers.get('authorization')
+  const authHeader = request.headers.get('authorization');
   if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
     return new Response('Unauthorized', {
       status: 401,
-    })
+    });
   }
 
   try {
     const patreonAPIClient = patreonAPI(
       process.env.PATREON_CREATOR_ACCESS_TOKEN,
-    )
+    );
 
     const campaign = await patreonAPIClient('/current_user/campaigns').then(
       ({ store }: { store: any }) => {
         const campaigns = store
           .findAll('campaign')
-          .map((campaign: any) => campaign.serialize())
+          .map((campaign: any) => campaign.serialize());
 
-        return campaigns[0]
+        return campaigns[0];
       },
-    )
-    const campaignId = campaign.data.id
+    );
+    const campaignId = campaign.data.id;
 
     const pledgeEmails = await patreonAPIClient(
       `/campaigns/${campaignId}/pledges`,
     ).then(({ store }: { store: any }) =>
       store.findAll('pledge').map((pledge: any) => pledge.patron.email),
-    )
+    );
 
-    console.info(`Pledge emails: ${pledgeEmails}`)
+    console.info(`Pledge emails: ${pledgeEmails}`);
 
     // Need to remove all users from the db table PaidUsers whose User.email is not in pledgeEmails
     const paidUsers = await prisma.paidUsers.findMany({
       include: {
         user: true, // Include the related User record
       },
-    })
+    });
     for (const paidUser of paidUsers) {
       if (!pledgeEmails.includes(paidUser.user.email)) {
-        console.info(`Removing ${paidUser.user.email} from PaidUsers`)
+        console.info(`Removing ${paidUser.user.email} from PaidUsers`);
         await prisma.paidUsers.delete({
           where: {
             id: paidUser.id,
           },
-        })
+        });
       }
     }
 
@@ -82,22 +82,22 @@ export async function GET(request: NextRequest) {
           in: pledgeEmails,
         },
       },
-    })
+    });
     for (const user of users) {
       const paidUser = await prisma.paidUsers.findFirst({
         where: {
           userId: user.id,
         },
-      })
+      });
       // if user is already in PaidUsers, skip
-      if (paidUser) continue
+      if (paidUser) continue;
       // if user is not in PaidUsers, add
-      console.info(`Adding ${user.email} to PaidUsers`)
+      console.info(`Adding ${user.email} to PaidUsers`);
       await prisma.paidUsers.create({
         data: {
           userId: user.id,
         },
-      })
+      });
     }
 
     // Add the allowed users to the PaidUsers table
@@ -106,21 +106,21 @@ export async function GET(request: NextRequest) {
         where: {
           id: userId,
         },
-      })
-      if (!user) continue
+      });
+      if (!user) continue;
       const paidUser = await prisma.paidUsers.findFirst({
         where: {
           userId: user.id,
         },
-      })
+      });
       // if user is already in PaidUsers, skip
-      if (paidUser) continue
+      if (paidUser) continue;
       // if user is not in PaidUsers, add
       await prisma.paidUsers.create({
         data: {
           userId: user.id,
         },
-      })
+      });
     }
 
     // Add a build vote for each user in PaidUsers from the toolkit account
@@ -128,36 +128,36 @@ export async function GET(request: NextRequest) {
       where: {
         id: toolkitUserId,
       },
-    })
+    });
     if (!toolkitUser) {
-      throw new Error('Toolkit user not found')
+      throw new Error('Toolkit user not found');
     }
 
     // Find every build for each PaidUser,
     // then add a row to BuildVoteCounts for each build for
     // the toolkitUserId
-    const paidUsersWithUser = await prisma.paidUsers.findMany()
+    const paidUsersWithUser = await prisma.paidUsers.findMany();
     for (const paidUser of paidUsersWithUser) {
       const builds = await prisma.build.findMany({
         where: {
           createdById: paidUser.userId,
           isPublic: true,
         },
-      })
+      });
       for (const build of builds) {
         const buildVoteCount = await prisma.buildVoteCounts.findFirst({
           where: {
             buildId: build.id,
             userId: toolkitUserId,
           },
-        })
-        if (buildVoteCount) continue
+        });
+        if (buildVoteCount) continue;
         await prisma.buildVoteCounts.create({
           data: {
             buildId: build.id,
             userId: toolkitUserId,
           },
-        })
+        });
       }
     }
 
@@ -177,7 +177,7 @@ export async function GET(request: NextRequest) {
           ],
         },
       ],
-    }
+    };
 
     const res = await fetch(`${process.env.WEBHOOK_CRON_LOGS}`, {
       method: 'POST',
@@ -185,17 +185,17 @@ export async function GET(request: NextRequest) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(params),
-    })
+    });
 
     if (!res.ok) {
-      console.error('Error in sending build webhook to Discord!')
+      console.error('Error in sending build webhook to Discord!');
     }
 
-    console.info('Patreon membership script succeeded')
+    console.info('Patreon membership script succeeded');
 
-    return Response.json({ success: true })
+    return Response.json({ success: true });
   } catch (e) {
-    console.error(e)
+    console.error(e);
 
     const params = {
       embeds: [
@@ -212,7 +212,7 @@ export async function GET(request: NextRequest) {
           ],
         },
       ],
-    }
+    };
 
     const _res = await fetch(`${process.env.WEBHOOK_CRON_LOGS}`, {
       method: 'POST',
@@ -220,8 +220,8 @@ export async function GET(request: NextRequest) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(params),
-    })
+    });
 
-    return Response.json({ success: false })
+    return Response.json({ success: false });
   }
 }

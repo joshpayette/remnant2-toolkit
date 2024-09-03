@@ -1,9 +1,11 @@
-import { Metadata } from 'next'
+import { type Metadata } from 'next';
+
+import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Amplitude vs Resonance Guide - Remnant2Toolkit'
+  const title = `Amplitude vs Resonance Guide - ${SITE_TITLE}`;
   const description =
-    'A guide on what items and abilities are affected by Amplitude and Resonance'
+    'A guide on what items and abilities are affected by Amplitude and Resonance';
 
   return {
     title,
@@ -11,11 +13,11 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      siteName: 'Remnant 2 Toolkit',
+      siteName: SITE_TITLE,
       url: `https://remnant2toolkit.com/guides/amplitude`,
       images: [
         {
-          url: 'https://d2sqltdcj8czo5.cloudfront.net/remnant2/misc/og-image-sm.jpg',
+          url: OG_IMAGE_URL,
           width: 150,
           height: 150,
         },
@@ -26,17 +28,17 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
     },
-  }
+  };
 }
 
 export default async function Layout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <div className="flex w-full max-w-2xl flex-col items-start justify-start text-left">
       {children}
     </div>
-  )
+  );
 }

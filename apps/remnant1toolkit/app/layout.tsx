@@ -1,25 +1,23 @@
-import './globals.css'
+import './globals.css';
 
-import { GlobalActionButtons } from '@repo/ui/global-action-buttons'
-import { RootLayout } from '@repo/ui/pages/root-layout'
-import { Viewport } from 'next'
-import dynamic from 'next/dynamic'
+import { GlobalActionButtons, RootLayout } from '@repo/ui';
+import { Viewport } from 'next';
 
-import { getSession } from '@/app/(features)/auth/services/sessionService'
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
-export const viewport: Viewport = {}
-export { metadata } from './metadata'
+export const viewport: Viewport = {};
+export { metadata } from './metadata';
 
-const AlertBanner = dynamic(() => import('@repo/ui/alert-banner'), {
-  ssr: false,
-})
+// const AlertBanner = dynamic(() => import('@repo/ui/alert-banner'), {
+//   ssr: false,
+// });
 
 export default async function Layout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  const session = await getSession()
+  const session = await getSession();
 
   return (
     <RootLayout
@@ -37,5 +35,5 @@ export default async function Layout({
       <GlobalActionButtons username={session?.user?.name || 'Unknown User'} />
       {children}
     </RootLayout>
-  )
+  );
 }

@@ -1,14 +1,13 @@
 import './globals.css';
 
-import { GlobalActionButtons } from '@repo/ui/global-action-buttons';
-import { RootLayout } from '@repo/ui/pages/root-layout';
+import { GlobalActionButtons, RootLayout } from '@repo/ui';
 import { Analytics } from '@vercel/analytics/react';
-import { Viewport } from 'next';
+import { type Viewport } from 'next';
 import dynamic from 'next/dynamic';
 
-import { Footer } from '@/app/(components)/footer';
-import { getSession } from '@/app/(features)/auth/services/sessionService';
-import { showNotificationsFlag } from '@/app/(features)/notifications/feature-flag';
+import { Footer } from '@/app/_components/footer';
+import { showNotificationsFlag } from '@/app/_constants/feature-flag';
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { Navbar } from '@/app/navbar';
 
 export const viewport: Viewport = {};

@@ -1,8 +1,10 @@
 export function getImageUrl(imagePath: string): string {
+  let newImagePath = imagePath;
+
   // if the first character is a /, remove it
-  if (imagePath.charAt(0) === '/') {
-    imagePath = imagePath.slice(1)
+  if (imagePath.startsWith('/')) {
+    newImagePath = imagePath.slice(1);
   }
 
-  return `https://${process.env.NEXT_PUBLIC_IMAGE_URL}/${imagePath}`
+  return `https://${process.env.NEXT_PUBLIC_IMAGE_URL}/${newImagePath}`;
 }

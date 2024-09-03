@@ -1,6 +1,6 @@
-import { LandingPageCard } from '@/app/(components)/cards/landing-page-card'
-import { LandingPageContainer } from '@/app/(components)/landing-page-container'
-import { NAV_ITEMS } from '@/app/(types)/navigation'
+import { LandingPageCard } from '@/app/_components/landing-page-card';
+import { LandingPageContainer } from '@/app/_components/landing-page-container';
+import { NAV_ITEMS } from '@/app/_types/navigation';
 
 export default async function Page() {
   return (
@@ -86,5 +86,5 @@ export default async function Page() {
         />
       </div>
     </LandingPageContainer>
-  )
+  );
 }

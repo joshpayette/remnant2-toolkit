@@ -1,17 +1,15 @@
-import { BaseLink } from '@repo/ui/base/link';
-import { LeaderBoard } from '@repo/ui/leader-board/components';
-import { getImageUrl } from '@repo/ui/utils/get-image-url';
+import { BaseLink, getImageUrl, LeaderBoard } from '@repo/ui';
 import Image from 'next/image';
 
-import { LandingPageCard } from '@/app/(components)/cards/landing-page-card';
-import { LandingPageContainer } from '@/app/(components)/landing-page-container';
-import { getSession } from '@/app/(features)/auth/services/sessionService';
-import { getQualityBuildFeed } from '@/app/(features)/builds/actions/get-quality-build-feed';
-import { getTotalBuildCount } from '@/app/(features)/builds/actions/get-total-build-count';
-import { getLeaderBoard as getItemQuizLeaderBoard } from '@/app/(features)/item-quiz/actions/get-leader-board';
-import { NAV_ITEMS } from '@/app/(types)/navigation';
-import { getFavoritesLeaderboard } from '@/app/get-favorites-leaderboard';
-import { QualityBuildsFeed } from '@/app/quality-builds-feed';
+import { getFavoritesLeaderboard } from '@/app/_components/get-favorites-leaderboard';
+import { LandingPageCard } from '@/app/_components/landing-page-card';
+import { LandingPageContainer } from '@/app/_components/landing-page-container';
+import { NAV_ITEMS } from '@/app/_types/navigation';
+import { getQualityBuildFeed } from '@/app/(builds)/_actions/get-quality-build-feed';
+import { getTotalBuildCount } from '@/app/(builds)/_actions/get-total-build-count';
+import { QualityBuildsFeed } from '@/app/(builds)/_components/quality-builds-feed';
+import { getLeaderBoard as getItemQuizLeaderBoard } from '@/app/(items)/item-quiz/_actions/get-leader-board';
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export default async function Page() {
   const session = await getSession();
@@ -30,7 +28,7 @@ export default async function Page() {
             <>
               <p className="mt-6 text-lg leading-8 text-gray-300">
                 <BaseLink
-                  href="/community-builds"
+                  href={NAV_ITEMS.communityBuilds.href}
                   className="hover:text-primary-500 underline"
                 >
                   Search the community&apos;s{' '}
@@ -48,7 +46,7 @@ export default async function Page() {
                 </BaseLink>
                 ,{' '}
                 <BaseLink
-                  href="/tracker"
+                  href={NAV_ITEMS.itemTracker.href}
                   className="hover:text-primary-500 underline"
                 >
                   track your collectibles
