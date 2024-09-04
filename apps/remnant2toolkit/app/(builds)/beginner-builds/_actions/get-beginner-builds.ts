@@ -1,6 +1,7 @@
+'use server';
+
 import { Prisma, prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
-import { type NextRequest } from 'next/server';
 
 import {
   communityBuildsCountQuery,
@@ -42,13 +43,15 @@ import { type BuildListRequest } from '@/app/(builds)/_types/build-list-request'
 import { type BuildListResponse } from '@/app/(builds)/_types/build-list-response';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
-export async function POST(request: NextRequest) {
+export async function getBeginnerBuilds({
+  buildListFilters,
+  itemsPerPage,
+  orderBy,
+  pageNumber,
+  timeRange,
+}: BuildListRequest): Promise<BuildListResponse> {
   const session = await getSession();
   const userId = session?.user?.id;
-
-  const res = await request.json();
-  const { buildListFilters, itemsPerPage, orderBy, pageNumber, timeRange } =
-    res as BuildListRequest;
 
   const {
     amulet,
@@ -57,10 +60,10 @@ export async function POST(request: NextRequest) {
     handGun,
     longGun,
     melee,
-    relic,
     rings,
     searchText,
     releases,
+    relic,
     patchAffected,
     withCollection,
     withVideo,
@@ -68,13 +71,7 @@ export async function POST(request: NextRequest) {
     withQuality,
   } = buildListFilters;
 
-  if (releases.length === 0) {
-    const response = {
-      builds: [],
-      totalBuildCount: 0,
-    } as const satisfies BuildListResponse;
-    return Response.json(response);
-  }
+  if (releases.length === 0) return { builds: [], totalBuildCount: 0 };
 
   const archetypeIds = archetypeFiltersToIds({ archetypes });
   const weaponIds = weaponFiltersToIds({ longGun, handGun, melee });
@@ -85,7 +82,7 @@ export async function POST(request: NextRequest) {
 
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
-  AND Build.isFeaturedBuild = true
+  AND Build.isBeginnerBuild = true
   ${limitByAmuletSegment(amuletId)}
   ${limitByArchetypesSegment(archetypeIds)}
   ${limitByBuildTagsSegment(tagValues)}
@@ -105,60 +102,39 @@ export async function POST(request: NextRequest) {
 
   const trimmedSearchText = searchText.trim();
 
-  try {
-    const [builds, totalBuildCountResponse] = await Promise.all([
-      communityBuildsQuery({
-        userId,
-        itemsPerPage,
-        pageNumber,
-        orderBySegment,
-        whereConditions,
-        searchText: trimmedSearchText,
+  const [builds, totalBuildCountResponse] = await Promise.all([
+    communityBuildsQuery({
+      userId,
+      itemsPerPage,
+      pageNumber,
+      orderBySegment,
+      whereConditions,
+      searchText: trimmedSearchText,
+    }),
+    communityBuildsCountQuery({
+      whereConditions,
+      searchText: trimmedSearchText,
+    }),
+  ]);
+
+  if (!builds) return { builds: [], totalBuildCount: 0 };
+
+  const totalBuildCount = totalBuildCountResponse[0]?.totalBuildCount ?? 0;
+
+  // Find all build items for each build
+  for (const build of builds) {
+    const [buildItems, buildTags] = await Promise.all([
+      prisma.buildItems.findMany({
+        where: { buildId: build.id },
       }),
-      communityBuildsCountQuery({
-        whereConditions,
-        searchText: trimmedSearchText,
+      prisma.buildTags.findMany({
+        where: { buildId: build.id },
       }),
     ]);
 
-    if (!builds) {
-      const response = {
-        builds: [],
-        totalBuildCount: 0,
-      } as const satisfies BuildListResponse;
-      return Response.json(response);
-    }
-
-    const totalBuildCount = totalBuildCountResponse[0]?.totalBuildCount ?? 0;
-
-    // Find all build items for each build
-    for (const build of builds) {
-      const buildItems = await prisma.buildItems.findMany({
-        where: { buildId: build.id },
-      });
-      build.buildItems = buildItems;
-    }
-
-    // Then, for each Build, get the associated BuildTags
-    for (const build of builds) {
-      const buildTags = await prisma.buildTags.findMany({
-        where: { buildId: build.id },
-      });
-      build.buildTags = buildTags;
-    }
-
-    const response = {
-      builds,
-      totalBuildCount,
-    } as const satisfies BuildListResponse;
-
-    return Response.json(bigIntFix(response));
-  } catch (e) {
-    console.error(e);
-    const response = {
-      builds: [],
-      totalBuildCount: 0,
-    } as const satisfies BuildListResponse;
-    return Response.json(response);
+    build.buildItems = buildItems;
+    build.buildTags = buildTags;
   }
+
+  return bigIntFix({ builds, totalBuildCount });
 }

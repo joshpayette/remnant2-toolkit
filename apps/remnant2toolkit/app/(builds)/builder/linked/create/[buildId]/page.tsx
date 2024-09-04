@@ -5,7 +5,7 @@ import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { NAV_ITEMS } from '@/app/_types/navigation';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
-import { CreateLinkedBuild } from '@/app/(builds)/builder/linked/create/[buildId]/created-linked-build';
+import { CreateLinkedBuild } from '@/app/(builds)/builder/linked/create/[buildId]/create-linked-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -68,6 +68,8 @@ export default async function Page({
     );
   }
 
+  const userId = session.user.id;
+
   const { build } = buildData;
 
   if (!build.isPublic) {
@@ -93,7 +95,7 @@ export default async function Page({
         subtitle="Link multiple variations of a build together in one convenient URL."
       />
       <div className="flex w-full flex-col gap-y-8">
-        <CreateLinkedBuild initialBuild={build} />
+        <CreateLinkedBuild initialBuild={build} userId={userId} />
       </div>
     </>
   );

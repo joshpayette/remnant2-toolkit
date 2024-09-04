@@ -1,6 +1,7 @@
+'use server';
+
 import { Prisma, prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
-import { type NextRequest } from 'next/server';
 
 import {
   communityBuildsCountQuery,
@@ -39,17 +40,19 @@ import {
   limitByWeaponsSegment,
   weaponFiltersToIds,
 } from '@/app/(builds)/_libs/build-filters/limit-by-weapons';
-import { type ProfileBuildListRequest } from '@/app/(builds)/_types/build-list-request';
+import { type BuildListRequest } from '@/app/(builds)/_types/build-list-request';
 import { type BuildListResponse } from '@/app/(builds)/_types/build-list-response';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
-export async function POST(request: NextRequest) {
+export async function getFavoritedBuilds({
+  buildListFilters,
+  itemsPerPage,
+  orderBy,
+  pageNumber,
+  timeRange,
+}: BuildListRequest): Promise<BuildListResponse> {
   const session = await getSession();
   const userId = session?.user?.id;
-
-  const res = await request.json();
-  const { buildListFilters, itemsPerPage, orderBy, pageNumber, timeRange } =
-    res as ProfileBuildListRequest;
 
   const {
     amulet,
@@ -64,18 +67,12 @@ export async function POST(request: NextRequest) {
     releases,
     patchAffected,
     withCollection,
+    withQuality,
     withVideo,
     withReference,
-    withQuality,
   } = buildListFilters;
 
-  if (releases.length === 0) {
-    const response = {
-      builds: [],
-      totalBuildCount: 0,
-    } as const satisfies BuildListResponse;
-    return Response.json(response);
-  }
+  if (releases.length === 0) return { builds: [], totalBuildCount: 0 };
 
   const archetypeIds = archetypeFiltersToIds({ archetypes });
   const weaponIds = weaponFiltersToIds({
@@ -89,74 +86,63 @@ export async function POST(request: NextRequest) {
   const ringIds = ringsFilterToIds({ rings });
 
   const whereConditions = Prisma.sql`
-    WHERE Build.isPublic = true
-    AND Build.createdById != ${userId}
-    ${limitByAmuletSegment(amuletId)}
-    ${limitByArchetypesSegment(archetypeIds)}
-    ${limitByBuildTagsSegment(tagValues)}
-    ${limitByReleasesSegment(releases)}
-    ${limitByRelicSegment(relicId)}
-    ${limitByRingsSegment(ringIds)}
-    ${limitByTimeConditionSegment(timeRange)}
-    ${limitByWeaponsSegment(weaponIds)}
-    ${limitByReferenceLink(withReference)}
-    ${limitToBuildsWithVideo(withVideo)}
-    ${limitByPatchAffected(patchAffected)}
-    ${limitByFavorited(userId)}
-    ${limitToQualityBuilds(withQuality)}
-    ${limitByCollectionSegment(withCollection, userId)}
-  `;
+  WHERE Build.isPublic = true
+  AND Build.createdById != ${userId}
+  ${limitByAmuletSegment(amuletId)}
+  ${limitByArchetypesSegment(archetypeIds)}
+  ${limitByBuildTagsSegment(tagValues)}
+  ${limitByReleasesSegment(releases)}
+  ${limitByRelicSegment(relicId)}
+  ${limitByRingsSegment(ringIds)}
+  ${limitByTimeConditionSegment(timeRange)}
+  ${limitByWeaponsSegment(weaponIds)}
+  ${limitByReferenceLink(withReference)}
+  ${limitToBuildsWithVideo(withVideo)}
+  ${limitByPatchAffected(patchAffected)}
+  ${limitByFavorited(userId)}
+  ${limitToQualityBuilds(withQuality)}
+  ${limitByCollectionSegment(withCollection, userId)}
+`;
 
   const orderBySegment = getOrderBySegment(orderBy);
 
   const trimmedSearchText = searchText.trim();
 
-  try {
-    const [builds, totalBuildsCountResponse] = await Promise.all([
-      communityBuildsQuery({
-        userId,
-        itemsPerPage,
-        pageNumber,
-        orderBySegment,
-        whereConditions,
-        searchText: trimmedSearchText,
+  // First, get the Builds
+  const [builds, totalBuildsCountResponse] = await Promise.all([
+    communityBuildsQuery({
+      userId,
+      itemsPerPage,
+      pageNumber,
+      orderBySegment,
+      whereConditions,
+      searchText: trimmedSearchText,
+    }),
+    communityBuildsCountQuery({
+      whereConditions,
+      searchText: trimmedSearchText,
+    }),
+  ]);
+
+  // Then, for each Build, get the associated BuildItems
+  for (const build of builds) {
+    const [buildItems, buildTags] = await Promise.all([
+      prisma.buildItems.findMany({
+        where: { buildId: build.id },
       }),
-      communityBuildsCountQuery({
-        whereConditions,
-        searchText: trimmedSearchText,
+      prisma.buildTags.findMany({
+        where: { buildId: build.id },
       }),
     ]);
 
-    // Then, for each Build, get the associated BuildItems
-    for (const build of builds) {
-      const buildItems = await prisma.buildItems.findMany({
-        where: { buildId: build.id },
-      });
-      build.buildItems = buildItems;
-    }
-
-    // Then, for each Build, get the associated BuildTags
-    for (const build of builds) {
-      const buildTags = await prisma.buildTags.findMany({
-        where: { buildId: build.id },
-      });
-      build.buildTags = buildTags;
-    }
-
-    const totalBuildCount = totalBuildsCountResponse[0]?.totalBuildCount ?? 0;
-
-    const response = {
-      builds,
-      totalBuildCount,
-    } as const satisfies BuildListResponse;
-
-    return Response.json(bigIntFix(response));
-  } catch (e) {
-    console.error(e);
-    const response = {
-      builds: [],
-      totalBuildCount: 0,
-    } as const satisfies BuildListResponse;
-    return Response.json(response);
+    build.buildItems = buildItems;
+    build.buildTags = buildTags;
   }
+
+  const totalBuildCount = totalBuildsCountResponse[0]?.totalBuildCount ?? 0;
+
+  return bigIntFix({
+    builds,
+    totalBuildCount,
+  });
 }

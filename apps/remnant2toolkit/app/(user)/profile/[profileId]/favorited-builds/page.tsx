@@ -14,5 +14,5 @@ export default async function Page({
     );
   }
 
-  return <FavoritedBuilds profileId={profileId} />;
+  return <FavoritedBuilds />;
 }

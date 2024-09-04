@@ -10,11 +10,7 @@ const buildFilters: Partial<BuildListFilters> = {
   patchAffected: true,
 };
 
-interface Props {
-  profileId: string;
-}
-
-export function FavoritedBuilds({ profileId }: Props) {
+export function FavoritedBuilds() {
   const [loadingResults, setLoadingResults] = useState(false);
 
   const handleToggleLoadingResults = useCallback(
@@ -34,7 +30,6 @@ export function FavoritedBuilds({ profileId }: Props) {
       <div className="mb-4 grid w-full grid-cols-1 gap-2">
         <FavoritedBuildsList
           buildFiltersOverrides={buildFilters}
-          profileId={profileId}
           onToggleLoadingResults={handleToggleLoadingResults}
         />
       </div>

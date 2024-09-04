@@ -20,7 +20,7 @@ async function getCreatedBuilds(profileId: string) {
 
   const orderBySegment = Prisma.sql`ORDER BY totalUpvotes DESC`;
 
-  const [topBuildsAllTime, topBuildsCurrent] = await prisma.$transaction([
+  const [topBuildsAllTime, topBuildsCurrent] = await Promise.all([
     communityBuildsQuery({
       userId: profileId,
       itemsPerPage: itemsToFetch,
