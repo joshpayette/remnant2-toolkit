@@ -1,24 +1,29 @@
 'use client';
 
-import { Skeleton } from '@repo/ui';
-import { useRouter } from 'next/navigation';
-import { useMemo } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useMemo, useState } from 'react';
 
+import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';
 import { CreateBuildCard } from '@/app/(builds)/_components/create-build-card';
 import { DEFAULT_BUILD_FILTERS } from '@/app/(builds)/_components/filters/build-filters';
 import { BuildVisibilityFilter } from '@/app/(builds)/_components/filters/secondary-filters/build-visibility-filter';
+import { useBuildVisibilityFilter } from '@/app/(builds)/_components/filters/secondary-filters/build-visibility-filter/use-build-visibility-filter';
 import { OrderByFilter } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter';
+import { useOrderByFilter } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
 import { TimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter';
+import { useTimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
 import { type BuildListFilters } from '@/app/(builds)/_components/filters/types';
+import { parseUrlFilters } from '@/app/(builds)/_components/filters/utils';
 import { useBuildListState } from '@/app/(builds)/_hooks/use-build-list-state';
 import { CreatedBuildCardActions } from '@/app/(user)/profile/_components/created-build-card-actions';
+import { getUserCreatedBuilds } from '@/app/(user)/profile/[profileId]/created-builds/_actions/get-user-created-builds';
 
 interface Props {
-  buildFiltersOverrides?: Partial<BuildListFilters>;
   isEditable: boolean;
   profileId: string;
+  buildFiltersOverrides?: Partial<BuildListFilters>;
   onToggleLoadingResults: (isLoading: boolean) => void;
 }
 
@@ -28,50 +33,74 @@ export function CreatedBuildsList({
   profileId,
   onToggleLoadingResults,
 }: Props) {
-  const router = useRouter();
-
-  const itemsPerPage = isEditable ? 15 : 16;
-
   const defaultFilters = useMemo(() => {
     return buildFiltersOverrides
       ? { ...DEFAULT_BUILD_FILTERS, ...buildFiltersOverrides }
       : DEFAULT_BUILD_FILTERS;
   }, [buildFiltersOverrides]);
 
+  const searchParams = useSearchParams();
+  const [buildListFilters, setBuildListFilters] = useState(
+    parseUrlFilters(searchParams, defaultFilters),
+  );
+
+  const { buildListState, setBuildListState } = useBuildListState();
+  const { builds, totalBuildCount, isLoading } = buildListState;
+
+  const itemsPerPage = isEditable ? 15 : 16;
+
+  const { orderBy, handleOrderByChange } = useOrderByFilter('newest');
+  const { timeRange, handleTimeRangeChange } = useTimeRangeFilter('all-time');
+  const { buildVisibility, handleBuildVisibilityChange } =
+    useBuildVisibilityFilter('all');
+
   const {
-    buildList,
-    buildListFilters,
-    buildVisibility,
-    handleBuildVisibilityChange,
     currentPage,
     firstVisibleItemNumber,
     lastVisibleItemNumber,
-    isLoading,
-    orderBy,
-    handleOrderByChange,
     pageNumbers,
-    timeRange,
-    handleTimeRangeChange,
-    totalBuildCount,
     totalPages,
     handleSpecificPageClick,
     handleNextPageClick,
     handlePreviousPageClick,
-  } = useBuildListState({
-    apiEndpoint: '/api/profile/get-created-builds',
-    defaultFilters,
+  } = usePagination({
+    totalItemCount: totalBuildCount,
     itemsPerPage,
-    profileProps: {
-      featuredBuildsOnly: false,
-      isEditable,
-      profileId,
-    },
-    onToggleLoadingResults,
   });
 
-  if (!buildListFilters) {
-    return <Skeleton className="min-h-[1100px] w-full" />;
-  }
+  useEffect(() => {
+    setBuildListFilters(parseUrlFilters(searchParams, defaultFilters));
+    setBuildListState((prevState) => ({ ...prevState, isLoading: true }));
+  }, [searchParams, defaultFilters, setBuildListState]);
+
+  useEffect(() => {
+    onToggleLoadingResults(isLoading);
+  }, [isLoading, onToggleLoadingResults]);
+
+  // Whenever loading is set to true, we should update the build items
+  useEffect(() => {
+    const getItemsAsync = async () => {
+      if (!isLoading) return;
+      const response = await getUserCreatedBuilds({
+        buildListFilters,
+        featuredBuildsOnly: false,
+        itemsPerPage,
+        orderBy,
+        pageNumber: currentPage,
+        timeRange,
+        profileId,
+        buildVisibility,
+      });
+      setBuildListState((prevState) => ({
+        ...prevState,
+        isLoading: false,
+        builds: response.builds,
+        totalBuildCount: response.totalBuildCount,
+      }));
+    };
+    getItemsAsync();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading]);
 
   return (
     <>
@@ -95,6 +124,10 @@ export function CreatedBuildsList({
                 value={timeRange}
                 onChange={(value) => {
                   handleTimeRangeChange(value);
+                  setBuildListState((prevState) => ({
+                    ...prevState,
+                    isLoading: true,
+                  }));
                 }}
               />
             </div>
@@ -104,6 +137,10 @@ export function CreatedBuildsList({
                 value={orderBy}
                 onChange={(value) => {
                   handleOrderByChange(value);
+                  setBuildListState((prevState) => ({
+                    ...prevState,
+                    isLoading: true,
+                  }));
                 }}
               />
             </div>
@@ -125,7 +162,7 @@ export function CreatedBuildsList({
         >
           {isEditable ? <CreateBuildCard /> : null}
 
-          {buildList.map((build) => (
+          {builds.map((build) => (
             <div key={build.id} className="w-full">
               <BuildCard
                 build={build}
@@ -135,7 +172,15 @@ export function CreatedBuildsList({
                   isEditable ? (
                     <CreatedBuildCardActions
                       build={build}
-                      onDelete={() => router.refresh()}
+                      onDelete={(buildId: string) => {
+                        setBuildListState((prevState) => ({
+                          ...prevState,
+                          builds: prevState.builds.filter(
+                            (b) => b.id !== buildId,
+                          ),
+                          totalBuildCount: prevState.totalBuildCount - 1,
+                        }));
+                      }}
                     />
                   ) : undefined
                 }

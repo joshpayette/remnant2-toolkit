@@ -9,18 +9,18 @@ import { getAvatarById } from '@/app/(user)/profile/_utils/get-avatar-by-id';
 import { ViewLinkedBuild } from '@/app/(user)/profile/[profileId]/linked-builds/[[...optionalBuildId]]/view-linked-build';
 
 export async function generateMetadata({
-  params: { userId },
+  params: { profileId },
 }: {
-  params: { userId: string };
+  params: { profileId: string };
 }): Promise<Metadata> {
   const userData = await prisma.user.findUnique({
     where: {
-      id: userId,
+      id: profileId,
     },
   });
 
   if (!userData) {
-    console.info('User or profile not found', { userId, userData });
+    console.info('User or profile not found', { profileId, userData });
 
     return {
       title: 'Error loading profile',
@@ -30,7 +30,7 @@ export async function generateMetadata({
         title: 'Error loading profile',
         description:
           'There was an error loading this profile. It may have been removed.',
-        url: `https://remnant2toolkit.com/profile/${userId}/linked-builds`,
+        url: `https://remnant2toolkit.com/profile/${profileId}/linked-builds`,
         images: [
           {
             url: OG_IMAGE_URL,
@@ -49,17 +49,17 @@ export async function generateMetadata({
 
   let profileData = await prisma.userProfile.findFirst({
     where: {
-      userId,
+      userId: profileId,
     },
   });
 
   if (!profileData) {
     profileData = await prisma.userProfile.upsert({
       where: {
-        userId,
+        userId: profileId,
       },
       create: {
-        userId,
+        userId: profileId,
         bio: DEFAULT_BIO,
       },
       update: {},
@@ -79,7 +79,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      url: `https://remnant2toolkit.com/profile/${userId}/linked-builds`,
+      url: `https://remnant2toolkit.com/profile/${profileId}/linked-builds`,
       images: [
         {
           url: `https://d2sqltdcj8czo5.cloudfront.net${avatar.imagePath}`,
