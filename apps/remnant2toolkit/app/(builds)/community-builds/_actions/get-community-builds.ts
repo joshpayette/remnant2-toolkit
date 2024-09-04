@@ -105,41 +105,46 @@ export async function getCommunityBuilds({
 
   const orderBySegment = getOrderBySegment(orderBy);
 
-  // First, get the Builds
-  const [builds, totalBuildsCountResponse] = await Promise.all([
-    communityBuildsQuery({
-      userId,
-      itemsPerPage,
-      pageNumber,
-      orderBySegment,
-      whereConditions,
-      searchText: trimmedSearchText,
-    }),
-    communityBuildsCountQuery({
-      whereConditions,
-      searchText: trimmedSearchText,
-    }),
-  ]);
-
-  // Then, for each Build, get the associated BuildItems
-  for (const build of builds) {
-    const [buildItems, buildTags] = await Promise.all([
-      prisma.buildItems.findMany({
-        where: { buildId: build.id },
+  try {
+    // First, get the Builds
+    const [builds, totalBuildsCountResponse] = await Promise.all([
+      communityBuildsQuery({
+        userId,
+        itemsPerPage,
+        pageNumber,
+        orderBySegment,
+        whereConditions,
+        searchText: trimmedSearchText,
       }),
-      prisma.buildTags.findMany({
-        where: { buildId: build.id },
+      communityBuildsCountQuery({
+        whereConditions,
+        searchText: trimmedSearchText,
       }),
     ]);
 
-    build.buildItems = buildItems;
-    build.buildTags = buildTags;
+    // Then, for each Build, get the associated BuildItems
+    for (const build of builds) {
+      const [buildItems, buildTags] = await Promise.all([
+        prisma.buildItems.findMany({
+          where: { buildId: build.id },
+        }),
+        prisma.buildTags.findMany({
+          where: { buildId: build.id },
+        }),
+      ]);
+
+      build.buildItems = buildItems;
+      build.buildTags = buildTags;
+    }
+
+    const totalBuildCount = totalBuildsCountResponse[0]?.totalBuildCount ?? 0;
+
+    return bigIntFix({
+      builds,
+      totalBuildCount,
+    });
+  } catch (e) {
+    console.error(e);
+    throw new Error('Failed to get community builds, please try again.');
   }
-
-  const totalBuildCount = totalBuildsCountResponse[0]?.totalBuildCount ?? 0;
-
-  return bigIntFix({
-    builds,
-    totalBuildCount,
-  });
 }
