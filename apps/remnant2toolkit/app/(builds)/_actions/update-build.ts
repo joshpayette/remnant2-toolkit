@@ -234,6 +234,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
 
   // If the new buildLink doesn't match the existing buildLink, update the buildLinkUpdatedAt
   // If the user is a permitted builder, immediately validate the link by setting buildLinkUpdatedAt to yesterday
+  // Also update the isVideoApproved to false so that it can be reviewed again
   if (
     buildState.buildLink &&
     existingBuild?.buildLink !== buildState.buildLink &&
@@ -242,6 +243,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     buildState.buildLinkUpdatedAt = isPermittedBuilder(session.user.id)
       ? new Date(Date.now() - 60 * 60 * 24 * 1000)
       : new Date();
+    buildState.isVideoApproved = false;
   }
 
   // If the buildLink is a valid youtube url, also save it to the videoUrl field
@@ -326,6 +328,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
         buildLink: buildState.buildLink,
         buildLinkUpdatedAt: buildState.buildLinkUpdatedAt,
         isModeratorApproved: false,
+        isVideoApproved: buildState.isVideoApproved,
         BuildItems: {
           deleteMany: {}, // removes all items before creating them again
           create: updatedBuildItems,

@@ -12,6 +12,7 @@ model Build {
   isModeratorLocked      Boolean                 @default(false)
   isPatchAffected        Boolean                 @default(false)
   isPublic               Boolean                 @default(true)
+  isVideoApproved        Boolean                 @default(false)
   dateFeatured           DateTime?
   name                   String
   description            String?                 @db.Text

@@ -30,6 +30,7 @@ export interface BuildState {
   isGimmickBuild: boolean;
   isModeratorApproved: boolean;
   isModeratorLocked: boolean;
+  isVideoApproved: boolean;
   dateFeatured: Date | null;
   isPatchAffected: boolean;
   thumbnailUrl: string | null;

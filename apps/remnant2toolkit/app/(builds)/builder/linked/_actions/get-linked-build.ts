@@ -110,6 +110,7 @@ export async function getLinkedBuild(linkedBuildId: string): Promise<{
               isPublic: build.isPublic,
               isModeratorApproved: build.isModeratorApproved,
               isModeratorLocked: build.isModeratorLocked,
+              isVideoApproved: build.isVideoApproved,
               thumbnailUrl: build.thumbnailUrl ?? '',
               videoUrl: build.videoUrl ?? '',
               buildLinkUpdatedAt: build.buildLinkUpdatedAt,

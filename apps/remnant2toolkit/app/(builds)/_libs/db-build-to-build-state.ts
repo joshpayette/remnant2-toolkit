@@ -30,6 +30,7 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
     isPublic: Boolean(Number(dbBuild.isPublic)),
     isModeratorApproved: Boolean(dbBuild.isModeratorApproved),
     isModeratorLocked: Boolean(dbBuild.isModeratorLocked),
+    isVideoApproved: Boolean(dbBuild.isVideoApproved),
     isFeaturedBuild: Boolean(dbBuild.isFeaturedBuild),
     isBeginnerBuild: Boolean(dbBuild.isBeginnerBuild),
     isBaseGameBuild: Boolean(dbBuild.isBaseGameBuild),
