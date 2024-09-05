@@ -4,7 +4,7 @@ import { urlNoCache } from '@repo/utils';
 import copy from 'clipboard-copy';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useLocalStorage } from 'usehooks-ts';
 
@@ -13,7 +13,6 @@ import {
   type ItemOwnershipPreference,
   LOCALSTORAGE_KEY,
 } from '@/app/_types/localstorage';
-import { incrementViewCount } from '@/app/(builds)/_actions/increment-view-count';
 import { ModeratorBuildToolsDialog } from '@/app/(builds)/_admin/components/dialogs/moderator-build-tools-dialog';
 import { LoadoutDialog } from '@/app/(builds)/_components/loadout-dialog';
 import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
@@ -80,19 +79,6 @@ export function ViewBuild({ buildState }: Props) {
   } = useImageExport();
 
   const buildContainerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    async function asyncViewCountUpdate() {
-      const response = await incrementViewCount({
-        buildId: buildState.buildId || '',
-      });
-      if (response.viewCount !== -1) {
-        buildState.viewCount = response.viewCount;
-        buildState.viewCount = response.viewCount;
-      }
-    }
-    asyncViewCountUpdate();
-  });
 
   // Need to convert the build data to a format that the BuildPage component can use
   if (!session?.user) {

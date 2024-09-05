@@ -3,6 +3,7 @@ import { type Metadata, type ResolvingMetadata } from 'next';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
+import { incrementViewCount } from '@/app/(builds)/_actions/increment-view-count';
 import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
 import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
 import {
@@ -131,6 +132,13 @@ export default async function Page({
   const { build } = buildData;
 
   const buildState = cleanUpBuildState(dbBuildToBuildState(build));
+
+  const response = await incrementViewCount({
+    buildId: buildState.buildId || '',
+  });
+  if (response.viewCount !== -1) {
+    buildState.viewCount = response.viewCount;
+  }
 
   return (
     <div className="flex w-full flex-col items-center">
