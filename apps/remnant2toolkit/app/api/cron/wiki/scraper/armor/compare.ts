@@ -1,79 +1,79 @@
-import { ArmorItem } from '@/app/(data)/items/types/ArmorItem'
+import { type ArmorItem } from '@/app/(items)/_types/armor-item';
 
 export function armorDataCompare(
   newData: {
-    armor: number
-    weight: number
-    bleedResistance: number
-    fireResistance: number
-    shockResistance: number
-    toxinResistance: number
-    blightResistance: number
+    armor: number;
+    weight: number;
+    bleedResistance: number;
+    fireResistance: number;
+    shockResistance: number;
+    toxinResistance: number;
+    blightResistance: number;
   },
   currentItem: ArmorItem,
 ): {
-  armorMatches: boolean
-  weightMatches: boolean
-  bleedResistanceMatches: boolean
-  fireResistanceMatches: boolean
-  shockResistanceMatches: boolean
-  toxinResistanceMatches: boolean
-  blightResistanceMatches: boolean
-  dataDiffers: boolean
+  armorMatches: boolean;
+  weightMatches: boolean;
+  bleedResistanceMatches: boolean;
+  fireResistanceMatches: boolean;
+  shockResistanceMatches: boolean;
+  toxinResistanceMatches: boolean;
+  blightResistanceMatches: boolean;
+  dataDiffers: boolean;
 } {
-  let armorMatches = newData.armor === currentItem.armor
+  let armorMatches = newData.armor === currentItem.armor;
   if (isNaN(newData.armor) || currentItem.armor === undefined) {
-    armorMatches = true
+    armorMatches = true;
   }
 
-  let weightMatches = newData.weight === currentItem.weight
+  let weightMatches = newData.weight === currentItem.weight;
   if (isNaN(newData.weight) || currentItem.weight === undefined) {
-    weightMatches = true
+    weightMatches = true;
   }
 
   let bleedResistanceMatches =
-    newData.bleedResistance === currentItem.bleedResistance
+    newData.bleedResistance === currentItem.bleedResistance;
   if (
     isNaN(newData.bleedResistance) ||
     currentItem.bleedResistance === undefined
   ) {
-    bleedResistanceMatches = true
+    bleedResistanceMatches = true;
   }
 
   let fireResistanceMatches =
-    newData.fireResistance === currentItem.fireResistance
+    newData.fireResistance === currentItem.fireResistance;
   if (
     isNaN(newData.fireResistance) ||
     currentItem.fireResistance === undefined
   ) {
-    fireResistanceMatches = true
+    fireResistanceMatches = true;
   }
 
   let shockResistanceMatches =
-    newData.shockResistance === currentItem.shockResistance
+    newData.shockResistance === currentItem.shockResistance;
   if (
     isNaN(newData.shockResistance) ||
     currentItem.shockResistance === undefined
   ) {
-    shockResistanceMatches = true
+    shockResistanceMatches = true;
   }
 
   let toxinResistanceMatches =
-    newData.toxinResistance === currentItem.toxinResistance
+    newData.toxinResistance === currentItem.toxinResistance;
   if (
     isNaN(newData.toxinResistance) ||
     currentItem.toxinResistance === undefined
   ) {
-    toxinResistanceMatches = true
+    toxinResistanceMatches = true;
   }
 
   let blightResistanceMatches =
-    newData.blightResistance === currentItem.blightResistance
+    newData.blightResistance === currentItem.blightResistance;
   if (
     isNaN(newData.blightResistance) ||
     currentItem.blightResistance === undefined
   ) {
-    blightResistanceMatches = true
+    blightResistanceMatches = true;
   }
 
   const dataDiffers = !(
@@ -84,7 +84,7 @@ export function armorDataCompare(
     shockResistanceMatches &&
     toxinResistanceMatches &&
     blightResistanceMatches
-  )
+  );
 
   return {
     armorMatches,
@@ -95,5 +95,5 @@ export function armorDataCompare(
     toxinResistanceMatches,
     blightResistanceMatches,
     dataDiffers,
-  }
+  };
 }

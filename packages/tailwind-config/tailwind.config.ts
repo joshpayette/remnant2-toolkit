@@ -1,5 +1,5 @@
-import type { Config } from 'tailwindcss'
-import defaultTheme from 'tailwindcss/defaultTheme'
+import { type Config } from 'tailwindcss';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 const config: Omit<Config, 'content'> = {
   darkMode: ['selector', '[data-theme~="dark"]'],
@@ -112,6 +112,6 @@ const config: Omit<Config, 'content'> = {
     },
   },
   plugins: [require('@tailwindcss/forms')],
-}
+};
 
-export default config
+export default config;

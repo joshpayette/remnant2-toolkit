@@ -1,19 +1,19 @@
-import { RelicFragmentItem } from '@/app/(data)/items/types/RelicFragmentItem'
+import { type RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 
 export function relicfragmentDataCompare(
   newData: {
-    description: string
+    description: string;
   },
   currentItem: RelicFragmentItem,
 ): {
-  descriptionMatches: boolean
-  dataDiffers: boolean
+  descriptionMatches: boolean;
+  dataDiffers: boolean;
 } {
-  const descriptionMatches = newData.description === currentItem.description
-  const dataDiffers = !descriptionMatches
+  const descriptionMatches = newData.description === currentItem.description;
+  const dataDiffers = !descriptionMatches;
 
   return {
     descriptionMatches,
     dataDiffers,
-  }
+  };
 }

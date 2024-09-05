@@ -1,5 +1,5 @@
 import { prisma } from '@repo/db';
-import { MetadataRoute } from 'next';
+import { type MetadataRoute } from 'next';
 
 const baseUrl = 'https://remnant2toolkit.com';
 const currentDate = new Date().toISOString().split('T')[0];
@@ -44,7 +44,7 @@ const staticRoutes = [
     changeFrequency: 'weekly' as ChangeFrequency,
   },
   {
-    url: `${baseUrl}/tracker`,
+    url: `${baseUrl}/item-tracker`,
     lastModified: currentDate,
     changeFrequency: 'weekly' as ChangeFrequency,
   },

@@ -1,19 +1,19 @@
-import { ConsumableItem } from '@/app/(data)/items/types/ConsumableItem'
+import { type ConsumableItem } from '@/app/(items)/_types/consumable-item';
 
 export function consumableDataCompare(
   newData: {
-    description: string
+    description: string;
   },
   currentItem: ConsumableItem,
 ): {
-  descriptionMatches: boolean
-  dataDiffers: boolean
+  descriptionMatches: boolean;
+  dataDiffers: boolean;
 } {
-  const descriptionMatches = newData.description === currentItem.description
-  const dataDiffers = !descriptionMatches
+  const descriptionMatches = newData.description === currentItem.description;
+  const dataDiffers = !descriptionMatches;
 
   return {
     descriptionMatches,
     dataDiffers,
-  }
+  };
 }

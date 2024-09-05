@@ -1,26 +1,29 @@
-const { resolve } = require('node:path')
+const { resolve } = require('node:path');
 
-const project = resolve(process.cwd(), 'tsconfig.json')
+const project = resolve(process.cwd(), 'tsconfig.json');
 
 /*
- * This is a custom ESLint configuration for use with
- * internal (bundled by their consumer) libraries
- * that utilize React.
+ * This is a custom ESLint configuration for use a library
+ * that utilizes React.
+ *
+ * This config extends the Vercel Engineering Style Guide.
+ * For more information, see https://github.com/vercel/style-guide
+ *
  */
 
-/** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: ['eslint:recommended', 'prettier', 'turbo'],
-  parser: '@typescript-eslint/parser',
-  plugins: ['only-warn', 'simple-import-sort', '@typescript-eslint'],
+  extends: [
+    '@vercel/style-guide/eslint/browser',
+    '@vercel/style-guide/eslint/typescript',
+    '@vercel/style-guide/eslint/react',
+  ].map(require.resolve),
+  parserOptions: {
+    project,
+  },
   globals: {
-    React: true,
     JSX: true,
   },
-  env: {
-    browser: true,
-    node: true,
-  },
+  plugins: ['only-warn'],
   settings: {
     'import/resolver': {
       typescript: {
@@ -28,29 +31,15 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: [
-    // Ignore dotfiles
-    '.*.js',
-    'node_modules/',
-    'dist/',
-  ],
-  overrides: [
-    // Force ESLint to detect .tsx files
-    { files: ['*.js?(x)', '*.ts?(x)'] },
-  ],
+  ignorePatterns: ['node_modules/', 'dist/', '.eslintrc.js', '**/*.css'],
+  // add rules configurations here
   rules: {
-    'no-redeclare': 'off',
-    'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error',
-    // Disable and use @typescript-eslint/no-unused-vars
-    'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': [
-      'warn', // or "error"
-      {
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-        caughtErrorsIgnorePattern: '^_',
-      },
-    ],
+    'no-console': 'off',
+    'import/no-default-export': 'off',
+    'eslint-comments/require-description': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/no-unsafe-argument': 'off',
+    '@typescript-eslint/no-redundant-type-constituents': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
   },
-}
+};

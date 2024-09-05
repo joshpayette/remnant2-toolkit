@@ -3,21 +3,28 @@
   "type": "module",
   "scripts": {
     "dev": "tsc --watch",
-    "build": "tsc"
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "lint": "eslint src/",
+    "test": "jest",
+    "typecheck": "tsc --noEmit"
   },
+  "files": [
+    "dist/**"
+  ],
   "exports": {
-    "./big-int-fix": "./src/big-int-fix.ts",
-    "./capitalize": "./src/capitalize.ts",
-    "./clean-item-name": "./src/clean-item-name.ts",
-    "./get-array-of-length": "./src/get-array-of-length.ts",
-    "./object-utils": "./src/object-utils.ts",
-    "./strip-unicode": "./src/strip-unicode.ts",
-    "./url-no-cache": "./src/url-no-cache.ts",
-    "./youtube": "./src/youtube.ts"
+    ".": "./src/index.ts"
+  },
+  "jest": {
+    "preset": "@repo/jest-presets/browser"
   },
   "dependencies": {},
   "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/jest-presets": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
     "@types/node": "20",
     "typescript": "5.5.2"
   }
