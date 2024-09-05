@@ -45,6 +45,7 @@ export async function getBuild(
       isBeginnerBuild: build.isBeginnerBuild,
       isBaseGameBuild: build.isBaseGameBuild,
       isGimmickBuild: build.isGimmickBuild,
+      isVideoApproved: build.isVideoApproved,
       dateFeatured: build.dateFeatured,
       isPatchAffected: build.isPatchAffected,
       isPublic: build.isPublic,

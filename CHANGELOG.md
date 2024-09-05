@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-09-04
+
+### Fixed
+
+- Resolved bug where an approved video thumbnail could disappear if the build was edited after approval within the first 12 hours of the video link being added.
+
 ## 2024-08-29
 
 ### Changed

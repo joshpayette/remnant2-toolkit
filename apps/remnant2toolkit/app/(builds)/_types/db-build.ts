@@ -14,6 +14,7 @@ export interface DBBuild {
   isMember: boolean;
   isModeratorApproved: Build['isModeratorApproved'];
   isModeratorLocked: Build['isModeratorLocked'];
+  isVideoApproved: Build['isVideoApproved'];
   thumbnailUrl: Build['thumbnailUrl'];
   videoUrl: Build['videoUrl'];
   buildLinkUpdatedAt: Build['buildLinkUpdatedAt'];
