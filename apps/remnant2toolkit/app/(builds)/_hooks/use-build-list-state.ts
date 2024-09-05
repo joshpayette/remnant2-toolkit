@@ -25,6 +25,7 @@ const DEFAULT_STATE: State = {
     isGimmickBuild: false,
     dateFeatured: new Date(),
     isPatchAffected: false,
+    isVideoApproved: false,
     isPublic: true,
     isMember: false,
     isModeratorApproved: false,

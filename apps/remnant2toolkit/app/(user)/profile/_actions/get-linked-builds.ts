@@ -197,6 +197,7 @@ export default async function getLinkedBuilds({
               isPublic: build.isPublic,
               isModeratorApproved: build.isModeratorApproved,
               isModeratorLocked: build.isModeratorLocked,
+              isVideoApproved: build.isVideoApproved,
               thumbnailUrl: build.thumbnailUrl ?? '',
               videoUrl: build.videoUrl ?? '',
               buildLinkUpdatedAt: build.buildLinkUpdatedAt,

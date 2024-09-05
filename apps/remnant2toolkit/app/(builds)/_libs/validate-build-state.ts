@@ -104,6 +104,7 @@ export function validateBuildState(buildState: unknown) {
     isMember: z.boolean(),
     isModeratorApproved: z.boolean(),
     isModeratorLocked: z.boolean(),
+    isVideoApproved: z.boolean(),
     createdAt: z.date(),
     updatedAt: z.date().nullable(),
     createdById: z.string().nullable(),

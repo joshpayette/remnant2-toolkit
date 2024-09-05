@@ -77,6 +77,7 @@ export function importedLoadoutToBuildState({
     isGimmickBuild: false,
     isModeratorApproved: false,
     isModeratorLocked: false,
+    isVideoApproved: false,
     dateFeatured: null,
     isPatchAffected: false,
     thumbnailUrl: null,
