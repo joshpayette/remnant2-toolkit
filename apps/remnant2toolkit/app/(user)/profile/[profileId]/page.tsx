@@ -4,6 +4,8 @@ import { bigIntFix } from '@repo/utils';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { communityBuildsQuery } from '@/app/(builds)/_libs/build-filters/community-builds';
 
+export const maxDuration = 60;
+
 async function getCreatedBuilds(profileId: string) {
   const itemsToFetch = 4;
 

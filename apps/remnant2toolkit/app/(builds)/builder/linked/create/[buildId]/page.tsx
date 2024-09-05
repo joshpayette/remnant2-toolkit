@@ -8,6 +8,8 @@ import { getBuild } from '@/app/(builds)/_actions/get-build';
 import { CreateLinkedBuild } from '@/app/(builds)/builder/linked/create/[buildId]/create-linked-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
+export const maxDuration = 60;
+
 export async function generateMetadata(): Promise<Metadata> {
   const title = `${NAV_ITEMS.linkedBuilds.label} - ${SITE_TITLE}`;
   const description = NAV_ITEMS.linkedBuilds.description;

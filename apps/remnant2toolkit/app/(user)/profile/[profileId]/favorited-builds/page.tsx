@@ -1,6 +1,8 @@
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { FavoritedBuilds } from '@/app/(user)/profile/[profileId]/favorited-builds/_components/favorited-builds';
 
+export const maxDuration = 60;
+
 export default async function Page({
   params: { profileId },
 }: {

@@ -6,6 +6,8 @@ import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_types/navigation';
 import { BaseGameBuilds } from '@/app/(builds)/base-game-builds/_components/base-game-builds';
 
+export const maxDuration = 60;
+
 export async function generateMetadata(): Promise<Metadata> {
   const title = `${NAV_ITEMS.baseGameBuilds.label} - ${SITE_TITLE}`;
   const description = NAV_ITEMS.baseGameBuilds.description;

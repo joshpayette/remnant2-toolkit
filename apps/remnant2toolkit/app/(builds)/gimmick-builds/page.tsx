@@ -7,6 +7,8 @@ import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_types/navigation';
 import { GimmickBuilds } from '@/app/(builds)/gimmick-builds/_components/gimmick-builds';
 
+export const maxDuration = 60;
+
 export async function generateMetadata(): Promise<Metadata> {
   const title = `${NAV_ITEMS.gimmickBuilds.label} - ${SITE_TITLE}`;
   const description = NAV_ITEMS.gimmickBuilds.description;
