@@ -1,6 +1,7 @@
 import './globals.css';
 
-import { GlobalActionButtons, RootLayout } from '@repo/ui';
+import { DISCORD_INVITE_URL } from '@repo/constants';
+import { BaseTextLink, GlobalActionButtons, RootLayout } from '@repo/ui';
 import { Analytics } from '@vercel/analytics/react';
 import { type Viewport } from 'next';
 import dynamic from 'next/dynamic';
@@ -28,9 +29,9 @@ export default async function Layout({
   return (
     <RootLayout
       alertBanner={
-        <AlertBanner localStorageKey="builds-by-collection">
-          You can now filter builds by items you own! Use the "include" filter
-          and select "Only Owned Items".
+        <AlertBanner localStorageKey="chat-in-the-discord">
+          Participate in in-depth build discussions{' '}
+          <BaseTextLink href={DISCORD_INVITE_URL}>on our Discord</BaseTextLink>!
         </AlertBanner>
       }
       footer={<Footer />}
