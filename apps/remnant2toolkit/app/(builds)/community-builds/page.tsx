@@ -6,6 +6,8 @@ import { NAV_ITEMS } from '@/app/_types/navigation';
 import { getTotalBuildCount } from '@/app/(builds)/_actions/get-total-build-count';
 import { CommunityBuilds } from '@/app/(builds)/community-builds/_components/community-builds';
 
+export const maxDuration = 60;
+
 export async function generateMetadata(): Promise<Metadata> {
   const title = `${NAV_ITEMS.communityBuilds.label} - ${SITE_TITLE}`;
   const description = NAV_ITEMS.communityBuilds.description;

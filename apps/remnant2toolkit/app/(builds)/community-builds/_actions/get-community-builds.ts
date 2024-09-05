@@ -144,7 +144,9 @@ export async function getCommunityBuilds({
       totalBuildCount,
     });
   } catch (e) {
-    console.error(e);
+    if (e) {
+      console.error(e);
+    }
     throw new Error('Failed to get community builds, please try again.');
   }
 }
