@@ -6,57 +6,28 @@ This is a toolkit for the game Remnant 2. You can find the site at [remnant2tool
 
 Contributions are welcome! If you found a bug, have a suggestion, or want to contribute code, I'd certainly appreciate the help via pull request or issue.
 
+I love nothing more than helping others make their first contributions to open source, or to learning code. Don't be shy - come say hi in the [Discord server](https://discord.gg/kgVaU3zAQ7).
+
 Before contributing, please read the [Code of Conduct](CODE_OF_CONDUCT.md).
 
-You can also join the [Discord server](https://discord.gg/kgVaU3zAQ7) to discuss the project and get help.
+## Architecture
 
-## Featured Builds
+- [React](https://react.dev) for the front-end component library.
+- [Next.js](https://nextjs.org) as the frontend/backend framework.
+- [Turborepo](https://turbo.build) for monorepo support.
+- [TailwindCSS](https://tailwindcss.com) for styling.
+- [Typescript](https://typescriptlang.org) as the primary language.
+- [Prisma](https://prisma.io) for the database ORM.
+- [NextAuth.js](https://next-auth.js.org/) for authentication and third-party oauth.
 
-Want to see your build listed on the featured builds? [Join the Discord](https://discord.gg/kgVaU3zAQ7) and let us know. Alternatively, you can file an issue on this repo requesting it and we'll take a look.
+## Services
 
-### How Featured Builds Are Selected
-
-This is not an exhaustive or literal list that we follow, but some of the things we consider are:
-
-- **Originality**: Is the build unique? Does it have a unique playstyle or combination of items?
-- **Effectiveness**: Is the build effective on Apocalypse difficulty?
-- **Detailed Description**: Does the build have a detailed description of how to play it and why it's effective, to help players who want to try it?
-- **Video Guide or Gameplay**: Does the build have a video guide or gameplay footage to help players understand how it works?
-- **Likely to be updated**: Is the build submitted by a creator who is likely to update it as patches and additional content are released?
-
-## Beginner Builds
-
-Want to see your build listed on the beginner builds? [Join the Discord](https://discord.gg/kgVaU3zAQ7) and let us know. Alternatively, you can file an issue on this repo requesting it and we'll take a look.
-
-### How Beginner Builds Are Selected
-
-This is not an exhaustive or literal list we follow, but some of the things we consider are:
-
-- **Easy Playstyle**: Is the build easy to play for beginners?
-- **Basic or Easy to Obtain Items**: Can the build be made with items you can likely get within 1 - 2 campaign runs?
-- **Detailed Description**: Does the build have a detailed description of how to play it and why it's effective, to help players who want to try it?
-- **No Nightmare or HC rewards (with exceptions)**
-- **No or little DLC content (optional)**
-- **No or one corrupted weapon**
-- **No random aberration mutators (with exceptions)**
-
-## Base Game Builds
-
-Want to see your build listed on the base game builds? [Join the Discord](https://discord.gg/kgVaU3zAQ7) and let us know. Alternatively, you can file an issue on this repo requesting it and we'll take a look.
-
-### How Base Game Builds Are Selected
-
-The criteria is the same as Featured Builds, with the additional requirement that all items are obtainable without any DLC purchases.
-
-## Gimmick Builds
-
-Want to see your build listed on the gimmick builds? [Join the Discord](https://discord.gg/kgVaU3zAQ7) and let us know. Alternatively, you can file an issue on this repo requesting it and we'll take a look.
-
-### How Gimmick Builds Are Selected
-
-- **No Effectiveness Restriction**: Build does not have to be effective on Apocalypse difficulty to be considered. Adherance to a theme is more important than the damage output.
-- **Adherance to a Theme or Gimmick**: Build should use equipment that is generally overlooked, or use an unusual playstyle.
-- **Setups with Bugs are Permitted**: Builds showcasing bugs can be considered for gimmick builds.
+- [Vercel](https://vercel.com) for hosting the primary applications.
+- [Planetscale](https://planetscale.com) for the database.
+- [AWS S3](https://aws.amazon.com/s3/) for image storage.
+- [AWS Cloudfront](https://aws.amazon.com/cloudfront/) for image caching.
+- [ImageKit](https://imagekit.io) as temporary storage for generated build images.
+- [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) for the Loadout Importer functionality.
 
 ## Credits
 
