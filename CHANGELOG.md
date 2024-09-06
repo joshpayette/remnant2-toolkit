@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed bug where you could not remove equipped items when editing a build.
+- Fixed bug where user loadouts were not displaying.
 
 ## 2024-09-04
 
