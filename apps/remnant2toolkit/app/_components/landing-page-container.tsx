@@ -33,7 +33,7 @@ export function LandingPageContainer({ children, title, description }: Props) {
           }}
         />
       </div>
-      <div className="mx-auto grid w-full grid-cols-3 px-6 lg:px-8">
+      <div className="mx-auto grid w-full grid-cols-3 gap-x-8 px-6">
         <div className="col-span-full mx-auto max-w-2xl sm:col-span-2 sm:mx-8 lg:mx-0">
           <h1 className="text-surface-solid text-4xl font-bold tracking-tight sm:text-6xl">
             {title}

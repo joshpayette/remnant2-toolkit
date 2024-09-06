@@ -27,14 +27,14 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
       desktopChildren={
         <>
           <Menu as="div" className="relative">
-            <Menu.Button className="text-md bg-background text-surface-solid hover:text-primary-500 flex font-semibold">
+            <Menu.Button className="bg-background text-surface-solid hover:text-primary-500 flex text-sm font-semibold">
               {({ active }) => (
                 <div className="flex items-center justify-center gap-1">
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">Open Builds menu</span>
                   Builds
                   <ChevronDownIcon
-                    className={cn('h-4 w-4', active && 'rotate-180 transform')}
+                    className={cn('h-3 w-3', active && 'rotate-180 transform')}
                   />
                 </div>
               )}
@@ -211,7 +211,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           <BaseLink
             href={NAV_ITEMS.itemLookup.href}
             className={cn(
-              'text-md text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start font-semibold',
+              'text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start text-sm font-semibold',
             )}
           >
             {NAV_ITEMS.itemLookup.label}
@@ -219,7 +219,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           <BaseLink
             href={NAV_ITEMS.itemTracker.href}
             className={cn(
-              'text-md text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start font-semibold',
+              'text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start text-sm font-semibold',
             )}
           >
             {NAV_ITEMS.itemTracker.label}
@@ -227,7 +227,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           <BaseLink
             href={NAV_ITEMS.itemQuiz.href}
             className={cn(
-              'text-md text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start font-semibold',
+              'text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start text-sm font-semibold',
             )}
           >
             {NAV_ITEMS.itemQuiz.label}
@@ -235,7 +235,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           <BaseLink
             href={NAV_ITEMS.resources.href}
             className={cn(
-              'text-md text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start font-semibold',
+              'text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start text-sm font-semibold',
             )}
           >
             {NAV_ITEMS.resources.label}
@@ -243,7 +243,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           <BaseLink
             href={NAV_ITEMS.supportR2TK.href}
             className={cn(
-              'text-md text-accent1-500 hover:text-accent1-300 flex flex-row items-center justify-start font-semibold',
+              'text-accent1-500 hover:text-accent1-300 flex flex-row items-center justify-start text-sm font-semibold',
             )}
           >
             {NAV_ITEMS.supportR2TK.label}

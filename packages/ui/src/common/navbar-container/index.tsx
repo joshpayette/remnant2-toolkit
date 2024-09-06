@@ -63,7 +63,7 @@ export function NavbarContainer({
         <div className="ui-hidden ui-items-center ui-justify-between lg:ui-flex lg:ui-flex-grow lg:ui-gap-x-12">
           {desktopChildren}
         </div>
-        <div className="ui-hidden ui-w-[80px] ui-grow ui-items-end ui-justify-end lg:ui-flex">
+        <div className="ui-hidden ui-w-[100px] ui-grow ui-items-center ui-justify-end lg:ui-flex gap-x-4">
           {showNotifications ? <NotificationNavIcon /> : null}
           {desktopProfileButton}
         </div>
@@ -85,6 +85,7 @@ export function NavbarContainer({
         >
           <div className="ui-flex ui-items-center ui-justify-between">
             {logo}
+            {showNotifications ? <NotificationNavIcon /> : null}
             <BaseButton
               aria-label="Close menu"
               className="-ui-m-2.5"

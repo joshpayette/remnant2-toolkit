@@ -40,7 +40,7 @@ export function Logo({
         width={52}
       />
       <div className="ui-flex ui-flex-col ui-gap-0">
-        <span className="ui-text-md ui-text-surface-solid ui-mb-0 ui-pb-0 ui-font-semibold">
+        <span className="ui-text-sm ui-text-surface-solid ui-mb-0 ui-pb-0 ui-font-semibold">
           {variants[variant].text}
         </span>
         {showUrl ? (
