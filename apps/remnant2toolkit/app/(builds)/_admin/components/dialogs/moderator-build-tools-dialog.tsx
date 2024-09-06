@@ -288,7 +288,7 @@ export function ModeratorBuildToolsDialog({
               Set Gimmick Build
             </BaseButton>
           )}
-          {localBuild.isModeratorApproved ? (
+          {localBuild.isVideoApproved ? (
             <BaseButton
               onClick={async () => {
                 const response = await unapproveVideo(buildToModerate.buildId);
