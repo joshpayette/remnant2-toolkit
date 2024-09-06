@@ -149,11 +149,12 @@ export function updateBuildState({
     }
   }
 
-  const allvaluesAreEmpty =
+  const allValuesAreEmpty =
     (Array.isArray(value) && value.every((item) => item === '')) ||
     value === '';
-  if (allvaluesAreEmpty) {
-    removeEmptyItems({
+
+  if (allValuesAreEmpty) {
+    return removeEmptyItems({
       buildState: buildState,
       category,
       value: value,
