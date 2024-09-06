@@ -30,7 +30,7 @@ export default async function unapproveVideo(
   try {
     const build = await prisma.build.update({
       where: { id: buildId },
-      data: { isModeratorApproved: false },
+      data: { isVideoApproved: false },
     });
 
     // write to the audit log

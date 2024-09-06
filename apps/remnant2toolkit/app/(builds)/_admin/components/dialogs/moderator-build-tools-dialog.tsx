@@ -288,7 +288,7 @@ export function ModeratorBuildToolsDialog({
               Set Gimmick Build
             </BaseButton>
           )}
-          {localBuild.isModeratorApproved ? (
+          {localBuild.isVideoApproved ? (
             <BaseButton
               onClick={async () => {
                 const response = await unapproveVideo(buildToModerate.buildId);
@@ -296,7 +296,7 @@ export function ModeratorBuildToolsDialog({
                   toast.error(response.message);
                   return;
                 }
-                setLocalBuild({ ...localBuild, isModeratorApproved: false });
+                setLocalBuild({ ...localBuild, isVideoApproved: false });
                 toast.success(response.message);
               }}
             >
@@ -310,7 +310,7 @@ export function ModeratorBuildToolsDialog({
                   toast.error(response.message);
                   return;
                 }
-                setLocalBuild({ ...localBuild, isModeratorApproved: true });
+                setLocalBuild({ ...localBuild, isVideoApproved: true });
                 toast.success(response.message);
               }}
             >
