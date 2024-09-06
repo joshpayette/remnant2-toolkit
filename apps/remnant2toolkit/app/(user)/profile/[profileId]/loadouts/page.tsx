@@ -12,13 +12,13 @@ import { LoadoutGrid } from '@/app/(user)/profile/[profileId]/loadouts/_componen
 import { LoadoutPublicCheckbox } from '@/app/(user)/profile/[profileId]/loadouts/_components/loadout-public-checkbox';
 
 export async function generateMetadata({
-  params: { userId },
+  params: { profileId },
 }: {
-  params: { userId: string };
+  params: { profileId: string };
 }): Promise<Metadata> {
   const user = await prisma.user.findUnique({
     where: {
-      id: userId,
+      id: profileId,
     },
   });
 
@@ -29,7 +29,7 @@ export async function generateMetadata({
       openGraph: {
         title: 'Error loading user loadouts',
         description: `There was an error loading this user's loadouts. The user may no longer exist.`,
-        url: `https://remnant2toolkit.com/profile/${userId}/loadouts`,
+        url: `https://remnant2toolkit.com/profile/${profileId}/loadouts`,
         images: [
           {
             url: OG_IMAGE_URL,
@@ -47,17 +47,17 @@ export async function generateMetadata({
 
   let profileData = await prisma.userProfile.findFirst({
     where: {
-      userId,
+      userId: profileId,
     },
   });
 
   if (!profileData) {
     profileData = await prisma.userProfile.upsert({
       where: {
-        userId,
+        userId: profileId,
       },
       create: {
-        userId,
+        userId: profileId,
         bio: DEFAULT_BIO,
       },
       update: {},
@@ -74,7 +74,7 @@ export async function generateMetadata({
       openGraph: {
         title: 'User Loadouts Private',
         description: `This user has not made their loadouts public.`,
-        url: `https://remnant2toolkit.com/profile/${userId}/loadouts`,
+        url: `https://remnant2toolkit.com/profile/${profileId}/loadouts`,
         images: [
           {
             url: `https://d2sqltdcj8czo5.cloudfront.net${avatar.imagePath}`,
@@ -90,7 +90,7 @@ export async function generateMetadata({
     };
   }
 
-  const loadoutsBuilds = await getLoadoutList(userId);
+  const loadoutsBuilds = await getLoadoutList(profileId);
   const loadoutNames = loadoutsBuilds.map(
     (build) =>
       `${build.name} by ${build.createdByDisplayName ?? build.createdByName}`,
@@ -110,7 +110,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      url: `https://remnant2toolkit.com/profile/${userId}/loadout`,
+      url: `https://remnant2toolkit.com/profile/${profileId}/loadout`,
       images: [
         {
           url: OG_IMAGE_URL,
