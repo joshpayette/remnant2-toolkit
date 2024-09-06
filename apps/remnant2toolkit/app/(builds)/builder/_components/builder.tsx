@@ -127,7 +127,6 @@ export function Builder({
       // If the item can be multiple, such as rings,
       // then remove the item at the specified index
       if (!selectedItem) {
-        console.info('empty slot detected');
         if (isIndexSpecified) {
           const buildItems = buildState.items[selectedItemSlot.category];
 
