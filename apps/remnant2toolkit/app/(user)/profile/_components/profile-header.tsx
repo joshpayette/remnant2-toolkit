@@ -6,11 +6,17 @@ import {
   BaseInput,
   BaseTextarea,
   EditIcon,
+  SubscribeIcon,
+  UnsubscribeIcon,
 } from '@repo/ui';
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { startTransition, useOptimistic, useState } from 'react';
 import { toast } from 'react-toastify';
 
+import { Tooltip } from '@/app/_components/tooltip';
 import { saveProfile } from '@/app/(user)/profile/_actions/save-profile';
+import { subscribeToUser } from '@/app/(user)/profile/_actions/subscribe-to-user';
+import { unsubscribeFromUser } from '@/app/(user)/profile/_actions/unsubscribe-from-user';
 import { AvatarBox } from '@/app/(user)/profile/_components/avatar-box';
 import { AvatarSelectDialog } from '@/app/(user)/profile/_components/avatar-select-dialog';
 import { getAvatarById } from '@/app/(user)/profile/_utils/get-avatar-by-id';
@@ -20,7 +26,9 @@ interface Props {
   bio: string;
   displayName: string;
   isEditable: boolean;
+  isUserSubscribed: boolean;
   profileId: string;
+  showNotifications: boolean;
 }
 
 export function ProfileHeader({
@@ -28,8 +36,17 @@ export function ProfileHeader({
   bio,
   displayName,
   isEditable,
+  isUserSubscribed,
   profileId,
+  showNotifications,
 }: Props) {
+  const router = useRouter();
+
+  const [optimisticSubscription, setOptimisticSubscription] = useOptimistic<
+    boolean,
+    boolean
+  >(isUserSubscribed, (_state, newSubscriptionStatus) => newSubscriptionStatus);
+
   const [isEditing, setIsEditing] = useState(false);
   const [newDisplayName, setNewDisplayName] = useState(displayName);
   const [newBio, setNewBio] = useState(bio);
@@ -45,6 +62,50 @@ export function ProfileHeader({
     setNewBio(bio);
     setNewAvatarId(avatarId);
     setIsEditing(false);
+  }
+
+  async function onSaveChanges() {
+    const response = await saveProfile({
+      userId: profileId,
+      newDisplayName,
+      newBio,
+      newAvatarId,
+    });
+
+    if (!response.success) {
+      toast.error(response.message);
+    } else {
+      toast.success(response.message);
+      setNewDisplayName(newDisplayName);
+      setNewBio(newBio);
+      setIsEditing(false);
+    }
+  }
+
+  async function onSubscribe() {
+    startTransition(async () => {
+      setOptimisticSubscription(true);
+      const response = await subscribeToUser({ userId: profileId });
+      if (!response.success) {
+        toast.error(response.message);
+      } else {
+        toast.success(response.message);
+        router.refresh();
+      }
+    });
+  }
+
+  async function onUnsubscribe() {
+    startTransition(async () => {
+      setOptimisticSubscription(false);
+      const response = await unsubscribeFromUser({ userId: profileId });
+      if (!response.success) {
+        toast.error(response.message);
+      } else {
+        toast.success(response.message);
+        router.refresh();
+      }
+    });
   }
 
   return (
@@ -98,49 +159,56 @@ export function ProfileHeader({
             {newBio}
           </p>
         )}
-        {isEditable && !isEditing && (
-          <BaseButton
-            plain
-            className="mt-4 flex items-center justify-center underline"
-            onClick={() => setIsEditing(true)}
-          >
-            <EditIcon className="h-4 w-4" /> Edit Profile
-          </BaseButton>
-        )}
-        {isEditable && isEditing && (
-          <div className="mt-4 flex items-center justify-start gap-x-2">
+        <div className="mt-4 flex items-center">
+          {isEditable && !isEditing && (
             <BaseButton
-              color="red"
               className="flex items-center justify-center"
-              onClick={resetForm}
+              onClick={() => setIsEditing(true)}
             >
-              Cancel
+              <EditIcon className="h-4 w-4" /> Edit Profile
             </BaseButton>
-            <BaseButton
-              color="green"
-              className="flex items-center justify-center"
-              onClick={async () => {
-                const response = await saveProfile({
-                  userId: profileId,
-                  newDisplayName,
-                  newBio,
-                  newAvatarId,
-                });
-
-                if (!response.success) {
-                  toast.error(response.message);
-                } else {
-                  toast.success(response.message);
-                  setNewDisplayName(newDisplayName);
-                  setNewBio(newBio);
-                  setIsEditing(false);
-                }
-              }}
-            >
-              Save Changes
-            </BaseButton>
-          </div>
-        )}
+          )}
+          {isEditable && isEditing && (
+            <div className="flex items-center justify-start gap-x-2">
+              <BaseButton
+                color="red"
+                className="flex items-center justify-center"
+                onClick={resetForm}
+              >
+                Cancel
+              </BaseButton>
+              <BaseButton
+                color="green"
+                className="flex items-center justify-center"
+                onClick={onSaveChanges}
+              >
+                Save Changes
+              </BaseButton>
+            </div>
+          )}
+          {optimisticSubscription && showNotifications && (
+            <Tooltip content="Unsubscribe from this user to stop receiving notifications when they post new builds.">
+              <BaseButton
+                color="red"
+                className="ml-4 flex items-center justify-center"
+                onClick={onUnsubscribe}
+              >
+                <UnsubscribeIcon className="h-4 w-4" /> Unsubscribe
+              </BaseButton>
+            </Tooltip>
+          )}
+          {!optimisticSubscription && showNotifications && (
+            <Tooltip content="Subscribe to this user to receive notifications when they post new builds.">
+              <BaseButton
+                color="green"
+                className="ml-4 flex items-center justify-center"
+                onClick={onSubscribe}
+              >
+                <SubscribeIcon className="h-4 w-4" /> Subscribe
+              </BaseButton>
+            </Tooltip>
+          )}
+        </div>
       </div>
     </>
   );

@@ -72,9 +72,11 @@ export { SignInIcon } from './common/icons/sign-in';
 export { SignOutIcon } from './common/icons/sign-out';
 export { SortIcon } from './common/icons/sort';
 export { StatsIcon } from './common/icons/stats';
+export { SubscribeIcon } from './common/icons/subscribe';
 export { SupportIcon } from './common/icons/support';
 export { ThemeIcon } from './common/icons/theme';
 export { TrashIcon } from './common/icons/trash';
+export { UnsubscribeIcon } from './common/icons/unsubscribe';
 export { VideoIcon } from './common/icons/video';
 
 export { cn } from './utils/classnames';

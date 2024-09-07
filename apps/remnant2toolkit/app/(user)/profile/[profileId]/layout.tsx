@@ -4,6 +4,7 @@ import { type Metadata, type ResolvingMetadata } from 'next';
 import { revalidatePath } from 'next/cache';
 
 import { PageHeader } from '@/app/_components/page-header';
+import { showNotificationsFlag } from '@/app/_constants/feature-flag';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { getIsLoadoutPublic } from '@/app/(builds)/_actions/get-is-loadout-public';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
@@ -149,7 +150,17 @@ export default async function Layout({
     revalidatePath(`/profile/${profileId}`);
   }
 
-  const isLoadoutPublic = await getIsLoadoutPublic(profileId);
+  const [isLoadoutPublic, isUserSubscribed] = await Promise.all([
+    getIsLoadoutPublic(profileId),
+    prisma.userSubscription.findFirst({
+      where: {
+        subscriberId: session?.user?.id,
+        subscribedToId: profileId,
+      },
+    }),
+  ]);
+
+  const showNotifications = await showNotificationsFlag();
 
   return (
     <div className="w-full">
@@ -167,7 +178,9 @@ export default async function Layout({
             bio={profile.bio}
             displayName={user.displayName || user.name || DEFAULT_DISPLAY_NAME}
             isEditable={isEditable}
+            isUserSubscribed={!!isUserSubscribed}
             profileId={profileId}
+            showNotifications={showNotifications}
           />
         </div>
 
