@@ -32,12 +32,12 @@ import { DetailedViewButton } from '@/app/(builds)/builder/_components/detailed-
 import { DuplicateBuildButton } from '@/app/(builds)/builder/_components/duplicate-build-button';
 import { EditBuildButton } from '@/app/(builds)/builder/_components/edit-build-button';
 import { FavoriteBuildButton } from '@/app/(builds)/builder/_components/favorite-build-button';
-import { FavoriteBuildDialog } from '@/app/(builds)/builder/_components/favorite-build-dialog';
 import { GenerateBuildImageButton } from '@/app/(builds)/builder/_components/generate-build-image';
 import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/image-download-info-dialog';
 import { LoadoutManagementButton } from '@/app/(builds)/builder/_components/loadout-management-button';
 import { ModeratorToolsButton } from '@/app/(builds)/builder/_components/moderator-tools-button';
 import { ShareBuildButton } from '@/app/(builds)/builder/_components/share-build-button';
+import { SignInRequiredDialog } from '@/app/(builds)/builder/_components/sign-in-required-dialog';
 import { VideoThumbnail } from '@/app/(builds)/builder/_components/video-thumbnail';
 import { ModeratorLinkedBuildToolsDialog } from '@/app/(builds)/builder/linked/_admin/components/dialogs/moderator-linkedbuild-tools-dialog';
 import { EditLinkedBuildButton } from '@/app/(builds)/builder/linked/_components/edit-linked-build-button';
@@ -138,7 +138,7 @@ export function ViewLinkedBuild({ linkedBuildState }: Props) {
         onClose={handleClearImageDownloadInfo}
         imageDownloadInfo={imageDownloadInfo}
       />
-      <FavoriteBuildDialog
+      <SignInRequiredDialog
         open={signInRequiredDialogOpen}
         onClose={() => setSignInRequiredDialogOpen(false)}
       />

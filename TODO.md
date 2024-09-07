@@ -1,4 +1,6 @@
 # TODO
 
-- Move auth to package
-- Move ui to package
+## Notifications
+
+- Add page to profile to view and edit your follows
+- Add total follows to the header for builds

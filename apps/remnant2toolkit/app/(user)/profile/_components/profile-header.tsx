@@ -26,7 +26,7 @@ interface Props {
   bio: string;
   displayName: string;
   isEditable: boolean;
-  isUserSubscribed: boolean;
+  isUserFollowing: boolean;
   profileId: string;
   showNotifications: boolean;
 }
@@ -36,7 +36,7 @@ export function ProfileHeader({
   bio,
   displayName,
   isEditable,
-  isUserSubscribed,
+  isUserFollowing,
   profileId,
   showNotifications,
 }: Props) {
@@ -45,7 +45,7 @@ export function ProfileHeader({
   const [optimisticSubscription, setOptimisticSubscription] = useOptimistic<
     boolean,
     boolean
-  >(isUserSubscribed, (_state, newSubscriptionStatus) => newSubscriptionStatus);
+  >(isUserFollowing, (_state, newSubscriptionStatus) => newSubscriptionStatus);
 
   const [isEditing, setIsEditing] = useState(false);
   const [newDisplayName, setNewDisplayName] = useState(displayName);

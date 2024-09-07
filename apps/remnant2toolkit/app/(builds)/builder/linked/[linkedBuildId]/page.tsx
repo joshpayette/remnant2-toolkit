@@ -105,6 +105,7 @@ export default async function Page({
   params: { linkedBuildId: string };
 }) {
   const buildData = await getLinkedBuild(linkedBuildId);
+
   if (isErrorResponse(buildData)) {
     console.info(buildData.errors);
     return (

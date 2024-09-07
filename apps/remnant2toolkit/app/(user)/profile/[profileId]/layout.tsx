@@ -7,6 +7,7 @@ import { PageHeader } from '@/app/_components/page-header';
 import { showNotificationsFlag } from '@/app/_constants/feature-flag';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { getIsLoadoutPublic } from '@/app/(builds)/_actions/get-is-loadout-public';
+import { getIsUserFollowingUser } from '@/app/(builds)/_actions/get-is-user-following-user';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { ProfileHeader } from '@/app/(user)/profile/_components/profile-header';
 import { ProfileNavbar } from '@/app/(user)/profile/_components/profile-navbar';
@@ -150,14 +151,9 @@ export default async function Layout({
     revalidatePath(`/profile/${profileId}`);
   }
 
-  const [isLoadoutPublic, isUserSubscribed] = await Promise.all([
+  const [isLoadoutPublic, isUserFollowing] = await Promise.all([
     getIsLoadoutPublic(profileId),
-    prisma.userSubscription.findFirst({
-      where: {
-        subscriberId: session?.user?.id,
-        subscribedToId: profileId,
-      },
-    }),
+    getIsUserFollowingUser(profileId),
   ]);
 
   const showNotifications = await showNotificationsFlag();
@@ -178,7 +174,7 @@ export default async function Layout({
             bio={profile.bio}
             displayName={user.displayName || user.name || DEFAULT_DISPLAY_NAME}
             isEditable={isEditable}
-            isUserSubscribed={!!isUserSubscribed}
+            isUserFollowing={isUserFollowing}
             profileId={profileId}
             showNotifications={showNotifications}
           />

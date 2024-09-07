@@ -3,6 +3,7 @@ import { type Metadata, type ResolvingMetadata } from 'next';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
+import { getIsUserFollowingBuild } from '@/app/(builds)/_actions/get-is-user-following-build';
 import { incrementViewCount } from '@/app/(builds)/_actions/increment-view-count';
 import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
 import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
@@ -118,7 +119,10 @@ export default async function Page({
 }: {
   params: { buildId: string };
 }) {
-  const buildData = await getBuild(buildId);
+  const [buildData, isFollowingBuild] = await Promise.all([
+    getBuild(buildId),
+    getIsUserFollowingBuild(buildId),
+  ]);
 
   if (isErrorResponse(buildData)) {
     console.info(buildData.errors);
@@ -144,7 +148,10 @@ export default async function Page({
     <div className="flex w-full flex-col items-center">
       <div className="height-full flex w-full flex-col items-center justify-center">
         <VideoThumbnail buildState={buildState} />
-        <ViewBuild buildState={buildState} />
+        <ViewBuild
+          buildState={buildState}
+          isFollowingBuild={isFollowingBuild}
+        />
       </div>
     </div>
   );

@@ -19,6 +19,7 @@ import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
 import { buildStateToCsvData } from '@/app/(builds)/_libs/build-state-to-csv-data';
 import { handleDuplicateBuild } from '@/app/(builds)/_libs/handlers/handle-duplicate-build';
 import { handleFavoriteBuild } from '@/app/(builds)/_libs/handlers/handle-favorite-build';
+import { handleFollowBuild } from '@/app/(builds)/_libs/handlers/handle-follow-build';
 import { setLocalBuildItemOwnership } from '@/app/(builds)/_libs/set-local-build-item-ownership';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { BuilderContainer } from '@/app/(builds)/builder/_components/builder-container';
@@ -28,22 +29,24 @@ import { DetailedViewButton } from '@/app/(builds)/builder/_components/detailed-
 import { DuplicateBuildButton } from '@/app/(builds)/builder/_components/duplicate-build-button';
 import { EditBuildButton } from '@/app/(builds)/builder/_components/edit-build-button';
 import { FavoriteBuildButton } from '@/app/(builds)/builder/_components/favorite-build-button';
-import { FavoriteBuildDialog } from '@/app/(builds)/builder/_components/favorite-build-dialog';
+import { FollowBuildButton } from '@/app/(builds)/builder/_components/follow-build-button';
 import { GenerateBuildImageButton } from '@/app/(builds)/builder/_components/generate-build-image';
 import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/image-download-info-dialog';
 import { ItemOwnershipPreferenceButton } from '@/app/(builds)/builder/_components/item-ownership-preference-button';
 import { LoadoutManagementButton } from '@/app/(builds)/builder/_components/loadout-management-button';
 import { ModeratorToolsButton } from '@/app/(builds)/builder/_components/moderator-tools-button';
 import { ShareBuildButton } from '@/app/(builds)/builder/_components/share-build-button';
+import { SignInRequiredDialog } from '@/app/(builds)/builder/_components/sign-in-required-dialog';
 import { NewLinkedBuildButton } from '@/app/(builds)/builder/linked/_components/new-linked-build-button';
 import { ViewLinkedBuildButton } from '@/app/(builds)/builder/linked/_components/view-linked-builds-button';
 import { useDiscoveredItems } from '@/app/(items)/_hooks/use-discovered-items';
 
 interface Props {
   buildState: BuildState;
+  isFollowingBuild: boolean;
 }
 
-export function ViewBuild({ buildState }: Props) {
+export function ViewBuild({ buildState, isFollowingBuild }: Props) {
   const { data: session, status: sessionStatus } = useSession();
   const { discoveredItemIds } = useDiscoveredItems();
   const buildStateWithItemsOwned = setLocalBuildItemOwnership({
@@ -103,6 +106,33 @@ export function ViewBuild({ buildState }: Props) {
     });
   }
 
+  const [optimisticFollow, setOptimisticFollow] = useOptimistic<
+    boolean,
+    boolean
+  >(isFollowingBuild, (_state, newFollowed) => newFollowed);
+
+  function onFollowBuild() {
+    startTransition(() => {
+      if (!session?.user?.id) {
+        setSignInRequiredDialogOpen(true);
+        return;
+      }
+
+      if (!buildState.buildId) {
+        return;
+      }
+
+      setOptimisticFollow(!optimisticFollow);
+
+      handleFollowBuild({
+        buildId: buildState.buildId,
+        isFollowingBuild,
+        userId: session?.user?.id,
+        onFollow: () => router.refresh(),
+      });
+    });
+  }
+
   // Need to convert the build data to a format that the BuildPage component can use
   if (!session?.user) {
     buildState.upvoted = false;
@@ -141,7 +171,7 @@ export function ViewBuild({ buildState }: Props) {
               onClose={handleClearImageDownloadInfo}
               imageDownloadInfo={imageDownloadInfo}
             />
-            <FavoriteBuildDialog
+            <SignInRequiredDialog
               open={signInRequiredDialogOpen}
               onClose={() => setSignInRequiredDialogOpen(false)}
             />
@@ -205,6 +235,13 @@ export function ViewBuild({ buildState }: Props) {
               <FavoriteBuildButton
                 upvoted={optimisticUpvote}
                 onClick={onFavoriteBuild}
+              />
+            )}
+
+            {buildState.createdById !== session?.user?.id && (
+              <FollowBuildButton
+                onClick={onFollowBuild}
+                followed={optimisticFollow}
               />
             )}
 
