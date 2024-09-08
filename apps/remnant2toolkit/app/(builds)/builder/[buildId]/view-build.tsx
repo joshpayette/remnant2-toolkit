@@ -4,7 +4,7 @@ import { urlNoCache } from '@repo/utils';
 import copy from 'clipboard-copy';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import { useRef, useState } from 'react';
+import { startTransition, useOptimistic, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useLocalStorage } from 'usehooks-ts';
 
@@ -79,6 +79,29 @@ export function ViewBuild({ buildState }: Props) {
   } = useImageExport();
 
   const buildContainerRef = useRef<HTMLDivElement>(null);
+
+  const [optimisticUpvote, setOptimisticUpvote] = useOptimistic<
+    boolean,
+    boolean
+  >(buildState.upvoted, (_state, newUpvoted) => newUpvoted);
+
+  function onFavoriteBuild() {
+    startTransition(() => {
+      // if user is not signed in, let them know signin is required
+      if (!session?.user?.id) {
+        setSignInRequiredDialogOpen(true);
+        return;
+      }
+
+      setOptimisticUpvote(!optimisticUpvote);
+
+      handleFavoriteBuild({
+        buildState,
+        userId: session?.user?.id,
+        onFavorite: () => router.refresh(),
+      });
+    });
+  }
 
   // Need to convert the build data to a format that the BuildPage component can use
   if (!session?.user) {
@@ -180,19 +203,8 @@ export function ViewBuild({ buildState }: Props) {
 
             {buildState.createdById !== session?.user?.id && (
               <FavoriteBuildButton
-                upvoted={buildState.upvoted}
-                onClick={() => {
-                  // if user is not signed in, let them know signin is required
-                  if (!session?.user?.id) {
-                    setSignInRequiredDialogOpen(true);
-                    return;
-                  }
-                  handleFavoriteBuild({
-                    buildState,
-                    userId: session?.user?.id,
-                    onFavorite: () => router.refresh(),
-                  });
-                }}
+                upvoted={optimisticUpvote}
+                onClick={onFavoriteBuild}
               />
             )}
 

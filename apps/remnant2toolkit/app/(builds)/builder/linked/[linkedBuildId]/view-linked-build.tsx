@@ -13,7 +13,7 @@ import { urlNoCache } from '@repo/utils';
 import copy from 'clipboard-copy';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import { useRef, useState } from 'react';
+import { startTransition, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
@@ -84,6 +84,37 @@ export function ViewLinkedBuild({ linkedBuildState }: Props) {
   if (!session?.user) {
     buildState.upvoted = false;
     buildState.reported = false;
+  }
+
+  const [optimisticUpvote, setOptimisticUpvote] = useState(buildState.upvoted);
+
+  function onFavoriteBuild() {
+    startTransition(() => {
+      // if user is not signed in, let them know signin is required
+      if (!session?.user?.id) {
+        setSignInRequiredDialogOpen(true);
+        return;
+      }
+
+      setOptimisticUpvote(!optimisticUpvote);
+
+      setCurrentLinkedBuild((prev) => ({
+        ...prev,
+        build: {
+          ...prev.build,
+          upvoted: optimisticUpvote,
+          totalUpvotes: prev.build.upvoted
+            ? prev.build.totalUpvotes - 1
+            : prev.build.totalUpvotes + 1,
+        },
+      }));
+
+      handleFavoriteBuild({
+        buildState,
+        userId: session?.user?.id,
+        onFavorite: () => router.refresh(),
+      });
+    });
   }
 
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
@@ -267,31 +298,8 @@ export function ViewLinkedBuild({ linkedBuildState }: Props) {
 
               {buildState.createdById !== session?.user?.id && (
                 <FavoriteBuildButton
-                  upvoted={buildState.upvoted}
-                  onClick={() => {
-                    // if user is not signed in, let them know signin is required
-                    if (!session?.user?.id) {
-                      setSignInRequiredDialogOpen(true);
-                      return;
-                    }
-
-                    handleFavoriteBuild({
-                      buildState,
-                      userId: session?.user?.id,
-                      onFavorite: () => router.refresh(),
-                    });
-
-                    setCurrentLinkedBuild({
-                      ...currentLinkedBuild,
-                      build: {
-                        ...currentLinkedBuild.build,
-                        upvoted: !currentLinkedBuild.build.upvoted,
-                        totalUpvotes: currentLinkedBuild.build.upvoted
-                          ? currentLinkedBuild.build.totalUpvotes - 1
-                          : currentLinkedBuild.build.totalUpvotes + 1,
-                      },
-                    });
-                  }}
+                  upvoted={optimisticUpvote}
+                  onClick={onFavoriteBuild}
                 />
               )}
 
