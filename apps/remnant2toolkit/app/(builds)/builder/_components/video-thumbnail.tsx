@@ -5,6 +5,7 @@ import {
 } from '@repo/utils';
 import Image from 'next/image';
 
+import { VIDEO_APPROVAL_WINDOW } from '@/app/(builds)/_constants/video-approval-window';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 
 interface Props {
@@ -21,7 +22,7 @@ export function VideoThumbnail({ buildState }: Props) {
       buildState.isBaseGameBuild);
 
   // if the video is not a featured build, show it if it was updated over 12 hours ago
-  const twelveHoursAgo = new Date(new Date().getTime() - 1000 * 60 * 60 * 12);
+  const twelveHoursAgo = new Date(new Date().getTime() - VIDEO_APPROVAL_WINDOW);
   const canShowBuildLinkVideo =
     buildState.buildLink &&
     buildState.buildLinkUpdatedAt &&
