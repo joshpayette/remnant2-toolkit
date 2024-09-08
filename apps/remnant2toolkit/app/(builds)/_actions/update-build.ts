@@ -8,6 +8,7 @@ import { badWordFilter } from '@/app/_libs/bad-word-filter';
 import { BUILD_REVALIDATE_PATHS } from '@/app/(builds)/_constants/build-revalidate-paths';
 import { DEFAULT_BUILD_NAME } from '@/app/(builds)/_constants/default-build-name';
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
+import { VIDEO_APPROVAL_WINDOW } from '@/app/(builds)/_constants/video-approval-window';
 import { buildStateToBuildItems } from '@/app/(builds)/_libs/build-state-to-build-items';
 import { isPermittedBuilder } from '@/app/(builds)/_libs/is-permitted-builder';
 import { validateBuildState } from '@/app/(builds)/_libs/validate-build-state';
@@ -84,17 +85,10 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       errors: ['This build is locked by a moderator.'],
     };
   }
-
   const updatedBuildItems = buildStateToBuildItems(buildState);
 
+  // Check for bad words in the name
   const nameBadWordCheck = badWordFilter.isProfane(buildState.name);
-  const descriptionBadWordCheck = badWordFilter.isProfane(
-    buildState.description ?? '',
-  );
-  const referenceLinkBadWordCheck = badWordFilter.isProfane(
-    buildState.buildLink ?? '',
-  );
-
   if (nameBadWordCheck.isProfane) {
     buildState.isPublic = false;
 
@@ -133,6 +127,11 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       ],
     };
   }
+
+  // Check for bad words in the reference link
+  const descriptionBadWordCheck = badWordFilter.isProfane(
+    buildState.description ?? '',
+  );
   if (descriptionBadWordCheck.isProfane) {
     buildState.isPublic = false;
 
@@ -172,6 +171,10 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     };
   }
 
+  // Check for bad words in the reference link
+  const referenceLinkBadWordCheck = badWordFilter.isProfane(
+    buildState.buildLink ?? '',
+  );
   if (referenceLinkBadWordCheck.isProfane) {
     buildState.isPublic = false;
 
@@ -212,12 +215,13 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
   }
 
   // if the description is longer than allowed, truncate it
-  if (
+  const isDescriptionTooLong =
     buildState.description &&
-    buildState.description.length > MAX_BUILD_DESCRIPTION_LENGTH
-  ) {
+    buildState.description.length > MAX_BUILD_DESCRIPTION_LENGTH;
+  if (isDescriptionTooLong) {
     buildState.description =
-      buildState.description.slice(0, MAX_BUILD_DESCRIPTION_LENGTH - 3) + '...';
+      buildState.description?.slice(0, MAX_BUILD_DESCRIPTION_LENGTH - 3) +
+      '...';
   }
 
   // Get the existing build
@@ -235,15 +239,25 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
   // If the new buildLink doesn't match the existing buildLink, update the buildLinkUpdatedAt
   // If the user is a permitted builder, immediately validate the link by setting buildLinkUpdatedAt to yesterday
   // Also update the isVideoApproved to false so that it can be reviewed again
-  if (
+  const isBuildLinkUpdated =
     buildState.buildLink &&
     existingBuild?.buildLink !== buildState.buildLink &&
-    buildState.buildLink?.trim().length > 0
-  ) {
+    buildState.buildLink?.trim().length > 0;
+  if (isBuildLinkUpdated) {
     buildState.buildLinkUpdatedAt = isPermittedBuilder(session.user.id)
-      ? new Date(Date.now() - 60 * 60 * 24 * 1000)
+      ? new Date(Date.now() - VIDEO_APPROVAL_WINDOW)
       : new Date();
     buildState.isVideoApproved = false;
+  }
+
+  // If the build was private and then made public, need to update the buildLinkUpdatedAt
+  // to avoid a video being auto-approved
+  const isPrivateBuildNowPublic =
+    existingBuild?.isPublic === false &&
+    buildState.isPublic === true &&
+    !isPermittedBuilder(session.user.id);
+  if (isPrivateBuildNowPublic) {
+    buildState.buildLinkUpdatedAt = new Date();
   }
 
   // If the buildLink is a valid youtube url, also save it to the videoUrl field
@@ -286,6 +300,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
         },
       });
     }
+
     // Ensure the user's bio is not against the code of conduct
     const bioBadWordCheck = badWordFilter.isProfane(
       buildCreator.UserProfile?.bio ?? '',
@@ -357,11 +372,11 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     );
 
     // If the build name has updated, send the build info to Discord
-    if (
+    const isBuildNameChanged =
       existingBuild?.name !== buildState.name &&
       buildState.isPublic === true &&
-      !isPermittedBuilder(session.user.id)
-    ) {
+      !isPermittedBuilder(session.user.id);
+    if (isBuildNameChanged) {
       await sendWebhook({
         webhook: 'modQueue',
         params: {
@@ -386,11 +401,11 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     }
 
     // If the build was private but is now public, send the build info to Discord
-    if (
+    const isPrivateBuildNowPublic =
       existingBuild?.isPublic === false &&
       buildState.isPublic === true &&
-      !isPermittedBuilder(session.user.id)
-    ) {
+      !isPermittedBuilder(session.user.id);
+    if (isPrivateBuildNowPublic) {
       await sendWebhook({
         webhook: 'modQueue',
         params: {
@@ -429,33 +444,33 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     }
 
     // If the build description has updated, send the build info to Discord
-    if (
+    const isBuildDescriptionChanged =
       existingBuild?.description &&
       buildState.description &&
       existingBuild.description !== buildState.description &&
       buildState.description.trim().length > 0 &&
       existingBuild.description.trim().length > 0 &&
       buildState.isPublic &&
-      !isPermittedBuilder(session.user.id)
-    ) {
+      !isPermittedBuilder(session.user.id);
+    if (isBuildDescriptionChanged) {
       await sendWebhook({
         webhook: 'modQueue',
         params: getBuildDescriptionParams({
           buildId: buildState.buildId,
-          newDescription: buildState.description.trim(),
-          oldDescription: existingBuild.description.trim(),
+          newDescription: buildState.description?.trim() as string,
+          oldDescription: existingBuild.description?.trim() as string,
         }),
       });
     }
 
     // If the build link has updated, send the build info to Discord
-    if (
+    const isBuildLinkUpdated =
       buildState.buildLink &&
       existingBuild?.buildLink !== buildState.buildLink &&
       buildState.buildLink.trim().length > 0 &&
       buildState.isPublic === true &&
-      !isPermittedBuilder(session.user.id)
-    ) {
+      !isPermittedBuilder(session.user.id);
+    if (isBuildLinkUpdated) {
       await sendWebhook({
         webhook: 'modQueue',
         params: {

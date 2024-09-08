@@ -4,4 +4,4 @@
 export const BUILD_REVALIDATE_PATHS = [
   '/profile/[userId]/created-builds',
   '/profile/[userId]/favorited-builds',
-]
+];
