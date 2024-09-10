@@ -60,20 +60,38 @@ export async function getLinkedBuild(linkedBuildId: string): Promise<{
     const createdByDisplayName =
       linkedBuild?.createdBy?.displayName ?? DEFAULT_DISPLAY_NAME;
 
-    // Find out whether the user has upvoted the build
-    const upvotes: Array<{ buildId: string; upvoted: boolean }> = [];
-    if (userId) {
-      for (const linkedBuildItem of linkedBuild.LinkedBuildItems) {
-        const build = await prisma.buildVoteCounts.findFirst({
+    const publicLinkedBuilds = linkedBuild.LinkedBuildItems.filter(
+      (linkedBuildItem) => linkedBuildItem.Build.isPublic,
+    );
+
+    // Check each BuildItem in each publicLinkedBuild to see if it has an id
+    // if so, check UserItems to see if the User owns it
+    // then set the isOwned property on the BuildItem to true or false
+    for await (const [index, linkedBuild] of publicLinkedBuilds.entries()) {
+      for await (const buildItem of linkedBuild.Build.BuildItems) {
+        if (!buildItem.id) {
+          continue;
+        }
+
+        const userItem = await prisma.userItems.findFirst({
           where: {
-            buildId: linkedBuildItem.buildId,
-            userId: userId,
+            userId,
+            itemId: buildItem.itemId,
           },
         });
 
-        if (build) {
-          upvotes.push({ buildId: linkedBuildItem.buildId, upvoted: true });
-        }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (publicLinkedBuilds[index] as any).Build.BuildItems =
+          linkedBuild.Build.BuildItems.map((item) => {
+            if (item.id === buildItem.id) {
+              return {
+                ...item,
+                isOwned: Boolean(userItem),
+              };
+            }
+
+            return item;
+          });
       }
     }
 
@@ -88,10 +106,12 @@ export async function getLinkedBuild(linkedBuildId: string): Promise<{
         name: linkedBuild.name,
         description: linkedBuild.description ?? '',
         isModeratorLocked: linkedBuild.isModeratorLocked,
-        linkedBuildItems: linkedBuild.LinkedBuildItems.filter(
-          (linkedBuildItem) => linkedBuildItem.Build.isPublic,
-        ).map((linkedBuildItem) => {
+        linkedBuildItems: publicLinkedBuilds.map((linkedBuildItem) => {
           const build = linkedBuildItem.Build;
+          const upvoted = build.BuildVotes.some(
+            (vote) => vote.userId === userId,
+          );
+
           return {
             id: linkedBuildItem.id,
             label: linkedBuildItem.label,
@@ -120,9 +140,7 @@ export async function getLinkedBuild(linkedBuildId: string): Promise<{
               updatedAt: build.updatedAt,
               createdById: build.createdById,
               createdByName: build.createdBy.name ?? '',
-              upvoted: upvotes.some(
-                (upvote) => upvote.buildId === build.id && upvote.upvoted,
-              ),
+              upvoted,
               totalUpvotes: build.BuildVotes.length,
               viewCount: build.viewCount,
               validatedViewCount: build.BuildValidatedViews.length,

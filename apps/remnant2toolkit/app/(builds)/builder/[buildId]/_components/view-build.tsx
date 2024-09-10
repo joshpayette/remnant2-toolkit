@@ -45,6 +45,10 @@ interface Props {
 
 export function ViewBuild({ buildState }: Props) {
   const { data: session, status: sessionStatus } = useSession();
+
+  const router = useRouter();
+  const buildContainerRef = useRef<HTMLDivElement>(null);
+
   const { discoveredItemIds } = useDiscoveredItems();
   const buildStateWithItemsOwned = setLocalBuildItemOwnership({
     buildState,
@@ -63,9 +67,6 @@ export function ViewBuild({ buildState }: Props) {
 
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);
   const [loadoutDialogOpen, setLoadoutDialogOpen] = useState(false);
-
-  const router = useRouter();
-
   const [signInRequiredDialogOpen, setSignInRequiredDialogOpen] =
     useState(false);
 
@@ -77,8 +78,6 @@ export function ViewBuild({ buildState }: Props) {
     handleClearImageDownloadInfo,
     handleImageExport,
   } = useImageExport();
-
-  const buildContainerRef = useRef<HTMLDivElement>(null);
 
   const [optimisticUpvote, setOptimisticUpvote] = useOptimistic<
     boolean,

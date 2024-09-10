@@ -10,8 +10,10 @@ import {
   type ArchetypeName,
   getArchetypeComboName,
 } from '@/app/(builds)/_libs/get-archetype-combo-name';
-import { VideoThumbnail } from '@/app/(builds)/builder/_components/video-thumbnail';
-import { ViewBuild } from '@/app/(builds)/builder/[buildId]/view-build';
+import { ViewBuildContainer } from '@/app/(builds)/builder/[buildId]/_components/view-build-container';
+import { getLinkedBuild } from '@/app/(builds)/builder/linked/_actions/get-linked-build';
+import { getLinkedBuildIds } from '@/app/(builds)/builder/linked/_actions/get-linked-build-ids';
+import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
 
 export async function generateMetadata(
   { params: { buildId } }: { params: { buildId: string } },
@@ -128,23 +130,49 @@ export default async function Page({
       </p>
     );
   }
-
   const { build } = buildData;
-
   const buildState = cleanUpBuildState(dbBuildToBuildState(build));
 
-  const response = await incrementViewCount({
+  const { linkedBuildIds } = await getLinkedBuildIds(buildId);
+
+  // Need to loop over each id and fetch the linked build
+  const linkedBuildData = await Promise.all(
+    linkedBuildIds.map((linkedBuildId) => getLinkedBuild(linkedBuildId)),
+  );
+
+  for (const linkedBuild of linkedBuildData) {
+    // if there is an error, remover item from array
+    if (isErrorResponse(linkedBuild) || !linkedBuild.linkedBuildState) {
+      linkedBuildData.splice(linkedBuildData.indexOf(linkedBuild), 1);
+    }
+  }
+
+  const linkedBuildStates = linkedBuildData
+    .filter((linkedBuild) => linkedBuild.linkedBuildState)
+    .map((linkedBuild) => linkedBuild.linkedBuildState as LinkedBuildState);
+
+  if (!linkedBuildStates) {
+    return (
+      <p className="text-red text-center">
+        There was an error loading this linked build. It may have been removed.
+      </p>
+    );
+  }
+
+  const viewCountResponse = await incrementViewCount({
     buildId: buildState.buildId || '',
   });
-  if (response.viewCount !== -1) {
-    buildState.viewCount = response.viewCount;
+  if (viewCountResponse.viewCount !== -1) {
+    buildState.viewCount = viewCountResponse.viewCount;
   }
 
   return (
     <div className="flex w-full flex-col items-center">
       <div className="height-full flex w-full flex-col items-center justify-center">
-        <VideoThumbnail buildState={buildState} />
-        <ViewBuild buildState={buildState} />
+        <ViewBuildContainer
+          buildState={buildState}
+          linkedBuildStates={linkedBuildStates}
+        />
       </div>
     </div>
   );
