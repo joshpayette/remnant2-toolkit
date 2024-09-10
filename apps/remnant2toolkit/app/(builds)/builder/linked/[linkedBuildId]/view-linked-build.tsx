@@ -31,7 +31,7 @@ import { ShareBuildButton } from '@/app/(builds)/builder/_components/share-build
 import { VideoThumbnail } from '@/app/(builds)/builder/_components/video-thumbnail';
 import { ModeratorLinkedBuildToolsDialog } from '@/app/(builds)/builder/linked/_admin/components/dialogs/moderator-linkedbuild-tools-dialog';
 import { EditLinkedBuildButton } from '@/app/(builds)/builder/linked/_components/edit-linked-build-button';
-import { LinkedBuildsDisplay } from '@/app/(builds)/builder/linked/_components/linked-builds-display';
+import { TabbedBuildsDisplay } from '@/app/(builds)/builder/linked/_components/tabbed-builds-display';
 import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
 import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
 
@@ -137,8 +137,8 @@ export function ViewLinkedBuild({ linkedBuildState }: Props) {
         onClose={() => setSignInRequiredDialogOpen(false)}
       />
       <div className="height-full flex w-full flex-col items-center justify-center">
-        <LinkedBuildsDisplay
-          currentLinkedBuild={currentLinkedBuild}
+        <TabbedBuildsDisplay
+          buildInfo={currentLinkedBuild}
           linkedBuildState={linkedBuildState}
           onChangeCurrentLinkedBuild={setCurrentLinkedBuild}
         />

@@ -15,13 +15,13 @@ import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linke
 import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
 
 interface Props {
-  currentLinkedBuild: LinkedBuildItem;
+  buildInfo: LinkedBuildItem;
   onChangeCurrentLinkedBuild: (linkedBuildItem: LinkedBuildItem) => void;
   linkedBuildState: LinkedBuildState;
 }
 
-export function LinkedBuildsDisplay({
-  currentLinkedBuild,
+export function TabbedBuildsDisplay({
+  buildInfo,
   onChangeCurrentLinkedBuild,
   linkedBuildState,
 }: Props) {
@@ -58,7 +58,7 @@ export function LinkedBuildsDisplay({
         </BaseLabel>
         <BaseListbox
           name="linkedBuilds"
-          value={currentLinkedBuild.label}
+          value={buildInfo.label}
           onChange={(value) => {
             const linkedBuild = linkedBuildItems.find(
               (linkedBuildItem) => linkedBuildItem.label === value,
@@ -88,7 +88,7 @@ export function LinkedBuildsDisplay({
               key={linkedBuildItem.build.id}
               onClick={() => onChangeCurrentLinkedBuild(linkedBuildItem)}
               className={cn(
-                linkedBuildItem.build.id === currentLinkedBuild.build.id
+                linkedBuildItem.build.id === buildInfo.build.id
                   ? 'text-gray-300'
                   : 'text-gray-400 hover:text-gray-300',
                 tabIdx === 0 ? 'rounded-l-lg' : '',
@@ -100,7 +100,7 @@ export function LinkedBuildsDisplay({
               <span
                 aria-hidden="true"
                 className={cn(
-                  linkedBuildItem.build.id === currentLinkedBuild.build.id
+                  linkedBuildItem.build.id === buildInfo.build.id
                     ? 'bg-purple-500'
                     : 'bg-transparent',
                   'absolute inset-x-0 bottom-0 h-0.5',

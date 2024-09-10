@@ -7,7 +7,7 @@ import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-stat
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { VideoThumbnail } from '@/app/(builds)/builder/_components/video-thumbnail';
 import { ViewBuild } from '@/app/(builds)/builder/[buildId]/_components/view-build';
-import { LinkedBuildsDisplay } from '@/app/(builds)/builder/linked/_components/linked-builds-display';
+import { TabbedBuildsDisplay } from '@/app/(builds)/builder/linked/_components/tabbed-builds-display';
 import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
 import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
 
@@ -17,11 +17,8 @@ interface Props {
 }
 
 export function ViewBuildContainer({ buildState, linkedBuildStates }: Props) {
-  const [currentLinkedBuildState, setCurrentLinkedBuildState] =
-    useState<LinkedBuildState | null>(linkedBuildStates?.[0] || null);
-
+  const currentLinkedBuildState = linkedBuildStates?.[0] || null;
   const linkedBuildItems = currentLinkedBuildState?.linkedBuildItems;
-
   const [currentLinkedBuild, setCurrentLinkedBuild] =
     useState<LinkedBuildItem | null>(linkedBuildItems?.[0] || null);
 
@@ -32,8 +29,8 @@ export function ViewBuildContainer({ buildState, linkedBuildStates }: Props) {
   return (
     <>
       {currentLinkedBuildState && currentLinkedBuild && (
-        <LinkedBuildsDisplay
-          currentLinkedBuild={currentLinkedBuild}
+        <TabbedBuildsDisplay
+          buildInfo={currentLinkedBuild}
           linkedBuildState={currentLinkedBuildState}
           onChangeCurrentLinkedBuild={setCurrentLinkedBuild}
         />
