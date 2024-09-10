@@ -32,6 +32,7 @@ model Build {
   LinkedBuildItems       LinkedBuildItems[]
   BuildValidatedViews    BuildValidatedViews[]
   UserBuildSubscriptions UserBuildSubscription[]
+  BuildVariant           BuildVariant[]
 
   @@index([createdById])
   @@index([userProfileId])
@@ -52,6 +53,17 @@ model BuildItems {
   @@index([buildId])
   @@index([itemId])
   @@index([category])
+}
+
+model BuildVariant {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  Build     Build    @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId   String
+
+  @@index([buildId])
 }
 
 // TODO Make this non-plural
