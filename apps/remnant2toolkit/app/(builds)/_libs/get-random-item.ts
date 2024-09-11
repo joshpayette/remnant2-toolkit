@@ -9,8 +9,9 @@ export function getRandomItem(
     category: ItemCategory | null;
     index?: number; // Used for slots that can have multiple items, such as rings
   },
+  itemList?: Item[],
 ): Item {
-  const items = getItemListForSlot(buildState, selectedItem);
+  const items = itemList || getItemListForSlot(buildState, selectedItem);
   const randomIndex = Math.floor(Math.random() * items.length);
   const randomItem = items[randomIndex] as Item;
   return randomItem;

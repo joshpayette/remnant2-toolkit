@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-09-10
+
+### Added
+
+- Added "Random Build" link to build menu.
+- Added "Random Build" url - https://remnant2toolkit.com/random-build
+
+### Changed
+
+- Requesting a random build will now only randomize from items you own rather than all items. If you have no items discovered in the Item Tracker, it will use all items.
+
 ## 2024-09-05
 
 ### Fixed
