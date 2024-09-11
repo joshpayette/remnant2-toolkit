@@ -82,6 +82,9 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
       itemList?.filter((item) => item.category === 'relicfragment'),
     );
     randomBuild.items.relicfragment[index] = randomRelicFragment;
+    itemList = itemList?.filter(
+      (item) => item.name !== randomRelicFragment?.name,
+    );
   });
 
   // weapons
@@ -111,16 +114,15 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
     );
     if (randomWeapon) {
       randomBuild.items.weapon[index] = randomWeapon as WeaponItem | null;
+      itemList = itemList?.filter((item) => item.name !== randomWeapon.name);
     }
     // weapon mods
     if (randomWeapon?.linkedItems?.mod) {
       const linkedMod = modItems.find(
         (item) => item.name === randomWeapon.linkedItems?.mod?.name,
       );
-      if (!linkedMod) {
-        throw new Error(`Could not find linked mod for ${randomWeapon.name}`);
-      }
-      randomBuild.items.mod[index] = linkedMod as ModItem;
+      randomBuild.items.mod[index] = linkedMod as ModItem | null;
+      itemList = itemList?.filter((item) => item.name !== linkedMod?.name);
     } else {
       // if the weapon is melee (index 1), no mods can be equipped
       // melee can only have linked mods
@@ -136,6 +138,7 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
           ),
         );
         randomBuild.items.mod[index] = randomMod;
+        itemList = itemList?.filter((item) => item.name !== randomMod?.name);
       }
     }
     // weapon mutators
@@ -151,6 +154,7 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
     );
     if (randomMutator) {
       randomBuild.items.mutator[index] = randomMutator as MutatorItem | null;
+      itemList = itemList?.filter((item) => item.name !== randomMutator.name);
     }
   });
 
@@ -166,6 +170,7 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
     );
     if (randomArchetype) {
       randomBuild.items.archetype[index] = randomArchetype;
+      itemList = itemList?.filter((item) => item.name !== randomArchetype.name);
     }
 
     // archetype skills
@@ -181,12 +186,8 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
           item.linkedItems?.archetype?.name === randomArchetype?.name,
       ),
     );
-    if (!randomSkill) {
-      throw new Error(
-        `Could not find random skill for ${randomArchetype?.name}`,
-      );
-    }
     randomBuild.items.skill[index] = randomSkill;
+    itemList = itemList?.filter((item) => item.name !== randomSkill?.name);
   });
 
   // amulet
@@ -210,6 +211,7 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
       itemList?.filter((item) => item.category === 'ring'),
     );
     randomBuild.items.ring[index] = randomRing;
+    itemList = itemList?.filter((item) => item.name !== randomRing?.name);
   });
   // Traits
   // assign the archetype traits first
@@ -225,29 +227,28 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
     const randomTrait =
       traitItems[Math.floor(Math.random() * traitItems.length)];
 
-    if (!randomTrait) throw new Error('Could not find random trait');
-
-    randomTrait.amount = 10;
-    if (totalTraitPoints + randomTrait.amount > 110) {
-      randomTrait.amount = 110 - totalTraitPoints;
-    }
-
-    // if the trait is not already in the build, add it
-    // otherwise we will just increase the amount
-    if (
-      !randomBuild.items.trait.find(
-        (trait: TraitItem) => trait.name === randomTrait.name,
-      )
-    ) {
-      randomBuild.items.trait.push(randomTrait);
-    } else {
-      const traitIndex = randomBuild.items.trait.findIndex(
-        (trait: TraitItem) => trait.name === randomTrait.name,
-      );
-      if (!randomBuild.items.trait[traitIndex]) {
-        throw new Error(`Could not find trait at index ${traitIndex}`);
+    if (randomTrait) {
+      randomTrait.amount = 10;
+      if (totalTraitPoints + randomTrait.amount > 110) {
+        randomTrait.amount = 110 - totalTraitPoints;
       }
-      randomBuild.items.trait[traitIndex].amount = randomTrait.amount;
+
+      // if the trait is not already in the build, add it
+      // otherwise we will just increase the amount
+      if (
+        !randomBuild.items.trait.find(
+          (trait: TraitItem) => trait.name === randomTrait.name,
+        )
+      ) {
+        randomBuild.items.trait.push(randomTrait);
+      } else {
+        const traitIndex = randomBuild.items.trait.findIndex(
+          (trait: TraitItem) => trait.name === randomTrait.name,
+        );
+        if (randomBuild.items.trait[traitIndex]) {
+          randomBuild.items.trait[traitIndex].amount = randomTrait.amount;
+        }
+      }
     }
 
     randomBuild = cleanUpBuildState(randomBuild);
@@ -269,6 +270,7 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
       itemList?.filter((item) => item.category === 'consumable'),
     );
     randomBuild.items.consumable[index] = randomConsumable;
+    itemList = itemList?.filter((item) => item.name !== randomConsumable?.name);
   });
   // Concotions
   // do this last to determine concoction count
@@ -284,6 +286,9 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
         itemList?.filter((item) => item.category === 'concoction'),
       );
       randomBuild.items.concoction[index] = randomConcoction;
+      itemList = itemList?.filter(
+        (item) => item.name !== randomConcoction?.name,
+      );
     },
   );
 
