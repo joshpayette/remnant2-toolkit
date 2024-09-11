@@ -14,14 +14,14 @@ import { type ArmorItem } from '@/app/(items)/_types/armor-item';
 import { type ConcoctionItem } from '@/app/(items)/_types/concotion-item';
 import { type ConsumableItem } from '@/app/(items)/_types/consumable-item';
 import { type Item } from '@/app/(items)/_types/item';
-import { type ModItem } from '@/app/(items)/_types/mod-item';
-import { type MutatorItem } from '@/app/(items)/_types/mutator-item';
+import { ModItem } from '@/app/(items)/_types/mod-item';
+import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { type RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 import { type RelicItem } from '@/app/(items)/_types/relic-item';
 import { type RingItem } from '@/app/(items)/_types/ring-item';
 import { type SkillItem } from '@/app/(items)/_types/skill-item';
 import { type TraitItem } from '@/app/(items)/_types/trait-item';
-import { type WeaponItem } from '@/app/(items)/_types/weapon-item';
+import { WeaponItem } from '@/app/(items)/_types/weapon-item';
 
 export function getRandomBuild(itemList?: Item[]): BuildState {
   let randomBuild: BuildState = cloneDeep(INITIAL_BUILD_STATE);
@@ -95,13 +95,28 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
 
   // weapons
   getArrayOfLength(3).forEach((_, index) => {
+    let itemType;
+    let mutatorType;
+    if (index === 0) {
+      itemType = 'long gun';
+      mutatorType = 'gun';
+    } else if (index === 1) {
+      itemType = 'melee';
+      mutatorType = 'melee';
+    } else {
+      itemType = 'hand gun';
+      mutatorType = 'gun';
+    }
+
     const randomWeapon = getRandomItem(
       randomBuild,
       {
         category: 'weapon',
         index,
       },
-      itemList?.filter((item) => item.category === 'weapon'),
+      itemList?.filter(
+        (item) => WeaponItem.isWeaponItem(item) && item.type === itemType,
+      ),
     ) as WeaponItem;
     randomBuild.items.weapon[index] = randomWeapon;
     // weapon mods
@@ -123,7 +138,9 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
             category: 'mod',
             index,
           },
-          itemList?.filter((item) => item.category === 'mod'),
+          itemList?.filter(
+            (item) => ModItem.isModItem(item) && !item.linkedItems?.weapon,
+          ),
         ) as ModItem;
         randomBuild.items.mod[index] = randomMod;
       }
@@ -135,7 +152,9 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
         category: 'mutator',
         index,
       },
-      itemList?.filter((item) => item.category === 'mutator'),
+      itemList?.filter(
+        (item) => MutatorItem.isMutatorItem(item) && item.type === mutatorType,
+      ),
     ) as MutatorItem;
     randomBuild.items.mutator[index] = randomMutator;
   });
