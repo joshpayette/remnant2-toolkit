@@ -87,7 +87,8 @@ export default async function Page() {
     }
   }
 
-  const randomBuildState = getRandomBuild(itemList);
+  // TODO Reincorporate discovered items, need to address if random items are not found
+  const randomBuildState = getRandomBuild(allItems);
 
   return (
     <div className="flex w-full flex-col items-center">
