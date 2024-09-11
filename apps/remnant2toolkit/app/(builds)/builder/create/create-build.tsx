@@ -7,7 +7,6 @@ import { useIsClient } from 'usehooks-ts';
 
 import { INITIAL_BUILD_STATE } from '@/app/(builds)/_constants/initial-build-state';
 import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
-import { getRandomBuild } from '@/app/(builds)/_libs/get-random-build';
 import {
   type UpdateBuildCategory,
   updateBuildState,
@@ -25,11 +24,17 @@ import { RandomBuildButton } from '@/app/(builds)/builder/_components/random-bui
 import { SaveBuildButton } from '@/app/(builds)/builder/_components/save-build-button';
 import { ItemTagSuggestionDialog } from '@/app/(items)/_components/item-tag-suggestion-dialog';
 
-export function CreateBuild() {
+interface Props {
+  initialBuildState?: BuildState;
+}
+
+export function CreateBuild({
+  initialBuildState = INITIAL_BUILD_STATE,
+}: Props) {
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);
 
   const [buildState, setBuildState] = useState<BuildState>(
-    cloneDeep(INITIAL_BUILD_STATE),
+    cloneDeep(initialBuildState),
   );
 
   const {
@@ -128,11 +133,7 @@ export function CreateBuild() {
             onClick={() => setDetailedBuildDialogOpen(true)}
           />
 
-          <RandomBuildButton
-            onClick={() => {
-              setBuildState(getRandomBuild());
-            }}
-          />
+          <RandomBuildButton />
         </>
       }
     />
