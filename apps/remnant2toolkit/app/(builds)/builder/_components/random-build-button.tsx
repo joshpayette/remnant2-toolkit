@@ -9,8 +9,6 @@ export function RandomBuildButton() {
   const router = useRouter();
   const pathname = usePathname();
 
-  console.info('pathname', pathname);
-
   return (
     <BaseButton
       outline

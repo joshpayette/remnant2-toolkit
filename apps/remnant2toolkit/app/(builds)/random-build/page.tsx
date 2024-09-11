@@ -87,8 +87,10 @@ export default async function Page() {
     }
   }
 
-  // TODO Reincorporate discovered items, need to address if random items are not found
-  const randomBuildState = getRandomBuild(allItems);
+  const randomBuildState =
+    itemList && itemList.length > 0
+      ? getRandomBuild(itemList)
+      : getRandomBuild(allItems);
 
   return (
     <div className="flex w-full flex-col items-center">
