@@ -65,6 +65,7 @@ export { MoveIcon } from './common/icons/move';
 export { MyBuildsIcon } from './common/icons/my-builds';
 export { PaperClipIcon } from './common/icons/paper-clip';
 export { ProfileIcon } from './common/icons/profile';
+export { RandomIcon } from './common/icons/random';
 export { ResourcesIcon } from './common/icons/resources';
 export { SettingsIcon } from './common/icons/settings';
 export { ShareIcon } from './common/icons/share';

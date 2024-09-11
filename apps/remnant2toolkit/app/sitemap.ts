@@ -54,6 +54,11 @@ const staticRoutes = [
     changeFrequency: 'weekly' as ChangeFrequency,
   },
   {
+    url: `${baseUrl}/random-build`,
+    lastModified: currentDate,
+    changeFrequency: 'daily' as ChangeFrequency,
+  },
+  {
     url: `${baseUrl}/resources`,
     lastModified: currentDate,
     changeFrequency: 'weekly' as ChangeFrequency,
