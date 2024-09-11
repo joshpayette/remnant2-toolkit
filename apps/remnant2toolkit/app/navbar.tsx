@@ -205,6 +205,27 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                     </BaseLink>
                   )}
                 </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <BaseLink
+                      href={NAV_ITEMS.randomBuild.href}
+                      className={cn(
+                        active ? 'bg-gray-800' : '',
+                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
+                      )}
+                    >
+                      <div className="mr-4 w-[20px]">
+                        <NAV_ITEMS.randomBuild.icon className="text-primary-600 h-5 w-5" />
+                      </div>
+                      <div className="flex flex-col items-start justify-start gap-y-1">
+                        {NAV_ITEMS.randomBuild.label}
+                        <p className="text-xs font-normal text-gray-400">
+                          {NAV_ITEMS.randomBuild.description}
+                        </p>
+                      </div>
+                    </BaseLink>
+                  )}
+                </Menu.Item>
               </Menu.Items>
             </Transition>
           </Menu>
@@ -371,6 +392,23 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
 
               <p className="text-xs text-gray-400">
                 {NAV_ITEMS.beginnerBuilds.description}
+              </p>
+            </div>
+          </BaseLink>
+
+          <BaseLink
+            href={NAV_ITEMS.randomBuild.href}
+            className="flex flex-row items-center justify-start"
+          >
+            <NAV_ITEMS.randomBuild.icon
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
+              aria-hidden="true"
+            />
+            <div className="flex flex-col items-start justify-start px-3 py-2">
+              {NAV_ITEMS.randomBuild.label}
+
+              <p className="text-xs text-gray-400">
+                {NAV_ITEMS.randomBuild.description}
               </p>
             </div>
           </BaseLink>

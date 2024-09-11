@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description: description,
       siteName: SITE_TITLE,
-      url: `https://remnant2toolkit.com/builder/create`,
+      url: `https://remnant2toolkit.com/${NAV_ITEMS.createBuild.href}`,
       images: [
         {
           url: OG_IMAGE_URL,
@@ -41,7 +41,7 @@ function PageContent() {
     <div className="flex w-full flex-col items-center">
       <PageHeader
         title="Remnant 2 Build Tool"
-        subtitle="Create your builds and share them with your friends and the community."
+        subtitle={NAV_ITEMS.createBuild.description}
       />
       <CreateBuild />
     </div>

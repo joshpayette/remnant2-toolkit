@@ -9,6 +9,7 @@ import {
   ItemTrackerIcon,
   MyBuildsIcon,
   ProfileIcon,
+  RandomIcon,
   ResourcesIcon,
   SignInIcon,
   SignOutIcon,
@@ -178,6 +179,12 @@ export const NAV_ITEMS = {
     description: 'View and manage your Remnant 2 Toolkit profile.',
     href: '/profile',
     icon: ProfileIcon,
+  },
+  randomBuild: {
+    label: 'Random Build',
+    description: 'Generate a randomized Remnant 2 build to try out!',
+    href: '/random-build',
+    icon: RandomIcon,
   },
   resources: {
     label: 'Resources',
