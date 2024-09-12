@@ -3,18 +3,16 @@ import { type Metadata, type ResolvingMetadata } from 'next';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
+import { getBuildVariants } from '@/app/(builds)/_actions/get-build-variants';
 import { incrementViewCount } from '@/app/(builds)/_actions/increment-view-count';
-import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
 import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
 import {
   type ArchetypeName,
   getArchetypeComboName,
 } from '@/app/(builds)/_libs/get-archetype-combo-name';
+import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { ViewBuildContainer } from '@/app/(builds)/builder/[buildId]/_components/view-build-container';
-import { getLinkedBuild } from '@/app/(builds)/builder/linked/_actions/get-linked-build';
-import { getLinkedBuildIds } from '@/app/(builds)/builder/linked/_actions/get-linked-build-ids';
-import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
-
+import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
 export async function generateMetadata(
   { params: { buildId } }: { params: { buildId: string } },
   _parent: ResolvingMetadata,
@@ -131,47 +129,45 @@ export default async function Page({
     );
   }
   const { build } = buildData;
-  const buildState = cleanUpBuildState(dbBuildToBuildState(build));
 
-  const { linkedBuildIds } = await getLinkedBuildIds(buildId);
+  const { buildVariants } = await getBuildVariants(buildId);
 
-  // Need to loop over each id and fetch the linked build
-  const linkedBuildData = await Promise.all(
-    linkedBuildIds.map((linkedBuildId) => getLinkedBuild(linkedBuildId)),
+  // Need to loop over each id and fetch the build
+  const variantBuildData = await Promise.all(
+    buildVariants.map((buildVariant) => getBuild(buildVariant.buildId)),
   );
 
-  for (const linkedBuild of linkedBuildData) {
+  const buildVariantBuilds: DBBuild[] = [];
+  for (const variantBuild of variantBuildData) {
     // if there is an error, remover item from array
-    if (isErrorResponse(linkedBuild) || !linkedBuild.linkedBuildState) {
-      linkedBuildData.splice(linkedBuildData.indexOf(linkedBuild), 1);
+    if (!isErrorResponse(variantBuild)) {
+      buildVariantBuilds.push(variantBuild.build);
     }
   }
 
-  const linkedBuildStates = linkedBuildData
-    .filter((linkedBuild) => linkedBuild.linkedBuildState)
-    .map((linkedBuild) => linkedBuild.linkedBuildState as LinkedBuildState);
-
-  if (!linkedBuildStates) {
-    return (
-      <p className="text-red text-center">
-        There was an error loading this linked build. It may have been removed.
-      </p>
-    );
-  }
+  const linkedBuildItems: LinkedBuildItem[] = buildVariants.map((variant) => ({
+    build: buildVariantBuilds.find(
+      (buildVariant) => buildVariant.id === variant.buildId,
+    ) as DBBuild,
+    label: variant.label,
+  }));
 
   const viewCountResponse = await incrementViewCount({
-    buildId: buildState.buildId || '',
+    buildId: build.id || '',
   });
   if (viewCountResponse.viewCount !== -1) {
-    buildState.viewCount = viewCountResponse.viewCount;
+    build.viewCount = viewCountResponse.viewCount;
   }
 
   return (
     <div className="flex w-full flex-col items-center">
       <div className="height-full flex w-full flex-col items-center justify-center">
         <ViewBuildContainer
-          buildState={buildState}
-          linkedBuildStates={linkedBuildStates}
+          mainBuildVariant={{
+            build,
+            label: 'Primary Build',
+          }}
+          buildVariants={linkedBuildItems}
         />
       </div>
     </div>

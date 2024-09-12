@@ -93,10 +93,7 @@ export default async function Page({
         title="Link Builds"
         subtitle="Link multiple variations of a build together in one convenient URL."
       />
-      <EditLinkedBuild
-        currentLinkedBuildState={linkedBuildState}
-        userId={userId}
-      />
+      <EditLinkedBuild currentLinkedBuild={linkedBuildState} userId={userId} />
     </>
   );
 }

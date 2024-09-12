@@ -1,7 +1,7 @@
 'use server';
 import { type Build, prisma } from '@repo/db';
 
-import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
+import { type LinkedBuild } from '@/app/(builds)/builder/linked/_types/linked-build';
 import { DEFAULT_DISPLAY_NAME } from '@/app/(user)/profile/_constants/default-display-name';
 
 export default async function getLinkedBuilds({
@@ -17,7 +17,7 @@ export default async function getLinkedBuilds({
 }): Promise<{
   status: 'success' | 'error';
   message: string;
-  linkedBuilds: LinkedBuildState[];
+  linkedBuilds: LinkedBuild[];
   totalCount: number;
   requestedBuildName?: string;
 }> {

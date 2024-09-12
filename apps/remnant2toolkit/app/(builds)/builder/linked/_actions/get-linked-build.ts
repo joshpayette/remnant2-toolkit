@@ -2,14 +2,14 @@
 
 import { prisma } from '@repo/db';
 
-import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
+import { type LinkedBuild } from '@/app/(builds)/builder/linked/_types/linked-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { DEFAULT_DISPLAY_NAME } from '@/app/(user)/profile/_constants/default-display-name';
 
 export async function getLinkedBuild(linkedBuildId: string): Promise<{
   status: 'success' | 'error';
   message: string;
-  linkedBuildState?: LinkedBuildState;
+  linkedBuildState?: LinkedBuild;
 }> {
   const session = await getSession();
   const userId = session?.user?.id;

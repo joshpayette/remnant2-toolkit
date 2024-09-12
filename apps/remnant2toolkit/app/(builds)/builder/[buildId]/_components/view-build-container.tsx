@@ -9,30 +9,30 @@ import { VideoThumbnail } from '@/app/(builds)/builder/_components/video-thumbna
 import { ViewBuild } from '@/app/(builds)/builder/[buildId]/_components/view-build';
 import { TabbedBuildsDisplay } from '@/app/(builds)/builder/linked/_components/tabbed-builds-display';
 import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
-import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
 
 interface Props {
-  buildState: BuildState;
-  linkedBuildStates?: LinkedBuildState[];
+  buildVariants?: LinkedBuildItem[];
+  mainBuildVariant: LinkedBuildItem;
 }
 
-export function ViewBuildContainer({ buildState, linkedBuildStates }: Props) {
-  const currentLinkedBuildState = linkedBuildStates?.[0] || null;
-  const linkedBuildItems = currentLinkedBuildState?.linkedBuildItems;
-  const [currentLinkedBuild, setCurrentLinkedBuild] =
-    useState<LinkedBuildItem | null>(linkedBuildItems?.[0] || null);
+export function ViewBuildContainer({ buildVariants, mainBuildVariant }: Props) {
+  const [currentBuildVariant, setCurrentBuildVariant] =
+    useState<LinkedBuildItem | null>(mainBuildVariant);
 
-  const currentBuildState: BuildState = currentLinkedBuild
-    ? cleanUpBuildState(dbBuildToBuildState(currentLinkedBuild.build))
-    : buildState;
+  const currentBuildState: BuildState = cleanUpBuildState(
+    dbBuildToBuildState(currentBuildVariant?.build || mainBuildVariant.build),
+  );
 
   return (
     <>
-      {currentLinkedBuildState && currentLinkedBuild && (
+      {currentBuildVariant && (
         <TabbedBuildsDisplay
-          buildInfo={currentLinkedBuild}
-          linkedBuildState={currentLinkedBuildState}
-          onChangeCurrentLinkedBuild={setCurrentLinkedBuild}
+          activeBuild={currentBuildVariant}
+          linkedBuild={{
+            linkedBuilds: buildVariants || [],
+          }}
+          onChangeCurrentLinkedBuild={setCurrentBuildVariant}
+          title="Build Variants"
         />
       )}
       <VideoThumbnail buildState={currentBuildState} />

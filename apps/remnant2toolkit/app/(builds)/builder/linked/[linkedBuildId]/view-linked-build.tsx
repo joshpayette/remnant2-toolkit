@@ -32,17 +32,17 @@ import { VideoThumbnail } from '@/app/(builds)/builder/_components/video-thumbna
 import { ModeratorLinkedBuildToolsDialog } from '@/app/(builds)/builder/linked/_admin/components/dialogs/moderator-linkedbuild-tools-dialog';
 import { EditLinkedBuildButton } from '@/app/(builds)/builder/linked/_components/edit-linked-build-button';
 import { TabbedBuildsDisplay } from '@/app/(builds)/builder/linked/_components/tabbed-builds-display';
+import { type LinkedBuild } from '@/app/(builds)/builder/linked/_types/linked-build';
 import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
-import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
 
 interface Props {
-  linkedBuildState: LinkedBuildState;
+  linkedBuild: LinkedBuild;
 }
 
-export function ViewLinkedBuild({ linkedBuildState }: Props) {
-  const { linkedBuildItems } = linkedBuildState;
+export function ViewLinkedBuild({ linkedBuild }: Props) {
+  const { linkedBuilds } = linkedBuild;
   const [currentLinkedBuild, setCurrentLinkedBuild] = useState<LinkedBuildItem>(
-    linkedBuildItems[0] as LinkedBuildItem,
+    linkedBuilds[0] as LinkedBuildItem,
   );
 
   const buildState = cleanUpBuildState(
@@ -138,9 +138,10 @@ export function ViewLinkedBuild({ linkedBuildState }: Props) {
       />
       <div className="height-full flex w-full flex-col items-center justify-center">
         <TabbedBuildsDisplay
-          buildInfo={currentLinkedBuild}
-          linkedBuildState={linkedBuildState}
+          activeBuild={currentLinkedBuild}
+          linkedBuild={linkedBuild}
           onChangeCurrentLinkedBuild={setCurrentLinkedBuild}
+          title="Linked Builds"
         />
 
         <VideoThumbnail buildState={buildState} />
@@ -160,7 +161,7 @@ export function ViewLinkedBuild({ linkedBuildState }: Props) {
                     <ModeratorLinkedBuildToolsDialog
                       open={showModeratorTooling}
                       onClose={() => setShowModeratorTooling(false)}
-                      buildToModerate={linkedBuildState}
+                      buildToModerate={linkedBuild}
                     />
                     <ModeratorToolsButton
                       onClick={() => setShowModeratorTooling(true)}
@@ -178,7 +179,7 @@ export function ViewLinkedBuild({ linkedBuildState }: Props) {
               {session && session.user?.id === buildState.createdById && (
                 <EditLinkedBuildButton
                   onClick={() =>
-                    router.push(`/builder/linked/edit/${linkedBuildState.id}`)
+                    router.push(`/builder/linked/edit/${linkedBuild.id}`)
                   }
                 />
               )}

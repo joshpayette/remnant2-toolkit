@@ -19,12 +19,12 @@ import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-buil
 import { lockLinkedBuild } from '@/app/(builds)/builder/linked/_admin/actions/lock-linked-build';
 import { unlockLinkedBuild } from '@/app/(builds)/builder/linked/_admin/actions/unlock-linked-build';
 import { updateLinkedBuild } from '@/app/(builds)/builder/linked/_admin/actions/update-linked-build';
-import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
+import { type LinkedBuild } from '@/app/(builds)/builder/linked/_types/linked-build';
 
 interface Props {
   open: boolean;
   onClose: () => void;
-  buildToModerate: LinkedBuildState;
+  buildToModerate: LinkedBuild;
 }
 
 export function ModeratorLinkedBuildToolsDialog({
@@ -33,8 +33,7 @@ export function ModeratorLinkedBuildToolsDialog({
   onClose,
 }: Props) {
   // Allows us to reflect changes without reloading the page
-  const [localBuild, setLocalBuild] =
-    useState<LinkedBuildState>(buildToModerate);
+  const [localBuild, setLocalBuild] = useState<LinkedBuild>(buildToModerate);
 
   const [buildName, setBuildName] = useState(localBuild.name);
   const [buildDescription, setBuildDescription] = useState(

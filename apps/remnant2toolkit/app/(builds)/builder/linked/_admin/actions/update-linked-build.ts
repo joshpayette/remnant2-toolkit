@@ -5,12 +5,12 @@ import { revalidatePath } from 'next/cache';
 
 import { type AdminToolResponse } from '@/app/(builds)/_types/admin-tool-response';
 import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/builder/linked/_constants/max-linked-build-description-length';
-import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
+import { type LinkedBuild } from '@/app/(builds)/builder/linked/_types/linked-build';
 import { sendWebhook } from '@/app/(user)/_auth/moderation/send-webhook';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function updateLinkedBuild(
-  linkedBuild: LinkedBuildState,
+  linkedBuild: LinkedBuild,
 ): Promise<AdminToolResponse> {
   if (!linkedBuild.id)
     return { status: 'error', message: 'No linked build id provided!' };

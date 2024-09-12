@@ -3,10 +3,10 @@
 import { BaseLink, cn, Skeleton } from '@repo/ui';
 
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
-import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
+import { type LinkedBuild } from '@/app/(builds)/builder/linked/_types/linked-build';
 
 interface Props {
-  linkedBuildState: LinkedBuildState;
+  linkedBuildState: LinkedBuild;
   footerActions?: React.ReactNode;
   isLoading: boolean;
 }

@@ -27,27 +27,27 @@ import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/builder/link
 import { MAX_LINKED_BUILD_ITEMS } from '@/app/(builds)/builder/linked/_constants/max-linked-build-items';
 import { MAX_LINKED_BUILD_LABEL_LENGTH } from '@/app/(builds)/builder/linked/_constants/max-linked-build-label-length';
 import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
-import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
+import { type LinkedBuild } from '@/app/(builds)/builder/linked/_types/linked-build';
 import { getUserCreatedBuilds } from '@/app/(builds)/builder/linked/create/[buildId]/_actions/get-user-created-builds';
 import { updateLinkedBuild } from '@/app/(builds)/builder/linked/edit/[linkedBuildId]/_actions/update-linked-build';
 
 const ITEMS_PER_PAGE = 16;
 
 interface Props {
-  currentLinkedBuildState: LinkedBuildState;
+  currentLinkedBuild: LinkedBuild;
   userId: string;
 }
 
-export function EditLinkedBuild({ currentLinkedBuildState, userId }: Props) {
+export function EditLinkedBuild({ currentLinkedBuild, userId }: Props) {
   const router = useRouter();
 
-  const [name, setName] = useState(currentLinkedBuildState.name);
+  const [name, setName] = useState(currentLinkedBuild.name);
   const [description, setDescription] = useState(
-    currentLinkedBuildState.description,
+    currentLinkedBuild.description,
   );
 
   const [linkedBuildItems, setLinkedBuildItems] = useState<LinkedBuildItem[]>(
-    currentLinkedBuildState.linkedBuildItems.map(
+    currentLinkedBuild.linkedBuildItems.map(
       (linkedBuildItem) => linkedBuildItem,
     ),
   );
@@ -139,9 +139,9 @@ export function EditLinkedBuild({ currentLinkedBuildState, userId }: Props) {
     const response = await updateLinkedBuild({
       name,
       description: description ?? '',
-      id: currentLinkedBuildState.id,
+      id: currentLinkedBuild.id,
       createdById: userId,
-      isModeratorLocked: currentLinkedBuildState.isModeratorLocked,
+      isModeratorLocked: currentLinkedBuild.isModeratorLocked,
       linkedBuildItems: linkedBuildItems.map((linkedBuildItem) => ({
         label: linkedBuildItem.label,
         buildId: linkedBuildItem.build.id,
