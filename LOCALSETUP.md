@@ -61,12 +61,10 @@ Run the following command to install the dependencies for the project:
 pnpm install
 ```
 
-### Setup the .env.local file
-
-#### Initialize the root .env.local file
+### Initialize the `packages/database` .env file
 
 ```bash
-cp .env.local.example .env.local
+cp ./packages/database/.env.example ./packages/database/.env.local
 ```
 
 Open the `.env.local` file and set the following environment variables per the below instructions.
@@ -80,39 +78,29 @@ If you change these values after the first-time setup, you will need to delete t
 
 #### `DATABASE_URL` Environment Variable
 
-The `DATABASE_URL` environment variable is used by Prisma to connect to the database. There is a sample value in the `.env` file. You will need to replace `{{ PASSWORD HERE }}` with the value you set for `MYSQL_PASSWORD` in the previous step.
+The `DATABASE_URL` environment variable is used by Prisma to connect to the database. There is a sample value in the `.env.example` file. You will need to replace `{{ PASSWORD HERE }}` with the value you set for `MYSQL_PASSWORD` in the previous step.
 
 ```bash
 DATABASE_URL="mysql://forlinauser:password@localhost:3306/forlinadb"
 ```
 
-**Use this same database URL in every other `.env` file where the `DATABASE_URL` field exists.**
+**Use this same database URL in every other `.env.local` file where the `DATABASE_URL` field exists.**
 
-### Setup the `packages/database` .env file
+### Initialize the `apps/remnant2toolkit` .env.local file
 
 ```bash
-cp ./packages/database/.env.example ./packages/database/.env
+cp ./apps/remnant2toolkit/.env.example ./apps/remnant2toolkit/.env.local
 ```
 
 #### `DATABASE_URL` environment variable
 
-Copy the `DATABASE_URL` value from the root `.env.local` file and paste it into the `packages/database/.env` file.
+Copy the `DATABASE_URL` value from the `packages/database/.env.local` file and paste it into the `apps/remnant2toolkit/.env.local` file.
 
-### Setup the `apps/remnant2toolkit` .env file
-
-```bash
-cp ./apps/remnant2toolkit/.env.example ./apps/remnant2toolkit/.env
-```
-
-#### `DATABASE_URL` environment variable
-
-Copy the `DATABASE_URL` value from the root `.env.local` file and paste it into the `apps/remnant2toolkit/.env.local` file.
-
-#### Allowing sign-in with Discord/Reddit
+### Allowing sign-in with Discord/Reddit
 
 You will need to create a Reddit app and a Discord app to allow users to sign in with those services.
 
-###### Discord
+##### Discord
 
 1. Go to [https://discord.com/developers/applications](https://discord.com/developers/applications).
 2. Click "New Application" in the top right.
@@ -121,21 +109,21 @@ You will need to create a Reddit app and a Discord app to allow users to sign in
 5. Click "OAuth2" in the left sidebar.
 6. Under "Redirects", click "Add Redirect".
 7. Enter `http://localhost:3000/api/auth/callback/discord` and click "Save Changes".
-8. Copy the `client_id` and `client_secret` values into the `.env` file, in the `DISCORD_CLIENT_ID` and `DISCORD_CLIENT_SECRET` fields, respectively.
+8. Copy the `client_id` and `client_secret` values into the `.env.local` file, in the `DISCORD_CLIENT_ID` and `DISCORD_CLIENT_SECRET` fields, respectively.
 
-###### Reddit
+##### Reddit
 
 1. Go to [https://www.reddit.com/prefs/apps](https://www.reddit.com/prefs/apps).
 2. Click "Create App" at the bottom of the page.
 3. Fill out the form. The redirect URI should be `http://localhost:3000/api/auth/callback/reddit`.
 4. Click "Create App".
-5. Copy the `client_id` and `client_secret` values into the `.env` file, in the `REDDIT_CLIENT_ID` and `REDDIT_CLIENT_SECRET` fields, respectively.
+5. Copy the `client_id` and `client_secret` values into the `.env.local` file, in the `REDDIT_CLIENT_ID` and `REDDIT_CLIENT_SECRET` fields, respectively.
 
-###### `NEXTAUTH_SECRET` Environment Variable
+##### `NEXTAUTH_SECRET` Environment Variable
 
-This is a secret key used by NextAuth. You can generate a random string of characters using a tool like [https://passwordsgenerator.net/](https://passwordsgenerator.net/), then paste that value into the `.env` file for `NEXTAUTH_SECRET`.
+This is a secret key used by NextAuth. You can generate a random string of characters using a tool like [https://passwordsgenerator.net/](https://passwordsgenerator.net/), then paste that value into the `.env.local` file for `NEXTAUTH_SECRET`.
 
-#### `WEBHOOK_` Environment Variables
+### `WEBHOOK_` Environment Variables
 
 These are optional. If you don't want to set up webhooks, you can leave these values as they blank.
 
@@ -146,9 +134,9 @@ If you would like to setup the webhooks like the Toolkit uses, you can do so via
 3. Click "Integrations" in the left sidebar.
 4. Click "Create Webhook".
 5. Fill out the form. The "Webhook Name" can be anything you want. The "Channel" should be the channel you want the messages to go to.
-6. Click "Copy Webhook URL" and paste it into the appropriate `WEBHOOK_` field in the `.env` file.
+6. Click "Copy Webhook URL" and paste it into the appropriate `WEBHOOK_` field in the `.env.local` file.
 
-#### `IMAGEKIT_` Environment Variables
+### `IMAGEKIT_` Environment Variables
 
 ImageKit is the service used to store images generated by the Builder's export to image feature. You can skip this if you do not need that functionality.
 
@@ -158,15 +146,15 @@ If you would like to use it, ImageKit has a generous free account that should be
 2. Once you're logged in, click "API Key" in the left sidebar.
 3. Copy the `Public Key` and `Private Key` values into the `.env` file, in the `IMAGEKIT_CLIENT_ID` and `IMAGEKIT_CLIENT_SECRET` fields, respectively.
 
-#### `CRON_SECRET` Environment Variable
+### `CRON_SECRET` Environment Variable
 
 This is unnecessary in local development. This is a secret key used by the Toolkit's hosting provider (Vercel) to allow automated scheduled reports to be be invoked.
 
-#### `PATREON_` Environment Variables
+### `PATREON_` Environment Variables
 
 These are unnecessary in local development. This is only used for automated scheduled scripts to import paid Patreon members to the Toolkit so that perks can be enabled.
 
-#### `NEXT_PUBLIC_IMAGE_URL` Environment Variable
+### `NEXT_PUBLIC_IMAGE_URL` Environment Variable
 
 This is used to reference the Toolkit's Cloudfront distribution for images. You can leave this as the default value for local development to use the Toolkit's cache. However, you can update it to any URL you want to use for local development if you want to use a different source for images.
 
@@ -183,6 +171,8 @@ Creating database forlinadb
 Creating user forlinauser
 Giving user forlinauser access to schema forlinadb
 ```
+
+Once you see that in the logs, leave the process running and open a new terminal.
 
 ### Initialize the database
 

@@ -255,11 +255,11 @@ export default async function Page() {
             Latest Post
           </h3>
           <BaseLink
-            href="https://www.patreon.com/posts/cooking-bit-for-111447591"
+            href="https://www.patreon.com/posts/preparing-for-on-111885482"
             target="_blank"
           >
             <Image
-              src={getImageUrl('/patreon-posts/2024-09-05.jpg')}
+              src={getImageUrl('/patreon-posts/2024-09-11.jpg')}
               width={253}
               height={450}
               alt="Cooking a bit while waiting for the next DLC"
