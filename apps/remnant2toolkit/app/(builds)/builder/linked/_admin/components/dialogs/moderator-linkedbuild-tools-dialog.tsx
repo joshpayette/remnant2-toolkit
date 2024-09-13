@@ -40,7 +40,7 @@ export function ModeratorLinkedBuildToolsDialog({
     localBuild.description,
   );
 
-  const [buildItems, setBuildItems] = useState(localBuild.linkedBuildItems);
+  const [linkedBuilds, setLinkedBuilds] = useState(localBuild.linkedBuilds);
 
   const { data: sessionData } = useSession();
   if (sessionData?.user?.role !== 'admin') {
@@ -50,8 +50,8 @@ export function ModeratorLinkedBuildToolsDialog({
   const saveButtonDisabled =
     buildName === buildToModerate.name &&
     buildDescription === buildToModerate.description &&
-    buildItems.every((item, index) => {
-      return item.label === localBuild.linkedBuildItems[index]?.label;
+    linkedBuilds.every((item, index) => {
+      return item.label === localBuild.linkedBuilds[index]?.label;
     });
 
   return (
@@ -85,14 +85,14 @@ export function ModeratorLinkedBuildToolsDialog({
         </BaseField>
         <BaseDivider className="my-4" />
         <BaseDialogTitle>Build Items</BaseDialogTitle>
-        {buildItems.map((item, index) => (
-          <div key={item.id} className="mt-2">
+        {linkedBuilds.map((item, index) => (
+          <div key={item.build.id} className="mt-2">
             <BaseInput
               value={item.label}
               onChange={(e) => {
-                const newItems = [...buildItems];
+                const newItems = [...linkedBuilds];
                 newItems[index] = { ...item, label: e.target.value };
-                setBuildItems(newItems);
+                setLinkedBuilds(newItems);
               }}
             />
           </div>
@@ -105,7 +105,7 @@ export function ModeratorLinkedBuildToolsDialog({
               ...localBuild,
               name: buildName,
               description: buildDescription,
-              linkedBuildItems: buildItems,
+              linkedBuilds,
             });
             if (response.status === 'error') {
               toast.error(response.message);

@@ -161,7 +161,7 @@ export function ViewLinkedBuild({
           {linkedBuilds.map((linkedBuildState) => (
             <div key={linkedBuildState.id} className="w-full">
               <LinkedBuildCard
-                linkedBuildState={linkedBuildState}
+                linkedBuild={linkedBuildState}
                 isLoading={false}
                 footerActions={
                   <>

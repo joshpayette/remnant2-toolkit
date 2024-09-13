@@ -6,8 +6,13 @@ import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { startTransition, useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
+import { useLocalStorage } from 'usehooks-ts';
 
 import { ToCsvButton } from '@/app/_components/to-csv-button';
+import {
+  type ItemOwnershipPreference,
+  LOCALSTORAGE_KEY,
+} from '@/app/_types/localstorage';
 import { LoadoutDialog } from '@/app/(builds)/_components/loadout-dialog';
 import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
 import { buildStateToCsvData } from '@/app/(builds)/_libs/build-state-to-csv-data';
@@ -25,6 +30,7 @@ import { FavoriteBuildButton } from '@/app/(builds)/builder/_components/favorite
 import { FavoriteBuildDialog } from '@/app/(builds)/builder/_components/favorite-build-dialog';
 import { GenerateBuildImageButton } from '@/app/(builds)/builder/_components/generate-build-image';
 import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/image-download-info-dialog';
+import { ItemOwnershipPreferenceButton } from '@/app/(builds)/builder/_components/item-ownership-preference-button';
 import { LoadoutManagementButton } from '@/app/(builds)/builder/_components/loadout-management-button';
 import { ModeratorToolsButton } from '@/app/(builds)/builder/_components/moderator-tools-button';
 import { ShareBuildButton } from '@/app/(builds)/builder/_components/share-build-button';
@@ -50,6 +56,13 @@ export function ViewLinkedBuild({ linkedBuild }: Props) {
   );
 
   const [showModeratorTooling, setShowModeratorTooling] = useState(false);
+
+  const [itemOwnershipPreference, setItemOwnershipPreference] =
+    useLocalStorage<ItemOwnershipPreference>(
+      LOCALSTORAGE_KEY.ITEM_OWNERSHIP_PREFERENCE,
+      false,
+      { initializeWithValue: false },
+    );
 
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);
   const [loadoutDialogOpen, setLoadoutDialogOpen] = useState(false);
@@ -150,7 +163,7 @@ export function ViewLinkedBuild({ linkedBuild }: Props) {
           buildState={buildState}
           isEditable={false}
           isScreenshotMode={isScreenshotMode}
-          itemOwnershipPreference={false}
+          itemOwnershipPreference={itemOwnershipPreference}
           showControls={showControls}
           builderActions={
             <>
@@ -226,6 +239,12 @@ export function ViewLinkedBuild({ linkedBuild }: Props) {
 
               <DetailedViewButton
                 onClick={() => setDetailedBuildDialogOpen(true)}
+              />
+
+              <ItemOwnershipPreferenceButton
+                onClick={() =>
+                  setItemOwnershipPreference(!itemOwnershipPreference)
+                }
               />
 
               <DuplicateBuildButton

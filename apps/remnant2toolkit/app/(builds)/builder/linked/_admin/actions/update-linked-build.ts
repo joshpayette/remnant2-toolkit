@@ -56,7 +56,7 @@ export async function updateLinkedBuild(
         name: linkedBuild.name,
         description: linkedBuild.description,
         LinkedBuildItems: {
-          create: linkedBuild.linkedBuildItems.map((item) => ({
+          create: linkedBuild.linkedBuilds.map((item) => ({
             createdAt: new Date(),
             label: item.label,
             buildId: item.build.id,

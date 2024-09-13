@@ -175,7 +175,7 @@ export default async function getLinkedBuilds({
         name: linkedBuild.name,
         description: linkedBuild.description ?? '',
         isModeratorLocked: linkedBuild.isModeratorLocked,
-        linkedBuildItems: linkedBuild.LinkedBuildItems.filter(
+        linkedBuilds: linkedBuild.LinkedBuildItems.filter(
           (linkedBuildItem) => linkedBuildItem.Build.isPublic,
         ).map((linkedBuildItem) => {
           const build = linkedBuildItem.Build;

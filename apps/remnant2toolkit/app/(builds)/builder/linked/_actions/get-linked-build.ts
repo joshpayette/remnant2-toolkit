@@ -106,7 +106,7 @@ export async function getLinkedBuild(linkedBuildId: string): Promise<{
         name: linkedBuild.name,
         description: linkedBuild.description ?? '',
         isModeratorLocked: linkedBuild.isModeratorLocked,
-        linkedBuildItems: publicLinkedBuilds.map((linkedBuildItem) => {
+        linkedBuilds: publicLinkedBuilds.map((linkedBuildItem) => {
           const build = linkedBuildItem.Build;
           const upvoted = build.BuildVotes.some(
             (vote) => vote.userId === userId,

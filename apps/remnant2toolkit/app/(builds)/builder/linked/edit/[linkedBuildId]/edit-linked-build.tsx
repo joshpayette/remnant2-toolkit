@@ -26,8 +26,8 @@ import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { MAX_LINKED_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/builder/linked/_constants/max-linked-build-description-length';
 import { MAX_LINKED_BUILD_ITEMS } from '@/app/(builds)/builder/linked/_constants/max-linked-build-items';
 import { MAX_LINKED_BUILD_LABEL_LENGTH } from '@/app/(builds)/builder/linked/_constants/max-linked-build-label-length';
-import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
 import { type LinkedBuild } from '@/app/(builds)/builder/linked/_types/linked-build';
+import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
 import { getUserCreatedBuilds } from '@/app/(builds)/builder/linked/create/[buildId]/_actions/get-user-created-builds';
 import { updateLinkedBuild } from '@/app/(builds)/builder/linked/edit/[linkedBuildId]/_actions/update-linked-build';
 
@@ -47,9 +47,7 @@ export function EditLinkedBuild({ currentLinkedBuild, userId }: Props) {
   );
 
   const [linkedBuildItems, setLinkedBuildItems] = useState<LinkedBuildItem[]>(
-    currentLinkedBuild.linkedBuildItems.map(
-      (linkedBuildItem) => linkedBuildItem,
-    ),
+    currentLinkedBuild.linkedBuilds.map((linkedBuildItem) => linkedBuildItem),
   );
 
   const { buildListState, setBuildListState } = useBuildListState();

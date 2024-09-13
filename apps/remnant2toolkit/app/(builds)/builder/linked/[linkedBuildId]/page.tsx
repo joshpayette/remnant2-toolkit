@@ -123,5 +123,5 @@ export default async function Page({
     );
   }
 
-  return <ViewLinkedBuild linkedBuildState={linkedBuildState} />;
+  return <ViewLinkedBuild linkedBuild={linkedBuildState} />;
 }
