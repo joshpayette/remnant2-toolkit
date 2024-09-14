@@ -122,10 +122,10 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     tags: ['Damage Reduction'],
     description: 'Elemental Resistance, +10% at max level.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
-    bleedResistance: 10,
+    bleedResistance: 0,
     fireResistance: 10,
     shockResistance: 10,
-    blightResistance: 10,
+    blightResistance: 0,
     toxinResistance: 10,
   },
   {
