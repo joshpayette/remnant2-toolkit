@@ -76,6 +76,16 @@ Choose any values you want. These will be the root and user passwords for the da
 
 If you change these values after the first-time setup, you will need to delete the `db-1` volume in Docker Desktop and rebuild the dev environment.
 
+#### Sample `.env.local` file
+
+```bash
+DATABASE_URL="mysql://forlinauser:{{ PASSWORD HERE }}@localhost:3306/forlinadb"
+MYSQL_DATABASE="forlinadb"
+MYSQL_USER="forlinauser"
+MYSQL_PASSWORD="{{ PASSWORD HERE }}"
+MYSQL_ROOT_PASSWORD=""
+```
+
 #### `DATABASE_URL` Environment Variable
 
 The `DATABASE_URL` environment variable is used by Prisma to connect to the database. There is a sample value in the `.env.example` file. You will need to replace `{{ PASSWORD HERE }}` with the value you set for `MYSQL_PASSWORD` in the previous step.
