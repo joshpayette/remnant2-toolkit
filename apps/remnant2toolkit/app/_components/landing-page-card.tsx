@@ -1,7 +1,10 @@
-import { ArrowRightIcon, BaseLink, cn } from '@repo/ui';
+import { BaseLink, cn } from '@repo/ui';
 
-interface Props {
+import { LandingPageCardContent } from '@/app/_components/landing-page-card-content';
+
+export interface LandingPageCardProps {
   href: string;
+  disabled?: string;
   target?: '_blank';
   label: string;
   description: string;
@@ -14,7 +17,7 @@ export function LandingPageCard({
   description,
   icon,
   label,
-}: Props) {
+}: LandingPageCardProps) {
   return (
     <BaseLink
       href={href}
@@ -24,20 +27,11 @@ export function LandingPageCard({
         'bg-background-solid/50 ring-background-solid/10 hover:border-primary-500 mb-4 flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent p-6 ring-1 ring-inset',
       )}
     >
-      {icon}
-      <div className="relative w-full">
-        <>
-          <p className="text-lg font-bold leading-7">{label}</p>
-          <div className="mt-2 text-gray-300 ">{description}</div>
-        </>
-
-        <div className="absolute bottom-0 right-0 mt-4 flex w-full items-center justify-end">
-          <ArrowRightIcon
-            className="text-primary-500 hover:text-primary-300 h-6 w-6"
-            aria-hidden="true"
-          />
-        </div>
-      </div>
+      <LandingPageCardContent
+        icon={icon}
+        label={label}
+        description={description}
+      />
     </BaseLink>
   );
 }
