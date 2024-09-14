@@ -199,8 +199,10 @@ npx turbo db:push
 To run all of the web applications (found in the `apps` folder), you can run the following command from the root (top-most) folder:
 
 ```bash
-npx turbo dev
+npx turbo dev --filter=remnant2toolkit
 ```
+
+**NOTE** If you get a white screen or any errors, try hitting `F5` to reload the page, or `Ctrl+C` in terminal to stop the server, then start the dev server again.
 
 The site should now be available at [http://localhost:3000](http://localhost:3000).
 
@@ -216,7 +218,7 @@ Before you push your changes, you should ensure that the production build will w
 6. Run the following command to build the production version of the site:
 
 ```bash
-npm run build
+npx turbo build --filter=remnant2toolkit
 ```
 
 If the build is successful, you can push your changes. Otherwise, you will see errors to give an idea of what needs to be fixed.
