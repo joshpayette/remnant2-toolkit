@@ -13,7 +13,7 @@ This guide assumes you are using a terminal to run commands.
 When you see a command like this, this is instructing you to run the command in your terminal:
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 ## Requirements
@@ -61,13 +61,13 @@ Run the following command to install the dependencies for the project:
 pnpm install
 ```
 
-### Initialize the `packages/database` .env file
+### Initialize the `packages/database/.env` file
 
 ```bash
-cp ./packages/database/.env.example ./packages/database/.env.local
+cp ./packages/database/.env.example ./packages/database/.env
 ```
 
-Open the `.env.local` file and set the following environment variables per the below instructions.
+Open the `/packages/database/.env` file and set the following environment variables per the below instructions.
 
 #### `MYSQL_` Environment Variables
 
@@ -76,14 +76,14 @@ Choose any values you want. These will be the root and user passwords for the da
 
 If you change these values after the first-time setup, you will need to delete the `db-1` volume in Docker Desktop and rebuild the dev environment.
 
-#### Sample `.env.local` file
+#### Sample `.env` file
 
 ```bash
 DATABASE_URL="mysql://forlinauser:{{ PASSWORD HERE }}@localhost:3306/forlinadb"
 MYSQL_DATABASE="forlinadb"
 MYSQL_USER="forlinauser"
 MYSQL_PASSWORD="{{ PASSWORD HERE }}"
-MYSQL_ROOT_PASSWORD=""
+MYSQL_ROOT_PASSWORD="{{ DIFFERENT PASSWORD HERE }}"
 ```
 
 #### `DATABASE_URL` Environment Variable
@@ -94,17 +94,17 @@ The `DATABASE_URL` environment variable is used by Prisma to connect to the data
 DATABASE_URL="mysql://forlinauser:password@localhost:3306/forlinadb"
 ```
 
-**Use this same database URL in every other `.env.local` file where the `DATABASE_URL` field exists.**
+**Use this same database URL in every other `.env` file where the `DATABASE_URL` field exists.**
 
-### Initialize the `apps/remnant2toolkit` .env.local file
+### Initialize the `apps/remnant2toolkit/env.local` file
 
 ```bash
-cp ./apps/remnant2toolkit/.env.example ./apps/remnant2toolkit/.env.local
+cp ./apps/remnant2toolkit/.env.example ./apps/remnant2toolkit/.env
 ```
 
 #### `DATABASE_URL` environment variable
 
-Copy the `DATABASE_URL` value from the `packages/database/.env.local` file and paste it into the `apps/remnant2toolkit/.env.local` file.
+Copy the `DATABASE_URL` value from the `packages/database/.env` file and paste it into the `apps/remnant2toolkit/.env` file.
 
 ### Allowing sign-in with Discord/Reddit
 
@@ -119,7 +119,7 @@ You will need to create a Reddit app and a Discord app to allow users to sign in
 5. Click "OAuth2" in the left sidebar.
 6. Under "Redirects", click "Add Redirect".
 7. Enter `http://localhost:3000/api/auth/callback/discord` and click "Save Changes".
-8. Copy the `client_id` and `client_secret` values into the `.env.local` file, in the `DISCORD_CLIENT_ID` and `DISCORD_CLIENT_SECRET` fields, respectively.
+8. Copy the `client_id` and `client_secret` values into the `.env` file, in the `DISCORD_CLIENT_ID` and `DISCORD_CLIENT_SECRET` fields, respectively.
 
 ##### Reddit
 
@@ -127,11 +127,11 @@ You will need to create a Reddit app and a Discord app to allow users to sign in
 2. Click "Create App" at the bottom of the page.
 3. Fill out the form. The redirect URI should be `http://localhost:3000/api/auth/callback/reddit`.
 4. Click "Create App".
-5. Copy the `client_id` and `client_secret` values into the `.env.local` file, in the `REDDIT_CLIENT_ID` and `REDDIT_CLIENT_SECRET` fields, respectively.
+5. Copy the `client_id` and `client_secret` values into the `.env` file, in the `REDDIT_CLIENT_ID` and `REDDIT_CLIENT_SECRET` fields, respectively.
 
 ##### `NEXTAUTH_SECRET` Environment Variable
 
-This is a secret key used by NextAuth. You can generate a random string of characters using a tool like [https://passwordsgenerator.net/](https://passwordsgenerator.net/), then paste that value into the `.env.local` file for `NEXTAUTH_SECRET`.
+This is a secret key used by NextAuth. You can generate a random string of characters using a tool like [https://passwordsgenerator.net/](https://passwordsgenerator.net/), then paste that value into the `.env` file for `NEXTAUTH_SECRET`.
 
 ### `WEBHOOK_` Environment Variables
 
@@ -144,7 +144,7 @@ If you would like to setup the webhooks like the Toolkit uses, you can do so via
 3. Click "Integrations" in the left sidebar.
 4. Click "Create Webhook".
 5. Fill out the form. The "Webhook Name" can be anything you want. The "Channel" should be the channel you want the messages to go to.
-6. Click "Copy Webhook URL" and paste it into the appropriate `WEBHOOK_` field in the `.env.local` file.
+6. Click "Copy Webhook URL" and paste it into the appropriate `WEBHOOK_` field in the `.env` file.
 
 ### `IMAGEKIT_` Environment Variables
 
@@ -171,7 +171,7 @@ This is used to reference the Toolkit's Cloudfront distribution for images. You 
 ## Run the database container
 
 ```bash
-docker compose -f docker-compose.dev.yml --env-file=./packages/database/.env.local up
+docker compose -f docker-compose.dev.yml --env-file=./packages/database/.env up
 ```
 
 Wait about 2 minutes at this step to allow the database to spin up. In the console, you should see something like this in the logs:
