@@ -1,6 +1,6 @@
-import { type DBBuild } from '@/app/(builds)/_types/db-build';
+import { type BuildState } from '@/app/(builds)/_types/build-state';
 
 export type LinkedBuildItem = {
   label: string;
-  build: DBBuild;
+  build: BuildState;
 };

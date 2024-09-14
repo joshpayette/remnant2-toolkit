@@ -15,7 +15,7 @@ import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linke
 
 interface Props {
   activeBuild: LinkedBuildItem;
-  onChangeCurrentLinkedBuild: (linkedBuildItem: LinkedBuildItem) => void;
+  onChangeActiveBuild: (linkedBuildItem: LinkedBuildItem) => void;
   linkedBuild: {
     linkedBuilds: LinkedBuildItem[];
     name?: string | null;
@@ -26,7 +26,7 @@ interface Props {
 
 export function TabbedBuildsDisplay({
   activeBuild,
-  onChangeCurrentLinkedBuild,
+  onChangeActiveBuild,
   linkedBuild,
   title,
 }: Props) {
@@ -78,13 +78,13 @@ export function TabbedBuildsDisplay({
                   (linkedBuildItem) => linkedBuildItem.label === value,
                 );
                 if (linkedBuild) {
-                  onChangeCurrentLinkedBuild(linkedBuild);
+                  onChangeActiveBuild(linkedBuild);
                 }
               }}
             >
               {linkedBuilds.map((linkedBuildItem) => (
                 <BaseListboxOption
-                  key={linkedBuildItem.build.id}
+                  key={linkedBuildItem.build.buildId}
                   value={linkedBuildItem.label}
                 >
                   <BaseListboxLabel>{linkedBuildItem.label}</BaseListboxLabel>
@@ -99,10 +99,10 @@ export function TabbedBuildsDisplay({
             >
               {linkedBuilds.map((linkedBuildItem, tabIdx) => (
                 <button
-                  key={linkedBuildItem.build.id}
-                  onClick={() => onChangeCurrentLinkedBuild(linkedBuildItem)}
+                  key={linkedBuildItem.build.buildId}
+                  onClick={() => onChangeActiveBuild(linkedBuildItem)}
                   className={cn(
-                    linkedBuildItem.build.id === activeBuild.build.id
+                    linkedBuildItem.build.buildId === activeBuild.build.buildId
                       ? 'text-gray-300'
                       : 'text-gray-400 hover:text-gray-300',
                     tabIdx === 0 ? 'rounded-l-lg' : '',
@@ -114,7 +114,8 @@ export function TabbedBuildsDisplay({
                   <span
                     aria-hidden="true"
                     className={cn(
-                      linkedBuildItem.build.id === activeBuild.build.id
+                      linkedBuildItem.build.buildId ===
+                        activeBuild.build.buildId
                         ? 'bg-purple-500'
                         : 'bg-transparent',
                       'absolute inset-x-0 bottom-0 h-0.5',

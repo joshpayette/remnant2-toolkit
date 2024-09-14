@@ -36,14 +36,18 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-function PageContent() {
+function PageContent({
+  enableMemberFeatures,
+}: {
+  enableMemberFeatures: boolean;
+}) {
   return (
     <div className="flex w-full flex-col items-center">
       <PageHeader
         title="Remnant 2 Build Tool"
         subtitle={NAV_ITEMS.createBuild.description}
       />
-      <CreateBuild />
+      <CreateBuild enableMemberFeatures={enableMemberFeatures} />
     </div>
   );
 }
@@ -80,11 +84,11 @@ export default async function Page() {
               </BaseLink>
             </p>
           </div>
-          <PageContent />
+          <PageContent enableMemberFeatures={false} />
         </div>
       </>
     );
   }
 
-  return <PageContent />;
+  return <PageContent enableMemberFeatures={true} />;
 }
