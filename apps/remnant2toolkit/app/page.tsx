@@ -180,7 +180,15 @@ export default async function Page() {
               }
             />
 
-            <LandingPageCard {...NAV_ITEMS.wiki} variant="wiki" icon={null} />
+            <LandingPageCard
+              {...NAV_ITEMS.wiki}
+              icon={
+                <NAV_ITEMS.wiki.icon
+                  className="text-primary-500 h-7 w-7 flex-none"
+                  aria-hidden="true"
+                />
+              }
+            />
 
             <LandingPageCard
               {...NAV_ITEMS.vashCalculator}
