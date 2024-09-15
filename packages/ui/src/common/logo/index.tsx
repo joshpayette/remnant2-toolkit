@@ -8,19 +8,13 @@ const variants = {
     imageUrl: '/remnant2/misc/toolkit-logo.png',
     alt: 'Remnant 2 Toolkit logo, a purple and yellow toolbox.',
     text: (
-      <div className="ui-mb-0 ui-pb-0 ui-flex ui-gap-x-0.5">
-        <p className="ui-font-black ui-text-[16px] ui-leading-4 ui-antialiased ui-text-surface-solid">
-          REMNANT
-        </p>
-        <p className="ui-font-black ui-leading-4 ui-text-red-500 ui-text-[16px] ui-antialiased">
-          II
-        </p>
-        <p className="ui-font-black ui-leading-4 ui-text-[16px] ui-antialiased ui-text-surface-solid">
-          TOOLKIT
-        </p>
+      <div className="ui-font-black ui-text-lg ui-leading-5 ui-text-surface-solid ui-mb-0 ui-pb-0 ui-flex ui-gap-x-0.5">
+        <p>REMNANT</p>
+        <p className="ui-text-red-500">II</p>
+        <p>TOOLKIT</p>
       </div>
     ),
-    subtext: 'Powered by Remnant.wiki + Cowaii.io',
+    subtext: 'Powered by Remnant.wiki +\nCowaii.io',
     url: 'remnant2toolkit.com',
   },
 } as const satisfies Record<
@@ -45,7 +39,7 @@ export function Logo({
 }) {
   return (
     <BaseLink
-      className="-ui-m-1.5 ui-flex ui-items-center ui-justify-start ui-p-1.5 ui-max-w-[245px]"
+      className="-ui-m-1.5 ui-flex ui-items-center ui-justify-start ui-p-1.5 w-[270px] max-w-[270px]"
       href="/"
     >
       <Image
@@ -61,11 +55,11 @@ export function Logo({
       />
       <div className="ui-flex ui-flex-col ui-gap-0">
         {variants[variant].text}
-        <span className="ui-text-[10px] ui-font-bold ui-antialiased ui-leading-3 ui-text-surface-solid ui-mb-0 ui-pb-0">
+        <span className="ui-text-xs ui-leading-3 ui-font-semibold ui-text-gray-400 ui-mb-0 ui-pb-0 ui-whitespace-pre-line">
           {variants[variant].subtext}
         </span>
         {showUrl ? (
-          <span className="ui-text-[10px] ui-leading-3 ui-text-surface-solid">
+          <span className="ui-text-xs ui-leading-3 ui-text-gray-400">
             {variants[variant].url}
           </span>
         ) : null}

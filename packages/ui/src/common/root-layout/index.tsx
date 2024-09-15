@@ -9,7 +9,11 @@ import { SessionProvider } from '../session-provider';
 import { PreloadResources } from '../preload-resources';
 import { cn } from '../../utils/classnames';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 export const viewport: Viewport = {};
 
