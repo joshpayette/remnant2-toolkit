@@ -38,10 +38,16 @@ export function GlobalActionButtons({ username }: GlobalActionButtonProps) {
   return (
     <div
       className={cn(
-        'ui-fixed ui-bottom-[8px] ui-right-[8px] ui-flex ui-items-center ui-justify-center ui-gap-x-1',
+        'ui-fixed ui-flex ui-flex-row-reverse ui-w-[98vw] ui-bottom-[8px] ui-gap-x-1',
         ZINDEXES.GLOBAL_ACTION_BUTTONS,
       )}
     >
+      <SettingsButton
+        onToggle={() => {
+          setOpen((prev) => !prev);
+        }}
+      />
+
       <AnimatePresence>
         {open ? (
           <motion.div
@@ -70,12 +76,6 @@ export function GlobalActionButtons({ username }: GlobalActionButtonProps) {
           </motion.div>
         ) : null}
       </AnimatePresence>
-
-      <SettingsButton
-        onToggle={() => {
-          setOpen((prev) => !prev);
-        }}
-      />
     </div>
   );
 }

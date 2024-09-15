@@ -41,12 +41,12 @@ export function NavbarContainer({
       <nav
         aria-label="Global"
         className={cn(
-          'ui-bg-background ui-fixed ui-mx-auto ui-flex ui-max-h-[80px] ui-w-full ui-max-w-[1500px] ui-items-center ui-justify-between ui-px-4 ui-py-6',
+          'ui-bg-background ui-fixed ui-mx-auto ui-flex ui-max-h-[80px] ui-w-screen ui-max-w-[1500px] ui-items-center ui-justify-between ui-px-6 ui-py-6',
           ZINDEXES.NAVBAR,
         )}
       >
         <div className="ui-flex ui-min-w-[250px]">{logo}</div>
-        <div className="ui-flex ui-w-full ui-justify-end lg:ui-hidden">
+        <div className="ui-flex ui-w-screen ui-justify-end lg:ui-hidden">
           <BaseButton
             aria-label="Open main menu"
             className="-ui-m-2.5 ui-inline-flex ui-items-center ui-justify-center"
@@ -79,7 +79,7 @@ export function NavbarContainer({
         <div className={cn('ui-fixed ui-inset-0', ZINDEXES.DIALOG_BACKDROP)} />
         <Dialog.Panel
           className={cn(
-            'ui-bg-background-solid ui-text-surface-solid sm:ui-ring-secondary-900/10 ui-fixed ui-inset-y-0 ui-right-0 ui-w-full ui-overflow-y-auto ui-px-6 ui-py-6 sm:ui-max-w-sm sm:ui-ring-1',
+            'ui-bg-background-solid ui-text-surface-solid sm:ui-ring-secondary-900/10 ui-fixed ui-inset-y-0 ui-right-0 ui-w-screen ui-overflow-y-auto ui-px-6 ui-py-6 sm:ui-max-w-sm sm:ui-ring-1',
             ZINDEXES.DIALOG,
           )}
         >
