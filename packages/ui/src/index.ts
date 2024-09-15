@@ -53,7 +53,7 @@ export { DuplicateIcon } from './common/icons/duplicate';
 export { EditIcon } from './common/icons/edit';
 export { EyeIcon } from './common/icons/eye';
 export { EyeOffIcon } from './common/icons/eye-off';
-export { FavoriteIcon } from './common/icons/favorite';
+export { FavoriteIcon, UnfavoriteIcon } from './common/icons/favorite';
 export { FilterIcon } from './common/icons/filter';
 export { FollowIcon, UnfollowIcon } from './common/icons/follow';
 export { InboxIcon } from './common/icons/inbox';
