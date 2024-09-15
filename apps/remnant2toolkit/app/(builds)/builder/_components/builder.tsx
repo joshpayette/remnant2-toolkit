@@ -1057,7 +1057,7 @@ export function Builder({
         ) : null}
 
         {isScreenshotMode && (
-          <div className="absolute bottom-[10px] right-[30px]">
+          <div className="absolute bottom-[8px] right-[8px]">
             <Logo
               variant="remnant2toolkit"
               showUrl
