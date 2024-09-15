@@ -374,6 +374,7 @@ Broadly speaking this results in a darker pallete, which contrasts better in lig
 html,
 body {
   padding: 0 !important;
+  scrollbar-gutter: stable;
 }
 
 body {
