@@ -5,7 +5,7 @@
     "**/*.css"
   ],
   "files": [
-    "dist/**"
+    "dist"
   ],
   "exports": {
     ".": "./src/index.ts",
