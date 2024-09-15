@@ -7,18 +7,21 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { isErrorResponse } from '@/app/_libs/is-error-response';
-import { createBuild } from '@/app/(builds)/_actions/create-build';
+import {
+  createBuild,
+  linkBuildVariants,
+} from '@/app/(builds)/_actions/create-build';
 import { updateBuild } from '@/app/(builds)/_actions/update-build';
-import { type BuildActionResponse } from '@/app/(builds)/_types/build-action-response';
-import { type BuildState } from '@/app/(builds)/_types/build-state';
+import { type SuccessResponse } from '@/app/(builds)/_types/success-response';
 import { LoadingButton } from '@/app/(builds)/builder/_components/loading-button';
+import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
 
 interface Props {
-  buildState: BuildState;
+  buildVariants: LinkedBuildItem[];
   editMode: boolean;
 }
 
-export function SaveBuildButton({ buildState, editMode }: Props) {
+export function SaveBuildButton({ buildVariants, editMode }: Props) {
   const router = useRouter();
 
   const [saveInProgress, setSaveInProgress] = useState(false);
@@ -40,31 +43,35 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
     );
   }
 
-  function handleResponse(response: BuildActionResponse) {
-    if (isErrorResponse(response)) {
-      console.error(response.errors);
-      toast.error(`Error saving build. ${response.errors?.join(' ')}`);
-      setSaveInProgress(false);
-    } else {
-      toast.success(response.message);
-      setSaveInProgress(false);
-      router.push(`/builder/${response.buildId}`);
-    }
+  // function handleResponse(response: BuildActionResponse) {
+  //   if (isErrorResponse(response)) {
+  //     console.error(response.errors);
+  //     toast.error(`Error saving build. ${response.errors?.join(' ')}`);
+  //     setSaveInProgress(false);
+  //     return;
+  //   }
+
+  //   toast.success(response.message);
+  //   setSaveInProgress(false);
+  //   router.push(`/builder/${response.buildId}`);
+  // }
+
+  if (saveInProgress) {
+    return <LoadingButton />;
   }
 
   // If the build is being edited by the owner, show a save edit button
   if (editMode) {
-    return saveInProgress ? (
-      <LoadingButton />
-    ) : (
+    return (
       <BaseButton
         color="green"
         aria-label="Save Edits"
         className="sm:w-full"
         onClick={async () => {
-          setSaveInProgress(true);
-          const response = await updateBuild(JSON.stringify(buildState));
-          handleResponse(response);
+          // TODO
+          // setSaveInProgress(true);
+          // const response = await updateBuild(JSON.stringify(buildState));
+          // handleResponse(response);
         }}
       >
         Save Edits
@@ -72,24 +79,55 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
     );
   }
 
+  // If the build is new, show a save button
   return (
-    <>
-      {saveInProgress ? (
-        <LoadingButton />
-      ) : (
-        <BaseButton
-          color="green"
-          aria-label="Save Build"
-          className="sm:w-full"
-          onClick={async () => {
-            setSaveInProgress(true);
-            const response = await createBuild(JSON.stringify(buildState));
-            handleResponse(response);
-          }}
-        >
-          Save Build
-        </BaseButton>
-      )}
-    </>
+    <BaseButton
+      color="green"
+      aria-label="Save Build"
+      className="sm:w-full"
+      onClick={async () => {
+        setSaveInProgress(true);
+
+        // Need to createBuild for each build variant,
+        // then iterate over the responses
+
+        const responses = await Promise.all(
+          buildVariants.map((variant) => {
+            return createBuild(JSON.stringify(variant.build));
+          }),
+        );
+
+        // if any of the responses are errors, handle them
+        if (responses.some(isErrorResponse)) {
+          responses.forEach((response) => {
+            if (isErrorResponse(response)) {
+              console.error(response.errors);
+              toast.error(`Error saving build. ${response.errors?.join(' ')}`);
+              // remove the response from the array
+              responses.splice(responses.indexOf(response), 1);
+            }
+          });
+        }
+
+        // all variants except the first need to be linked
+        const variantResponses = responses.slice(1);
+        const variantIds = variantResponses.map(
+          (response) => (response as SuccessResponse).buildId as string,
+        );
+
+        const mainBuildId = (responses[0] as SuccessResponse).buildId as string;
+
+        const _response = await linkBuildVariants({
+          mainBuildId,
+          variantIds,
+        });
+
+        toast.success('Build created successfully!');
+        setSaveInProgress(false);
+        router.push(`/builder/${mainBuildId}`);
+      }}
+    >
+      Save Build
+    </BaseButton>
   );
 }

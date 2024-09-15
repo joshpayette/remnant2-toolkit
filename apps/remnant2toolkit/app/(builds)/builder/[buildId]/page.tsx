@@ -5,12 +5,13 @@ import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
 import { getBuildVariants } from '@/app/(builds)/_actions/get-build-variants';
 import { incrementViewCount } from '@/app/(builds)/_actions/increment-view-count';
+import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
 import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
 import {
   type ArchetypeName,
   getArchetypeComboName,
 } from '@/app/(builds)/_libs/get-archetype-combo-name';
-import { type DBBuild } from '@/app/(builds)/_types/db-build';
+import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { ViewBuildContainer } from '@/app/(builds)/builder/[buildId]/_components/view-build-container';
 import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
 export async function generateMetadata(
@@ -130,28 +131,6 @@ export default async function Page({
   }
   const { build } = buildData;
 
-  const { buildVariants } = await getBuildVariants(buildId);
-
-  // Need to loop over each id and fetch the build
-  const variantBuildData = await Promise.all(
-    buildVariants.map((buildVariant) => getBuild(buildVariant.buildId)),
-  );
-
-  const buildVariantBuilds: DBBuild[] = [];
-  for (const variantBuild of variantBuildData) {
-    // if there is an error, remover item from array
-    if (!isErrorResponse(variantBuild)) {
-      buildVariantBuilds.push(variantBuild.build);
-    }
-  }
-
-  const linkedBuildItems: LinkedBuildItem[] = buildVariants.map((variant) => ({
-    build: buildVariantBuilds.find(
-      (buildVariant) => buildVariant.id === variant.buildId,
-    ) as DBBuild,
-    label: variant.label,
-  }));
-
   const viewCountResponse = await incrementViewCount({
     buildId: build.id || '',
   });
@@ -159,16 +138,46 @@ export default async function Page({
     build.viewCount = viewCountResponse.viewCount;
   }
 
+  const { buildVariants } = await getBuildVariants(buildId);
+
+  // Need to loop over each id and fetch the build
+  const buildVariantResponse = await Promise.all(
+    buildVariants.map((buildVariant) => getBuild(buildVariant.buildId)),
+  );
+
+  const buildVariantBuilds: BuildState[] = [];
+  for (const response of buildVariantResponse) {
+    // if there is an error, remover item from array
+    if (!isErrorResponse(response)) {
+      buildVariantBuilds.push(
+        cleanUpBuildState(dbBuildToBuildState(response.build)),
+      );
+    }
+  }
+
+  const linkedBuildItems: LinkedBuildItem[] = buildVariantBuilds.map(
+    (variant) => ({
+      build: buildVariantBuilds.find(
+        (buildVariant) => buildVariant.buildId === variant.buildId,
+      ) as BuildState,
+      label: variant.name,
+    }),
+  );
+
+  const buildVariantsToView = linkedBuildItems.map((linkedBuildItem) => ({
+    ...linkedBuildItem,
+    label: linkedBuildItem.build.name,
+  }));
+  // Add main build to the start
+  buildVariantsToView.unshift({
+    build: cleanUpBuildState(dbBuildToBuildState(build)),
+    label: build.name,
+  });
+
   return (
     <div className="flex w-full flex-col items-center">
       <div className="height-full flex w-full flex-col items-center justify-center">
-        <ViewBuildContainer
-          mainBuildVariant={{
-            build,
-            label: 'Primary Build',
-          }}
-          buildVariants={linkedBuildItems}
-        />
+        <ViewBuildContainer buildVariants={buildVariantsToView} />
       </div>
     </div>
   );

@@ -59,12 +59,17 @@ export function CreateBuild({
     const newBuildState = cloneDeep(buildVariants[activeBuildVariant].build);
     newBuildState.buildId = Date.now().toString();
 
-    const newVariantName = prompt('Enter a name for this build variant');
-    if (newVariantName) {
-      newBuildState.name = newVariantName;
-    } else {
-      newBuildState.name = `Build Variant ${buildVariants.length + 1}`;
-    }
+    const defaultNewBuildName =
+      activeBuildVariant === 0 ? 'Boss Rush' : 'Budget';
+
+    const newVariantName = prompt(
+      'Enter a name for this build variant',
+      defaultNewBuildName,
+    );
+
+    if (!newVariantName) return;
+
+    newBuildState.name = newVariantName;
 
     if (buildVariants.length >= MAX_LINKED_BUILDS) {
       console.info('Max linked builds reached');
@@ -81,14 +86,20 @@ export function CreateBuild({
 
     setActiveBuildVariant(buildVariants.length);
   }
-  function handleRemoveBuildVariant(buildVariant: LinkedBuildItem) {
+
+  function handleRemoveBuildVariant() {
     if (buildVariants.length === 1) return;
 
-    setBuildVariants((prevBuildVariants) =>
-      prevBuildVariants.filter(
-        (bv) => bv.build.buildId !== buildVariant.build.buildId,
-      ),
+    const response = confirm(
+      'Are you sure you want to remove this build variant?',
     );
+
+    if (!response) return;
+
+    const newBuildVariants = cloneDeep(buildVariants);
+    newBuildVariants.splice(activeBuildVariant, 1);
+    setBuildVariants(newBuildVariants);
+    setActiveBuildVariant(newBuildVariants.length - 1);
   }
 
   const {
@@ -132,7 +143,6 @@ export function CreateBuild({
       category,
       value,
     });
-    // setBuildState(updatedBuildState);
     const newBuildVariants = cloneDeep(buildVariants);
     (newBuildVariants[activeBuildVariant] as LinkedBuildItem) = {
       label: updatedBuildState.name,
@@ -165,10 +175,19 @@ export function CreateBuild({
           title="Build Variants"
         />
       ) : null}
-      {enableMemberFeatures && buildVariants.length <= MAX_LINKED_BUILDS && (
-        <BaseButton className="mb-4" onClick={handleAddBuildVariant}>
-          Add Build Variant
-        </BaseButton>
+      {enableMemberFeatures && (
+        <div className="mb-4 flex items-start justify-center gap-x-2">
+          {buildVariants.length <= MAX_LINKED_BUILDS && (
+            <BaseButton onClick={handleAddBuildVariant}>
+              Add Build Variant
+            </BaseButton>
+          )}
+          {activeBuildVariant !== 0 && (
+            <BaseButton onClick={handleRemoveBuildVariant} color="red">
+              Remove Active Build
+            </BaseButton>
+          )}
+        </div>
       )}
       <BuilderContainer
         buildContainerRef={buildContainerRef}
@@ -208,7 +227,7 @@ export function CreateBuild({
               key={`${JSON.stringify(buildState)}-item-suggestions`}
             />
 
-            <SaveBuildButton buildState={buildState} editMode={false} />
+            <SaveBuildButton buildVariants={buildVariants} editMode={false} />
 
             <GenerateBuildImageButton
               imageExportLoading={imageExportLoading}

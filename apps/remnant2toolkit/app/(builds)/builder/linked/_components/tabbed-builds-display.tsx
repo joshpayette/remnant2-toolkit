@@ -13,7 +13,7 @@ import {
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
 import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
 
-interface Props {
+type Props = {
   activeBuild: LinkedBuildItem;
   onChangeActiveBuild: (linkedBuildItem: LinkedBuildItem) => void;
   linkedBuild: {
@@ -22,7 +22,7 @@ interface Props {
     description?: string | null;
   };
   title: string;
-}
+};
 
 export function TabbedBuildsDisplay({
   activeBuild,
@@ -93,6 +93,9 @@ export function TabbedBuildsDisplay({
             </BaseListbox>
           </BaseField>
           <div className="hidden sm:block">
+            <div className="mb-2 w-full text-center text-lg font-bold">
+              {title}
+            </div>
             <nav
               className="isolate flex divide-x divide-gray-700 rounded-lg shadow"
               aria-label="Tabs"

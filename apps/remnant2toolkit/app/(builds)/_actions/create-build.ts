@@ -413,3 +413,32 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
     };
   }
 }
+
+export async function linkBuildVariants({
+  mainBuildId,
+  variantIds,
+}: {
+  mainBuildId: string;
+  variantIds: string[];
+}): Promise<BuildActionResponse> {
+  // For each variant, add an entry to the BuildVariant table
+  try {
+    await prisma.buildVariant.createMany({
+      data: variantIds.map((variantId) => {
+        return {
+          primaryBuildId: mainBuildId,
+          secondaryBuildId: variantId,
+        };
+      }),
+    });
+
+    return {
+      message: 'Build variants successfully linked!',
+    };
+  } catch (e) {
+    console.error(e);
+    return {
+      errors: ['Error linking build variants.'],
+    };
+  }
+}

@@ -13,7 +13,7 @@ export async function getBuildVariants(buildId: string): Promise<{
   try {
     const buildVariantIds = await prisma.buildVariant.findMany({
       where: {
-        buildId,
+        primaryBuildId: buildId,
       },
     });
 
@@ -29,8 +29,8 @@ export async function getBuildVariants(buildId: string): Promise<{
       status: 'success',
       message: 'Build variants found.',
       buildVariants: buildVariantIds.map((buildVariant) => ({
-        label: buildVariant.name,
-        buildId: buildVariant.id,
+        label: '',
+        buildId: buildVariant.secondaryBuildId,
       })),
     };
   } catch (e) {
