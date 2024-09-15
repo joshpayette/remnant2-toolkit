@@ -107,7 +107,7 @@ const config: Omit<Config, 'content'> = {
         },
       },
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['var(--font-inter)'],
       },
     },
   },
