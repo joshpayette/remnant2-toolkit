@@ -6,9 +6,6 @@
       "dependsOn": ["^build", "^db:generate"],
       "inputs": [
         "$TURBO_DEFAULT$",
-        ".env.production.local",
-        ".env.local",
-        ".env.production",
         ".env"
       ],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
@@ -45,14 +42,7 @@
     },
     "dev": {
       "cache": false,
-      "persistent": true,
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        ".env.development.local",
-        ".env.local",
-        ".env.development",
-        ".env"
-      ]
+      "persistent": true
     },
     "test": {
       "cache": false
