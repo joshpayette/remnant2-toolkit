@@ -1,5 +1,7 @@
 import { DISCORD_INVITE_URL } from '@repo/constants';
-import { cn, FooterContainer } from '@repo/ui';
+import { cn, FooterContainer, getImageUrl } from '@repo/ui';
+import Image from 'next/image';
+import Link from 'next/link';
 
 import { NAV_ITEMS } from '@/app/_types/navigation';
 
@@ -41,13 +43,21 @@ export function Footer() {
         !
       </p>
 
-      <hr className="border-gray-900 pb-4" />
+      <hr className="mb-2 border-gray-900" />
+
+      <div className="flex items-center justify-center">
+        <Link href={NAV_ITEMS.wiki.href} target="_blank">
+          <Image
+            src={getImageUrl(`/misc/remnant_wiki_poweredby.png`)}
+            alt={NAV_ITEMS.wiki.description}
+            width={300}
+            height={200}
+          />
+        </Link>
+      </div>
+
       <p className="pb-4">
-        These tools would not be possible without the{' '}
-        <a href="https://remnant.wiki" target="_blank" className={cn(aClass)}>
-          community maintained Remnant 2 Wiki
-        </a>
-        , as well as the{' '}
+        This tool is made more powerful thanks to the{' '}
         <a href="https://cowaii.io/" target="_blank" className={cn(aClass)}>
           amazingly detailed loadout calculator
         </a>{' '}
