@@ -7,7 +7,10 @@ export const viewport: Viewport = {};
 export { metadata } from './metadata';
 import { cn, PreloadResources } from '@repo/ui';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export default async function Layout({
   children,

@@ -8,13 +8,13 @@ const variants = {
     imageUrl: '/remnant2/misc/toolkit-logo.png',
     alt: 'Remnant 2 Toolkit logo, a purple and yellow toolbox.',
     text: (
-      <div className="ui-text-[16px] ui-leading-4 ui-text-surface-solid ui-mb-0 ui-pb-0 ui-font-black ui-flex ui-gap-x-0.5">
-        <div>REMNANT</div>
-        <div className="ui-text-red-500">II</div>
-        <div>TOOLKIT</div>
+      <div className="ui-font-black ui-text-lg ui-leading-5 ui-text-surface-solid ui-mb-0 ui-pb-0 ui-flex ui-gap-x-0.5">
+        <p>REMNANT</p>
+        <p className="ui-text-red-500">II</p>
+        <p>TOOLKIT</p>
       </div>
     ),
-    subtext: 'Powered by Remnant.wiki + Cowaii.io',
+    subtext: 'Powered by Remnant.wiki +\nCowaii.io',
     url: 'remnant2toolkit.com',
   },
 } as const satisfies Record<
@@ -39,7 +39,7 @@ export function Logo({
 }) {
   return (
     <BaseLink
-      className="-ui-m-1.5 ui-flex ui-items-center ui-justify-start ui-p-1.5 ui-max-w-[245px]"
+      className="-ui-m-1.5 ui-flex ui-items-center ui-justify-start ui-p-1.5 w-[270px] max-w-[270px]"
       href="/"
     >
       <Image
@@ -48,17 +48,18 @@ export function Logo({
         height={36}
         loading="eager"
         priority
+        quality={90}
         src={`https://d2sqltdcj8czo5.cloudfront.net${variants[variant].imageUrl}`}
         unoptimized={unoptimized}
         width={52}
       />
       <div className="ui-flex ui-flex-col ui-gap-0">
         {variants[variant].text}
-        <span className="ui-text-[10px] ui-font-semibold ui-leading-3 ui-text-surface-solid ui-mb-0 ui-pb-0">
+        <span className="ui-text-xs ui-leading-3 ui-font-semibold ui-text-gray-400 ui-mb-0 ui-pb-0 ui-whitespace-pre-line">
           {variants[variant].subtext}
         </span>
         {showUrl ? (
-          <span className="ui-text-[10px] ui-leading-3 ui-text-surface-solid">
+          <span className="ui-text-xs ui-leading-3 ui-text-gray-400">
             {variants[variant].url}
           </span>
         ) : null}
