@@ -3,6 +3,7 @@ import Image from 'next/image';
 
 import { getFavoritesLeaderboard } from '@/app/_components/get-favorites-leaderboard';
 import { LandingPageCard } from '@/app/_components/landing-page-card';
+import { LandingPageCardDisabled } from '@/app/_components/landing-page-card-disabled';
 import { LandingPageContainer } from '@/app/_components/landing-page-container';
 import { NAV_ITEMS } from '@/app/_types/navigation';
 import { getQualityBuildFeed } from '@/app/(builds)/_actions/get-quality-build-feed';
@@ -138,16 +139,6 @@ export default async function Page() {
             />
 
             <LandingPageCard
-              {...NAV_ITEMS.itemQuiz}
-              icon={
-                <NAV_ITEMS.itemQuiz.icon
-                  className="text-primary-500 h-7 w-7 flex-none"
-                  aria-hidden="true"
-                />
-              }
-            />
-
-            <LandingPageCard
               {...NAV_ITEMS.createBuild}
               icon={
                 <NAV_ITEMS.createBuild.icon
@@ -168,7 +159,18 @@ export default async function Page() {
                   />
                 }
               />
-            ) : null}
+            ) : (
+              <LandingPageCardDisabled
+                {...NAV_ITEMS.loadouts}
+                disabledReason="An account is required to use the Loadouts feature."
+                icon={
+                  <NAV_ITEMS.loadouts.icon
+                    className="text-primary-500 h-7 w-7 flex-none"
+                    aria-hidden="true"
+                  />
+                }
+              />
+            )}
 
             <LandingPageCard
               {...NAV_ITEMS.worldSaveArchive}
@@ -191,20 +193,9 @@ export default async function Page() {
             />
 
             <LandingPageCard
-              {...NAV_ITEMS.discordInvite}
-              target="_blank"
+              {...NAV_ITEMS.wiki}
               icon={
-                <NAV_ITEMS.discordInvite.icon
-                  className="text-primary-500 h-7 w-7 flex-none"
-                  aria-hidden="true"
-                />
-              }
-            />
-
-            <LandingPageCard
-              {...NAV_ITEMS.supportR2TK}
-              icon={
-                <NAV_ITEMS.supportR2TK.icon
+                <NAV_ITEMS.wiki.icon
                   className="text-primary-500 h-7 w-7 flex-none"
                   aria-hidden="true"
                 />
@@ -222,13 +213,29 @@ export default async function Page() {
             />
 
             <LandingPageCard
-              {...NAV_ITEMS.wiki}
+              {...NAV_ITEMS.supportR2TK}
               icon={
-                <NAV_ITEMS.wiki.icon
+                <NAV_ITEMS.supportR2TK.icon
                   className="text-primary-500 h-7 w-7 flex-none"
                   aria-hidden="true"
                 />
               }
+            />
+
+            <LandingPageCard
+              {...NAV_ITEMS.itemQuiz}
+              icon={
+                <NAV_ITEMS.itemQuiz.icon
+                  className="text-primary-500 h-7 w-7 flex-none"
+                  aria-hidden="true"
+                />
+              }
+            />
+
+            <LandingPageCard
+              {...NAV_ITEMS.discordInvite}
+              target="_blank"
+              icon={null}
             />
           </div>
         </LandingPageContainer>
@@ -255,11 +262,11 @@ export default async function Page() {
             Latest Post
           </h3>
           <BaseLink
-            href="https://www.patreon.com/posts/cooking-bit-for-111447591"
+            href="https://www.patreon.com/posts/preparing-for-on-111885482"
             target="_blank"
           >
             <Image
-              src={getImageUrl('/patreon-posts/2024-09-05.jpg')}
+              src={getImageUrl('/patreon-posts/2024-09-11.jpg')}
               width={253}
               height={450}
               alt="Cooking a bit while waiting for the next DLC"

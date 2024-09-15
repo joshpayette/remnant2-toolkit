@@ -13,7 +13,7 @@ This guide assumes you are using a terminal to run commands.
 When you see a command like this, this is instructing you to run the command in your terminal:
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 ## Requirements
@@ -61,15 +61,13 @@ Run the following command to install the dependencies for the project:
 pnpm install
 ```
 
-### Setup the .env.local file
-
-#### Initialize the root .env.local file
+### Initialize the `packages/database/.env` file
 
 ```bash
-cp .env.local.example .env.local
+cp ./packages/database/.env.example ./packages/database/.env
 ```
 
-Open the `.env.local` file and set the following environment variables per the below instructions.
+Open the `/packages/database/.env` file and set the following environment variables per the below instructions.
 
 #### `MYSQL_` Environment Variables
 
@@ -78,9 +76,19 @@ Choose any values you want. These will be the root and user passwords for the da
 
 If you change these values after the first-time setup, you will need to delete the `db-1` volume in Docker Desktop and rebuild the dev environment.
 
+#### Sample `.env` file
+
+```bash
+DATABASE_URL="mysql://forlinauser:{{ PASSWORD HERE }}@localhost:3306/forlinadb"
+MYSQL_DATABASE="forlinadb"
+MYSQL_USER="forlinauser"
+MYSQL_PASSWORD="{{ PASSWORD HERE }}"
+MYSQL_ROOT_PASSWORD="{{ DIFFERENT PASSWORD HERE }}"
+```
+
 #### `DATABASE_URL` Environment Variable
 
-The `DATABASE_URL` environment variable is used by Prisma to connect to the database. There is a sample value in the `.env` file. You will need to replace `{{ PASSWORD HERE }}` with the value you set for `MYSQL_PASSWORD` in the previous step.
+The `DATABASE_URL` environment variable is used by Prisma to connect to the database. There is a sample value in the `.env.example` file. You will need to replace `{{ PASSWORD HERE }}` with the value you set for `MYSQL_PASSWORD` in the previous step.
 
 ```bash
 DATABASE_URL="mysql://forlinauser:password@localhost:3306/forlinadb"
@@ -88,17 +96,7 @@ DATABASE_URL="mysql://forlinauser:password@localhost:3306/forlinadb"
 
 **Use this same database URL in every other `.env` file where the `DATABASE_URL` field exists.**
 
-### Setup the `packages/database` .env file
-
-```bash
-cp ./packages/database/.env.example ./packages/database/.env
-```
-
-#### `DATABASE_URL` environment variable
-
-Copy the `DATABASE_URL` value from the root `.env.local` file and paste it into the `packages/database/.env` file.
-
-### Setup the `apps/remnant2toolkit` .env file
+### Initialize the `apps/remnant2toolkit/env.local` file
 
 ```bash
 cp ./apps/remnant2toolkit/.env.example ./apps/remnant2toolkit/.env
@@ -106,13 +104,13 @@ cp ./apps/remnant2toolkit/.env.example ./apps/remnant2toolkit/.env
 
 #### `DATABASE_URL` environment variable
 
-Copy the `DATABASE_URL` value from the root `.env.local` file and paste it into the `apps/remnant2toolkit/.env.local` file.
+Copy the `DATABASE_URL` value from the `packages/database/.env` file and paste it into the `apps/remnant2toolkit/.env` file.
 
-#### Allowing sign-in with Discord/Reddit
+### Allowing sign-in with Discord/Reddit
 
 You will need to create a Reddit app and a Discord app to allow users to sign in with those services.
 
-###### Discord
+##### Discord
 
 1. Go to [https://discord.com/developers/applications](https://discord.com/developers/applications).
 2. Click "New Application" in the top right.
@@ -123,7 +121,7 @@ You will need to create a Reddit app and a Discord app to allow users to sign in
 7. Enter `http://localhost:3000/api/auth/callback/discord` and click "Save Changes".
 8. Copy the `client_id` and `client_secret` values into the `.env` file, in the `DISCORD_CLIENT_ID` and `DISCORD_CLIENT_SECRET` fields, respectively.
 
-###### Reddit
+##### Reddit
 
 1. Go to [https://www.reddit.com/prefs/apps](https://www.reddit.com/prefs/apps).
 2. Click "Create App" at the bottom of the page.
@@ -131,11 +129,11 @@ You will need to create a Reddit app and a Discord app to allow users to sign in
 4. Click "Create App".
 5. Copy the `client_id` and `client_secret` values into the `.env` file, in the `REDDIT_CLIENT_ID` and `REDDIT_CLIENT_SECRET` fields, respectively.
 
-###### `NEXTAUTH_SECRET` Environment Variable
+##### `NEXTAUTH_SECRET` Environment Variable
 
 This is a secret key used by NextAuth. You can generate a random string of characters using a tool like [https://passwordsgenerator.net/](https://passwordsgenerator.net/), then paste that value into the `.env` file for `NEXTAUTH_SECRET`.
 
-#### `WEBHOOK_` Environment Variables
+### `WEBHOOK_` Environment Variables
 
 These are optional. If you don't want to set up webhooks, you can leave these values as they blank.
 
@@ -148,7 +146,7 @@ If you would like to setup the webhooks like the Toolkit uses, you can do so via
 5. Fill out the form. The "Webhook Name" can be anything you want. The "Channel" should be the channel you want the messages to go to.
 6. Click "Copy Webhook URL" and paste it into the appropriate `WEBHOOK_` field in the `.env` file.
 
-#### `IMAGEKIT_` Environment Variables
+### `IMAGEKIT_` Environment Variables
 
 ImageKit is the service used to store images generated by the Builder's export to image feature. You can skip this if you do not need that functionality.
 
@@ -158,22 +156,22 @@ If you would like to use it, ImageKit has a generous free account that should be
 2. Once you're logged in, click "API Key" in the left sidebar.
 3. Copy the `Public Key` and `Private Key` values into the `.env` file, in the `IMAGEKIT_CLIENT_ID` and `IMAGEKIT_CLIENT_SECRET` fields, respectively.
 
-#### `CRON_SECRET` Environment Variable
+### `CRON_SECRET` Environment Variable
 
 This is unnecessary in local development. This is a secret key used by the Toolkit's hosting provider (Vercel) to allow automated scheduled reports to be be invoked.
 
-#### `PATREON_` Environment Variables
+### `PATREON_` Environment Variables
 
 These are unnecessary in local development. This is only used for automated scheduled scripts to import paid Patreon members to the Toolkit so that perks can be enabled.
 
-#### `NEXT_PUBLIC_IMAGE_URL` Environment Variable
+### `NEXT_PUBLIC_IMAGE_URL` Environment Variable
 
 This is used to reference the Toolkit's Cloudfront distribution for images. You can leave this as the default value for local development to use the Toolkit's cache. However, you can update it to any URL you want to use for local development if you want to use a different source for images.
 
 ## Run the database container
 
 ```bash
-docker compose -f docker-compose.dev.yml --env-file=./packages/database/.env.local up
+docker compose -f docker-compose.dev.yml --env-file=./packages/database/.env up
 ```
 
 Wait about 2 minutes at this step to allow the database to spin up. In the console, you should see something like this in the logs:
@@ -183,6 +181,8 @@ Creating database forlinadb
 Creating user forlinauser
 Giving user forlinauser access to schema forlinadb
 ```
+
+Once you see that in the logs, leave the process running and open a new terminal.
 
 ### Initialize the database
 
@@ -199,8 +199,10 @@ npx turbo db:push
 To run all of the web applications (found in the `apps` folder), you can run the following command from the root (top-most) folder:
 
 ```bash
-npx turbo dev
+npx turbo dev --filter=remnant2toolkit
 ```
+
+**NOTE** If you get a white screen or any errors, try hitting `F5` to reload the page, or `Ctrl+C` in terminal to stop the server, then start the dev server again.
 
 The site should now be available at [http://localhost:3000](http://localhost:3000).
 
@@ -216,7 +218,7 @@ Before you push your changes, you should ensure that the production build will w
 6. Run the following command to build the production version of the site:
 
 ```bash
-npm run build
+npx turbo build --filter=remnant2toolkit
 ```
 
 If the build is successful, you can push your changes. Otherwise, you will see errors to give an idea of what needs to be fixed.

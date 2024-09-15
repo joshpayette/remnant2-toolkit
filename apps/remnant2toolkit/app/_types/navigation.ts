@@ -228,7 +228,7 @@ export const NAV_ITEMS = {
     icon: VashIcon,
   },
   wiki: {
-    label: 'Wiki',
+    label: 'Remnant.Wiki',
     description:
       'Definitive wiki for Remnant 2. Community driven, no ads or stream embeds.',
     href: 'https://remnant.wiki/',

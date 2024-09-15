@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-09-14
+
+### Fixed
+
+- Updated some typos or confusing phrasing in the hardcore veteran guide.
+
+## 2024-09-13
+
+### Fixed
+
+- Elemental Resist Relic Fragment was incorrectly adding 10 Bleed and 10 Blight Resistance.
+
 ## 2024-09-10
 
 ### Added
