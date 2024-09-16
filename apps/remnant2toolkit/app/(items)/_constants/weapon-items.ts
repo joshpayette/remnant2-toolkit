@@ -2415,4 +2415,31 @@ export const weaponItems: WeaponItem[] = [
     weakspot: 105,
     stagger: 5,
   },
+  {
+    category: 'weapon',
+    type: 'hand gun',
+    name: 'Repair Tool',
+    saveFileSlug: 'Weapon_RepairTool_C', // TODO: Check this
+    imagePath: '/items/weapons/repair_tool_placeholder.png',
+    id: '5go8dn',
+    dlc: 'dlc3',
+    description:
+      `In the heat of battle, it's easy to focus on taking down as many enemies as possible, but when an ally falls, your priorities have a way of shifting fast. This thing may not be the deadliest weapon, but its ability to heal those brave enough to fight at your side is invaluable.\n` +
+      '\n' +
+      `"For a species as long-lived as the Drzyr, the restorative capabilities of nanotechnology proved essential to the preservation of vitality. They knew that to prevent decay on a micro level was the first step in potentially unlocking the secret to preventing decay on the macro level as well."\n` +
+      '\n' +
+      `Fires a stream of nanomachines, dealing damage to enemies or healing allies for 3% of their Max Health per second. The nano-tech also restores N'Erudian Energy to Turrets`,
+    wikiLinks: [`https://remnant.wiki/Repair_Tool`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
+    damage: 10,
+    rps: 11,
+    magazine: 150,
+    accuracy: 100,
+    ideal: 15,
+    falloff: 30,
+    ammo: 300,
+    crit: 5,
+    weakspot: 80,
+    stagger: -20,
+  },
 ];
