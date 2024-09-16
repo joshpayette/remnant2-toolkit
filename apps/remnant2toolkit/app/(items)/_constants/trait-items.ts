@@ -37,6 +37,7 @@ export const traitItems: TraitItem[] = [
     tags: [],
     description: 'Incaseses SHIELD amount by 1.5% - 15%.',
     wikiLinks: [`https://remnant.wiki/Barrier`],
+    externalTokens: [`PRERELEASE`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: `N'Erud`, dungeon: 'Linked Item' },
     linkedItems: {
