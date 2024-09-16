@@ -1538,4 +1538,92 @@ export const perkItems: PerkItem[] = [
       },
     },
   },
+  {
+    category: 'perk',
+    name: 'Dynamic',
+    saveFileSlug: 'Perk_Dynamic_C', // TODO Check this
+    imagePath: '/items/perks/warden_dynamic_placeholder.png',
+    type: 'prime',
+    id: 'no6oxo',
+    dlc: 'dlc3',
+    tags: [],
+    description:
+      `After 10s of not being damaged, the Warden generates a SHIELD for 23% of their Max Health over 2s.\n` +
+      '\n' +
+      `Increases base N'Erudian Energy Reserves for Turret and Drone by 100%.`,
+    wikiLinks: ['https://remnant.wiki/Dynamic'],
+    linkedItems: {
+      archetype: {
+        name: 'Warden',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Warden Damage Perk',
+    saveFileSlug: 'Perk_WardenDamage_C', // TODO Update this
+    imagePath: '/misc/placeholder.jpg',
+    type: 'damage',
+    id: '1yfbk0',
+    dlc: 'dlc3',
+    tags: [],
+    description: 'TBD',
+    wikiLinks: [],
+    linkedItems: {
+      archetype: {
+        name: 'Warden',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Warden Team Perk',
+    saveFileSlug: 'Perk_WardenTeam_C', // TODO Update this
+    imagePath: '/misc/placeholder.jpg',
+    type: 'team',
+    id: 'w3gyt0',
+    dlc: 'dlc3',
+    tags: [],
+    description: 'TBD',
+    wikiLinks: [],
+    linkedItems: {
+      archetype: {
+        name: 'Warden',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Warden Utility Perk',
+    saveFileSlug: 'Perk_WardenUtility_C', // TODO Update this
+    imagePath: '/misc/placeholder.jpg',
+    type: 'utility',
+    id: 'odd85z',
+    dlc: 'dlc3',
+    tags: [],
+    description: 'TBD',
+    wikiLinks: [],
+    linkedItems: {
+      archetype: {
+        name: 'Warden',
+      },
+    },
+  },
+  {
+    category: 'perk',
+    name: 'Warden Relic Perk',
+    saveFileSlug: 'Perk_WardenRelic_C', // TODO Update this
+    imagePath: '/misc/placeholder.jpg',
+    type: 'relic',
+    id: 'c6k3ke',
+    dlc: 'dlc3',
+    tags: [],
+    description: 'TBD',
+    wikiLinks: [],
+    linkedItems: {
+      archetype: {
+        name: 'Warden',
+      },
+    },
+  },
 ];
