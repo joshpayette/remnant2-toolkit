@@ -40,10 +40,11 @@ import { ViewLinkedBuildButton } from '@/app/(builds)/builder/linked/_components
 import { useDiscoveredItems } from '@/app/(items)/_hooks/use-discovered-items';
 
 interface Props {
-  buildState: BuildState;
+  activeBuildState: BuildState;
+  mainBuildState: BuildState;
 }
 
-export function ViewBuild({ buildState }: Props) {
+export function ViewBuild({ activeBuildState, mainBuildState }: Props) {
   const { data: session, status: sessionStatus } = useSession();
 
   const router = useRouter();
@@ -51,7 +52,7 @@ export function ViewBuild({ buildState }: Props) {
 
   const { discoveredItemIds } = useDiscoveredItems();
   const buildStateWithItemsOwned = setLocalBuildItemOwnership({
-    buildState,
+    buildState: activeBuildState,
     discoveredItemIds,
     sessionStatus,
   });
@@ -82,7 +83,7 @@ export function ViewBuild({ buildState }: Props) {
   const [optimisticUpvote, setOptimisticUpvote] = useOptimistic<
     boolean,
     boolean
-  >(buildState.upvoted, (_state, newUpvoted) => newUpvoted);
+  >(mainBuildState.upvoted, (_state, newUpvoted) => newUpvoted);
 
   function onFavoriteBuild() {
     startTransition(() => {
@@ -95,7 +96,7 @@ export function ViewBuild({ buildState }: Props) {
       setOptimisticUpvote(!optimisticUpvote);
 
       handleFavoriteBuild({
-        buildState,
+        buildState: mainBuildState,
         userId: session?.user?.id,
         onFavorite: () => router.refresh(),
       });
@@ -104,12 +105,12 @@ export function ViewBuild({ buildState }: Props) {
 
   // Need to convert the build data to a format that the BuildPage component can use
   if (!session?.user) {
-    buildState.upvoted = false;
-    buildState.reported = false;
+    mainBuildState.upvoted = false;
+    mainBuildState.reported = false;
   }
 
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
-  const csvBuildData = buildStateToCsvData(buildState);
+  const csvBuildData = buildStateToCsvData(activeBuildState);
 
   // #region RENDER
 
@@ -125,13 +126,13 @@ export function ViewBuild({ buildState }: Props) {
         builderActions={
           <>
             <DetailedBuildDialog
-              buildState={buildState}
+              buildState={activeBuildState}
               open={detailedBuildDialogOpen}
               onClose={() => setDetailedBuildDialogOpen(false)}
             />
             <LoadoutDialog
               key={loadoutDialogOpen.toString()}
-              buildId={buildState.buildId}
+              buildId={mainBuildState.buildId}
               open={loadoutDialogOpen}
               onClose={() => setLoadoutDialogOpen(false)}
               isEditable={true}
@@ -146,31 +147,33 @@ export function ViewBuild({ buildState }: Props) {
             />
 
             {session &&
-              session.user?.id !== buildState.createdById &&
+              session.user?.id !== mainBuildState.createdById &&
               session.user?.role === 'admin' && (
                 <>
                   <ModeratorBuildToolsDialog
                     open={showModeratorTooling}
                     onClose={() => setShowModeratorTooling(false)}
-                    buildToModerate={buildState}
+                    buildToModerate={mainBuildState}
                   />
                   <ModeratorToolsButton
                     onClick={() => setShowModeratorTooling(true)}
                   />
                 </>
               )}
-            {session && session.user?.id === buildState.createdById && (
+            {session && session.user?.id === mainBuildState.createdById && (
               <EditBuildButton
                 onClick={() =>
-                  router.push(`/builder/edit/${buildState.buildId}`)
+                  router.push(`/builder/edit/${mainBuildState.buildId}`)
                 }
               />
             )}
 
-            {session && session.user?.id === buildState.createdById && (
+            {session && session.user?.id === mainBuildState.createdById && (
               <NewLinkedBuildButton
                 onClick={() =>
-                  router.push(`/builder/linked/create/${buildState.buildId}`)
+                  router.push(
+                    `/builder/linked/create/${mainBuildState.buildId}`,
+                  )
                 }
               />
             )}
@@ -180,7 +183,7 @@ export function ViewBuild({ buildState }: Props) {
               onClick={() =>
                 handleImageExport(
                   buildContainerRef.current,
-                  `${buildState.name}`,
+                  `${activeBuildState.name}`,
                 )
               }
             />
@@ -195,12 +198,12 @@ export function ViewBuild({ buildState }: Props) {
 
             {session?.user?.id && (
               <LoadoutManagementButton
-                buildId={buildState.buildId}
+                buildId={mainBuildState.buildId}
                 onClick={() => setLoadoutDialogOpen(true)}
               />
             )}
 
-            {buildState.createdById !== session?.user?.id && (
+            {mainBuildState.createdById !== session?.user?.id && (
               <FavoriteBuildButton
                 upvoted={optimisticUpvote}
                 onClick={onFavoriteBuild}
@@ -208,9 +211,9 @@ export function ViewBuild({ buildState }: Props) {
             )}
 
             {session &&
-              session.user?.id === buildState.createdById &&
-              buildState.buildId && (
-                <DeleteBuildButton buildId={buildState.buildId} />
+              session.user?.id === mainBuildState.createdById &&
+              mainBuildState.buildId && (
+                <DeleteBuildButton buildId={mainBuildState.buildId} />
               )}
 
             <DetailedViewButton
@@ -226,7 +229,7 @@ export function ViewBuild({ buildState }: Props) {
             <ViewLinkedBuildButton
               onClick={() =>
                 router.push(
-                  `/profile/${buildState.createdById}/linked-builds/${buildState.buildId}`,
+                  `/profile/${mainBuildState.createdById}/linked-builds/${mainBuildState.buildId}`,
                 )
               }
             />
@@ -234,7 +237,7 @@ export function ViewBuild({ buildState }: Props) {
             <DuplicateBuildButton
               onClick={() =>
                 handleDuplicateBuild({
-                  buildState,
+                  buildState: activeBuildState,
                   onDuplicate: (buildId: string) =>
                     router.push(`/builder/${buildId}`),
                 })
@@ -243,7 +246,7 @@ export function ViewBuild({ buildState }: Props) {
 
             <ToCsvButton
               data={csvBuildData.filter((item) => item?.name !== '')}
-              filename={`remnant2_builder_${buildState.name}`}
+              filename={`remnant2_builder_${activeBuildState.name}`}
               label="Export to CSV"
             />
           </>

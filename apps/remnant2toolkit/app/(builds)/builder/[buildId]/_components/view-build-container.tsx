@@ -12,23 +12,28 @@ interface Props {
 }
 
 export function ViewBuildContainer({ buildVariants }: Props) {
-  const [currentBuildVariant, setCurrentBuildVariant] =
-    useState<LinkedBuildItem>(buildVariants[0] as LinkedBuildItem);
+  const mainBuildVariant = buildVariants[0] as LinkedBuildItem;
+
+  const [activeBuildVariant, setActiveBuildVariant] =
+    useState<LinkedBuildItem>(mainBuildVariant);
 
   return (
     <>
+      <VideoThumbnail buildState={mainBuildVariant.build} />
       {buildVariants.length > 1 && (
         <TabbedBuildsDisplay
-          activeBuild={currentBuildVariant}
+          activeBuild={activeBuildVariant}
           linkedBuild={{
             linkedBuilds: buildVariants || [],
           }}
-          onChangeActiveBuild={setCurrentBuildVariant}
+          onChangeActiveBuild={setActiveBuildVariant}
           title="Build Variants"
         />
       )}
-      <VideoThumbnail buildState={currentBuildVariant.build} />
-      <ViewBuild buildState={currentBuildVariant.build} />
+      <ViewBuild
+        activeBuildState={activeBuildVariant.build}
+        mainBuildState={mainBuildVariant.build}
+      />
     </>
   );
 }

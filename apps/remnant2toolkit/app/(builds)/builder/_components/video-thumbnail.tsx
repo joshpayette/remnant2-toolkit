@@ -21,6 +21,8 @@ export function VideoThumbnail({ buildState }: Props) {
       buildState.isBeginnerBuild ||
       buildState.isBaseGameBuild);
 
+  console.info('canShowFeaturedVideo', canShowFeaturedVideo);
+
   // if the video is not a featured build, show it if it was updated over 12 hours ago
   const twelveHoursAgo = new Date(new Date().getTime() - VIDEO_APPROVAL_WINDOW);
   const canShowBuildLinkVideo =
