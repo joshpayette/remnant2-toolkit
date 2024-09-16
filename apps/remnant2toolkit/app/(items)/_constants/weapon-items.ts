@@ -2430,6 +2430,7 @@ export const weaponItems: WeaponItem[] = [
       '\n' +
       `Fires a stream of nanomachines, dealing damage to enemies or healing allies for 3% of their Max Health per second. The nano-tech also restores N'Erudian Energy to Turrets`,
     wikiLinks: [`https://remnant.wiki/Repair_Tool`],
+    externalTokens: [`PRERELEASE`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 10,
     rps: 11,
