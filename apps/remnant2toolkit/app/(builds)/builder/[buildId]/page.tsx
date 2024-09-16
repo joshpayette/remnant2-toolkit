@@ -174,6 +174,12 @@ export default async function Page({
     await incrementViewCount({ buildId: buildVariant.build.buildId });
   }
 
+  // loop through build variants and copy videoUrl and buildLink from the main build to each variant
+  buildVariants.forEach((buildVariant) => {
+    buildVariant.build.videoUrl = mainBuild.videoUrl;
+    buildVariant.build.buildLink = mainBuild.buildLink;
+  });
+
   return (
     <div className="flex w-full flex-col items-center">
       <div className="height-full flex w-full flex-col items-center justify-center">

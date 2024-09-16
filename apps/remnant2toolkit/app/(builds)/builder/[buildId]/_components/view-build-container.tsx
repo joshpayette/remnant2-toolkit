@@ -32,6 +32,7 @@ export function ViewBuildContainer({ buildVariants }: Props) {
       )}
       <ViewBuild
         activeBuildState={activeBuildVariant.build}
+        buildVariantCount={buildVariants.length}
         mainBuildState={mainBuildVariant.build}
       />
     </>

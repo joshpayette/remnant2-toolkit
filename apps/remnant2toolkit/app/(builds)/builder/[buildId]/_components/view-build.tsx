@@ -42,9 +42,14 @@ import { useDiscoveredItems } from '@/app/(items)/_hooks/use-discovered-items';
 interface Props {
   activeBuildState: BuildState;
   mainBuildState: BuildState;
+  buildVariantCount: number;
 }
 
-export function ViewBuild({ activeBuildState, mainBuildState }: Props) {
+export function ViewBuild({
+  activeBuildState,
+  buildVariantCount,
+  mainBuildState,
+}: Props) {
   const { data: session, status: sessionStatus } = useSession();
 
   const router = useRouter();
@@ -168,15 +173,17 @@ export function ViewBuild({ activeBuildState, mainBuildState }: Props) {
               />
             )}
 
-            {session && session.user?.id === mainBuildState.createdById && (
-              <NewLinkedBuildButton
-                onClick={() =>
-                  router.push(
-                    `/builder/linked/create/${mainBuildState.buildId}`,
-                  )
-                }
-              />
-            )}
+            {session &&
+              session.user?.id === mainBuildState.createdById &&
+              buildVariantCount === 1 && (
+                <NewLinkedBuildButton
+                  onClick={() =>
+                    router.push(
+                      `/builder/linked/create/${mainBuildState.buildId}`,
+                    )
+                  }
+                />
+              )}
 
             <GenerateBuildImageButton
               imageExportLoading={imageExportLoading}
@@ -226,13 +233,15 @@ export function ViewBuild({ activeBuildState, mainBuildState }: Props) {
               }
             />
 
-            <ViewLinkedBuildButton
-              onClick={() =>
-                router.push(
-                  `/profile/${mainBuildState.createdById}/linked-builds/${mainBuildState.buildId}`,
-                )
-              }
-            />
+            {buildVariantCount === 1 && (
+              <ViewLinkedBuildButton
+                onClick={() =>
+                  router.push(
+                    `/profile/${mainBuildState.createdById}/linked-builds/${mainBuildState.buildId}`,
+                  )
+                }
+              />
+            )}
 
             <DuplicateBuildButton
               onClick={() =>
