@@ -1561,14 +1561,17 @@ export const perkItems: PerkItem[] = [
   },
   {
     category: 'perk',
-    name: 'Warden Damage Perk',
+    name: 'Galvanize',
     saveFileSlug: 'Perk_WardenDamage_C', // TODO Update this
     imagePath: '/misc/placeholder.jpg',
     type: 'damage',
     id: '1yfbk0',
     dlc: 'dlc3',
     tags: [],
-    description: 'TBD',
+    description:
+    `Increases All Damage by 25% and grants 5% Critical Chance.\n` +
+    '\n' +
+    `Damage increases with Warden Level.`,
     wikiLinks: [],
     externalTokens: [`PRERELEASE`],
     linkedItems: {
@@ -1579,14 +1582,15 @@ export const perkItems: PerkItem[] = [
   },
   {
     category: 'perk',
-    name: 'Warden Team Perk',
+    name: 'Safeguard',
     saveFileSlug: 'Perk_WardenTeam_C', // TODO Update this
     imagePath: '/misc/placeholder.jpg',
     type: 'team',
     id: 'w3gyt0',
     dlc: 'dlc3',
     tags: [],
-    description: 'TBD',
+    description:
+    `The Warden's Drone grants 1 stack of BULWARK and increases incoming Healing Effectiveness by 10% to its Warded Target\n`,
     wikiLinks: [],
     externalTokens: [`PRERELEASE`],
     linkedItems: {
@@ -1597,14 +1601,17 @@ export const perkItems: PerkItem[] = [
   },
   {
     category: 'perk',
-    name: 'Warden Utility Perk',
+    name: 'Contingency',
     saveFileSlug: 'Perk_WardenUtility_C', // TODO Update this
     imagePath: '/misc/placeholder.jpg',
     type: 'utility',
     id: 'odd85z',
     dlc: 'dlc3',
     tags: [],
-    description: 'TBD',
+    description:
+    `When the Warden's Health drops below 25%, gain a SHIELD for 28.8% of Max Health. Lasts 10s. Can only happen once every 30s.\n` +
+    '\n' +
+    `While active, increases Movement Speed by 15%.`,
     wikiLinks: [],
     externalTokens: [`PRERELEASE`],
     linkedItems: {
@@ -1615,14 +1622,17 @@ export const perkItems: PerkItem[] = [
   },
   {
     category: 'perk',
-    name: 'Warden Relic Perk',
+    name: 'Energize',
     saveFileSlug: 'Perk_WardenRelic_C', // TODO Update this
     imagePath: '/misc/placeholder.jpg',
     type: 'relic',
     id: 'c6k3ke',
     dlc: 'dlc3',
     tags: [],
-    description: 'TBD',
+    description:
+    `On Relic Use, grants a SHIELD for 28.8% of Max Health Cannot stack with itself. Lasts 10s or until SHIELD is removed by damage.\n` +
+    '\n' +
+    `While active, actions which consume N'Erudian Energy have no cost.`,
     wikiLinks: [],
     externalTokens: [`PRERELEASE`],
     linkedItems: {
