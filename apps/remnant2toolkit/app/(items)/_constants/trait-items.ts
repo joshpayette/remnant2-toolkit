@@ -28,6 +28,26 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'archetype',
+    inGameOrder: 3, // TODO Check this
+    name: 'Barrier',
+    imagePath: '/items/traits/barrier_placeholder.png',
+    saveFileSlug: 'Trait_Barrier_C', // TODO Check this
+    id: '9c311c',
+    dlc: 'dlc3',
+    tags: [],
+    description: 'Incaseses SHIELD amount by 1.5% - 15%.',
+    wikiLinks: [`https://remnant.wiki/Barrier`],
+    amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: `N'Erud`, dungeon: 'Linked Item' },
+    linkedItems: {
+      archetype: {
+        name: 'Warden',
+      },
+    },
+  },
+  {
+    category: 'trait',
+    type: 'archetype',
     inGameOrder: 1,
     name: 'Ammo Reserves',
     imagePath: '/items/traits/ammoreserves.png',
@@ -49,7 +69,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 18,
+    inGameOrder: 19,
     name: 'Amplitude',
     imagePath: '/items/traits/amplitude.png',
     saveFileSlug: 'Trait_Amplitude_C',
@@ -63,7 +83,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 19,
+    inGameOrder: 20,
     name: 'Arcane Strike',
     imagePath: '/items/traits/arcanestrike.png',
     saveFileSlug: 'Trait_ArcaneStrike_C',
@@ -78,7 +98,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 20,
+    inGameOrder: 21,
     name: 'Barkskin',
     imagePath: '/items/traits/barkskin.png',
     saveFileSlug: 'Trait_Barkskin_C',
@@ -93,7 +113,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 21,
+    inGameOrder: 22,
     name: 'Blood Bond',
     imagePath: '/items/traits/bloodbond.png',
     saveFileSlug: 'Trait_BloodBond_C',
@@ -109,7 +129,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 22,
+    inGameOrder: 23,
     name: 'Bloodstream',
     imagePath: '/items/traits/bloodstream.png',
     saveFileSlug: 'Trait_Bloodstream_C',
@@ -124,7 +144,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 23,
+    inGameOrder: 24,
     name: 'Chakra',
     imagePath: '/items/traits/chakra.png',
     saveFileSlug: 'Trait_Chakra_C',
@@ -139,7 +159,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 24,
+    inGameOrder: 25,
     name: 'Dark Pact',
     imagePath: '/items/traits/darkpact.png',
     saveFileSlug: 'Trait_DarkPact_C',
@@ -154,7 +174,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'core',
-    inGameOrder: 14,
+    inGameOrder: 16,
     name: 'Endurance',
     imagePath: '/items/traits/endurance.png',
     saveFileSlug: 'Trait_Endurance_C',
@@ -170,7 +190,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'core',
-    inGameOrder: 16,
+    inGameOrder: 17,
     name: 'Expertise',
     imagePath: '/items/traits/expertise.png',
     saveFileSlug: 'Trait_Expertise_C',
@@ -185,7 +205,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 25,
+    inGameOrder: 26,
     name: 'Fitness',
     imagePath: '/items/traits/fitness.png',
     saveFileSlug: 'Trait_Fitness_C',
@@ -223,7 +243,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 26,
+    inGameOrder: 27,
     name: 'Footwork',
     imagePath: '/items/traits/footwork.png',
     saveFileSlug: 'Trait_Footwork_C',
@@ -238,7 +258,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'archetype',
-    inGameOrder: 3,
+    inGameOrder: 4,
     name: 'Fortify',
     imagePath: '/items/traits/fortify.png',
     saveFileSlug: 'Trait_Fortify_C',
@@ -260,7 +280,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'archetype',
-    inGameOrder: 4,
+    inGameOrder: 5,
     name: 'Gifted',
     imagePath: '/items/traits/gifted.png',
     saveFileSlug: 'Trait_Gifted_C',
@@ -280,7 +300,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 27,
+    inGameOrder: 28,
     name: 'Glutton',
     imagePath: '/items/traits/glutton.png',
     saveFileSlug: 'Trait_Glutton_C',
@@ -296,7 +316,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 28,
+    inGameOrder: 29,
     name: 'Handling',
     imagePath: '/items/traits/handling.png',
     saveFileSlug: 'Trait_Handling_C',
@@ -311,7 +331,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'archetype',
-    inGameOrder: 5,
+    inGameOrder: 6,
     name: 'Kinship',
     imagePath: '/items/traits/kinship.png',
     saveFileSlug: 'Trait_Kinship_C',
@@ -334,7 +354,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 29,
+    inGameOrder: 30,
     name: 'Leech',
     imagePath: '/items/traits/leech.png',
     saveFileSlug: 'Trait_Leech_C',
@@ -349,7 +369,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'archetype',
-    inGameOrder: 6,
+    inGameOrder: 7,
     name: 'Longshot',
     imagePath: '/items/traits/longshot.png',
     saveFileSlug: 'Trait_Longshot_C',
@@ -370,7 +390,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'archetype',
-    inGameOrder: 7,
+    inGameOrder: 8,
     name: 'Potency',
     imagePath: '/items/traits/potency.png',
     saveFileSlug: 'Trait_Potency_C',
@@ -391,7 +411,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 30,
+    inGameOrder: 31,
     name: 'Recovery',
     imagePath: '/items/traits/recovery.png',
     saveFileSlug: 'Trait_Recovery_C',
@@ -406,7 +426,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'archetype',
-    inGameOrder: 8,
+    inGameOrder: 9,
     name: 'Regrowth',
     imagePath: '/items/traits/regrowth.png',
     saveFileSlug: 'Trait_Regrowth_C',
@@ -429,7 +449,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 31,
+    inGameOrder: 32,
     name: 'Resolute',
     imagePath: '/items/traits/resolute.png',
     saveFileSlug: 'Trait_Resolute_C',
@@ -444,7 +464,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 32,
+    inGameOrder: 33,
     name: 'Revivalist',
     imagePath: '/items/traits/revivalist.png',
     saveFileSlug: 'Trait_Revivalist_C',
@@ -459,7 +479,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 33,
+    inGameOrder: 34,
     name: 'Rugged',
     imagePath: '/items/traits/rugged.png',
     saveFileSlug: 'Trait_Rugged_C',
@@ -474,7 +494,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 17,
+    inGameOrder: 18,
     name: 'Scholar',
     imagePath: '/items/traits/scholar.png',
     saveFileSlug: 'Trait_Scholar_C',
@@ -488,7 +508,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 34,
+    inGameOrder: 35,
     name: 'Shadeskin',
     imagePath: '/items/traits/shadeskin.png',
     saveFileSlug: 'Trait_Shadeskin_C',
@@ -506,7 +526,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 35,
+    inGameOrder: 36,
     name: 'Siphoner',
     imagePath: '/items/traits/siphoner.png',
     saveFileSlug: 'Trait_Siphoner_C',
@@ -536,7 +556,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'archetype',
-    inGameOrder: 9,
+    inGameOrder: 11,
     name: 'Strong Back',
     imagePath: '/items/traits/strongback.png',
     saveFileSlug: 'Trait_StrongBack_C',
@@ -587,7 +607,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'archetype',
-    inGameOrder: 11,
+    inGameOrder: 12,
     name: 'Triage',
     imagePath: '/items/traits/triage.png',
     saveFileSlug: 'Trait_Triage_C',
@@ -608,7 +628,7 @@ export const traitItems: TraitItem[] = [
     category: 'trait',
     type: 'archetype',
     name: 'Untouchable',
-    inGameOrder: 12,
+    inGameOrder: 13,
     imagePath: '/items/traits/untouchable.png',
     saveFileSlug: 'Trait_Untouchable_C',
     id: 'pkmmg6',
@@ -628,7 +648,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'core',
-    inGameOrder: 13,
+    inGameOrder: 14,
     name: 'Vigor',
     imagePath: '/items/traits/vigor.png',
     saveFileSlug: 'Trait_Vigor_C',

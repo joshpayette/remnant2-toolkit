@@ -21,6 +21,7 @@ enum ITEM_DLC {
   base
   dlc1
   dlc2
+  dlc3
 }
 
 model Item {
