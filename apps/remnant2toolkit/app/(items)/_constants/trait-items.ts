@@ -35,6 +35,7 @@ export const traitItems: TraitItem[] = [
     id: '9c311c',
     dlc: 'dlc3',
     tags: [],
+    externalTokens: ['PRERELEASE'],
     description: 'Incaseses SHIELD amount by 1.5% - 15%.',
     wikiLinks: [`https://remnant.wiki/Barrier`],
     amount: DEFAULT_TRAIT_AMOUNT,

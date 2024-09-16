@@ -315,12 +315,6 @@ export const INLINE_TOKENS = [
     description: 'Reduces Mod Power Generation by 50%.',
   },
   {
-    type: 'PRERELEASE',
-    token: 'PRERELEASE',
-    color: 'text-[#646b00] dark:text-[#ecfc00]',
-    description: `This is prerelease content. Information might not be accurate or change. Numbers aren't final.`,
-  },
-  {
     type: 'Weakspot Damage',
     token: 'Weakspot Damage',
     color: 'text-[#C63838] dark:text-[#ef4444]',
@@ -405,6 +399,12 @@ export const INLINE_TOKENS = [
     color: 'text-[#6d6650] dark:text-[#fff1bc]',
     description: undefined,
   },
+  {
+    type: 'Warded Target',
+    token: 'Warded Target',
+    color: 'text-[#6d6650] dark:text-[#fff1bc]',
+    description: undefined,
+  },
 ] as const satisfies {
   type: string;
   token: string;
@@ -469,6 +469,11 @@ export const EXTERNAL_TOKENS = [
     token: `Navigator's Set`,
     color: 'text-[#6d6650] dark:text-[#fff1bc]',
     description: `Wearing either Navigator's Pendant alongside the Navigator's Helm gives +15 BLIGHT resistance.`,
+  },
+  {
+    token: 'PRERELEASE',
+    color: 'text-[#646b00] dark:text-[#ecfc00]',
+    description: `This is prerelease content. Information might not be accurate or change. Numbers aren't final.`,
   },
   {
     token: 'Bug',
