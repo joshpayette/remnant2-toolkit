@@ -1552,6 +1552,7 @@ export const perkItems: PerkItem[] = [
       '\n' +
       `Increases base N'Erudian Energy Reserves for Turret and Drone by 100%.`,
     wikiLinks: ['https://remnant.wiki/Dynamic'],
+    externalTokens: [`PRERELEASE`],
     linkedItems: {
       archetype: {
         name: 'Warden',
@@ -1569,6 +1570,7 @@ export const perkItems: PerkItem[] = [
     tags: [],
     description: 'TBD',
     wikiLinks: [],
+    externalTokens: [`PRERELEASE`],
     linkedItems: {
       archetype: {
         name: 'Warden',
@@ -1586,6 +1588,7 @@ export const perkItems: PerkItem[] = [
     tags: [],
     description: 'TBD',
     wikiLinks: [],
+    externalTokens: [`PRERELEASE`],
     linkedItems: {
       archetype: {
         name: 'Warden',
@@ -1603,6 +1606,7 @@ export const perkItems: PerkItem[] = [
     tags: [],
     description: 'TBD',
     wikiLinks: [],
+    externalTokens: [`PRERELEASE`],
     linkedItems: {
       archetype: {
         name: 'Warden',
@@ -1620,6 +1624,7 @@ export const perkItems: PerkItem[] = [
     tags: [],
     description: 'TBD',
     wikiLinks: [],
+    externalTokens: [`PRERELEASE`],
     linkedItems: {
       archetype: {
         name: 'Warden',
