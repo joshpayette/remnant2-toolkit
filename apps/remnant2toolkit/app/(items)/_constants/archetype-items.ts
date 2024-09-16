@@ -406,4 +406,35 @@ export const archetypeItems: ArchetypeItem[] = [
       ],
     },
   },
+  {
+    category: 'archetype',
+    name: 'Warden',
+    imagePath: '/misc/placeholder.jpg',
+    saveFileSlug: 'Engram_Warden_C', // TODO Confirm this
+    id: 'tn0x3c',
+    dlc: 'dlc3',
+    description: 'TBD',
+    wikiLinks: [`https://remnant.wiki/Warden`],
+    location: { world: `N'Erud`, dungeon: 'Quest' },
+    linkedItems: {
+      traits: [
+        { name: 'Barrier', amount: 10 },
+        { name: 'Expertise', amount: 2 },
+        { name: 'Endurance', amount: 1 },
+        { name: 'Spirit', amount: 2 },
+      ],
+      skills: [
+        { name: 'Drone: Shield' },
+        { name: 'Drone: Heal' },
+        { name: 'Drone: Combat' },
+      ],
+      perks: [
+        { name: 'Dynamic' },
+        { name: 'Warden Damage Perk' },
+        { name: 'Warden Team Perk' },
+        { name: 'Warden Utility Perk' },
+        { name: 'Warden Relic Perk' },
+      ],
+    },
+  },
 ];

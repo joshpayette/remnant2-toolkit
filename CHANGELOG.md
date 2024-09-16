@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-09-16
+
+### Added
+
+- You can now use the Warden and all known skills/perks.
+- You can now use the Repair Tool handgun.
+
 ## 2024-09-14
 
 ### Fixed
