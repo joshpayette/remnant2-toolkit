@@ -105,7 +105,7 @@ export function WeaponInfo({ item, includeMod = true }: Props) {
               </span>
             </div>
           ) : null}
-          {item.stagger >= 0 ? (
+          {item.stagger ? (
             <div className="grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300">
               <p className="flex items-center justify-start text-xs">
                 Stagger Modifier
