@@ -409,7 +409,7 @@ export const archetypeItems: ArchetypeItem[] = [
   {
     category: 'archetype',
     name: 'Warden',
-    imagePath: '/items/archetypes/warden_placeholder.png',
+    imagePath: '/misc/placeholder.jpg',
     saveFileSlug: 'Engram_Warden_C', // TODO Confirm this
     id: 'tn0x3c',
     dlc: 'dlc3',
