@@ -1,5 +1,5 @@
-import { ITEM_TOKENS } from '@/app/(builds)/_constants/tokens';
 import { allItems } from '@/app/(items)/_constants/all-items';
+import { ITEM_TOKENS } from '@/app/(items)/item-lookup/_constants/item-tokens';
 
 export function buildAutocompleteSuggestions(): Array<{
   id: string;

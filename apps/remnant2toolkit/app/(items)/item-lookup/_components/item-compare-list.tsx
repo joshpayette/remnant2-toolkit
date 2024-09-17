@@ -1,3 +1,5 @@
+'use client';
+
 import { cn } from '@repo/ui';
 import { useState } from 'react';
 import { useLocalStorage } from 'usehooks-ts';

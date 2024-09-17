@@ -22,14 +22,14 @@ import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 import { BossAffixFilter } from '@/app/(enemies)/world-save-archive/_components/boss-affix-filter';
 import { BossNameFilter } from '@/app/(enemies)/world-save-archive/_components/boss-name-filter';
 import { WORLD_SAVE_FILTER_KEYS } from '@/app/(enemies)/world-save-archive/_constants/world-save-filter-keys';
-import { type WorldSaveFilters as Filters } from '@/app/(enemies)/world-save-archive/_types';
+import { type WorldSaveFilters } from '@/app/(enemies)/world-save-archive/_types';
 import { parseUrlFilters } from '@/app/(enemies)/world-save-archive/_utils/parse-url-filters';
 
 export const DEFAULT_WORLD_SAVE_FILTERS = {
   bossName: DEFAULT_FILTER,
   bossAffixes: [DEFAULT_FILTER],
   releases: VALID_RELEASE_KEYS,
-} as const satisfies Filters;
+} as const satisfies WorldSaveFilters;
 
 // #region Component
 
@@ -52,7 +52,8 @@ export function WorldSaveFilters() {
   // #region Apply Filters Handler
   const pathname = usePathname();
   const router = useRouter();
-  function applyUrlFilters(filtersToApply: Filters) {
+
+  function applyUrlFilters(filtersToApply: WorldSaveFilters) {
     let url = `${pathname}?t=${Date.now()}&`;
 
     // Add the boss name filter

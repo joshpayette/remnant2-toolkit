@@ -8,7 +8,6 @@ import {
 import { useState } from 'react';
 
 import { ItemTagSelect } from '@/app/(builds)/_components/filters/item-tag-select';
-import { ITEM_TOKENS, type ItemToken } from '@/app/(builds)/_constants/tokens';
 import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
 import { getConcoctionSlotCount } from '@/app/(builds)/_libs/get-concoction-slot-count';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
@@ -23,6 +22,8 @@ import { ModItem } from '@/app/(items)/_types/mod-item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
 import { itemMatchesSearchText } from '@/app/(items)/_utils/item-matches-search-text';
+import { ITEM_TOKENS } from '@/app/(items)/item-lookup/_constants/item-tokens';
+import { type ItemToken } from '@/app/(items)/item-lookup/_types/item-token';
 
 /**
  * Combines the tags found in item.descriptions, as well as the item.tags

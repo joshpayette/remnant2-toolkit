@@ -224,14 +224,12 @@ export function ItemList() {
   );
 
   useEffect(() => {
-    setFilters(parseUrlFilters(searchParams));
-  }, [searchParams]);
-
-  useEffect(() => {
-    if (!isEqual(filters, DEFAULT_ITEM_LOOKUP_FILTERS)) {
+    const newFilters = parseUrlFilters(searchParams);
+    setFilters(newFilters);
+    if (!isEqual(newFilters, DEFAULT_ITEM_LOOKUP_FILTERS)) {
       setAreFiltersApplied(true);
     }
-  }, [filters]);
+  }, [searchParams]);
 
   const { discoveredItemIds } = useDiscoveredItems();
   const filteredItems = getFilteredItems(filters, discoveredItemIds);

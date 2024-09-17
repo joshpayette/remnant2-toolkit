@@ -93,8 +93,9 @@ export function ItemLookupFilters() {
   // #region Apply Filters Handler
   const pathname = usePathname();
   const router = useRouter();
+
   function applyUrlFilters(filtersToApply: ItemLookupFilters) {
-    let url = `${pathname}?`;
+    let url = `${pathname}?t=${Date.now()}&`;
 
     // Add the categories filter
     if (
@@ -324,7 +325,7 @@ export function ItemLookupFilters() {
                         onUncheckAll={() => {
                           const newFilters = {
                             ...unappliedFilters,
-                            releases: [DEFAULT_FILTER],
+                            releases: [],
                           };
                           setUnappliedFilters(newFilters);
                           applyUrlFilters(newFilters);
@@ -338,7 +339,7 @@ export function ItemLookupFilters() {
                         onCheckAll={() => {
                           const newFilters = {
                             ...unappliedFilters,
-                            collections: VALID_ITEM_CATEGORIES,
+                            collections: VALID_DISCOVERED_FILTERS,
                           };
                           setUnappliedFilters(newFilters);
                           applyUrlFilters(newFilters);
