@@ -21,7 +21,7 @@ model UserSubscription {
   subscriberId   String
   subscribedTo   User     @relation(name: "subscribedTo", fields: [subscribedToId], references: [id], onDelete: Cascade)
   subscribedToId String
-  Build          Build?   @relation(fields: [buildId], references: [id])
+  build          Build?   @relation(fields: [buildId], references: [id])
   buildId        String?
 
   @@index([buildId])
