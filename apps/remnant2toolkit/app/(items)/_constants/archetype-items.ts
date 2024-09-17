@@ -409,10 +409,11 @@ export const archetypeItems: ArchetypeItem[] = [
   {
     category: 'archetype',
     name: 'Warden',
-    imagePath: '/misc/placeholder.jpg',
+    imagePath: '/items/archetypes/warden_placeholder.png',
     saveFileSlug: 'Engram_Warden_C', // TODO Confirm this
     id: 'tn0x3c',
     dlc: 'dlc3',
+    externalTokens: ['PRERELEASE'],
     description: 'TBD',
     wikiLinks: [`https://remnant.wiki/Warden`],
     location: { world: `N'Erud`, dungeon: 'Quest' },

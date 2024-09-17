@@ -1,15 +1,6 @@
 import { type ReadonlyURLSearchParams } from 'next/navigation';
 
-import { VALID_DISCOVERED_FILTERS } from '@/app/_components/discovered-filter';
-import { VALID_RELEASE_KEYS } from '@/app/_components/releases-filter';
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
-import { ITEM_TOKENS } from '@/app/(builds)/_constants/tokens';
-import { VALID_ITEM_CATEGORIES } from '@/app/(items)/_components/filters/item-lookup/categories-filter';
-import {
-  ITEM_FILTER_KEYS,
-  type ItemLookupFilters,
-} from '@/app/(items)/_components/filters/item-lookup/types';
-import { allItems } from '@/app/(items)/_constants/all-items';
 import {
   LABYRINTH_DUNGEONS,
   LOSOMN_DUNGEONS,
@@ -17,35 +8,11 @@ import {
   ROOT_EARTH_DUNGEONS,
   YAESHA_DUNGEONS,
 } from '@/app/(items)/_types/locations';
-
-export function buildAutoCompleteSuggestions(): Array<{
-  id: string;
-  name: string;
-}> {
-  let items = allItems
-    // Remove relic fragments
-    .filter((item) => item.category !== 'relicfragment')
-    .map((item) => ({
-      id: item.id,
-      name: item.name,
-    }));
-
-  // add item tags
-  items = ITEM_TOKENS.map((tag) => ({
-    id: tag as string,
-    name: tag as string,
-  })).concat(items);
-
-  items = items.sort((a, b) => a.name.localeCompare(b.name));
-
-  // remove duplicates
-  items = items.filter(
-    (item, index, self) =>
-      index === self.findIndex((i) => i.name === item.name),
-  );
-
-  return items;
-}
+import { VALID_ITEM_CATEGORIES } from '@/app/(items)/item-lookup/_components/categories-filter';
+import { VALID_DISCOVERED_FILTERS } from '@/app/_components/discovered-filter';
+import { VALID_RELEASE_KEYS } from '@/app/_components/releases-filter';
+import { ITEM_FILTER_KEYS } from '@/app/(items)/item-lookup/_constants/item-filter-keys';
+import { type ItemLookupFilters } from '@/app/(items)/item-lookup/_types/item-lookup-filters';
 
 export function parseUrlFilters(
   searchParams: ReadonlyURLSearchParams,

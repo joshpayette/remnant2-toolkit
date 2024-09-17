@@ -843,11 +843,11 @@ export const skillItems: SkillItem[] = [
     id: 'wqicx7',
     dlc: 'dlc3',
     tags: [],
-    externalTokens: [],
+    externalTokens: ['PRERELEASE'],
     description:
       'Deploy Shield Drone with 200 Energy Reserves to follow and protect its Warded Target.\n' +
       '\n' +
-      `The Warded Target gains increased Damage Reduction by 10%. When the Warded Target is not at Max SHIELD Capacity, the Drone consumes 25 energy to grant a SHIELD for 11.5% of the target's Max Health once every 1s. All Shields the Drone grants last until removed by damage, or until the Drone alters Warded Targets or is Stowed.\n` +
+      `The Warded Target gains increased Damage Reduction by 10%. When the Warded Target is not at Max SHIELD Capacity, the Drone consumes 25 energy to grant a SHIELD for 10% of the target's Max Health once every 1s. All Shields the Drone grants last until removed by damage, or until the Drone alters Warded Targets or is Stowed.\n` +
       '\n' +
       `When idle 5s the Drone goes Dormant, then gains 1% Energy Regen per second. When depleted of Energy the drone goes Inactive, then gains 2% Energy Regen per second until fully recharged.\n` +
       '\n' +
@@ -871,19 +871,19 @@ export const skillItems: SkillItem[] = [
     id: '966uvg',
     dlc: 'dlc3',
     tags: [],
-    externalTokens: [],
+    externalTokens: ['PRERELEASE'],
     description:
       `Deploy Heal Drone with 200 Energy Reserves to follow and protect its Warded Target\n` +
       '\n' +
       `The Warded Target gains increased Relic Use Speed by 10%. When the Warded Target is not at Max Health, the Drone consumes 10 Energy to heal 10% of the target's Max Health once every 1s.\n` +
       '\n' +
-      `When idle 5s the Drone goes Dormant, then gains 1% Energy Regen per second. When depleted of Energy the Drone goes Inactive, then gains 2.1% Energy Regen per second until fully recharged.\n` +
+      `When idle 5s the Drone goes Dormant, then gains 1% Energy Regen per second. When depleted of Energy the Drone goes Inactive, then gains 2% Energy Regen per second until fully recharged.\n` +
       '\n' +
       `SINGLE PRESS: Drone alters its Warded Target to the targeted ally. Max 1 Heal Drone per target.\n` +
       '\n' +
       `DOUBLE TAP: Drone returns to the Warden and remains by their side.\n` +
       '\n' +
-      `HOLD: Stow Drone to gain 4.2% Energy Regen per second`,
+      `HOLD: Stow Drone to gain 4% Energy Regen per second`,
     wikiLinks: ['https://remnant.wiki/Drone_Heal'],
     linkedItems: {
       archetype: {
@@ -899,19 +899,19 @@ export const skillItems: SkillItem[] = [
     id: 'tt4r61',
     dlc: 'dlc3',
     tags: [],
-    externalTokens: [],
+    externalTokens: ['PRERELEASE'],
     description:
       `Deploy Combat Drone with 200 Energy Reserves to follow and protect its Warded Target\n` +
       '\n' +
       `The Warded Target gains increased Fire Rate and Total Melee Speed by 10%, and decreased Firearm Charge Time by 10%. While in combat, the Drone attacks the Warded Target's focused enemy, consuming 10 Energy per barrage.\n` +
       '\n' +
-      `When idle 5s the Drone goes Dormant, then gains 1% Energy Regen per second. When depleted of Energy the Drone goes Inactive, then gains 2.1% Energy Regen per second until fully recharged.\n` +
+      `When idle 5s the Drone goes Dormant, then gains 1% Energy Regen per second. When depleted of Energy the Drone goes Inactive, then gains 2% Energy Regen per second until fully recharged.\n` +
       '\n' +
       `SINGLE PRESS: Drone alters its Warded Target to the targeted ally. Max 1 Combat Drone per target.\n` +
       '\n' +
       `DOUBLE TAP: Drone returns to the Warden and remains by their side.\n` +
       '\n' +
-      `HOLD: Stow Drone to gain 4.2% Energy Regen per second.\n`,
+      `HOLD: Stow Drone to gain 4% Energy Regen per second.\n`,
     wikiLinks: ['https://remnant.wiki/Drone_Combat'],
     linkedItems: {
       archetype: {

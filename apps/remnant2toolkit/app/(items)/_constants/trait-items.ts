@@ -30,12 +30,13 @@ export const traitItems: TraitItem[] = [
     type: 'archetype',
     inGameOrder: 3, // TODO Check this
     name: 'Barrier',
-    imagePath: '/items/traits/barrier_placeholder.png',
+    imagePath: '/items/traits/barrier_placeholder1.png',
     saveFileSlug: 'Trait_Barrier_C', // TODO Check this
     id: '9c311c',
     dlc: 'dlc3',
     tags: [],
-    description: 'Incaseses SHIELD amount by 1.5% - 15%.',
+    externalTokens: ['PRERELEASE'],
+    description: 'Increases SHIELD amount by 1.5% - 15%.',
     wikiLinks: [`https://remnant.wiki/Barrier`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: `N'Erud`, dungeon: 'Linked Item' },
