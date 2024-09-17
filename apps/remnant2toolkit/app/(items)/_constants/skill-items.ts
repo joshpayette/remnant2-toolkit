@@ -842,7 +842,7 @@ export const skillItems: SkillItem[] = [
     imagePath: '/items/skills/warden_drone_shield_placeholder.png',
     id: 'wqicx7',
     dlc: 'dlc3',
-    tags: [],
+    tags: ['Damage Reduction'],
     externalTokens: ['PRERELEASE'],
     description:
       'Deploy Shield Drone with 200 Energy Reserves to follow and protect its Warded Target.\n' +
@@ -870,7 +870,7 @@ export const skillItems: SkillItem[] = [
     imagePath: '/items/skills/warden_drone_heal_placeholder.png',
     id: '966uvg',
     dlc: 'dlc3',
-    tags: [],
+    tags: ['Relic Use Speed', 'Heal'],
     externalTokens: ['PRERELEASE'],
     description:
       `Deploy Heal Drone with 200 Energy Reserves to follow and protect its Warded Target\n` +
@@ -898,7 +898,7 @@ export const skillItems: SkillItem[] = [
     imagePath: '/items/skills/warden_drone_combat_placeholder.png',
     id: 'tt4r61',
     dlc: 'dlc3',
-    tags: [],
+    tags: ['Fire Rate', 'Melee Speed', 'Charged Shot'],
     externalTokens: ['PRERELEASE'],
     description:
       `Deploy Combat Drone with 200 Energy Reserves to follow and protect its Warded Target\n` +

@@ -21,6 +21,7 @@ const allowListUserIds: string[] = [
   'clrle2v5s0000ydtr0a15wt61', // alexij
   'clqsdi836000aqhqitf2m49mi', // thatguylegit69
   'clvki57920000132727ovfegx', // synder
+  'clt8y6yhv0000jdzqau8e8dj6', // hiccup
 ];
 
 /**
