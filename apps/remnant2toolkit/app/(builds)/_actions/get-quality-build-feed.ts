@@ -4,8 +4,8 @@ import { Prisma, prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
 import { limitToQualityBuilds } from '@/app/(builds)/_libs/build-filters/limit-by-quality';
-import { type CommunityBuildQueryResponse } from '@/app/(builds)/_types/community-build-query-response';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
+import { type DBBuildDetailed } from '@/app/(builds)/_types/db-build-detailed';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function getQualityBuildFeed(): Promise<{ builds: DBBuild[] }> {
@@ -58,7 +58,7 @@ export async function getQualityBuildFeed(): Promise<{ builds: DBBuild[] }> {
   LIMIT 4 
   `;
 
-  const builds = await prisma.$queryRaw<CommunityBuildQueryResponse>(query);
+  const builds = await prisma.$queryRaw<DBBuildDetailed[]>(query);
 
   // Then, for each Build, get the associated BuildItems
   for (const build of builds) {
