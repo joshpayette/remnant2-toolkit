@@ -134,7 +134,7 @@ export const consumableItems: ConsumableItem[] = [
     saveFileSlug: 'Consumable_ThaenFruit_Celestial_C',
     id: 'RCsP9c',
     dlc: 'base',
-    description: `An ancient fruit that was harvested at its highest form. After consuming, upon death the hero will be revived with 50% Health, and be immune to STATUS effects for 30s%.
+    description: `An ancient fruit that was harvested at its highest form. After consuming, upon death the hero will be revived with 50% Health, and be immune to STATUS effects for 30s.
 Cooldown: 60m.`,
     wikiLinks: [`https://remnant.wiki/Thaen_Fruit`],
     location: { world: 'Yaesha', dungeon: 'Quest' },
