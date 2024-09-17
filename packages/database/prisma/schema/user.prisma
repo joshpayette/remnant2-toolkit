@@ -75,7 +75,7 @@ model User {
   SiteNotification                SiteNotification[]
   UserNotificationStatus          UserNotificationStatus[]
   BuildNotificationStatus         BuildNotificationStatus[]
-  SiteNotificationSeen            SiteNotificationSeen[]
+  SiteNotificationStatus            SiteNotificationStatus[]
 }
 
 model UserProfile {

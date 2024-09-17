@@ -31,12 +31,10 @@ model Build {
   BuildTags             BuildTags[]
   LinkedBuildItems      LinkedBuildItems[]
   BuildValidatedViews   BuildValidatedViews[]
-  UserSubscription      UserSubscription[]
   PrimaryBuildVariant   BuildVariant[]        @relation(name: "primaryBuildId")
   SecondaryBuildVariant BuildVariant[]        @relation(name: "secondaryBuildId")
   BuildSubscription     BuildSubscription[]
   BuildNotification     BuildNotification[]
-  UserNotification      UserNotification[]
 
   @@index([createdById])
   @@index([userProfileId])

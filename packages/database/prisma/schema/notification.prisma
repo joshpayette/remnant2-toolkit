@@ -1,32 +1,18 @@
 // Tracks all builds that a user has subscribed to
 model BuildSubscription {
-  id           String   @id @default(cuid())
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  subscriber   User     @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
-  subscriberId String
-  build        Build    @relation(fields: [buildId], references: [id], onDelete: Cascade)
-  buildId      String
+  id                  String             @id @default(cuid())
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt
+  subscriber          User               @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
+  subscriberId        String
+  subscribedTo        Build              @relation(fields: [subscribedToId], references: [id], onDelete: Cascade)
+  subscribedToId      String
+  BuildNotification   BuildNotification? @relation(fields: [buildNotificationId], references: [id])
+  buildNotificationId String?
 
-  @@index([subscriberId])
-  @@index([buildId])
-}
-
-// Tracks all users that a user has subscribed to
-model UserSubscription {
-  id             String   @id @default(cuid())
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
-  subscriber     User     @relation(name: "subscriber", fields: [subscriberId], references: [id], onDelete: Cascade)
-  subscriberId   String
-  subscribedTo   User     @relation(name: "subscribedTo", fields: [subscribedToId], references: [id], onDelete: Cascade)
-  subscribedToId String
-  build          Build?   @relation(fields: [buildId], references: [id])
-  buildId        String?
-
-  @@index([buildId])
   @@index([subscriberId])
   @@index([subscribedToId])
+  @@index([buildNotificationId])
 }
 
 // Notifications displayed to users in the BuildSubscription table
@@ -39,7 +25,8 @@ model BuildNotification {
   message                 String
   build                   Build                     @relation(fields: [buildId], references: [id], onDelete: Cascade)
   buildId                 String
-  BuildNotificationStatus BuildNotificationStatus[]
+  buildSubscriptions      BuildSubscription[]
+  buildNotificationStatus BuildNotificationStatus[]
 
   @@index([buildId])
   @@index([createdById])
@@ -50,15 +37,32 @@ model BuildNotificationStatus {
   id             String            @id @default(cuid())
   createdAt      DateTime          @default(now())
   updatedAt      DateTime          @updatedAt
-  user           User              @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId         String
+  subscriber     User              @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
+  subscriberId   String
   notification   BuildNotification @relation(fields: [notificationId], references: [id], onDelete: Cascade)
   notificationId String
   read           Boolean           @default(false)
   hidden         Boolean           @default(false)
 
-  @@index([userId])
+  @@index([subscriberId])
   @@index([notificationId])
+}
+
+// Tracks all users that a user has subscribed to
+model UserSubscription {
+  id                 String            @id @default(cuid())
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+  subscriber         User              @relation(name: "subscriber", fields: [subscriberId], references: [id], onDelete: Cascade)
+  subscriberId       String
+  subscribedTo       User              @relation(name: "subscribedTo", fields: [subscribedToId], references: [id], onDelete: Cascade)
+  subscribedToId     String
+  userNotification   UserNotification? @relation(fields: [userNotificationId], references: [id])
+  userNotificationId String?
+
+  @@index([subscriberId])
+  @@index([subscribedToId])
+  @@index([userNotificationId])
 }
 
 // Notifications displayed to users in the UserSubscription table
@@ -69,11 +73,9 @@ model UserNotification {
   createdBy              User                     @relation(fields: [createdById], references: [id], onDelete: Cascade)
   createdById            String
   message                String
-  build                  Build                    @relation(fields: [buildId], references: [id], onDelete: Cascade)
-  buildId                String
-  UserNotificationStatus UserNotificationStatus[]
+  userSubscription       UserSubscription[]
+  userNotificationStatus UserNotificationStatus[]
 
-  @@index([buildId])
   @@index([createdById])
 }
 
@@ -82,42 +84,42 @@ model UserNotificationStatus {
   id             String           @id @default(cuid())
   createdAt      DateTime         @default(now())
   updatedAt      DateTime         @updatedAt
-  user           User             @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId         String
+  subscriber     User             @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
+  subscriberId   String
   notification   UserNotification @relation(fields: [notificationId], references: [id], onDelete: Cascade)
   notificationId String
   read           Boolean          @default(false)
   hidden         Boolean          @default(false)
 
-  @@index([userId])
+  @@index([subscriberId])
   @@index([notificationId])
 }
 
 // Notifications displayed to all users in the site
 model SiteNotification {
-  id                   String                 @id @default(cuid())
-  createdAt            DateTime               @default(now())
-  updatedAt            DateTime               @updatedAt
-  createdBy            User                   @relation(fields: [createdById], references: [id], onDelete: Cascade)
-  createdById          String
-  message              String
-  url                  String
-  SiteNotificationSeen SiteNotificationSeen[]
+  id                     String                   @id @default(cuid())
+  createdAt              DateTime                 @default(now())
+  updatedAt              DateTime                 @updatedAt
+  createdBy              User                     @relation(fields: [createdById], references: [id], onDelete: Cascade)
+  createdById            String
+  message                String
+  url                    String
+  SiteNotificationStatus SiteNotificationStatus[]
 
   @@index([createdById])
 }
 
-model SiteNotificationSeen {
+model SiteNotificationStatus {
   id             String           @id @default(cuid())
   createdAt      DateTime         @default(now())
   updatedAt      DateTime         @updatedAt
-  user           User             @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId         String
+  subscriber     User             @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
+  subscriberId   String
   notification   SiteNotification @relation(fields: [notificationId], references: [id], onDelete: Cascade)
   notificationId String
   read           Boolean          @default(false)
   hidden         Boolean          @default(false)
 
-  @@index([userId])
+  @@index([subscriberId])
   @@index([notificationId])
 }
