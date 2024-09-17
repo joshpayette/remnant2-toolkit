@@ -2423,6 +2423,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/items/weapons/repair_tool_placeholder.png',
     id: '5go8dn',
     dlc: 'dlc3',
+    externalTokens: ['PRERELEASE'],
     description:
       `In the heat of battle, it's easy to focus on taking down as many enemies as possible, but when an ally falls, your priorities have a way of shifting fast. This thing may not be the deadliest weapon, but its ability to heal those brave enough to fight at your side is invaluable.\n` +
       '\n' +

@@ -8,16 +8,14 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { Tooltip } from '@/app/_components/tooltip';
 import { ALL_BUILD_TAGS } from '@/app/(builds)/_constants/all-build-tags';
-import {
-  EXTERNAL_TOKENS,
-  INLINE_TOKENS,
-} from '@/app/(builds)/_constants/tokens';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { allItems } from '@/app/(items)/_constants/all-items';
 import { type Item } from '@/app/(items)/_types/item';
+import { EXTERNAL_TOKENS } from '@/app/(items)/item-lookup/_constants/external-tokens';
+import { INLINE_TOKENS } from '@/app/(items)/item-lookup/_constants/inline-tokens';
 
 // Start with all description tokens, which are always included
-export const ALL_DESCRIPTION_TOKENS: string[] = [
+const ALL_DESCRIPTION_TOKENS: string[] = [
   ...INLINE_TOKENS.map((tag) => tag.token).sort((a, b) => b.length - a.length), // Sort in descending order of length,
   ...EXTERNAL_TOKENS.map((tag) => tag.token).sort(
     (a, b) => b.length - a.length,

@@ -1,10 +1,8 @@
 import { type ReleaseKey } from '@/app/_types/releases';
-import {
-  type ExternalToken,
-  type ItemToken,
-} from '@/app/(builds)/_constants/tokens';
 import { type LinkedItems } from '@/app/(items)/_types/linked-items';
 import { type ItemLocation } from '@/app/(items)/_types/locations';
+import { type ExternalToken } from '@/app/(items)/item-lookup/_types/external-token';
+import { type ItemToken } from '@/app/(items)/item-lookup/_types/item-token';
 
 type ItemCategory =
   | 'helm'

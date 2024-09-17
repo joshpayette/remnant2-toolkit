@@ -1542,16 +1542,17 @@ export const perkItems: PerkItem[] = [
     category: 'perk',
     name: 'Dynamic',
     saveFileSlug: 'Perk_Dynamic_C', // TODO Check this
-    imagePath: '/items/perks/warden_dynamic_placeholder.png',
+    imagePath: '/items/perks/warden_dynamic_placeholder1.png',
     type: 'prime',
     id: 'no6oxo',
     dlc: 'dlc3',
     tags: [],
     description:
-      `After 10s of not being damaged, the Warden generates a SHIELD for 23% of their Max Health over 2s.\n` +
+      `After 10s of not being damaged, the Warden generates a SHIELD for 20% of their Max Health over 2s.\n` +
       '\n' +
       `Increases base N'Erudian Energy Reserves for Turret and Drone by 100%.`,
     wikiLinks: ['https://remnant.wiki/Dynamic'],
+    externalTokens: [`PRERELEASE`],
     linkedItems: {
       archetype: {
         name: 'Warden',
@@ -1560,15 +1561,19 @@ export const perkItems: PerkItem[] = [
   },
   {
     category: 'perk',
-    name: 'Warden Damage Perk',
-    saveFileSlug: 'Perk_WardenDamage_C', // TODO Update this
-    imagePath: '/misc/placeholder.jpg',
+    name: 'Galvanize',
+    saveFileSlug: 'Perk_WardenGalvanize_C', // TODO Check this
+    imagePath: '/items/perks/warden_galvanize_placeholder.png',
     type: 'damage',
     id: '1yfbk0',
     dlc: 'dlc3',
     tags: [],
-    description: 'TBD',
+    description:
+      `Increases All Damage by 25% and grants 5% Critical Chance.\n` +
+      '\n' +
+      `Damage increases with Warden Level.`,
     wikiLinks: [],
+    externalTokens: [`PRERELEASE`],
     linkedItems: {
       archetype: {
         name: 'Warden',
@@ -1577,15 +1582,16 @@ export const perkItems: PerkItem[] = [
   },
   {
     category: 'perk',
-    name: 'Warden Team Perk',
-    saveFileSlug: 'Perk_WardenTeam_C', // TODO Update this
-    imagePath: '/misc/placeholder.jpg',
+    name: 'Safeguard',
+    saveFileSlug: 'Perk_WardenSafeguard_C', // TODO Check this
+    imagePath: '/items/perks/warden_safeguard_placeholder.png',
     type: 'team',
     id: 'w3gyt0',
     dlc: 'dlc3',
     tags: [],
-    description: 'TBD',
+    description: `The Warden's Drone grants 1 stack of BULWARK and increases incoming Healing Effectiveness by 10% to its Warded Target\n`,
     wikiLinks: [],
+    externalTokens: [`PRERELEASE`],
     linkedItems: {
       archetype: {
         name: 'Warden',
@@ -1594,15 +1600,19 @@ export const perkItems: PerkItem[] = [
   },
   {
     category: 'perk',
-    name: 'Warden Utility Perk',
-    saveFileSlug: 'Perk_WardenUtility_C', // TODO Update this
-    imagePath: '/misc/placeholder.jpg',
+    name: 'Contingency',
+    saveFileSlug: 'Perk_WardenContingency_C', // TODO Check this
+    imagePath: '/items/perks/warden_contingency_placeholder.png',
     type: 'utility',
     id: 'odd85z',
     dlc: 'dlc3',
     tags: [],
-    description: 'TBD',
+    description:
+      `When the Warden's Health drops below 25%, gain a SHIELD for 25% of Max Health. Lasts 10s. Can only happen once every 30s.\n` +
+      '\n' +
+      `While active, increases Movement Speed by 15%.`,
     wikiLinks: [],
+    externalTokens: [`PRERELEASE`],
     linkedItems: {
       archetype: {
         name: 'Warden',
@@ -1611,15 +1621,19 @@ export const perkItems: PerkItem[] = [
   },
   {
     category: 'perk',
-    name: 'Warden Relic Perk',
-    saveFileSlug: 'Perk_WardenRelic_C', // TODO Update this
-    imagePath: '/misc/placeholder.jpg',
+    name: 'Energize',
+    saveFileSlug: 'Perk_WardenEnergize_C', // TODO Check this
+    imagePath: '/items/perks/warden_energize_placeholder.png',
     type: 'relic',
     id: 'c6k3ke',
     dlc: 'dlc3',
     tags: [],
-    description: 'TBD',
+    description:
+      `On Relic Use, grants a SHIELD for 25% of Max Health Cannot stack with itself. Lasts 10s or until SHIELD is removed by damage.\n` +
+      '\n' +
+      `While active, actions which consume N'Erudian Energy have no cost.`,
     wikiLinks: [],
+    externalTokens: [`PRERELEASE`],
     linkedItems: {
       archetype: {
         name: 'Warden',
