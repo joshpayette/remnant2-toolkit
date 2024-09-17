@@ -12,10 +12,17 @@ interface Props {
 }
 
 export function ViewBuildContainer({ buildVariants }: Props) {
-  const mainBuildVariant = buildVariants[0] as LinkedBuildItem;
+  const mainBuildVariant = buildVariants[0];
 
   const [activeBuildVariant, setActiveBuildVariant] =
-    useState<LinkedBuildItem>(mainBuildVariant);
+    useState(mainBuildVariant);
+
+  if (!mainBuildVariant) {
+    return null;
+  }
+  if (!activeBuildVariant) {
+    return null;
+  }
 
   return (
     <>

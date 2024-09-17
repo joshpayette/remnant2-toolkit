@@ -14,7 +14,6 @@ import {
   LOCALSTORAGE_KEY,
 } from '@/app/_types/localstorage';
 import { ModeratorBuildToolsDialog } from '@/app/(builds)/_admin/components/dialogs/moderator-build-tools-dialog';
-import { LoadoutDialog } from '@/app/(builds)/_components/loadout-dialog';
 import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
 import { buildStateToCsvData } from '@/app/(builds)/_libs/build-state-to-csv-data';
 import { handleDuplicateBuild } from '@/app/(builds)/_libs/handlers/handle-duplicate-build';
@@ -32,11 +31,9 @@ import { FavoriteBuildDialog } from '@/app/(builds)/builder/_components/favorite
 import { GenerateBuildImageButton } from '@/app/(builds)/builder/_components/generate-build-image';
 import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/image-download-info-dialog';
 import { ItemOwnershipPreferenceButton } from '@/app/(builds)/builder/_components/item-ownership-preference-button';
-import { LoadoutManagementButton } from '@/app/(builds)/builder/_components/loadout-management-button';
 import { ModeratorToolsButton } from '@/app/(builds)/builder/_components/moderator-tools-button';
 import { ShareBuildButton } from '@/app/(builds)/builder/_components/share-build-button';
 import { NewLinkedBuildButton } from '@/app/(builds)/builder/linked/_components/new-linked-build-button';
-import { ViewLinkedBuildButton } from '@/app/(builds)/builder/linked/_components/view-linked-builds-button';
 import { useDiscoveredItems } from '@/app/(items)/_hooks/use-discovered-items';
 
 interface Props {
@@ -72,7 +69,6 @@ export function ViewBuild({
     );
 
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);
-  const [loadoutDialogOpen, setLoadoutDialogOpen] = useState(false);
   const [signInRequiredDialogOpen, setSignInRequiredDialogOpen] =
     useState(false);
 
@@ -135,13 +131,6 @@ export function ViewBuild({
               open={detailedBuildDialogOpen}
               onClose={() => setDetailedBuildDialogOpen(false)}
             />
-            <LoadoutDialog
-              key={loadoutDialogOpen.toString()}
-              buildId={mainBuildState.buildId}
-              open={loadoutDialogOpen}
-              onClose={() => setLoadoutDialogOpen(false)}
-              isEditable={true}
-            />
             <ImageDownloadInfoDialog
               onClose={handleClearImageDownloadInfo}
               imageDownloadInfo={imageDownloadInfo}
@@ -203,13 +192,6 @@ export function ViewBuild({
               }}
             />
 
-            {session?.user?.id && (
-              <LoadoutManagementButton
-                buildId={mainBuildState.buildId}
-                onClick={() => setLoadoutDialogOpen(true)}
-              />
-            )}
-
             {mainBuildState.createdById !== session?.user?.id && (
               <FavoriteBuildButton
                 upvoted={optimisticUpvote}
@@ -233,20 +215,10 @@ export function ViewBuild({
               }
             />
 
-            {buildVariantCount === 1 && (
-              <ViewLinkedBuildButton
-                onClick={() =>
-                  router.push(
-                    `/profile/${mainBuildState.createdById}/linked-builds/${mainBuildState.buildId}`,
-                  )
-                }
-              />
-            )}
-
             <DuplicateBuildButton
               onClick={() =>
                 handleDuplicateBuild({
-                  buildState: activeBuildState,
+                  buildState: mainBuildState,
                   onDuplicate: (buildId: string) =>
                     router.push(`/builder/${buildId}`),
                 })
