@@ -1,39 +1,18 @@
-model Notification {
-  id                 String           @id @default(cuid())
-  createdAt          DateTime         @default(now())
-  updatedAt          DateTime         @updatedAt
-  user               User             @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId             String
-  message            String
-  read               Boolean          @default(false)
-  target             String?
-  notificationType   NotificationType @relation(fields: [notificationTypeId], references: [id])
-  notificationTypeId String
+// Tracks all builds that a user has subscribed to
+model BuildSubscription {
+  id           String   @id @default(cuid())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  subscriber   User     @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
+  subscriberId String
+  build        Build    @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId      String
 
-  @@index([userId])
-  @@index([notificationTypeId])
-}
-
-model NotificationType {
-  id           String         @id @default(cuid())
-  type         String         @unique
-  description  String?
-  Notification Notification[]
-}
-
-model UserBuildSubscription {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId    String
-  build     Build    @relation(fields: [buildId], references: [id], onDelete: Cascade)
-  buildId   String
-
-  @@index([userId])
+  @@index([subscriberId])
   @@index([buildId])
 }
 
+// Tracks all users that a user has subscribed to
 model UserSubscription {
   id             String   @id @default(cuid())
   createdAt      DateTime @default(now())
@@ -45,4 +24,51 @@ model UserSubscription {
 
   @@index([subscriberId])
   @@index([subscribedToId])
+}
+
+// Notifications displayed to users in the BuildSubscription table
+model BuildNotification {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  createdBy   User     @relation(fields: [createdById], references: [id], onDelete: Cascade)
+  createdById String
+  isRead      Boolean  @default(false)
+  isHidden    Boolean  @default(false)
+  message     String
+  build       Build    @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId     String
+
+  @@index([createdById])
+}
+
+// Notifications displayed to users in the UserSubscription table
+model UserNotification {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  createdBy   User     @relation(fields: [createdById], references: [id], onDelete: Cascade)
+  createdById String
+  isRead      Boolean  @default(false)
+  isHidden    Boolean  @default(false)
+  message     String
+  build       Build    @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId     String
+
+  @@index([createdById])
+}
+
+// Notifications displayed to all users in the site
+model SiteNotification {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  createdBy   User     @relation(fields: [createdById], references: [id], onDelete: Cascade)
+  createdById String
+  isRead      Boolean  @default(false)
+  isHidden    Boolean  @default(false)
+  message     String
+  url         String
+
+  @@index([createdById])
 }
