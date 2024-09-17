@@ -1,9 +1,7 @@
-import {
-  EXTERNAL_TOKENS,
-  INLINE_TOKENS,
-} from '@/app/(builds)/_constants/tokens';
 import { type Item } from '@/app/(items)/_types/item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
+import { EXTERNAL_TOKENS } from '@/app/(items)/item-lookup/_constants/external-tokens';
+import { INLINE_TOKENS } from '@/app/(items)/item-lookup/_constants/inline-tokens';
 
 export function itemMatchesSearchText({
   item,
