@@ -1548,7 +1548,7 @@ export const perkItems: PerkItem[] = [
     dlc: 'dlc3',
     tags: [],
     description:
-      `After 10s of not being damaged, the Warden generates a SHIELD for 23% of their Max Health over 2s.\n` +
+      `After 10s of not being damaged, the Warden generates a SHIELD for 20% of their Max Health over 2s.\n` +
       '\n' +
       `Increases base N'Erudian Energy Reserves for Turret and Drone by 100%.`,
     wikiLinks: ['https://remnant.wiki/Dynamic'],
@@ -1608,7 +1608,7 @@ export const perkItems: PerkItem[] = [
     dlc: 'dlc3',
     tags: [],
     description:
-      `When the Warden's Health drops below 25%, gain a SHIELD for 28.8% of Max Health. Lasts 10s. Can only happen once every 30s.\n` +
+      `When the Warden's Health drops below 25%, gain a SHIELD for 25% of Max Health. Lasts 10s. Can only happen once every 30s.\n` +
       '\n' +
       `While active, increases Movement Speed by 15%.`,
     wikiLinks: [],
@@ -1629,7 +1629,7 @@ export const perkItems: PerkItem[] = [
     dlc: 'dlc3',
     tags: [],
     description:
-      `On Relic Use, grants a SHIELD for 28.8% of Max Health Cannot stack with itself. Lasts 10s or until SHIELD is removed by damage.\n` +
+      `On Relic Use, grants a SHIELD for 25% of Max Health Cannot stack with itself. Lasts 10s or until SHIELD is removed by damage.\n` +
       '\n' +
       `While active, actions which consume N'Erudian Energy have no cost.`,
     wikiLinks: [],
