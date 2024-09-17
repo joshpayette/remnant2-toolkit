@@ -1567,7 +1567,7 @@ export const perkItems: PerkItem[] = [
     type: 'damage',
     id: '1yfbk0',
     dlc: 'dlc3',
-    tags: [],
+    tags: ['All Damage', 'Critical Chance'],
     description:
       `Increases All Damage by 25% and grants 5% Critical Chance.\n` +
       '\n' +
@@ -1588,7 +1588,7 @@ export const perkItems: PerkItem[] = [
     type: 'team',
     id: 'w3gyt0',
     dlc: 'dlc3',
-    tags: [],
+    tags: ['Damage Reduction', 'Healing Effectiveness'],
     description: `The Warden's Drone grants 1 stack of BULWARK and increases incoming Healing Effectiveness by 10% to its Warded Target\n`,
     wikiLinks: [],
     externalTokens: [`PRERELEASE`],
@@ -1606,7 +1606,7 @@ export const perkItems: PerkItem[] = [
     type: 'utility',
     id: 'odd85z',
     dlc: 'dlc3',
-    tags: [],
+    tags: ['Movement Speed'],
     description:
       `When the Warden's Health drops below 25%, gain a SHIELD for 25% of Max Health. Lasts 10s. Can only happen once every 30s.\n` +
       '\n' +
