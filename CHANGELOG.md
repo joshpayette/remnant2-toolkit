@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed bug not showing negative stagger modifiers on weapons.
+- Fixed bug with Discovered/Undiscovered Item Lookup filters not working correctly in some situations.
 
 ## 2024-09-14
 

@@ -22,19 +22,17 @@ import {
   VALID_RELEASE_KEYS,
 } from '@/app/_components/releases-filter';
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
-import { ITEM_TOKENS } from '@/app/(builds)/_constants/tokens';
+import { WorldFilter } from '@/app/(items)/_components/filters/world-filter';
+import { allItems } from '@/app/(items)/_constants/all-items';
 import {
   CategoriesFilter,
   VALID_ITEM_CATEGORIES,
-} from '@/app/(items)/_components/filters/item-lookup/categories-filter';
-import { ItemSearchText } from '@/app/(items)/_components/filters/item-lookup/item-search-text';
-import {
-  ITEM_FILTER_KEYS,
-  type ItemLookupFilters as Filters,
-} from '@/app/(items)/_components/filters/item-lookup/types';
-import { parseUrlFilters } from '@/app/(items)/_components/filters/item-lookup/utils';
-import { WorldFilter } from '@/app/(items)/_components/filters/world-filter';
-import { allItems } from '@/app/(items)/_constants/all-items';
+} from '@/app/(items)/item-lookup/_components/categories-filter';
+import { ItemSearchText } from '@/app/(items)/item-lookup/_components/item-search-text';
+import { ITEM_FILTER_KEYS } from '@/app/(items)/item-lookup/_constants/item-filter-keys';
+import { ITEM_TOKENS } from '@/app/(items)/item-lookup/_constants/item-tokens';
+import { parseUrlFilters } from '@/app/(items)/item-lookup/_lib/parse-url-filters';
+import { type ItemLookupFilters } from '@/app/(items)/item-lookup/_types/item-lookup-filters';
 
 function buildItemSearchTextItems() {
   {
@@ -69,7 +67,7 @@ export const DEFAULT_ITEM_LOOKUP_FILTERS = {
   searchText: '',
   world: DEFAULT_FILTER,
   dungeon: DEFAULT_FILTER,
-} as const satisfies Filters;
+} as const satisfies ItemLookupFilters;
 
 // #region Component
 export function ItemLookupFilters() {
@@ -95,8 +93,9 @@ export function ItemLookupFilters() {
   // #region Apply Filters Handler
   const pathname = usePathname();
   const router = useRouter();
-  function applyUrlFilters(filtersToApply: Filters) {
-    let url = `${pathname}?`;
+
+  function applyUrlFilters(filtersToApply: ItemLookupFilters) {
+    let url = `${pathname}?t=${Date.now()}&`;
 
     // Add the categories filter
     if (
@@ -259,142 +258,144 @@ export function ItemLookupFilters() {
   // #region Render
 
   return (
-    <Disclosure defaultOpen={true}>
-      {({ open }) => (
-        <div className="w-full">
-          <div className="border-b-primary-500 flex w-full flex-row items-end justify-end border-b py-2">
-            <div className="flex w-full flex-row items-start justify-start pr-4">
-              <div className="mr-1 w-full">
-                <ItemSearchText
-                  key={searchTextFieldKey.current}
-                  items={buildItemSearchTextItems()}
-                  onChange={(newSearchText: string) =>
-                    handleSearchTextChange(newSearchText)
-                  }
-                  onKeyDown={() => applyUrlFilters(unappliedFilters)}
-                  value={unappliedFilters.searchText}
-                  autoFocus={true}
-                />
-              </div>
-              {unappliedFilters.searchText !== '' ? (
-                <BaseButton
-                  color="red"
-                  onClick={() => {
-                    handleSearchTextChange('');
-                    applyUrlFilters({
-                      ...unappliedFilters,
-                      searchText: '',
-                    });
-                    searchTextFieldKey.current = new Date().getTime();
-                  }}
-                  className="mt-2"
-                >
-                  <TrashIcon className="h-6 w-6" />
-                </BaseButton>
-              ) : (
-                <div className="w-[48px]" />
-              )}
-            </div>
-            <Disclosure.Button as={BaseButton}>
-              <FilterIcon className="h-4 w-4" />
-              {open ? 'Hide' : 'Show'}
-            </Disclosure.Button>
-          </div>
-          <Disclosure.Panel
-            className={cn(
-              'border-primary-500 mt-2 w-full border bg-gray-950 p-4',
-              areAnyFiltersActive &&
-                'border-accent1-300 shadow-accent1-600 shadow-xl',
-            )}
-          >
-            <BaseFieldset>
-              <BaseFieldGroup>
-                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4 md:grid-cols-4">
-                  <div className="col-span-full sm:col-span-2">
-                    <ReleasesFilter
-                      values={unappliedFilters.releases}
-                      onChange={handleReleasesChange}
-                      onCheckAll={() => {
-                        const newFilters = {
-                          ...unappliedFilters,
-                          releases: VALID_RELEASE_KEYS,
-                        };
-                        setUnappliedFilters(newFilters);
-                        applyUrlFilters(newFilters);
-                      }}
-                      onUncheckAll={() => {
-                        const newFilters = {
-                          ...unappliedFilters,
-                          releases: [DEFAULT_FILTER],
-                        };
-                        setUnappliedFilters(newFilters);
-                        applyUrlFilters(newFilters);
-                      }}
-                    />
-                  </div>
-                  <div className="col-span-full sm:col-span-2">
-                    <DiscoveredFilter
-                      values={unappliedFilters.collections}
-                      onChange={handleCollectionsChange}
-                      onCheckAll={() => {
-                        const newFilters = {
-                          ...unappliedFilters,
-                          collections: VALID_ITEM_CATEGORIES,
-                        };
-                        setUnappliedFilters(newFilters);
-                        applyUrlFilters(newFilters);
-                      }}
-                      onUncheckAll={() => {
-                        const newFilters = {
-                          ...unappliedFilters,
-                          collections: [DEFAULT_FILTER],
-                        };
-                        setUnappliedFilters(newFilters);
-                        applyUrlFilters(newFilters);
-                      }}
-                    />
-                  </div>
-                  <div className="col-span-full sm:col-span-2 md:col-span-full">
-                    <CategoriesFilter
-                      values={unappliedFilters.categories}
-                      onChange={handleCategoriesChange}
-                      onCheckAll={() => {
-                        const newFilters = {
-                          ...unappliedFilters,
-                          categories: VALID_ITEM_CATEGORIES,
-                        };
-                        setUnappliedFilters(newFilters);
-                        applyUrlFilters(newFilters);
-                      }}
-                      onUncheckAll={() => {
-                        const newFilters = {
-                          ...unappliedFilters,
-                          categories: [],
-                        };
-                        setUnappliedFilters(newFilters);
-                        applyUrlFilters(newFilters);
-                      }}
-                    />
-                  </div>
-                  <div className="col-span-full sm:col-span-2">
-                    <WorldFilter
-                      worldValue={unappliedFilters.world}
-                      onChangeWorld={handleWorldChange}
-                      dungeonValue={unappliedFilters.dungeon}
-                      onChangeDungeon={handleDungeonChange}
-                    />
-                  </div>
+    <div className="w-full max-w-4xl">
+      <Disclosure defaultOpen={true}>
+        {({ open }) => (
+          <div className="w-full">
+            <div className="border-b-primary-500 flex w-full flex-row items-end justify-end border-b py-2">
+              <div className="flex w-full flex-row items-start justify-start pr-4">
+                <div className="mr-1 w-full">
+                  <ItemSearchText
+                    key={searchTextFieldKey.current}
+                    items={buildItemSearchTextItems()}
+                    onChange={(newSearchText: string) =>
+                      handleSearchTextChange(newSearchText)
+                    }
+                    onKeyDown={() => applyUrlFilters(unappliedFilters)}
+                    value={unappliedFilters.searchText}
+                    autoFocus={true}
+                  />
                 </div>
-                <div className="flex w-full items-center justify-end gap-x-4">
-                  <BaseButton color="red" onClick={clearFilters}>
-                    Clear Filters
+                {unappliedFilters.searchText !== '' ? (
+                  <BaseButton
+                    color="red"
+                    onClick={() => {
+                      handleSearchTextChange('');
+                      applyUrlFilters({
+                        ...unappliedFilters,
+                        searchText: '',
+                      });
+                      searchTextFieldKey.current = new Date().getTime();
+                    }}
+                    className="mt-2"
+                  >
+                    <TrashIcon className="h-6 w-6" />
                   </BaseButton>
-                </div>
-              </BaseFieldGroup>
-            </BaseFieldset>
-          </Disclosure.Panel>
-        </div>
-      )}
-    </Disclosure>
+                ) : (
+                  <div className="w-[48px]" />
+                )}
+              </div>
+              <Disclosure.Button as={BaseButton}>
+                <FilterIcon className="h-4 w-4" />
+                {open ? 'Hide' : 'Show'}
+              </Disclosure.Button>
+            </div>
+            <Disclosure.Panel
+              className={cn(
+                'border-primary-500 mt-2 w-full border bg-gray-950 p-4',
+                areAnyFiltersActive &&
+                  'border-accent1-300 shadow-accent1-600 shadow-xl',
+              )}
+            >
+              <BaseFieldset>
+                <BaseFieldGroup>
+                  <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4 md:grid-cols-4">
+                    <div className="col-span-full sm:col-span-2">
+                      <ReleasesFilter
+                        values={unappliedFilters.releases}
+                        onChange={handleReleasesChange}
+                        onCheckAll={() => {
+                          const newFilters = {
+                            ...unappliedFilters,
+                            releases: VALID_RELEASE_KEYS,
+                          };
+                          setUnappliedFilters(newFilters);
+                          applyUrlFilters(newFilters);
+                        }}
+                        onUncheckAll={() => {
+                          const newFilters = {
+                            ...unappliedFilters,
+                            releases: [],
+                          };
+                          setUnappliedFilters(newFilters);
+                          applyUrlFilters(newFilters);
+                        }}
+                      />
+                    </div>
+                    <div className="col-span-full sm:col-span-2">
+                      <DiscoveredFilter
+                        values={unappliedFilters.collections}
+                        onChange={handleCollectionsChange}
+                        onCheckAll={() => {
+                          const newFilters = {
+                            ...unappliedFilters,
+                            collections: VALID_DISCOVERED_FILTERS,
+                          };
+                          setUnappliedFilters(newFilters);
+                          applyUrlFilters(newFilters);
+                        }}
+                        onUncheckAll={() => {
+                          const newFilters = {
+                            ...unappliedFilters,
+                            collections: [DEFAULT_FILTER],
+                          };
+                          setUnappliedFilters(newFilters);
+                          applyUrlFilters(newFilters);
+                        }}
+                      />
+                    </div>
+                    <div className="col-span-full sm:col-span-2 md:col-span-full">
+                      <CategoriesFilter
+                        values={unappliedFilters.categories}
+                        onChange={handleCategoriesChange}
+                        onCheckAll={() => {
+                          const newFilters = {
+                            ...unappliedFilters,
+                            categories: VALID_ITEM_CATEGORIES,
+                          };
+                          setUnappliedFilters(newFilters);
+                          applyUrlFilters(newFilters);
+                        }}
+                        onUncheckAll={() => {
+                          const newFilters = {
+                            ...unappliedFilters,
+                            categories: [],
+                          };
+                          setUnappliedFilters(newFilters);
+                          applyUrlFilters(newFilters);
+                        }}
+                      />
+                    </div>
+                    <div className="col-span-full sm:col-span-2">
+                      <WorldFilter
+                        worldValue={unappliedFilters.world}
+                        onChangeWorld={handleWorldChange}
+                        dungeonValue={unappliedFilters.dungeon}
+                        onChangeDungeon={handleDungeonChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex w-full items-center justify-end gap-x-4">
+                    <BaseButton color="red" onClick={clearFilters}>
+                      Clear Filters
+                    </BaseButton>
+                  </div>
+                </BaseFieldGroup>
+              </BaseFieldset>
+            </Disclosure.Panel>
+          </div>
+        )}
+      </Disclosure>
+    </div>
   );
 }

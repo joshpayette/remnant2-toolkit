@@ -9,9 +9,6 @@ import { useIsClient } from 'usehooks-ts';
 import { v4 as uuidv4 } from 'uuid';
 
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
-import { DEFAULT_ITEM_LOOKUP_FILTERS } from '@/app/(items)/_components/filters/item-lookup/item-lookup-filters';
-import { type ItemLookupFilters } from '@/app/(items)/_components/filters/item-lookup/types';
-import { parseUrlFilters } from '@/app/(items)/_components/filters/item-lookup/utils';
 import { MasonryItemList } from '@/app/(items)/_components/masonry-item-list';
 import { allItems } from '@/app/(items)/_constants/all-items';
 import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
@@ -24,6 +21,9 @@ import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
 import { itemMatchesSearchText } from '@/app/(items)/_utils/item-matches-search-text';
+import { DEFAULT_ITEM_LOOKUP_FILTERS } from '@/app/(items)/item-lookup/_components/item-lookup-filters';
+import { parseUrlFilters } from '@/app/(items)/item-lookup/_lib/parse-url-filters';
+import { type ItemLookupFilters } from '@/app/(items)/item-lookup/_types/item-lookup-filters';
 
 const allItemsWithDiscovered = allItems.map((item) => ({
   ...item,
@@ -224,14 +224,12 @@ export function ItemList() {
   );
 
   useEffect(() => {
-    setFilters(parseUrlFilters(searchParams));
-  }, [searchParams]);
-
-  useEffect(() => {
-    if (!isEqual(filters, DEFAULT_ITEM_LOOKUP_FILTERS)) {
+    const newFilters = parseUrlFilters(searchParams);
+    setFilters(newFilters);
+    if (!isEqual(newFilters, DEFAULT_ITEM_LOOKUP_FILTERS)) {
       setAreFiltersApplied(true);
     }
-  }, [filters]);
+  }, [searchParams]);
 
   const { discoveredItemIds } = useDiscoveredItems();
   const filteredItems = getFilteredItems(filters, discoveredItemIds);
@@ -240,21 +238,25 @@ export function ItemList() {
 
   // #region Render
 
-  return !areFiltersApplied || !isClient ? (
-    <div className="flex flex-col items-center justify-center gap-y-2">
-      <h2 className="text-primary-500 mt-4 text-center text-2xl font-bold">
-        Apply a filter, or...
-      </h2>
-      <BaseButton onClick={() => setAreFiltersApplied(true)}>
-        Show All Items
-      </BaseButton>
+  return (
+    <div className="mt-2 flex w-full items-center justify-center">
+      {!areFiltersApplied || !isClient ? (
+        <div className="flex flex-col items-center justify-center gap-y-2">
+          <h2 className="text-primary-500 mt-4 text-center text-2xl font-bold">
+            Apply a filter, or...
+          </h2>
+          <BaseButton onClick={() => setAreFiltersApplied(true)}>
+            Show All Items
+          </BaseButton>
+        </div>
+      ) : (
+        <MasonryItemList
+          key={uuidv4()}
+          label={`Items (${filteredItems.length} Total)`}
+          items={filteredItems}
+          allowItemCompare={true}
+        />
+      )}
     </div>
-  ) : (
-    <MasonryItemList
-      key={uuidv4()}
-      label={`Items (${filteredItems.length} Total)`}
-      items={filteredItems}
-      allowItemCompare={true}
-    />
   );
 }
