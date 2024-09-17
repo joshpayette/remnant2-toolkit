@@ -13,7 +13,7 @@ import { useDebounceValue, useLocalStorage } from 'usehooks-ts';
 import { type SortingPreference } from '@/app/_types/localstorage';
 import { ITEM_TOKENS } from '@/app/(builds)/_constants/tokens';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
-import { ItemSearchText } from '@/app/(items)/_components/filters/item-lookup/item-search-text';
+import { ItemSearchText } from '@/app/(items)/item-lookup/_components/item-search-text';
 import { ItemButton } from '@/app/(items)/_components/item-button';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { type Item } from '@/app/(items)/_types/item';

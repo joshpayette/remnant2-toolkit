@@ -18,6 +18,10 @@ export function ItemCompareList() {
     { initializeWithValue: false },
   );
 
+  const areAnyItemsBeingCompared = itemsToCompare.some(
+    (itemId) => itemId !== '',
+  );
+
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
   const infoOpen = selectedItem !== null;
 
@@ -25,36 +29,42 @@ export function ItemCompareList() {
     setSelectedItem(item);
   }
 
+  if (!areAnyItemsBeingCompared) {
+    return null;
+  }
+
   return (
-    <div className="flex flex-col items-center justify-center gap-y-2">
-      <ItemInfoDialog
-        item={selectedItem}
-        open={infoOpen}
-        onClose={() => setSelectedItem(null)}
-      />
+    <div className="mt-2 flex w-full items-center justify-center">
+      <div className="flex flex-col items-center justify-center gap-y-2">
+        <ItemInfoDialog
+          item={selectedItem}
+          open={infoOpen}
+          onClose={() => setSelectedItem(null)}
+        />
 
-      <h2 className="text-primary-500 mt-4 text-center text-2xl font-bold">
-        Item Comparison
-      </h2>
-      <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-        {itemsToCompare.map((itemId, index) => {
-          if (itemId === '') {
-            return <EmptyItemCard key={index} />;
-          }
+        <h2 className="text-primary-500 mt-4 text-center text-2xl font-bold">
+          Item Comparison
+        </h2>
+        <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          {itemsToCompare.map((itemId, index) => {
+            if (itemId === '') {
+              return <EmptyItemCard key={index} />;
+            }
 
-          const item = allItems.find((item) => item.id === itemId);
-          if (!item) {
-            return <EmptyItemCard key={index} />;
-          }
-          return (
-            <ItemCard
-              key={index}
-              data={item}
-              onMoreInfoClick={handleMoreInfoClick}
-              allowItemCompare={true}
-            />
-          );
-        })}
+            const item = allItems.find((item) => item.id === itemId);
+            if (!item) {
+              return <EmptyItemCard key={index} />;
+            }
+            return (
+              <ItemCard
+                key={index}
+                data={item}
+                onMoreInfoClick={handleMoreInfoClick}
+                allowItemCompare={true}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );
