@@ -95,7 +95,7 @@ export function ItemLookupFilters() {
   const router = useRouter();
 
   function applyUrlFilters(filtersToApply: ItemLookupFilters) {
-    let url = `${pathname}?t=${Date.now()}&`;
+    let url = `${pathname}?`;
 
     // Add the categories filter
     if (
