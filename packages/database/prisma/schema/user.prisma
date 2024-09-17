@@ -45,15 +45,15 @@ enum UserRole {
 }
 
 model User {
-  id                              String                  @id @default(cuid())
+  id                              String                    @id @default(cuid())
   name                            String?
   displayName                     String?
-  email                           String?                 @unique
+  email                           String?                   @unique
   emailVerified                   DateTime?
   image                           String?
-  role                            UserRole                @default(user)
-  createdAt                       DateTime                @default(now())
-  updatedAt                       DateTime                @default(now()) @updatedAt
+  role                            UserRole                  @default(user)
+  createdAt                       DateTime                  @default(now())
+  updatedAt                       DateTime                  @default(now()) @updatedAt
   accounts                        Account[]
   sessions                        Session[]
   Build                           Build[]
@@ -64,13 +64,18 @@ model User {
   UserLoadouts                    UserLoadouts[]
   UserItems                       UserItems[]
   LinkedBuild                     LinkedBuild[]
-  AuditLogUser                    AuditLog[]              @relation(name: "user")
-  AuditLogModerator               AuditLog[]              @relation(name: "moderator")
+  AuditLogUser                    AuditLog[]                @relation(name: "user")
+  AuditLogModerator               AuditLog[]                @relation(name: "moderator")
   BuildValidatedViews             BuildValidatedViews[]
-  Notifications                   Notification[]
-  UserBuildSubscriptions          UserBuildSubscription[]
-  UserSubscriptionsAsSubscriber   UserSubscription[]      @relation(name: "subscriber")
-  UserSubscriptionsAsSubscribedTo UserSubscription[]      @relation(name: "subscribedTo")
+  BuildNotifications              BuildNotification[]
+  UserSubscriptionsAsSubscriber   UserSubscription[]        @relation(name: "subscriber")
+  UserSubscriptionsAsSubscribedTo UserSubscription[]        @relation(name: "subscribedTo")
+  BuildSubscription               BuildSubscription[]
+  UserNotification                UserNotification[]
+  SiteNotification                SiteNotification[]
+  UserNotificationStatus          UserNotificationStatus[]
+  BuildNotificationStatus         BuildNotificationStatus[]
+  SiteNotificationSeen            SiteNotificationSeen[]
 }
 
 model UserProfile {
