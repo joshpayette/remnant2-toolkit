@@ -15,12 +15,14 @@ import { Fragment } from 'react';
 import { ProfileButton } from '@/app/_components/profile-button';
 import { NAV_ITEMS } from '@/app/_types/navigation';
 
-export function Navbar({ showNotifications }: { showNotifications: boolean }) {
+export function Navbar({ showNotifications, hasUnread, userId }: { showNotifications: boolean, hasUnread: boolean, userId?: string }) {
   const { status } = useSession();
 
   return (
     <NavbarContainer
       showNotifications={showNotifications}
+      hasUnreadNotifications={hasUnread}
+      notificationDestination={userId ? `/profile/${userId}/notifications` : '/'}
       logo={<Logo variant="remnant2toolkit" />}
       desktopProfileButton={<ProfileButton.Desktop />}
       mobileProfileButton={<ProfileButton.Mobile />}

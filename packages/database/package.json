@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
+    "db:format": "prisma format",
     "db:generate": "prisma generate",
     "db:push": "prisma db push --skip-generate"
   },

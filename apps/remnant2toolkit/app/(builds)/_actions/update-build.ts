@@ -320,6 +320,12 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       });
     }
 
+    // If the build is newly public, update the associated timestamp
+    const becamePublicAt =
+      buildState.isPublic && !existingBuild?.isPublic
+        ? new Date()
+        : existingBuild?.becamePublicAt ?? null;
+
     // Save changes to the build
     const updatedBuild = await prisma.build.update({
       where: {
@@ -338,6 +344,8 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
             ? badWordFilter.clean(buildState.description)
             : '',
         isPublic: Boolean(buildState.isPublic),
+        becamePublicAt,
+        wasPublic: existingBuild?.isPublic,
         isPatchAffected: Boolean(buildState.isPatchAffected),
         videoUrl: buildState.videoUrl,
         buildLink: buildState.buildLink,
@@ -401,10 +409,6 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     }
 
     // If the build was private but is now public, send the build info to Discord
-    const isPrivateBuildNowPublic =
-      existingBuild?.isPublic === false &&
-      buildState.isPublic === true &&
-      !isPermittedBuilder(session.user.id);
     if (isPrivateBuildNowPublic) {
       await sendWebhook({
         webhook: 'modQueue',

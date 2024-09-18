@@ -23,7 +23,7 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
     featuredBuilds,
     userProfile,
     discoveredItemIds,
-    totalSubscribers,
+    totalFollows,
   ] = await Promise.all([
     await prisma.build.count({
       where: { createdById: profileId, isPublic: true },
@@ -59,8 +59,8 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
       where: { userId: profileId },
       select: { itemId: true },
     }),
-    await prisma.userSubscription.count({
-      where: { subscribedToId: profileId },
+    await prisma.userFollow.count({
+      where: { followedId: profileId },
     }),
   ]);
 
@@ -82,7 +82,7 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
         index={1}
       />
       <StatBox
-        stat={{ name: 'Subscribers', value: totalSubscribers }}
+        stat={{ name: 'Followers', value: totalFollows }}
         index={2}
       />
       <StatBox

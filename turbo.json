@@ -4,10 +4,7 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build", "^db:generate"],
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        ".env"
-      ],
+      "inputs": ["$TURBO_DEFAULT$", ".env"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
       "env": [
         "CRON_SECRET",
@@ -55,6 +52,9 @@
       "cache": false
     },
     "db:generate": {
+      "cache": false
+    },
+    "db:format": {
       "cache": false
     },
     "clean": {

@@ -10,10 +10,10 @@ export async function getIsUserFollowingUser(profileId: string) {
     return false;
   }
 
-  const response = prisma.userSubscription.findFirst({
+  const response = prisma.userFollow.findFirst({
     where: {
-      subscriberId: session?.user?.id,
-      subscribedToId: profileId,
+      followerId: session?.user?.id,
+      followedId: profileId,
     },
   });
 

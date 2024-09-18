@@ -1,40 +1,44 @@
 model Build {
-  id                    String                @id @default(cuid())
-  createdAt             DateTime              @default(now())
-  updatedAt             DateTime?             @updatedAt
-  createdBy             User                  @relation(fields: [createdById], references: [id])
-  createdById           String
-  isFeaturedBuild       Boolean               @default(false)
-  isBeginnerBuild       Boolean               @default(false)
-  isBaseGameBuild       Boolean               @default(false)
-  isGimmickBuild        Boolean               @default(false)
-  isModeratorApproved   Boolean               @default(false)
-  isModeratorLocked     Boolean               @default(false)
-  isPatchAffected       Boolean               @default(false)
-  isPublic              Boolean               @default(true)
-  isVideoApproved       Boolean               @default(false)
-  dateFeatured          DateTime?
-  name                  String
-  description           String?               @db.Text
-  videoUrl              String?
-  thumbnailUrl          String?
-  buildLink             String?
-  buildLinkUpdatedAt    DateTime?
-  viewCount             Int                   @default(0)
-  duplicateCount        Int                   @default(0)
-  milestoneLogged       Boolean?              @default(false)
-  BuildVotes            BuildVoteCounts[]
-  BuildItems            BuildItems[]
-  UserProfile           UserProfile?          @relation(fields: [userProfileId], references: [id])
-  userProfileId         String?
-  UserLoadouts          UserLoadouts[]
-  BuildTags             BuildTags[]
-  LinkedBuildItems      LinkedBuildItems[]
-  BuildValidatedViews   BuildValidatedViews[]
-  PrimaryBuildVariant   BuildVariant[]        @relation(name: "primaryBuildId")
-  SecondaryBuildVariant BuildVariant[]        @relation(name: "secondaryBuildId")
-  BuildSubscription     BuildSubscription[]
-  BuildNotification     BuildNotification[]
+  id                       String                    @id @default(cuid())
+  createdAt                DateTime                  @default(now())
+  updatedAt                DateTime?                 @updatedAt
+  createdBy                User                      @relation(fields: [createdById], references: [id])
+  createdById              String
+  isFeaturedBuild          Boolean                   @default(false)
+  isBeginnerBuild          Boolean                   @default(false)
+  isBaseGameBuild          Boolean                   @default(false)
+  isGimmickBuild           Boolean                   @default(false)
+  isModeratorApproved      Boolean                   @default(false)
+  isModeratorLocked        Boolean                   @default(false)
+  isPatchAffected          Boolean                   @default(false)
+  isPublic                 Boolean                   @default(true)
+  isVideoApproved          Boolean                   @default(false)
+  dateFeatured             DateTime?
+  becamePublicAt           DateTime?
+  wasPublic                Boolean?
+  name                     String
+  description              String?                   @db.Text
+  videoUrl                 String?
+  thumbnailUrl             String?
+  buildLink                String?
+  buildLinkUpdatedAt       DateTime?
+  viewCount                Int                       @default(0)
+  duplicateCount           Int                       @default(0)
+  milestoneLogged          Boolean?                  @default(false)
+  BuildVotes               BuildVoteCounts[]
+  BuildItems               BuildItems[]
+  UserProfile              UserProfile?              @relation(fields: [userProfileId], references: [id])
+  userProfileId            String?
+  UserLoadouts             UserLoadouts[]
+  BuildTags                BuildTags[]
+  LinkedBuildItems         LinkedBuildItems[]
+  BuildValidatedViews      BuildValidatedViews[]
+  PrimaryBuildVariant      BuildVariant[]            @relation(name: "primaryBuildId")
+  SecondaryBuildVariant    BuildVariant[]            @relation(name: "secondaryBuildId")
+  // Notifications & Follows
+  BuildFollows             BuildFollow[]
+  BuildNewNotification     BuildNewNotification[] // Can be >1 since one is generated each time a build becomes "newly public"
+  BuildUpdateNotifications BuildUpdateNotification[]
 
   @@index([createdById])
   @@index([userProfileId])

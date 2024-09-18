@@ -10,10 +10,10 @@ export async function getIsUserFollowingBuild(buildId: string) {
     return false;
   }
 
-  const response = await prisma.userBuildSubscription.findFirst({
+  const response = await prisma.buildFollow.findFirst({
     where: {
-      userId: session.user.id,
-      buildId,
+      followedId: buildId,
+      followerId: session.user.id,
     },
   });
 

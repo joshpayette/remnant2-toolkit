@@ -286,6 +286,8 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
             ? badWordFilter.clean(buildState.description)
             : '',
         isPublic: Boolean(buildState.isPublic),
+        becamePublicAt: buildState.isPublic ? new Date() : null,
+        wasPublic: buildState.isPublic,
         isPatchAffected: Boolean(buildState.isPatchAffected),
         isModeratorApproved: false,
         videoUrl: buildState.videoUrl,

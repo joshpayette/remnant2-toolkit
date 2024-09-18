@@ -17,7 +17,7 @@ export default async function Page() {
       <div className="col-span-full mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
         <LandingPageCard
           label="Patreon"
-          description="Support the Toolkit with a subscription on Patreon."
+          description="Support the Toolkit with a follow on Patreon."
           href="https://www.patreon.com/JoshPayette/membership"
           target="_blank"
           icon={

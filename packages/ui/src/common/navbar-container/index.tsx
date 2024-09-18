@@ -17,6 +17,8 @@ interface NavbarContainerProps {
   mobileProfileButton: React.ReactNode;
   mobileChildren: React.ReactNode;
   showNotifications: boolean;
+  hasUnreadNotifications: boolean;
+  notificationDestination: string;
 }
 
 export function NavbarContainer({
@@ -26,6 +28,8 @@ export function NavbarContainer({
   mobileProfileButton,
   mobileChildren,
   showNotifications,
+  hasUnreadNotifications,
+  notificationDestination
 }: NavbarContainerProps) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -64,7 +68,7 @@ export function NavbarContainer({
           {desktopChildren}
         </div>
         <div className="ui-hidden ui-w-[100px] ui-grow ui-items-center ui-justify-end lg:ui-flex gap-x-4">
-          {showNotifications ? <NotificationNavIcon /> : null}
+          {showNotifications ? <NotificationNavIcon hasUnread={hasUnreadNotifications} href={notificationDestination} /> : null}
           {desktopProfileButton}
         </div>
       </nav>
@@ -85,7 +89,7 @@ export function NavbarContainer({
         >
           <div className="ui-flex ui-items-center ui-justify-between">
             {logo}
-            {showNotifications ? <NotificationNavIcon /> : null}
+            {showNotifications ? <NotificationNavIcon hasUnread={hasUnreadNotifications} href={notificationDestination} /> : null}
             <BaseButton
               aria-label="Close menu"
               className="-ui-m-2.5"

@@ -4,15 +4,15 @@ import { prisma } from '@repo/db';
 
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
-export async function unsubscribeFromUser({
+export async function unfollowUser({
   userId,
 }: {
   userId: string;
 }): Promise<{ message: string; success: boolean }> {
   const session = await getSession();
-  const subscriberId = session?.user?.id;
+  const followerId = session?.user?.id;
 
-  if (!subscriberId) {
+  if (!followerId) {
     return {
       message: 'User is not authenticated',
       success: false,
@@ -32,41 +32,41 @@ export async function unsubscribeFromUser({
     };
   }
 
-  const subscriber = await prisma.user.findUnique({
+  const follower = await prisma.user.findUnique({
     where: {
-      id: subscriberId,
+      id: followerId,
     },
   });
 
-  if (!subscriber) {
+  if (!follower) {
     return {
-      message: `User with id ${subscriberId} not found`,
+      message: `User with id ${followerId} not found`,
       success: false,
     };
   }
 
-  const subscription = await prisma.userSubscription.findFirst({
+  const follow = await prisma.userFollow.findFirst({
     where: {
-      subscribedToId: userId,
-      subscriberId,
+      followedId: userId,
+      followerId,
     },
   });
 
-  if (!subscription) {
+  if (!follow) {
     return {
-      message: 'User is not subscribed to this user',
+      message: 'User is not following this user',
       success: false,
     };
   }
 
-  await prisma.userSubscription.delete({
+  await prisma.userFollow.delete({
     where: {
-      id: subscription.id,
+      id: follow.id,
     },
   });
 
   return {
-    message: 'Successfully unsubscribed from user',
+    message: 'Successfully unfollowed user',
     success: true,
   };
 }

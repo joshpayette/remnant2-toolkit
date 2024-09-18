@@ -29,10 +29,10 @@ export async function removeFollowForBuild({
 
   try {
     // Check if user has followed for this build already
-    const isBuildFollowed = await prisma.userBuildSubscription.findFirst({
+    const isBuildFollowed = await prisma.buildFollow.findFirst({
       where: {
-        buildId,
-        userId: session.user.id,
+        followedId: buildId,
+        followerId: session.user.id,
       },
     });
 
@@ -42,10 +42,10 @@ export async function removeFollowForBuild({
       };
     }
 
-    await prisma.userBuildSubscription.deleteMany({
+    await prisma.buildFollow.deleteMany({
       where: {
-        buildId,
-        userId: session.user.id,
+        followedId: buildId,
+        followerId: session.user.id,
       },
     });
 
