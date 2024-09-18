@@ -8,6 +8,7 @@ import { useIsClient } from 'usehooks-ts';
 
 import { INITIAL_BUILD_STATE } from '@/app/(builds)/_constants/initial-build-state';
 import { MAX_LINKED_BUILDS } from '@/app/(builds)/_constants/max-linked-builds';
+import { useBuildVariants } from '@/app/(builds)/_hooks/use-build-variants';
 import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
 import {
   type UpdateBuildCategory,
@@ -39,68 +40,24 @@ export function CreateBuild({
 }: Props) {
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);
 
-  const [buildVariants, setBuildVariants] = useState<LinkedBuildItem[]>([
-    {
-      label: initialBuildState.name,
-      build: {
-        ...cloneDeep(initialBuildState),
-        buildId: Date.now().toString(),
-      },
-    },
-  ]);
-  const [activeBuildVariant, setActiveBuildVariant] = useState<number>(0);
-
-  function handleAddBuildVariant() {
-    if (!buildVariants[activeBuildVariant]) {
-      console.info('No active build variant');
-      return;
-    }
-
-    const newBuildState = cloneDeep(buildVariants[activeBuildVariant].build);
-    newBuildState.buildId = Date.now().toString();
-
-    const defaultNewBuildName =
-      activeBuildVariant === 0 ? 'Boss Rush' : 'Budget';
-
-    const newVariantName = prompt(
-      'Enter a name for this build variant',
-      defaultNewBuildName,
-    );
-
-    if (!newVariantName) return;
-
-    newBuildState.name = newVariantName;
-
-    if (buildVariants.length >= MAX_LINKED_BUILDS) {
-      console.info('Max linked builds reached');
-      return;
-    }
-
-    setBuildVariants((prevBuildVariants) => [
-      ...prevBuildVariants,
+  const {
+    activeBuildVariant,
+    setActiveBuildVariant,
+    buildVariants,
+    setBuildVariants,
+    handleAddBuildVariant,
+    handleRemoveBuildVariant,
+  } = useBuildVariants({
+    initialBuildVariants: [
       {
-        label: newBuildState.name,
-        build: newBuildState,
+        label: initialBuildState.name,
+        build: {
+          ...cloneDeep(initialBuildState),
+          buildId: Date.now().toString(),
+        },
       },
-    ]);
-
-    setActiveBuildVariant(buildVariants.length);
-  }
-
-  function handleRemoveBuildVariant() {
-    if (buildVariants.length === 1) return;
-
-    const response = confirm(
-      'Are you sure you want to remove this build variant?',
-    );
-
-    if (!response) return;
-
-    const newBuildVariants = cloneDeep(buildVariants);
-    newBuildVariants.splice(activeBuildVariant, 1);
-    setBuildVariants(newBuildVariants);
-    setActiveBuildVariant(newBuildVariants.length - 1);
-  }
+    ],
+  });
 
   const {
     isScreenshotMode,
@@ -156,6 +113,7 @@ export function CreateBuild({
   if (!isClient) return null;
 
   if (!buildVariants[activeBuildVariant]) return null;
+
   const buildState = buildVariants[activeBuildVariant].build;
 
   return (

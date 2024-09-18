@@ -3,17 +3,14 @@ import { type Metadata, type ResolvingMetadata } from 'next';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
-import { getBuildVariants } from '@/app/(builds)/_actions/get-build-variants';
-import { incrementViewCount } from '@/app/(builds)/_actions/increment-view-count';
-import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
 import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
+import { dbBuildToBuildVariants } from '@/app/(builds)/_libs/db-build-to-build-variants';
 import {
   type ArchetypeName,
   getArchetypeComboName,
 } from '@/app/(builds)/_libs/get-archetype-combo-name';
-import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { ViewBuildContainer } from '@/app/(builds)/builder/[buildId]/_components/view-build-container';
-import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
+
 export async function generateMetadata(
   { params: { buildId } }: { params: { buildId: string } },
   _parent: ResolvingMetadata,
@@ -129,56 +126,8 @@ export default async function Page({
       </p>
     );
   }
-  const { build: mainBuild } = mainBuildResponse;
-
-  const { buildVariants: buildVariantsResponse } =
-    await getBuildVariants(buildId);
-
-  // Need to loop over each id and fetch the build
-  const buildVariantsBuildResponse = await Promise.all(
-    buildVariantsResponse.map((buildVariant) => getBuild(buildVariant.buildId)),
-  );
-
-  const buildVariantStates: BuildState[] = [];
-  for (const response of buildVariantsBuildResponse) {
-    // if there is an error, remover item from array
-    if (!isErrorResponse(response)) {
-      buildVariantStates.push(
-        cleanUpBuildState(dbBuildToBuildState(response.build)),
-      );
-    }
-  }
-
-  const linkedBuildItems: LinkedBuildItem[] = buildVariantStates.map(
-    (variant) => ({
-      build: buildVariantStates.find(
-        (buildVariantState) => buildVariantState.buildId === variant.buildId,
-      ) as BuildState,
-      label: variant.name,
-    }),
-  );
-
-  // Add all build variants, then add the main build to the start
-  const buildVariants = linkedBuildItems.map((linkedBuildItem) => ({
-    ...linkedBuildItem,
-    label: linkedBuildItem.build.name,
-  }));
-  buildVariants.unshift({
-    build: cleanUpBuildState(dbBuildToBuildState(mainBuild)),
-    label: mainBuild.name,
-  });
-
-  // Loop through all build variants and increment the view count
-  for await (const buildVariant of buildVariants) {
-    if (!buildVariant.build.buildId) return;
-    await incrementViewCount({ buildId: buildVariant.build.buildId });
-  }
-
-  // loop through build variants and copy videoUrl and buildLink from the main build to each variant
-  buildVariants.forEach((buildVariant) => {
-    buildVariant.build.videoUrl = mainBuild.videoUrl;
-    buildVariant.build.buildLink = mainBuild.buildLink;
-  });
+  const { build } = mainBuildResponse;
+  const buildVariants = await dbBuildToBuildVariants(build);
 
   return (
     <div className="flex w-full flex-col items-center">
