@@ -17,7 +17,8 @@ export function DeleteBuildAlert({ open, onClose, onDelete }: Props) {
     <BaseAlert open={open} onClose={onClose}>
       <BaseAlertTitle>Delete Build?</BaseAlertTitle>
       <BaseAlertDescription>
-        Are you sure you want to delete this build? This cannot be reversed!
+        Are you sure you want to delete this build? This will delete the build{' '}
+        <strong>and all variants!</strong>. This cannot be reversed!
       </BaseAlertDescription>
       <BaseAlertActions>
         <BaseButton plain onClick={onClose}>
