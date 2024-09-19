@@ -16,8 +16,6 @@ import {
 import { LoadoutDialog } from '@/app/(builds)/_components/loadout-dialog';
 import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
 import { buildStateToCsvData } from '@/app/(builds)/_libs/build-state-to-csv-data';
-import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
-import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
 import { handleDuplicateBuild } from '@/app/(builds)/_libs/handlers/handle-duplicate-build';
 import { handleFavoriteBuild } from '@/app/(builds)/_libs/handlers/handle-favorite-build';
 import { BuilderContainer } from '@/app/(builds)/builder/_components/builder-container';
@@ -51,9 +49,7 @@ export function ViewLinkedBuild({ linkedBuild }: Props) {
     linkedBuilds[0] as LinkedBuildItem,
   );
 
-  const buildState = cleanUpBuildState(
-    dbBuildToBuildState(currentLinkedBuild.build),
-  );
+  const buildState = currentLinkedBuild.build;
 
   const [showModeratorTooling, setShowModeratorTooling] = useState(false);
 
@@ -153,7 +149,7 @@ export function ViewLinkedBuild({ linkedBuild }: Props) {
         <TabbedBuildsDisplay
           activeBuild={currentLinkedBuild}
           linkedBuild={linkedBuild}
-          onChangeCurrentLinkedBuild={setCurrentLinkedBuild}
+          onChangeActiveBuild={setCurrentLinkedBuild}
           title="Linked Builds"
         />
 
@@ -162,6 +158,7 @@ export function ViewLinkedBuild({ linkedBuild }: Props) {
           buildContainerRef={buildContainerRef}
           buildState={buildState}
           isEditable={false}
+          isMainBuild={true}
           isScreenshotMode={isScreenshotMode}
           itemOwnershipPreference={itemOwnershipPreference}
           showControls={showControls}
@@ -210,7 +207,7 @@ export function ViewLinkedBuild({ linkedBuild }: Props) {
               <ShareBuildButton
                 onClick={() => {
                   const url = urlNoCache(
-                    `https://remnant2toolkit.com/builder/${currentLinkedBuild.build.id}`,
+                    `https://remnant2toolkit.com/builder/${currentLinkedBuild.build.buildId}`,
                   );
                   copy(url);
                   toast.success('Copied Build URL to clipboard.');
@@ -250,7 +247,7 @@ export function ViewLinkedBuild({ linkedBuild }: Props) {
               <DuplicateBuildButton
                 onClick={() =>
                   handleDuplicateBuild({
-                    buildState,
+                    buildVariants: linkedBuilds,
                     onDuplicate: (buildId: string) =>
                       router.push(`/builder/${buildId}`),
                   })

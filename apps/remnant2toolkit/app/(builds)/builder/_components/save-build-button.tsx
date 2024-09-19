@@ -11,6 +11,8 @@ import {
   createBuild,
   linkBuildVariants,
 } from '@/app/(builds)/_actions/create-build';
+import { deleteBuild } from '@/app/(builds)/_actions/delete-build';
+import { updateBuild } from '@/app/(builds)/_actions/update-build';
 import { type SuccessResponse } from '@/app/(builds)/_types/success-response';
 import { LoadingButton } from '@/app/(builds)/builder/_components/loading-button';
 import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
@@ -42,19 +44,6 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
     );
   }
 
-  // function handleResponse(response: BuildActionResponse) {
-  //   if (isErrorResponse(response)) {
-  //     console.error(response.errors);
-  //     toast.error(`Error saving build. ${response.errors?.join(' ')}`);
-  //     setSaveInProgress(false);
-  //     return;
-  //   }
-
-  //   toast.success(response.message);
-  //   setSaveInProgress(false);
-  //   router.push(`/builder/${response.buildId}`);
-  // }
-
   if (saveInProgress) {
     return <LoadingButton />;
   }
@@ -67,10 +56,72 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
         aria-label="Save Edits"
         className="sm:w-full"
         onClick={async () => {
-          // TODO
-          // setSaveInProgress(true);
-          // const response = await updateBuild(JSON.stringify(buildState));
-          // handleResponse(response);
+          if (
+            !buildVariants ||
+            buildVariants.length === 0 ||
+            !buildVariants[0]
+          ) {
+            console.error('Error saving edits. Build variants not found.');
+            toast.error('Error saving edits. Please try again later.');
+            return;
+          }
+
+          setSaveInProgress(true);
+
+          // Update the main build and create the new build variants
+          const mainBuildState = buildVariants[0].build;
+          const variantStates = buildVariants
+            .slice(1)
+            .map((variant) => variant.build);
+
+          // Delete all build variants except the first one
+          const _deleteVariantsResponse = await Promise.all(
+            variantStates.map((variant) =>
+              deleteBuild(variant.buildId as string),
+            ),
+          );
+
+          // Update the main build, recreate the variants
+          const responses = await Promise.all([
+            updateBuild(JSON.stringify(mainBuildState)),
+            ...variantStates.map((variant) =>
+              createBuild(JSON.stringify(variant), false),
+            ),
+          ]);
+          // Flatten the array of responses
+          const flatResponses = responses.flat();
+
+          // if any of the responses are errors, handle them
+          if (flatResponses.some(isErrorResponse)) {
+            flatResponses.forEach((response) => {
+              if (isErrorResponse(response)) {
+                console.error(response.errors);
+                toast.error(
+                  `Error saving build. ${response.errors?.join(' ')}`,
+                );
+                // remove the response from the array
+                flatResponses.splice(flatResponses.indexOf(response), 1);
+              }
+            });
+          }
+
+          // all variants except the first need to be linked
+          const variantResponses = flatResponses.slice(1);
+          const variantIds = variantResponses.map(
+            (response) => (response as SuccessResponse).buildId as string,
+          );
+
+          const mainBuildId = (responses[0] as SuccessResponse)
+            .buildId as string;
+
+          const _response = await linkBuildVariants({
+            mainBuildId,
+            variantIds,
+          });
+
+          toast.success('Build updated successfully!');
+          setSaveInProgress(false);
+          router.push(`/builder/${mainBuildId}`);
         }}
       >
         Save Edits
@@ -91,8 +142,9 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
         // then iterate over the responses
 
         const responses = await Promise.all(
-          buildVariants.map((variant) => {
-            return createBuild(JSON.stringify(variant.build));
+          buildVariants.map((variant, index) => {
+            // only enable notifications for the first created build
+            return createBuild(JSON.stringify(variant.build), index === 0);
           }),
         );
 

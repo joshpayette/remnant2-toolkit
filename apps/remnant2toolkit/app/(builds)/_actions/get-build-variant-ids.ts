@@ -2,7 +2,7 @@
 
 import { prisma } from '@repo/db';
 
-export async function getBuildVariants(buildId: string): Promise<{
+export async function getBuildVariantIds(buildId: string): Promise<{
   status: 'success' | 'error';
   message: string;
   buildVariants: Array<{

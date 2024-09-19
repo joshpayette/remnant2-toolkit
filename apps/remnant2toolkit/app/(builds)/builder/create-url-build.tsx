@@ -346,6 +346,7 @@ export function CreateUrlBuild() {
         buildContainerRef={buildContainerRef}
         buildState={buildState}
         isEditable={true}
+        isMainBuild={true}
         isScreenshotMode={isScreenshotMode}
         itemOwnershipPreference={false}
         showControls={showControls}
@@ -355,7 +356,15 @@ export function CreateUrlBuild() {
         builderActions={
           <>
             {session?.user && (
-              <SaveBuildButton buildState={buildState} editMode={false} />
+              <SaveBuildButton
+                buildVariants={[
+                  {
+                    build: buildState,
+                    label: buildState.name,
+                  },
+                ]}
+                editMode={false}
+              />
             )}
 
             <GenerateBuildImageButton

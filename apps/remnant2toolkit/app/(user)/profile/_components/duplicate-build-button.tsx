@@ -4,13 +4,15 @@ import { BaseButton, DuplicateIcon } from '@repo/ui';
 import { useRouter } from 'next/navigation';
 
 import { Tooltip } from '@/app/_components/tooltip';
-import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
 import { handleDuplicateBuild } from '@/app/(builds)/_libs/handlers/handle-duplicate-build';
-import { type DBBuild } from '@/app/(builds)/_types/db-build';
+import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
 
-export function DuplicateBuildButton({ build }: { build: DBBuild }) {
+export function DuplicateBuildButton({
+  buildVariants,
+}: {
+  buildVariants: LinkedBuildItem[];
+}) {
   const router = useRouter();
-  const buildState = dbBuildToBuildState(build);
 
   return (
     <Tooltip content="Duplicate Build">
@@ -18,7 +20,7 @@ export function DuplicateBuildButton({ build }: { build: DBBuild }) {
         color="yellow"
         onClick={() =>
           handleDuplicateBuild({
-            buildState,
+            buildVariants,
             onDuplicate: (buildId: string) =>
               router.push(`/builder/${buildId}`),
           })

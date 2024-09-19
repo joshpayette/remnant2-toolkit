@@ -116,6 +116,8 @@ export function CreateBuild({
 
   const buildState = buildVariants[activeBuildVariant].build;
 
+  const isMainBuild = activeBuildVariant === 0;
+
   return (
     <>
       {enableMemberFeatures ? (
@@ -152,6 +154,7 @@ export function CreateBuild({
         buildState={buildState}
         isScreenshotMode={isScreenshotMode}
         isEditable={true}
+        isMainBuild={isMainBuild}
         itemOwnershipPreference={false}
         showControls={showControls}
         showCreatedBy={false}

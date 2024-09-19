@@ -99,6 +99,8 @@ export function EditBuild({
 
   const buildState = buildVariants[activeBuildVariant].build;
 
+  const isMainBuild = activeBuildVariant === 0;
+
   return (
     <>
       {enableMemberFeatures ? (
@@ -134,6 +136,7 @@ export function EditBuild({
         buildContainerRef={buildContainerRef}
         buildState={buildState}
         isEditable={true}
+        isMainBuild={isMainBuild}
         isScreenshotMode={isScreenshotMode}
         itemOwnershipPreference={false}
         showControls={showControls}

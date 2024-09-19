@@ -1,6 +1,6 @@
 import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
-import { getBuildVariants } from '@/app/(builds)/_actions/get-build-variants';
+import { getBuildVariantIds } from '@/app/(builds)/_actions/get-build-variant-ids';
 import { incrementViewCount } from '@/app/(builds)/_actions/increment-view-count';
 import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
 import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
@@ -11,7 +11,7 @@ import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linke
 export async function dbBuildToBuildVariants(
   build: DBBuild,
 ): Promise<LinkedBuildItem[]> {
-  const { buildVariants: buildVariantsResponse } = await getBuildVariants(
+  const { buildVariants: buildVariantsResponse } = await getBuildVariantIds(
     build.id,
   );
 
@@ -59,6 +59,9 @@ export async function dbBuildToBuildVariants(
   buildVariants.forEach((buildVariant) => {
     buildVariant.build.videoUrl = build.videoUrl;
     buildVariant.build.buildLink = build.buildLink;
+    buildVariant.build.duplicateCount = build.duplicateCount;
+    buildVariant.build.totalUpvotes = build.totalUpvotes;
+    buildVariant.build.isPublic = build.isPublic;
   });
 
   return buildVariants;

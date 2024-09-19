@@ -16,7 +16,6 @@ import {
 import { ModeratorBuildToolsDialog } from '@/app/(builds)/_admin/components/dialogs/moderator-build-tools-dialog';
 import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
 import { buildStateToCsvData } from '@/app/(builds)/_libs/build-state-to-csv-data';
-import { handleDuplicateBuild } from '@/app/(builds)/_libs/handlers/handle-duplicate-build';
 import { handleFavoriteBuild } from '@/app/(builds)/_libs/handlers/handle-favorite-build';
 import { setLocalBuildItemOwnership } from '@/app/(builds)/_libs/set-local-build-item-ownership';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
@@ -40,12 +39,14 @@ interface Props {
   activeBuildState: BuildState;
   mainBuildState: BuildState;
   buildVariantCount: number;
+  onDuplicateBuild: () => void;
 }
 
 export function ViewBuild({
   activeBuildState,
   buildVariantCount,
   mainBuildState,
+  onDuplicateBuild,
 }: Props) {
   const { data: session, status: sessionStatus } = useSession();
 
@@ -113,6 +114,8 @@ export function ViewBuild({
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
   const csvBuildData = buildStateToCsvData(activeBuildState);
 
+  const isMainBuild = activeBuildState.buildId === mainBuildState.buildId;
+
   // #region RENDER
 
   return (
@@ -121,6 +124,7 @@ export function ViewBuild({
         buildContainerRef={buildContainerRef}
         buildState={buildStateWithItemsOwned}
         isEditable={false}
+        isMainBuild={isMainBuild}
         isScreenshotMode={isScreenshotMode}
         itemOwnershipPreference={itemOwnershipPreference}
         showControls={showControls}
@@ -215,15 +219,7 @@ export function ViewBuild({
               }
             />
 
-            <DuplicateBuildButton
-              onClick={() =>
-                handleDuplicateBuild({
-                  buildState: mainBuildState,
-                  onDuplicate: (buildId: string) =>
-                    router.push(`/builder/${buildId}`),
-                })
-              }
-            />
+            <DuplicateBuildButton onClick={onDuplicateBuild} />
 
             <ToCsvButton
               data={csvBuildData.filter((item) => item?.name !== '')}

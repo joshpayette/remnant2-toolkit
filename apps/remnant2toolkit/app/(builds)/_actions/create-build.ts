@@ -15,7 +15,10 @@ import { type BuildActionResponse } from '@/app/(builds)/_types/build-action-res
 import { sendWebhook } from '@/app/(user)/_auth/moderation/send-webhook';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
-export async function createBuild(data: string): Promise<BuildActionResponse> {
+export async function createBuild(
+  data: string,
+  enableCompleteNotification: boolean = true,
+): Promise<BuildActionResponse> {
   // session validation
   const session = await getSession();
   if (!session || !session.user) {
@@ -327,7 +330,11 @@ export async function createBuild(data: string): Promise<BuildActionResponse> {
     });
 
     // Trigger webhook to send build to Discord
-    if (buildState.isPublic === true && process.env.NODE_ENV === 'production') {
+    if (
+      buildState.isPublic === true &&
+      process.env.NODE_ENV === 'production' &&
+      enableCompleteNotification
+    ) {
       const params = {
         content: `New build created! ${urlNoCache(
           `https://www.remnant2toolkit.com/builder/${dbResponse.id}`,

@@ -1,7 +1,9 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
+import { handleDuplicateBuild } from '@/app/(builds)/_libs/handlers/handle-duplicate-build';
 import { VideoThumbnail } from '@/app/(builds)/builder/_components/video-thumbnail';
 import { ViewBuild } from '@/app/(builds)/builder/[buildId]/_components/view-build';
 import { TabbedBuildsDisplay } from '@/app/(builds)/builder/linked/_components/tabbed-builds-display';
@@ -12,6 +14,7 @@ interface Props {
 }
 
 export function ViewBuildContainer({ buildVariants }: Props) {
+  const router = useRouter();
   const mainBuildVariant = buildVariants[0];
 
   const [activeBuildVariant, setActiveBuildVariant] =
@@ -41,6 +44,13 @@ export function ViewBuildContainer({ buildVariants }: Props) {
         activeBuildState={activeBuildVariant.build}
         buildVariantCount={buildVariants.length}
         mainBuildState={mainBuildVariant.build}
+        onDuplicateBuild={() =>
+          handleDuplicateBuild({
+            buildVariants,
+            onDuplicate: (buildId: string) =>
+              router.push(`/builder/${buildId}`),
+          })
+        }
       />
     </>
   );
