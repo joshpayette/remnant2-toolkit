@@ -10,7 +10,7 @@ export function EditLinkedBuildButton({ onClick }: Props) {
       color="cyan"
       aria-label="Link build to other builds"
       onClick={onClick}
-      className="sm:w-full"
+      className="lg:w-full"
     >
       Edit Linked Build
     </BaseButton>

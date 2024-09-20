@@ -10,7 +10,7 @@ export function ViewLinkedBuildButton({ onClick }: Props) {
       outline
       aria-label="View all linked builds for this build."
       onClick={onClick}
-      className="sm:w-full"
+      className="lg:w-full"
     >
       Linked Builds
     </BaseButton>

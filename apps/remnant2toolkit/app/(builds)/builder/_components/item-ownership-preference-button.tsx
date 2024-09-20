@@ -10,7 +10,7 @@ export function ItemOwnershipPreferenceButton({ onClick }: Props) {
       outline
       onClick={onClick}
       aria-label="Toggle item ownership preference"
-      className="sm:w-full"
+      className="lg:w-full"
     >
       Toggle Collected
     </BaseButton>

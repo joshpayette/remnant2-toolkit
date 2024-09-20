@@ -30,7 +30,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
     return (
       <BaseButton
         type="submit"
-        className="sm:w-full"
+        className="lg:w-full"
         aria-label="Sign In to Save Build"
         color="red"
         onClick={() => signIn()}
@@ -60,7 +60,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
       <BaseButton
         color="green"
         aria-label="Save Edits"
-        className="sm:w-full"
+        className="lg:w-full"
         onClick={async () => {
           setSaveInProgress(true);
           const response = await updateBuild(JSON.stringify(buildState));
@@ -80,7 +80,7 @@ export function SaveBuildButton({ buildState, editMode }: Props) {
         <BaseButton
           color="green"
           aria-label="Save Build"
-          className="sm:w-full"
+          className="lg:w-full"
           onClick={async () => {
             setSaveInProgress(true);
             const response = await createBuild(JSON.stringify(buildState));

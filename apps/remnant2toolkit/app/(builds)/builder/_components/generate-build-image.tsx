@@ -18,7 +18,7 @@ export function GenerateBuildImageButton({
       color="violet"
       aria-label="Export build as an image."
       onClick={onClick}
-      className="sm:w-full"
+      className="lg:w-full"
     >
       Generate Image
     </BaseButton>
