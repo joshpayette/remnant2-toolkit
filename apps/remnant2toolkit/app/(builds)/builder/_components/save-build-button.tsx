@@ -134,7 +134,7 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
     <BaseButton
       color="green"
       aria-label="Save Build"
-      className="sm:w-full"
+      className="lg:w-full"
       onClick={async () => {
         setSaveInProgress(true);
 
