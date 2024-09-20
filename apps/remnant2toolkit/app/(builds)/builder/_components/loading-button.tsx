@@ -6,7 +6,7 @@ export function LoadingButton() {
       color="cyan"
       disabled
       aria-label="Save button loading..."
-      className="h-[36px] w-[106px] sm:w-full"
+      className="h-[36px] w-[106px] lg:w-full"
     >
       <Skeleton className="h-full w-full" />
     </BaseButton>

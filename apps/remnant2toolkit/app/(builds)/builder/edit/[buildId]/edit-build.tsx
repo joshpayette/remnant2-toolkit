@@ -113,7 +113,7 @@ export function EditBuild({
         />
       ) : null}
       {enableMemberFeatures && (
-        <div className="mb-4 flex items-start justify-center gap-x-2">
+        <div className="mb-2 flex items-start justify-center gap-x-2">
           {buildVariants.length <= MAX_BUILD_VARIANTS && (
             <BaseButton onClick={handleAddBuildVariant}>
               Add Build Variant

@@ -11,11 +11,12 @@ import {
   createBuild,
   linkBuildVariants,
 } from '@/app/(builds)/_actions/create-build';
-import { deleteBuild } from '@/app/(builds)/_actions/delete-build';
 import { updateBuild } from '@/app/(builds)/_actions/update-build';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type SuccessResponse } from '@/app/(builds)/_types/success-response';
 import { LoadingButton } from '@/app/(builds)/builder/_components/loading-button';
+
+import { DeleteBuildVariants } from '../../_actions/delete-build-variants';
 
 interface Props {
   buildVariants: BuildState[];
@@ -74,11 +75,15 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
             .slice(1)
             .map((variant) => variant);
 
+          if (!mainBuildState.buildId) {
+            console.error('Error saving edits. Build ID not found.');
+            toast.error('Error saving edits. Please try again later.');
+            return;
+          }
+
           // Delete all build variants except the first one
-          const _deleteVariantsResponse = await Promise.all(
-            variantStates.map((variant) =>
-              deleteBuild(variant.buildId as string),
-            ),
+          const _deleteVariantsResponse = await DeleteBuildVariants(
+            mainBuildState.buildId,
           );
 
           // Update the main build, recreate the variants

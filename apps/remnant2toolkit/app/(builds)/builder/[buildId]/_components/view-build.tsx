@@ -13,7 +13,7 @@ import {
   type ItemOwnershipPreference,
   LOCALSTORAGE_KEY,
 } from '@/app/_types/localstorage';
-import { ModeratorBuildToolsDialog } from '@/app/(builds)/_admin/components/dialogs/moderator-build-tools-dialog';
+import { ModeratorBuildToolsDialog } from '@/app/(builds)/_components/moderator-build-tools-dialog';
 import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
 import { buildStateToCsvData } from '@/app/(builds)/_libs/build-state-to-csv-data';
 import { handleFavoriteBuild } from '@/app/(builds)/_libs/handlers/handle-favorite-build';
