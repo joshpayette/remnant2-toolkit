@@ -10,7 +10,7 @@ export function ShareBuildButton({ onClick }: Props) {
       color="violet"
       aria-label="Share build with others."
       onClick={onClick}
-      className="sm:w-full"
+      className="lg:w-full"
     >
       Share Build
     </BaseButton>
