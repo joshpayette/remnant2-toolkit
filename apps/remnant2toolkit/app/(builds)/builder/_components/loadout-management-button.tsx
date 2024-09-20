@@ -45,7 +45,7 @@ export function LoadoutManagementButton({ buildId, onClick }: Props) {
       color="violet"
       aria-label={label}
       onClick={onClick}
-      className="sm:w-full"
+      className="lg:w-full"
     >
       {label}
     </BaseButton>

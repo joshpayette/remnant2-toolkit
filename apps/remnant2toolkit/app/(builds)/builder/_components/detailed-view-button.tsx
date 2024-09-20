@@ -10,7 +10,7 @@ export function DetailedViewButton({ onClick }: Props) {
       outline
       onClick={onClick}
       aria-label="Show detailed view of build"
-      className="sm:w-full"
+      className="lg:w-full"
     >
       Detailed View
     </BaseButton>

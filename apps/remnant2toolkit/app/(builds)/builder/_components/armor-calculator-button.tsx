@@ -10,7 +10,7 @@ export function ArmorCalculatorButton({ onClick }: Props) {
       color="violet"
       aria-label="Get optimal armor values for this build."
       onClick={onClick}
-      className="sm:w-full"
+      className="lg:w-full"
     >
       Armor Calculator
     </BaseButton>

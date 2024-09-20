@@ -10,7 +10,7 @@ export function EditBuildButton({ onClick }: Props) {
       color="cyan"
       aria-label="Edit build."
       onClick={onClick}
-      className="sm:w-full"
+      className="lg:w-full"
     >
       Edit Build
     </BaseButton>

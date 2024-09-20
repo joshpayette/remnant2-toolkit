@@ -35,7 +35,7 @@ export function DeleteBuildButton({ buildId }: Props) {
         color="red"
         aria-label="Delete build."
         onClick={() => setDeleteAlertOpen(true)}
-        className="sm:w-full"
+        className="lg:w-full"
       >
         Delete Build
       </BaseButton>

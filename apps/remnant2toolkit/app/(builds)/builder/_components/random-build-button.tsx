@@ -23,7 +23,7 @@ export function RandomBuildButton() {
           });
         }
       }}
-      className="sm:w-full"
+      className="lg:w-full"
     >
       <NAV_ITEMS.randomBuild.icon className="mr-1 h-4 w-4" /> Random Build
     </BaseButton>
