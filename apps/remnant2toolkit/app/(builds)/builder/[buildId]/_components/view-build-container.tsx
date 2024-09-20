@@ -3,14 +3,14 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
+import { TabbedBuildsDisplay } from '@/app/(builds)/_components/tabbed-builds-display';
 import { handleDuplicateBuild } from '@/app/(builds)/_libs/handlers/handle-duplicate-build';
+import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { VideoThumbnail } from '@/app/(builds)/builder/_components/video-thumbnail';
 import { ViewBuild } from '@/app/(builds)/builder/[buildId]/_components/view-build';
-import { TabbedBuildsDisplay } from '@/app/(builds)/builder/linked/_components/tabbed-builds-display';
-import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
 
 interface Props {
-  buildVariants: LinkedBuildItem[];
+  buildVariants: BuildState[];
 }
 
 export function ViewBuildContainer({ buildVariants }: Props) {
@@ -29,21 +29,18 @@ export function ViewBuildContainer({ buildVariants }: Props) {
 
   return (
     <>
-      <VideoThumbnail buildState={mainBuildVariant.build} />
+      <VideoThumbnail buildState={mainBuildVariant} />
       {buildVariants.length > 1 && (
         <TabbedBuildsDisplay
           activeBuild={activeBuildVariant}
-          linkedBuild={{
-            linkedBuilds: buildVariants || [],
-          }}
+          buildVariants={buildVariants}
           onChangeActiveBuild={setActiveBuildVariant}
           title="Build Variants"
         />
       )}
       <ViewBuild
-        activeBuildState={activeBuildVariant.build}
-        buildVariantCount={buildVariants.length}
-        mainBuildState={mainBuildVariant.build}
+        activeBuildState={activeBuildVariant}
+        mainBuildState={mainBuildVariant}
         onDuplicateBuild={() =>
           handleDuplicateBuild({
             buildVariants,

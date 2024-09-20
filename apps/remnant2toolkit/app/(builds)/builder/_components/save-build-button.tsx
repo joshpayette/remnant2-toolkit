@@ -13,12 +13,12 @@ import {
 } from '@/app/(builds)/_actions/create-build';
 import { deleteBuild } from '@/app/(builds)/_actions/delete-build';
 import { updateBuild } from '@/app/(builds)/_actions/update-build';
+import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type SuccessResponse } from '@/app/(builds)/_types/success-response';
 import { LoadingButton } from '@/app/(builds)/builder/_components/loading-button';
-import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
 
 interface Props {
-  buildVariants: LinkedBuildItem[];
+  buildVariants: BuildState[];
   editMode: boolean;
 }
 
@@ -69,10 +69,10 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
           setSaveInProgress(true);
 
           // Update the main build and create the new build variants
-          const mainBuildState = buildVariants[0].build;
+          const mainBuildState = buildVariants[0];
           const variantStates = buildVariants
             .slice(1)
-            .map((variant) => variant.build);
+            .map((variant) => variant);
 
           // Delete all build variants except the first one
           const _deleteVariantsResponse = await Promise.all(
@@ -144,7 +144,7 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
         const responses = await Promise.all(
           buildVariants.map((variant, index) => {
             // only enable notifications for the first created build
-            return createBuild(JSON.stringify(variant.build), index === 0);
+            return createBuild(JSON.stringify(variant), index === 0);
           }),
         );
 

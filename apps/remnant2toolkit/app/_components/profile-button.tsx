@@ -113,25 +113,6 @@ function ProfileButtonComponent({
           </BaseLink>
         ) : null}
 
-        {session?.user?.id ? (
-          <BaseLink
-            href={`/profile/${session?.user?.id}/linked-builds?t=${Date.now()}`}
-            className="flex flex-row items-center justify-start"
-          >
-            <NAV_ITEMS.linkedBuilds.icon
-              className="text-primary-500 mr-2 h-7 w-5 flex-none"
-              aria-hidden="true"
-            />
-            <div className="flex flex-col items-start justify-start px-3 py-2">
-              {NAV_ITEMS.linkedBuilds.label}
-
-              <p className="mt-1 text-xs text-gray-400">
-                {NAV_ITEMS.linkedBuilds.description}
-              </p>
-            </div>
-          </BaseLink>
-        ) : null}
-
         {status !== 'authenticated' || !session?.user ? (
           <BaseLink
             href={NAV_ITEMS.signin.href}
@@ -231,23 +212,6 @@ function ProfileButtonComponent({
                 >
                   <NAV_ITEMS.myBuilds.icon className="text-primary-600 mr-1 h-4 w-4" />
                   {NAV_ITEMS.myBuilds.label}
-                </BaseLink>
-              )}
-            </Menu.Item>
-          ) : null}
-          {session?.user?.id ? (
-            <Menu.Item>
-              {({ active }) => (
-                <BaseLink
-                  href={`/profile/${session?.user
-                    ?.id}/linked-builds?t=${Date.now()}`}
-                  className={cn(
-                    active ? 'bg-gray-800' : '',
-                    'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300',
-                  )}
-                >
-                  <NAV_ITEMS.linkedBuilds.icon className="text-primary-600 mr-1 h-4 w-4" />
-                  {NAV_ITEMS.linkedBuilds.label}
                 </BaseLink>
               )}
             </Menu.Item>

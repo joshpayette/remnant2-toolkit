@@ -2,9 +2,8 @@ import { type Metadata, type ResolvingMetadata } from 'next';
 
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { isErrorResponse } from '@/app/_libs/is-error-response';
-import { NAV_ITEMS } from '@/app/_types/navigation';
-import { getLinkedBuild } from '@/app/(builds)/builder/linked/_actions/get-linked-build';
-import { ViewLinkedBuild } from '@/app/(builds)/builder/linked/[linkedBuildId]/view-linked-build';
+import { getLinkedBuild } from '@/app/(builds)/builder/(deprecated)/linked/[linkedBuildId]/get-linked-build';
+import { ViewLinkedBuild } from '@/app/(builds)/builder/(deprecated)/linked/[linkedBuildId]/view-linked-build';
 
 export async function generateMetadata(
   { params: { linkedBuildId } }: { params: { linkedBuildId: string } },
@@ -73,7 +72,7 @@ export async function generateMetadata(
   const description =
     linkedBuildState.description && linkedBuildState.description !== ''
       ? linkedBuildState.description
-      : NAV_ITEMS.linkedBuilds.description;
+      : 'A linked build from Remnant 2 Toolkit.';
 
   return {
     title,
@@ -123,5 +122,5 @@ export default async function Page({
     );
   }
 
-  return <ViewLinkedBuild linkedBuild={linkedBuildState} />;
+  return <ViewLinkedBuild linkedBuildState={linkedBuildState} />;
 }

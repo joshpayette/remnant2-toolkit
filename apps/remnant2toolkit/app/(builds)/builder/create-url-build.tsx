@@ -356,15 +356,7 @@ export function CreateUrlBuild() {
         builderActions={
           <>
             {session?.user && (
-              <SaveBuildButton
-                buildVariants={[
-                  {
-                    build: buildState,
-                    label: buildState.name,
-                  },
-                ]}
-                editMode={false}
-              />
+              <SaveBuildButton buildVariants={[buildState]} editMode={false} />
             )}
 
             <GenerateBuildImageButton

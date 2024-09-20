@@ -6,7 +6,8 @@ import cloneDeep from 'lodash.clonedeep';
 import { useSession } from 'next-auth/react';
 import { useRef, useState } from 'react';
 
-import { MAX_LINKED_BUILDS } from '@/app/(builds)/_constants/max-linked-builds';
+import { TabbedBuildsDisplay } from '@/app/(builds)/_components/tabbed-builds-display';
+import { MAX_BUILD_VARIANTS } from '@/app/(builds)/_constants/max-build-variants';
 import { useBuildVariants } from '@/app/(builds)/_hooks/use-build-variants';
 import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
 import {
@@ -23,13 +24,11 @@ import { DetailedViewButton } from '@/app/(builds)/builder/_components/detailed-
 import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/image-download-info-dialog';
 import { ItemSuggestionsButton } from '@/app/(builds)/builder/_components/item-suggestions-button';
 import { SaveBuildButton } from '@/app/(builds)/builder/_components/save-build-button';
-import { TabbedBuildsDisplay } from '@/app/(builds)/builder/linked/_components/tabbed-builds-display';
-import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
 import { ItemTagSuggestionDialog } from '@/app/(items)/_components/item-tag-suggestion-dialog';
 
 interface Props {
   enableMemberFeatures: boolean;
-  initialBuildVariants: LinkedBuildItem[];
+  initialBuildVariants: BuildState[];
 }
 
 export function EditBuild({
@@ -63,7 +62,7 @@ export function EditBuild({
   function handleSelectArmorSuggestion(newBuildState: BuildState) {
     setBuildVariants((prevBuildVariants) =>
       prevBuildVariants.map((bv) =>
-        bv.build.buildId === newBuildState.buildId
+        bv.buildId === newBuildState.buildId
           ? { ...bv, build: newBuildState }
           : bv,
       ),
@@ -87,17 +86,14 @@ export function EditBuild({
       value,
     });
     const newBuildVariants = cloneDeep(buildVariants);
-    (newBuildVariants[activeBuildVariant] as LinkedBuildItem) = {
-      label: updatedBuildState.name,
-      build: updatedBuildState,
-    };
+    newBuildVariants[activeBuildVariant] = updatedBuildState;
 
     setBuildVariants(newBuildVariants);
   }
 
   if (!buildVariants[activeBuildVariant]) return null;
 
-  const buildState = buildVariants[activeBuildVariant].build;
+  const buildState = buildVariants[activeBuildVariant];
 
   const isMainBuild = activeBuildVariant === 0;
 
@@ -108,19 +104,17 @@ export function EditBuild({
           activeBuild={buildVariants[activeBuildVariant]}
           onChangeActiveBuild={(newActiveBuildVariant) => {
             const idx = buildVariants.findIndex(
-              (bv) => bv.build.buildId === newActiveBuildVariant.build.buildId,
+              (bv) => bv.buildId === newActiveBuildVariant.buildId,
             );
             setActiveBuildVariant(idx);
           }}
-          linkedBuild={{
-            linkedBuilds: buildVariants,
-          }}
+          buildVariants={buildVariants}
           title="Build Variants"
         />
       ) : null}
       {enableMemberFeatures && (
         <div className="mb-4 flex items-start justify-center gap-x-2">
-          {buildVariants.length <= MAX_LINKED_BUILDS && (
+          {buildVariants.length <= MAX_BUILD_VARIANTS && (
             <BaseButton onClick={handleAddBuildVariant}>
               Add Build Variant
             </BaseButton>

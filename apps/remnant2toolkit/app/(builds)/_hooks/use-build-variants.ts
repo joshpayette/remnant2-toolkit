@@ -2,16 +2,16 @@ import cloneDeep from 'lodash.clonedeep';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { MAX_LINKED_BUILDS } from '@/app/(builds)/_constants/max-linked-builds';
-import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
+import { MAX_BUILD_VARIANTS } from '@/app/(builds)/_constants/max-build-variants';
+import { type BuildState } from '@/app/(builds)/_types/build-state';
 
 export function useBuildVariants({
   initialBuildVariants,
 }: {
-  initialBuildVariants: LinkedBuildItem[];
+  initialBuildVariants: BuildState[];
 }) {
   const [buildVariants, setBuildVariants] =
-    useState<LinkedBuildItem[]>(initialBuildVariants);
+    useState<BuildState[]>(initialBuildVariants);
   const [activeBuildVariant, setActiveBuildVariant] = useState<number>(0);
 
   function handleAddBuildVariant() {
@@ -20,7 +20,7 @@ export function useBuildVariants({
       return;
     }
 
-    const newBuildState = cloneDeep(buildVariants[activeBuildVariant].build);
+    const newBuildState = cloneDeep(buildVariants[activeBuildVariant]);
     newBuildState.buildId = Date.now().toString();
 
     const defaultNewBuildName =
@@ -35,17 +35,14 @@ export function useBuildVariants({
 
     newBuildState.name = newVariantName;
 
-    if (buildVariants.length >= MAX_LINKED_BUILDS) {
+    if (buildVariants.length >= MAX_BUILD_VARIANTS) {
       toast.error('You have reached the maximum number of build variants.');
       return;
     }
 
     setBuildVariants((prevBuildVariants) => [
       ...prevBuildVariants,
-      {
-        label: newBuildState.name,
-        build: newBuildState,
-      },
+      newBuildState,
     ]);
 
     setActiveBuildVariant(buildVariants.length);

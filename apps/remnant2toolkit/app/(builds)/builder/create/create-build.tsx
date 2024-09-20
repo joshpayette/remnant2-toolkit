@@ -6,8 +6,9 @@ import cloneDeep from 'lodash.clonedeep';
 import { useRef, useState } from 'react';
 import { useIsClient } from 'usehooks-ts';
 
+import { TabbedBuildsDisplay } from '@/app/(builds)/_components/tabbed-builds-display';
 import { INITIAL_BUILD_STATE } from '@/app/(builds)/_constants/initial-build-state';
-import { MAX_LINKED_BUILDS } from '@/app/(builds)/_constants/max-linked-builds';
+import { MAX_BUILD_VARIANTS } from '@/app/(builds)/_constants/max-build-variants';
 import { useBuildVariants } from '@/app/(builds)/_hooks/use-build-variants';
 import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
 import {
@@ -25,8 +26,6 @@ import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/imag
 import { ItemSuggestionsButton } from '@/app/(builds)/builder/_components/item-suggestions-button';
 import { RandomBuildButton } from '@/app/(builds)/builder/_components/random-build-button';
 import { SaveBuildButton } from '@/app/(builds)/builder/_components/save-build-button';
-import { TabbedBuildsDisplay } from '@/app/(builds)/builder/linked/_components/tabbed-builds-display';
-import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
 import { ItemTagSuggestionDialog } from '@/app/(items)/_components/item-tag-suggestion-dialog';
 
 interface Props {
@@ -50,11 +49,8 @@ export function CreateBuild({
   } = useBuildVariants({
     initialBuildVariants: [
       {
-        label: initialBuildState.name,
-        build: {
-          ...cloneDeep(initialBuildState),
-          buildId: Date.now().toString(),
-        },
+        ...cloneDeep(initialBuildState),
+        buildId: Date.now().toString(),
       },
     ],
   });
@@ -77,9 +73,7 @@ export function CreateBuild({
     // setBuildState(newBuildState);
     setBuildVariants((prevBuildVariants) =>
       prevBuildVariants.map((bv) =>
-        bv.build.buildId === newBuildState.buildId
-          ? { label: bv.label, build: newBuildState }
-          : bv,
+        bv.buildId === newBuildState.buildId ? newBuildState : bv,
       ),
     );
     setShowArmorCalculator(false);
@@ -101,10 +95,7 @@ export function CreateBuild({
       value,
     });
     const newBuildVariants = cloneDeep(buildVariants);
-    (newBuildVariants[activeBuildVariant] as LinkedBuildItem) = {
-      label: updatedBuildState.name,
-      build: updatedBuildState,
-    };
+    newBuildVariants[activeBuildVariant] = updatedBuildState;
 
     setBuildVariants(newBuildVariants);
   }
@@ -114,7 +105,7 @@ export function CreateBuild({
 
   if (!buildVariants[activeBuildVariant]) return null;
 
-  const buildState = buildVariants[activeBuildVariant].build;
+  const buildState = buildVariants[activeBuildVariant];
 
   const isMainBuild = activeBuildVariant === 0;
 
@@ -125,19 +116,17 @@ export function CreateBuild({
           activeBuild={buildVariants[activeBuildVariant]}
           onChangeActiveBuild={(newActiveBuildVariant) => {
             const idx = buildVariants.findIndex(
-              (bv) => bv.build.buildId === newActiveBuildVariant.build.buildId,
+              (bv) => bv.buildId === newActiveBuildVariant.buildId,
             );
             setActiveBuildVariant(idx);
           }}
-          linkedBuild={{
-            linkedBuilds: buildVariants,
-          }}
+          buildVariants={buildVariants}
           title="Build Variants"
         />
       ) : null}
       {enableMemberFeatures && (
         <div className="mb-4 flex items-start justify-center gap-x-2">
-          {buildVariants.length <= MAX_LINKED_BUILDS && (
+          {buildVariants.length <= MAX_BUILD_VARIANTS && (
             <BaseButton onClick={handleAddBuildVariant}>
               Add Build Variant
             </BaseButton>

@@ -32,19 +32,16 @@ import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/imag
 import { ItemOwnershipPreferenceButton } from '@/app/(builds)/builder/_components/item-ownership-preference-button';
 import { ModeratorToolsButton } from '@/app/(builds)/builder/_components/moderator-tools-button';
 import { ShareBuildButton } from '@/app/(builds)/builder/_components/share-build-button';
-import { NewLinkedBuildButton } from '@/app/(builds)/builder/linked/_components/new-linked-build-button';
 import { useDiscoveredItems } from '@/app/(items)/_hooks/use-discovered-items';
 
 interface Props {
   activeBuildState: BuildState;
   mainBuildState: BuildState;
-  buildVariantCount: number;
   onDuplicateBuild: () => void;
 }
 
 export function ViewBuild({
   activeBuildState,
-  buildVariantCount,
   mainBuildState,
   onDuplicateBuild,
 }: Props) {
@@ -165,18 +162,6 @@ export function ViewBuild({
                 }
               />
             )}
-
-            {session &&
-              session.user?.id === mainBuildState.createdById &&
-              buildVariantCount === 1 && (
-                <NewLinkedBuildButton
-                  onClick={() =>
-                    router.push(
-                      `/builder/linked/create/${mainBuildState.buildId}`,
-                    )
-                  }
-                />
-              )}
 
             <GenerateBuildImageButton
               imageExportLoading={imageExportLoading}

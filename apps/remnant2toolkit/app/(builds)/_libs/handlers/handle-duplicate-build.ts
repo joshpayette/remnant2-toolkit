@@ -7,14 +7,14 @@ import {
   linkBuildVariants,
 } from '@/app/(builds)/_actions/create-build';
 import { incrementDuplicateCount } from '@/app/(builds)/_actions/increment-duplicate-count';
+import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type SuccessResponse } from '@/app/(builds)/_types/success-response';
-import { type LinkedBuildItem } from '@/app/(builds)/builder/linked/_types/linked-build-item';
 
 export async function handleDuplicateBuild({
   buildVariants,
   onDuplicate,
 }: {
-  buildVariants: LinkedBuildItem[];
+  buildVariants: BuildState[];
   onDuplicate?: (buildId: string) => void;
 }) {
   if (!buildVariants || buildVariants.length === 0 || !buildVariants[0]) {
@@ -23,10 +23,8 @@ export async function handleDuplicateBuild({
     return;
   }
 
-  const mainBuildState = buildVariants[0].build;
-  const variantBuildStates = buildVariants
-    .slice(1)
-    .map((variant) => variant.build);
+  const mainBuildState = buildVariants[0];
+  const variantBuildStates = buildVariants.slice(1);
   const newBuildState = cloneDeep(mainBuildState);
 
   newBuildState.name = `${mainBuildState.name} (copy)`;
