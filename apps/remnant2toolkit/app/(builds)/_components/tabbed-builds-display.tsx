@@ -26,7 +26,7 @@ export function TabbedBuildsDisplay({
 }: Props) {
   return (
     buildVariants.length > 0 && (
-      <>
+      <div className="mb-4 flex w-full items-center justify-center">
         <BaseField className="sm:hidden">
           <BaseLabel>
             <div className="mb-2 w-full text-center">{title}</div>
@@ -50,12 +50,12 @@ export function TabbedBuildsDisplay({
             ))}
           </BaseListbox>
         </BaseField>
-        <div className="hidden sm:block">
+        <div className="hidden sm:flex sm:w-full sm:max-w-2xl sm:flex-col sm:items-center sm:justify-center">
           <div className="mb-2 w-full text-center text-lg font-bold">
             {title}
           </div>
           <nav
-            className="isolate flex divide-x divide-gray-700 rounded-lg shadow"
+            className="isolate flex w-full divide-x divide-gray-700 rounded-lg shadow"
             aria-label="Tabs"
           >
             {buildVariants.map((build, tabIdx) => (
@@ -85,7 +85,7 @@ export function TabbedBuildsDisplay({
             ))}
           </nav>
         </div>
-      </>
+      </div>
     )
   );
 }

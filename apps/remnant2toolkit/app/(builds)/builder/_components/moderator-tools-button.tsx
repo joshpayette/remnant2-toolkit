@@ -10,7 +10,7 @@ export function ModeratorToolsButton({ onClick }: Props) {
       color="orange"
       aria-label="Moderator Tools"
       onClick={onClick}
-      className="sm:w-full"
+      className="lg:w-full"
     >
       Moderator Tools
     </BaseButton>

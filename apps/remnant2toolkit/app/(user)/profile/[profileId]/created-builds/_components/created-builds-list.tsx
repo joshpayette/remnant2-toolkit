@@ -1,3 +1,5 @@
+// TODO This page is rerendering way too many times
+
 'use client';
 
 import { useSearchParams } from 'next/navigation';
@@ -71,11 +73,13 @@ export function CreatedBuildsList({
   useEffect(() => {
     setBuildListFilters(parseUrlFilters(searchParams, defaultFilters));
     setBuildListState((prevState) => ({ ...prevState, isLoading: true }));
-  }, [searchParams, defaultFilters, setBuildListState]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
 
   useEffect(() => {
     onToggleLoadingResults(isLoading);
-  }, [isLoading, onToggleLoadingResults]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading]);
 
   // Whenever loading is set to true, we should update the build items
   useEffect(() => {

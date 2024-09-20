@@ -23,8 +23,16 @@ export function useBuildVariants({
     const newBuildState = cloneDeep(buildVariants[activeBuildVariant]);
     newBuildState.buildId = Date.now().toString();
 
+    const defaultBuildNames = [
+      'Boss Rush',
+      'Budget Gear',
+      'Mobbing',
+      'Base Game Only',
+      'Alternate Gear',
+    ];
+
     const defaultNewBuildName =
-      activeBuildVariant === 0 ? 'Boss Rush' : 'Budget';
+      defaultBuildNames[Math.floor(Math.random() * defaultBuildNames.length)];
 
     const newVariantName = prompt(
       'Enter a name for this build variant',
@@ -34,6 +42,7 @@ export function useBuildVariants({
     if (!newVariantName) return;
 
     newBuildState.name = newVariantName;
+    newBuildState.description = '';
 
     if (buildVariants.length >= MAX_BUILD_VARIANTS) {
       toast.error('You have reached the maximum number of build variants.');
