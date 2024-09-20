@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-09-20
+
+### Changed
+
+- Fixed builder button sizes at some resolutions. No idea why it was the way it was.
+
 ## 2024-09-16
 
 ### Added

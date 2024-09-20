@@ -10,7 +10,7 @@ export function DuplicateBuildButton({ onClick }: Props) {
       outline
       aria-label="Duplicate build to create a new build based on this one."
       onClick={onClick}
-      className="sm:w-full"
+      className="lg:w-full"
     >
       Duplicate Build
     </BaseButton>
