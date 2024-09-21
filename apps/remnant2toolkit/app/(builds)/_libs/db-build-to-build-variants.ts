@@ -4,6 +4,7 @@ import { getBuildVariantIds } from '@/app/(builds)/_actions/get-build-variant-id
 import { incrementViewCount } from '@/app/(builds)/_actions/increment-view-count';
 import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
 import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
+import { syncBuildVariantsToBuild } from '@/app/(builds)/_libs/sync-build-variants-to-build';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
@@ -21,7 +22,7 @@ export async function dbBuildToBuildVariants(
     ),
   );
 
-  const buildVariants: BuildState[] = [];
+  let buildVariants: BuildState[] = [];
   for (const response of buildVariantsBuildResponse) {
     // if there is an error, remover item from array
     if (!isErrorResponse(response)) {
@@ -37,16 +38,9 @@ export async function dbBuildToBuildVariants(
   await incrementViewCount({ buildId: build.id });
 
   // loop through build variants and copy videoUrl and buildLink from the main build to each variant
-  buildVariants.forEach((buildVariant) => {
-    buildVariant.videoUrl = build.videoUrl;
-    buildVariant.buildLink = build.buildLink;
-    buildVariant.duplicateCount = build.duplicateCount;
-    buildVariant.totalUpvotes = build.totalUpvotes;
-    buildVariant.isPublic = build.isPublic;
-    buildVariant.totalUpvotes = build.totalUpvotes;
-    buildVariant.viewCount = build.viewCount;
-    buildVariant.validatedViewCount = build.validatedViewCount;
-    buildVariant.upvoted = build.upvoted;
+  buildVariants = syncBuildVariantsToBuild({
+    build: buildVariants[0] as BuildState,
+    buildVariants: buildVariants.slice(1),
   });
 
   return buildVariants;

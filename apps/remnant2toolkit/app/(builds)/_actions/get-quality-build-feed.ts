@@ -53,6 +53,11 @@ export async function getQualityBuildFeed(): Promise<{ builds: DBBuild[] }> {
   WHERE Build.isPublic = true
   AND Build.isPatchAffected = false
   ${limitToQualityBuilds(true)}
+  AND NOT EXISTS (
+    SELECT 1
+    FROM BuildVariant
+    WHERE BuildVariant.secondaryBuildId = Build.id
+  )
   GROUP BY Build.id, User.id
   ORDER BY createdAt DESC
   LIMIT 4 

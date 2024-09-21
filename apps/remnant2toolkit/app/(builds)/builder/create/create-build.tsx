@@ -13,6 +13,7 @@ import { INITIAL_BUILD_STATE } from '@/app/(builds)/_constants/initial-build-sta
 import { MAX_BUILD_VARIANTS } from '@/app/(builds)/_constants/max-build-variants';
 import { useBuildVariants } from '@/app/(builds)/_hooks/use-build-variants';
 import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
+import { syncBuildVariantsToBuild } from '@/app/(builds)/_libs/sync-build-variants-to-build';
 import {
   type UpdateBuildCategory,
   updateBuildState,
@@ -103,7 +104,12 @@ export function CreateBuild({
     const newBuildVariants = cloneDeep(buildVariants);
     newBuildVariants[activeBuildVariant] = updatedBuildState;
 
-    setBuildVariants(newBuildVariants);
+    setBuildVariants(
+      syncBuildVariantsToBuild({
+        build: newBuildVariants[0] as BuildState,
+        buildVariants: newBuildVariants.slice(1),
+      }),
+    );
   }
 
   const isClient = useIsClient();

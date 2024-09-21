@@ -12,6 +12,7 @@ import { TabbedBuildsDisplay } from '@/app/(builds)/_components/tabbed-builds-di
 import { MAX_BUILD_VARIANTS } from '@/app/(builds)/_constants/max-build-variants';
 import { useBuildVariants } from '@/app/(builds)/_hooks/use-build-variants';
 import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
+import { syncBuildVariantsToBuild } from '@/app/(builds)/_libs/sync-build-variants-to-build';
 import {
   type UpdateBuildCategory,
   updateBuildState,
@@ -115,7 +116,12 @@ export function EditBuild({
       }
     }
 
-    setBuildVariants(newBuildVariants);
+    setBuildVariants(
+      syncBuildVariantsToBuild({
+        build: newBuildVariants[0] as BuildState,
+        buildVariants: newBuildVariants.slice(1),
+      }),
+    );
   }
 
   if (!buildVariants[activeBuildVariant]) return null;
