@@ -89,6 +89,7 @@ export function BeginnerBuildsList({
       <BuildList
         currentPage={currentPage}
         isLoading={isLoading}
+        isWithQuality={buildListFilters.withQuality}
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}
         totalPages={totalPages}

@@ -111,6 +111,7 @@ export function CreatedBuildsList({
       <BuildList
         currentPage={currentPage}
         isLoading={isLoading}
+        isWithQuality={buildListFilters.withQuality}
         label="Created Builds"
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}

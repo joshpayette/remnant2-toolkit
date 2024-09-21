@@ -93,6 +93,7 @@ export function FavoritedBuildsList({
       <BuildList
         currentPage={currentPage}
         isLoading={isLoading}
+        isWithQuality={buildListFilters.withQuality}
         label="Favorited Builds"
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}

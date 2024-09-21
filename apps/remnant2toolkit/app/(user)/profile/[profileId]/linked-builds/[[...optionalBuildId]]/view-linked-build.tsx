@@ -121,6 +121,7 @@ export function ViewLinkedBuild({
       <BuildList
         currentPage={currentPage}
         isLoading={isLoading}
+        isWithQuality={false}
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}
         totalPages={totalPages}
