@@ -1,17 +1,22 @@
 'use client';
 
 import { type BuildTags } from '@repo/db';
+import { BaseButton } from '@repo/ui';
+import cloneDeep from 'lodash.clonedeep';
 import { useSession } from 'next-auth/react';
 import { useRef, useState } from 'react';
 
+import { BuildVariantNamePrompt } from '@/app/(builds)/_components/build-variant-name-prompt';
+import { RemoveBuildVariantNamePrompt } from '@/app/(builds)/_components/remove-build-variant-prompt';
+import { TabbedBuildsDisplay } from '@/app/(builds)/_components/tabbed-builds-display';
+import { MAX_BUILD_VARIANTS } from '@/app/(builds)/_constants/max-build-variants';
+import { useBuildVariants } from '@/app/(builds)/_hooks/use-build-variants';
 import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
-import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
 import {
   type UpdateBuildCategory,
   updateBuildState,
 } from '@/app/(builds)/_libs/update-build-state';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { ArmorCalculatorButton } from '@/app/(builds)/builder/_components/armor-calculator-button';
 import { ArmorSuggestionDialog } from '@/app/(builds)/builder/_components/armor-suggestion-dialog';
 import { BuilderContainer } from '@/app/(builds)/builder/_components/builder-container';
@@ -24,17 +29,29 @@ import { SaveBuildButton } from '@/app/(builds)/builder/_components/save-build-b
 import { ItemTagSuggestionDialog } from '@/app/(items)/_components/item-tag-suggestion-dialog';
 
 interface Props {
-  build: DBBuild;
+  enableMemberFeatures: boolean;
+  initialBuildVariants: BuildState[];
 }
 
-export function EditBuild({ build }: Props) {
+export function EditBuild({
+  enableMemberFeatures,
+  initialBuildVariants,
+}: Props) {
   const { data: session } = useSession();
-
-  const [buildState, setBuildState] = useState<BuildState>(
-    dbBuildToBuildState(build),
-  );
-
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);
+
+  const {
+    activeBuildVariant,
+    setActiveBuildVariant,
+    buildVariants,
+    setBuildVariants,
+    isBuildVariantNameOpen,
+    setIsBuildVariantNameOpen,
+    isRemoveBuildPromptOpen,
+    setIsRemoveBuildPromptOpen,
+    handleAddBuildVariant,
+    handleRemoveBuildVariant,
+  } = useBuildVariants({ initialBuildVariants });
 
   const {
     isScreenshotMode,
@@ -49,7 +66,13 @@ export function EditBuild({ build }: Props) {
   const [showItemTagSuggestions, setShowItemTagSuggestions] = useState(false);
 
   function handleSelectArmorSuggestion(newBuildState: BuildState) {
-    setBuildState(newBuildState);
+    setBuildVariants((prevBuildVariants) =>
+      prevBuildVariants.map((bv) =>
+        bv.buildId === newBuildState.buildId
+          ? { ...bv, build: newBuildState }
+          : bv,
+      ),
+    );
     setShowArmorCalculator(false);
     setShowItemTagSuggestions(false);
   }
@@ -68,64 +91,129 @@ export function EditBuild({ build }: Props) {
       category,
       value,
     });
-    setBuildState(updatedBuildState);
+    const newBuildVariants = cloneDeep(buildVariants);
+    newBuildVariants[activeBuildVariant] = updatedBuildState;
+
+    setBuildVariants(newBuildVariants);
   }
 
+  if (!buildVariants[activeBuildVariant]) return null;
+
+  const buildState = buildVariants[activeBuildVariant];
+
+  const isMainBuild = activeBuildVariant === 0;
+
   return (
-    <BuilderContainer
-      buildContainerRef={buildContainerRef}
-      buildState={buildState}
-      isEditable={true}
-      isScreenshotMode={isScreenshotMode}
-      itemOwnershipPreference={false}
-      showControls={showControls}
-      onUpdateBuildState={handleUpdateBuildState}
-      builderActions={
-        <>
-          <DetailedBuildDialog
-            buildState={buildState}
-            open={detailedBuildDialogOpen}
-            onClose={() => setDetailedBuildDialogOpen(false)}
-          />
+    <>
+      <BuildVariantNamePrompt
+        key={buildVariants.length}
+        currentValue={buildState.name}
+        open={isBuildVariantNameOpen}
+        onCancel={() => setIsBuildVariantNameOpen(false)}
+        onClose={() => setIsBuildVariantNameOpen(false)}
+        onConfirm={(newVariantName) => {
+          setIsBuildVariantNameOpen(false);
+          handleAddBuildVariant(newVariantName);
+        }}
+      />
+      <RemoveBuildVariantNamePrompt
+        open={isRemoveBuildPromptOpen}
+        currentVariantName={buildState.name}
+        onCancel={() => setIsRemoveBuildPromptOpen(false)}
+        onClose={() => setIsRemoveBuildPromptOpen(false)}
+        onConfirm={() => {
+          setIsRemoveBuildPromptOpen(false);
+          handleRemoveBuildVariant();
+        }}
+      />
+      {enableMemberFeatures ? (
+        <TabbedBuildsDisplay
+          activeBuild={buildVariants[activeBuildVariant]}
+          onChangeActiveBuild={(newActiveBuildVariant) => {
+            const idx = buildVariants.findIndex(
+              (bv) => bv.buildId === newActiveBuildVariant.buildId,
+            );
+            setActiveBuildVariant(idx);
+          }}
+          buildVariants={buildVariants}
+          title="Build Variants"
+        />
+      ) : null}
+      {enableMemberFeatures && (
+        <div className="mb-2 flex items-start justify-center gap-x-2">
+          {buildVariants.length < MAX_BUILD_VARIANTS && (
+            <BaseButton onClick={() => setIsBuildVariantNameOpen(true)}>
+              Add Build Variant
+            </BaseButton>
+          )}
+          {activeBuildVariant !== 0 && (
+            <BaseButton
+              onClick={() => setIsRemoveBuildPromptOpen(true)}
+              color="red"
+            >
+              Remove Active Build
+            </BaseButton>
+          )}
+        </div>
+      )}
+      <BuilderContainer
+        buildContainerRef={buildContainerRef}
+        buildState={buildState}
+        isEditable={true}
+        isMainBuild={isMainBuild}
+        isScreenshotMode={isScreenshotMode}
+        itemOwnershipPreference={false}
+        showControls={showControls}
+        onUpdateBuildState={handleUpdateBuildState}
+        builderActions={
+          <>
+            <DetailedBuildDialog
+              buildState={buildState}
+              open={detailedBuildDialogOpen}
+              onClose={() => setDetailedBuildDialogOpen(false)}
+            />
 
-          <ImageDownloadInfoDialog
-            onClose={handleClearImageDownloadInfo}
-            imageDownloadInfo={imageDownloadInfo}
-          />
+            <ImageDownloadInfoDialog
+              onClose={handleClearImageDownloadInfo}
+              imageDownloadInfo={imageDownloadInfo}
+            />
 
-          <ArmorSuggestionDialog
-            buildState={buildState}
-            open={showArmorCalculator}
-            onClose={() => setShowArmorCalculator(false)}
-            onApplySuggestions={handleSelectArmorSuggestion}
-          />
+            <ArmorSuggestionDialog
+              buildState={buildState}
+              open={showArmorCalculator}
+              onClose={() => setShowArmorCalculator(false)}
+              onApplySuggestions={handleSelectArmorSuggestion}
+            />
 
-          <ItemTagSuggestionDialog
-            buildState={buildState}
-            open={showItemTagSuggestions}
-            onClose={() => setShowItemTagSuggestions(false)}
-            onApplySuggestions={handleSelectArmorSuggestion}
-          />
+            <ItemTagSuggestionDialog
+              buildState={buildState}
+              open={showItemTagSuggestions}
+              onClose={() => setShowItemTagSuggestions(false)}
+              onApplySuggestions={handleSelectArmorSuggestion}
+            />
 
-          <SaveBuildButton buildState={buildState} editMode={true} />
+            <SaveBuildButton buildVariants={buildVariants} editMode={true} />
 
-          <ArmorCalculatorButton onClick={() => setShowArmorCalculator(true)} />
+            <ArmorCalculatorButton
+              onClick={() => setShowArmorCalculator(true)}
+            />
 
-          <ItemSuggestionsButton
-            onClick={() => setShowItemTagSuggestions(true)}
-          />
+            <ItemSuggestionsButton
+              onClick={() => setShowItemTagSuggestions(true)}
+            />
 
-          {session &&
-            session.user?.id === buildState.createdById &&
-            buildState.buildId && (
-              <DeleteBuildButton buildId={buildState.buildId} />
-            )}
+            {session &&
+              session.user?.id === buildState.createdById &&
+              buildState.buildId && (
+                <DeleteBuildButton buildId={buildState.buildId} />
+              )}
 
-          <DetailedViewButton
-            onClick={() => setDetailedBuildDialogOpen(true)}
-          />
-        </>
-      }
-    />
+            <DetailedViewButton
+              onClick={() => setDetailedBuildDialogOpen(true)}
+            />
+          </>
+        }
+      />
+    </>
   );
 }

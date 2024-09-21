@@ -1,5 +1,7 @@
 import { type ReadonlyURLSearchParams } from 'next/navigation';
 
+import { VALID_DISCOVERED_FILTERS } from '@/app/_components/discovered-filter';
+import { VALID_RELEASE_KEYS } from '@/app/_components/releases-filter';
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 import {
   LABYRINTH_DUNGEONS,
@@ -9,8 +11,6 @@ import {
   YAESHA_DUNGEONS,
 } from '@/app/(items)/_types/locations';
 import { VALID_ITEM_CATEGORIES } from '@/app/(items)/item-lookup/_components/categories-filter';
-import { VALID_DISCOVERED_FILTERS } from '@/app/_components/discovered-filter';
-import { VALID_RELEASE_KEYS } from '@/app/_components/releases-filter';
 import { ITEM_FILTER_KEYS } from '@/app/(items)/item-lookup/_constants/item-filter-keys';
 import { type ItemLookupFilters } from '@/app/(items)/item-lookup/_types/item-lookup-filters';
 

@@ -7,7 +7,6 @@ import {
   EyeIcon,
   ShareIcon,
   Skeleton,
-  TrashIcon,
 } from '@repo/ui';
 import { urlNoCache } from '@repo/utils';
 import copy from 'clipboard-copy';
@@ -18,11 +17,9 @@ import { toast } from 'react-toastify';
 import { Tooltip } from '@/app/_components/tooltip';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildList } from '@/app/(builds)/_components/build-list';
-import { DeleteBuildAlert } from '@/app/(builds)/_components/delete-build-alert';
-import { deleteLinkedBuild } from '@/app/(builds)/builder/linked/_actions/delete-linked-build';
-import { LinkedBuildCard } from '@/app/(builds)/builder/linked/_components/linked-build-card';
-import { type LinkedBuildState } from '@/app/(builds)/builder/linked/_types/linked-build-state';
-import getLinkedBuilds from '@/app/(user)/profile/_actions/get-linked-builds';
+import { type LinkedBuildState } from '@/app/(builds)/builder/(deprecated)/linked/[linkedBuildId]/types';
+import { getLinkedBuilds } from '@/app/(user)/profile/[profileId]/linked-builds/[[...optionalBuildId]]/get-linked-builds';
+import { LinkedBuildCard } from '@/app/(user)/profile/[profileId]/linked-builds/[[...optionalBuildId]]/linked-build-card';
 
 interface Props {
   itemsPerPage?: number;
@@ -85,26 +82,6 @@ export function ViewLinkedBuild({
     setTotalBuildCount,
     profileId,
   ]);
-
-  const [isDeleteAlertOpen, setIsDeletePromptOpen] = useState(false);
-  const [linkedBuildToDelete, setLinkedBuildToDelete] = useState<string | null>(
-    null,
-  );
-
-  async function handleDeleteBuild() {
-    if (!linkedBuildToDelete) return;
-    const response = await deleteLinkedBuild(linkedBuildToDelete);
-    if (response.errors) {
-      toast.error(response.errors[0]);
-      return;
-    }
-    setLinkedBuilds((prev) =>
-      prev.filter((linkedBuild) => linkedBuild.id !== linkedBuildToDelete),
-    );
-    setIsDeletePromptOpen(false);
-    setLinkedBuildToDelete(null);
-    toast.success(response.message);
-  }
 
   function handleCopyBuild(linkedBuildId: string) {
     const url = urlNoCache(
@@ -201,24 +178,6 @@ export function ViewLinkedBuild({
                               aria-label="Edit Linked Build"
                             >
                               <EditIcon className="h-4 w-4" />
-                            </BaseButton>
-                          </Tooltip>
-
-                          <DeleteBuildAlert
-                            open={isDeleteAlertOpen}
-                            onClose={() => setIsDeletePromptOpen(false)}
-                            onDelete={() => handleDeleteBuild()}
-                          />
-                          <Tooltip content="Delete Build">
-                            <BaseButton
-                              color="red"
-                              aria-label="Delete Build"
-                              onClick={() => {
-                                setLinkedBuildToDelete(linkedBuildState.id);
-                                setIsDeletePromptOpen(true);
-                              }}
-                            >
-                              <TrashIcon className="h-4 w-4" />
                             </BaseButton>
                           </Tooltip>
                         </>

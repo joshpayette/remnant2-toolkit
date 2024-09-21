@@ -2,19 +2,32 @@ import cloneDeep from 'lodash.clonedeep';
 import { toast } from 'react-toastify';
 
 import { isErrorResponse } from '@/app/_libs/is-error-response';
-import { createBuild } from '@/app/(builds)/_actions/create-build';
+import {
+  createBuild,
+  linkBuildVariants,
+} from '@/app/(builds)/_actions/create-build';
 import { incrementDuplicateCount } from '@/app/(builds)/_actions/increment-duplicate-count';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
+import { type SuccessResponse } from '@/app/(builds)/_types/success-response';
 
 export async function handleDuplicateBuild({
-  buildState,
+  buildVariants,
   onDuplicate,
 }: {
-  buildState: BuildState;
+  buildVariants: BuildState[];
   onDuplicate?: (buildId: string) => void;
 }) {
-  const newBuildState = cloneDeep(buildState);
-  newBuildState.name = `${buildState.name} (copy)`;
+  if (!buildVariants || buildVariants.length === 0 || !buildVariants[0]) {
+    console.error('Error duplicating build. Build variants not found.');
+    toast.error('Error duplicating build. Please try again later.');
+    return;
+  }
+
+  const mainBuildState = buildVariants[0];
+  const variantBuildStates = buildVariants.slice(1);
+  const newBuildState = cloneDeep(mainBuildState);
+
+  newBuildState.name = `${mainBuildState.name} (copy)`;
   newBuildState.isPublic = false;
   newBuildState.isMember = Boolean(newBuildState.isMember);
   newBuildState.upvoted = Boolean(newBuildState.upvoted);
@@ -23,17 +36,47 @@ export async function handleDuplicateBuild({
       ? 0
       : newBuildState.totalUpvotes;
   newBuildState.reported = Boolean(newBuildState.reported);
+
+  if (!newBuildState.buildId) {
+    console.error('Error duplicating build. Build ID not found.');
+    toast.error('Error duplicating build. Please try again later.');
+    return;
+  }
+
   const [createBuildResponse, _incrementResponse] = await Promise.all([
     createBuild(JSON.stringify(newBuildState)),
-    incrementDuplicateCount({ buildId: buildState.buildId as string }),
+    incrementDuplicateCount({ buildId: newBuildState.buildId as string }),
   ]);
+
   if (isErrorResponse(createBuildResponse)) {
     console.error(createBuildResponse.errors);
     toast.error('Error duplicating build. Please try again later.');
-  } else {
-    toast.success(createBuildResponse.message);
-    if (onDuplicate && createBuildResponse?.buildId) {
-      onDuplicate(createBuildResponse?.buildId);
-    }
+    return;
+  }
+
+  // Create build variants
+  const buildVariantsResponse = await Promise.all(
+    variantBuildStates.map((buildVariant) =>
+      createBuild(JSON.stringify(buildVariant)),
+    ),
+  );
+
+  if (buildVariantsResponse.some(isErrorResponse)) {
+    console.error('Error duplicating build variants.');
+    toast.error('Error duplicating build. Please try again later.');
+    return;
+  }
+
+  // Create build variant record
+  const _response = await linkBuildVariants({
+    mainBuildId: createBuildResponse.buildId as string,
+    variantIds: buildVariantsResponse
+      .map((response) => (response as SuccessResponse).buildId as string)
+      .filter((buildId) => buildId !== createBuildResponse.buildId),
+  });
+
+  toast.success(createBuildResponse.message);
+  if (onDuplicate && createBuildResponse?.buildId) {
+    onDuplicate(createBuildResponse?.buildId);
   }
 }

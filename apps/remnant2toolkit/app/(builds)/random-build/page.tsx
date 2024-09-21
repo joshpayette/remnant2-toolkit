@@ -98,7 +98,10 @@ export default async function Page() {
         title="Remnant 2 Build Tool"
         subtitle={NAV_ITEMS.createBuild.description}
       />
-      <CreateBuild initialBuildState={randomBuildState} />
+      <CreateBuild
+        initialBuildState={randomBuildState}
+        enableMemberFeatures={!!session?.user}
+      />
     </div>
   );
 }
