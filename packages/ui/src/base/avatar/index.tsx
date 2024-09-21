@@ -29,12 +29,12 @@ export function BaseAvatar({
         className,
 
         // Basic layout
-        '*:col-start-1 *:row-start-1 inline-grid align-middle',
+        '*:ui-col-start-1 *:ui-row-start-1 ui-inline-grid ui-align-middle',
 
         // Add the correct border radius
         square
-          ? '*:rounded-[20%] rounded-[20%]'
-          : '*:rounded-full rounded-full',
+          ? '*:ui-rounded-[20%] ui-rounded-[20%]'
+          : '*:ui-rounded-full ui-rounded-full',
       )}
       data-slot="avatar"
       {...props}
@@ -42,7 +42,7 @@ export function BaseAvatar({
       {initials ? (
         <svg
           aria-hidden={alt ? undefined : 'true'}
-          className="select-none fill-current text-[48px] font-medium uppercase"
+          className="ui-select-none ui-fill-current ui-text-[48px] ui-font-medium ui-uppercase"
           viewBox="0 0 100 100"
         >
           {alt ? <title>{alt}</title> : null}
@@ -62,7 +62,7 @@ export function BaseAvatar({
       {/* Add an inset border that sits on top of the image */}
       <span
         aria-hidden="true"
-        className="ring-surface-solid/5 forced-colors:outline ring-1 ring-inset"
+        className="ui-ring-surface-solid/5 forced-colors:ui-outline ui-ring-1 ui-ring-inset"
       />
     </span>
   );
@@ -82,8 +82,8 @@ export const BaseAvatarButton = forwardRef(function AvatarButton(
 ) {
   const classes = cn(
     className,
-    square ? 'rounded-lg' : 'rounded-full',
-    'relative focus:outline-none data-[focus]:outline data-[focus]:outline-2 data-[focus]:outline-offset-2 data-[focus]:outline-blue-500',
+    square ? 'ui-rounded-lg' : 'ui-rounded-full',
+    'ui-relative focus:ui-outline-none data-[focus]:ui-outline data-[focus]:ui-outline-2 data-[focus]:ui-outline-offset-2 data-[focus]:ui-outline-blue-500',
   );
 
   return 'href' in props ? (
