@@ -337,7 +337,7 @@ export async function createBuild(
     ) {
       const params = {
         content: `New build created! ${urlNoCache(
-          `https://www.remnant2toolkit.com/builder/${dbResponse.id}`,
+          `https://remnant2toolkit.com/builder/${dbResponse.id}`,
         )}`,
       };
 
@@ -364,7 +364,7 @@ export async function createBuild(
               fields: [
                 {
                   name: 'Build Link',
-                  value: `https://www.remnant2toolkit.com/builder/${
+                  value: `https://remnant2toolkit.com/builder/${
                     dbResponse.id
                   }?t=${Date.now()}`,
                 },

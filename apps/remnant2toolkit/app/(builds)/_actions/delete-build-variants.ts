@@ -8,7 +8,7 @@ import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { BUILD_REVALIDATE_PATHS } from '../_constants/build-revalidate-paths';
 import { type BuildActionResponse } from '../_types/build-action-response';
 
-export async function DeleteBuildVariants(
+export async function deleteBuildVariants(
   buildId: string,
 ): Promise<BuildActionResponse> {
   // session validation
