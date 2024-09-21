@@ -107,6 +107,7 @@ export function FeaturedBuildsList({
       <BuildList
         currentPage={currentPage}
         isLoading={isLoading}
+        isWithQuality={buildListFilters.withQuality}
         label="Featured builds"
         pageNumbers={pageNumbers}
         totalItems={totalBuildCount}

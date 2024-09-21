@@ -57,10 +57,7 @@ export function QualityBuildsFeed({ builds }: Props) {
       </ul>
 
       <div className="flex w-full flex-row items-end justify-end">
-        <BaseLink
-          href="/community-builds?withQuality=true"
-          className="text-sm underline"
-        >
+        <BaseLink href="/community-builds" className="text-sm underline">
           View more quality builds
         </BaseLink>
       </div>

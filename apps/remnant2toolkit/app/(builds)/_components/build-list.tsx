@@ -1,6 +1,41 @@
-import { cn } from '@repo/ui';
+'use client';
+
+import { BaseButton, cn } from '@repo/ui';
+import { useIsClient } from 'usehooks-ts';
 
 import { Pagination } from '@/app/_components/pagination';
+
+function NonQualityBuildsBox({ isWithQuality }: { isWithQuality: boolean }) {
+  const isClient = useIsClient();
+  // need to add `withQuality=false` to the current url
+  const url = new URL(window.location.href);
+  url.searchParams.set('withQuality', isWithQuality ? 'false' : 'true');
+
+  const label = isWithQuality
+    ? 'Not seeing enough builds?'
+    : 'Too many builds?';
+
+  const label2 = isWithQuality ? 'remove' : 'apply';
+
+  if (!isClient) {
+    return null;
+  }
+
+  return (
+    <div className="mt-8 flex w-full items-center justify-center sm:mt-4">
+      <BaseButton
+        color="violet"
+        onClick={() => {
+          window.location.href = url.href;
+        }}
+        className="flex flex-col"
+      >
+        <strong>{label}</strong>
+        <span>Click to {label2} the Quality Build filter!</span>
+      </BaseButton>
+    </div>
+  );
+}
 
 interface Props {
   children: React.ReactNode;
@@ -9,6 +44,7 @@ interface Props {
   lastVisibleItemNumber: number;
   headerActions: React.ReactNode | undefined;
   isLoading: boolean;
+  isWithQuality: boolean;
   label?: string;
   pageNumbers: number[];
   totalItems: number;
@@ -25,6 +61,7 @@ export function BuildList({
   lastVisibleItemNumber,
   headerActions,
   isLoading,
+  isWithQuality,
   label,
   pageNumbers,
   totalItems,
@@ -35,6 +72,7 @@ export function BuildList({
 }: Props) {
   return (
     <div className={cn(isLoading ? 'min-h-[1000px]' : 'min-h-0')}>
+      <NonQualityBuildsBox isWithQuality={isWithQuality} />
       <div className="border-b-primary-500 flex w-full flex-row items-end justify-center border-b py-2">
         {label ? <div className="w-full text-xl">{label}</div> : null}
         {headerActions}
@@ -64,6 +102,7 @@ export function BuildList({
         onNextPage={onNextPage}
         onSpecificPage={onSpecificPage}
       />
+      <NonQualityBuildsBox isWithQuality={isWithQuality} />
     </div>
   );
 }

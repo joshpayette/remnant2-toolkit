@@ -157,9 +157,9 @@ export function parseUrlFilters(
   }
 
   // Validate the withQuality filter
-  let withQuality = parsedParams.get(BUILD_FILTER_KEYS.WITHQUALITY) === 'true';
+  let withQuality = parsedParams.get(BUILD_FILTER_KEYS.WITHQUALITY) !== 'false';
   if (typeof withQuality === 'string') {
-    withQuality = withQuality === 'true';
+    withQuality = withQuality !== 'false';
   }
 
   // Validate the withCollection filter

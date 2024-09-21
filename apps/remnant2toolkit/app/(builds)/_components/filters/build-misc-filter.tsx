@@ -22,10 +22,6 @@ export function BuildMiscFilter({ value, onChange }: Props) {
       value: BUILD_FILTER_KEYS.WITHCOLLECTION,
     },
     {
-      label: `Only Quality Builds`,
-      value: BUILD_FILTER_KEYS.WITHQUALITY,
-    },
-    {
       label: 'Only Builds w/ Video',
       value: BUILD_FILTER_KEYS.WITHVIDEO,
     },
@@ -43,9 +39,9 @@ export function BuildMiscFilter({ value, onChange }: Props) {
     <BaseField>
       <BaseLabel>Include...</BaseLabel>
       <BaseListbox multiple name="misc" value={value} onChange={onChange}>
-        {options.map(({ label, value }) => (
-          <BaseListboxOption key={value} value={value}>
-            <BaseListboxLabel>{label}</BaseListboxLabel>
+        {options.map(({ label: l, value: v }) => (
+          <BaseListboxOption key={v} value={v}>
+            <BaseListboxLabel>{l}</BaseListboxLabel>
           </BaseListboxOption>
         ))}
       </BaseListbox>

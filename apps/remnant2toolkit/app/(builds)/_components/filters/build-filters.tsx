@@ -56,7 +56,7 @@ export const DEFAULT_BUILD_FILTERS = {
   searchText: '',
   patchAffected: false,
   withCollection: false,
-  withQuality: false,
+  withQuality: true,
   withVideo: false,
   withReference: false,
 } as const satisfies BuildListFilters;
