@@ -68,7 +68,7 @@ export function MemberFeatures({
       <div className="mb-4 flex w-full flex-col items-start justify-start">
         <BuildTagsDisplay
           buildTags={buildTags ?? []}
-          isEditable={isEditable}
+          isEditable={isEditable && isMainBuild}
           isScreenshotMode={isScreenshotMode}
           onChange={onChangeBuildTags}
           showLabel={isEditable || buildTags.length > 0}
