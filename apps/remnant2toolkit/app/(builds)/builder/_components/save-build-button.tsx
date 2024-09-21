@@ -12,6 +12,7 @@ import {
   linkBuildVariants,
 } from '@/app/(builds)/_actions/create-build';
 import { updateBuild } from '@/app/(builds)/_actions/update-build';
+import { type UpdateBuildCategory } from '@/app/(builds)/_libs/update-build-state';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type SuccessResponse } from '@/app/(builds)/_types/success-response';
 import { LoadingButton } from '@/app/(builds)/builder/_components/loading-button';
@@ -22,14 +23,26 @@ import { deleteBuildVariants } from '../../_actions/delete-build-variants';
 type Props = {
   buildVariants: BuildState[];
 } & (
-  | { editMode: boolean; areVariantsBeingChanged: boolean }
-  | { editMode?: never; areVariantsBeingChanged?: never }
+  | {
+      editMode: boolean;
+      areVariantsAddedOrDeleted: boolean;
+      variantChanges: Array<{
+        category: UpdateBuildCategory;
+        buildId: string;
+      }>;
+    }
+  | {
+      editMode?: never;
+      areVariantsAddedOrDeleted?: never;
+      variantChanges?: never;
+    }
 );
 
 export function SaveBuildButton({
   buildVariants,
   editMode,
-  areVariantsBeingChanged,
+  areVariantsAddedOrDeleted,
+  variantChanges,
 }: Props) {
   const router = useRouter();
 
@@ -131,18 +144,18 @@ export function SaveBuildButton({
             variantIds,
           });
 
-          if (areVariantsBeingChanged) {
+          if (areVariantsAddedOrDeleted) {
             await sendWebhook({
               webhook: 'modQueue',
               params: {
                 embeds: [
                   {
-                    title: `Build variant changes for ${mainBuildState.name}`,
+                    title: `Build variants added or deleted for ${mainBuildState.name}`,
                     color: 0x00ff00,
                     fields: [
                       {
                         name: 'Build Link',
-                        value: `https://www.remnant2toolkit.com/builder/${
+                        value: `https://remnant2toolkit.com/builder/${
                           mainBuildState.buildId
                         }?t=${Date.now()}`,
                       },
@@ -151,6 +164,41 @@ export function SaveBuildButton({
                 ],
               },
             });
+          } else {
+            const fields: Array<{ name: string; value: string }> = [];
+            for (const change of variantChanges) {
+              const buildName = buildVariants.find(
+                (variant) => variant.buildId === change.buildId,
+              )?.name;
+              if (buildName) {
+                fields.push({
+                  name: buildName,
+                  value: `Updates to ${change.category}`,
+                });
+              }
+            }
+            // add field to the start of the array with the build link
+            fields.unshift({
+              name: 'Build Link',
+              value: `https://remnant2toolkit.com/builder/${
+                mainBuildState.buildId
+              }?t=${Date.now()}`,
+            });
+
+            if (fields.length > 1) {
+              await sendWebhook({
+                webhook: 'modQueue',
+                params: {
+                  embeds: [
+                    {
+                      title: `Build variants updated for ${mainBuildState.name}`,
+                      color: 0x00ff00,
+                      fields,
+                    },
+                  ],
+                },
+              });
+            }
           }
 
           toast.success('Build updated successfully!');
