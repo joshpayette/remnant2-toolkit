@@ -13,7 +13,6 @@ import { useState } from 'react';
 
 interface Props {
   open: boolean;
-  currentValue?: string;
   onCancel: () => void;
   onClose: () => void;
   onConfirm: (newVariantName: string) => void;
@@ -29,12 +28,11 @@ const buildNameSuggestions = [
 
 export function BuildVariantNamePrompt({
   open,
-  currentValue = '',
   onCancel,
   onClose,
   onConfirm,
 }: Props) {
-  const [input, setInput] = useState(currentValue);
+  const [input, setInput] = useState('');
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
 
   return (

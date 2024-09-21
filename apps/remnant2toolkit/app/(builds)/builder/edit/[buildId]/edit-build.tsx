@@ -107,7 +107,6 @@ export function EditBuild({
     <>
       <BuildVariantNamePrompt
         key={buildVariants.length}
-        currentValue={buildState.name}
         open={isBuildVariantNameOpen}
         onCancel={() => setIsBuildVariantNameOpen(false)}
         onClose={() => setIsBuildVariantNameOpen(false)}

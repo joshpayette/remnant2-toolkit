@@ -1,7 +1,6 @@
 import './globals.css';
 
-import { DISCORD_INVITE_URL } from '@repo/constants';
-import { BaseTextLink, GlobalActionButtons, RootLayout } from '@repo/ui';
+import { GlobalActionButtons, RootLayout } from '@repo/ui';
 import { Analytics } from '@vercel/analytics/react';
 import { type Viewport } from 'next';
 import dynamic from 'next/dynamic';
