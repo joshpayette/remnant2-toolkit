@@ -79,9 +79,14 @@ export async function generateMetadata(
     archetype1: (archetypes[0] as ArchetypeName) ?? null,
     archetype2: (archetypes[1] as ArchetypeName) ?? null,
   });
+  const buildVariants = await dbBuildToBuildVariants(build);
 
-  const title = `${build.name} by ${build.createdByDisplayName}`;
-  let description = `${buildLabel} Build`;
+  const title = `${build.name} by ${build.createdByDisplayName} ${
+    buildVariants.length > 1 ? `(${buildVariants.length} Variants)` : ''
+  }`;
+  let description = `${buildLabel} Build (${
+    archetypes[0] ? archetypes[0] + '/' : ''
+  } ${archetypes[1] ? archetypes[1] : ''})`;
   description += `\r\n`;
   description += `\r\n`;
   description +=
