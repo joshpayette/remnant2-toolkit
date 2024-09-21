@@ -255,7 +255,7 @@ export function Traits({
               disabled={tooltipDisabled}
             >
               <button
-                className="relative ml-2 flex min-w-[110px] items-center justify-start text-sm"
+                className="relative ml-2 flex min-w-[100px] items-center justify-start text-sm"
                 aria-label="Trait Information"
                 onClick={() => onItemInfoClick && onItemInfoClick(traitItem)}
               >
