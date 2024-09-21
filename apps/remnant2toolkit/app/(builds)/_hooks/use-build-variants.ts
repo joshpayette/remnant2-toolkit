@@ -17,6 +17,8 @@ export function useBuildVariants({
   const [isBuildVariantNameOpen, setIsBuildVariantNameOpen] = useState(false);
   const [isRemoveBuildPromptOpen, setIsRemoveBuildPromptOpen] = useState(false);
 
+  const [areVariantsBeingChanged, setAreVariantsBeingChanged] = useState(false);
+
   function handleAddBuildVariant(newVariantName: string) {
     if (!buildVariants[activeBuildVariant]) {
       console.info('No active build variant');
@@ -34,6 +36,8 @@ export function useBuildVariants({
       return;
     }
 
+    setAreVariantsBeingChanged(true);
+
     setBuildVariants((prevBuildVariants) => [
       ...prevBuildVariants,
       newBuildState,
@@ -44,14 +48,17 @@ export function useBuildVariants({
 
   function handleRemoveBuildVariant() {
     if (buildVariants.length === 1) return;
+    if (!buildVariants[activeBuildVariant]?.buildId) return;
 
     const newBuildVariants = cloneDeep(buildVariants);
     newBuildVariants.splice(activeBuildVariant, 1);
+    setAreVariantsBeingChanged(true);
     setBuildVariants(newBuildVariants);
     setActiveBuildVariant(newBuildVariants.length - 1);
   }
 
   return {
+    areVariantsBeingChanged,
     buildVariants,
     setBuildVariants,
     activeBuildVariant,

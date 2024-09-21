@@ -206,7 +206,7 @@ export function CreateBuild({
               key={`${JSON.stringify(buildState)}-item-suggestions`}
             />
 
-            <SaveBuildButton buildVariants={buildVariants} editMode={false} />
+            <SaveBuildButton buildVariants={buildVariants} />
 
             <GenerateBuildImageButton
               imageExportLoading={imageExportLoading}

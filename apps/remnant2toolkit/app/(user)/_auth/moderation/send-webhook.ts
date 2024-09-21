@@ -1,3 +1,5 @@
+'use server';
+
 import { validateEnv } from '@/app/_libs/validate-env';
 import { type DiscordWebhookParams } from '@/app/(user)/_auth/moderation/types';
 

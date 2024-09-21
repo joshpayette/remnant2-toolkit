@@ -15,15 +15,22 @@ import { updateBuild } from '@/app/(builds)/_actions/update-build';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type SuccessResponse } from '@/app/(builds)/_types/success-response';
 import { LoadingButton } from '@/app/(builds)/builder/_components/loading-button';
+import { sendWebhook } from '@/app/(user)/_auth/moderation/send-webhook';
 
-import { DeleteBuildVariants } from '../../_actions/delete-build-variants';
+import { deleteBuildVariants } from '../../_actions/delete-build-variants';
 
-interface Props {
+type Props = {
   buildVariants: BuildState[];
-  editMode: boolean;
-}
+} & (
+  | { editMode: boolean; areVariantsBeingChanged: boolean }
+  | { editMode?: never; areVariantsBeingChanged?: never }
+);
 
-export function SaveBuildButton({ buildVariants, editMode }: Props) {
+export function SaveBuildButton({
+  buildVariants,
+  editMode,
+  areVariantsBeingChanged,
+}: Props) {
   const router = useRouter();
 
   const [saveInProgress, setSaveInProgress] = useState(false);
@@ -82,7 +89,7 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
           }
 
           // Delete all build variants except the first one
-          const _deleteVariantsResponse = await DeleteBuildVariants(
+          const _deleteVariantsResponse = await deleteBuildVariants(
             mainBuildState.buildId,
           );
 
@@ -123,6 +130,28 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
             mainBuildId,
             variantIds,
           });
+
+          if (areVariantsBeingChanged) {
+            await sendWebhook({
+              webhook: 'modQueue',
+              params: {
+                embeds: [
+                  {
+                    title: `Build variant changes for ${mainBuildState.name}`,
+                    color: 0x00ff00,
+                    fields: [
+                      {
+                        name: 'Build Link',
+                        value: `https://www.remnant2toolkit.com/builder/${
+                          mainBuildState.buildId
+                        }?t=${Date.now()}`,
+                      },
+                    ],
+                  },
+                ],
+              },
+            });
+          }
 
           toast.success('Build updated successfully!');
           setSaveInProgress(false);

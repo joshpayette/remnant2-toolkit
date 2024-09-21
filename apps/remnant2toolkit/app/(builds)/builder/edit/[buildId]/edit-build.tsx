@@ -42,6 +42,7 @@ export function EditBuild({
 
   const {
     activeBuildVariant,
+    areVariantsBeingChanged,
     setActiveBuildVariant,
     buildVariants,
     setBuildVariants,
@@ -191,7 +192,11 @@ export function EditBuild({
               onApplySuggestions={handleSelectArmorSuggestion}
             />
 
-            <SaveBuildButton buildVariants={buildVariants} editMode={true} />
+            <SaveBuildButton
+              buildVariants={buildVariants}
+              editMode={true}
+              areVariantsBeingChanged={areVariantsBeingChanged}
+            />
 
             <ArmorCalculatorButton
               onClick={() => setShowArmorCalculator(true)}
