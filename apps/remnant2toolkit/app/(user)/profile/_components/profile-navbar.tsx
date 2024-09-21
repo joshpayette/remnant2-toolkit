@@ -53,7 +53,7 @@ export function ProfileNavbar({
       current: pathname === `/profile/${profileId}/featured-builds`,
     },
     {
-      name: NAV_ITEMS.linkedBuilds.label,
+      name: 'Linked Builds (Deprecated)',
       href: {
         pathname: `/profile/${profileId}/linked-builds`,
         query: { t: Date.now() },

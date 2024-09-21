@@ -1,24 +1,28 @@
 import { PageHeader } from '@/app/_components/page-header';
 import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
+import { dbBuildToBuildVariants } from '@/app/(builds)/_libs/db-build-to-build-variants';
 import { EditBuild } from '@/app/(builds)/builder/edit/[buildId]/edit-build';
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export default async function Page({
   params: { buildId },
 }: {
   params: { buildId: string };
 }) {
-  const buildData = await getBuild(buildId);
+  const session = await getSession();
+  const mainBuildResponse = await getBuild(buildId);
 
-  if (isErrorResponse(buildData)) {
-    console.info(buildData.errors);
+  if (isErrorResponse(mainBuildResponse)) {
+    console.info(mainBuildResponse.errors);
     return (
       <p className="text-red text-center">
         There was an error loading this build. It may have been removed.
       </p>
     );
   }
-  const { build } = buildData;
+  const { build } = mainBuildResponse;
+  const buildVariants = await dbBuildToBuildVariants(build);
 
   return (
     <div className="flex w-full flex-col items-center">
@@ -26,7 +30,10 @@ export default async function Page({
         title="Remnant 2 Build Tool"
         subtitle="Edit your builds and share them with your friends and the community."
       />
-      <EditBuild build={build} />
+      <EditBuild
+        initialBuildVariants={buildVariants}
+        enableMemberFeatures={Boolean(session)}
+      />
     </div>
   );
 }

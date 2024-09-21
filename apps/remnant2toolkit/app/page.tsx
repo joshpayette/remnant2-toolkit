@@ -24,10 +24,9 @@ export default async function Page() {
     <div className="grid w-full grid-cols-4 gap-x-4">
       <div className="col-span-full w-full xl:col-span-3">
         <LandingPageContainer
-          title="Remnant 2 Toolkit"
           description={
             <>
-              <p className="mt-6 text-lg leading-8 text-gray-300">
+              <p className="text-lg leading-8 text-gray-300">
                 <BaseLink
                   href={NAV_ITEMS.communityBuilds.href}
                   className="hover:text-primary-500 underline"

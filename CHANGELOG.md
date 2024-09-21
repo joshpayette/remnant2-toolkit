@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-09-21
+
+### Added
+
+- Build variants are now live. These work similar to how Linked Builds work, with some notable differences. Namely, when visiting a build URL, the build variants will have tabs along the top showing the variants inline, without requiring clicks to a different page. Existing builds can have variants added to them. Additionally, creators can now add build variants while creating a build, making the process more seamless overall.
+  - This is a new feature, and a big overhaul, so there may be some bugs. Please let me know in the Discord if you find any.
+
+### Removed
+
+- Linked Builds are being deprecated. You can still view existing Linked Builds, but you can no longer add or edit them. Truthfully, I should have incorporated Linked Builds in the way that Build Variants now work at the outset. However, trying to manage the Linked Build architecture with the existence of Build Variants added too many odd scenarios that would add a lot of overhead moving forward that didn't feel worth it for the benefit that Build Variants provide compared to Linked Builds
+  - I am planning on adding a button to existing Linked Builds to convert them to build variants, to try and save some work that builders had already put into Linked Builds.
+
+## 2024-09-20
+
+### Changed
+
+- Fixed builder button sizes at some resolutions. No idea why it was the way it was.
+
 ## 2024-09-16
 
 ### Added

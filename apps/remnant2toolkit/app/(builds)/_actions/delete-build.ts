@@ -41,9 +41,24 @@ export async function deleteBuild(
       };
     }
 
-    const dbResponse = await prisma.build.delete({
+    // find all build variants
+    const buildVariantResponse = await prisma.buildVariant.findMany({
       where: {
-        id: build.id,
+        primaryBuildId: build.id,
+      },
+      select: {
+        secondaryBuildId: true,
+      },
+    });
+
+    const dbResponse = await prisma.build.deleteMany({
+      where: {
+        id: {
+          in: [
+            build.id,
+            ...buildVariantResponse.map((bv) => bv.secondaryBuildId),
+          ],
+        },
       },
     });
 
@@ -61,7 +76,7 @@ export async function deleteBuild(
 
     return {
       message: 'Build successfully deleted!',
-      buildId: dbResponse.id,
+      buildId,
     };
   } catch (e) {
     console.error(e);

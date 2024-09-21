@@ -3,15 +3,13 @@ import { type Metadata, type ResolvingMetadata } from 'next';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
-import { incrementViewCount } from '@/app/(builds)/_actions/increment-view-count';
-import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
 import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
+import { dbBuildToBuildVariants } from '@/app/(builds)/_libs/db-build-to-build-variants';
 import {
   type ArchetypeName,
   getArchetypeComboName,
 } from '@/app/(builds)/_libs/get-archetype-combo-name';
-import { VideoThumbnail } from '@/app/(builds)/builder/_components/video-thumbnail';
-import { ViewBuild } from '@/app/(builds)/builder/[buildId]/view-build';
+import { ViewBuildContainer } from '@/app/(builds)/builder/[buildId]/_components/view-build-container';
 
 export async function generateMetadata(
   { params: { buildId } }: { params: { buildId: string } },
@@ -118,33 +116,23 @@ export default async function Page({
 }: {
   params: { buildId: string };
 }) {
-  const buildData = await getBuild(buildId);
+  const mainBuildResponse = await getBuild(buildId);
 
-  if (isErrorResponse(buildData)) {
-    console.info(buildData.errors);
+  if (isErrorResponse(mainBuildResponse)) {
+    console.info(mainBuildResponse.errors);
     return (
       <p className="text-red text-center">
         There was an error loading this build. It may have been removed.
       </p>
     );
   }
-
-  const { build } = buildData;
-
-  const buildState = cleanUpBuildState(dbBuildToBuildState(build));
-
-  const response = await incrementViewCount({
-    buildId: buildState.buildId || '',
-  });
-  if (response.viewCount !== -1) {
-    buildState.viewCount = response.viewCount;
-  }
+  const { build } = mainBuildResponse;
+  const buildVariants = await dbBuildToBuildVariants(build);
 
   return (
     <div className="flex w-full flex-col items-center">
       <div className="height-full flex w-full flex-col items-center justify-center">
-        <VideoThumbnail buildState={buildState} />
-        <ViewBuild buildState={buildState} />
+        <ViewBuildContainer buildVariants={buildVariants} />
       </div>
     </div>
   );

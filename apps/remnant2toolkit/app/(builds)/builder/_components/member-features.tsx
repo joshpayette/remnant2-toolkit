@@ -29,6 +29,7 @@ type Props = {
   buildTags: BuildTags[];
   description: string | null;
   isEditable: boolean;
+  isMainBuild: boolean;
   isPatchAffected: boolean | null;
   isPublic: boolean | null;
   isScreenshotMode: boolean;
@@ -44,6 +45,7 @@ export function MemberFeatures({
   buildTags,
   description,
   isEditable,
+  isMainBuild,
   isPatchAffected,
   isPublic,
   isScreenshotMode,
@@ -204,22 +206,24 @@ Watch the build in action: [insert Youtube link here]
         <>
           {isEditable ? (
             <div className="flex flex-col items-start justify-start gap-x-8 gap-y-2 sm:flex-row sm:items-center sm:justify-start">
-              <div className="text-primary-500 flex flex-row items-center justify-start text-sm">
-                <BaseField className="flex flex-row items-end">
-                  <BaseLabel className="mr-2">Public Build?</BaseLabel>
-                  <BaseSwitch
-                    checked={Boolean(isPublic)}
-                    onChange={onChangeIsPublic}
-                  />
-                  <a
-                    href="https://github.com/joshpayette/remnant2-toolkit/blob/main/CODE_OF_CONDUCT.md"
-                    target="_blank"
-                    className="text-secondary-500 mb-1 ml-2 text-xs underline"
-                  >
-                    Code of Conduct
-                  </a>
-                </BaseField>
-              </div>
+              {isMainBuild ? (
+                <div className="text-primary-500 flex flex-row items-center justify-start text-sm">
+                  <BaseField className="flex flex-row items-end">
+                    <BaseLabel className="mr-2">Public Build?</BaseLabel>
+                    <BaseSwitch
+                      checked={Boolean(isPublic)}
+                      onChange={onChangeIsPublic}
+                    />
+                    <a
+                      href="https://github.com/joshpayette/remnant2-toolkit/blob/main/CODE_OF_CONDUCT.md"
+                      target="_blank"
+                      className="text-secondary-500 mb-1 ml-2 text-xs underline"
+                    >
+                      Code of Conduct
+                    </a>
+                  </BaseField>
+                </div>
+              ) : null}
 
               <div className="text-primary-500 flex flex-row items-center justify-start text-sm">
                 <BaseField className="flex flex-row items-end">

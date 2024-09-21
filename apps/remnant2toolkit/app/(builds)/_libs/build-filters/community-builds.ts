@@ -60,6 +60,11 @@ export function communityBuildsQuery({
     GROUP BY BuildItems.buildId
   ) as ItemCounts ON Build.id = ItemCounts.buildId
   ${whereConditions}
+  AND NOT EXISTS (
+    SELECT 1
+    FROM BuildVariant
+    WHERE BuildVariant.secondaryBuildId = Build.id
+  )
   ${
     searchText && searchText.length > 0
       ? Prisma.sql`AND (
@@ -122,6 +127,11 @@ export function communityBuildsCountQuery({
     GROUP BY BuildItems.buildId
   ) as ItemCounts ON Build.id = ItemCounts.buildId
   ${whereConditions}
+  AND NOT EXISTS (
+    SELECT 1
+    FROM BuildVariant
+    WHERE BuildVariant.secondaryBuildId = Build.id
+  )
   ${
     searchText && searchText.length > 0
       ? Prisma.sql`AND (

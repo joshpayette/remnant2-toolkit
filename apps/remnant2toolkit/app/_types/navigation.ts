@@ -16,7 +16,6 @@ import {
   SupportIcon,
 } from '@repo/ui';
 import { BiSolidPyramid as BaseGameBuildsIcon } from 'react-icons/bi';
-import { FaStaylinked as LinkedBuildsIcon } from 'react-icons/fa';
 import {
   GiBarbute as LoadoutIcon,
   GiChestArmor as ArmorGeneratorIcon,
@@ -146,13 +145,6 @@ export const NAV_ITEMS = {
       'A Remnant 2 item tracker to track which items you have collected, and the ones you still need to find.',
     href: '/item-tracker',
     icon: ItemTrackerIcon,
-  },
-  linkedBuilds: {
-    label: 'Linked Builds',
-    description:
-      'Link multiple Remnant 2 builds together in a single link. Great for coop builds, or build variations such as boss/mobbing/budget!',
-    href: '/profile/linked-builds',
-    icon: LinkedBuildsIcon,
   },
   loadouts: {
     label: 'Loadouts',

@@ -2,13 +2,13 @@ import { cn } from '@repo/ui';
 
 interface Props {
   children: React.ReactNode;
-  title: string;
+  title?: string;
   description: React.ReactNode;
 }
 
 export function LandingPageContainer({ children, title, description }: Props) {
   return (
-    <div className="relative isolate w-full max-w-7xl overflow-hidden py-24">
+    <div className="relative isolate w-full max-w-7xl overflow-hidden py-12">
       <div
         className={cn(
           'absolute left-0 top-0 -z-[5] h-full w-full',
@@ -35,9 +35,11 @@ export function LandingPageContainer({ children, title, description }: Props) {
       </div>
       <div className="mx-auto grid w-full grid-cols-3 gap-x-8 px-6">
         <div className="col-span-full mx-auto max-w-2xl sm:col-span-2 sm:mx-8 lg:mx-0">
-          <h1 className="text-surface-solid text-4xl font-bold tracking-tight sm:text-6xl">
-            {title}
-          </h1>
+          {title ? (
+            <h1 className="text-surface-solid text-4xl font-bold tracking-tight sm:text-6xl">
+              {title}
+            </h1>
+          ) : null}
           {description}
         </div>
         {children}

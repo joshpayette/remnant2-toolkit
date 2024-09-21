@@ -22,7 +22,7 @@ type Mode = (typeof Modes)[number];
 // WARNING: This component is not hydration-safe
 // https://github.com/pacocoursey/next-themes#avoid-hydration-mismatch
 export function ThemeSelectButton() {
-  const [isDialogOpen, setDialogOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [mode, setMode] = useState<Mode>('All');
 
   const { theme, setTheme } = useTheme();
@@ -39,19 +39,19 @@ export function ThemeSelectButton() {
       <BaseButton
         color="dark/white"
         onClick={() => {
-          setDialogOpen(!isDialogOpen);
+          setIsDialogOpen(!isDialogOpen);
         }}
       >
-        <ThemeIcon className="h-5 w-5" />
+        <ThemeIcon className="ui-h-5 ui-w-5" />
       </BaseButton>
       <BaseDialog
         onClose={() => {
-          setDialogOpen(false);
+          setIsDialogOpen(false);
         }}
         open={isDialogOpen}
       >
         <BaseDialogTitle>Select Color Theme</BaseDialogTitle>
-        <BaseDialogBody className="flex flex-col gap-y-4">
+        <BaseDialogBody className="ui-flex ui-flex-col ui-gap-y-4">
           <BaseField>
             <BaseLabel>Category</BaseLabel>
             <BaseListbox name="colorMode" onChange={setMode} value={mode}>

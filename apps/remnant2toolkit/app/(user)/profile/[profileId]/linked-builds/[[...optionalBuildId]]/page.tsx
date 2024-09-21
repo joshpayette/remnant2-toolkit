@@ -3,7 +3,6 @@ import { prisma } from '@repo/db';
 import { type Metadata } from 'next';
 
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
-import { NAV_ITEMS } from '@/app/_types/navigation';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { getAvatarById } from '@/app/(user)/profile/_utils/get-avatar-by-id';
 import { ViewLinkedBuild } from '@/app/(user)/profile/[profileId]/linked-builds/[[...optionalBuildId]]/view-linked-build';
@@ -68,7 +67,7 @@ export async function generateMetadata({
 
   const userName = userData.displayName ?? userData.name;
   const title = `${userName}'s Linked Builds - ${SITE_TITLE}`;
-  const description = NAV_ITEMS.linkedBuilds.description;
+  const description = '(Deprecated) View Remnant 2 Linked Builds.';
 
   const avatarId = profileData.avatarId;
   const avatar = getAvatarById(avatarId);

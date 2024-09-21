@@ -38,6 +38,7 @@ import { Traits } from './traits';
 
 type BuilderProps = {
   buildState: BuildState;
+  isMainBuild: boolean;
   isScreenshotMode: boolean;
   itemOwnershipPreference: boolean;
   showControls: boolean;
@@ -65,6 +66,7 @@ type BuilderProps = {
 export function Builder({
   buildState,
   isEditable,
+  isMainBuild,
   isScreenshotMode,
   itemOwnershipPreference,
   showControls,
@@ -1044,6 +1046,7 @@ export function Builder({
               buildTags={buildState.buildTags ?? []}
               description={buildState.description}
               isEditable={isEditable}
+              isMainBuild={isMainBuild}
               isPatchAffected={buildState.isPatchAffected}
               isPublic={buildState.isPublic}
               isScreenshotMode={isScreenshotMode}

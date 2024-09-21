@@ -1,7 +1,6 @@
 import './globals.css';
 
-import { DISCORD_INVITE_URL } from '@repo/constants';
-import { BaseTextLink, GlobalActionButtons, RootLayout } from '@repo/ui';
+import { GlobalActionButtons, RootLayout } from '@repo/ui';
 import { Analytics } from '@vercel/analytics/react';
 import { type Viewport } from 'next';
 import dynamic from 'next/dynamic';
@@ -29,9 +28,10 @@ export default async function Layout({
   return (
     <RootLayout
       alertBanner={
-        <AlertBanner localStorageKey="chat-in-the-discord">
-          Participate in in-depth build discussions{' '}
-          <BaseTextLink href={DISCORD_INVITE_URL}>on our Discord</BaseTextLink>!
+        <AlertBanner localStorageKey="build-variants-live">
+          Build Variants are now live! All builds can now have a main build and
+          up to 2 variants to show off different gear options or playstyles! Try
+          it out by creating or editing a build!
         </AlertBanner>
       }
       footer={<Footer />}

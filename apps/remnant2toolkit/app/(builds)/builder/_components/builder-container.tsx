@@ -11,6 +11,7 @@ type Props = {
   buildContainerRef: RefObject<HTMLDivElement>;
   builderActions: ReactNode;
   buildState: BuildState;
+  isMainBuild: boolean;
   isScreenshotMode: boolean;
   itemOwnershipPreference: boolean;
   showControls: boolean;
@@ -37,6 +38,7 @@ export function BuilderContainer({
   builderActions,
   buildState,
   isEditable,
+  isMainBuild,
   isScreenshotMode,
   itemOwnershipPreference,
   showControls,
@@ -64,6 +66,7 @@ export function BuilderContainer({
             <Builder
               buildState={buildState}
               isEditable={isEditable}
+              isMainBuild={isMainBuild}
               isScreenshotMode={isScreenshotMode}
               itemOwnershipPreference={itemOwnershipPreference}
               showControls={showControls}
@@ -75,6 +78,7 @@ export function BuilderContainer({
             <Builder
               buildState={buildState}
               isEditable={isEditable}
+              isMainBuild={isMainBuild}
               isScreenshotMode={isScreenshotMode}
               itemOwnershipPreference={itemOwnershipPreference}
               showControls={showControls}
