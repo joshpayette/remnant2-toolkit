@@ -25,7 +25,7 @@ export function TabbedBuildsDisplay({
   title,
 }: Props) {
   return (
-    buildVariants.length > 0 && (
+    buildVariants.length > 1 && (
       <div className="mb-4 flex w-full items-center justify-center">
         <BaseField className="sm:hidden">
           <BaseLabel>

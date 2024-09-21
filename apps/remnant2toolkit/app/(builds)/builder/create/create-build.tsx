@@ -6,6 +6,8 @@ import cloneDeep from 'lodash.clonedeep';
 import { useRef, useState } from 'react';
 import { useIsClient } from 'usehooks-ts';
 
+import { BuildVariantNamePrompt } from '@/app/(builds)/_components/build-variant-name-prompt';
+import { RemoveBuildVariantNamePrompt } from '@/app/(builds)/_components/remove-build-variant-prompt';
 import { TabbedBuildsDisplay } from '@/app/(builds)/_components/tabbed-builds-display';
 import { INITIAL_BUILD_STATE } from '@/app/(builds)/_constants/initial-build-state';
 import { MAX_BUILD_VARIANTS } from '@/app/(builds)/_constants/max-build-variants';
@@ -44,6 +46,10 @@ export function CreateBuild({
     setActiveBuildVariant,
     buildVariants,
     setBuildVariants,
+    isBuildVariantNameOpen,
+    setIsBuildVariantNameOpen,
+    isRemoveBuildPromptOpen,
+    setIsRemoveBuildPromptOpen,
     handleAddBuildVariant,
     handleRemoveBuildVariant,
   } = useBuildVariants({
@@ -111,6 +117,26 @@ export function CreateBuild({
 
   return (
     <>
+      <BuildVariantNamePrompt
+        key={buildVariants.length}
+        open={isBuildVariantNameOpen}
+        onCancel={() => setIsBuildVariantNameOpen(false)}
+        onClose={() => setIsBuildVariantNameOpen(false)}
+        onConfirm={(newVariantName) => {
+          setIsBuildVariantNameOpen(false);
+          handleAddBuildVariant(newVariantName);
+        }}
+      />
+      <RemoveBuildVariantNamePrompt
+        open={isRemoveBuildPromptOpen}
+        currentVariantName={buildState.name}
+        onCancel={() => setIsRemoveBuildPromptOpen(false)}
+        onClose={() => setIsRemoveBuildPromptOpen(false)}
+        onConfirm={() => {
+          setIsRemoveBuildPromptOpen(false);
+          handleRemoveBuildVariant();
+        }}
+      />
       {enableMemberFeatures ? (
         <TabbedBuildsDisplay
           activeBuild={buildVariants[activeBuildVariant]}
@@ -126,13 +152,16 @@ export function CreateBuild({
       ) : null}
       {enableMemberFeatures && (
         <div className="mb-4 flex items-start justify-center gap-x-2">
-          {buildVariants.length <= MAX_BUILD_VARIANTS && (
-            <BaseButton onClick={handleAddBuildVariant}>
+          {buildVariants.length < MAX_BUILD_VARIANTS && (
+            <BaseButton onClick={() => setIsBuildVariantNameOpen(true)}>
               Add Build Variant
             </BaseButton>
           )}
           {activeBuildVariant !== 0 && (
-            <BaseButton onClick={handleRemoveBuildVariant} color="red">
+            <BaseButton
+              onClick={() => setIsRemoveBuildPromptOpen(true)}
+              color="red"
+            >
               Remove Active Build
             </BaseButton>
           )}

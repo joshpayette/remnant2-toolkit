@@ -14,7 +14,10 @@ export function useBuildVariants({
     useState<BuildState[]>(initialBuildVariants);
   const [activeBuildVariant, setActiveBuildVariant] = useState<number>(0);
 
-  function handleAddBuildVariant() {
+  const [isBuildVariantNameOpen, setIsBuildVariantNameOpen] = useState(false);
+  const [isRemoveBuildPromptOpen, setIsRemoveBuildPromptOpen] = useState(false);
+
+  function handleAddBuildVariant(newVariantName: string) {
     if (!buildVariants[activeBuildVariant]) {
       console.info('No active build variant');
       return;
@@ -22,24 +25,6 @@ export function useBuildVariants({
 
     const newBuildState = cloneDeep(buildVariants[activeBuildVariant]);
     newBuildState.buildId = Date.now().toString();
-
-    const defaultBuildNames = [
-      'Boss Rush',
-      'Budget Gear',
-      'Mobbing',
-      'Base Game Only',
-      'Alternate Gear',
-    ];
-
-    const defaultNewBuildName =
-      defaultBuildNames[Math.floor(Math.random() * defaultBuildNames.length)];
-
-    const newVariantName = prompt(
-      'Enter a name for this build variant',
-      defaultNewBuildName,
-    );
-
-    if (!newVariantName) return;
 
     newBuildState.name = newVariantName;
     newBuildState.description = '';
@@ -60,12 +45,6 @@ export function useBuildVariants({
   function handleRemoveBuildVariant() {
     if (buildVariants.length === 1) return;
 
-    const response = confirm(
-      'Are you sure you want to remove this build variant?',
-    );
-
-    if (!response) return;
-
     const newBuildVariants = cloneDeep(buildVariants);
     newBuildVariants.splice(activeBuildVariant, 1);
     setBuildVariants(newBuildVariants);
@@ -77,6 +56,10 @@ export function useBuildVariants({
     setBuildVariants,
     activeBuildVariant,
     setActiveBuildVariant,
+    isBuildVariantNameOpen,
+    setIsBuildVariantNameOpen,
+    isRemoveBuildPromptOpen,
+    setIsRemoveBuildPromptOpen,
     handleAddBuildVariant,
     handleRemoveBuildVariant,
   };
