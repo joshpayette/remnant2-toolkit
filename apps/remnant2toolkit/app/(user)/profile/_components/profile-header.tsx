@@ -6,17 +6,17 @@ import {
   BaseInput,
   BaseTextarea,
   EditIcon,
-  SubscribeIcon,
-  UnsubscribeIcon,
+  FollowIcon,
+  UnfollowIcon,
 } from '@repo/ui';
 import { useRouter } from 'next/navigation';
 import { startTransition, useOptimistic, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { Tooltip } from '@/app/_components/tooltip';
+import { followUser } from '@/app/(user)/profile/_actions/follow-user';
 import { saveProfile } from '@/app/(user)/profile/_actions/save-profile';
-import { subscribeToUser } from '@/app/(user)/profile/_actions/subscribe-to-user';
-import { unsubscribeFromUser } from '@/app/(user)/profile/_actions/unsubscribe-from-user';
+import { unfollowUser } from '@/app/(user)/profile/_actions/unfollow-user';
 import { AvatarBox } from '@/app/(user)/profile/_components/avatar-box';
 import { AvatarSelectDialog } from '@/app/(user)/profile/_components/avatar-select-dialog';
 import { getAvatarById } from '@/app/(user)/profile/_utils/get-avatar-by-id';
@@ -42,10 +42,10 @@ export function ProfileHeader({
 }: Props) {
   const router = useRouter();
 
-  const [optimisticSubscription, setOptimisticSubscription] = useOptimistic<
+  const [optimisticFollow, setOptimisticFollow] = useOptimistic<
     boolean,
     boolean
-  >(isUserFollowing, (_state, newSubscriptionStatus) => newSubscriptionStatus);
+  >(isUserFollowing, (_state, newFollowStatus) => newFollowStatus);
 
   const [isEditing, setIsEditing] = useState(false);
   const [newDisplayName, setNewDisplayName] = useState(displayName);
@@ -84,8 +84,8 @@ export function ProfileHeader({
 
   async function onSubscribe() {
     startTransition(async () => {
-      setOptimisticSubscription(true);
-      const response = await subscribeToUser({ userId: profileId });
+      setOptimisticFollow(true);
+      const response = await followUser({ userId: profileId });
       if (!response.success) {
         toast.error(response.message);
       } else {
@@ -95,10 +95,10 @@ export function ProfileHeader({
     });
   }
 
-  async function onUnsubscribe() {
+  async function onUnfollow() {
     startTransition(async () => {
-      setOptimisticSubscription(false);
-      const response = await unsubscribeFromUser({ userId: profileId });
+      setOptimisticFollow(false);
+      const response = await unfollowUser({ userId: profileId });
       if (!response.success) {
         toast.error(response.message);
       } else {
@@ -186,25 +186,25 @@ export function ProfileHeader({
               </BaseButton>
             </div>
           )}
-          {optimisticSubscription && showNotifications && (
-            <Tooltip content="Unsubscribe from this user to stop receiving notifications when they post new builds.">
+          {optimisticFollow && showNotifications && (
+            <Tooltip content="Unfollow from this user to stop receiving notifications when they post new builds.">
               <BaseButton
                 color="red"
                 className="ml-4 flex items-center justify-center"
-                onClick={onUnsubscribe}
+                onClick={onUnfollow}
               >
-                <UnsubscribeIcon className="h-4 w-4" /> Unsubscribe
+                <UnfollowIcon className="h-4 w-4" /> Unfollow
               </BaseButton>
             </Tooltip>
           )}
-          {!optimisticSubscription && showNotifications && (
+          {!optimisticFollow && showNotifications && (
             <Tooltip content="Subscribe to this user to receive notifications when they post new builds.">
               <BaseButton
                 color="green"
                 className="ml-4 flex items-center justify-center"
                 onClick={onSubscribe}
               >
-                <SubscribeIcon className="h-4 w-4" /> Subscribe
+                <FollowIcon className="h-4 w-4" /> Subscribe
               </BaseButton>
             </Tooltip>
           )}

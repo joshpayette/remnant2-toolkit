@@ -238,7 +238,7 @@ export function ViewBuild({ buildState, isFollowingBuild }: Props) {
               />
             )}
 
-            {buildState.createdById !== session?.user?.id && (
+            {(
               <FollowBuildButton
                 onClick={onFollowBuild}
                 followed={optimisticFollow}

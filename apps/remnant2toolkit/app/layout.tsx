@@ -11,6 +11,8 @@ import { showNotificationsFlag } from '@/app/_constants/feature-flag';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { Navbar } from '@/app/navbar';
 
+import { hasUnreadNotifications } from './(user)/profile/[profileId]/notifications/_actions/has-unread-notifications';
+
 export const viewport: Viewport = {};
 export { metadata } from './metadata';
 
@@ -25,6 +27,8 @@ export default async function Layout({
 }) {
   const session = await getSession();
   const showNotifications = await showNotificationsFlag();
+  const userId = session?.user?.id;
+  const hasUnread = userId ? await hasUnreadNotifications(userId) : false;
 
   return (
     <RootLayout
@@ -35,7 +39,7 @@ export default async function Layout({
         </AlertBanner>
       }
       footer={<Footer />}
-      navbar={<Navbar showNotifications={showNotifications} />}
+      navbar={<Navbar showNotifications={showNotifications} hasUnread={hasUnread} userId={userId} />}
       trackers={<Analytics />}
     >
       <GlobalActionButtons username={session?.user?.name || 'Unknown User'} />

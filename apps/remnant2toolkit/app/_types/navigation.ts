@@ -5,6 +5,7 @@ import {
   CreateBuildIcon,
   DiscordIcon,
   FavoriteIcon,
+  FollowIcon,
   ItemLookupIcon,
   ItemTrackerIcon,
   MyBuildsIcon,
@@ -173,6 +174,12 @@ export const NAV_ITEMS = {
     description: 'View and manage Remnant 2 builds you created.',
     href: '/profile/created-builds',
     icon: MyBuildsIcon,
+  },
+  notifications: {
+    label: 'My Notifications',
+    description: "View and manage R2TK notifications you've received.",
+    href: '/profile/notifications',
+    icon: FollowIcon,
   },
   profile: {
     label: 'Profile',

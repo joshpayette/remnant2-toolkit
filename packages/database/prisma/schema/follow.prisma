@@ -1,0 +1,29 @@
+// Tracks all updates to a given build
+model BuildFollow {
+  id                       String                    @id @default(cuid())
+  createdAt                DateTime                  @default(now())
+  updatedAt                DateTime                  @updatedAt
+  follower                 User                      @relation(fields: [followerId], references: [id], onDelete: Cascade)
+  followerId               String
+  followed                 Build                     @relation(fields: [followedId], references: [id], onDelete: Cascade)
+  followedId               String                    @map("followedId")
+  buildUpdateNotifications BuildUpdateNotification[]
+
+  @@index([followerId])
+  @@index([followedId])
+}
+
+// Tracks all updates from a given user, such as new builds
+model UserFollow {
+  id                    String                 @id @default(cuid())
+  createdAt             DateTime               @default(now())
+  updatedAt             DateTime               @updatedAt
+  follower              User                   @relation(name: "follower", fields: [followerId], references: [id], onDelete: Cascade)
+  followerId            String
+  followed              User                   @relation(name: "followed", fields: [followedId], references: [id], onDelete: Cascade)
+  followedId            String                 @map("followedId")
+  buildNewNotifications BuildNewNotification[]
+
+  @@index([followerId])
+  @@index([followedId])
+}

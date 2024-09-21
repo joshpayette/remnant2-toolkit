@@ -1,125 +1,69 @@
-// Tracks all builds that a user has subscribed to
-model BuildSubscription {
-  id                  String             @id @default(cuid())
-  createdAt           DateTime           @default(now())
-  updatedAt           DateTime           @updatedAt
-  subscriber          User               @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
-  subscriberId        String
-  subscribedTo        Build              @relation(fields: [subscribedToId], references: [id], onDelete: Cascade)
-  subscribedToId      String
-  BuildNotification   BuildNotification? @relation(fields: [buildNotificationId], references: [id])
-  buildNotificationId String?
-
-  @@index([subscriberId])
-  @@index([subscribedToId])
-  @@index([buildNotificationId])
+// All known notification types, for use as a discriminator or filter
+enum NotificationType {
+  Announcement
+  BuildNew
+  BuildUpdate
 }
 
-// Notifications displayed to users in the BuildSubscription table
-model BuildNotification {
-  id                      String                    @id @default(cuid())
-  createdAt               DateTime                  @default(now())
-  updatedAt               DateTime                  @updatedAt
-  createdBy               User                      @relation(fields: [createdById], references: [id], onDelete: Cascade)
-  createdById             String
-  message                 String
-  build                   Build                     @relation(fields: [buildId], references: [id], onDelete: Cascade)
-  buildId                 String
-  buildSubscriptions      BuildSubscription[]
-  buildNotificationStatus BuildNotificationStatus[]
+// A per-user instance of a notification
+model NotificationBase {
+  // Common fields
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  createdBy   User     @relation(name: "createdBy", fields: [createdById], references: [id], onDelete: Cascade)
+  createdById String
+  target      User     @relation(name: "target", fields: [targetId], references: [id], onDelete: Cascade)
+  targetId    String
+  eventTime   DateTime
+  read        Boolean  @default(false)
+  hidden      Boolean  @default(false)
+
+  // Individual notification types, selected by discriminator
+  type                     NotificationType
+  announcementNotification AnnouncementNotification?
+  buildNewNotification     BuildNewNotification?
+  buildUpdateNotification  BuildUpdateNotification?
+
+  @@index([createdById])
+  @@index([targetId])
+}
+
+// Extended schema for announcements
+model AnnouncementNotification {
+  notificationId   String           @id @default(cuid())
+  notificationBase NotificationBase @relation(fields: [baseId], references: [id])
+  baseId           String           @unique
+}
+
+// Extended schema for new builds
+model BuildNewNotification {
+  notificationId   String           @id @default(cuid())
+  notificationBase NotificationBase @relation(fields: [baseId], references: [id])
+  baseId           String           @unique
+
+  follow   UserFollow @relation(fields: [followId], references: [id])
+  followId String
+
+  build   Build  @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId String
 
   @@index([buildId])
-  @@index([createdById])
+  @@index([followId])
 }
 
-// Tracks the status of a build notification for a subscribed user
-model BuildNotificationStatus {
-  id             String            @id @default(cuid())
-  createdAt      DateTime          @default(now())
-  updatedAt      DateTime          @updatedAt
-  subscriber     User              @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
-  subscriberId   String
-  notification   BuildNotification @relation(fields: [notificationId], references: [id], onDelete: Cascade)
-  notificationId String
-  read           Boolean           @default(false)
-  hidden         Boolean           @default(false)
+// Extended schema for build updates
+model BuildUpdateNotification {
+  notificationId   String           @id @default(cuid())
+  notificationBase NotificationBase @relation(fields: [baseId], references: [id])
+  baseId           String           @unique
 
-  @@index([subscriberId])
-  @@index([notificationId])
-}
+  follow   BuildFollow @relation(fields: [followId], references: [id], onDelete: Cascade)
+  followId String
 
-// Tracks all users that a user has subscribed to
-model UserSubscription {
-  id                 String            @id @default(cuid())
-  createdAt          DateTime          @default(now())
-  updatedAt          DateTime          @updatedAt
-  subscriber         User              @relation(name: "subscriber", fields: [subscriberId], references: [id], onDelete: Cascade)
-  subscriberId       String
-  subscribedTo       User              @relation(name: "subscribedTo", fields: [subscribedToId], references: [id], onDelete: Cascade)
-  subscribedToId     String
-  userNotification   UserNotification? @relation(fields: [userNotificationId], references: [id])
-  userNotificationId String?
+  build   Build  @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId String
 
-  @@index([subscriberId])
-  @@index([subscribedToId])
-  @@index([userNotificationId])
-}
-
-// Notifications displayed to users in the UserSubscription table
-model UserNotification {
-  id                     String                   @id @default(cuid())
-  createdAt              DateTime                 @default(now())
-  updatedAt              DateTime                 @updatedAt
-  createdBy              User                     @relation(fields: [createdById], references: [id], onDelete: Cascade)
-  createdById            String
-  message                String
-  userSubscription       UserSubscription[]
-  userNotificationStatus UserNotificationStatus[]
-
-  @@index([createdById])
-}
-
-// Tracks the status of a user notification for a subscribed user
-model UserNotificationStatus {
-  id             String           @id @default(cuid())
-  createdAt      DateTime         @default(now())
-  updatedAt      DateTime         @updatedAt
-  subscriber     User             @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
-  subscriberId   String
-  notification   UserNotification @relation(fields: [notificationId], references: [id], onDelete: Cascade)
-  notificationId String
-  read           Boolean          @default(false)
-  hidden         Boolean          @default(false)
-
-  @@index([subscriberId])
-  @@index([notificationId])
-}
-
-// Notifications displayed to all users in the site
-model SiteNotification {
-  id                     String                   @id @default(cuid())
-  createdAt              DateTime                 @default(now())
-  updatedAt              DateTime                 @updatedAt
-  createdBy              User                     @relation(fields: [createdById], references: [id], onDelete: Cascade)
-  createdById            String
-  message                String
-  url                    String
-  SiteNotificationStatus SiteNotificationStatus[]
-
-  @@index([createdById])
-}
-
-model SiteNotificationStatus {
-  id             String           @id @default(cuid())
-  createdAt      DateTime         @default(now())
-  updatedAt      DateTime         @updatedAt
-  subscriber     User             @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
-  subscriberId   String
-  notification   SiteNotification @relation(fields: [notificationId], references: [id], onDelete: Cascade)
-  notificationId String
-  read           Boolean          @default(false)
-  hidden         Boolean          @default(false)
-
-  @@index([subscriberId])
-  @@index([notificationId])
+  @@index([buildId])
+  @@index([followId])
 }

@@ -33,6 +33,16 @@ export function ProfileNavbar({
       current: pathname === `/profile/${profileId}`,
     },
     {
+      name: showPrivateLinks ? NAV_ITEMS.notifications.label : 'Notifications',
+      href: {
+        pathname: `/profile/${profileId}/notifications`,
+        query: {
+          t: Date.now(),
+        },
+      },
+      current: pathname === `/profile/${profileId}/notifications`,
+    },
+    {
       name: showPrivateLinks ? NAV_ITEMS.myBuilds.label : 'Created Builds',
       href: {
         pathname: `/profile/${profileId}/created-builds`,

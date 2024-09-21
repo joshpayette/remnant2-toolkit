@@ -29,10 +29,10 @@ export async function addFollowForBuild({
 
   try {
     // Check if user has followed for this build already
-    const isBuildFollowed = await prisma.userBuildSubscription.findFirst({
+    const isBuildFollowed = await prisma.buildFollow.findFirst({
       where: {
-        buildId,
-        userId: session.user.id,
+        followedId: buildId,
+        followerId: session.user.id,
       },
     });
 
@@ -42,10 +42,10 @@ export async function addFollowForBuild({
       };
     }
 
-    await prisma.userBuildSubscription.create({
+    await prisma.buildFollow.create({
       data: {
-        buildId,
-        userId: session.user.id,
+        followedId: buildId,
+        followerId: session.user.id,
       },
     });
 
