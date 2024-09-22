@@ -29,7 +29,7 @@ export function ViewBuildContainer({ buildVariants }: Props) {
 
   return (
     <>
-      <VideoThumbnail buildState={mainBuildVariant} />
+      <VideoThumbnail buildState={activeBuildVariant} />
       {buildVariants.length > 1 && (
         <TabbedBuildsDisplay
           activeBuild={activeBuildVariant}

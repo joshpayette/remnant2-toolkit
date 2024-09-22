@@ -10,8 +10,6 @@ export function syncBuildVariantsToBuild({
   buildVariants: BuildState[];
 }) {
   const newBuildVariants = buildVariants.map((buildVariant) => {
-    buildVariant.videoUrl = build.videoUrl;
-    buildVariant.buildLink = build.buildLink;
     buildVariant.duplicateCount = build.duplicateCount;
     buildVariant.totalUpvotes = build.totalUpvotes;
     buildVariant.isPublic = build.isPublic;
