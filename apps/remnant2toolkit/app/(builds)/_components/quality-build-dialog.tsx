@@ -21,7 +21,7 @@ export function QualityBuildDialog({ open, onClose }: Props) {
           <li className="mb-1 ml-4">Build name is not "My Build".</li>
           <li className="mb-1 ml-4">At least one build tag.</li>
           <li className="mb-1 ml-4">
-            All item slots filled, except consumables.
+            All item slots filled, except consumables and armor.
           </li>
         </ul>
       </BaseDialogBody>
