@@ -4,11 +4,11 @@ import { Prisma, prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
 import { limitToQualityBuilds } from '@/app/(builds)/_libs/build-filters/limit-by-quality';
-import { type DBBuildDetailed } from '@/app/(builds)/_types/db-build-detailed';
+import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function getQualityBuildFeed(): Promise<{
-  builds: DBBuildDetailed[];
+  builds: DBBuild[];
 }> {
   const session = await getSession();
   const userId = session?.user?.id;
@@ -64,7 +64,7 @@ export async function getQualityBuildFeed(): Promise<{
   LIMIT 4 
   `;
 
-  const builds = await prisma.$queryRaw<DBBuildDetailed[]>(query);
+  const builds = await prisma.$queryRaw<DBBuild[]>(query);
 
   // Then, for each Build, get the associated BuildItems
   for (const build of builds) {

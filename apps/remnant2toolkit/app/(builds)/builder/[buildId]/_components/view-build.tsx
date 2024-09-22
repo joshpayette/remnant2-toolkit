@@ -105,7 +105,6 @@ export function ViewBuild({
   // Need to convert the build data to a format that the BuildPage component can use
   if (!session?.user) {
     mainBuildState.upvoted = false;
-    mainBuildState.reported = false;
   }
 
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton

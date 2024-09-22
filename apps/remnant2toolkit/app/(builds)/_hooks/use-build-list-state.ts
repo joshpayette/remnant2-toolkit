@@ -40,7 +40,7 @@ const DEFAULT_STATE: State = {
     createdByDisplayName: '',
     createdAt: new Date(),
     updatedAt: new Date(),
-    reported: false,
+    variantIndex: 0,
     upvoted: false,
     totalUpvotes: 0,
     viewCount: 0,

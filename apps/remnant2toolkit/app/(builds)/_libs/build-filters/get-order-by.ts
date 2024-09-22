@@ -26,7 +26,7 @@ export function getOrderBySegment(
     }
   } else if (orderBy === 'most viewed') {
     orderBySegment = Prisma.sql`
-    ORDER BY validatedViews DESC
+    ORDER BY validatedViewCount DESC
     `;
   }
 

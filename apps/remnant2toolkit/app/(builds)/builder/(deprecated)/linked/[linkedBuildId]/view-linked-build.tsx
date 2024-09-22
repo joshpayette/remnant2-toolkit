@@ -78,7 +78,6 @@ export function ViewLinkedBuild({ linkedBuildState }: Props) {
   // Need to convert the build data to a format that the BuildPage component can use
   if (!session?.user) {
     buildState.upvoted = false;
-    buildState.reported = false;
   }
 
   const [optimisticUpvote, setOptimisticUpvote] = useState(buildState.upvoted);

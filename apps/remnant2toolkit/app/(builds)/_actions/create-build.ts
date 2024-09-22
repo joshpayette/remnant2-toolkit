@@ -49,6 +49,7 @@ export async function createBuild(
           updatedAt: tag.updatedAt ? new Date(tag.updatedAt) : null,
         }))
       : null,
+    variantIndex: unvalidatedData.variantIndex ?? 0,
     viewCount: 0,
     validatedViewCount: 0,
     duplicateCount: 0,
@@ -73,7 +74,7 @@ export async function createBuild(
     buildState.buildLink ?? '',
   );
 
-  if (nameBadWordCheck.isProfane) {
+  if (nameBadWordCheck.isProfane && process.env.NODE_ENV === 'production') {
     buildState.isPublic = false;
 
     // Send webhook to #action-log
@@ -111,7 +112,10 @@ export async function createBuild(
       ],
     };
   }
-  if (descriptionBadWordCheck.isProfane) {
+  if (
+    descriptionBadWordCheck.isProfane &&
+    process.env.NODE_ENV === 'production'
+  ) {
     buildState.isPublic = false;
 
     // Send webhook to #action-log
@@ -150,7 +154,10 @@ export async function createBuild(
     };
   }
 
-  if (referenceLinkBadWordCheck.isProfane) {
+  if (
+    referenceLinkBadWordCheck.isProfane &&
+    process.env.NODE_ENV === 'production'
+  ) {
     buildState.isPublic = false;
 
     // Send webhook to #action-log
@@ -423,18 +430,22 @@ export async function createBuild(
 
 export async function linkBuildVariants({
   mainBuildId,
-  variantIds,
+  variants,
 }: {
   mainBuildId: string;
-  variantIds: string[];
+  variants: Array<{
+    id: string;
+    index: number;
+  }>;
 }): Promise<BuildActionResponse> {
   // For each variant, add an entry to the BuildVariant table
   try {
     await prisma.buildVariant.createMany({
-      data: variantIds.map((variantId) => {
+      data: variants.map((variant) => {
         return {
           primaryBuildId: mainBuildId,
-          secondaryBuildId: variantId,
+          secondaryBuildId: variant.id,
+          index: variant.index,
         };
       }),
     });

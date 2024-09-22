@@ -68,8 +68,8 @@ export async function getBuild(
       totalUpvotes: build.BuildVotes.length,
       viewCount: build.viewCount,
       validatedViewCount: build.BuildValidatedViews.length,
+      variantIndex: 0,
       duplicateCount: build.duplicateCount,
-      reported: false,
       buildItems: build.BuildItems,
     };
 
