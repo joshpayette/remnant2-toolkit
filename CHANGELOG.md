@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-09-22
 
+### Added
+
+- Item Cards will now let you click where you can view the number of builds the item is found in. Clicking will take you to the build page with the item filter applied.
+
 ### Changed
 
 - It is no longer a requirement for Quality Builds to have items selected for armor slots.
