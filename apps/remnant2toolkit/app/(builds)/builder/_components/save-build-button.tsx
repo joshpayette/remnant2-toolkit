@@ -172,8 +172,8 @@ export function SaveBuildButton({
               )?.name;
               if (buildName) {
                 fields.push({
-                  name: buildName,
-                  value: `Updates to ${change.category}`,
+                  name: `Updates to ${change.category}`,
+                  value: buildName,
                 });
               }
             }
