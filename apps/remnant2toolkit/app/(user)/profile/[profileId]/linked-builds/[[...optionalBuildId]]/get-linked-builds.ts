@@ -214,7 +214,7 @@ export async function getLinkedBuilds({
               viewCount: build.viewCount,
               validatedViewCount: build.BuildValidatedViews.length,
               duplicateCount: build.duplicateCount,
-              reported: false,
+              variantIndex: 0,
               buildItems: [],
             },
           };
