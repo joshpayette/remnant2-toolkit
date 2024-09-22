@@ -6,6 +6,7 @@ export const maxDuration = 60;
 
 const buildFilters: Partial<BuildListFilters> = {
   patchAffected: true,
+  withQuality: false,
 };
 
 export default async function Page({

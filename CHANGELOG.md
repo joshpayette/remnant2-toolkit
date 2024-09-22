@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Quality Build filter is now on by default when viewing build feeds. There is a button above and below the build list to easily apply/remove the filter.
+  - Quality Build filter defaults to false on your Created Builds and Featured Builds pages on your profile.
 - Quality Build definition updated to include the requirement that a build is not named "My Build."
 
 ### Removed

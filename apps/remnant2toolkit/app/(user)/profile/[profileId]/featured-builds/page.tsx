@@ -4,6 +4,7 @@ import { FeaturedBuilds } from '@/app/(user)/profile/[profileId]/featured-builds
 
 const buildFilters: Partial<BuildListFilters> = {
   patchAffected: true,
+  withQuality: false,
 };
 
 export default async function Page({
