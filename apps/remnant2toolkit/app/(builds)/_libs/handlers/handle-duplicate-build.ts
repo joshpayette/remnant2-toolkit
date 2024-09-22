@@ -56,7 +56,7 @@ export async function handleDuplicateBuild({
   // Create build variants
   const buildVariantsResponse = await Promise.all(
     variantBuildStates.map((buildVariant) =>
-      createBuild(JSON.stringify(buildVariant)),
+      createBuild(JSON.stringify(buildVariant), false),
     ),
   );
 
