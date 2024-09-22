@@ -15,6 +15,15 @@ interface Props {
 }
 
 export async function ProfileStats({ isEditable, profileId }: Props) {
+  // Fetch secondaryBuildId values first
+  const secondaryBuildIds = await prisma.buildVariant
+    .findMany({
+      select: {
+        secondaryBuildId: true,
+      },
+    })
+    .then((variants) => variants.map((variant) => variant.secondaryBuildId));
+
   // get a count of all the builds created by the current user
   const [
     buildsCreated,
@@ -24,37 +33,52 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
     userProfile,
     discoveredItemIds,
   ] = await Promise.all([
-    await prisma.build.count({
-      where: { createdById: profileId, isPublic: true },
+    prisma.build.count({
+      where: {
+        createdById: profileId,
+        isPublic: true,
+        id: {
+          notIn: secondaryBuildIds,
+        },
+      },
     }),
-    await prisma.buildVoteCounts.count({
+    prisma.buildVoteCounts.count({
       where: {
         build: {
           createdById: profileId,
           isPublic: true,
+          id: {
+            notIn: secondaryBuildIds,
+          },
         },
       },
     }),
-    await prisma.userLoadouts.count({
+    prisma.userLoadouts.count({
       where: {
         build: {
           createdById: profileId,
           isPublic: true,
+          id: {
+            notIn: secondaryBuildIds,
+          },
         },
       },
     }),
-    await prisma.build.count({
+    prisma.build.count({
       where: {
         createdById: profileId,
         isFeaturedBuild: true,
         isPublic: true,
+        id: {
+          notIn: secondaryBuildIds,
+        },
       },
     }),
-    await prisma.userProfile.findFirst({
+    prisma.userProfile.findFirst({
       where: { userId: profileId },
       select: { topItemQuizScore: true },
     }),
-    await prisma.userItems.findMany({
+    prisma.userItems.findMany({
       where: { userId: profileId },
       select: { itemId: true },
     }),
