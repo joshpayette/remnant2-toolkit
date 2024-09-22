@@ -74,7 +74,7 @@ export async function createBuild(
     buildState.buildLink ?? '',
   );
 
-  if (nameBadWordCheck.isProfane && process.env.NODE_ENV === 'production') {
+  if (nameBadWordCheck.isProfane) {
     buildState.isPublic = false;
 
     // Send webhook to #action-log
@@ -112,10 +112,7 @@ export async function createBuild(
       ],
     };
   }
-  if (
-    descriptionBadWordCheck.isProfane &&
-    process.env.NODE_ENV === 'production'
-  ) {
+  if (descriptionBadWordCheck.isProfane) {
     buildState.isPublic = false;
 
     // Send webhook to #action-log
@@ -154,10 +151,7 @@ export async function createBuild(
     };
   }
 
-  if (
-    referenceLinkBadWordCheck.isProfane &&
-    process.env.NODE_ENV === 'production'
-  ) {
+  if (referenceLinkBadWordCheck.isProfane) {
     buildState.isPublic = false;
 
     // Send webhook to #action-log
@@ -430,22 +424,18 @@ export async function createBuild(
 
 export async function linkBuildVariants({
   mainBuildId,
-  variants,
+  variantIds,
 }: {
   mainBuildId: string;
-  variants: Array<{
-    id: string;
-    index: number;
-  }>;
+  variantIds: string[];
 }): Promise<BuildActionResponse> {
   // For each variant, add an entry to the BuildVariant table
   try {
     await prisma.buildVariant.createMany({
-      data: variants.map((variant) => {
+      data: variantIds.map((variantId) => {
         return {
           primaryBuildId: mainBuildId,
-          secondaryBuildId: variant.id,
-          index: variant.index,
+          secondaryBuildId: variantId,
         };
       }),
     });

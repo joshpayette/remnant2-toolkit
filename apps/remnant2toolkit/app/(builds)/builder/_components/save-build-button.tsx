@@ -133,19 +133,16 @@ export function SaveBuildButton({
 
           // all variants except the first need to be linked
           const variantResponses = flatResponses.slice(1);
-          const variants = variantResponses.map((response, index) => {
-            return {
-              id: (response as SuccessResponse).buildId as string,
-              index: index + 1,
-            };
-          });
+          const variantIds = variantResponses.map(
+            (response) => (response as SuccessResponse).buildId as string,
+          );
 
           const mainBuildId = (responses[0] as SuccessResponse)
             .buildId as string;
 
           const _response = await linkBuildVariants({
             mainBuildId,
-            variants,
+            variantIds,
           });
 
           if (areVariantsAddedOrDeleted) {
@@ -249,18 +246,15 @@ export function SaveBuildButton({
 
         // all variants except the first need to be linked
         const variantResponses = responses.slice(1);
-        const variants = variantResponses.map((response, index) => {
-          return {
-            id: (response as SuccessResponse).buildId as string,
-            index: index + 1,
-          };
-        });
+        const variantIds = variantResponses.map(
+          (response) => (response as SuccessResponse).buildId as string,
+        );
 
         const mainBuildId = (responses[0] as SuccessResponse).buildId as string;
 
         const _response = await linkBuildVariants({
           mainBuildId,
-          variants,
+          variantIds,
         });
 
         toast.success('Build created successfully!');

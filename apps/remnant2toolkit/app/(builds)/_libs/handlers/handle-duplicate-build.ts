@@ -69,14 +69,9 @@ export async function handleDuplicateBuild({
   // Create build variant record
   const _response = await linkBuildVariants({
     mainBuildId: createBuildResponse.buildId as string,
-    variants: buildVariantsResponse
-      .map((response, index) => {
-        return {
-          id: (response as SuccessResponse).buildId as string,
-          index: index + 1,
-        };
-      })
-      .filter((response) => response.id !== createBuildResponse.buildId),
+    variantIds: buildVariantsResponse
+      .map((response) => (response as SuccessResponse).buildId as string)
+      .filter((buildId) => buildId !== createBuildResponse.buildId),
   });
 
   toast.success(createBuildResponse.message);

@@ -34,9 +34,6 @@ export async function dbBuildToBuildVariants(
   // Add main build to the start
   buildVariants.unshift(cleanUpBuildState(dbBuildToBuildState(build)));
 
-  // increment view count on the main build
-  await incrementViewCount({ buildId: build.id });
-
   // loop through build variants and copy videoUrl and buildLink from the main build to each variant
   buildVariants = syncBuildVariantsToBuild({
     build: buildVariants[0] as BuildState,
