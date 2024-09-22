@@ -1,5 +1,7 @@
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 
+// TODO Separate videos for each build
+
 export function syncBuildVariantsToBuild({
   build,
   buildVariants,

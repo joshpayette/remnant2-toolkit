@@ -41,7 +41,6 @@ import {
   MAX_RINGS,
 } from '@/app/(builds)/_components/filters/types';
 import { parseUrlFilters } from '@/app/(builds)/_components/filters/utils';
-import { QualityBuildDialog } from '@/app/(builds)/_components/quality-build-dialog';
 
 export const DEFAULT_BUILD_FILTERS = {
   archetypes: VALID_ARCHETYPES,
@@ -69,7 +68,6 @@ interface Props {
 // #region Component
 
 export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
-  const [qualityBuildDialogOpen, setQualityBuildDialogOpen] = useState(false);
   const { status: sessionStatus } = useSession();
 
   const defaultFilters = useMemo(() => {
@@ -497,10 +495,6 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
                     />
                   </div>
                   <div className="col-span-full sm:col-span-1 md:col-span-2">
-                    <QualityBuildDialog
-                      open={qualityBuildDialogOpen}
-                      onClose={() => setQualityBuildDialogOpen(false)}
-                    />
                     <BuildMiscFilter
                       value={[
                         unappliedFilters.patchAffected
@@ -521,16 +515,6 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
                       ]}
                       onChange={handleMiscFilterChange}
                     />
-                    {unappliedFilters.withQuality && (
-                      <div className="flex items-center justify-end">
-                        <BaseButton
-                          plain
-                          onClick={() => setQualityBuildDialogOpen(true)}
-                        >
-                          What makes a Quality Build?
-                        </BaseButton>
-                      </div>
-                    )}
                     {unappliedFilters.withCollection && (
                       <div className="flex flex-col gap-y-2">
                         {sessionStatus !== 'authenticated' && (
