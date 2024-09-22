@@ -46,6 +46,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
           updatedAt: tag.updatedAt ? new Date(tag.updatedAt) : null,
         }))
       : null,
+    variantIndex: unvalidatedData.variantIndex ?? 0,
     viewCount: unvalidatedData.viewCount ?? 0,
     validatedViewCount: unvalidatedData.validatedViewCount ?? 0,
     duplicateCount: unvalidatedData.duplicateCount ?? 0,
@@ -89,7 +90,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
 
   // Check for bad words in the name
   const nameBadWordCheck = badWordFilter.isProfane(buildState.name);
-  if (nameBadWordCheck.isProfane) {
+  if (nameBadWordCheck.isProfane && process.env.NODE_ENV === 'production') {
     buildState.isPublic = false;
 
     // Send webhook to #action-log
@@ -132,7 +133,10 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
   const descriptionBadWordCheck = badWordFilter.isProfane(
     buildState.description ?? '',
   );
-  if (descriptionBadWordCheck.isProfane) {
+  if (
+    descriptionBadWordCheck.isProfane &&
+    process.env.NODE_ENV === 'production'
+  ) {
     buildState.isPublic = false;
 
     // Send webhook to #action-log
@@ -175,7 +179,10 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
   const referenceLinkBadWordCheck = badWordFilter.isProfane(
     buildState.buildLink ?? '',
   );
-  if (referenceLinkBadWordCheck.isProfane) {
+  if (
+    referenceLinkBadWordCheck.isProfane &&
+    process.env.NODE_ENV === 'production'
+  ) {
     buildState.isPublic = false;
 
     // Send webhook to #action-log
@@ -376,7 +383,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       existingBuild?.name !== buildState.name &&
       buildState.isPublic === true &&
       !isPermittedBuilder(session.user.id);
-    if (isBuildNameChanged) {
+    if (isBuildNameChanged && process.env.NODE_ENV === 'production') {
       await sendWebhook({
         webhook: 'modQueue',
         params: {
@@ -405,7 +412,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       existingBuild?.isPublic === false &&
       buildState.isPublic === true &&
       !isPermittedBuilder(session.user.id);
-    if (isPrivateBuildNowPublic) {
+    if (isPrivateBuildNowPublic && process.env.NODE_ENV === 'production') {
       await sendWebhook({
         webhook: 'modQueue',
         params: {
@@ -452,7 +459,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       existingBuild.description.trim().length > 0 &&
       buildState.isPublic &&
       !isPermittedBuilder(session.user.id);
-    if (isBuildDescriptionChanged) {
+    if (isBuildDescriptionChanged && process.env.NODE_ENV === 'production') {
       await sendWebhook({
         webhook: 'modQueue',
         params: getBuildDescriptionParams({
@@ -470,7 +477,7 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       buildState.buildLink.trim().length > 0 &&
       buildState.isPublic === true &&
       !isPermittedBuilder(session.user.id);
-    if (isBuildLinkUpdated) {
+    if (isBuildLinkUpdated && process.env.NODE_ENV === 'production') {
       await sendWebhook({
         webhook: 'modQueue',
         params: {

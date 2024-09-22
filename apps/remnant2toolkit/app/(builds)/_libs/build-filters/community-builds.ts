@@ -1,6 +1,6 @@
 import { Prisma, prisma } from '@repo/db';
 
-import { type DBBuildDetailed } from '@/app/(builds)/_types/db-build-detailed';
+import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
 type Props = {
   itemsPerPage: number;
@@ -18,14 +18,14 @@ export function communityBuildsQuery({
   orderBySegment,
   whereConditions,
   searchText,
-}: Props): Prisma.PrismaPromise<DBBuildDetailed[]> {
+}: Props): Prisma.PrismaPromise<DBBuild[]> {
   const query = Prisma.sql`
   SELECT 
     Build.*, 
     User.name as createdByName, 
     User.displayName as createdByDisplayName,
     (SELECT COUNT(*) FROM BuildVoteCounts WHERE BuildVoteCounts.buildId = Build.id) as totalUpvotes,
-    (SELECT COUNT(*) FROM BuildValidatedViews WHERE BuildValidatedViews.buildId = Build.id) as validatedViews,
+    (SELECT COUNT(*) FROM BuildValidatedViews WHERE BuildValidatedViews.buildId = Build.id) as validatedViewCount,
     0 as totalReports,
     FALSE as reported,
     CASE WHEN EXISTS (
@@ -78,7 +78,7 @@ export function communityBuildsQuery({
   OFFSET ${(pageNumber - 1) * itemsPerPage}
 `;
 
-  return prisma.$queryRaw<DBBuildDetailed[]>(query);
+  return prisma.$queryRaw<DBBuild[]>(query);
 }
 
 /**

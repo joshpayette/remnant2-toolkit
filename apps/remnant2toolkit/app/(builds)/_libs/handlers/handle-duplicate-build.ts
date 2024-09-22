@@ -35,7 +35,6 @@ export async function handleDuplicateBuild({
     typeof newBuildState.totalUpvotes === 'string'
       ? 0
       : newBuildState.totalUpvotes;
-  newBuildState.reported = Boolean(newBuildState.reported);
 
   if (!newBuildState.buildId) {
     console.error('Error duplicating build. Build ID not found.');
@@ -70,9 +69,14 @@ export async function handleDuplicateBuild({
   // Create build variant record
   const _response = await linkBuildVariants({
     mainBuildId: createBuildResponse.buildId as string,
-    variantIds: buildVariantsResponse
-      .map((response) => (response as SuccessResponse).buildId as string)
-      .filter((buildId) => buildId !== createBuildResponse.buildId),
+    variants: buildVariantsResponse
+      .map((response, index) => {
+        return {
+          id: (response as SuccessResponse).buildId as string,
+          index: index + 1,
+        };
+      })
+      .filter((response) => response.id !== createBuildResponse.buildId),
   });
 
   toast.success(createBuildResponse.message);

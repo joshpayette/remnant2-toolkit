@@ -91,7 +91,7 @@ export function importedLoadoutToBuildState({
     viewCount: 0,
     validatedViewCount: 0,
     duplicateCount: 0,
-    reported: false,
+    variantIndex: 0,
     items: {
       helm: null,
       torso: null,

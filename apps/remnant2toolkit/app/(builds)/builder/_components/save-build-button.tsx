@@ -91,9 +91,10 @@ export function SaveBuildButton({
 
           // Update the main build and create the new build variants
           const mainBuildState = buildVariants[0];
-          const variantStates = buildVariants
-            .slice(1)
-            .map((variant) => variant);
+          const variantStates = buildVariants.slice(1).map((variant, index) => {
+            variant.variantIndex = index;
+            return variant;
+          });
 
           if (!mainBuildState.buildId) {
             console.error('Error saving edits. Build ID not found.');
@@ -132,16 +133,19 @@ export function SaveBuildButton({
 
           // all variants except the first need to be linked
           const variantResponses = flatResponses.slice(1);
-          const variantIds = variantResponses.map(
-            (response) => (response as SuccessResponse).buildId as string,
-          );
+          const variants = variantResponses.map((response, index) => {
+            return {
+              id: (response as SuccessResponse).buildId as string,
+              index: index + 1,
+            };
+          });
 
           const mainBuildId = (responses[0] as SuccessResponse)
             .buildId as string;
 
           const _response = await linkBuildVariants({
             mainBuildId,
-            variantIds,
+            variants,
           });
 
           if (areVariantsAddedOrDeleted) {
@@ -225,6 +229,7 @@ export function SaveBuildButton({
 
         const responses = await Promise.all(
           buildVariants.map((variant, index) => {
+            variant.variantIndex = index;
             // only enable notifications for the first created build
             return createBuild(JSON.stringify(variant), index === 0);
           }),
@@ -244,15 +249,18 @@ export function SaveBuildButton({
 
         // all variants except the first need to be linked
         const variantResponses = responses.slice(1);
-        const variantIds = variantResponses.map(
-          (response) => (response as SuccessResponse).buildId as string,
-        );
+        const variants = variantResponses.map((response, index) => {
+          return {
+            id: (response as SuccessResponse).buildId as string,
+            index: index + 1,
+          };
+        });
 
         const mainBuildId = (responses[0] as SuccessResponse).buildId as string;
 
         const _response = await linkBuildVariants({
           mainBuildId,
-          variantIds,
+          variants,
         });
 
         toast.success('Build created successfully!');

@@ -64,6 +64,7 @@ model BuildVariant {
   primaryBuildId   String
   SecondaryBuild   Build    @relation(name: "secondaryBuildId", fields: [secondaryBuildId], references: [id], onDelete: Cascade)
   secondaryBuildId String
+  index            Int?     @default(0)
 
   @@index([primaryBuildId])
   @@index([secondaryBuildId])
