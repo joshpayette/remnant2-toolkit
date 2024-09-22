@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Build variants are now live. These work similar to how Linked Builds work, with some notable differences. Namely, when visiting a build URL, the build variants will have tabs along the top showing the variants inline, without requiring clicks to a different page. Existing builds can have variants added to them. Additionally, creators can now add build variants while creating a build, making the process more seamless overall.
   - This is a new feature, and a big overhaul, so there may be some bugs. Please let me know in the Discord if you find any.
+  - Each build variant can have its own youtube video embed.
 
 ### Changed
 
