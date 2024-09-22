@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - It is no longer a requirement for Quality Builds to have items selected for armor slots.
 
+### Fixed
+
+- Footer icons were not showing on light mode due to style misconfiguration.
+
 ## 2024-09-21
 
 ### Added
