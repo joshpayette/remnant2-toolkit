@@ -140,6 +140,17 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
         </span>
       </BaseDialogBody>
       <BaseDialogTitle>Description</BaseDialogTitle>
+      {MutatorItem.isMutatorItem(item) && (
+        <BaseDialogBody className="flex flex-col items-start justify-start gap-x-2 gap-y-4">
+          <span className="w-[120px] font-bold">At Max Level</span>{' '}
+          <DescriptionWithTokens
+            description={item.maxLevelBonus || 'No max level bonus found.'}
+            highlightBuildTokens={false}
+            highlightExternalTokens={true}
+            highlightItems={false}
+          />
+        </BaseDialogBody>
+      )}
       <BaseDialogBody>
         <div className="mt-3 flex flex-col gap-y-2 whitespace-pre-line text-left text-gray-200">
           <DescriptionWithTokens
@@ -158,17 +169,6 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
           )}
         </div>
       </BaseDialogBody>
-      {MutatorItem.isMutatorItem(item) && (
-        <BaseDialogBody className="flex flex-col items-start justify-start gap-x-2 gap-y-4">
-          <span className="w-[120px] font-bold">At Max Level</span>{' '}
-          <DescriptionWithTokens
-            description={item.maxLevelBonus || 'No max level bonus found.'}
-            highlightBuildTokens={false}
-            highlightExternalTokens={true}
-            highlightItems={false}
-          />
-        </BaseDialogBody>
-      )}
 
       {item.cooldown && (
         <BaseDialogBody className="flex flex-col items-start justify-start gap-x-2 gap-y-4">
