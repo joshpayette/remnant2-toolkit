@@ -4,11 +4,12 @@ import { Prisma, prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
 import { limitToQualityBuilds } from '@/app/(builds)/_libs/build-filters/limit-by-quality';
-import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { type DBBuildDetailed } from '@/app/(builds)/_types/db-build-detailed';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
-export async function getQualityBuildFeed(): Promise<{ builds: DBBuild[] }> {
+export async function getQualityBuildFeed(): Promise<{
+  builds: DBBuildDetailed[];
+}> {
   const session = await getSession();
   const userId = session?.user?.id;
 

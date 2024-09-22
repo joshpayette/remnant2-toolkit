@@ -1,12 +1,17 @@
 'use client';
 
 import { BaseButton, cn } from '@repo/ui';
+import { useState } from 'react';
 import { useIsClient } from 'usehooks-ts';
 
 import { Pagination } from '@/app/_components/pagination';
+import { QualityBuildDialog } from '@/app/(builds)/_components/quality-build-dialog';
 
 function NonQualityBuildsBox({ isWithQuality }: { isWithQuality: boolean }) {
   const isClient = useIsClient();
+
+  const [qualityBuildDialogOpen, setQualityBuildDialogOpen] = useState(false);
+
   // need to add `withQuality=false` to the current url
   const url = new URL(window.location.href);
   url.searchParams.set('withQuality', isWithQuality ? 'false' : 'true');
@@ -22,7 +27,11 @@ function NonQualityBuildsBox({ isWithQuality }: { isWithQuality: boolean }) {
   }
 
   return (
-    <div className="mt-8 flex w-full items-center justify-center sm:mt-4">
+    <div className="mt-8 flex w-full flex-col items-center justify-center sm:mt-4">
+      <QualityBuildDialog
+        open={qualityBuildDialogOpen}
+        onClose={() => setQualityBuildDialogOpen(false)}
+      />
       <BaseButton
         color="violet"
         onClick={() => {
@@ -32,6 +41,9 @@ function NonQualityBuildsBox({ isWithQuality }: { isWithQuality: boolean }) {
       >
         <strong>{label}</strong>
         <span>Click to {label2} the Quality Build filter!</span>
+      </BaseButton>
+      <BaseButton plain onClick={() => setQualityBuildDialogOpen(true)}>
+        What makes a Quality Build?
       </BaseButton>
     </div>
   );
