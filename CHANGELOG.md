@@ -17,6 +17,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
   - Quality Build filter defaults to false on your Created Builds and Featured Builds pages on your profile.
 - Quality Build definition updated to include the requirement that a build is not named "My Build."
 
+### Fixed
+
+- Profile stats no longer include build variants in the stat totals.
+
 ### Removed
 
 - Linked Builds are being deprecated. You can still view existing Linked Builds, but you can no longer add or edit them. Truthfully, I should have incorporated Linked Builds in the way that Build Variants now work at the outset. However, trying to manage the Linked Build architecture with the existence of Build Variants added too many odd scenarios that would add a lot of overhead moving forward that didn't feel worth it for the benefit that Build Variants provide compared to Linked Builds
