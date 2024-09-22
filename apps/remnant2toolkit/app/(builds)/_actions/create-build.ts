@@ -432,10 +432,11 @@ export async function linkBuildVariants({
   // For each variant, add an entry to the BuildVariant table
   try {
     await prisma.buildVariant.createMany({
-      data: variantIds.map((variantId) => {
+      data: variantIds.map((variantId, index) => {
         return {
           primaryBuildId: mainBuildId,
           secondaryBuildId: variantId,
+          index: index + 1,
         };
       }),
     });

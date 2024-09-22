@@ -1,7 +1,6 @@
 import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
 import { getBuildVariantIds } from '@/app/(builds)/_actions/get-build-variant-ids';
-import { incrementViewCount } from '@/app/(builds)/_actions/increment-view-count';
 import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
 import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
 import { syncBuildVariantsToBuild } from '@/app/(builds)/_libs/sync-build-variants-to-build';
