@@ -136,37 +136,50 @@ export function parseUrlFilters(
     parsedParams.get(BUILD_FILTER_KEYS.SEARCHTEXT) || defaultFilters.searchText;
 
   // Validate the patchAffected filter
-  let patchAffected =
-    parsedParams.get(BUILD_FILTER_KEYS.PATCHAFFECTED) ||
-    defaultFilters.patchAffected;
-  if (typeof patchAffected === 'string') {
-    patchAffected = patchAffected === 'true';
+  const patchAffectedParam = parsedParams.get(BUILD_FILTER_KEYS.PATCHAFFECTED);
+  let patchAffected = defaultFilters.patchAffected;
+  if (typeof patchAffectedParam === 'string') {
+    patchAffected = patchAffectedParam === 'true';
+  } else if (patchAffectedParam === null) {
+    patchAffected = defaultFilters.patchAffected;
   }
 
   // Validate the withVideo filter
-  let withVideo = parsedParams.get(BUILD_FILTER_KEYS.WITHVIDEO) === 'true';
-  if (typeof withVideo === 'string') {
-    withVideo = withVideo === 'true';
+  const withVideoParam = parsedParams.get(BUILD_FILTER_KEYS.WITHVIDEO);
+  let withVideo = defaultFilters.withVideo;
+  if (typeof withVideoParam === 'string') {
+    withVideo = withVideoParam === 'true';
+  } else if (withVideoParam === null) {
+    withVideo = defaultFilters.withVideo;
   }
 
   // Validate the withReference filter
-  let withReference =
-    parsedParams.get(BUILD_FILTER_KEYS.WITHREFERENCE) === 'true';
-  if (typeof withReference === 'string') {
-    withReference = withReference === 'true';
+  const withReferenceParam = parsedParams.get(BUILD_FILTER_KEYS.WITHREFERENCE);
+  let withReference = defaultFilters.withReference;
+  if (typeof withReferenceParam === 'string') {
+    withReference = withReferenceParam === 'true';
+  } else if (withReferenceParam === null) {
+    withReference = defaultFilters.withReference;
   }
 
   // Validate the withQuality filter
-  let withQuality = parsedParams.get(BUILD_FILTER_KEYS.WITHQUALITY) !== 'false';
-  if (typeof withQuality === 'string') {
-    withQuality = withQuality !== 'false';
+  const withQualityParam = parsedParams.get(BUILD_FILTER_KEYS.WITHQUALITY);
+  let withQuality = defaultFilters.withQuality;
+  if (typeof withQualityParam === 'string') {
+    withQuality = withQualityParam === 'true';
+  } else if (withQualityParam === null) {
+    withQuality = defaultFilters.withQuality;
   }
 
   // Validate the withCollection filter
-  let withCollection =
-    parsedParams.get(BUILD_FILTER_KEYS.WITHCOLLECTION) === 'true';
-  if (typeof withCollection === 'string') {
-    withCollection = withCollection === 'true';
+  const withCollectionParam = parsedParams.get(
+    BUILD_FILTER_KEYS.WITHCOLLECTION,
+  );
+  let withCollection = defaultFilters.withCollection;
+  if (typeof withCollectionParam === 'string') {
+    withCollection = withCollectionParam === 'true';
+  } else if (withCollectionParam === null) {
+    withCollection = defaultFilters.withCollection;
   }
 
   return {
