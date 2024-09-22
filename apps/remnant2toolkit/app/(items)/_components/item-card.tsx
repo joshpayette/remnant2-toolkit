@@ -1,6 +1,7 @@
 import {
   BaseButton,
   BaseLink,
+  BaseTextLink,
   cn,
   getImageUrl,
   MagnifyMinusIcon,
@@ -122,7 +123,16 @@ export function ItemCard({
               {itemBuildStats ? (
                 <div className="flex items-center gap-1 text-[11px] text-gray-200">
                   <div className="flex flex-col items-center justify-start">
-                    <span className="underline">Featured</span>
+                    {itemBuildStats.featured.usedIn > 0 ? (
+                      <BaseTextLink
+                        href={`/featured-builds?searchText=${item.name}`}
+                        className="underline"
+                      >
+                        Featured
+                      </BaseTextLink>
+                    ) : (
+                      <span className="underline">Featured</span>
+                    )}
                     <span>
                       <span>{itemBuildStats.featured.usedIn}</span>
                       <span>/</span>
@@ -130,7 +140,16 @@ export function ItemCard({
                     </span>
                   </div>
                   <div className="flex flex-col items-center justify-start">
-                    <span className="underline">Community</span>
+                    {itemBuildStats.community.usedIn > 0 ? (
+                      <BaseTextLink
+                        href={`/community-builds?searchText=${item.name}`}
+                        className="underline"
+                      >
+                        Community
+                      </BaseTextLink>
+                    ) : (
+                      <span className="underline">Community</span>
+                    )}
                     <span>
                       <span>{itemBuildStats.community.usedIn}</span>
                       <span>/</span>
