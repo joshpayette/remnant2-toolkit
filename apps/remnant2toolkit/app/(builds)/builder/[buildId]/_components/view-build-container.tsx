@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 
 import { TabbedBuildsDisplay } from '@/app/(builds)/_components/tabbed-builds-display';
@@ -15,10 +15,16 @@ interface Props {
 
 export function ViewBuildContainer({ buildVariants }: Props) {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const variantIndex = searchParams.get('variant');
+
   const mainBuildVariant = buildVariants[0];
 
-  const [activeBuildVariant, setActiveBuildVariant] =
-    useState(mainBuildVariant);
+  const [activeBuildVariant, setActiveBuildVariant] = useState(
+    variantIndex && buildVariants[parseInt(variantIndex)]
+      ? buildVariants[parseInt(variantIndex)]
+      : mainBuildVariant,
+  );
 
   if (!mainBuildVariant) {
     return null;
