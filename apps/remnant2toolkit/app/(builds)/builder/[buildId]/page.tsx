@@ -133,9 +133,9 @@ export default async function Page({
     );
   }
   const { build } = mainBuildResponse;
-  const buildVariants = await dbBuildToBuildVariants(build);
-  // increment view count on the main build
   await incrementViewCount({ buildId: build.id });
+
+  const buildVariants = await dbBuildToBuildVariants(build);
 
   return (
     <div className="flex w-full flex-col items-center">
