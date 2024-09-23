@@ -45,7 +45,7 @@ export function NavbarContainer({
           ZINDEXES.NAVBAR,
         )}
       >
-        <div className="mr-4">{logo}</div>
+        <div className="ui-mr-8">{logo}</div>
         <div className="ui-flex ui-w-screen ui-justify-end lg:ui-hidden">
           <BaseButton
             aria-label="Open main menu"
