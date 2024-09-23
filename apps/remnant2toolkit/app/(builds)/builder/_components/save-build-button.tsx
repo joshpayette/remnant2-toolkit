@@ -7,8 +7,8 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { isErrorResponse } from '@/app/_libs/is-error-response';
-import { createBuild } from '@/app/(builds)/_actions/create-build-new';
-import { updateBuild } from '@/app/(builds)/_actions/update-build-new';
+import { createBuild } from '@/app/(builds)/_actions/create-build';
+import { updateBuild } from '@/app/(builds)/_actions/update-build';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { LoadingButton } from '@/app/(builds)/builder/_components/loading-button';
 

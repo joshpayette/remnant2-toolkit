@@ -4,6 +4,7 @@ import { Prisma, prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
 import { limitToQualityBuilds } from '@/app/(builds)/_libs/build-filters/limit-by-quality';
+import { limitToNonVariantBuilds } from '@/app/(builds)/_libs/build-filters/limit-to-non-variant-builds';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
@@ -54,11 +55,7 @@ export async function getQualityBuildFeed(): Promise<{
   WHERE Build.isPublic = true
   AND Build.isPatchAffected = false
   ${limitToQualityBuilds(true)}
-  AND NOT EXISTS (
-    SELECT 1
-    FROM BuildVariant
-    WHERE BuildVariant.secondaryBuildId = Build.id
-  )
+  ${limitToNonVariantBuilds(true)}
   GROUP BY Build.id, User.id
   ORDER BY createdAt DESC
   LIMIT 4 

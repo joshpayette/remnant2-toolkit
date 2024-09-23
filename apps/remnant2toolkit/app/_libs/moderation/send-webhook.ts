@@ -3,13 +3,12 @@
 import { type DiscordWebhookParams } from '@/app/_libs/moderation/_types/discord-webhook-params';
 import { WEBHOOKS } from '@/app/_libs/moderation/_types/webhooks';
 
-export async function sendWebhook({
-  params,
-  webhook,
-}: {
+export interface SendWebhookParams {
   params: DiscordWebhookParams;
   webhook: keyof typeof WEBHOOKS;
-}) {
+}
+
+export async function sendWebhook({ params, webhook }: SendWebhookParams) {
   const res = await fetch(`${WEBHOOKS[webhook]}`, {
     method: 'POST',
     headers: {
