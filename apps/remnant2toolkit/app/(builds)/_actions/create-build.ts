@@ -5,6 +5,7 @@ import { isValidYoutubeUrl, urlNoCache } from '@repo/utils';
 import { revalidatePath } from 'next/cache';
 
 import { badWordFilter } from '@/app/_libs/bad-word-filter';
+import { sendWebhook } from '@/app/_libs/moderation/send-webhook';
 import { BUILD_REVALIDATE_PATHS } from '@/app/(builds)/_constants/build-revalidate-paths';
 import { DEFAULT_BUILD_NAME } from '@/app/(builds)/_constants/default-build-name';
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
@@ -12,7 +13,6 @@ import { buildStateToBuildItems } from '@/app/(builds)/_libs/build-state-to-buil
 import { isPermittedBuilder } from '@/app/(builds)/_libs/is-permitted-builder';
 import { validateBuildState } from '@/app/(builds)/_libs/validate-build-state';
 import { type BuildActionResponse } from '@/app/(builds)/_types/build-action-response';
-import { sendWebhook } from '@/app/(user)/_auth/moderation/send-webhook';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function createBuild(

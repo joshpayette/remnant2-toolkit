@@ -4,7 +4,7 @@ import { prisma } from '@repo/db';
 import { revalidatePath } from 'next/cache';
 
 import { type AdminToolResponse } from '@/app/(builds)/_types/admin-tool-response';
-import { sendWebhook } from '@/app/(user)/_auth/moderation/send-webhook';
+import { sendWebhook } from '@/app/_libs/moderation/send-webhook';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export default async function setGimmickBuild(

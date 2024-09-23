@@ -1,7 +1,7 @@
 import { urlNoCache } from '@repo/utils';
 import { diffTrimmedLines } from 'diff';
 
-import { type DiscordWebhookParams } from './types';
+import { type DiscordWebhookParams } from '@/app/_libs/moderation/_types/discord-webhook-params';
 
 export function getBuildDescriptionParams({
   buildId,

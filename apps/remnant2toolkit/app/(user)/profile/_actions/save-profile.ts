@@ -3,7 +3,7 @@
 import { prisma } from '@repo/db';
 
 import { badWordFilter } from '@/app/_libs/bad-word-filter';
-import { sendWebhook } from '@/app/(user)/_auth/moderation/send-webhook';
+import { sendWebhook } from '@/app/_libs/moderation/send-webhook';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function saveProfile({
