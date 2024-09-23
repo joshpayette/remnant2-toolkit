@@ -19,7 +19,6 @@ import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { validateBuildState } from '../_libs/validate-build-state';
 
 // * Data has to be passed in as a string due to error trying to pass in Traits as plain objects
-
 export async function createBuild({
   buildVariantsStringified,
 }: {
