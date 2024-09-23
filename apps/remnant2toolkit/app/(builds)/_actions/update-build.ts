@@ -1,279 +1,105 @@
 'use server';
 
-import { type BuildTags, prisma } from '@repo/db';
-import { isValidYoutubeUrl, urlNoCache } from '@repo/utils';
+import { prisma } from '@repo/db';
+import { urlNoCache } from '@repo/utils';
 import { revalidatePath } from 'next/cache';
 
 import { badWordFilter } from '@/app/_libs/bad-word-filter';
+import { getBuildDescriptionParams } from '@/app/_libs/moderation/get-build-description-params';
+import { sendWebhook } from '@/app/_libs/moderation/send-webhook';
+import { verifyBuildState } from '@/app/_libs/moderation/verify-build-state';
+import { verifyCreatorInfo } from '@/app/_libs/moderation/verify-creator-info';
 import { BUILD_REVALIDATE_PATHS } from '@/app/(builds)/_constants/build-revalidate-paths';
 import { DEFAULT_BUILD_NAME } from '@/app/(builds)/_constants/default-build-name';
-import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
-import { VIDEO_APPROVAL_WINDOW } from '@/app/(builds)/_constants/video-approval-window';
 import { buildStateToBuildItems } from '@/app/(builds)/_libs/build-state-to-build-items';
 import { isPermittedBuilder } from '@/app/(builds)/_libs/is-permitted-builder';
-import { validateBuildState } from '@/app/(builds)/_libs/validate-build-state';
 import { type BuildActionResponse } from '@/app/(builds)/_types/build-action-response';
-import { getBuildDescriptionParams } from '@/app/(user)/_auth/moderation/get-build-description-params';
-import { sendWebhook } from '@/app/(user)/_auth/moderation/send-webhook';
+import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
-export async function updateBuild(data: string): Promise<BuildActionResponse> {
+export async function updateBuild({
+  buildVariants,
+}: {
+  buildVariants: BuildState[];
+}): Promise<BuildActionResponse> {
   // session validation
   const session = await getSession();
-  if (!session || !session.user) {
+  if (!session || !session.user || !session.user.id) {
     return {
       message: 'You must be logged in.',
     };
   }
 
-  // build validation
-  let unvalidatedData = JSON.parse(data);
-  // convert date strings to dates for validation
-  unvalidatedData = {
-    ...unvalidatedData,
-    createdAt: new Date(unvalidatedData.createdAt),
-    updatedAt: new Date(unvalidatedData.updatedAt),
-    dateFeatured: unvalidatedData.dateFeatured
-      ? new Date(unvalidatedData.dateFeatured)
-      : null,
-    buildLinkUpdatedAt: unvalidatedData.buildLinkUpdatedAt
-      ? new Date(unvalidatedData.buildLinkUpdatedAt)
-      : new Date(),
-    buildTags: unvalidatedData.buildTags
-      ? unvalidatedData.buildTags.map((tag: BuildTags) => ({
-          ...tag,
-          createdAt: tag.createdAt ? new Date(tag.createdAt) : new Date(),
-          updatedAt: tag.updatedAt ? new Date(tag.updatedAt) : null,
-        }))
-      : null,
-    variantIndex: unvalidatedData.variantIndex ?? 0,
-    viewCount: unvalidatedData.viewCount ?? 0,
-    validatedViewCount: unvalidatedData.validatedViewCount ?? 0,
-    duplicateCount: unvalidatedData.duplicateCount ?? 0,
-  };
+  const mainBuildState = buildVariants[0];
+  const newVariants = buildVariants
+    .slice(1)
+    .map((variant, index) => {
+      variant.variantIndex = index;
+      return variant;
+    })
+    .filter((variant) => variant.buildId);
 
-  const validatedData = validateBuildState(unvalidatedData);
-  if (!validatedData.success) {
-    console.error('Error in data!', validatedData.error.flatten().fieldErrors);
+  if (!mainBuildState) {
     return {
-      errors: [validatedData.error.flatten().fieldErrors],
+      errors: ['Error updating build - main build state not found.'],
     };
   }
-  const buildState = validatedData.data;
-
-  if (!buildState.buildId) {
+  if (!mainBuildState.buildId) {
     return {
-      errors: ['No buildId provided!'],
+      errors: ['Error updating build - main build ID not found.'],
     };
-  }
-
-  if (buildState.createdById !== session.user.id) {
-    return {
-      errors: ['You must be logged in as the build creator to edit a build.'],
-    };
-  }
-
-  // If no archetypes are selected, throw an error
-  if (!buildState.items.archetype || buildState.items.archetype.length === 0) {
-    return {
-      errors: ['You must select at least one archetype.'],
-    };
-  }
-
-  // If build is moderator locked, do not allow editing
-  if (buildState.isModeratorLocked) {
-    return {
-      errors: ['This build is locked by a moderator.'],
-    };
-  }
-  const updatedBuildItems = buildStateToBuildItems(buildState);
-
-  // Check for bad words in the name
-  const nameBadWordCheck = badWordFilter.isProfane(buildState.name);
-  if (nameBadWordCheck.isProfane && process.env.NODE_ENV === 'production') {
-    buildState.isPublic = false;
-
-    // Send webhook to #action-log
-    await sendWebhook({
-      webhook: 'auditLog',
-      params: {
-        embeds: [
-          {
-            title: `Bad Word Filter Tripped`,
-            color: 0xff0000,
-            fields: [
-              {
-                name: 'Action',
-                value: 'Update Build, Build Name',
-              },
-              {
-                name: 'User',
-                value: session.user.displayName,
-              },
-              {
-                name: 'Bad Words',
-                value: nameBadWordCheck.badWords.join(', '),
-              },
-            ],
-          },
-        ],
-      },
-    });
-
-    return {
-      errors: [
-        `Build name contains profanity: ${nameBadWordCheck.badWords.join(
-          ', ',
-        )}`,
-      ],
-    };
-  }
-
-  // Check for bad words in the reference link
-  const descriptionBadWordCheck = badWordFilter.isProfane(
-    buildState.description ?? '',
-  );
-  if (
-    descriptionBadWordCheck.isProfane &&
-    process.env.NODE_ENV === 'production'
-  ) {
-    buildState.isPublic = false;
-
-    // Send webhook to #action-log
-    await sendWebhook({
-      webhook: 'auditLog',
-      params: {
-        embeds: [
-          {
-            title: `Bad Word Filter Tripped`,
-            color: 0xff0000,
-            fields: [
-              {
-                name: 'Action',
-                value: 'Update Build, Build Description',
-              },
-              {
-                name: 'User',
-                value: session.user.displayName,
-              },
-              {
-                name: 'Bad Words',
-                value: descriptionBadWordCheck.badWords.join(', '),
-              },
-            ],
-          },
-        ],
-      },
-    });
-
-    return {
-      errors: [
-        `Build description contains profanity: ${descriptionBadWordCheck.badWords.join(
-          ', ',
-        )}`,
-      ],
-    };
-  }
-
-  // Check for bad words in the reference link
-  const referenceLinkBadWordCheck = badWordFilter.isProfane(
-    buildState.buildLink ?? '',
-  );
-  if (
-    referenceLinkBadWordCheck.isProfane &&
-    process.env.NODE_ENV === 'production'
-  ) {
-    buildState.isPublic = false;
-
-    // Send webhook to #action-log
-    await sendWebhook({
-      webhook: 'auditLog',
-      params: {
-        embeds: [
-          {
-            title: `Bad Word Filter Tripped`,
-            color: 0xff0000,
-            fields: [
-              {
-                name: 'Action',
-                value: 'Update Build, Build Reference Link',
-              },
-              {
-                name: 'User',
-                value: session.user.displayName,
-              },
-              {
-                name: 'Bad Words',
-                value: referenceLinkBadWordCheck.badWords.join(', '),
-              },
-            ],
-          },
-        ],
-      },
-    });
-
-    return {
-      errors: [
-        `Build reference link contains profanity: ${referenceLinkBadWordCheck.badWords.join(
-          ', ',
-        )}`,
-      ],
-    };
-  }
-
-  // if the description is longer than allowed, truncate it
-  const isDescriptionTooLong =
-    buildState.description &&
-    buildState.description.length > MAX_BUILD_DESCRIPTION_LENGTH;
-  if (isDescriptionTooLong) {
-    buildState.description =
-      buildState.description?.slice(0, MAX_BUILD_DESCRIPTION_LENGTH - 3) +
-      '...';
-  }
-
-  // Get the existing build
-  const existingBuild = await prisma.build.findUnique({
-    where: {
-      id: buildState.buildId,
-    },
-  });
-
-  // Ensure the build link is less than 190 characters
-  if (buildState.buildLink && buildState.buildLink.length > 190) {
-    buildState.buildLink = buildState.buildLink?.slice(0, 190);
-  }
-
-  // If the new buildLink doesn't match the existing buildLink, update the buildLinkUpdatedAt
-  // If the user is a permitted builder, immediately validate the link by setting buildLinkUpdatedAt to yesterday
-  // Also update the isVideoApproved to false so that it can be reviewed again
-  const isBuildLinkUpdated =
-    buildState.buildLink &&
-    existingBuild?.buildLink !== buildState.buildLink &&
-    buildState.buildLink?.trim().length > 0;
-  if (isBuildLinkUpdated) {
-    buildState.buildLinkUpdatedAt = isPermittedBuilder(session.user.id)
-      ? new Date(Date.now() - VIDEO_APPROVAL_WINDOW)
-      : new Date();
-    buildState.isVideoApproved = false;
-  }
-
-  // If the build was private and then made public, need to update the buildLinkUpdatedAt
-  // to avoid a video being auto-approved
-  const isPrivateBuildNowPublic =
-    existingBuild?.isPublic === false &&
-    buildState.isPublic === true &&
-    !isPermittedBuilder(session.user.id);
-  if (isPrivateBuildNowPublic) {
-    buildState.buildLinkUpdatedAt = new Date();
-  }
-
-  // If the buildLink is a valid youtube url, also save it to the videoUrl field
-  if (buildState.buildLink && isValidYoutubeUrl(buildState.buildLink)) {
-    buildState.videoUrl = buildState.buildLink;
   }
 
   try {
-    // get the build creator user record
+    for await (const variant of buildVariants) {
+      const verifyBuildStateResponse = verifyBuildState({
+        buildState: mainBuildState,
+        userDisplayName: session.user?.name as string,
+        userId: session.user?.id as string,
+      });
+      if (verifyBuildStateResponse.webhook) {
+        await sendWebhook(verifyBuildStateResponse.webhook);
+        return {
+          errors: [
+            `Error creating build - bad language detected. Build: ${variant.name}`,
+          ],
+        };
+      }
+    }
+
+    await verifyCreatorInfo(session);
+
+    // Select all current build variants to compare the new batch to
+    const existingVariants = await prisma.buildVariant.findMany({
+      where: {
+        primaryBuildId: mainBuildState.buildId,
+      },
+    });
+
+    // Need to delete all variants not found in variantStates
+    const variantsToDelete = existingVariants.filter(
+      (existingVariant) =>
+        !newVariants.some(
+          (newVariant) =>
+            newVariant.buildId === existingVariant.secondaryBuildId,
+        ),
+    );
+    // Need to create all variants not found in existingVariants
+    const variantsToCreate = newVariants.filter(
+      (newVariant) =>
+        !existingVariants.some(
+          (existingVariant) =>
+            newVariant.buildId === existingVariant.secondaryBuildId,
+        ),
+    );
+    // Need to update all variants found in both existingVariants and variantStates
+    const variantsToUpdate = newVariants.filter((newVariant) =>
+      existingVariants.some(
+        (existingVariant) =>
+          newVariant.buildId === existingVariant.secondaryBuildId,
+      ),
+    );
+
     const buildCreator = await prisma.user.findUnique({
       where: {
         id: session.user.id,
@@ -284,81 +110,137 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
     });
 
     if (!buildCreator) {
+      console.error('Error updating build - build creator not found.');
       return {
-        errors: ['Error finding build creator.'],
+        errors: ['Error updating build - build creator not found.'],
       };
     }
 
-    // Ensure the build creator's name is not against code of conduct
-    const displayNameBadWordCheck = badWordFilter.isProfane(
-      buildCreator.displayName ?? '',
-    );
-    if (
-      buildCreator.displayName &&
-      buildCreator.displayName !== '' &&
-      displayNameBadWordCheck.isProfane
-    ) {
-      await prisma.user.update({
-        where: {
-          id: session.user.id,
-        },
-        data: {
-          displayName: badWordFilter.clean(buildCreator.displayName),
-        },
-      });
-    }
+    // Delete all variants from the Build and BuildVariant tables
+    const [_deleteBuildResponse, _deleteBuildVariantResponse] =
+      await prisma.$transaction([
+        prisma.build.deleteMany({
+          where: {
+            createdById: buildCreator.id,
+            id: {
+              in: variantsToDelete.map((variant) => variant.secondaryBuildId),
+            },
+          },
+        }),
+        prisma.buildVariant.deleteMany({
+          where: {
+            primaryBuildId: mainBuildState.buildId,
+            secondaryBuildId: {
+              in: variantsToDelete.map((variant) => variant.secondaryBuildId),
+            },
+          },
+        }),
+      ]);
 
-    // Ensure the user's bio is not against the code of conduct
-    const bioBadWordCheck = badWordFilter.isProfane(
-      buildCreator.UserProfile?.bio ?? '',
+    // Create all variants in the Build table and get the new ids
+    // We don't use createMany as it doesn't return the new record ids
+    const createBuildsResponse = await Promise.all(
+      variantsToCreate.map(async (variant) => {
+        return prisma.build.create({
+          data: {
+            name:
+              variant.name && variant.name !== ''
+                ? badWordFilter.clean(variant.name)
+                : DEFAULT_BUILD_NAME,
+            description:
+              variant.description && variant.description !== ''
+                ? badWordFilter.clean(variant.description)
+                : '',
+            isPublic: Boolean(variant.isPublic),
+            isPatchAffected: Boolean(variant.isPatchAffected),
+            isModeratorApproved: false,
+            videoUrl: variant.videoUrl,
+            buildLink: variant.buildLink,
+            buildLinkUpdatedAt: variant.buildLinkUpdatedAt,
+            createdBy: {
+              connect: {
+                id: buildCreator.id,
+              },
+            },
+            BuildItems: {
+              create: buildStateToBuildItems(variant).filter(
+                (variant) => variant !== undefined,
+              ),
+            },
+            BuildTags: variant.buildTags
+              ? {
+                  create: variant.buildTags.map((tag) => {
+                    return {
+                      tag: tag.tag,
+                    };
+                  }),
+                }
+              : undefined,
+          },
+        });
+      }),
     );
-    if (
-      buildCreator.UserProfile?.bio &&
-      buildCreator.UserProfile.bio !== '' &&
-      bioBadWordCheck.isProfane
-    ) {
-      await prisma.userProfile.update({
-        where: {
-          userId: session.user.id,
-        },
-        data: {
-          bio: badWordFilter.clean(buildCreator.UserProfile.bio),
-        },
-      });
-    }
+    // Add the newly created builds to the BuildVariant table
+    const _createBuildVariantsResponse = await prisma.buildVariant.createMany({
+      data: createBuildsResponse.map((build) => {
+        return {
+          primaryBuildId: mainBuildState.buildId as string,
+          secondaryBuildId: build.id,
+        };
+      }),
+    });
 
-    // Save changes to the build
-    const updatedBuild = await prisma.build.update({
+    const existingUpdatableBuildIds = await prisma.build.findMany({
       where: {
-        id: buildState.buildId,
+        id: {
+          in: [
+            mainBuildState.buildId,
+            ...variantsToUpdate.map((variant) => variant.buildId as string),
+          ],
+        },
+      },
+    });
+    const existingUpdatableBuilds = await prisma.build.findMany({
+      where: {
+        id: {
+          in: existingUpdatableBuildIds.map((build) => build.id),
+        },
+      },
+    });
+
+    // Update the Build table for all variants in the new batch
+    const updateMainBuildResponse = await prisma.build.update({
+      where: {
+        id: mainBuildState.buildId,
         createdBy: {
-          id: session.user.id,
+          id: buildCreator.id,
         },
       },
       data: {
         name:
-          buildState.name && buildState.name !== ''
-            ? badWordFilter.clean(buildState.name)
+          mainBuildState.name && mainBuildState.name !== ''
+            ? badWordFilter.clean(mainBuildState.name)
             : DEFAULT_BUILD_NAME,
         description:
-          buildState.description && buildState.description !== ''
-            ? badWordFilter.clean(buildState.description)
+          mainBuildState.description && mainBuildState.description !== ''
+            ? badWordFilter.clean(mainBuildState.description)
             : '',
-        isPublic: Boolean(buildState.isPublic),
-        isPatchAffected: Boolean(buildState.isPatchAffected),
-        videoUrl: buildState.videoUrl,
-        buildLink: buildState.buildLink,
-        buildLinkUpdatedAt: buildState.buildLinkUpdatedAt,
+        isPublic: Boolean(mainBuildState.isPublic),
+        isPatchAffected: Boolean(mainBuildState.isPatchAffected),
         isModeratorApproved: false,
-        isVideoApproved: buildState.isVideoApproved,
+        videoUrl: mainBuildState.videoUrl,
+        buildLink: mainBuildState.buildLink,
+        buildLinkUpdatedAt: mainBuildState.buildLinkUpdatedAt,
         BuildItems: {
-          deleteMany: {}, // removes all items before creating them again
-          create: updatedBuildItems,
+          deleteMany: {},
+          create: buildStateToBuildItems(mainBuildState).filter(
+            (variant) => variant !== undefined,
+          ),
         },
-        BuildTags: buildState.buildTags
+        BuildTags: mainBuildState.buildTags
           ? {
               deleteMany: {}, // removes all tags before creating them again
-              create: buildState.buildTags.map((tag) => {
+              create: mainBuildState.buildTags.map((tag) => {
                 return {
                   tag: tag.tag,
                 };
@@ -368,137 +250,254 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
       },
     });
 
-    if (!updatedBuild) {
-      return {
-        errors: ['Error updating build.'],
-      };
-    }
-
-    const buildLink = urlNoCache(
-      `https://remnant2toolkit.com/builder/${buildState.buildId}`,
+    const updateBuildVariantsResponse = await Promise.all(
+      variantsToUpdate.map(async (variant) => {
+        return prisma.build.update({
+          where: {
+            id: variant.buildId as string,
+            createdBy: {
+              id: buildCreator.id,
+            },
+          },
+          data: {
+            name:
+              variant.name && variant.name !== ''
+                ? badWordFilter.clean(variant.name)
+                : DEFAULT_BUILD_NAME,
+            description:
+              variant.description && variant.description !== ''
+                ? badWordFilter.clean(variant.description)
+                : '',
+            isPublic: Boolean(variant.isPublic),
+            isPatchAffected: Boolean(variant.isPatchAffected),
+            videoUrl: variant.videoUrl,
+            buildLink: variant.buildLink,
+            buildLinkUpdatedAt: variant.buildLinkUpdatedAt,
+            isModeratorApproved: false,
+            isVideoApproved: variant.isVideoApproved,
+            BuildItems: {
+              deleteMany: {},
+              create: buildStateToBuildItems(variant).filter(
+                (variant) => variant !== undefined,
+              ),
+            },
+            BuildTags: variant.buildTags
+              ? {
+                  deleteMany: {}, // removes all tags before creating them again
+                  create: variant.buildTags.map((tag) => {
+                    return {
+                      tag: tag.tag,
+                    };
+                  }),
+                }
+              : undefined,
+          },
+        });
+      }),
     );
 
-    // If the build name has updated, send the build info to Discord
-    const isBuildNameChanged =
-      existingBuild?.name !== buildState.name &&
-      buildState.isPublic === true &&
-      !isPermittedBuilder(session.user.id);
-    if (isBuildNameChanged && process.env.NODE_ENV === 'production') {
-      await sendWebhook({
-        webhook: 'modQueue',
-        params: {
-          embeds: [
+    // Updated the index on all buildVariants
+    const updatedVariants = await prisma.buildVariant.findMany({
+      where: {
+        primaryBuildId: mainBuildState.buildId,
+      },
+    });
+    await Promise.all(
+      updatedVariants.map(async (variant, index) => {
+        await prisma.buildVariant.update({
+          where: {
+            id: variant.id,
+          },
+          data: {
+            index: index + 1,
+          },
+        });
+      }),
+    );
+
+    // Send webhooks for new variants
+    const shouldSendWebhook =
+      mainBuildState.isPublic && process.env.WEBHOOK_DISABLED !== 'true';
+    if (shouldSendWebhook) {
+      let index = 0;
+      for await (const response of createBuildsResponse) {
+        const shouldSendWebhook =
+          mainBuildState.isPublic && process.env.WEBHOOK_DISABLED !== 'true';
+        if (shouldSendWebhook) {
+          const newBuildParams = {
+            content: `New build variant created: ${response.name}! ${urlNoCache(
+              `https://remnant2toolkit.com/builder/${mainBuildState.buildId}${
+                index > 0 ? `?variant=${index}` : ''
+              }`,
+            )}`,
+          };
+          const newBuildWebhookResponse = await fetch(
+            `${process.env.WEBHOOK_MOD_QUEUE}`,
             {
-              title: `Build Name Changed`,
-              color: 0x00ff00,
-              fields: [
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(newBuildParams),
+            },
+          );
+          if (!newBuildWebhookResponse.ok) {
+            console.error(
+              'Error in sending build moderation webhook to Discord!',
+            );
+          }
+        }
+        index++;
+      }
+    }
+
+    // Send webhooks for updated variants
+    const shouldSendUpdateWebhooks =
+      updateMainBuildResponse.isPublic &&
+      process.env.WEBHOOK_DISABLED !== 'true';
+    if (shouldSendUpdateWebhooks) {
+      let index = 0;
+      for await (const response of [
+        updateMainBuildResponse,
+        ...updateBuildVariantsResponse,
+      ]) {
+        const existingBuild = existingUpdatableBuilds.find(
+          (build) => build.id === response.id,
+        );
+
+        const buildLink = urlNoCache(
+          `https://remnant2toolkit.com/builder/${mainBuildState.buildId}${
+            index > 0 ? `?variant=${index}` : ''
+          }`,
+        );
+
+        const isBuildNameChanged =
+          existingBuild?.name !== response.name &&
+          !isPermittedBuilder(session.user.id);
+
+        if (isBuildNameChanged) {
+          await sendWebhook({
+            webhook: 'modQueue',
+            params: {
+              embeds: [
                 {
-                  name: 'Changes',
-                  value: `New Build Name: ${buildState.name}`,
-                },
-                {
-                  name: 'Build Link',
-                  value: buildLink,
+                  title: `Build Name Changed`,
+                  color: 0x00ff00,
+                  fields: [
+                    {
+                      name: 'Changes',
+                      value: `New Build Name: ${response.name}`,
+                    },
+                    {
+                      name: 'Build Link',
+                      value: buildLink,
+                    },
+                  ],
                 },
               ],
             },
-          ],
-        },
-      });
-    }
+          });
+        }
 
-    // If the build was private but is now public, send the build info to Discord
-    const isPrivateBuildNowPublic =
-      existingBuild?.isPublic === false &&
-      buildState.isPublic === true &&
-      !isPermittedBuilder(session.user.id);
-    if (isPrivateBuildNowPublic && process.env.NODE_ENV === 'production') {
-      await sendWebhook({
-        webhook: 'modQueue',
-        params: {
-          embeds: [
-            {
-              title: `Build Changed From Private to Public`,
-              color: 0x00ff00,
-              fields: [
+        const isPrivateBuildNowPublic =
+          existingBuild?.isPublic === false &&
+          mainBuildState.isPublic === true &&
+          !isPermittedBuilder(session.user.id);
+        if (isPrivateBuildNowPublic) {
+          await sendWebhook({
+            webhook: 'modQueue',
+            params: {
+              embeds: [
                 {
-                  name: 'Build Name',
-                  value: buildState.name,
-                },
-                {
-                  name: 'Build Reference Link?',
-                  value:
-                    buildState.buildLink && buildState.buildLink.length > 0
-                      ? buildState.buildLink
-                      : 'N/A',
-                },
-                {
-                  name: 'Build Description?',
-                  value:
-                    buildState.description && buildState.description.length > 0
-                      ? `Yes (${buildState.description.length} chars)`
-                      : 'No',
-                },
-                {
-                  name: 'Build Link',
-                  value: buildLink,
+                  title: `Build Changed From Private to Public`,
+                  color: 0x00ff00,
+                  fields: [
+                    {
+                      name: 'Build Name',
+                      value: response.name,
+                    },
+                    {
+                      name: 'Build Reference Link?',
+                      value:
+                        response.buildLink && response.buildLink.length > 0
+                          ? response.buildLink
+                          : 'N/A',
+                    },
+                    {
+                      name: 'Build Description?',
+                      value:
+                        response.description && response.description.length > 0
+                          ? `Yes (${response.description.length} chars)`
+                          : 'No',
+                    },
+                    {
+                      name: 'Build Link',
+                      value: buildLink,
+                    },
+                  ],
                 },
               ],
             },
-          ],
-        },
-      });
-    }
+          });
+        }
 
-    // If the build description has updated, send the build info to Discord
-    const isBuildDescriptionChanged =
-      existingBuild?.description &&
-      buildState.description &&
-      existingBuild.description !== buildState.description &&
-      buildState.description.trim().length > 0 &&
-      existingBuild.description.trim().length > 0 &&
-      buildState.isPublic &&
-      !isPermittedBuilder(session.user.id);
-    if (isBuildDescriptionChanged && process.env.NODE_ENV === 'production') {
-      await sendWebhook({
-        webhook: 'modQueue',
-        params: getBuildDescriptionParams({
-          buildId: buildState.buildId,
-          newDescription: buildState.description?.trim() as string,
-          oldDescription: existingBuild.description?.trim() as string,
-        }),
-      });
-    }
+        const isBuildDescriptionChanged =
+          existingBuild?.description !== response.description &&
+          (response.description || '').trim().length > 0 &&
+          response.isPublic &&
+          !isPermittedBuilder(session.user.id);
 
-    // If the build link has updated, send the build info to Discord
-    const isBuildLinkUpdated =
-      buildState.buildLink &&
-      existingBuild?.buildLink !== buildState.buildLink &&
-      buildState.buildLink.trim().length > 0 &&
-      buildState.isPublic === true &&
-      !isPermittedBuilder(session.user.id);
-    if (isBuildLinkUpdated && process.env.NODE_ENV === 'production') {
-      await sendWebhook({
-        webhook: 'modQueue',
-        params: {
-          embeds: [
-            {
-              title: `Build Reference Link Changed`,
-              color: 0x00ff00,
-              fields: [
+        console.info(
+          'isBuildDescriptionChanged',
+          isBuildDescriptionChanged,
+          existingBuild?.description,
+          response.description,
+        );
+
+        if (isBuildDescriptionChanged) {
+          await sendWebhook({
+            webhook: 'modQueue',
+            params: getBuildDescriptionParams({
+              buildLink,
+              newDescription: response.description?.trim() as string,
+              oldDescription: existingBuild?.description?.trim() as string,
+            }),
+          });
+        }
+
+        const isBuildLinkUpdated =
+          response.buildLink &&
+          existingBuild?.buildLink !== response.buildLink &&
+          response.buildLink.trim().length > 0 &&
+          response.isPublic === true &&
+          !isPermittedBuilder(session.user.id);
+
+        if (isBuildLinkUpdated) {
+          await sendWebhook({
+            webhook: 'modQueue',
+            params: {
+              embeds: [
                 {
-                  name: 'Changes',
-                  value: `New Reference Link: ${buildState.buildLink}`,
-                },
-                {
-                  name: 'Build Link',
-                  value: buildLink,
+                  title: `Build Reference Link Changed`,
+                  color: 0x00ff00,
+                  fields: [
+                    {
+                      name: 'Changes',
+                      value: `New Reference Link: ${response.buildLink}`,
+                    },
+                    {
+                      name: 'Build Link',
+                      value: buildLink,
+                    },
+                  ],
                 },
               ],
             },
-          ],
-        },
-      });
+          });
+        }
+
+        index++;
+      }
     }
 
     // Refresh the cache for the route
@@ -509,12 +508,12 @@ export async function updateBuild(data: string): Promise<BuildActionResponse> {
 
     return {
       message: 'Build successfully updated!',
-      buildId: updatedBuild.id,
+      buildId: mainBuildState.buildId,
     };
-  } catch (e) {
-    console.error(e);
+  } catch (error) {
+    console.error('Error updating build:', error);
     return {
-      errors: ['Unknown error updating build.'],
+      errors: ['Error updating build - database error occurred.'],
     };
   }
 }

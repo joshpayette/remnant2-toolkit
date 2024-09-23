@@ -7,43 +7,17 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { isErrorResponse } from '@/app/_libs/is-error-response';
-import {
-  createBuild,
-  linkBuildVariants,
-} from '@/app/(builds)/_actions/create-build';
+import { createBuild } from '@/app/(builds)/_actions/create-build';
 import { updateBuild } from '@/app/(builds)/_actions/update-build';
-import { type UpdateBuildCategory } from '@/app/(builds)/_libs/update-build-state';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { type SuccessResponse } from '@/app/(builds)/_types/success-response';
 import { LoadingButton } from '@/app/(builds)/builder/_components/loading-button';
-import { sendWebhook } from '@/app/(user)/_auth/moderation/send-webhook';
 
-import { deleteBuildVariants } from '../../_actions/delete-build-variants';
-
-type Props = {
+interface Props {
   buildVariants: BuildState[];
-} & (
-  | {
-      editMode: boolean;
-      areVariantsAddedOrDeleted: boolean;
-      variantChanges: Array<{
-        category: UpdateBuildCategory;
-        buildId: string;
-      }>;
-    }
-  | {
-      editMode?: never;
-      areVariantsAddedOrDeleted?: never;
-      variantChanges?: never;
-    }
-);
+  editMode: boolean;
+}
 
-export function SaveBuildButton({
-  buildVariants,
-  editMode,
-  areVariantsAddedOrDeleted,
-  variantChanges,
-}: Props) {
+export function SaveBuildButton({ buildVariants, editMode }: Props) {
   const router = useRouter();
 
   const [saveInProgress, setSaveInProgress] = useState(false);
@@ -89,125 +63,29 @@ export function SaveBuildButton({
 
           setSaveInProgress(true);
 
-          // Update the main build and create the new build variants
-          const mainBuildState = buildVariants[0];
-          const variantStates = buildVariants.slice(1).map((variant, index) => {
-            variant.variantIndex = index;
-            return variant;
+          const updateBuildResponse = await updateBuild({
+            buildVariants,
           });
 
-          if (!mainBuildState.buildId) {
-            console.error('Error saving edits. Build ID not found.');
-            toast.error('Error saving edits. Please try again later.');
+          if (isErrorResponse(updateBuildResponse)) {
+            console.error(updateBuildResponse.errors);
+            toast.error(
+              `Error saving edits. ${updateBuildResponse.errors?.join(' ')}`,
+            );
+            setSaveInProgress(false);
             return;
           }
 
-          // Delete all build variants except the first one
-          const _deleteVariantsResponse = await deleteBuildVariants(
-            mainBuildState.buildId,
-          );
-
-          // Update the main build, recreate the variants
-          const responses = await Promise.all([
-            updateBuild(JSON.stringify(mainBuildState)),
-            ...variantStates.map((variant) =>
-              createBuild(JSON.stringify(variant), false),
-            ),
-          ]);
-          // Flatten the array of responses
-          const flatResponses = responses.flat();
-
-          // if any of the responses are errors, handle them
-          if (flatResponses.some(isErrorResponse)) {
-            flatResponses.forEach((response) => {
-              if (isErrorResponse(response)) {
-                console.error(response.errors);
-                toast.error(
-                  `Error saving build. ${response.errors?.join(' ')}`,
-                );
-                // remove the response from the array
-                flatResponses.splice(flatResponses.indexOf(response), 1);
-              }
-            });
-          }
-
-          // all variants except the first need to be linked
-          const variantResponses = flatResponses.slice(1);
-          const variants = variantResponses.map((response, index) => {
-            return {
-              id: (response as SuccessResponse).buildId as string,
-              index: index + 1,
-            };
-          });
-
-          const mainBuildId = (responses[0] as SuccessResponse)
-            .buildId as string;
-
-          const _response = await linkBuildVariants({
-            mainBuildId,
-            variants,
-          });
-
-          if (areVariantsAddedOrDeleted) {
-            await sendWebhook({
-              webhook: 'modQueue',
-              params: {
-                embeds: [
-                  {
-                    title: `Build variants added or deleted for ${mainBuildState.name}`,
-                    color: 0x00ff00,
-                    fields: [
-                      {
-                        name: 'Build Link',
-                        value: `https://remnant2toolkit.com/builder/${
-                          mainBuildState.buildId
-                        }?t=${Date.now()}`,
-                      },
-                    ],
-                  },
-                ],
-              },
-            });
-          } else {
-            const fields: Array<{ name: string; value: string }> = [];
-            for (const change of variantChanges) {
-              const buildName = buildVariants.find(
-                (variant) => variant.buildId === change.buildId,
-              )?.name;
-              if (buildName) {
-                fields.push({
-                  name: `Updates to ${change.category}`,
-                  value: buildName,
-                });
-              }
-            }
-            // add field to the start of the array with the build link
-            fields.unshift({
-              name: 'Build Link',
-              value: `https://remnant2toolkit.com/builder/${
-                mainBuildState.buildId
-              }?t=${Date.now()}`,
-            });
-
-            if (fields.length > 1) {
-              await sendWebhook({
-                webhook: 'modQueue',
-                params: {
-                  embeds: [
-                    {
-                      title: `Build variants updated for ${mainBuildState.name}`,
-                      color: 0x00ff00,
-                      fields,
-                    },
-                  ],
-                },
-              });
-            }
+          if (!updateBuildResponse.buildId) {
+            console.error('Error saving edits. Build ID not found.');
+            toast.error('Error saving edits. Please try again later.');
+            setSaveInProgress(false);
+            return;
           }
 
           toast.success('Build updated successfully!');
           setSaveInProgress(false);
-          router.push(`/builder/${mainBuildId}`);
+          router.push(`/builder/${updateBuildResponse.buildId}`);
         }}
       >
         Save Edits
@@ -224,48 +102,29 @@ export function SaveBuildButton({
       onClick={async () => {
         setSaveInProgress(true);
 
-        // Need to createBuild for each build variant,
-        // then iterate over the responses
+        const createBuildResponse = await createBuild({
+          buildVariants,
+        });
 
-        const responses = await Promise.all(
-          buildVariants.map((variant, index) => {
-            variant.variantIndex = index;
-            // only enable notifications for the first created build
-            return createBuild(JSON.stringify(variant), index === 0);
-          }),
-        );
-
-        // if any of the responses are errors, handle them
-        if (responses.some(isErrorResponse)) {
-          responses.forEach((response) => {
-            if (isErrorResponse(response)) {
-              console.error(response.errors);
-              toast.error(`Error saving build. ${response.errors?.join(' ')}`);
-              // remove the response from the array
-              responses.splice(responses.indexOf(response), 1);
-            }
-          });
+        if (isErrorResponse(createBuildResponse)) {
+          console.error(createBuildResponse.errors);
+          toast.error(
+            `Error saving build. ${createBuildResponse.errors?.join(' ')}`,
+          );
+          setSaveInProgress(false);
+          return;
         }
 
-        // all variants except the first need to be linked
-        const variantResponses = responses.slice(1);
-        const variants = variantResponses.map((response, index) => {
-          return {
-            id: (response as SuccessResponse).buildId as string,
-            index: index + 1,
-          };
-        });
-
-        const mainBuildId = (responses[0] as SuccessResponse).buildId as string;
-
-        const _response = await linkBuildVariants({
-          mainBuildId,
-          variants,
-        });
+        if (!createBuildResponse.buildId) {
+          console.error('Error saving build. Build ID not found.');
+          toast.error('Error saving build. Please try again later.');
+          setSaveInProgress(false);
+          return;
+        }
 
         toast.success('Build created successfully!');
         setSaveInProgress(false);
-        router.push(`/builder/${mainBuildId}`);
+        router.push(`/builder/${createBuildResponse.buildId}`);
       }}
     >
       Save Build

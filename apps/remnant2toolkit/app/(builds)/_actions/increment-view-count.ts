@@ -75,7 +75,7 @@ export async function incrementViewCount({
       viewCount: updatedBuild.viewCount,
     };
   } catch (e) {
-    console.error(`Error in incrementing view count for build ${buildId}!`);
+    console.error(`Error in incrementing view count for build ${buildId}!`, e);
     return {
       errors: ['Error in incrementing view count!'],
       viewCount: -1,

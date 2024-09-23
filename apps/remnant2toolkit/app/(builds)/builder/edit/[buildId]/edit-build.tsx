@@ -43,7 +43,6 @@ export function EditBuild({
 
   const {
     activeBuildVariant,
-    areVariantsAddedOrDeleted,
     setActiveBuildVariant,
     buildVariants,
     setBuildVariants,
@@ -51,8 +50,6 @@ export function EditBuild({
     setIsBuildVariantNameOpen,
     isRemoveBuildPromptOpen,
     setIsRemoveBuildPromptOpen,
-    variantChanges,
-    setVariantChanges,
     handleAddBuildVariant,
     handleRemoveBuildVariant,
   } = useBuildVariants({ initialBuildVariants });
@@ -97,24 +94,6 @@ export function EditBuild({
     });
     const newBuildVariants = cloneDeep(buildVariants);
     newBuildVariants[activeBuildVariant] = updatedBuildState;
-
-    // If a build variant updating one of the tracked categories,
-    // log the change so that we can send a webhook on it
-    if (
-      activeBuildVariant !== 0 &&
-      ['name', 'description', 'buildLink'].includes(category)
-    ) {
-      const changeAlreadyLogged = variantChanges?.some(
-        (change) =>
-          change.category === category && change.buildId === buildState.buildId,
-      );
-      if (!changeAlreadyLogged) {
-        setVariantChanges((prevChanges) => [
-          ...prevChanges,
-          { category, buildId: buildState.buildId as string },
-        ]);
-      }
-    }
 
     setBuildVariants(
       syncBuildVariantsToBuild({
@@ -217,12 +196,7 @@ export function EditBuild({
               onApplySuggestions={handleSelectArmorSuggestion}
             />
 
-            <SaveBuildButton
-              buildVariants={buildVariants}
-              editMode={true}
-              areVariantsAddedOrDeleted={areVariantsAddedOrDeleted}
-              variantChanges={variantChanges}
-            />
+            <SaveBuildButton buildVariants={buildVariants} editMode={true} />
 
             <ArmorCalculatorButton
               onClick={() => setShowArmorCalculator(true)}
