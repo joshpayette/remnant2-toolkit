@@ -130,7 +130,9 @@ export async function parseSaveFile(
 
     // Save the builds to the database
     const createdBuildResponse = await Promise.all([
-      ...buildsToCreate.map((build) => createBuild({ buildVariants: [build] })),
+      ...buildsToCreate.map((build) =>
+        createBuild({ buildVariantsStringified: [JSON.stringify(build)] }),
+      ),
     ]);
     const buildIds = createdBuildResponse
       .filter((build) => !isErrorResponse(build))
