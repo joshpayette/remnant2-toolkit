@@ -11,6 +11,12 @@ This project exists and thrives thanks to all the people who contribute.
 - Synder
 - Antipastox2
 
+## Moderation Team
+- Alexij
+- Amalie
+- Spoon
+- Hiccup
+  
 ## Testing & Datamine
 
 - [AuriCrystal](https://www.youtube.com/@AuriCrystal/)
@@ -20,6 +26,10 @@ This project exists and thrives thanks to all the people who contribute.
 - Hiccup
 - Schattenzeichner
 - Thatguylegit
+- Marshy
+- bo}{omar
+- Dainurian
+- コマcoma
 
 ## Content Creators
 
@@ -34,13 +44,17 @@ This project exists and thrives thanks to all the people who contribute.
 - Marshy
 - Mick1135
 - Roy
-
+- コマcoma
+- Freeman
+- UZ 幽茲
+  
 ## World Save Contributors
 
 - bo}|{omar
 - DoTs Я Us
 - MMD
-
+- Vash Cowaii
+  
 ## Bug Reporters
 
 - bo}|{omar
@@ -55,3 +69,4 @@ This project exists and thrives thanks to all the people who contribute.
 - tehgreg
 - Savvra
 - Sk0oMa
+- All Seeing Eye
