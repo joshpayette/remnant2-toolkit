@@ -37,7 +37,9 @@ export async function handleDuplicateBuild({
 
   const [createBuildsResponse, _incrementResponse] = await Promise.all([
     createBuild({
-      buildVariants,
+      buildVariantsStringified: buildVariants.map((variant) =>
+        JSON.stringify(variant),
+      ),
     }),
     incrementDuplicateCount({ buildId: mainBuildState.buildId as string }),
   ]);

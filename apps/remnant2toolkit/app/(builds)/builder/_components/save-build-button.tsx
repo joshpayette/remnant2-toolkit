@@ -64,7 +64,9 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
           setSaveInProgress(true);
 
           const updateBuildResponse = await updateBuild({
-            buildVariants,
+            buildVariantsStringified: buildVariants.map((variant) =>
+              JSON.stringify(variant),
+            ),
           });
 
           if (isErrorResponse(updateBuildResponse)) {
@@ -103,7 +105,9 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
         setSaveInProgress(true);
 
         const createBuildResponse = await createBuild({
-          buildVariants,
+          buildVariantsStringified: buildVariants.map((variant) =>
+            JSON.stringify(variant),
+          ),
         });
 
         if (isErrorResponse(createBuildResponse)) {

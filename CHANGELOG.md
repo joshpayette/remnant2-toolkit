@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed issue causing builds to not correctly display if the user favorited them.
+- Fixed bug preventing builds from saving if you updated trait points.
 
 ## 2024-09-22
 

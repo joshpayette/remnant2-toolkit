@@ -1,6 +1,6 @@
 'use server';
 
-import { prisma } from '@repo/db';
+import { type BuildTags, prisma } from '@repo/db';
 import { urlNoCache } from '@repo/utils';
 import { revalidatePath } from 'next/cache';
 
@@ -17,10 +17,12 @@ import { type BuildActionResponse } from '@/app/(builds)/_types/build-action-res
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
+import { validateBuildState } from '../_libs/validate-build-state';
+
 export async function updateBuild({
-  buildVariants,
+  buildVariantsStringified,
 }: {
-  buildVariants: BuildState[];
+  buildVariantsStringified: string[];
 }): Promise<BuildActionResponse> {
   // session validation
   const session = await getSession();
@@ -28,6 +30,51 @@ export async function updateBuild({
     return {
       message: 'You must be logged in.',
     };
+  }
+
+  const buildVariants: BuildState[] = [];
+  for (const variant of buildVariantsStringified) {
+    // build validation
+    let unvalidatedData = JSON.parse(variant);
+    // convert date strings to dates for validation
+    unvalidatedData = {
+      ...unvalidatedData,
+      createdAt: new Date(unvalidatedData.createdAt),
+      dateFeatured: unvalidatedData.dateFeatured
+        ? new Date(unvalidatedData.dateFeatured)
+        : null,
+      updatedAt: unvalidatedData.updatedAt
+        ? new Date(unvalidatedData.updatedAt)
+        : null,
+      buildLinkUpdatedAt: unvalidatedData.buildLinkUpdatedAt
+        ? new Date(unvalidatedData.buildLinkUpdatedAt)
+        : null,
+      buildTags: unvalidatedData.buildTags
+        ? unvalidatedData.buildTags.map((tag: BuildTags) => ({
+            ...tag,
+            createdAt: tag.createdAt ? new Date(tag.createdAt) : new Date(),
+            updatedAt: tag.updatedAt ? new Date(tag.updatedAt) : null,
+          }))
+        : null,
+      variantIndex: unvalidatedData.variantIndex ?? 0,
+      viewCount: 0,
+      validatedViewCount: 0,
+      duplicateCount: 0,
+      isVideoApproved: false,
+    };
+
+    const validatedData = validateBuildState(unvalidatedData);
+    if (!validatedData.success) {
+      console.error(
+        'Error in data!',
+        validatedData.error.flatten().fieldErrors,
+      );
+      return {
+        errors: [validatedData.error.flatten().fieldErrors],
+      };
+    }
+    const buildState = validatedData.data;
+    buildVariants.push(buildState);
   }
 
   const mainBuildState = buildVariants[0];
