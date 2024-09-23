@@ -319,17 +319,17 @@ export async function updateBuild({
     const shouldSendWebhook =
       mainBuildState.isPublic && process.env.WEBHOOK_DISABLED !== 'true';
     if (shouldSendWebhook) {
-      let index = 0;
+      let index = 1;
       for await (const response of createBuildsResponse) {
+        const buildLink = `${urlNoCache(
+          `https://remnant2toolkit.com/builder/${mainBuildState.buildId}`,
+        )}&variant=${index}`;
+
         const shouldSendWebhook =
           mainBuildState.isPublic && process.env.WEBHOOK_DISABLED !== 'true';
         if (shouldSendWebhook) {
           const newBuildParams = {
-            content: `New build variant created: ${response.name}! ${urlNoCache(
-              `https://remnant2toolkit.com/builder/${mainBuildState.buildId}${
-                index > 0 ? `?variant=${index}` : ''
-              }`,
-            )}`,
+            content: `New build variant created: ${response.name}! ${buildLink}`,
           };
           const newBuildWebhookResponse = await fetch(
             `${process.env.WEBHOOK_MOD_QUEUE}`,
@@ -361,14 +361,12 @@ export async function updateBuild({
         updateMainBuildResponse,
         ...updateBuildVariantsResponse,
       ]) {
+        const buildLink = `${urlNoCache(
+          `https://remnant2toolkit.com/builder/${mainBuildState.buildId}`,
+        )}${index > 0 ? `&variant=${index}` : ''}`;
+
         const existingBuild = existingUpdatableBuilds.find(
           (build) => build.id === response.id,
-        );
-
-        const buildLink = urlNoCache(
-          `https://remnant2toolkit.com/builder/${mainBuildState.buildId}${
-            index > 0 ? `?variant=${index}` : ''
-          }`,
         );
 
         const isBuildNameChanged =
