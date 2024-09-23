@@ -53,10 +53,17 @@ export async function updateBuild({
   try {
     for await (const variant of buildVariants) {
       const verifyBuildStateResponse = verifyBuildState({
-        buildState: mainBuildState,
+        buildState: variant,
         userDisplayName: session.user?.name as string,
         userId: session.user?.id as string,
       });
+
+      if (verifyBuildStateResponse.errorMessage) {
+        return {
+          errors: [verifyBuildStateResponse.errorMessage],
+        };
+      }
+
       if (verifyBuildStateResponse.webhook) {
         await sendWebhook(verifyBuildStateResponse.webhook);
         return {

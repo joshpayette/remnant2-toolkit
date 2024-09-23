@@ -14,10 +14,17 @@ export function verifyBuildState({
   buildState: BuildState;
   userDisplayName: string;
   userId: string;
-}): { buildState: BuildState; webhook?: SendWebhookParams } {
+}): {
+  buildState: BuildState;
+  webhook?: SendWebhookParams;
+  errorMessage?: string;
+} {
   const archetypeCheckResult = archetypeCheckPassed({ buildState });
   if (!archetypeCheckResult) {
-    throw new Error('You must select at least one archetype');
+    return {
+      buildState,
+      errorMessage: 'Please select at least one archetype.',
+    };
   }
 
   const badLanguageCheckResult = badLanguageCheck({
