@@ -3,6 +3,7 @@ import { type Metadata, type ResolvingMetadata } from 'next';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
+import { incrementViewCount } from '@/app/(builds)/_actions/increment-view-count';
 import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
 import { dbBuildToBuildVariants } from '@/app/(builds)/_libs/db-build-to-build-variants';
 import {
@@ -132,6 +133,8 @@ export default async function Page({
     );
   }
   const { build } = mainBuildResponse;
+  await incrementViewCount({ buildId: build.id });
+
   const buildVariants = await dbBuildToBuildVariants(build);
 
   return (

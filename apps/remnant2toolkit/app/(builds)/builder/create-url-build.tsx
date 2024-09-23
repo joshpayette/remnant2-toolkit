@@ -355,7 +355,9 @@ export function CreateUrlBuild() {
         onUpdateBuildState={updateUrlBuildState}
         builderActions={
           <>
-            {session?.user && <SaveBuildButton buildVariants={[buildState]} />}
+            {session?.user && (
+              <SaveBuildButton buildVariants={[buildState]} editMode={false} />
+            )}
 
             <GenerateBuildImageButton
               imageExportLoading={imageExportLoading}

@@ -20,6 +20,7 @@ export function syncBuildVariantsToBuild({
     buildVariant.buildTags = build.buildTags;
     return buildVariant;
   });
+
   newBuildVariants.unshift(build);
   return newBuildVariants;
 }

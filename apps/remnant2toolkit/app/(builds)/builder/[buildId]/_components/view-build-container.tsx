@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { TabbedBuildsDisplay } from '@/app/(builds)/_components/tabbed-builds-display';
 import { handleDuplicateBuild } from '@/app/(builds)/_libs/handlers/handle-duplicate-build';
@@ -18,15 +18,21 @@ export function ViewBuildContainer({ buildVariants }: Props) {
   const searchParams = useSearchParams();
   const variantIndex = searchParams.get('variant');
 
-  const mainBuildVariant = buildVariants[0];
-
   const [activeBuildVariant, setActiveBuildVariant] = useState(
     variantIndex && buildVariants[parseInt(variantIndex)]
       ? buildVariants[parseInt(variantIndex)]
-      : mainBuildVariant,
+      : buildVariants[0],
   );
 
-  if (!mainBuildVariant) {
+  useEffect(() => {
+    if (variantIndex && buildVariants[parseInt(variantIndex)]) {
+      setActiveBuildVariant(buildVariants[parseInt(variantIndex)]);
+    } else {
+      setActiveBuildVariant(buildVariants[0]);
+    }
+  }, [buildVariants, variantIndex]);
+
+  if (!buildVariants[0]) {
     return null;
   }
   if (!activeBuildVariant) {
@@ -46,7 +52,7 @@ export function ViewBuildContainer({ buildVariants }: Props) {
       )}
       <ViewBuild
         activeBuildState={activeBuildVariant}
-        mainBuildState={mainBuildVariant}
+        mainBuildState={buildVariants[0]}
         onDuplicateBuild={() =>
           handleDuplicateBuild({
             buildVariants,

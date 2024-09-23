@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { MAX_BUILD_VARIANTS } from '@/app/(builds)/_constants/max-build-variants';
-import { type UpdateBuildCategory } from '@/app/(builds)/_libs/update-build-state';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 
 export function useBuildVariants({
@@ -17,16 +16,6 @@ export function useBuildVariants({
 
   const [isBuildVariantNameOpen, setIsBuildVariantNameOpen] = useState(false);
   const [isRemoveBuildPromptOpen, setIsRemoveBuildPromptOpen] = useState(false);
-
-  const [areVariantsAddedOrDeleted, setAreVariantsAddedOrDeleted] =
-    useState(false);
-
-  const [variantChanges, setVariantChanges] = useState<
-    Array<{
-      category: UpdateBuildCategory;
-      buildId: string;
-    }>
-  >([]);
 
   function handleAddBuildVariant(newVariantName: string) {
     if (!buildVariants[activeBuildVariant]) {
@@ -45,8 +34,6 @@ export function useBuildVariants({
       return;
     }
 
-    setAreVariantsAddedOrDeleted(true);
-
     setBuildVariants((prevBuildVariants) => [
       ...prevBuildVariants,
       newBuildState,
@@ -62,20 +49,11 @@ export function useBuildVariants({
     const newBuildVariants = cloneDeep(buildVariants);
     newBuildVariants.splice(activeBuildVariant, 1);
 
-    setAreVariantsAddedOrDeleted(true);
     setBuildVariants(newBuildVariants);
     setActiveBuildVariant(newBuildVariants.length - 1);
-    // Remove all variantChanges for the build variant being removed
-    setVariantChanges((prevVariantChanges) =>
-      prevVariantChanges.filter(
-        (change) =>
-          change.buildId !== buildVariants[activeBuildVariant]?.buildId,
-      ),
-    );
   }
 
   return {
-    areVariantsAddedOrDeleted,
     buildVariants,
     setBuildVariants,
     activeBuildVariant,
@@ -84,8 +62,6 @@ export function useBuildVariants({
     setIsBuildVariantNameOpen,
     isRemoveBuildPromptOpen,
     setIsRemoveBuildPromptOpen,
-    variantChanges,
-    setVariantChanges,
     handleAddBuildVariant,
     handleRemoveBuildVariant,
   };

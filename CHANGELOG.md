@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-09-23
+
+### Changed
+
+- Rewrote logic to create and update builds to better accomodate the new Build Variants feature. This should fix a number of issues that were cropping up with the new feature.
+
+### Fixed
+
+- Fixed issue causing builds to not correctly display if the user favorited them.
+
 ## 2024-09-22
 
 ### Added
