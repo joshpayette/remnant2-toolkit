@@ -2441,7 +2441,7 @@ export const weaponItems: WeaponItem[] = [
     type: 'hand gun',
     name: 'Repair Tool',
     saveFileSlug: 'Weapon_RepairTool_C', // TODO: Check this
-    imagePath: '/items/weapons/repair_tool_placeholder.png',
+    imagePath: '/items/weapons/repairtool.png',
     id: '5go8dn',
     dlc: 'dlc3',
     externalTokens: [],

@@ -413,6 +413,21 @@ export const traitItems: TraitItem[] = [
     category: 'trait',
     type: 'trait',
     inGameOrder: 31,
+    name: 'Perception',
+    imagePath: '/items/traits/perception.png',
+    saveFileSlug: 'Trait_Perception_C', // TODO Check this
+    id: '7pxnhi',
+    dlc: 'dlc3',
+    tags: [],
+    description: `Increases HASTE by 0.3% and SLOW by 1%.`,
+    wikiLinks: [`https://remnant.wiki/Perception`],
+    amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: `N'Erud`, dungeon: ['Stagnant Manufactory'] },
+  },
+  {
+    category: 'trait',
+    type: 'trait',
+    inGameOrder: 32,
     name: 'Recovery',
     imagePath: '/items/traits/recovery.png',
     saveFileSlug: 'Trait_Recovery_C',
@@ -450,7 +465,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 32,
+    inGameOrder: 33,
     name: 'Resolute',
     imagePath: '/items/traits/resolute.png',
     saveFileSlug: 'Trait_Resolute_C',
@@ -465,7 +480,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 33,
+    inGameOrder: 34,
     name: 'Revivalist',
     imagePath: '/items/traits/revivalist.png',
     saveFileSlug: 'Trait_Revivalist_C',
@@ -480,7 +495,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 34,
+    inGameOrder: 35,
     name: 'Rugged',
     imagePath: '/items/traits/rugged.png',
     saveFileSlug: 'Trait_Rugged_C',
@@ -509,7 +524,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 35,
+    inGameOrder: 36,
     name: 'Shadeskin',
     imagePath: '/items/traits/shadeskin.png',
     saveFileSlug: 'Trait_Shadeskin_C',
@@ -527,7 +542,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 36,
+    inGameOrder: 37,
     name: 'Siphoner',
     imagePath: '/items/traits/siphoner.png',
     saveFileSlug: 'Trait_Siphoner_C',
