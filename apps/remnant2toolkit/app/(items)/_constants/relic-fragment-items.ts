@@ -359,7 +359,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'bzxa98',
     dlc: 'base',
     tags: [],
-    description: 'Health Regeneration/s',
+    description: '+1/s Health Regeneration',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
