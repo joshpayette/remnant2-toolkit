@@ -2167,6 +2167,18 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Security Half-Measure',
+    imagePath: '/items/rings/securityhalfmeasure.png',
+    saveFileSlug: 'Ring_SecurityHalfMeasure_C', // TODO Check
+    id: '',
+    tags: [],
+    description: `On Relic Use, sacrifices 15% of Max Health and grants a SHIELD for 10% of the wearer's Max Health to allies within 8m. Conversion cannot kill wearer. Lasts 15s.`,
+    wikiLinks: [`https://remnant.wiki/Security_Half-Measure`],
+    dlc: 'dlc3',
+    location: { world: `N'Erud`, dungeon: [`Withered Necropolis`] },
+  },
+  {
+    category: 'ring',
     name: 'Shadow of Misery',
     imagePath: '/items/rings/shadowofmisery.png',
     saveFileSlug: 'Ring_ShadowOfMisery_C',
