@@ -36,10 +36,12 @@ interface Props {
   open: boolean;
   onClose: () => void;
   buildToModerate: BuildState;
+  mainBuildState: BuildState;
 }
 
 export function ModeratorBuildToolsDialog({
   buildToModerate,
+  mainBuildState,
   open,
   onClose,
 }: Props) {
@@ -131,15 +133,15 @@ export function ModeratorBuildToolsDialog({
         <BaseDialogTitle>Other Actions</BaseDialogTitle>
 
         <div className="mt-2 flex flex-wrap items-start justify-start gap-2">
-          {localBuild.isModeratorLocked ? (
+          {mainBuildState.isModeratorLocked ? (
             <BaseButton
               onClick={async () => {
-                const response = await unlockBuild(localBuild.buildId);
+                const response = await unlockBuild(mainBuildState.buildId);
                 if (response.status === 'error') {
                   toast.error(response.message);
                   return;
                 }
-                setLocalBuild({ ...localBuild, isModeratorLocked: false });
+                setLocalBuild({ ...mainBuildState, isModeratorLocked: false });
                 toast.success(response.message);
               }}
             >
@@ -148,12 +150,12 @@ export function ModeratorBuildToolsDialog({
           ) : (
             <BaseButton
               onClick={async () => {
-                const response = await lockBuild(localBuild.buildId);
+                const response = await lockBuild(mainBuildState.buildId);
                 if (response.status === 'error') {
                   toast.error(response.message);
                   return;
                 }
-                setLocalBuild({ ...localBuild, isModeratorLocked: true });
+                setLocalBuild({ ...mainBuildState, isModeratorLocked: true });
                 toast.success(response.message);
               }}
             >
@@ -162,7 +164,7 @@ export function ModeratorBuildToolsDialog({
           )}
           <BaseButton
             onClick={async () => {
-              const response = await privateBuild(localBuild.buildId);
+              const response = await privateBuild(mainBuildState.buildId);
               if (response.status === 'error') {
                 toast.error(response.message);
                 return;
@@ -172,15 +174,15 @@ export function ModeratorBuildToolsDialog({
           >
             Make Private
           </BaseButton>
-          {localBuild.isFeaturedBuild ? (
+          {mainBuildState.isFeaturedBuild ? (
             <BaseButton
               onClick={async () => {
-                const response = await unfeatureBuild(localBuild.buildId);
+                const response = await unfeatureBuild(mainBuildState.buildId);
                 if (response.status === 'error') {
                   toast.error(response.message);
                   return;
                 }
-                setLocalBuild({ ...localBuild, isFeaturedBuild: false });
+                setLocalBuild({ ...mainBuildState, isFeaturedBuild: false });
                 toast.success(response.message);
               }}
             >
@@ -189,27 +191,29 @@ export function ModeratorBuildToolsDialog({
           ) : (
             <BaseButton
               onClick={async () => {
-                const response = await featureBuild(localBuild.buildId);
+                const response = await featureBuild(mainBuildState.buildId);
                 if (response.status === 'error') {
                   toast.error(response.message);
                   return;
                 }
-                setLocalBuild({ ...localBuild, isFeaturedBuild: true });
+                setLocalBuild({ ...mainBuildState, isFeaturedBuild: true });
                 toast.success(response.message);
               }}
             >
               Feature Build
             </BaseButton>
           )}
-          {localBuild.isBeginnerBuild ? (
+          {mainBuildState.isBeginnerBuild ? (
             <BaseButton
               onClick={async () => {
-                const response = await unsetBeginnerBuild(localBuild.buildId);
+                const response = await unsetBeginnerBuild(
+                  mainBuildState.buildId,
+                );
                 if (response.status === 'error') {
                   toast.error(response.message);
                   return;
                 }
-                setLocalBuild({ ...localBuild, isBeginnerBuild: false });
+                setLocalBuild({ ...mainBuildState, isBeginnerBuild: false });
                 toast.success(response.message);
               }}
             >
@@ -218,27 +222,29 @@ export function ModeratorBuildToolsDialog({
           ) : (
             <BaseButton
               onClick={async () => {
-                const response = await setBeginnerBuild(localBuild.buildId);
+                const response = await setBeginnerBuild(mainBuildState.buildId);
                 if (response.status === 'error') {
                   toast.error(response.message);
                   return;
                 }
-                setLocalBuild({ ...localBuild, isBeginnerBuild: true });
+                setLocalBuild({ ...mainBuildState, isBeginnerBuild: true });
                 toast.success(response.message);
               }}
             >
               Set Beginner Build
             </BaseButton>
           )}
-          {localBuild.isBaseGameBuild ? (
+          {mainBuildState.isBaseGameBuild ? (
             <BaseButton
               onClick={async () => {
-                const response = await unsetBaseGameBuild(localBuild.buildId);
+                const response = await unsetBaseGameBuild(
+                  mainBuildState.buildId,
+                );
                 if (response.status === 'error') {
                   toast.error(response.message);
                   return;
                 }
-                setLocalBuild({ ...localBuild, isBaseGameBuild: false });
+                setLocalBuild({ ...mainBuildState, isBaseGameBuild: false });
                 toast.success(response.message);
               }}
             >
@@ -247,27 +253,29 @@ export function ModeratorBuildToolsDialog({
           ) : (
             <BaseButton
               onClick={async () => {
-                const response = await setBaseGameBuild(localBuild.buildId);
+                const response = await setBaseGameBuild(mainBuildState.buildId);
                 if (response.status === 'error') {
                   toast.error(response.message);
                   return;
                 }
-                setLocalBuild({ ...localBuild, isBaseGameBuild: true });
+                setLocalBuild({ ...mainBuildState, isBaseGameBuild: true });
                 toast.success(response.message);
               }}
             >
               Set Base Game Build
             </BaseButton>
           )}
-          {localBuild.isGimmickBuild ? (
+          {mainBuildState.isGimmickBuild ? (
             <BaseButton
               onClick={async () => {
-                const response = await unsetGimmickBuild(localBuild.buildId);
+                const response = await unsetGimmickBuild(
+                  mainBuildState.buildId,
+                );
                 if (response.status === 'error') {
                   toast.error(response.message);
                   return;
                 }
-                setLocalBuild({ ...localBuild, isGimmickBuild: false });
+                setLocalBuild({ ...mainBuildState, isGimmickBuild: false });
                 toast.success(response.message);
               }}
             >
@@ -276,12 +284,12 @@ export function ModeratorBuildToolsDialog({
           ) : (
             <BaseButton
               onClick={async () => {
-                const response = await setGimmickBuild(localBuild.buildId);
+                const response = await setGimmickBuild(mainBuildState.buildId);
                 if (response.status === 'error') {
                   toast.error(response.message);
                   return;
                 }
-                setLocalBuild({ ...localBuild, isGimmickBuild: true });
+                setLocalBuild({ ...mainBuildState, isGimmickBuild: true });
                 toast.success(response.message);
               }}
             >
