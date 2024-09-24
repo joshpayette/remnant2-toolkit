@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-09-24
 
+### Changed
+
+- Builds with Faelin's Sigil have been marked as patch affected.
+- Builds with Starkiller have been marked as patch affected.
+
 ### Fixed
 
 - Fixed issue where build variant dropdown could get too wide on mobile devices.

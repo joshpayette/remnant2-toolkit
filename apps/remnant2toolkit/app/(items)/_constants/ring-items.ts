@@ -388,6 +388,17 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Breach Accelerator',
+    imagePath: '/misc/placeholder.jpg',
+    saveFileSlug: 'Ring_BreachAccelerator_C', // TODO Check
+    id: 'w268ge',
+    description: `Increases Movement Speed and Physical Damage by 5%. Bonus is doubled when HASTE is active.`,
+    wikiLinks: [`https://remnant.wiki/Breach_Accelerator`],
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
+    dlc: 'base',
+  },
+  {
+    category: 'ring',
     name: `Bridge Warden's Crest`,
     imagePath: '/items/rings/bridgewardenscrest.png',
     saveFileSlug: 'Ring_BridgeWardensCrest_C',
@@ -1884,6 +1895,18 @@ export const ringItems: RingItem[] = [
     description: `Allows Heavy Weapon Ammo to gradually regenerate while in both Heavy Carry or Turret modes. Doubles the stowed Ammo Regeneration Rate of Heavy Weapons.`,
     wikiLinks: [`https://remnant.wiki/Ring_Of_Ordnance`],
     location: { world: `N'Erud`, dungeon: 'World Drop' },
+  },
+  {
+    category: 'ring',
+    name: 'Ring of Phantom Pain',
+    imagePath: '/misc/placeholder.jpg',
+    saveFileSlug: 'Ring_RingOfPhantomPain_C', // TODO Check
+    id: 'r6xmgj',
+    dlc: 'dlc3',
+    tags: [],
+    description: `Missing Health is converted to 10 Grey Health per second. Reduces Grey Health Regeneration by 90%.`,
+    wikiLinks: [`https://remnant.wiki/Ring_Of_Phantom_Pain`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'ring',
