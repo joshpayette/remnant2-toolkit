@@ -2170,7 +2170,7 @@ export const ringItems: RingItem[] = [
     name: 'Security Half-Measure',
     imagePath: '/items/rings/securityhalfmeasure.png',
     saveFileSlug: 'Ring_SecurityHalfMeasure_C', // TODO Check
-    id: '',
+    id: 'acmch3',
     tags: [],
     description: `On Relic Use, sacrifices 15% of Max Health and grants a SHIELD for 10% of the wearer's Max Health to allies within 8m. Conversion cannot kill wearer. Lasts 15s.`,
     wikiLinks: [`https://remnant.wiki/Security_Half-Measure`],
