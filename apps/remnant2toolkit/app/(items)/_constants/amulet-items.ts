@@ -847,6 +847,18 @@ export const amuletItems: AmuletItem[] = [
   },
   {
     category: 'amulet',
+    name: 'Quantum Memory',
+    imagePath: '/items/amulets/quantummemory.png',
+    saveFileSlug: 'Amulet_QuantumMemory_C', // TODO Check
+    id: '542njq',
+    dlc: 'dlc3',
+    tags: [],
+    description: `Combat Slide reloads currently equipped Firearm. Perfect Dodge Combat Slide reloads both firearms.`,
+    wikiLinks: ['https://remnant.wiki/Quantum_Memory'],
+    location: { world: `N'Erud`, dungeon: ['Detritus Foundry'] },
+  },
+  {
+    category: 'amulet',
     name: 'Range Finder',
     imagePath: '/items/amulets/rangefinder.png',
     saveFileSlug: 'Amulet_RangeFinder_C',

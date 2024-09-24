@@ -1,52 +1,11 @@
-export type WorldLocation =
-  | 'Losomn'
-  | `N'Erud`
-  | 'Yaesha'
-  | 'Labyrinth'
-  | 'Root Earth';
-
 export const WORLD_LOCATIONS = [
   'Losomn',
   `N'Erud`,
   'Yaesha',
   'Labyrinth',
   'Root Earth',
-] as const satisfies WorldLocation[];
-
-export type LosomnDungeon =
-  | 'Morrow Parish'
-  | 'Forsaken Quarter'
-  | 'Tormented Asylum'
-  | 'Beatific Palace'
-  | 'Ironborough'
-  | 'Brocwithe Quarter'
-  | 'Malefic Palace'
-  | 'Beatific Gallery'
-  | 'Malefic Gallery'
-  | `Nimue's Retreat`
-  | `Cotton's Kiln`
-  | `The Great Sewers`
-  | `Gilded Chambers`
-  | 'Shattered Gallery'
-  | `Butcher's Quarter`
-  | 'Council Chamber'
-  | 'The Great Hall'
-  | `Harvester's Reach`
-  | `Postulant's Parlor`
-  | `Tiller's Rest`
-  | `Briella's Garden`
-  | `Hewdas Clock`
-  | 'Lemark District'
-  | `Oracle's Refuge`
-  | `Forlorn Coast`
-  | `Palace of the One True King`
-  | `Chamber of the Faithless`
-  | `Glistering Cloister`
-  | `Sunken Haunt`
-  | `Derelict Lighthouse`
-  | `The Forgotten Commune`
-  | `Pathway of the Fallen`
-  | `Walk of Rememberance`;
+] as const;
+export type WorldLocation = (typeof WORLD_LOCATIONS)[number];
 
 export const LOSOMN_DUNGEONS = [
   'Morrow Parish',
@@ -82,33 +41,8 @@ export const LOSOMN_DUNGEONS = [
   `The Forgotten Commune`,
   `Pathway of the Fallen`,
   `Walk of Rememberance`,
-] as const satisfies LosomnDungeon[];
-
-export type NErudDungeon =
-  | `Seeker's Rest`
-  | 'Phantom Wasteland'
-  | 'Timeless Horizon'
-  | `Sentinel's Keep`
-  | `Forgotten Prison`
-  | `Abyssyal Rift`
-  | `The Eon Vault`
-  | `Tal'Ratha's Refuge`
-  | `Astropath's Respite`
-  | `The Hatchery`
-  | `The Putrid Domain`
-  | `Spectrum Nexus`
-  | `The Dark Conduit`
-  | `Dormant N'Erudian Facility`
-  | `Terminus Station`
-  | `Tower of the Unseen`
-  | `Vault of the Formless`
-  | `Void Vessel Facility`
-  | `Extraction Hub`
-  | `Titan's Reach`
-  | `Alepsis-Taura`
-  | `Ascension Spire`
-  | `Stagnant Manufactory`
-  | `Withered Necropolis`;
+] as const;
+export type LosomnDungeon = (typeof LOSOMN_DUNGEONS)[number];
 
 export const NERUD_DUNGEONS = [
   `Seeker's Rest`,
@@ -135,41 +69,9 @@ export const NERUD_DUNGEONS = [
   'Ascension Spire',
   `Stagnant Manufactory`,
   `Withered Necropolis`,
-] as const satisfies NErudDungeon[];
-
-export type YaeshaDungeon =
-  | `The Red Throne`
-  | `Withering Weald`
-  | `The Far Woods`
-  | `The Widow's Court`
-  | `The Great Bole`
-  | `The Forbidden Grove`
-  | `Faithless Thicket`
-  | `Ravager's Lair`
-  | `The Expanding Glade`
-  | `Kaeula's Rest`
-  | `The Nameless Nest`
-  | `The Twisted Chantry`
-  | `Cathedral of Omens`
-  | `The Chimney`
-  | `Endaira's End`
-  | `Forgotten Field`
-  | `Imperial Gardens`
-  | `The Lament`
-  | `Dappled Glade`
-  | `Kaora Kuri Nest`
-  | `Root Nexus`
-  | `The Forgotten Grove`
-  | 'Floating Forests'
-  | 'Infested Abyss'
-  | 'Ancient Canopy'
-  | 'Proving Grounds'
-  | `Goddess's Rest`
-  | `Deserted Atelier`
-  | `Bloodless Throne`
-  | `Glittering Grotto`
-  | 'Luminous Vale'
-  | 'Earthen Colosseum';
+  'Detritus Foundry',
+] as const;
+export type NErudDungeon = (typeof NERUD_DUNGEONS)[number];
 
 export const YAESHA_DUNGEONS = [
   `The Red Throne`,
@@ -203,26 +105,20 @@ export const YAESHA_DUNGEONS = [
   `Bloodless Throne`,
   `Glittering Grotto`,
   'Luminous Vale',
-] as const satisfies YaeshaDungeon[];
-
-export type RootEarthDungeon =
-  | 'Ashen Wasteland'
-  | 'Corrupted Harbor'
-  | 'Blackened Citadel'
-  | 'Twilight Vale';
+  'Earthen Colosseum',
+] as const;
+export type YaeshaDungeon = (typeof YAESHA_DUNGEONS)[number];
 
 export const ROOT_EARTH_DUNGEONS = [
   'Ashen Wasteland',
   'Corrupted Harbor',
   'Blackened Citadel',
   'Twilight Vale',
-] as const satisfies RootEarthDungeon[];
+] as const;
+export type RootEarthDungeon = (typeof ROOT_EARTH_DUNGEONS)[number];
 
-export type LabyrinthDungeon = 'Labyrinth' | 'Fractured Ingress';
-export const LABYRINTH_DUNGEONS = [
-  'Labyrinth',
-  'Fractured Ingress',
-] as const satisfies LabyrinthDungeon[];
+export const LABYRINTH_DUNGEONS = ['Labyrinth', 'Fractured Ingress'] as const;
+export type LabyrinthDungeon = (typeof LABYRINTH_DUNGEONS)[number];
 
 export const BIOMES = [
   {
