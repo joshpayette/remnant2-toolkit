@@ -604,7 +604,7 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'base',
     tags: ['Charged Melee', 'Melee Damage'],
     description:
-      'Melee Attacks grant a Shield for 5% - 10% of Max Health. Max 25% - 50%. Lasts 5s.',
+      'Melee Attacks grant a Shield for 5% - 10% of Max Health. Max 25% - 30%. Lasts 5s.',
     maxLevelBonus:
       'Charged Melee Attacks deal 25% additional Melee Damage based on current Shield amount.',
     wikiLinks: [`https://remnant.wiki/Shielded_Strike`],
@@ -684,7 +684,7 @@ export const mutatorItems: MutatorItem[] = [
     tags: [], // TODO Check tags
     description:
       'Reloading this weapon increases the damage of the Attached Mod by 10% - 25%. Lasts 5s.',
-    maxLevelBonus: `Casting Attached Mod increases Reload Speed by 25%. Lasts 5s.`,
+    maxLevelBonus: `Casting Attached Mod increases Reload Speed by 30%. Lasts 7s.`,
     wikiLinks: [`https://remnant.wiki/Spirit_Feeder`],
     location: { world: 'Any', dungeon: 'Aberration' },
   },
