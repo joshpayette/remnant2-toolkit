@@ -49,6 +49,7 @@ This project exists and thrives thanks to all the people who contribute.
 - DoTs Я Us
 - eSeFBee
 - Joelexion
+- コマcoma
 - [Mr. Nacho [\*] ](https://www.youtube.com/@Mr-Nacho420)
 - Newby
 - ρнιℓσмεηα

@@ -1,6 +1,6 @@
 import './globals.css';
 
-import { GlobalActionButtons, RootLayout } from '@repo/ui';
+import { BaseTextLink, GlobalActionButtons, RootLayout } from '@repo/ui';
 import { Analytics } from '@vercel/analytics/react';
 import { type Viewport } from 'next';
 import dynamic from 'next/dynamic';
@@ -28,10 +28,15 @@ export default async function Layout({
   return (
     <RootLayout
       alertBanner={
-        <AlertBanner localStorageKey="build-variants-live">
-          Build Variants are now live! All builds can now have a main build and
-          up to 2 variants to show off different gear options or playstyles! Try
-          it out by creating or editing a build!
+        <AlertBanner localStorageKey="dlc-submission-cta">
+          DLC drops today! Please submit your discovery screenshots and details{' '}
+          <BaseTextLink href="https://discord.com/invite/BEan7bgvuF">
+            to the Remnant.wiki
+          </BaseTextLink>{' '}
+          in order to get it into the Toolkit for community use!{' '}
+          <BaseTextLink href="https://discord.com/invite/BEan7bgvuF">
+            Join now!
+          </BaseTextLink>
         </AlertBanner>
       }
       footer={<Footer />}
