@@ -140,9 +140,11 @@ export function ViewBuild({
               session.user?.role === 'admin' && (
                 <>
                   <ModeratorBuildToolsDialog
+                    key={activeBuildState.buildId}
                     open={showModeratorTooling}
                     onClose={() => setShowModeratorTooling(false)}
-                    buildToModerate={mainBuildState}
+                    buildToModerate={activeBuildState}
+                    mainBuildState={mainBuildState}
                   />
                   <ModeratorToolsButton
                     onClick={() => setShowModeratorTooling(true)}

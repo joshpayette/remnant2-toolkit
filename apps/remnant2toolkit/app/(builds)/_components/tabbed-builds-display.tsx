@@ -27,7 +27,7 @@ export function TabbedBuildsDisplay({
   return (
     buildVariants.length > 1 && (
       <div className="mb-4 flex w-full items-center justify-center">
-        <BaseField className="sm:hidden">
+        <BaseField className="max-w-[300px] sm:hidden">
           <BaseLabel>
             <div className="mb-2 w-full text-center">{title}</div>
           </BaseLabel>
