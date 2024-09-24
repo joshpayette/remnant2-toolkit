@@ -321,6 +321,20 @@ export const mutatorItems: MutatorItem[] = [
   },
   {
     category: 'mutator',
+    name: 'Hidden Power',
+    type: 'gun',
+    imagePath: '/misc/placeholder.jpg',
+    saveFileSlug: 'MetaGem_HiddenPower_C', // TODO Check
+    id: '9154v1',
+    dlc: 'dlc3',
+    tags: [],
+    description: `Increases the attached weapon's Ranged Damage by 15% → 25% after being stowed for 2s. Lasts 7s upon being brandished.`,
+    maxLevelBonus: `Automatically reloads the attached weapon after being stowed for 2s.`,
+    wikiLinks: [`https://remnant.wiki/Hidden_Power`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
+  },
+  {
+    category: 'mutator',
     name: 'Ingenuity',
     type: 'gun',
     imagePath: '/items/mutators/ingenuity.png',
@@ -590,7 +604,7 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'base',
     tags: ['Charged Melee', 'Melee Damage'],
     description:
-      'Melee Attacks grant a Shield for 5% - 10% of Max Health. Max 25% - 50%. Lasts 5s.',
+      'Melee Attacks grant a Shield for 5% - 10% of Max Health. Max 25% - 30%. Lasts 5s.',
     maxLevelBonus:
       'Charged Melee Attacks deal 25% additional Melee Damage based on current Shield amount.',
     wikiLinks: [`https://remnant.wiki/Shielded_Strike`],
@@ -670,7 +684,7 @@ export const mutatorItems: MutatorItem[] = [
     tags: [], // TODO Check tags
     description:
       'Reloading this weapon increases the damage of the Attached Mod by 10% - 25%. Lasts 5s.',
-    maxLevelBonus: `Casting Attached Mod increases Reload Speed by 25%. Lasts 5s.`,
+    maxLevelBonus: `Casting Attached Mod increases Reload Speed by 30%. Lasts 7s.`,
     wikiLinks: [`https://remnant.wiki/Spirit_Feeder`],
     location: { world: 'Any', dungeon: 'Aberration' },
   },
@@ -904,6 +918,20 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus: `Melee Hits vs BLEEDING targets will Lifesteal 3% of base damage dealt.`,
     wikiLinks: [`https://remnant.wiki/Vampire_Blade`],
     location: { world: 'Yaesha', dungeon: [`Endaira's End`] },
+  },
+  {
+    category: 'mutator',
+    name: 'Volatile Strike',
+    type: 'melee',
+    imagePath: '/misc/placeholder.jpg',
+    saveFileSlug: 'MetaGem_VolatileStrike_C', // TODO Check
+    id: 'qej6k5',
+    dlc: 'dlc3',
+    tags: [],
+    description: `Dealing Melee Damage creates a 3m blast which deals 50 → 150 Explosive Damage. Can only happen once every 1s.`,
+    maxLevelBonus: `When Volatile Strike triggers a blast, increases Movement Speed by 20% for 5s.`,
+    wikiLinks: [`https://remnant.wiki/Volatile_Strike`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'mutator',

@@ -2101,6 +2101,23 @@ export const armorItems: ArmorItem[] = [
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
+    category: 'helm',
+    name: 'Welding Goggles',
+    saveFileSlug: 'Armor_Helm_Welder_C', // TODO Check
+    imagePath: '/misc/placeholder.jpg',
+    id: '81jid6',
+    dlc: 'dlc3',
+    armor: 9,
+    weight: 4,
+    bleedResistance: 0,
+    fireResistance: 3,
+    shockResistance: 0,
+    toxinResistance: 0,
+    blightResistance: 0,
+    wikiLinks: [`https://remnant.wiki/Welding_Goggles`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
+  },
+  {
     category: 'gloves',
     name: "Zealot's Wraps",
     saveFileSlug: 'Armor_Gloves_Ritualist_C',
