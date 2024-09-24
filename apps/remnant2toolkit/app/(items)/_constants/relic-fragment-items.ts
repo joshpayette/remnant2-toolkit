@@ -924,7 +924,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'cya6q1',
     dlc: 'base',
     tags: [],
-    description: 'Increases Trait Cap by 30 and Grants 30 Trait Points.',
+    description: 'Maxes out Core Traits.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
