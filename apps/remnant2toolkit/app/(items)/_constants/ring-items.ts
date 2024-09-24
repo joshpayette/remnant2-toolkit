@@ -1282,7 +1282,7 @@ export const ringItems: RingItem[] = [
     id: 'f2ooga',
     tags: ['Damage Reduction'],
     description:
-      'Taking damage adds 1 stack of BULWARK which individually falls off after 10s. Max 5 stacks.',
+      'Taking damage adds 1 stack of BULWARK which individually falls off after 10s. Max 3 stacks.',
     wikiLinks: [`https://remnant.wiki/Hardcore_Metal_Band`],
     location: {
       world: `N'Erud`,
