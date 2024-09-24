@@ -1887,6 +1887,18 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Ring of Phantom Pain',
+    imagePath: '/misc/placeholder.jpg',
+    saveFileSlug: 'Ring_RingOfPhantomPain_C', // TODO Check
+    id: '',
+    dlc: 'dlc3',
+    tags: [],
+    description: `Missing Health is converted to 10 Grey Health per second. Reduces Grey Health Regeneration by 90%.`,
+    wikiLinks: [`https://remnant.wiki/Ring_Of_Phantom_Pain`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
+  },
+  {
+    category: 'ring',
     name: 'Ring of Restocking',
     imagePath: '/items/rings/ringofrestocking.png',
     saveFileSlug: 'Ring_RingOfRestocking_C',
