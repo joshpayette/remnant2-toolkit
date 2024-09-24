@@ -1,3 +1,4 @@
+import { prismItems } from '@/app/(items)/_constants/prism-items';
 import { type Item } from '@/app/(items)/_types/item';
 
 import { amuletItems } from './amulet-items';
@@ -24,6 +25,7 @@ export const allItems = [
   ...modItems,
   ...mutatorItems,
   ...perkItems,
+  ...prismItems,
   ...relicFragmentItems,
   ...relicItems,
   ...ringItems,

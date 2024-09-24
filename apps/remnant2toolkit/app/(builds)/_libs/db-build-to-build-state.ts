@@ -8,6 +8,7 @@ import { ConsumableItem } from '@/app/(items)/_types/consumable-item';
 import { ModItem } from '@/app/(items)/_types/mod-item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { PerkItem } from '@/app/(items)/_types/perk-item';
+import { PrismItem } from '@/app/(items)/_types/prism-item';
 import { RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 import { RelicItem } from '@/app/(items)/_types/relic-item';
 import { RingItem } from '@/app/(items)/_types/ring-item';
@@ -57,6 +58,7 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
       mutator: MutatorItem.fromDBValue(buildItems),
       trait: TraitItem.fromDBValue(buildItems),
       perk: PerkItem.fromDBValue(buildItems),
+      prism: PrismItem.fromDBValue(buildItems),
     },
     name: dbBuild.name,
     thumbnailUrl: dbBuild.thumbnailUrl,

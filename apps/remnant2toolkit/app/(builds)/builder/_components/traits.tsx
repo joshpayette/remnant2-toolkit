@@ -5,7 +5,7 @@ import { TbHttpOptions } from 'react-icons/tb';
 
 import { Tooltip } from '@/app/_components/tooltip';
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/_constants/default-trait-amount';
-import { MAX_TRAIT_AMOUNT } from '@/app/(builds)/_constants/max-trait-amount';
+import { getTraitCount } from '@/app/(builds)/_libs/get-trait-count';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type Item } from '@/app/(items)/_types/item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
@@ -158,12 +158,13 @@ export function Traits({
             <span
               className={cn(
                 'text-lg font-bold',
-                totalTraitAmount > MAX_TRAIT_AMOUNT && 'text-red-500',
+                totalTraitAmount > getTraitCount(buildState) && 'text-red-500',
               )}
             >
               {totalTraitAmount}
             </span>
-            /<span className="font-bold">{MAX_TRAIT_AMOUNT}</span> Trait Points
+            /<span className="font-bold">{getTraitCount(buildState)}</span>{' '}
+            Trait Points
             <p className="text-primary-500">
               5 Core + 20 Archetype + 85 Player Choice
             </p>

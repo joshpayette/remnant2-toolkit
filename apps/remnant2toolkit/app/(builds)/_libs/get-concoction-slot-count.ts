@@ -1,5 +1,7 @@
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 
+// TODO Update for new prism fragments
+
 /**
  * Determines how many concoction slots the build has
  */

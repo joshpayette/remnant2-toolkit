@@ -5,16 +5,20 @@ import { relicFragmentItems } from '@/app/(items)/_constants/relic-fragment-item
 import { BaseItem } from '@/app/(items)/_types/base-item';
 import { type Item } from '@/app/(items)/_types/item';
 
-interface BaseRelicFragmentItem extends BaseItem {}
+interface BaseRelicFragmentItem extends BaseItem {
+  color?: 'red' | 'blue' | 'yellow' | 'legendary';
+}
 
 export class RelicFragmentItem
   extends BaseItem
   implements BaseRelicFragmentItem
 {
   public category: BaseRelicFragmentItem['category'] = 'relicfragment';
+  public color?: BaseRelicFragmentItem['color'];
 
   constructor(props: BaseRelicFragmentItem) {
     super(props);
+    this.color = props.color;
   }
 
   public static isRelicFragmentItem = (
