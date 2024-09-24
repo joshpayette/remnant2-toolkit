@@ -1552,7 +1552,7 @@ export const perkItems: PerkItem[] = [
       '\n' +
       `Increases base N'Erudian Energy Reserves for Turret and Drone by 100%.`,
     wikiLinks: ['https://remnant.wiki/Dynamic'],
-    externalTokens: [`PRERELEASE`],
+    externalTokens: [],
     linkedItems: {
       archetype: {
         name: 'Warden',
@@ -1573,7 +1573,7 @@ export const perkItems: PerkItem[] = [
       '\n' +
       `Damage increases with Warden Level.`,
     wikiLinks: [],
-    externalTokens: [`PRERELEASE`],
+    externalTokens: [],
     linkedItems: {
       archetype: {
         name: 'Warden',
@@ -1591,7 +1591,7 @@ export const perkItems: PerkItem[] = [
     tags: ['Damage Reduction', 'Healing Effectiveness'],
     description: `The Warden's Drone grants 1 stack of BULWARK and increases incoming Healing Effectiveness by 10% to its Warded Target\n`,
     wikiLinks: [],
-    externalTokens: [`PRERELEASE`],
+    externalTokens: [],
     linkedItems: {
       archetype: {
         name: 'Warden',
@@ -1612,7 +1612,7 @@ export const perkItems: PerkItem[] = [
       '\n' +
       `While active, increases Movement Speed by 15%.`,
     wikiLinks: [],
-    externalTokens: [`PRERELEASE`],
+    externalTokens: [],
     linkedItems: {
       archetype: {
         name: 'Warden',
@@ -1633,7 +1633,7 @@ export const perkItems: PerkItem[] = [
       '\n' +
       `While active, actions which consume N'Erudian Energy have no cost.`,
     wikiLinks: [],
-    externalTokens: [`PRERELEASE`],
+    externalTokens: [],
     linkedItems: {
       archetype: {
         name: 'Warden',
