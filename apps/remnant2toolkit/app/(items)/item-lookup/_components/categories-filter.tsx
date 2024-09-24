@@ -19,6 +19,7 @@ export const VALID_ITEM_CATEGORIES = [
   'Ring',
   'Relic',
   'Relic Fragment',
+  'Prism',
   'Archetype',
   'Skill',
   'Trait',
@@ -132,6 +133,15 @@ export function CategoriesFilter({
               onChange={(checked) => onChange('Relic Fragment', checked)}
             />
             <BaseLabel>Relic Fragment</BaseLabel>
+          </BaseCheckboxField>
+          <BaseCheckboxField key="Prism">
+            <BaseCheckbox
+              name="prism"
+              value="Prism"
+              checked={values.includes('Prism')}
+              onChange={(checked) => onChange('Prism', checked)}
+            />
+            <BaseLabel>Prism</BaseLabel>
           </BaseCheckboxField>
         </BaseCheckboxGroup>
         <BaseCheckboxGroup className="col-span-1 border border-gray-800 p-2">

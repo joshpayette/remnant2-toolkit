@@ -110,6 +110,7 @@ export function importedLoadoutToBuildState({
       relicfragment: [], // cannot determine fragment order if missing fragments
       trait: [],
       perk: [],
+      prism: null,
     },
   };
 

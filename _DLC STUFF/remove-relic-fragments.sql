@@ -1,0 +1,27 @@
+DELETE FROM Item WHERE id="0y36lm";
+DELETE FROM Item WHERE id="lbtjq3";
+DELETE FROM Item WHERE id="74x7jt";
+DELETE FROM Item WHERE id="yk8dng";
+DELETE FROM Item WHERE id="ygdexg";
+DELETE FROM Item WHERE id="w5jmys";
+DELETE FROM Item WHERE id="s8pkj3";
+DELETE FROM Item WHERE id="77ch7i";
+DELETE FROM Item WHERE id="j7k57r";
+DELETE FROM Item WHERE id="erp2mp";
+DELETE FROM Item WHERE id="fuikyq";
+DELETE FROM Item WHERE id="8q8xe3";
+DELETE FROM Item WHERE id="j1aele";
+
+DELETE FROM BuildItems WHERE itemId="0y36lm";
+DELETE FROM BuildItems WHERE itemId="lbtjq3";
+DELETE FROM BuildItems WHERE itemId="74x7jt";
+DELETE FROM BuildItems WHERE itemId="yk8dng";
+DELETE FROM BuildItems WHERE itemId="ygdexg";
+DELETE FROM BuildItems WHERE itemId="w5jmys";
+DELETE FROM BuildItems WHERE itemId="s8pkj3";
+DELETE FROM BuildItems WHERE itemId="77ch7i";
+DELETE FROM BuildItems WHERE itemId="j7k57r";
+DELETE FROM BuildItems WHERE itemId="erp2mp";
+DELETE FROM BuildItems WHERE itemId="fuikyq";
+DELETE FROM BuildItems WHERE itemId="8q8xe3";
+DELETE FROM BuildItems WHERE itemId="j1aele";

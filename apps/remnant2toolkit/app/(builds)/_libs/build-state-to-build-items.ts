@@ -41,6 +41,11 @@ export function buildStateToBuildItems(buildState: BuildState): Array<{
       category: 'relic' as ItemCategory,
       optional: items.relic?.optional ?? false,
     },
+    {
+      itemId: items.prism?.id ?? '',
+      category: 'prism' as ItemCategory,
+      optional: items.prism?.optional ?? false,
+    },
     ...(items.ring
       ? items.ring.map((ring, index) => ({
           itemId: ring?.id ?? '',

@@ -21,7 +21,8 @@ type ItemCategory =
   | 'ring'
   | 'skill'
   | 'trait'
-  | 'perk';
+  | 'perk'
+  | 'prism';
 
 export interface BaseItemProps {
   id: string;

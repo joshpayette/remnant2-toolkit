@@ -52,5 +52,6 @@ export const INITIAL_BUILD_STATE: BuildState = {
     relicfragment: [],
     trait: [],
     perk: [],
+    prism: null,
   },
 };

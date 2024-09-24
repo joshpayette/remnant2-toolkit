@@ -69,6 +69,11 @@ const amuletItemSchema = z.object({
   category: z.enum(['amulet']),
 });
 
+const prismItemSchema = z.object({
+  ...baseItemShape,
+  category: z.enum(['prism']),
+});
+
 export function validateBuildState(buildState: unknown) {
   const buildStateSchema: z.ZodType<BuildState> = z.object({
     name: z.string(),
@@ -136,6 +141,7 @@ export function validateBuildState(buildState: unknown) {
       relicfragment: z.array(z.any()),
       trait: z.array(z.any()),
       perk: z.array(z.any()),
+      prism: prismItemSchema.nullable(),
     }),
   });
   return buildStateSchema.safeParse(buildState);
