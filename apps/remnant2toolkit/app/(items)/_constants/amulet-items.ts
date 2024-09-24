@@ -94,6 +94,18 @@ export const amuletItems: AmuletItem[] = [
   },
   {
     category: 'amulet',
+    name: 'Canine Keepsake',
+    imagePath: '/items/amulets/caninekeepsake.png',
+    saveFileSlug: 'Amulet_CanineKeepsake_C', // TODO Check
+    id: 'z496hr',
+    dlc: 'base',
+    tags: [],
+    description: `Increases All Damage by 2.5%, Critical Chance by 1.5%, and Critical Damage by 1.5% for every 5% of total Health present as Grey Health. Max 10 stacks.`,
+    wikiLinks: ['https://remnant.wiki/Canine_Keepsake'],
+    location: { world: 'Yaesha', dungeon: 'World Drop' },
+  },
+  {
+    category: 'amulet',
     name: 'Cervine Keepsake',
     imagePath: '/items/amulets/cervinekeepsake.png',
     saveFileSlug: 'Amulet_CervineKeepsake_C',
@@ -861,6 +873,18 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: [`https://remnant.wiki/Ravager's_Mark`],
     externalTokens: [`Misty Step`],
     location: { world: `Yaesha`, dungeon: [`Ravager's Lair`] },
+  },
+  {
+    category: 'amulet',
+    name: 'Reaction Chain',
+    imagePath: '/items/amulets/reactionchain.png',
+    saveFileSlug: 'Amulet_ReactionChain_C',
+    id: 'k1cwam',
+    dlc: 'base',
+    tags: [],
+    description: `Increases Mod Damage by 20%. Activating a Mod generates 50% of Mod Power Spent to the Stowed Weapon's Mod.`,
+    wikiLinks: [`https://remnant.wiki/Reaction_Chain`],
+    location: { world: 'Any', dungeon: 'World Drop' },
   },
   {
     category: 'amulet',
