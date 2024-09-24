@@ -107,7 +107,8 @@ export type NErudDungeon =
   | `Titan's Reach`
   | `Alepsis-Taura`
   | `Ascension Spire`
-  | `Stagnant Manufactory`;
+  | `Stagnant Manufactory`
+  | `Withered Necropolis`;
 
 export const NERUD_DUNGEONS = [
   `Seeker's Rest`,
@@ -133,6 +134,7 @@ export const NERUD_DUNGEONS = [
   `Alepsis-Taura`,
   'Ascension Spire',
   `Stagnant Manufactory`,
+  `Withered Necropolis`,
 ] as const satisfies NErudDungeon[];
 
 export type YaeshaDungeon =
