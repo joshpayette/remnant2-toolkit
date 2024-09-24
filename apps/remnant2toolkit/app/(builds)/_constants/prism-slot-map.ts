@@ -8,4 +8,4 @@ export const PRISM_SLOT_MAP = [
   'bonus',
   'bonus',
   'legendary',
-];
+] as const;

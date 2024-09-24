@@ -302,7 +302,7 @@ export function ItemButton({
             MANUAL_ITEM_NAME_TEXT_TRANSFORMS.some(
               (i) => i.name === item.name,
             ) && 'text-[9px]',
-            variant === 'default' && 'min-h-[49px] w-[66px] rounded-b-lg',
+            variant === 'default' && 'min-h-[55px] w-[66px] rounded-b-lg',
             variant === 'large' && 'min-h-[40px] w-[99px] rounded-b-lg',
             variant === 'boss-tracker' &&
               'text-md min-h-[40px] w-[200px] rounded-b-lg',
