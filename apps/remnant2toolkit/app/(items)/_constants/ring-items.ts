@@ -2167,6 +2167,18 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Security Half-Measure',
+    imagePath: '/items/rings/securityhalfmeasure.png',
+    saveFileSlug: 'Ring_SecurityHalfMeasure_C', // TODO Check
+    id: 'acmch3',
+    tags: [],
+    description: `On Relic Use, sacrifices 15% of Max Health and grants a SHIELD for 10% of the wearer's Max Health to allies within 8m. Conversion cannot kill wearer. Lasts 15s.`,
+    wikiLinks: [`https://remnant.wiki/Security_Half-Measure`],
+    dlc: 'dlc3',
+    location: { world: `N'Erud`, dungeon: [`Withered Necropolis`] },
+  },
+  {
+    category: 'ring',
     name: 'Shadow of Misery',
     imagePath: '/items/rings/shadowofmisery.png',
     saveFileSlug: 'Ring_ShadowOfMisery_C',
@@ -2240,6 +2252,18 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Singed_Ring`],
     dlc: 'base',
     location: { world: 'Losomn', dungeon: [`Butcher's Quarter`] },
+  },
+  {
+    category: 'ring',
+    name: 'Siphon Filter',
+    imagePath: '/items/rings/siphonfilter.png',
+    saveFileSlug: 'Ring_SiphonFilter_C', // TODO Check
+    id: '3nifjz',
+    tags: ['All Damage'],
+    description: `Increases All Damage dealt by an amount equal to an active HASTE bonus. Grants HASTE when within 15m of an entity suffering from SLOW`,
+    wikiLinks: [`https://remnant.wiki/Siphon_Filter`],
+    dlc: 'dlc3',
+    location: { world: `N'Erud`, dungeon: [`Logistics Bridge`] },
   },
   {
     category: 'ring',

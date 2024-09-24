@@ -4,7 +4,7 @@ export const WORLD_LOCATIONS = [
   'Yaesha',
   'Labyrinth',
   'Root Earth',
-] as const;
+] as const satisfies string[];
 export type WorldLocation = (typeof WORLD_LOCATIONS)[number];
 
 export const LOSOMN_DUNGEONS = [
@@ -41,7 +41,7 @@ export const LOSOMN_DUNGEONS = [
   `The Forgotten Commune`,
   `Pathway of the Fallen`,
   `Walk of Rememberance`,
-] as const;
+] as const satisfies string[];
 export type LosomnDungeon = (typeof LOSOMN_DUNGEONS)[number];
 
 export const NERUD_DUNGEONS = [
@@ -70,7 +70,9 @@ export const NERUD_DUNGEONS = [
   `Stagnant Manufactory`,
   `Withered Necropolis`,
   'Detritus Foundry',
-] as const;
+  'Logistics Bridge',
+  'Agronomy Sector',
+] as const satisfies string[];
 export type NErudDungeon = (typeof NERUD_DUNGEONS)[number];
 
 export const YAESHA_DUNGEONS = [
@@ -106,7 +108,7 @@ export const YAESHA_DUNGEONS = [
   `Glittering Grotto`,
   'Luminous Vale',
   'Earthen Colosseum',
-] as const;
+] as const satisfies string[];
 export type YaeshaDungeon = (typeof YAESHA_DUNGEONS)[number];
 
 export const ROOT_EARTH_DUNGEONS = [
@@ -114,10 +116,13 @@ export const ROOT_EARTH_DUNGEONS = [
   'Corrupted Harbor',
   'Blackened Citadel',
   'Twilight Vale',
-] as const;
+] as const satisfies string[];
 export type RootEarthDungeon = (typeof ROOT_EARTH_DUNGEONS)[number];
 
-export const LABYRINTH_DUNGEONS = ['Labyrinth', 'Fractured Ingress'] as const;
+export const LABYRINTH_DUNGEONS = [
+  'Labyrinth',
+  'Fractured Ingress',
+] as const satisfies string[];
 export type LabyrinthDungeon = (typeof LABYRINTH_DUNGEONS)[number];
 
 export const BIOMES = [

@@ -163,6 +163,18 @@ export const concoctionItems: ConcoctionItem[] = [
   },
   {
     category: 'concoction',
+    name: 'Numbing Agent',
+    imagePath: '/items/consumables/numbingagent.png',
+    saveFileSlug: 'Consumable_NumbingAgent_C', // TODO Check
+    id: 'd715ws',
+    tags: ['Grey Health', 'Consumable'],
+    description: `Increases the hits that can be taken before losing Grey Health by 1. Lasts 60m and will stay in effect after death.`,
+    wikiLinks: [`https://remnant.wiki/Numbing_Agent`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
+    dlc: 'dlc3',
+  },
+  {
+    category: 'concoction',
     name: 'Root Water',
     imagePath: '/items/consumables/rootwater.png',
     saveFileSlug: 'Consumable_RootWater_C',
