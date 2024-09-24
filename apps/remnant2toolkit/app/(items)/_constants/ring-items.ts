@@ -611,6 +611,22 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Bypass Primer',
+    imagePath: '/items/rings/bypassprimer.png',
+    saveFileSlug: 'Ring_BypassPrimer_C', // TODO Check
+    id: 'b99sey',
+    tags: [],
+    description: `On Perfect Dodge, reload current Firearm`,
+    wikiLinks: [`https://remnant.wiki/Bypass_Primer`],
+    dlc: 'dlc3',
+    location: {
+      world: `N'Erud`,
+      biome: `N'Erud Wasteland`,
+      injectable: `Stealth Maze`,
+    },
+  },
+  {
+    category: 'ring',
     name: "Cataloger's Jewel",
     imagePath: '/items/rings/catalogerjewel.png',
     saveFileSlug: 'Ring_CatalogersJewel_C',
