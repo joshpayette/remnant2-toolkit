@@ -1598,6 +1598,18 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Nanofiber Strand',
+    imagePath: '/items/rings/nanofiberstrand.png',
+    saveFileSlug: 'Ring_NanofiberStrand_C', // TODO Check
+    id: '0sb21d',
+    tags: [],
+    description: `Increases SHIELD Amount by 10%.`,
+    wikiLinks: [`https://remnant.wiki/Nanofiber_Strand`],
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
+    dlc: 'base',
+  },
+  {
+    category: 'ring',
     name: 'Offering Stone',
     imagePath: '/items/rings/offeringstone.png',
     saveFileSlug: 'Ring_OfferingStone_C',
