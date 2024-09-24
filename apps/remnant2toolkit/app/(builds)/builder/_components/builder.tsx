@@ -1,14 +1,5 @@
 import { type BuildTags } from '@repo/db';
-import {
-  BaseFieldset,
-  BaseInput,
-  BaseLabel,
-  BaseLink,
-  cn,
-  EyeIcon,
-  FavoriteIcon,
-  Logo,
-} from '@repo/ui';
+import { BaseInput, BaseLink, cn, EyeIcon, FavoriteIcon, Logo } from '@repo/ui';
 import { getArrayOfLength, stripUnicode } from '@repo/utils';
 import { useCallback, useMemo, useState } from 'react';
 import { FaRegEye } from 'react-icons/fa';
@@ -34,6 +25,7 @@ import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { FeaturedBuildBadge } from '@/app/(builds)/builder/_components/featured-build-badge';
 import { NewBuildBadge } from '@/app/(builds)/builder/_components/new-build-badge';
 import { PopularBuildBadge } from '@/app/(builds)/builder/_components/popular-build-badge';
+import { PrismDisplay } from '@/app/(builds)/builder/_components/prism-display';
 import { ItemButton } from '@/app/(items)/_components/item-button';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { ItemSelectDialog } from '@/app/(items)/_components/item-select-dialog';
@@ -1013,103 +1005,16 @@ export function Builder({
           id="prism-row"
           className="mb-4 flex w-full items-center justify-center"
         >
-          <div
-            className={cn(
-              'flex flex-row flex-wrap items-center justify-center gap-x-1 gap-y-0 sm:justify-start',
-              isScreenshotMode && 'justify-start',
-            )}
-          >
-            <BaseFieldset className="flex max-w-full flex-col items-start justify-start gap-y-2 border border-transparent p-1">
-              {isEditable ? (
-                <BaseLabel className="w-full text-center">
-                  <span className="text-sm">Prism</span>
-                </BaseLabel>
-              ) : null}
-              <ItemButton
-                item={buildState.items.prism}
-                isEditable={isEditable}
-                isScreenshotMode={isScreenshotMode}
-                manualWordBreaks={true}
-                onClick={() => handleItemSlotClick('prism')}
-                onItemInfoClick={handleShowInfo}
-                onToggleOptional={handleToggleOptional}
-                showOwnership={itemOwnershipPreference}
-                tooltipDisabled={itemInfoOpen}
-                unoptimized={isScreenshotMode}
-              />
-            </BaseFieldset>
-            <BaseFieldset className="flex max-w-full flex-col items-start justify-start gap-y-2 border border-transparent p-1">
-              {isEditable ? (
-                <BaseLabel className="w-full text-center">
-                  <span className="text-sm">Fragments</span>
-                </BaseLabel>
-              ) : null}
-              <div className="flex w-full flex-wrap items-start justify-start gap-x-1">
-                {getArrayOfLength(3).map((fragmentIndex) => (
-                  <ItemButton
-                    item={buildState.items.relicfragment[fragmentIndex] || null}
-                    isEditable={isEditable}
-                    isScreenshotMode={isScreenshotMode}
-                    manualWordBreaks={true}
-                    onClick={() =>
-                      handleItemSlotClick('relicfragment', fragmentIndex)
-                    }
-                    onItemInfoClick={handleShowInfo}
-                    onToggleOptional={handleToggleOptional}
-                    showOwnership={itemOwnershipPreference}
-                    tooltipDisabled={itemInfoOpen}
-                    unoptimized={isScreenshotMode}
-                  />
-                ))}
-              </div>
-            </BaseFieldset>
-            <BaseFieldset className="flex max-w-full flex-col items-start justify-start gap-y-2 border border-transparent p-1">
-              {isEditable ? (
-                <BaseLabel className="w-full text-center">
-                  <span className="text-sm">Bonuses</span>
-                </BaseLabel>
-              ) : null}
-              <div className="flex w-full flex-wrap items-start justify-start gap-x-1">
-                {getArrayOfLength(5).map((fragmentIndex) => (
-                  <ItemButton
-                    item={
-                      buildState.items.relicfragment[fragmentIndex + 3] || null
-                    }
-                    isEditable={isEditable}
-                    isScreenshotMode={isScreenshotMode}
-                    manualWordBreaks={true}
-                    onClick={() =>
-                      handleItemSlotClick('relicfragment', fragmentIndex + 3)
-                    }
-                    onItemInfoClick={handleShowInfo}
-                    onToggleOptional={handleToggleOptional}
-                    showOwnership={itemOwnershipPreference}
-                    tooltipDisabled={itemInfoOpen}
-                    unoptimized={isScreenshotMode}
-                  />
-                ))}
-              </div>
-            </BaseFieldset>
-            <BaseFieldset className="flex max-w-full flex-col items-start justify-start gap-y-2 border border-transparent p-1">
-              {isEditable ? (
-                <BaseLabel className="w-full text-center">
-                  <span className="text-sm">Legendary</span>
-                </BaseLabel>
-              ) : null}
-              <ItemButton
-                item={buildState.items.relicfragment[8] || null}
-                isEditable={isEditable}
-                isScreenshotMode={isScreenshotMode}
-                manualWordBreaks={true}
-                onClick={() => handleItemSlotClick('relicfragment', 8)}
-                onItemInfoClick={handleShowInfo}
-                onToggleOptional={handleToggleOptional}
-                showOwnership={itemOwnershipPreference}
-                tooltipDisabled={itemInfoOpen}
-                unoptimized={isScreenshotMode}
-              />
-            </BaseFieldset>
-          </div>
+          <PrismDisplay
+            buildState={buildState}
+            isEditable={isEditable}
+            isScreenshotMode={isScreenshotMode}
+            itemInfoOpen={itemInfoOpen}
+            itemOwnershipPreference={itemOwnershipPreference}
+            onItemSlotClick={handleItemSlotClick}
+            onShowInfo={handleShowInfo}
+            onToggleOptional={handleToggleOptional}
+          />
         </div>
 
         {showMemberFeatures ? (
