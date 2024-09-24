@@ -389,7 +389,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Breach Accelerator',
-    imagePath: '/misc/placeholder.jpg',
+    imagePath: '/items/rings/breachaccelerator.png',
     saveFileSlug: 'Ring_BreachAccelerator_C', // TODO Check
     id: 'w268ge',
     description: `Increases Movement Speed and Physical Damage by 5%. Bonus is doubled when HASTE is active.`,
@@ -799,7 +799,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Detonating Cord',
-    imagePath: '/misc/placeholder.jpg',
+    imagePath: '/items/rings/detonatingcord.png',
     saveFileSlug: 'Ring_DetonatingCord_C', // TODO Check
     id: '267d3s',
     externalTokens: ['Explosive Damage'],
@@ -973,7 +973,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Empowering Loop',
-    imagePath: '/misc/placeholder.jpg',
+    imagePath: '/items/rings/empoweringloop.png',
     saveFileSlug: 'Ring_EmpoweringLoop_C', // TODO Check
     id: 'huu4fi',
     dlc: 'base',
@@ -1924,7 +1924,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Phantom Pain',
-    imagePath: '/misc/placeholder.jpg',
+    imagePath: '/items/rings/ringofphantompain.png',
     saveFileSlug: 'Ring_RingOfPhantomPain_C', // TODO Check
     id: 'r6xmgj',
     dlc: 'dlc3',

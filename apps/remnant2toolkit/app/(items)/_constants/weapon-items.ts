@@ -104,7 +104,7 @@ export const weaponItems: WeaponItem[] = [
     type: 'melee',
     name: 'Black Greatsword',
     saveFileSlug: 'Weapon_BlackGreatsword_C', // TODO Check
-    imagePath: '/misc/placeholder.jpg',
+    imagePath: '/items/weapons/blackgreatsword.png',
     id: '71k6w5',
     dlc: 'dlc3',
     description: `A massive weapon of pure destruction. Attacks can be enhanced by Charging at the cost of Stamina over time. Increases Encumbrance by 15.`,
