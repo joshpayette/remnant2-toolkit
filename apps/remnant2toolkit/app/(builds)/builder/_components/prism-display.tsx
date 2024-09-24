@@ -7,7 +7,6 @@ import {
   BaseListbox,
   BaseListboxLabel,
   BaseListboxOption,
-  BaseText,
   cn,
 } from '@repo/ui';
 import { getArrayOfLength } from '@repo/utils';
@@ -26,7 +25,7 @@ import {
  * Checks all relic fragments in the 'bonus' slots to see if they can
  * form a combo. If so, returns the combo.
  */
-function detectCombos(buildState: BuildState): Array<{
+function detectComboPossibilities(buildState: BuildState): Array<{
   combo: Combo;
   fragmentNames: string[];
 }> {
@@ -87,7 +86,7 @@ interface Props {
   isScreenshotMode: boolean;
   itemInfoOpen: boolean;
   itemOwnershipPreference: boolean;
-  onItemSlotClick: (category: ItemCategory, index?: number) => void;
+  onPrismSelect: (category: ItemCategory, index?: number) => void;
   onShowInfo: (item: Item) => void;
   onToggleOptional: (selectedItem: Item, optional: boolean) => void;
 }
@@ -98,11 +97,14 @@ export function PrismDisplay({
   isScreenshotMode,
   itemInfoOpen,
   itemOwnershipPreference,
-  onItemSlotClick,
+  onPrismSelect,
   onShowInfo,
   onToggleOptional,
 }: Props) {
-  const detectedCombos = useMemo(() => detectCombos(buildState), [buildState]);
+  const detectedComboPossibilities = useMemo(
+    () => detectComboPossibilities(buildState),
+    [buildState],
+  );
 
   return (
     <div
@@ -122,7 +124,7 @@ export function PrismDisplay({
           isEditable={isEditable}
           isScreenshotMode={isScreenshotMode}
           manualWordBreaks={true}
-          onClick={() => onItemSlotClick('prism')}
+          onClick={() => onPrismSelect('prism')}
           onItemInfoClick={onShowInfo}
           onToggleOptional={onToggleOptional}
           showOwnership={itemOwnershipPreference}
@@ -143,7 +145,7 @@ export function PrismDisplay({
               isEditable={isEditable}
               isScreenshotMode={isScreenshotMode}
               manualWordBreaks={true}
-              onClick={() => onItemSlotClick('relicfragment', fragmentIndex)}
+              onClick={() => onPrismSelect('relicfragment', fragmentIndex)}
               onItemInfoClick={onShowInfo}
               onToggleOptional={onToggleOptional}
               showOwnership={itemOwnershipPreference}
@@ -166,9 +168,7 @@ export function PrismDisplay({
               isEditable={isEditable}
               isScreenshotMode={isScreenshotMode}
               manualWordBreaks={true}
-              onClick={() =>
-                onItemSlotClick('relicfragment', fragmentIndex + 3)
-              }
+              onClick={() => onPrismSelect('relicfragment', fragmentIndex + 3)}
               onItemInfoClick={onShowInfo}
               onToggleOptional={onToggleOptional}
               showOwnership={itemOwnershipPreference}
@@ -189,7 +189,7 @@ export function PrismDisplay({
           isEditable={isEditable}
           isScreenshotMode={isScreenshotMode}
           manualWordBreaks={true}
-          onClick={() => onItemSlotClick('relicfragment', 8)}
+          onClick={() => onPrismSelect('relicfragment', 8)}
           onItemInfoClick={onShowInfo}
           onToggleOptional={onToggleOptional}
           showOwnership={itemOwnershipPreference}
@@ -197,21 +197,21 @@ export function PrismDisplay({
           unoptimized={isScreenshotMode}
         />
       </BaseFieldset>
-      {detectedCombos.length > 0 ? (
+      {detectedComboPossibilities.length > 0 ? (
         <BaseFieldset className="mt-4 flex w-full items-center justify-center">
           <BaseLabel>Apply Combos:</BaseLabel>
           <BaseListbox
             name="combos"
-            defaultValue={detectedCombos[0]?.combo.name}
+            defaultValue={detectedComboPossibilities[0]?.combo.name}
           >
-            {detectedCombos.map((detectedCombo) => (
+            {detectedComboPossibilities.map((comboPossibility) => (
               <BaseListboxOption
-                key={detectedCombo.combo.name}
-                value={detectedCombo.combo.name}
+                key={comboPossibility.combo.name}
+                value={comboPossibility.combo.name}
               >
                 <BaseListboxLabel>
-                  {detectedCombo.combo.name} (
-                  {detectedCombo.fragmentNames.join(',')})
+                  {comboPossibility.combo.name} (
+                  {comboPossibility.fragmentNames.join(',')})
                 </BaseListboxLabel>
               </BaseListboxOption>
             ))}
