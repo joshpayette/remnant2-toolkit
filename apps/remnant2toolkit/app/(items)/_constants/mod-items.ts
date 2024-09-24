@@ -956,7 +956,7 @@ export const modItems: ModItem[] = [
     category: 'mod',
     name: 'Indomitable Strike',
     saveFileSlug: 'Mod_IndomitableStrike_C', // TODO Check
-    imagePath: '/misc/placeholder.jpg',
+    imagePath: '/items/mods/indomitablestrike.png',
     id: '778jv8',
     dlc: 'dlc3',
     description:
