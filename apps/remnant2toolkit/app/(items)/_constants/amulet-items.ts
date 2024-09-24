@@ -925,6 +925,18 @@ export const amuletItems: AmuletItem[] = [
   },
   {
     category: 'amulet',
+    name: 'Relay Device',
+    imagePath: '/items/amulets/relaydevice.png',
+    saveFileSlug: 'Amulet_RelayDevice_C', // TODO Check
+    id: 'fwtqy6',
+    dlc: 'dlc3',
+    tags: ['Ranged Damage'],
+    description: `Swapping Firearms increases Ranged Damage by 20% for 1.5s plus an additional 0.5s for each round in the Magazine. Max 15s.`,
+    wikiLinks: ['https://remnant.wiki/Relay_Device'],
+    location: { world: `N'Erud`, dungeon: ['Withered Necropolis'] },
+  },
+  {
+    category: 'amulet',
     name: "Rusted Navigator's Pendant",
     imagePath: '/items/amulets/rustednavigatorpendant.png',
     saveFileSlug: 'Amulet_RustedNavigatorsPendant_C',

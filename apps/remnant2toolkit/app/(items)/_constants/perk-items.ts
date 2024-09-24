@@ -1542,7 +1542,7 @@ export const perkItems: PerkItem[] = [
     category: 'perk',
     name: 'Dynamic',
     saveFileSlug: 'Perk_Dynamic_C', // TODO Check this
-    imagePath: '/items/perks/warden_dynamic_placeholder1.png',
+    imagePath: '/items/perks/warden_dynamic.png',
     type: 'prime',
     id: 'no6oxo',
     dlc: 'dlc3',
@@ -1563,7 +1563,7 @@ export const perkItems: PerkItem[] = [
     category: 'perk',
     name: 'Galvanize',
     saveFileSlug: 'Perk_WardenGalvanize_C', // TODO Check this
-    imagePath: '/items/perks/warden_galvanize_placeholder.png',
+    imagePath: '/items/perks/warden_galvanize.png',
     type: 'damage',
     id: '1yfbk0',
     dlc: 'dlc3',
@@ -1584,7 +1584,7 @@ export const perkItems: PerkItem[] = [
     category: 'perk',
     name: 'Safeguard',
     saveFileSlug: 'Perk_WardenSafeguard_C', // TODO Check this
-    imagePath: '/items/perks/warden_safeguard_placeholder.png',
+    imagePath: '/items/perks/warden_safeguard.png',
     type: 'team',
     id: 'w3gyt0',
     dlc: 'dlc3',
@@ -1602,7 +1602,7 @@ export const perkItems: PerkItem[] = [
     category: 'perk',
     name: 'Contingency',
     saveFileSlug: 'Perk_WardenContingency_C', // TODO Check this
-    imagePath: '/items/perks/warden_contingency_placeholder.png',
+    imagePath: '/items/perks/warden_contingency.png',
     type: 'utility',
     id: 'odd85z',
     dlc: 'dlc3',
@@ -1623,7 +1623,7 @@ export const perkItems: PerkItem[] = [
     category: 'perk',
     name: 'Energize',
     saveFileSlug: 'Perk_WardenEnergize_C', // TODO Check this
-    imagePath: '/items/perks/warden_energize_placeholder.png',
+    imagePath: '/items/perks/warden_energize.png',
     type: 'relic',
     id: 'c6k3ke',
     dlc: 'dlc3',

@@ -108,6 +108,20 @@ export const mutatorItems: MutatorItem[] = [
   },
   {
     category: 'mutator',
+    name: 'Detonator',
+    type: 'gun',
+    imagePath: '/items/mutators/detonator.png',
+    saveFileSlug: 'MetaGem_Detonator_C', // TODO Check
+    id: 'fgs17j',
+    dlc: 'dlc3',
+    tags: [],
+    description: `Each 10% of this weapon's magazine spent, cause an explosion for 5 Explosive Damage to targets within 0.5m of impact location.`,
+    maxLevelBonus: `Increases this weapon's explosive damage by 20%.`,
+    wikiLinks: [`https://remnant.wiki/Detonator`],
+    location: { world: `N'Erud`, dungeon: ['Agronomy Sector'] },
+  },
+  {
+    category: 'mutator',
     name: 'Disengage',
     type: 'melee',
     imagePath: '/items/mutators/disengage.png',
@@ -786,6 +800,20 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus: `Charged Primary Shots of Bows and Fusion Rifles gain 15% Critical Chance.`,
     wikiLinks: [`https://remnant.wiki/Supercharger`],
     location: { world: 'Root Earth', dungeon: ['Twilight Vale'] },
+  },
+  {
+    category: 'mutator',
+    name: 'Superheated',
+    type: 'gun',
+    imagePath: '/items/mutators/superheated.png',
+    saveFileSlug: 'MetaGem_Superheated_C', // TODO Check this
+    id: '97fccn',
+    dlc: 'dlc3',
+    tags: [],
+    description: `When this weapon is above 25% Heat, a 7.5m Pulse deals 150 Explosive Damage once every 5s.`,
+    maxLevelBonus: `At Max Heat, a 10m Pulse deals 300 Explosive Damage which applies BURNING to all entities for 100 FIRE damage over 20s. Can only happen once every 5s.`,
+    wikiLinks: [`https://remnant.wiki/Superheated`],
+    location: { world: `N'Erud`, dungeon: [`Stagnant Manufactory`] },
   },
   {
     category: 'mutator',
