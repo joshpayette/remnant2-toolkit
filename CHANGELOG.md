@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-09-24
+
+### Fixed
+
+- Fixed issue where build variant dropdown could get too wide on mobile devices.
+- Build variants will now show the main build video thumbnail if no separate video url is provided.
+
 ## 2024-09-23
 
 ### Changed

@@ -39,9 +39,22 @@ export function ViewBuildContainer({ buildVariants }: Props) {
     return null;
   }
 
+  const activeVariantHasLink =
+    Boolean(activeBuildVariant.buildLink) ||
+    Boolean(activeBuildVariant.videoUrl);
+
+  const mainBuildHasLink =
+    Boolean(buildVariants[0].buildLink) || Boolean(buildVariants[0].videoUrl);
+
   return (
     <>
-      <VideoThumbnail buildState={activeBuildVariant} />
+      {activeVariantHasLink || mainBuildHasLink ? (
+        <VideoThumbnail
+          buildState={
+            activeVariantHasLink ? activeBuildVariant : buildVariants[0]
+          }
+        />
+      ) : null}
       {buildVariants.length > 1 && (
         <TabbedBuildsDisplay
           activeBuild={activeBuildVariant}

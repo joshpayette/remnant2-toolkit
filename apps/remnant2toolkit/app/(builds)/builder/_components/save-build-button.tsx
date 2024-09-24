@@ -64,9 +64,13 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
           setSaveInProgress(true);
 
           const updateBuildResponse = await updateBuild({
-            buildVariantsStringified: buildVariants.map((variant) =>
-              JSON.stringify(variant),
-            ),
+            buildVariantsStringified: buildVariants.map((variant) => {
+              const hasBuildLink = Boolean(variant.buildLink);
+              if (!hasBuildLink) {
+                variant.videoUrl = '';
+              }
+              return JSON.stringify(variant);
+            }),
           });
 
           if (isErrorResponse(updateBuildResponse)) {
