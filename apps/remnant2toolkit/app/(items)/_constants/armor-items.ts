@@ -1476,6 +1476,28 @@ export const armorItems: ArmorItem[] = [
   },
   {
     category: 'legs',
+    name: 'Nanoplated Waist',
+    saveFileSlug: 'Armor_Legs_Warden_C', // TODO Check
+    imagePath: '/items/armors/nanoplatedwaist.png',
+    id: 'im4rk0',
+    dlc: 'dlc3',
+    set: 'Nanoplated Set',
+    armor: 14.8,
+    weight: 6,
+    bleedResistance: 3,
+    fireResistance: 2,
+    shockResistance: 0,
+    toxinResistance: 0,
+    blightResistance: 2,
+    wikiLinks: [`https://remnant.wiki/Nanoplated_Waist`],
+    location: { world: `N'Erud`, dungeon: [`Withered Necropolis`] },
+    description:
+      `These boots end in a foot with three long toes, which help augment the wearer's balance and flexibility, allowing them to navigate complex and unforeseen environments.\n` +
+      '\n' +
+      `“Maxim Lar'Veli, the People's Seeker, was nominated to the Convocation despite his relatively low status within House Al'Maruun due to his earnest nature and passionate dedication to his people. He elected himself to stay awake alongside the Seeker Primis while the rest of the Drzyr entered cryostasis. For that short while, Precept Surus and I were his only confidants.”`,
+  },
+  {
+    category: 'legs',
     name: 'Nightstalker Pants',
     saveFileSlug: 'Armor_Legs_Hunter_C',
     imagePath: '/items/armors/nightstalkerpants.png',
@@ -1666,6 +1688,9 @@ export const armorItems: ArmorItem[] = [
     wikiLinks: [`https://remnant.wiki/Zealot's_Seaboots`],
     location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
+
+  // #region GLOVES
+
   {
     category: 'gloves',
     name: "Academic's Gloves",
@@ -1970,6 +1995,28 @@ export const armorItems: ArmorItem[] = [
     description: `These gauntlets are sturdy enough to hold up even against the Root: They're tough and intimidating while providing the bare-minimum level of dexterity for,a steady grip on your weapon of choice. Just don't plan on completing any tasks that require subtlety when wearing these.`,
     wikiLinks: [`https://remnant.wiki/Leto_Mark_II_Gloves`],
     location: { world: 'Labyrinth', dungeon: 'World Drop' },
+  },
+  {
+    category: 'gloves',
+    name: 'Nanoplated Hands',
+    saveFileSlug: 'Armor_Gloves_Warden_C', // TODO Check
+    imagePath: '/items/armors/nanoplatedhands.png',
+    id: '1asxjo',
+    dlc: 'dlc3',
+    set: 'Nanoplated Set',
+    armor: 7.4,
+    weight: 3,
+    bleedResistance: 1,
+    fireResistance: 1,
+    shockResistance: 0,
+    toxinResistance: 0,
+    blightResistance: 1,
+    wikiLinks: [`https://remnant.wiki/Nanoplated_Hands`],
+    location: { world: `N'Erud`, dungeon: [`Withered Necropolis`] },
+    description:
+      `These lithe vambraces taper to tightly fitted gloves made of thin, malleable metal sourced from passing asteroids caught in N'Erud's gravitational pull.\n` +
+      '\n' +
+      `“Axion Cadyar was a high-ranking member of House Al'Maruun and the eldest of the Convocation. It was only his demoralizing temper that kept him from becoming Seeker Primis. Though he and I engaged in countless debates, he could never shake his distrust of my artificial design.”`,
   },
   {
     category: 'gloves',
