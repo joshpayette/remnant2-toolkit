@@ -419,6 +419,28 @@ export const armorItems: ArmorItem[] = [
   },
   {
     category: 'helm',
+    name: 'Nanoplated Transmitter',
+    saveFileSlug: 'Armor_Head_Warden_C', // TODO Check
+    imagePath: '/items/armors/nanoplatedtransmitter.png',
+    id: '2x3sxo',
+    dlc: 'dlc3',
+    set: 'Nanoplated Set',
+    armor: 12.4,
+    weight: 5,
+    bleedResistance: 2,
+    fireResistance: 1,
+    shockResistance: 0,
+    toxinResistance: 0,
+    blightResistance: 2,
+    wikiLinks: [`https://remnant.wiki/Nanoplated_Transmitter`],
+    location: { world: `N'Erud`, dungeon: [`Withered Necropolis`] },
+    description:
+      `    The wide, dish-shaped helmet functions as a long-range radar to translate the wearer's thoughts into commands for their drone.\n` +
+      '\n' +
+      `“Cae'Loa Iturius was nominated to the Convocation on account of her innovative genius. However, she preferred the company of machines and artificial intelligence and rarely appeared in the public eye. Of the five Seekers, she was the least resistant to accepting my analysis of Alepsis-Taura.”`,
+  },
+  {
+    category: 'helm',
     name: "Navigator's Helm",
     saveFileSlug: 'Armor_Head_PilotsHelm_C',
     imagePath: '/items/armors/navigatorshelm.png',
@@ -932,6 +954,28 @@ export const armorItems: ArmorItem[] = [
     description: `A masterpiece of impenetrability. Even though quick maneuvering is near impossible in this metal behemoth, you can't help but be impressed by the ingenuity of the design and the inspired craftsmanship.`,
     wikiLinks: [`https://remnant.wiki/Leto_Mark_II_Armor`],
     location: { world: 'Labyrinth', dungeon: 'World Drop' },
+  },
+  {
+    category: 'torso',
+    name: 'Nanoplated Vestments',
+    saveFileSlug: 'Armor_Body_Warden_C', // TODO Check
+    imagePath: '/items/armors/nanoplatedvestments.png',
+    id: '4rt0f9',
+    dlc: 'dlc3',
+    set: 'Nanoplated Set',
+    armor: 29.6,
+    weight: 12,
+    bleedResistance: 4,
+    fireResistance: 2,
+    shockResistance: 0,
+    toxinResistance: 0,
+    blightResistance: 4,
+    wikiLinks: [`https://remnant.wiki/Nanoplated_Vestments`],
+    location: { world: `N'Erud`, dungeon: [`Withered Necropolis`] },
+    description:
+      `The light-plated design of this armor protects not only flesh, but a[sic] highly advanced artificial nervous system that conducts stellar energy to power the entire suit.\n` +
+      '\n' +
+      `“Risynth Neko's reputation as a Seeker faltered in recent cycles due to a rumor arising about his addiction to ambit ember. His reputation was not the only one damaged during the civil debates regarding N'Erud jump,[sic] but it was one of the most momentous.”`,
   },
   {
     category: 'torso',

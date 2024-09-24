@@ -321,8 +321,15 @@ export const BIOMES = [
       `Abyssyal Rift`,
       `Timeless Horizon`,
       `The Eon Vault`,
+      'Stagnant Manufactory', // TODO CHECK THIS
     ],
-    injectables: [`Ascension Spire`, `Titan's Reach`, `Extraction Hub`],
+    // TODO Check this
+    injectables: [
+      `Ascension Spire`,
+      `Titan's Reach`,
+      `Extraction Hub`,
+      `Stealth Maze`,
+    ],
   },
   {
     name: 'Streets of Losomn',
