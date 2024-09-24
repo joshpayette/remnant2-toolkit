@@ -839,7 +839,7 @@ export const skillItems: SkillItem[] = [
     category: 'skill',
     name: 'Drone: Shield',
     saveFileSlug: 'Skill_DroneShield_C', // TODO Check this
-    imagePath: '/items/skills/warden_drone_shield_placeholder.png',
+    imagePath: '/items/skills/warden_drone_shield.png',
     id: 'wqicx7',
     dlc: 'dlc3',
     tags: ['Damage Reduction'],
@@ -867,7 +867,7 @@ export const skillItems: SkillItem[] = [
     category: 'skill',
     name: 'Drone: Heal',
     saveFileSlug: 'Skill_DroneHeal_C', // TODO Check this
-    imagePath: '/items/skills/warden_drone_heal_placeholder.png',
+    imagePath: '/items/skills/warden_drone_heal.png',
     id: '966uvg',
     dlc: 'dlc3',
     tags: ['Relic Use Speed', 'Heal'],
@@ -895,7 +895,7 @@ export const skillItems: SkillItem[] = [
     category: 'skill',
     name: 'Drone: Combat',
     saveFileSlug: 'Skill_DroneCombat_C', // TODO Check this
-    imagePath: '/items/skills/warden_drone_combat_placeholder.png',
+    imagePath: '/items/skills/warden_drone_combat.png',
     id: 'tt4r61',
     dlc: 'dlc3',
     tags: ['Fire Rate', 'Melee Speed', 'Charged Shot'],
