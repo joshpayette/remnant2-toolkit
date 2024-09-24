@@ -954,6 +954,25 @@ export const modItems: ModItem[] = [
   },
   {
     category: 'mod',
+    name: 'Indomitable Strike',
+    saveFileSlug: 'Mod_IndomitableStrike_C', // TODO Check
+    imagePath: '/items/mods/indomitablestrike.png',
+    id: '778jv8',
+    dlc: 'dlc3',
+    description:
+      `Charged Attacks become INDOMITABLE.\n` +
+      '\n' +
+      'INDOMITABLE: Grants 15% Damage Reduction, converts all damage taken to Grey Health, and prevents wielder from being staggered. Charging increases maximum damage by up to 350%.',
+    wikiLinks: [`https://remnant.wiki/Black_Greatsword`],
+    location: { world: 'Any', dungeon: 'Linked Item' },
+    linkedItems: {
+      weapon: {
+        name: 'Black Greatsword',
+      },
+    },
+  },
+  {
+    category: 'mod',
     name: 'Javelin',
     saveFileSlug: undefined,
     imagePath: '/items/mods/athibar.png',

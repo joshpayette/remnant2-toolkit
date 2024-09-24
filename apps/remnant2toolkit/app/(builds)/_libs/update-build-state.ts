@@ -12,6 +12,7 @@ import { ConsumableItem } from '@/app/(items)/_types/consumable-item';
 import { type Item } from '@/app/(items)/_types/item';
 import { ModItem } from '@/app/(items)/_types/mod-item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
+import { PrismItem } from '@/app/(items)/_types/prism-item';
 import { RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 import { RelicItem } from '@/app/(items)/_types/relic-item';
 import { RingItem } from '@/app/(items)/_types/ring-item';
@@ -213,6 +214,9 @@ export function updateBuildState({
       break;
     case 'trait':
       itemOrItems = TraitItem.fromParams(params);
+      break;
+    case 'prism':
+      itemOrItems = PrismItem.fromParams(params);
       break;
     default:
       console.error(`Unknown category ${category}`);

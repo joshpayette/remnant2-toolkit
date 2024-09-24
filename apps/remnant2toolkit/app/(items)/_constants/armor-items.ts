@@ -2104,7 +2104,7 @@ export const armorItems: ArmorItem[] = [
     category: 'helm',
     name: 'Welding Goggles',
     saveFileSlug: 'Armor_Helm_Welder_C', // TODO Check
-    imagePath: '/misc/placeholder.jpg',
+    imagePath: '/items/armors/weldinggoggles.png',
     id: '81jid6',
     dlc: 'dlc3',
     armor: 9,

@@ -101,6 +101,27 @@ export const weaponItems: WeaponItem[] = [
   },
   {
     category: 'weapon',
+    type: 'melee',
+    name: 'Black Greatsword',
+    saveFileSlug: 'Weapon_BlackGreatsword_C', // TODO Check
+    imagePath: '/items/weapons/blackgreatsword.png',
+    id: '71k6w5',
+    dlc: 'dlc3',
+    description: `A massive weapon of pure destruction. Attacks can be enhanced by Charging at the cost of Stamina over time. Increases Encumbrance by 15.`,
+    wikiLinks: [`https://remnant.wiki/Black_Greatsword`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
+    damage: 115,
+    crit: 15,
+    weakspot: 110,
+    stagger: 25,
+    linkedItems: {
+      mod: {
+        name: 'Indomitable Strike',
+      },
+    },
+  },
+  {
+    category: 'weapon',
     type: 'long gun',
     name: 'Chicago Typewriter',
     saveFileSlug: 'Weapon_TommyGun_C',
@@ -2423,7 +2444,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/items/weapons/repair_tool_placeholder.png',
     id: '5go8dn',
     dlc: 'dlc3',
-    externalTokens: ['PRERELEASE'],
+    externalTokens: [],
     description:
       `In the heat of battle, it's easy to focus on taking down as many enemies as possible, but when an ally falls, your priorities have a way of shifting fast. This thing may not be the deadliest weapon, but its ability to heal those brave enough to fight at your side is invaluable.\n` +
       '\n' +

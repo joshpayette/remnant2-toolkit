@@ -11,6 +11,7 @@ import { traitItems } from '@/app/(items)/_constants/trait-items';
 import { type Item } from '@/app/(items)/_types/item';
 import { ModItem } from '@/app/(items)/_types/mod-item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
+import { type RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 import { type TraitItem } from '@/app/(items)/_types/trait-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
 
@@ -71,6 +72,15 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
   );
   randomBuild.items.relic = randomRelic;
 
+  // perk item
+  // const randomPerk = getRandomItem(
+  //   randomBuild,
+  //   {
+  //     category: 'perk',
+  //   },
+  //   itemList?.filter((item) => item.category === 'perk'),
+  // );
+
   // relic fragments
   getArrayOfLength(3).forEach((_, index) => {
     const randomRelicFragment = getRandomItem(
@@ -81,7 +91,8 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
       },
       itemList?.filter((item) => item.category === 'relicfragment'),
     );
-    randomBuild.items.relicfragment[index] = randomRelicFragment;
+    randomBuild.items.relicfragment[index] =
+      randomRelicFragment as RelicFragmentItem | null;
     itemList = itemList?.filter(
       (item) => item.name !== randomRelicFragment?.name,
     );
