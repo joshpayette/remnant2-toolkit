@@ -52,7 +52,7 @@ type Props = {
   /** Used primarily to disable image optimization for image export, as that breaks on Safari */
   unoptimized?: boolean;
   /** The variant of the button to display */
-  variant?: 'default' | 'large' | 'boss-tracker' | 'relic-fragment' | 'weapon';
+  variant?: 'default' | 'large' | 'boss-tracker' | 'weapon';
   /** The function to run when the button is clicked */
   onClick?: () => void;
   /** The function to run when the info icon button is clicked */
@@ -103,12 +103,6 @@ export function ItemButton({
       imageDimensions = {
         height: 200,
         width: 200,
-      };
-      break;
-    case 'relic-fragment':
-      imageDimensions = {
-        height: 22,
-        width: 22,
       };
       break;
     case 'weapon':
@@ -181,7 +175,6 @@ export function ItemButton({
         variant === 'default' && 'mb-2 w-[66px] flex-col',
         variant === 'large' && 'mb-2 w-[99px] flex-col',
         variant === 'boss-tracker' && 'mb-2 w-[200px] flex-col',
-        variant === 'relic-fragment' && 'mb-0 flex-row justify-start',
         variant === 'weapon' && 'mb-2 w-[149px] flex-col',
         isToggled === true && 'grayscale-0',
         isToggled === false && 'grayscale',
@@ -199,7 +192,6 @@ export function ItemButton({
             className={cn(
               'absolute right-0 top-0 rounded-full border-transparent bg-black',
               ZINDEXES.ITEM_BUTTON,
-              variant === 'relic-fragment' && 'right-[-20px]',
             )}
             onClick={() =>
               onItemInfoClick && !isEnemy(item) && onItemInfoClick(item)
@@ -228,7 +220,6 @@ export function ItemButton({
             className={cn(
               'absolute left-0 top-0 rounded-full border-transparent bg-black',
               ZINDEXES.ITEM_BUTTON,
-              variant === 'relic-fragment' && 'left-auto right-[-40px]',
             )}
             onClick={() => onToggleOptional(item, !item.optional)}
             aria-label="Toggle item as optional"
@@ -251,7 +242,6 @@ export function ItemButton({
             className={cn(
               'absolute left-0 top-0 rounded-full border-transparent bg-black',
               ZINDEXES.ITEM_BUTTON,
-              variant === 'relic-fragment' && 'left-auto right-[-40px]',
             )}
             aria-label={item.isOwned ? 'Item Owned' : 'Item Unowned'}
           >
@@ -271,20 +261,11 @@ export function ItemButton({
           `bg-background-solid`,
           // if the button is editable, give it a hover effect
           isEditable && 'border-secondary-900 hover:border-secondary-500',
-          // if no item is present, give the button a rounded bordoer
-          !item && variant !== 'relic-fragment' && 'rounded-b-lg',
-          !item && variant === 'relic-fragment' && 'rounded-md',
           // if the item is optional, give it a dashed border
           item &&
             !isEnemy(item) &&
             item.optional &&
             'border-secondary-400 border-b-0 border-dashed',
-          // if the item is optional and the size is small, remove the right border and add a bottom border
-          item &&
-            !isEnemy(item) &&
-            item.optional &&
-            variant === 'relic-fragment' &&
-            'border-b-2 border-r-0',
           // If the item is an archetype item, give it a black background
           item &&
             !isEnemy(item) &&
@@ -293,7 +274,6 @@ export function ItemButton({
           variant === 'default' && 'h-[66px] w-[66px] rounded-t-lg',
           variant === 'large' && 'h-[99px] w-[99px] rounded-t-lg',
           variant === 'boss-tracker' && 'h-[200px] w-[200px] rounded-t-lg',
-          variant === 'relic-fragment' && 'h-[23px] w-[22px] rounded-l-md',
           variant === 'weapon' && 'h-[99px] w-[149px] rounded-t-lg',
           // If the item is toggled, give it a primary border
           isToggled === true && 'border-primary-500',
@@ -326,8 +306,6 @@ export function ItemButton({
             variant === 'large' && 'min-h-[40px] w-[99px] rounded-b-lg',
             variant === 'boss-tracker' &&
               'text-md min-h-[40px] w-[200px] rounded-b-lg',
-            variant === 'relic-fragment' &&
-              'min-h-[22px] min-w-[22px] rounded-r-lg text-left',
             variant === 'weapon' && 'min-h-[22px] w-[149px] rounded-b-lg',
           )}
         >
