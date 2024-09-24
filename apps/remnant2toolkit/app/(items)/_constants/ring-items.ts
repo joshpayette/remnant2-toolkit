@@ -389,7 +389,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Breach Accelerator',
-    imagePath: '/misc/placeholder.jpg',
+    imagePath: '/items/rings/breachaccelerator.png',
     saveFileSlug: 'Ring_BreachAccelerator_C', // TODO Check
     id: 'w268ge',
     description: `Increases Movement Speed and Physical Damage by 5%. Bonus is doubled when HASTE is active.`,
@@ -798,6 +798,19 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Detonating Cord',
+    imagePath: '/items/rings/detonatingcord.png',
+    saveFileSlug: 'Ring_DetonatingCord_C', // TODO Check
+    id: '267d3s',
+    externalTokens: ['Explosive Damage'],
+    tags: [],
+    description: `On Relic Use, increases Explosive Damage by 10% for 15s and casts a 3m Explosive AOE which deals 120 Base Damage.`,
+    wikiLinks: [`https://remnant.wiki/Detonating_Cord`],
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
+    dlc: 'dlc3',
+  },
+  {
+    category: 'ring',
     name: 'Devoured Loop',
     imagePath: '/items/rings/devouredloop.png',
     saveFileSlug: 'Ring_DevouringLoop_C',
@@ -956,6 +969,18 @@ export const ringItems: RingItem[] = [
       injectable: `Ascension Spire`,
     },
     dlc: 'base',
+  },
+  {
+    category: 'ring',
+    name: 'Empowering Loop',
+    imagePath: '/items/rings/empoweringloop.png',
+    saveFileSlug: 'Ring_EmpoweringLoop_C', // TODO Check
+    id: 'huu4fi',
+    dlc: 'base',
+    tags: ['Ranged Damage'],
+    description: `Increases Ranged Damage by 15%. Slows Firearm Charge Time by 10% and reduces Fire Rate by 10%.`,
+    wikiLinks: [`https://remnant.wiki/Empowering_Loop`],
+    location: { world: 'Yaesha', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
@@ -1899,7 +1924,7 @@ export const ringItems: RingItem[] = [
   {
     category: 'ring',
     name: 'Ring of Phantom Pain',
-    imagePath: '/misc/placeholder.jpg',
+    imagePath: '/items/rings/ringofphantompain.png',
     saveFileSlug: 'Ring_RingOfPhantomPain_C', // TODO Check
     id: 'r6xmgj',
     dlc: 'dlc3',

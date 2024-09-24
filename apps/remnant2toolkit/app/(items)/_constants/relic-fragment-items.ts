@@ -359,7 +359,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'bzxa98',
     dlc: 'base',
     tags: [],
-    description: 'Health Regeneration/s',
+    description: '+1/s Health Regeneration',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -383,7 +383,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'fant12',
     dlc: 'base',
     tags: [],
-    description: 'Increases the active Concoction Limit by 5.',
+    description: 'Increases Concoction Limit by 5',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -790,7 +790,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'n0r6bv',
     dlc: 'base',
     tags: [],
-    description: 'Gain double magazine capacity on non-single-shot weapons.',
+    description: 'Doubles Magazine Size on non Single Shot Weapons.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -972,7 +972,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: '8jm01f',
     dlc: 'base',
     tags: [],
-    description: 'Gain immunity to Negative Status Effects.',
+    description: 'Immune to Negative Status Effects.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
