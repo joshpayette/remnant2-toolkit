@@ -843,7 +843,7 @@ export const skillItems: SkillItem[] = [
     id: 'wqicx7',
     dlc: 'dlc3',
     tags: ['Damage Reduction'],
-    externalTokens: ['PRERELEASE'],
+    externalTokens: [],
     description:
       'Deploy Shield Drone with 200 Energy Reserves to follow and protect its Warded Target.\n' +
       '\n' +
@@ -871,7 +871,7 @@ export const skillItems: SkillItem[] = [
     id: '966uvg',
     dlc: 'dlc3',
     tags: ['Relic Use Speed', 'Heal'],
-    externalTokens: ['PRERELEASE'],
+    externalTokens: [],
     description:
       `Deploy Heal Drone with 200 Energy Reserves to follow and protect its Warded Target\n` +
       '\n' +
@@ -899,7 +899,7 @@ export const skillItems: SkillItem[] = [
     id: 'tt4r61',
     dlc: 'dlc3',
     tags: ['Fire Rate', 'Melee Speed', 'Charged Shot'],
-    externalTokens: ['PRERELEASE'],
+    externalTokens: [],
     description:
       `Deploy Combat Drone with 200 Energy Reserves to follow and protect its Warded Target\n` +
       '\n' +
