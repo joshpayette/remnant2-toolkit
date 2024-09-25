@@ -10,10 +10,11 @@ import {
   cn,
 } from '@repo/ui';
 import { getArrayOfLength } from '@repo/utils';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
+import { ComboButton } from '@/app/(items)/_components/combo-button';
 import { ItemButton } from '@/app/(items)/_components/item-button';
 import { comboItems } from '@/app/(items)/_constants/combo-items';
 import { relicFragmentItems } from '@/app/(items)/_constants/relic-fragment-items';
@@ -80,21 +81,56 @@ function detectComboPossibilities(buildState: BuildState): Array<{
   return returnedCombos;
 }
 
-/**
- * Checks all relic fragments in the bonus slots to see if they can
- */
+function getExistingCombos(buildState: BuildState): Array<{
+  comboItem: ComboItem;
+  fragmentSlot: number;
+}> {
+  const bonusFragments = buildState.items.relicfragment.slice(3, 8);
 
-function getComboImagePath(comboItem: ComboItem) {
-  const basePath = '/misc/prism-icons';
+  const matchedCombos: ComboItem[] = [];
 
-  const fragmentItem1 = relicFragmentItems.find(
-    (f) => f.id === comboItem.fragments[0],
+  // Loop over each fragment, and check if it can form a combo
+  // with any other equipped fragment
+  for (const fragment of bonusFragments) {
+    for (const combo of comboItems) {
+      if (
+        combo.fragments.some(
+          (comboFragment) => comboFragment === fragment?.id,
+        ) &&
+        combo.fragments.every((comboFragment) =>
+          bonusFragments.some(
+            (bonusFragment) => bonusFragment?.id === comboFragment,
+          ),
+        )
+      ) {
+        matchedCombos.push(combo);
+      }
+    }
+  }
+
+  const dedupedCombos = matchedCombos.filter(
+    (combo, index, self) =>
+      index ===
+      self.findIndex(
+        (otherCombo) =>
+          otherCombo.name === combo.name &&
+          otherCombo.fragments.every((fragment) =>
+            combo.fragments.some((otherFragment) => otherFragment === fragment),
+          ),
+      ),
   );
-  const fragmentItem2 = relicFragmentItems.find(
-    (f) => f.id === comboItem.fragments[1],
-  );
 
-  return `${basePath}/${fragmentItem1?.color}-${fragmentItem2?.color}.png`;
+  const returnedCombos: Array<{
+    comboItem: ComboItem;
+    fragmentSlot: number;
+  }> = dedupedCombos.map((combo) => {
+    const fragmentSlot = bonusFragments.findIndex((fragment) =>
+      combo.fragments.some((comboFragment) => comboFragment === fragment?.id),
+    );
+    return { comboItem: combo, fragmentSlot };
+  });
+
+  return returnedCombos;
 }
 
 interface Props {
@@ -120,7 +156,15 @@ export function PrismDisplay({
   onShowInfo,
   onToggleOptional,
 }: Props) {
-  const [appliedCombos, setAppliedCombos] = useState<string[]>([]);
+  const existingCombos = getExistingCombos(buildState);
+
+  const [appliedCombos, setAppliedCombos] = useState<
+    Array<{ comboItem: ComboItem; fragmentSlot: number }>
+  >([]);
+
+  useEffect(() => {
+    console.info('appliedCombos', appliedCombos);
+  }, [appliedCombos]);
 
   const detectedComboPossibilities = useMemo(
     () => detectComboPossibilities(buildState),
@@ -228,20 +272,53 @@ export function PrismDisplay({
           </BaseLabel>
         ) : null}
         <div className="flex w-full flex-wrap items-start justify-start gap-x-1">
-          {getArrayOfLength(5).map((fragmentIndex) => (
-            <ItemButton
-              item={buildState.items.relicfragment[fragmentIndex + 3] || null}
-              isEditable={isEditable}
-              isScreenshotMode={isScreenshotMode}
-              manualWordBreaks={true}
-              onClick={() => onItemSelect('relicfragment', fragmentIndex + 3)}
-              onItemInfoClick={onShowInfo}
-              onToggleOptional={onToggleOptional}
-              showOwnership={itemOwnershipPreference}
-              tooltipDisabled={itemInfoOpen}
-              unoptimized={isScreenshotMode}
-            />
-          ))}
+          {getArrayOfLength(5).map((fragmentIndex) => {
+            const fragment = buildState.items.relicfragment[fragmentIndex + 3];
+
+            const existingCombo = existingCombos.find(
+              (combo) => combo.fragmentSlot === fragmentIndex,
+            );
+
+            const comboAlreadyApplied = appliedCombos.some(
+              (combo) => combo.fragmentSlot === existingCombo?.fragmentSlot,
+            );
+
+            const comboToApply = appliedCombos.find(
+              (combo) => combo.fragmentSlot === fragmentIndex,
+            );
+
+            console.info('comboAlreadyApplied', comboAlreadyApplied);
+            console.info('existingCombo', existingCombo);
+
+            // TODO Start here
+
+            if (!comboAlreadyApplied) {
+              setAppliedCombos((prev) => [...prev, existingCombo]);
+              return (
+                <ComboButton
+                  comboItem={existingCombo.comboItem}
+                  isEditable={isEditable}
+                  isScreenshotMode={isScreenshotMode}
+                  unoptimized={isScreenshotMode}
+                />
+              );
+            }
+
+            return (
+              <ItemButton
+                item={fragment?.index === fragmentIndex + 3 ? fragment : null}
+                isEditable={isEditable}
+                isScreenshotMode={isScreenshotMode}
+                manualWordBreaks={true}
+                onClick={() => onItemSelect('relicfragment', fragmentIndex + 3)}
+                onItemInfoClick={onShowInfo}
+                onToggleOptional={onToggleOptional}
+                showOwnership={itemOwnershipPreference}
+                tooltipDisabled={itemInfoOpen}
+                unoptimized={isScreenshotMode}
+              />
+            );
+          })}
         </div>
       </BaseFieldset>
       <BaseFieldset className="flex max-w-full flex-col items-start justify-start gap-y-2 border border-transparent p-1">
