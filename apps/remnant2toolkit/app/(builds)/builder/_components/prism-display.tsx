@@ -10,15 +10,14 @@ import {
   cn,
 } from '@repo/ui';
 import { getArrayOfLength } from '@repo/utils';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { ComboButton } from '@/app/(items)/_components/combo-button';
 import { ItemButton } from '@/app/(items)/_components/item-button';
 import { comboItems } from '@/app/(items)/_constants/combo-items';
-import { relicFragmentItems } from '@/app/(items)/_constants/relic-fragment-items';
-import { type ComboItem } from '@/app/(items)/_types/combo-item';
+import { type ComboItem, isComboItem } from '@/app/(items)/_types/combo-item';
 import { type Item } from '@/app/(items)/_types/item';
 import { type RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 
@@ -156,15 +155,33 @@ export function PrismDisplay({
   onShowInfo,
   onToggleOptional,
 }: Props) {
-  const existingCombos = getExistingCombos(buildState);
+  // TODO is automatically applying combo before it's selected
+  const bonusSlots: Array<RelicFragmentItem | ComboItem | null> =
+    useMemo(() => {
+      const existingCombos = getExistingCombos(buildState);
+      const bonusSlots: Array<RelicFragmentItem | ComboItem | null> = [];
+      const bonusFragmentCount = 5;
 
-  const [appliedCombos, setAppliedCombos] = useState<
-    Array<{ comboItem: ComboItem; fragmentSlot: number }>
-  >([]);
+      for (let i = 0; i < bonusFragmentCount; i++) {
+        const existingCombo = existingCombos.find(
+          (combo) => combo.fragmentSlot === i,
+        );
+        if (existingCombo) {
+          bonusSlots.push(existingCombo.comboItem);
+        } else {
+          const fragment = buildState.items.relicfragment[i + 3];
+          if (fragment?.index !== i + 3 || !fragment) {
+            bonusSlots.push(null);
+            continue;
+          }
+          bonusSlots.push(fragment);
+        }
+      }
 
-  useEffect(() => {
-    console.info('appliedCombos', appliedCombos);
-  }, [appliedCombos]);
+      return bonusSlots;
+    }, [buildState]);
+
+  // const existingCombos = getExistingCombos(buildState);
 
   const detectedComboPossibilities = useMemo(
     () => detectComboPossibilities(buildState),
@@ -251,6 +268,10 @@ export function PrismDisplay({
         <div className="flex w-full flex-wrap items-start justify-start gap-x-1">
           {getArrayOfLength(3).map((fragmentIndex) => (
             <ItemButton
+              key={
+                buildState.items.relicfragment[fragmentIndex]?.id ||
+                fragmentIndex
+              }
               item={buildState.items.relicfragment[fragmentIndex] || null}
               isEditable={isEditable}
               isScreenshotMode={isScreenshotMode}
@@ -272,31 +293,15 @@ export function PrismDisplay({
           </BaseLabel>
         ) : null}
         <div className="flex w-full flex-wrap items-start justify-start gap-x-1">
-          {getArrayOfLength(5).map((fragmentIndex) => {
-            const fragment = buildState.items.relicfragment[fragmentIndex + 3];
+          {bonusSlots.map((bonusSlot, index) => {
+            // Account for the first 3 slots being the main fragments
+            const relicFragmentOffset = 3;
 
-            const existingCombo = existingCombos.find(
-              (combo) => combo.fragmentSlot === fragmentIndex,
-            );
-
-            const comboAlreadyApplied = appliedCombos.some(
-              (combo) => combo.fragmentSlot === existingCombo?.fragmentSlot,
-            );
-
-            const comboToApply = appliedCombos.find(
-              (combo) => combo.fragmentSlot === fragmentIndex,
-            );
-
-            console.info('comboAlreadyApplied', comboAlreadyApplied);
-            console.info('existingCombo', existingCombo);
-
-            // TODO Start here
-
-            if (!comboAlreadyApplied) {
-              setAppliedCombos((prev) => [...prev, existingCombo]);
+            if (isComboItem(bonusSlot)) {
               return (
                 <ComboButton
-                  comboItem={existingCombo.comboItem}
+                  key={bonusSlot.name}
+                  comboItem={bonusSlot}
                   isEditable={isEditable}
                   isScreenshotMode={isScreenshotMode}
                   unoptimized={isScreenshotMode}
@@ -306,11 +311,14 @@ export function PrismDisplay({
 
             return (
               <ItemButton
-                item={fragment?.index === fragmentIndex + 3 ? fragment : null}
+                key={bonusSlot?.id ?? index}
+                item={bonusSlot}
                 isEditable={isEditable}
                 isScreenshotMode={isScreenshotMode}
                 manualWordBreaks={true}
-                onClick={() => onItemSelect('relicfragment', fragmentIndex + 3)}
+                onClick={() =>
+                  onItemSelect('relicfragment', index + relicFragmentOffset)
+                }
                 onItemInfoClick={onShowInfo}
                 onToggleOptional={onToggleOptional}
                 showOwnership={itemOwnershipPreference}

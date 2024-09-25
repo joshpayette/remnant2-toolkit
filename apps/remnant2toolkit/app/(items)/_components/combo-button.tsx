@@ -98,7 +98,7 @@ export function ComboButton({
           'min-h-[55px] w-[66px] rounded-b-lg',
         )}
       >
-        COMBO NAME
+        {comboItem.name}
       </div>
     </div>
   );
