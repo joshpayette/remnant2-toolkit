@@ -1238,6 +1238,21 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Feeding Tube',
+    imagePath: '/items/rings/feedingtube.png',
+    saveFileSlug: 'Ring_FeedingTube_C', // TODO Check
+    id: 'ic2sn8',
+    tags: [],
+    description:
+      `While in combat, auto-consume the compatible item in the first quick-slot every 30s. Increases Consumable and Relic Use Speed by 10%.\n` +
+      '\n' +
+      `Not compatible with Concoctions, Grenades and some Unique Consumables.`,
+    dlc: 'base',
+    wikiLinks: [`https://remnant.wiki/Feeding_Tube`],
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
+  },
+  {
+    category: 'ring',
     name: 'Fire Stone',
     imagePath: '/items/rings/firestone.png',
     saveFileSlug: 'Ring_FireStone_C',
