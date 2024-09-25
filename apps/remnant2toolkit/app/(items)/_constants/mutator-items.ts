@@ -337,7 +337,7 @@ export const mutatorItems: MutatorItem[] = [
     category: 'mutator',
     name: 'Hidden Power',
     type: 'gun',
-    imagePath: '/misc/placeholder.jpg',
+    imagePath: '/items/mutators/hiddenpower.png',
     saveFileSlug: 'MetaGem_HiddenPower_C', // TODO Check
     id: '9154v1',
     dlc: 'dlc3',
@@ -965,7 +965,7 @@ export const mutatorItems: MutatorItem[] = [
     category: 'mutator',
     name: 'Volatile Strike',
     type: 'melee',
-    imagePath: '/misc/placeholder.jpg',
+    imagePath: '/items/mutators/volatilestrike.png',
     saveFileSlug: 'MetaGem_VolatileStrike_C', // TODO Check
     id: 'qej6k5',
     dlc: 'dlc3',
