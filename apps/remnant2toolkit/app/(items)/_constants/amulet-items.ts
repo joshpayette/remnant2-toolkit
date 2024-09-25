@@ -523,6 +523,18 @@ export const amuletItems: AmuletItem[] = [
   },
   {
     category: 'amulet',
+    name: `Hangman's Noose`,
+    imagePath: '/items/amulets/hangmansnoose.png',
+    saveFileSlug: 'Amulet_HangmansNoose_C', // TODO Check
+    id: '4zvuco',
+    dlc: 'base',
+    tags: [],
+    description: `Restricts Health to 50% and backfills with permanent Grey Health. All incoming damage is fully converted into Grey Health and Grey Health cannot be removed.`,
+    wikiLinks: [`https://remnant.wiki/Hangman's_Noose`],
+    location: { world: 'Losomn', dungeon: 'World Drop' },
+  },
+  {
+    category: 'amulet',
     name: 'Hyperconductor',
     imagePath: '/items/amulets/hyperconductor.png',
     saveFileSlug: 'Amulet_Hyperconductor_C',
@@ -573,6 +585,18 @@ export const amuletItems: AmuletItem[] = [
       'Standing completely still for 0.5s increases Fire Rate by 20%, Reload Speed by 15%, and reduces Recoil by 50%. Lasts 2s after moving.',
     wikiLinks: [`https://remnant.wiki/Inert_Overcharger`],
     location: { world: `N'Erud`, dungeon: 'World Drop' },
+  },
+  {
+    category: 'amulet',
+    name: 'Insipid Talon',
+    imagePath: '/items/amulets/insipidtalon.png',
+    saveFileSlug: 'Amulet_InsipidTalon_C', // TODO Check
+    id: '65ygbg',
+    dlc: 'dlc1',
+    tags: ['All Damage'],
+    description: `On Perfect Dodge, increases All Damage dealt by 2% and Damage Reduction by 1% for 10s. Max 15 stacks.`,
+    wikiLinks: ['https://remnant.wiki/Insipid_Talon'],
+    location: { world: 'Losomn', dungeon: ['Chamber of the Faithless'] },
   },
   {
     category: 'amulet',

@@ -903,6 +903,18 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Disaster Converter',
+    imagePath: '/items/rings/disasterconverter.png',
+    saveFileSlug: 'Ring_DisasterConverter_C', // TODO Check
+    id: 'yry5r0',
+    tags: [],
+    description: `When wearer's Health drops below 25%, gain a SHIELD for 50% of total current Grey Health for 10s. Max 50% SHIELD. Does not stack with itself.`,
+    wikiLinks: [`https://remnant.wiki/Disaster_Converter`],
+    dlc: 'dlc3',
+    location: { world: `N'Erud`, dungeon: ['Devoid Quietus'] },
+  },
+  {
+    category: 'ring',
     name: 'Drakestone Pearl',
     imagePath: '/items/rings/drakestonepearl.png',
     saveFileSlug: 'Ring_DrakestonePearl_C',
@@ -2284,6 +2296,18 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Shard_Banded_Ring`],
     dlc: 'base',
     location: { world: 'Labyrinth', dungeon: ['Fractured Ingress'] },
+  },
+  {
+    category: 'ring',
+    name: 'Shield Alternator',
+    imagePath: '/items/rings/shieldalternator.png',
+    saveFileSlug: 'Ring_ShieldAlternator_C', // TODO Check
+    id: 'fsh7tv',
+    tags: [],
+    description: `Activating a Mod that costs 100 Mod Power or greater, generates a SHIELD for 23% of Max Health. Lasts 15s. Cannot stack with itself.`,
+    wikiLinks: [`https://remnant.wiki/Shield_Alternator`],
+    dlc: 'dlc3',
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
   },
   {
     category: 'ring',
