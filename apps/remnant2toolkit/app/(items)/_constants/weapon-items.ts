@@ -114,7 +114,7 @@ export const weaponItems: WeaponItem[] = [
     crit: 15,
     weakspot: 110,
     stagger: 25,
-    weight: -15,
+    weight: 15,
     linkedItems: {
       mod: {
         name: 'Indomitable Strike',
