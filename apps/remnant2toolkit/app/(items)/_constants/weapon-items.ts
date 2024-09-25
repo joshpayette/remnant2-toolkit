@@ -114,6 +114,7 @@ export const weaponItems: WeaponItem[] = [
     crit: 15,
     weakspot: 110,
     stagger: 25,
+    weight: 15,
     linkedItems: {
       mod: {
         name: 'Indomitable Strike',
@@ -506,6 +507,32 @@ export const weaponItems: WeaponItem[] = [
     crit: 5,
     weakspot: 85,
     stagger: -20,
+  },
+  {
+    category: 'weapon',
+    name: 'Monorail',
+    type: 'long gun',
+    saveFileSlug: 'Weapon_Monorail_C', // TODO Check
+    imagePath: '/items/weapons/monorail.png',
+    id: 'oz9amG',
+    dlc: 'dlc3',
+    description: `A mysterious relic that fires super-dense penetrating rails. Can be charged to unleash violent levels of energy. Warning: Overcharging may have catastrophic results.`,
+    wikiLinks: [`https://remnant.wiki/Monorail`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
+    linkedItems: {
+      mod: {
+        name: 'Recoil Dampener',
+      },
+    },
+    damage: 125,
+    rps: 60,
+    ammo: 3,
+    magazine: 27,
+    ideal: 35,
+    falloff: 85,
+    crit: 5,
+    weakspot: 110,
+    stagger: 5,
   },
   {
     category: 'weapon',

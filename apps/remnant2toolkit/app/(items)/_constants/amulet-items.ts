@@ -277,6 +277,21 @@ export const amuletItems: AmuletItem[] = [
   },
   {
     category: 'amulet',
+    name: 'Echo Chamber',
+    imagePath: '/items/amulets/echochamber.png',
+    saveFileSlug: 'Amulet_EchoChamber_C', // TODO Check
+    id: 'rPV99a',
+    dlc: 'dlc3',
+    tags: [],
+    description:
+      `Increases Explosive Damage by 10% and AOE Size by 25%. Inflicting Explosive Damage applies EXPOSED for 5s. Max 15s.\n` +
+      '\n' +
+      `EXPOSED: Target receives 15% additional damage from all sources.`,
+    wikiLinks: ['https://remnant.wiki/Echo_Chamber'],
+    location: { world: `N'Erud`, dungeon: ['Anathaeum Wek'] },
+  },
+  {
+    category: 'amulet',
     name: 'Echo of the Forest',
     imagePath: '/items/amulets/echooftheforest.png',
     saveFileSlug: 'Amulet_EchoOfTheForest_C',
@@ -371,6 +386,18 @@ export const amuletItems: AmuletItem[] = [
     description: `Increases all damage dealt by 2.5% for 10s after killing an enemy. Stacks 10x. Dealing damage refreshes the timer.`,
     wikiLinks: [`https://remnant.wiki/Escalation_Protocol`],
     location: { world: 'Root Earth', dungeon: 'World Drop' },
+  },
+  {
+    category: 'amulet',
+    name: 'Exhaust Valve',
+    imagePath: '/items/amulets/exhaustvalve.png',
+    saveFileSlug: 'Amulet_ExhaustValve_C', // TODO Check
+    id: 'C22peH',
+    dlc: 'dlc3',
+    tags: [],
+    description: `Increases Heat Decay Rate by 25% and Weapons that Generate Heat no longer Overheat. At Max Heat, Fire Rate is reduced by 20%.`,
+    wikiLinks: ['https://remnant.wiki/Exhaust_Valve'],
+    location: { world: `N'Erud`, dungeon: ['Stagnant Manufactory'] },
   },
   {
     category: 'amulet',
@@ -496,6 +523,18 @@ export const amuletItems: AmuletItem[] = [
   },
   {
     category: 'amulet',
+    name: `Hangman's Noose`,
+    imagePath: '/items/amulets/hangmansnoose.png',
+    saveFileSlug: 'Amulet_HangmansNoose_C', // TODO Check
+    id: '4zvuco',
+    dlc: 'base',
+    tags: [],
+    description: `Restricts Health to 50% and backfills with permanent Grey Health. All incoming damage is fully converted into Grey Health and Grey Health cannot be removed.`,
+    wikiLinks: [`https://remnant.wiki/Hangman's_Noose`],
+    location: { world: 'Losomn', dungeon: 'World Drop' },
+  },
+  {
+    category: 'amulet',
     name: 'Hyperconductor',
     imagePath: '/items/amulets/hyperconductor.png',
     saveFileSlug: 'Amulet_Hyperconductor_C',
@@ -546,6 +585,18 @@ export const amuletItems: AmuletItem[] = [
       'Standing completely still for 0.5s increases Fire Rate by 20%, Reload Speed by 15%, and reduces Recoil by 50%. Lasts 2s after moving.',
     wikiLinks: [`https://remnant.wiki/Inert_Overcharger`],
     location: { world: `N'Erud`, dungeon: 'World Drop' },
+  },
+  {
+    category: 'amulet',
+    name: 'Insipid Talon',
+    imagePath: '/items/amulets/insipidtalon.png',
+    saveFileSlug: 'Amulet_InsipidTalon_C', // TODO Check
+    id: '65ygbg',
+    dlc: 'dlc1',
+    tags: ['All Damage'],
+    description: `On Perfect Dodge, increases All Damage dealt by 2% and Damage Reduction by 1% for 10s. Max 15 stacks.`,
+    wikiLinks: ['https://remnant.wiki/Insipid_Talon'],
+    location: { world: 'Losomn', dungeon: ['Chamber of the Faithless'] },
   },
   {
     category: 'amulet',
@@ -999,6 +1050,18 @@ export const amuletItems: AmuletItem[] = [
     description: 'Increases SHOCK damage by 25% and OVERLOADED damage by 50%.',
     wikiLinks: [`https://remnant.wiki/Shock_Device`],
     location: { world: 'Losomn', dungeon: ['Morrow Parish'] },
+  },
+  {
+    category: 'amulet',
+    name: 'Short Circuit',
+    imagePath: '/items/amulets/shortcircuit.png',
+    saveFileSlug: 'Amulet_ShortCircuit_C', // TODO Check
+    id: 'yuW4pJ',
+    dlc: 'dlc3',
+    tags: [],
+    description: `Critical Chance and Critical Damage by 10% and Skill Cooldowns are reduced by 6% once every 5s.`,
+    wikiLinks: ['https://remnant.wiki/Short_Circuit'],
+    location: { world: `N'Erud`, dungeon: ['Mucid Terrarium'] },
   },
   {
     category: 'amulet',

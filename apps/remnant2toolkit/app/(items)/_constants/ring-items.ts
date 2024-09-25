@@ -465,6 +465,19 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Burden of the Excavator',
+    imagePath: '/items/rings/burdenoftheexcavator.png',
+    saveFileSlug: 'Ring_BurdenOfTheExcavator_C', // TODO Check
+    id: 'NmzR7o',
+    tags: [],
+    externalTokens: ['Explosive Damage'],
+    description: `Explosions cannot Critical Hit. Increases Explosive Damage by 35%.`,
+    wikiLinks: [`https://remnant.wiki/Burden_of_the_Excavator`],
+    dlc: 'dlc3',
+    location: { world: `N'Erud`, dungeon: ['Logistics Bridge'] },
+  },
+  {
+    category: 'ring',
     name: 'Burden of the Follower',
     imagePath: '/items/rings/burdenofthefollower.png',
     saveFileSlug: 'Ring_BurdenOfTheFollower_C',
@@ -599,18 +612,6 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
-    name: "Captain's Insignia",
-    imagePath: '/items/rings/captaininsignia.png',
-    saveFileSlug: 'Ring_CaptainsInsignia_C',
-    id: 'cu0w65',
-    tags: ['Relic Use Speed'],
-    description: `Increases Revive Speed and Relic Consume Speed by 25% per downed or dead ally. Max 2 stacks.`,
-    wikiLinks: [`https://remnant.wiki/Captain's_Insignia`],
-    location: { world: 'Yaesha', dungeon: [`Endaira's End`] },
-    dlc: 'base',
-  },
-  {
-    category: 'ring',
     name: 'Bypass Primer',
     imagePath: '/items/rings/bypassprimer.png',
     saveFileSlug: 'Ring_BypassPrimer_C', // TODO Check
@@ -624,6 +625,18 @@ export const ringItems: RingItem[] = [
       biome: `N'Erud Wasteland`,
       injectable: `Stealth Maze`,
     },
+  },
+  {
+    category: 'ring',
+    name: "Captain's Insignia",
+    imagePath: '/items/rings/captaininsignia.png',
+    saveFileSlug: 'Ring_CaptainsInsignia_C',
+    id: 'cu0w65',
+    tags: ['Relic Use Speed'],
+    description: `Increases Revive Speed and Relic Consume Speed by 25% per downed or dead ally. Max 2 stacks.`,
+    wikiLinks: [`https://remnant.wiki/Captain's_Insignia`],
+    location: { world: 'Yaesha', dungeon: [`Endaira's End`] },
+    dlc: 'base',
   },
   {
     category: 'ring',
@@ -654,6 +667,18 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Clear Halo',
+    imagePath: '/items/rings/clearhalo.png',
+    saveFileSlug: 'Ring_ClearHalo_C', // TODO Check
+    id: '5rAV7V',
+    tags: [],
+    description: `After 10s of not being damaged, generate a SHIELD for 10% of Max Health over 2s.`,
+    wikiLinks: [`https://remnant.wiki/Clear_Halo`],
+    dlc: 'dlc3',
+    location: { world: `N'Erud`, dungeon: ['Anathaeum Wek'] },
+  },
+  {
+    category: 'ring',
     name: 'Closed Loop',
     imagePath: '/items/rings/closedloop.png',
     saveFileSlug: 'Ring_ClosedLoop.Ring_ClosedLoop_C',
@@ -663,6 +688,21 @@ export const ringItems: RingItem[] = [
     description: `Gain 5% of Max Health as SHIELD for 10s after a Charged Shot. Accumulation resets after 10s of inaction. Max 25% SHIELD.`,
     wikiLinks: [`https://remnant.wiki/Closed_Loop`],
     location: { world: `N'Erud`, dungeon: 'World Drop' },
+  },
+  {
+    category: 'ring',
+    name: 'Combat Shield Generator',
+    imagePath: '/items/rings/combatshieldgenerator.png',
+    saveFileSlug: 'Ring_CombatShieldGenerator_C', // TODO Check
+    id: 'zeA523',
+    tags: [],
+    description:
+      `While in combat, Crouching or Combat Slide generates a stationary 3m x 1.5m Energy Shield with 700 Health which blocks enemy projectiles. Lasts 10s or until broken by damage.\n` +
+      '\n' +
+      `Can only happen once every 10s after expiring.`,
+    wikiLinks: [`https://remnant.wiki/Combat_Shield_Generator`],
+    dlc: 'dlc3',
+    location: { world: `N'Erud`, dungeon: ['Mucid Terrarium'] },
   },
   {
     category: 'ring',
@@ -737,6 +777,18 @@ export const ringItems: RingItem[] = [
       biome: 'Burning City',
       injectable: 'Ethereal Manor',
     },
+  },
+  {
+    category: 'ring',
+    name: `Custodian's Bastion`,
+    imagePath: '/items/rings/custodiansbastion.png',
+    saveFileSlug: 'Ring_CustodiansBastion_C', // TODO Check
+    id: 'k6Sqka',
+    tags: [],
+    description: `Increases Armor by 1 per 2% of active SHIELD. Max 100 Bonus Armor.`,
+    wikiLinks: [`https://remnant.wiki/Custodian's_Bastion`],
+    dlc: 'dlc3',
+    location: { world: `N'Erud`, dungeon: ['Withered Necropolis'] },
   },
   {
     category: 'ring',
@@ -848,6 +900,18 @@ export const ringItems: RingItem[] = [
     description: 'Reloading increases Mod Damage by 15% for 7s.',
     wikiLinks: [`https://remnant.wiki/Digested_Hog_Lure`],
     location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
+  },
+  {
+    category: 'ring',
+    name: 'Disaster Converter',
+    imagePath: '/items/rings/disasterconverter.png',
+    saveFileSlug: 'Ring_DisasterConverter_C', // TODO Check
+    id: 'yry5r0',
+    tags: [],
+    description: `When wearer's Health drops below 25%, gain a SHIELD for 50% of total current Grey Health for 10s. Max 50% SHIELD. Does not stack with itself.`,
+    wikiLinks: [`https://remnant.wiki/Disaster_Converter`],
+    dlc: 'dlc3',
+    location: { world: `N'Erud`, dungeon: ['Devoid Quietus'] },
   },
   {
     category: 'ring',
@@ -1626,6 +1690,18 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Nightmare Sigil',
+    imagePath: '/items/rings/nightmaresigil.png',
+    saveFileSlug: 'Ring_NightmareSigil_C', // TODO Check
+    id: 'JuMRf8',
+    tags: [],
+    description: `On Perfect Dodge, increases base Lifesteal by 5% for 10s.`,
+    wikiLinks: [`https://remnant.wiki/Nightmare_Sigil`],
+    dlc: 'base',
+    location: { world: 'Losomn', dungeon: 'World Drop' },
+  },
+  {
+    category: 'ring',
     name: 'Offering Stone',
     imagePath: '/items/rings/offeringstone.png',
     saveFileSlug: 'Ring_OfferingStone_C',
@@ -2223,6 +2299,18 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Shield Alternator',
+    imagePath: '/items/rings/shieldalternator.png',
+    saveFileSlug: 'Ring_ShieldAlternator_C', // TODO Check
+    id: 'fsh7tv',
+    tags: [],
+    description: `Activating a Mod that costs 100 Mod Power or greater, generates a SHIELD for 23% of Max Health. Lasts 15s. Cannot stack with itself.`,
+    wikiLinks: [`https://remnant.wiki/Shield_Alternator`],
+    dlc: 'dlc3',
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
+  },
+  {
+    category: 'ring',
     name: 'Shiny Hog Lure',
     imagePath: '/items/rings/shinyhoglure.png',
     saveFileSlug: 'Ring_ShinyHogLure_C',
@@ -2329,6 +2417,18 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Soul_Shard`],
     dlc: 'base',
     location: { world: 'Yaesha', dungeon: 'World Drop' },
+  },
+  {
+    category: 'ring',
+    name: 'Spirit Alternator',
+    imagePath: '/items/rings/spiritalternator.png',
+    saveFileSlug: 'Ring_SpiritAlternator_C', // TODO Check
+    id: 'LfHjW4',
+    tags: [],
+    description: `Incoming SHIELD grants 150% of the SHIELD generated as Mod Power.`,
+    wikiLinks: [`https://remnant.wiki/Spirit_Alternator`],
+    dlc: 'dlc3',
+    location: { world: `N'Erud`, dungeon: [`Bicentennial Man`] },
   },
   {
     category: 'ring',
