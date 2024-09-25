@@ -1233,6 +1233,25 @@ export const modItems: ModItem[] = [
   },
   {
     category: 'mod',
+    name: 'Recoil Dampener',
+    saveFileSlug: 'Mod_RecoilDampener_C', // TODO Check
+    imagePath: '/items/mods/recoildampener.png',
+    id: 'Rix6Sr',
+    dlc: 'dlc3',
+    description:
+      `Activation stabilizes Monorail, increasing Charge Speed by 25% and reducing Recoil and Sway by 75%. Lasts 20s.\n` +
+      '\n' +
+      `Additional, for each 5% of the Charge Meter filled upon firing, gain 1% Critical Chance and Critical Damage. Max 20%.`,
+    wikiLinks: [`https://remnant.wiki/Monorail`],
+    linkedItems: {
+      weapon: {
+        name: 'Monorail',
+      },
+    },
+    location: { world: 'Any', dungeon: 'Linked Item' },
+  },
+  {
+    category: 'mod',
     name: 'Ring of Spears',
     saveFileSlug: 'Mod_RingOfSpears_C',
     imagePath: '/items/mods/ringofspears.png',
@@ -1356,6 +1375,17 @@ export const modItems: ModItem[] = [
       },
     },
     location: { world: 'Any', dungeon: 'Linked Item' },
+  },
+  {
+    category: 'mod',
+    name: 'Shielding Shot',
+    saveFileSlug: 'Mod_ShieldingShot_C', // TODO Check this
+    imagePath: '/items/mods/shieldingshot.png',
+    id: 'DUs5M2',
+    dlc: 'dlc3',
+    description: `Launches a payload that bursts on contact with allies, applying a SHIELD for 25% of their Max Health for 15s. Max 50% SHIELD. When no ally is struck, payload lays dormant until an ally gets close. Dormant payload lasts 30s and slowly loses Shield potency over time.`,
+    wikiLinks: [`https://remnant.wiki/Shielding_Shot`],
+    location: { world: `N'Erud`, dungeon: [`Anathaeum Wek`] },
   },
   {
     category: 'mod',
