@@ -72,6 +72,9 @@ export const NERUD_DUNGEONS = [
   'Detritus Foundry',
   'Logistics Bridge',
   'Agronomy Sector',
+  'Anathaeum Wek',
+  'Mucid Terrarium',
+  'Bicentennial Man',
 ] as const satisfies string[];
 export type NErudDungeon = (typeof NERUD_DUNGEONS)[number];
 
