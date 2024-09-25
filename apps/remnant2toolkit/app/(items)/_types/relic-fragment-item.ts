@@ -7,6 +7,7 @@ import { type Item } from '@/app/(items)/_types/item';
 
 interface BaseRelicFragmentItem extends BaseItem {
   color?: 'red' | 'blue' | 'yellow' | 'legendary';
+  index?: number;
 }
 
 export class RelicFragmentItem
@@ -15,10 +16,12 @@ export class RelicFragmentItem
 {
   public category: BaseRelicFragmentItem['category'] = 'relicfragment';
   public color?: BaseRelicFragmentItem['color'];
+  public index?: BaseRelicFragmentItem['index'];
 
   constructor(props: BaseRelicFragmentItem) {
     super(props);
     this.color = props.color;
+    this.index = props.index;
   }
 
   public static isRelicFragmentItem = (
@@ -41,12 +44,22 @@ export class RelicFragmentItem
 
     const items: RelicFragmentItem[] = [];
     itemIds.forEach((itemId, index) => {
+      // if the itemId ends with `-#`, it's specifying an index
+      let specifiedIndex = index;
+      if (itemId.includes('-')) {
+        const [id, indexStr] = itemId.split('-');
+        itemId = id as string;
+        specifiedIndex = parseInt(indexStr as string, 10);
+      }
+
       const optional = itemId.includes(OPTIONAL_ITEM_SYMBOL);
       itemId = itemId.replace(OPTIONAL_ITEM_SYMBOL, '');
 
       const item = relicFragmentItems.find((i) => i.id === itemId);
       if (!item) return;
-      items[index] = optional ? { ...item, optional } : item;
+      items[index] = optional
+        ? { ...item, index: specifiedIndex, optional }
+        : { ...item, index: specifiedIndex };
     });
 
     if (items.length === 0) return null;
@@ -70,6 +83,7 @@ export class RelicFragmentItem
             ...item,
             optional: buildItem.optional,
             isOwned: buildItem.isOwned,
+            index: buildItem.index,
           })
         : relicFragmentValues.push({
             ...item,

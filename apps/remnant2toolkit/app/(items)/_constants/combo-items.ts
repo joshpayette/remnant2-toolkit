@@ -1,4 +1,6 @@
-export const COMBOS = [
+import { type ComboItem } from '@/app/(items)/_types/combo-item';
+
+export const comboItems: ComboItem[] = [
   {
     name: 'Athletic',
     fragments: ['c0hy5s', 'kp0rff'], // Movement Speed, Evade Speed
@@ -75,6 +77,4 @@ export const COMBOS = [
     name: 'Wizard',
     fragments: ['iyp5r3', 'o5sd30'], // Mod Crit, Skill Crit
   },
-] as const;
-
-export type Combo = (typeof COMBOS)[number];
+];

@@ -30,7 +30,9 @@ import { ItemButton } from '@/app/(items)/_components/item-button';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { ItemSelectDialog } from '@/app/(items)/_components/item-select-dialog';
 import { perkItems } from '@/app/(items)/_constants/perk-items';
+import { ComboItem } from '@/app/(items)/_types/combo-item';
 import { type Item } from '@/app/(items)/_types/item';
+import { type RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
 
 import { MemberFeatures } from './member-features';
@@ -302,6 +304,33 @@ export function Builder({
     });
   }
 
+  function handleCreateCombo(
+    fragmentToMerge: RelicFragmentItem,
+    newIndex: number,
+  ) {
+    if (!onUpdateBuildState) return;
+
+    const equippedFragments = buildState.items.relicfragment;
+    const newEquippedFragments = equippedFragments.map((fragment, index) => {
+      if (fragment?.id === fragmentToMerge.id) {
+        return {
+          ...fragment,
+          index: newIndex,
+        };
+      }
+      return {
+        ...fragment,
+        index,
+      };
+    });
+    const newItemIds = newEquippedFragments.map((i) => `${i?.id}-${i?.index}`);
+    onUpdateBuildState({
+      buildState,
+      category: 'relicfragment',
+      value: newItemIds,
+    });
+  }
+
   function handleChangeBuildTags(tags: BuildTags[]) {
     if (!isEditable) return;
     if (!onUpdateBuildState) return;
@@ -312,19 +341,6 @@ export function Builder({
       value:
         tags.length > MAX_BUILD_TAGS ? tags.slice(0, MAX_BUILD_TAGS) : tags,
     });
-  }
-
-  function handleChangePrism({
-    prismId,
-    fragments,
-  }: {
-    prismId: string;
-    fragments: Array<{
-      id: string;
-      index: number;
-    }>;
-  }) {
-    // TODO
   }
 
   function handleShowInfo(item: Item) {
@@ -1011,7 +1027,8 @@ export function Builder({
             isScreenshotMode={isScreenshotMode}
             itemInfoOpen={itemInfoOpen}
             itemOwnershipPreference={itemOwnershipPreference}
-            onItemSlotClick={handleItemSlotClick}
+            onCreateCombo={handleCreateCombo}
+            onItemSelect={handleItemSlotClick}
             onShowInfo={handleShowInfo}
             onToggleOptional={handleToggleOptional}
           />
