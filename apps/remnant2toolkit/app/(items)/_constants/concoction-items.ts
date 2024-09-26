@@ -144,6 +144,21 @@ export const concoctionItems: ConcoctionItem[] = [
   },
   {
     category: 'concoction',
+    name: `Mudtooth's Snake Oil`,
+    imagePath: '/items/consumables/mudtoothssnakeoil.png',
+    saveFileSlug: 'Consumable_MudToothsSnakeOil_C', // TODO Check
+    id: 'ru74g9',
+    dlc: 'base',
+    tags: ['Consumable'],
+    description:
+      `Grants 1 random Concoction effect. Ignores concoction limit.\n` +
+      '\n' +
+      `Concoctions will stay in effect after death.`,
+    wikiLinks: [`https://remnant.wiki/Mudtooth's_Snake_Oil`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
+  },
+  {
+    category: 'concoction',
     name: "Mudtooth's Stew",
     imagePath: '/items/consumables/mudtoothsstew.png',
     saveFileSlug: 'Consumable_MudToothsStew_C',

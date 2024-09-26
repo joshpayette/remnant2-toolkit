@@ -616,7 +616,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/items/rings/bypassprimer.png',
     saveFileSlug: 'Ring_BypassPrimer_C', // TODO Check
     id: 'b99sey',
-    tags: ['Perfect Dodge', "Reload Speed"],
+    tags: ['Perfect Dodge', 'Reload Speed'],
     description: `On Perfect Dodge, reload current Firearm`,
     wikiLinks: [`https://remnant.wiki/Bypass_Primer`],
     dlc: 'dlc3',
@@ -696,7 +696,7 @@ export const ringItems: RingItem[] = [
     saveFileSlug: 'Ring_CombatShieldGenerator_C', // TODO Check
     id: 'zeA523',
     tags: [],
-    externalTokens: ['Amplitude',],
+    externalTokens: ['Amplitude'],
     description:
       `While in combat, Crouching or Combat Slide generates a stationary 3m x 1.5m Energy Shield with 700 Health which blocks enemy projectiles. Lasts 10s or until broken by damage.\n` +
       '\n' +
@@ -872,7 +872,7 @@ export const ringItems: RingItem[] = [
     saveFileSlug: 'Ring_DetonatingCord_C', // TODO Check
     id: '267d3s',
     tags: [],
-    externalTokens:['Explosive Damage', 'Amplitude'],
+    externalTokens: ['Explosive Damage', 'Amplitude'],
     description: `On Relic Use, increases Explosive Damage by 10% for 15s and casts a 3m Explosive AOE which deals 120 Base Damage.`,
     wikiLinks: [`https://remnant.wiki/Detonating_Cord`],
     location: { world: `N'Erud`, dungeon: 'World Drop' },
@@ -1495,7 +1495,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/items/rings/infinitypocket.png',
     saveFileSlug: 'Ring_InfinityPocket_C', // TODO Check
     id: '7EmKj6',
-    tags:['Reload Speed'],
+    tags: ['Reload Speed'],
     description: `Reloading an Empty Magazine refills 10% of the stowed weapon's Max Ammo. When stowed weapon is full, the refill amount applies to the primary weapon instead.`,
     wikiLinks: [`https://remnant.wiki/Infinity_Pocket`],
     location: { world: `N'Erud`, dungeon: 'World Drop' },
@@ -2692,6 +2692,18 @@ export const ringItems: RingItem[] = [
       biome: 'Floating Forests',
       injectable: 'Shrine of the Doe',
     },
+  },
+  {
+    category: 'ring',
+    name: 'Tolerance Band',
+    imagePath: '/items/rings/toleranceband.png',
+    saveFileSlug: 'Ring_ToleranceBand_C', // TODO Check
+    id: '',
+    tags: [],
+    description: `Decreases Firearm Charge Time by 10% and increases Perfect Charge Window for applicable ranged weaponry.`,
+    wikiLinks: [`https://remnant.wiki/Tolerance_Band`],
+    dlc: 'base',
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
   },
   {
     category: 'ring',
