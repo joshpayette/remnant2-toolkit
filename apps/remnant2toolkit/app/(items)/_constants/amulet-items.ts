@@ -150,6 +150,18 @@ export const amuletItems: AmuletItem[] = [
   },
   {
     category: 'amulet',
+    name: 'Chef Medal',
+    imagePath: '/items/amulets/chefmedal.png',
+    saveFileSlug: 'Amulet_ChefMedal_C',
+    id: '5sfzsd',
+    dlc: 'dlc3',
+    tags: ['Perfect Dodge'],
+    description: `On Perfect Dodge, automatically trigger effects that require Relic Use to activate.`,
+    wikiLinks: [`https://remnant.wiki/Chef_Medal`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
+  },
+  {
+    category: 'amulet',
     name: 'Cleansing Stone',
     imagePath: '/items/amulets/cleansingstone.png',
     saveFileSlug: 'Amulet_CleansingStone_C',
