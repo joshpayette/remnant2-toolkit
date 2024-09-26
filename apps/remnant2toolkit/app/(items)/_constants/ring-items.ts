@@ -2698,7 +2698,7 @@ export const ringItems: RingItem[] = [
     name: 'Tolerance Band',
     imagePath: '/items/rings/toleranceband.png',
     saveFileSlug: 'Ring_ToleranceBand_C', // TODO Check
-    id: '',
+    id: '80psct',
     tags: [],
     description: `Decreases Firearm Charge Time by 10% and increases Perfect Charge Window for applicable ranged weaponry.`,
     wikiLinks: [`https://remnant.wiki/Tolerance_Band`],
