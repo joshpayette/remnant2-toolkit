@@ -469,7 +469,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/items/rings/burdenoftheexcavator.png',
     saveFileSlug: 'Ring_BurdenOfTheExcavator_C', // TODO Check
     id: 'NmzR7o',
-    tags: [],
+    tags: ['Critical Hit', 'Critical Chance'],
     externalTokens: ['Explosive Damage'],
     description: `Explosions cannot Critical Hit. Increases Explosive Damage by 35%.`,
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Excavator`],
@@ -616,7 +616,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/items/rings/bypassprimer.png',
     saveFileSlug: 'Ring_BypassPrimer_C', // TODO Check
     id: 'b99sey',
-    tags: [],
+    tags: ['Perfect Dodge', 'Reload Speed'],
     description: `On Perfect Dodge, reload current Firearm`,
     wikiLinks: [`https://remnant.wiki/Bypass_Primer`],
     dlc: 'dlc3',
@@ -696,6 +696,7 @@ export const ringItems: RingItem[] = [
     saveFileSlug: 'Ring_CombatShieldGenerator_C', // TODO Check
     id: 'zeA523',
     tags: [],
+    externalTokens: ['Amplitude'],
     description:
       `While in combat, Crouching or Combat Slide generates a stationary 3m x 1.5m Energy Shield with 700 Health which blocks enemy projectiles. Lasts 10s or until broken by damage.\n` +
       '\n' +
@@ -784,7 +785,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/items/rings/custodiansbastion.png',
     saveFileSlug: 'Ring_CustodiansBastion_C', // TODO Check
     id: 'k6Sqka',
-    tags: [],
+    tags: ['Damage Reduction'],
     description: `Increases Armor by 1 per 2% of active SHIELD. Max 100 Bonus Armor.`,
     wikiLinks: [`https://remnant.wiki/Custodian's_Bastion`],
     dlc: 'dlc3',
@@ -870,8 +871,8 @@ export const ringItems: RingItem[] = [
     imagePath: '/items/rings/detonatingcord.png',
     saveFileSlug: 'Ring_DetonatingCord_C', // TODO Check
     id: '267d3s',
-    externalTokens: ['Explosive Damage'],
     tags: [],
+    externalTokens: ['Explosive Damage', 'Amplitude'],
     description: `On Relic Use, increases Explosive Damage by 10% for 15s and casts a 3m Explosive AOE which deals 120 Base Damage.`,
     wikiLinks: [`https://remnant.wiki/Detonating_Cord`],
     location: { world: `N'Erud`, dungeon: 'World Drop' },
@@ -907,7 +908,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/items/rings/disasterconverter.png',
     saveFileSlug: 'Ring_DisasterConverter_C', // TODO Check
     id: 'yry5r0',
-    tags: [],
+    tags: ['Grey Health'],
     description: `When wearer's Health drops below 25%, gain a SHIELD for 50% of total current Grey Health for 10s. Max 50% SHIELD. Does not stack with itself.`,
     wikiLinks: [`https://remnant.wiki/Disaster_Converter`],
     dlc: 'dlc3',
@@ -1305,6 +1306,19 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Force Multiplier',
+    imagePath: '/items/rings/forcemultiplier.png',
+    saveFileSlug: 'Ring_ForceMultiplier_C', // TODO CHECk
+    id: '9E5qGu',
+    tags: ['Charged Shot'],
+    description:
+      'Overcharging Charge Weapons grants 1.05x Weapon Damage Per 0.5s while Charge is held beyond Perfect Release Window. Max 1.3x.',
+    wikiLinks: [`https://remnant.wiki/Force_Multiplier`],
+    location: { world: 'Ward 13', dungeon: 'Quest' },
+    dlc: 'dlc3',
+  },
+  {
+    category: 'ring',
     name: 'Frivolous Band',
     imagePath: '/items/rings/frivolousband.png',
     saveFileSlug: 'Ring_FrivolousBand_C',
@@ -1474,6 +1488,18 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Hex_Ward`],
     location: { world: 'Losomn', dungeon: [`Nimue's Retreat`] },
     dlc: 'base',
+  },
+  {
+    category: 'ring',
+    name: 'Infinity Pocket',
+    imagePath: '/items/rings/infinitypocket.png',
+    saveFileSlug: 'Ring_InfinityPocket_C', // TODO Check
+    id: '7EmKj6',
+    tags: ['Reload Speed'],
+    description: `Reloading an Empty Magazine refills 10% of the stowed weapon's Max Ammo. When stowed weapon is full, the refill amount applies to the primary weapon instead.`,
+    wikiLinks: [`https://remnant.wiki/Infinity_Pocket`],
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
+    dlc: 'dlc3',
   },
   {
     category: 'ring',
@@ -2047,7 +2073,7 @@ export const ringItems: RingItem[] = [
     saveFileSlug: 'Ring_RingOfPhantomPain_C', // TODO Check
     id: 'r6xmgj',
     dlc: 'dlc3',
-    tags: [],
+    tags: ['Grey Health'],
     description: `Missing Health is converted to 10 Grey Health per second. Reduces Grey Health Regeneration by 90%.`,
     wikiLinks: [`https://remnant.wiki/Ring_Of_Phantom_Pain`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
@@ -2666,6 +2692,18 @@ export const ringItems: RingItem[] = [
       biome: 'Floating Forests',
       injectable: 'Shrine of the Doe',
     },
+  },
+  {
+    category: 'ring',
+    name: 'Tolerance Band',
+    imagePath: '/items/rings/toleranceband.png',
+    saveFileSlug: 'Ring_ToleranceBand_C', // TODO Check
+    id: '80psct',
+    tags: [],
+    description: `Decreases Firearm Charge Time by 10% and increases Perfect Charge Window for applicable ranged weaponry.`,
+    wikiLinks: [`https://remnant.wiki/Tolerance_Band`],
+    dlc: 'base',
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
   },
   {
     category: 'ring',

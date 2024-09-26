@@ -107,6 +107,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/items/weapons/blackgreatsword.png',
     id: '71k6w5',
     dlc: 'dlc3',
+    tags:['Encumbrance', 'Charged Melee'],
     description: `A massive weapon of pure destruction. Attacks can be enhanced by Charging at the cost of Stamina over time. Increases Encumbrance by 15.`,
     wikiLinks: [`https://remnant.wiki/Black_Greatsword`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
@@ -410,6 +411,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/items/weapons/genesis.png',
     id: 'okmk07',
     dlc: 'dlc3',
+    tags:['Charged Shot'],
     description: `N'Erudian tool with low energy reserves that generates energy bolts. Charging turbines generates additional projectiles. Max 5.`,
     wikiLinks: [`https://remnant.wiki/Genesis`],
     location: { world: `N'Erud`, dungeon: 'World Drop' },
@@ -2497,7 +2499,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/items/weapons/repairtool.png',
     id: '5go8dn',
     dlc: 'dlc3',
-    externalTokens: [],
+    externalTokens: ['Explosive Damage'],
     description:
       `In the heat of battle, it's easy to focus on taking down as many enemies as possible, but when an ally falls, your priorities have a way of shifting fast. This thing may not be the deadliest weapon, but its ability to heal those brave enough to fight at your side is invaluable.\n` +
       '\n' +

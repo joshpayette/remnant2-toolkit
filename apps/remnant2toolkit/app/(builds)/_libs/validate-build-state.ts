@@ -24,7 +24,7 @@ const baseItemShape = {
     'trait',
     'perk',
   ]),
-  dlc: z.enum(['base', 'dlc1', 'dlc2']),
+  dlc: z.enum(['base', 'dlc1', 'dlc2', 'dlc3']),
   imagePath: z.string(),
   saveFileSlug: z.string().optional(),
   description: z.string().optional(),
