@@ -338,7 +338,7 @@ export const traitItems: TraitItem[] = [
     saveFileSlug: 'Trait_Insight_C', // TODO Check this
     id: '3kbtu8',
     dlc: 'dlc3',
-    tags: [],
+    tags: ['Mod Power'],
     description: `Automatically generate 1 Mod Power per second.`,
     wikiLinks: [`https://remnant.wiki/Insight`],
     amount: DEFAULT_TRAIT_AMOUNT,

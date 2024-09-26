@@ -131,7 +131,7 @@ export const amuletItems: AmuletItem[] = [
     saveFileSlug: 'Amulet_CessationBulbel_C', // TODO Check
     id: 'zXxT8K',
     dlc: 'dlc3',
-    tags: [],
+    tags: ['All Damage'],
     description: `Activating a Mod consumes all current SHIELD. For every 20 SHIELD consumed, increases All Damage dealt by 4% for 10s. Max 10 stacks.`,
     wikiLinks: ['https://remnant.wiki/Cessation_Bulbel'],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
@@ -198,10 +198,8 @@ export const amuletItems: AmuletItem[] = [
     saveFileSlug: 'Amulet_CrisisCore_C', // TODO Check
     id: 'L6noPy',
     dlc: 'dlc3',
-    tags: [],
+    tags: ['Perfect Dodge', 'Damage Reduction'],
     description:
-      `When a single source of Enemy Damage exceeds 15% of Max Health, automatically trigger effects that require Perfect Dodge to activate and gain 15% Damage Reduction for 3s.\n` +
-      '\n' +
       `When a single source of Enemy Damage exceeds 15% of Max Health, automatically trigger effects that require Perfect Dodge to activate and gain 15% Damage Reduction for 3s.`,
     wikiLinks: ['https://remnant.wiki/Crisis_Core'],
     location: { world: 'Any', dungeon: 'World Drop' },
@@ -311,6 +309,7 @@ export const amuletItems: AmuletItem[] = [
     id: 'rPV99a',
     dlc: 'dlc3',
     tags: [],
+    externalTokens: ['Explosive Damage'],
     description:
       `Increases Explosive Damage by 10% and AOE Size by 25%. Inflicting Explosive Damage applies EXPOSED for 5s. Max 15s.\n` +
       '\n' +
@@ -422,7 +421,7 @@ export const amuletItems: AmuletItem[] = [
     saveFileSlug: 'Amulet_ExhaustValve_C', // TODO Check
     id: 'C22peH',
     dlc: 'dlc3',
-    tags: [],
+    tags: ['Heat Generation', 'Fire Rate'],
     description: `Increases Heat Decay Rate by 25% and Weapons that Generate Heat no longer Overheat. At Max Heat, Fire Rate is reduced by 20%.`,
     wikiLinks: ['https://remnant.wiki/Exhaust_Valve'],
     location: { world: `N'Erud`, dungeon: ['Stagnant Manufactory'] },
@@ -931,7 +930,7 @@ export const amuletItems: AmuletItem[] = [
     saveFileSlug: 'Amulet_QuantumMemory_C', // TODO Check
     id: '542njq',
     dlc: 'dlc3',
-    tags: [],
+    tags: ['Reload Speed', 'Perfect Dodge'],
     description: `Combat Slide reloads currently equipped Firearm. Perfect Dodge Combat Slide reloads both firearms.`,
     wikiLinks: ['https://remnant.wiki/Quantum_Memory'],
     location: { world: `N'Erud`, dungeon: ['Detritus Foundry'] },
@@ -1086,7 +1085,7 @@ export const amuletItems: AmuletItem[] = [
     saveFileSlug: 'Amulet_ShortCircuit_C', // TODO Check
     id: 'yuW4pJ',
     dlc: 'dlc3',
-    tags: [],
+    tags: ['Critical Chance', 'Critical Damage', 'Reduce Skill Cooldown'],
     description: `Critical Chance and Critical Damage by 10% and Skill Cooldowns are reduced by 6% once every 5s.`,
     wikiLinks: ['https://remnant.wiki/Short_Circuit'],
     location: { world: `N'Erud`, dungeon: ['Mucid Terrarium'] },
