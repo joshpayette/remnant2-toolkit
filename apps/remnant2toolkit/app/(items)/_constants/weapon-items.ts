@@ -405,6 +405,32 @@ export const weaponItems: WeaponItem[] = [
   {
     category: 'weapon',
     type: 'long gun',
+    name: 'Genesis',
+    saveFileSlug: 'Weapon_Genesis_C', // TODO Check
+    imagePath: '/items/weapons/genesis.png',
+    id: 'okmk07',
+    dlc: 'dlc3',
+    description: `N'Erudian tool with low energy reserves that generates energy bolts. Charging turbines generates additional projectiles. Max 5.`,
+    wikiLinks: [`https://remnant.wiki/Genesis`],
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
+    damage: 75,
+    rps: 5,
+    ammo: 20,
+    magazine: 1,
+    ideal: 35,
+    falloff: 85,
+    crit: 10,
+    weakspot: 115,
+    stagger: 5,
+    linkedItems: {
+      mod: {
+        name: 'Mega Drive',
+      },
+    },
+  },
+  {
+    category: 'weapon',
+    type: 'long gun',
     name: 'Huntmaster M1',
     saveFileSlug: 'Weapon_Huntmaster_C',
     imagePath: '/items/weapons/huntmaster.png',
