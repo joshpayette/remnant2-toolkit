@@ -1059,6 +1059,25 @@ export const modItems: ModItem[] = [
   },
   {
     category: 'mod',
+    name: 'Mega Drive',
+    saveFileSlug: 'Mod_MegaDrive_C', // TODO Check
+    imagePath: '/items/mods/megadrive.png',
+    id: '5s9x12',
+    dlc: 'dlc3',
+    description:
+      `Activate while a valid target is in-sights, marking it with quantum Entanglement. All Genesis projectiles seek to the Entanglement target after initial impact, dealing 50% of Primary Fire damage.\n` +
+      '\n' +
+      `While active, activating can switch Entanglement target. Lasts 15s.`,
+    wikiLinks: [`https://remnant.wiki/Genesis`],
+    linkedItems: {
+      weapon: {
+        name: 'Genesis',
+      },
+    },
+    location: { world: 'Any', dungeon: 'Linked Item' },
+  },
+  {
+    category: 'mod',
     name: 'Micronova',
     saveFileSlug: 'Mod_Micronova_C',
     imagePath: '/items/mods/corrupted_micronova.png',
