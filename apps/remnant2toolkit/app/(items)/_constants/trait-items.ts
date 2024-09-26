@@ -334,7 +334,7 @@ export const traitItems: TraitItem[] = [
     type: 'trait',
     inGameOrder: 30,
     name: 'Insight',
-    imagePath: '/items/traits/insight.png',
+    imagePath: '/items/traits/insight1.png',
     saveFileSlug: 'Trait_Insight_C', // TODO Check this
     id: '3kbtu8',
     dlc: 'dlc3',
