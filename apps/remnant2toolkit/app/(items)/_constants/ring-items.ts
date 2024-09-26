@@ -1305,6 +1305,19 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Force Multiplier',
+    imagePath: '/items/rings/forcemultiplier.png',
+    saveFileSlug: 'Ring_ForceMultiplier_C', // TODO CHECk
+    id: '9E5qGu',
+    tags: [],
+    description:
+      'Overcharging Charge Weapons grants 1.05x Weapon Damage Per 0.5s while Charge is held beyond Perfect Release Window. Max 1.3x.',
+    wikiLinks: [`https://remnant.wiki/Force_Multiplier`],
+    location: { world: 'Ward 13', dungeon: 'Quest' },
+    dlc: 'dlc3',
+  },
+  {
+    category: 'ring',
     name: 'Frivolous Band',
     imagePath: '/items/rings/frivolousband.png',
     saveFileSlug: 'Ring_FrivolousBand_C',
@@ -1474,6 +1487,17 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Hex_Ward`],
     location: { world: 'Losomn', dungeon: [`Nimue's Retreat`] },
     dlc: 'base',
+  },
+  {
+    category: 'ring',
+    name: 'Infinity Pocket',
+    imagePath: '/items/rings/infinitypocket.png',
+    saveFileSlug: 'Ring_InfinityPocket_C', // TODO Check
+    id: '7EmKj6',
+    description: `Reloading an Empty Magazine refills 10% of the stowed weapon's Max Ammo. When stowed weapon is full, the refill amount applies to the primary weapon instead.`,
+    wikiLinks: [`https://remnant.wiki/Infinity_Pocket`],
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
+    dlc: 'dlc3',
   },
   {
     category: 'ring',

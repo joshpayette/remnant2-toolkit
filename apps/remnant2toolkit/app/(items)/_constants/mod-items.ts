@@ -860,6 +860,20 @@ export const modItems: ModItem[] = [
   },
   {
     category: 'mod',
+    name: 'Harvester Bots',
+    saveFileSlug: 'Mod_HarvesterBots_C', // TODO check
+    imagePath: '/items/mods/harvesterbots.png',
+    id: 'vk6XTW',
+    dlc: 'dlc3',
+    description:
+      `Releases 5 Harvester Bots for 30s that seek an enemy to siphon, granting allies within 30m a stack of DRAIN.\n` +
+      '\n' +
+      `DRAIN: Gain 1% of base damage dealt as Lifesteal per stack. Max 5 stacks.`,
+    wikiLinks: [`https://remnant.wiki/Harvester_Bots`],
+    location: { world: `N'Erud`, dungeon: [`Detritus Foundry`] },
+  },
+  {
+    category: 'mod',
     name: 'Heatwave',
     saveFileSlug: 'Mod_Heatwave_C',
     imagePath: '/items/mods/heatwave.png',
