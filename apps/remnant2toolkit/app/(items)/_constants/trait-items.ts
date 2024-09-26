@@ -331,6 +331,21 @@ export const traitItems: TraitItem[] = [
   },
   {
     category: 'trait',
+    type: 'trait',
+    inGameOrder: 30,
+    name: 'Insight',
+    imagePath: '/items/traits/insight.png',
+    saveFileSlug: 'Trait_Insight_C', // TODO Check this
+    id: '3kbtu8',
+    dlc: 'dlc3',
+    tags: [],
+    description: `Automatically generate 1 Mod Power per second.`,
+    wikiLinks: [`https://remnant.wiki/Insight`],
+    amount: DEFAULT_TRAIT_AMOUNT,
+    location: { world: `N'Erud`, dungeon: 'Quest' },
+  },
+  {
+    category: 'trait',
     type: 'archetype',
     inGameOrder: 6,
     name: 'Kinship',
@@ -355,7 +370,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 30,
+    inGameOrder: 31,
     name: 'Leech',
     imagePath: '/items/traits/leech.png',
     saveFileSlug: 'Trait_Leech_C',
@@ -412,7 +427,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 31,
+    inGameOrder: 32,
     name: 'Perception',
     imagePath: '/items/traits/perception.png',
     saveFileSlug: 'Trait_Perception_C', // TODO Check this
@@ -427,7 +442,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 32,
+    inGameOrder: 33,
     name: 'Recovery',
     imagePath: '/items/traits/recovery.png',
     saveFileSlug: 'Trait_Recovery_C',
@@ -465,7 +480,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 33,
+    inGameOrder: 34,
     name: 'Resolute',
     imagePath: '/items/traits/resolute.png',
     saveFileSlug: 'Trait_Resolute_C',
@@ -480,7 +495,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 34,
+    inGameOrder: 35,
     name: 'Revivalist',
     imagePath: '/items/traits/revivalist.png',
     saveFileSlug: 'Trait_Revivalist_C',
@@ -495,7 +510,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 35,
+    inGameOrder: 36,
     name: 'Rugged',
     imagePath: '/items/traits/rugged.png',
     saveFileSlug: 'Trait_Rugged_C',
@@ -524,7 +539,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 36,
+    inGameOrder: 37,
     name: 'Shadeskin',
     imagePath: '/items/traits/shadeskin.png',
     saveFileSlug: 'Trait_Shadeskin_C',
@@ -542,7 +557,7 @@ export const traitItems: TraitItem[] = [
   {
     category: 'trait',
     type: 'trait',
-    inGameOrder: 37,
+    inGameOrder: 38,
     name: 'Siphoner',
     imagePath: '/items/traits/siphoner.png',
     saveFileSlug: 'Trait_Siphoner_C',
