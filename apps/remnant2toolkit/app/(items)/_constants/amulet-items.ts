@@ -181,6 +181,22 @@ export const amuletItems: AmuletItem[] = [
   },
   {
     category: 'amulet',
+    name: 'Crisis Core',
+    imagePath: '/items/amulets/crisiscore.png',
+    saveFileSlug: 'Amulet_CrisisCore_C', // TODO Check
+    id: 'L6noPy',
+    dlc: 'dlc3',
+    tags: [],
+    description:
+      `When a single source of Enemy Damage exceeds 15% of Max Health, automatically trigger effects that require Perfect Dodge to activate and gain 15% Damage Reduction for 3s.\n` +
+      '\n' +
+      `When a single source of Enemy Damage exceeds 15% of Max Health, automatically trigger effects that require Perfect Dodge to activate and gain 15% Damage Reduction for 3s.`,
+    wikiLinks: ['https://remnant.wiki/Crisis_Core'],
+    location: { world: 'Any', dungeon: 'World Drop' },
+  },
+
+  {
+    category: 'amulet',
     name: "Daredevil's Charm",
     imagePath: '/items/amulets/daredevilscharm.png',
     saveFileSlug: 'Amulet_DaredevilsCharm_C',
