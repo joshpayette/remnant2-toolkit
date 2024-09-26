@@ -115,6 +115,7 @@ export const mutatorItems: MutatorItem[] = [
     id: 'fgs17j',
     dlc: 'dlc3',
     tags: [],
+    externalTokens: ['Explosive Damage', 'Amplitude'],
     description: `Each 10% of this weapon's magazine spent, cause an explosion for 5 Explosive Damage to targets within 0.5m of impact location.`,
     maxLevelBonus: `Increases this weapon's explosive damage by 20%.`,
     wikiLinks: [`https://remnant.wiki/Detonator`],
@@ -341,7 +342,7 @@ export const mutatorItems: MutatorItem[] = [
     saveFileSlug: 'MetaGem_HiddenPower_C', // TODO Check
     id: '9154v1',
     dlc: 'dlc3',
-    tags: [],
+    tags: ['Ranged Damage', 'Reload Speed'],
     description: `Increases the attached weapon's Ranged Damage by 15% → 25% after being stowed for 2s. Lasts 7s upon being brandished.`,
     maxLevelBonus: `Automatically reloads the attached weapon after being stowed for 2s.`,
     wikiLinks: [`https://remnant.wiki/Hidden_Power`],
@@ -571,7 +572,7 @@ export const mutatorItems: MutatorItem[] = [
     saveFileSlug: 'MetaGem_Repercussion_C', // TODO Check this
     id: 'jbrq12',
     dlc: 'dlc3',
-    tags: [],
+    tags: ['Ranged Damage', 'Critical Chance'],
     description: `Each enemy hit by Primary Fire grants 1 stack of REPERCUSSION, increasing Ranged Damage by 3% per stack. Max 5 stacks. Shots consume stacks.`,
     maxLevelBonus: `Increases this weapon's Critical Chance by 3% per stack of REPERCUSSION.`,
     wikiLinks: [`https://remnant.wiki/Repercussion`],
@@ -809,7 +810,8 @@ export const mutatorItems: MutatorItem[] = [
     saveFileSlug: 'MetaGem_Superheated_C', // TODO Check this
     id: '97fccn',
     dlc: 'dlc3',
-    tags: [],
+    tags: ['Heat Generation', 'Status Effect'],
+    externalTokens: ['Explosive Damage', 'Amplitude'],
     description: `When this weapon is above 25% Heat, a 7.5m Pulse deals 150 Explosive Damage once every 5s.`,
     maxLevelBonus: `At Max Heat, a 10m Pulse deals 300 Explosive Damage which applies BURNING to all entities for 100 FIRE damage over 20s. Can only happen once every 5s.`,
     wikiLinks: [`https://remnant.wiki/Superheated`],
@@ -969,7 +971,8 @@ export const mutatorItems: MutatorItem[] = [
     saveFileSlug: 'MetaGem_VolatileStrike_C', // TODO Check
     id: 'qej6k5',
     dlc: 'dlc3',
-    tags: [],
+    tags: ['Melee Damage', 'Movement Speed'],
+    externalTokens:['Amplitude', 'Explosive Damage'],
     description: `Dealing Melee Damage creates a 3m blast which deals 50 → 150 Explosive Damage. Can only happen once every 1s.`,
     maxLevelBonus: `When Volatile Strike triggers a blast, increases Movement Speed by 20% for 5s.`,
     wikiLinks: [`https://remnant.wiki/Volatile_Strike`],
