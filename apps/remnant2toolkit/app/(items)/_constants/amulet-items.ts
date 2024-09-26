@@ -126,6 +126,18 @@ export const amuletItems: AmuletItem[] = [
   },
   {
     category: 'amulet',
+    name: 'Cessation Bulbel',
+    imagePath: '/items/amulets/cessationbulbel.png',
+    saveFileSlug: 'Amulet_CessationBulbel_C', // TODO Check
+    id: 'zXxT8K',
+    dlc: 'dlc3',
+    tags: [],
+    description: `Activating a Mod consumes all current SHIELD. For every 20 SHIELD consumed, increases All Damage dealt by 4% for 10s. Max 10 stacks.`,
+    wikiLinks: ['https://remnant.wiki/Cessation_Bulbel'],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
+  },
+  {
+    category: 'amulet',
     name: 'Chains of Amplification',
     imagePath: '/items/amulets/chainsofamplification.png',
     saveFileSlug: 'Amulet_ChainsOfAmplification_C',
