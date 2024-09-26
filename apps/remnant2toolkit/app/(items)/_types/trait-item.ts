@@ -12,7 +12,6 @@ const allItems = [...traitItems, ...archetypeItems];
 interface BaseTraitItem extends BaseItem {
   amount: number;
   type: 'archetype' | 'core' | 'trait';
-  inGameOrder: number; // the positioning of the trait in the game
   elementalResistanceStep?: number; // The amount to increase the elemental resistance per level
   elementalResistanceStepPercent?: number; // The percentage to increase the elemental resistance per level
   elementalResistanceThresholds?: number[]; // The elemental resistance thresholds for the elemental resistance step
@@ -20,6 +19,8 @@ interface BaseTraitItem extends BaseItem {
   healthStepPercent?: number; // The percentage to increase the health per level
   staminaStep?: number; // The amount to increase the stamina per level
   staminaStepPercent?: number; // The percentage to increase the stamina per level
+  shieldStep?: number; // The amount to increase the shield per level
+  shieldStepPercent?: number; // The percentage to increase the shield per level
   armorStep?: number; // The amount to increase the armor per level
   armorStepPercent?: number; // The percentage to increase the armor per level
   weightStep?: number; // The amount to increase the weight per level
@@ -30,7 +31,6 @@ interface BaseTraitItem extends BaseItem {
 export class TraitItem extends BaseItem implements BaseTraitItem {
   public category: BaseTraitItem['category'] = 'trait';
   public type: BaseTraitItem['type'] = 'trait';
-  public inGameOrder: BaseTraitItem['inGameOrder'] = 0;
   public amount: BaseTraitItem['amount'] = DEFAULT_TRAIT_AMOUNT;
   public elementalResistanceStep?: BaseTraitItem['elementalResistanceStep'] = 0;
   public elementalResistanceStepPercent?: BaseTraitItem['elementalResistanceStepPercent'] = 0;
@@ -40,6 +40,8 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
   public healthStepPercent?: BaseTraitItem['healthStepPercent'] = 0;
   public staminaStep?: BaseTraitItem['staminaStep'] = 0;
   public staminaStepPercent?: BaseTraitItem['staminaStepPercent'] = 0;
+  public shieldStep?: BaseTraitItem['shieldStep'] = 0;
+  public shieldStepPercent?: BaseTraitItem['shieldStepPercent'] = 0;
   public armorStep?: BaseTraitItem['armorStep'] = 0;
   public weightStep?: BaseTraitItem['weightStep'] = 0;
   public armorStepPercent?: BaseTraitItem['armorStepPercent'] = 0;
@@ -50,7 +52,6 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
     super(props);
     this.amount = props.amount;
     this.type = props.type;
-    this.inGameOrder = props.inGameOrder;
     this.elementalResistanceStep = props.elementalResistanceStep;
     this.elementalResistanceStepPercent = props.elementalResistanceStepPercent;
     this.elementalResistanceThresholds = props.elementalResistanceThresholds;
@@ -60,6 +61,8 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
     this.staminaStepPercent = props.staminaStepPercent;
     this.armorStep = props.armorStep;
     this.armorStepPercent = props.armorStepPercent;
+    this.shieldStep = props.shieldStep;
+    this.shieldStepPercent = props.shieldStepPercent;
     this.weightStep = props.weightStep;
     this.weightStepPercent = props.weightStepPercent;
     this.weightThresholds = props.weightThresholds;
@@ -115,7 +118,6 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
             category: item.category,
             type: item.type,
             optional,
-            inGameOrder: item.inGameOrder,
             imagePath: item.imagePath,
             amount: validAmount,
             dlc: item.dlc,
@@ -224,9 +226,6 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
     for (const remainingTrait of remainingTraits) {
       sortedTraitItems.push(remainingTrait);
     }
-
-    // Alphabetize the traits by inGameOrder
-    sortedTraitItems.sort((a, b) => a.inGameOrder - b.inGameOrder);
 
     // Traits should be ordered by type:
     // 1. Archetype
