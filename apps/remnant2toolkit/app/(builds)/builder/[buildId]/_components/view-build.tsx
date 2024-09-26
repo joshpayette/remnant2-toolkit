@@ -36,12 +36,14 @@ import { useDiscoveredItems } from '@/app/(items)/_hooks/use-discovered-items';
 
 interface Props {
   activeBuildState: BuildState;
+  activeVariantIndex: number;
   mainBuildState: BuildState;
   onDuplicateBuild: () => void;
 }
 
 export function ViewBuild({
   activeBuildState,
+  activeVariantIndex,
   mainBuildState,
   onDuplicateBuild,
 }: Props) {
@@ -171,15 +173,25 @@ export function ViewBuild({
 
             <ShareBuildButton
               onClick={() => {
-                const url = urlNoCache(window.location.href);
-                copy(url);
+                // remove params from the url
+
+                const url = urlNoCache(
+                  window.location.href.split('?')[0] ?? window.location.href,
+                );
+                copy(
+                  `${url}${
+                    activeVariantIndex !== 0
+                      ? `&variant=${activeVariantIndex}`
+                      : ''
+                  }`,
+                );
                 toast.success('Copied Build URL to clipboard.');
               }}
             />
 
             {mainBuildState.createdById !== session?.user?.id && (
               <FavoriteBuildButton
-                upvoted={optimisticUpvote}
+                upvoted={session?.user ? optimisticUpvote : false}
                 onClick={onFavoriteBuild}
               />
             )}

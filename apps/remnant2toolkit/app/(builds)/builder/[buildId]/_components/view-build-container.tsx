@@ -46,6 +46,10 @@ export function ViewBuildContainer({ buildVariants }: Props) {
   const mainBuildHasLink =
     Boolean(buildVariants[0].buildLink) || Boolean(buildVariants[0].videoUrl);
 
+  const activeVariantIndex = buildVariants.findIndex(
+    (variant) => variant.buildId === activeBuildVariant.buildId,
+  );
+
   return (
     <>
       {activeVariantHasLink || mainBuildHasLink ? (
@@ -65,6 +69,7 @@ export function ViewBuildContainer({ buildVariants }: Props) {
       )}
       <ViewBuild
         activeBuildState={activeBuildVariant}
+        activeVariantIndex={activeVariantIndex}
         mainBuildState={buildVariants[0]}
         onDuplicateBuild={() =>
           handleDuplicateBuild({
