@@ -139,6 +139,7 @@ export function validateBuildState(buildState: unknown) {
       mod: z.array(z.any()),
       mutator: z.array(z.any()),
       relicfragment: z.array(z.any()),
+      fusion: z.array(z.any()),
       trait: z.array(z.any()),
       perk: z.array(z.any()),
       prism: prismItemSchema.nullable(),

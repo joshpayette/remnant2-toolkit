@@ -204,6 +204,7 @@ export function updateBuildState({
       itemOrItems = MutatorItem.fromParams(params);
       break;
     case 'relicfragment':
+      console.info('params', params);
       itemOrItems = RelicFragmentItem.fromParams(params);
       break;
     case 'ring':

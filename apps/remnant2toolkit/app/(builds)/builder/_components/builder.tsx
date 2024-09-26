@@ -30,7 +30,6 @@ import { ItemButton } from '@/app/(items)/_components/item-button';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { ItemSelectDialog } from '@/app/(items)/_components/item-select-dialog';
 import { perkItems } from '@/app/(items)/_constants/perk-items';
-import { ComboItem } from '@/app/(items)/_types/combo-item';
 import { type Item } from '@/app/(items)/_types/item';
 import { type RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';

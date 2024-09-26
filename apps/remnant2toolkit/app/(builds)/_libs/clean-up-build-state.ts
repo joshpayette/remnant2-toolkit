@@ -1,6 +1,5 @@
 import { linkArchetypesToPerks } from '@/app/(builds)/_libs/link-archetypes-to-perks';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { comboItems } from '@/app/(items)/_constants/combo-items';
 import { traitItems } from '@/app/(items)/_constants/trait-items';
 import { weaponItems } from '@/app/(items)/_constants/weapon-items';
 import { type ArchetypeItem } from '@/app/(items)/_types/archetype-item';
@@ -124,43 +123,6 @@ function setArchetypePrimeTraitPoints(
         }
         return trait;
       });
-    }
-
-    // If two prism bonus slots have the same index, but do not form a valid combo,
-    // remove them from the build state
-    const prismBonusSlots = buildState.items.relicfragment?.slice(3, 8);
-    const prismBonusSlotIndexes = prismBonusSlots.map((slot) => slot?.index);
-    const prismBonusSlotIndexesSet = new Set(prismBonusSlotIndexes);
-
-    // If the set of indexes is smaller than the array of indexes, there are duplicates
-    if (prismBonusSlotIndexesSet.size < prismBonusSlotIndexes.length) {
-      // for each duplicate index, check if the two fragments sharing that index are found
-      // in the COMBOS array. If they are not, remove them from the build state
-      const duplicateIndexes = prismBonusSlotIndexes.filter(
-        (index, i) => prismBonusSlotIndexes.indexOf(index) !== i,
-      );
-
-      for (const index of duplicateIndexes) {
-        const duplicateFragments = prismBonusSlots.filter(
-          (slot) => slot?.index === index,
-        );
-        const combo = comboItems.find((c) =>
-          c.fragments.every((f) =>
-            duplicateFragments.some((slot) => slot?.id === f),
-          ),
-        );
-
-        if (!combo) {
-          buildState.items.relicfragment = buildState.items.relicfragment.map(
-            (slot) => {
-              if (slot?.index === index) {
-                return null;
-              }
-              return slot;
-            },
-          );
-        }
-      }
     }
   }
 }

@@ -10,14 +10,13 @@ import {
   cn,
 } from '@repo/ui';
 import { getArrayOfLength } from '@repo/utils';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
-import { ComboButton } from '@/app/(items)/_components/combo-button';
 import { ItemButton } from '@/app/(items)/_components/item-button';
-import { comboItems } from '@/app/(items)/_constants/combo-items';
-import { type ComboItem, isComboItem } from '@/app/(items)/_types/combo-item';
+import { fusionItems } from '@/app/(items)/_constants/fusion-items';
+import { type FusionItem } from '@/app/(items)/_types/fusion-item';
 import { type Item } from '@/app/(items)/_types/item';
 import { type RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 
@@ -25,111 +24,47 @@ import { type RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item
  * Checks all relic fragments in the 'bonus' slots to see if they can
  * form a combo. If so, returns the combo.
  */
-function detectComboPossibilities(buildState: BuildState): Array<{
-  comboItem: ComboItem;
-  fragmentNames: string[];
+function getPossibleFusions(buildState: BuildState): Array<{
+  fusionItem: FusionItem;
 }> {
   const bonusFragments = buildState.items.relicfragment.slice(3, 8);
 
-  const matchedCombos: ComboItem[] = [];
+  const matchedFusions: FusionItem[] = [];
 
   // Loop over each fragment, and check if it can form a combo
   // with any other equipped fragment
-  for (const fragment of bonusFragments) {
-    for (const combo of comboItems) {
+  for (const bonusFragment of bonusFragments) {
+    for (const fusion of fusionItems) {
       if (
-        combo.fragments.some(
-          (comboFragment) => comboFragment === fragment?.id,
+        fusion.fragmentIds.some(
+          (fragmentId) => fragmentId === bonusFragment?.id,
         ) &&
-        combo.fragments.every((comboFragment) =>
+        fusion.fragmentIds.every((fusionFragment) =>
           bonusFragments.some(
-            (bonusFragment) => bonusFragment?.id === comboFragment,
+            (bonusFragment) => bonusFragment?.id === fusionFragment,
           ),
         )
       ) {
-        matchedCombos.push(combo);
+        matchedFusions.push(fusion);
       }
     }
   }
 
-  const dedupedCombos = matchedCombos.filter(
-    (combo, index, self) =>
+  const dedupedFusions = matchedFusions.filter(
+    (fusion, index, self) =>
       index ===
       self.findIndex(
         (otherCombo) =>
-          otherCombo.name === combo.name &&
-          otherCombo.fragments.every((fragment) =>
-            combo.fragments.some((otherFragment) => otherFragment === fragment),
+          otherCombo.name === fusion.name &&
+          otherCombo.fragmentIds.every((fragmentId) =>
+            fusion.fragmentIds.some(
+              (otherFragment) => otherFragment === fragmentId,
+            ),
           ),
       ),
   );
 
-  const returnedCombos: Array<{
-    comboItem: ComboItem;
-    fragmentNames: string[];
-  }> = dedupedCombos.map((combo) => {
-    const fragmentNames = combo.fragments.map((fragmentId) => {
-      const fragment = buildState.items.relicfragment.find(
-        (item) => item?.id === fragmentId,
-      );
-      return fragment?.name ?? '';
-    });
-    return { comboItem: combo, fragmentNames };
-  });
-
-  return returnedCombos;
-}
-
-function getExistingCombos(buildState: BuildState): Array<{
-  comboItem: ComboItem;
-  fragmentSlot: number;
-}> {
-  const bonusFragments = buildState.items.relicfragment.slice(3, 8);
-
-  const matchedCombos: ComboItem[] = [];
-
-  // Loop over each fragment, and check if it can form a combo
-  // with any other equipped fragment
-  for (const fragment of bonusFragments) {
-    for (const combo of comboItems) {
-      if (
-        combo.fragments.some(
-          (comboFragment) => comboFragment === fragment?.id,
-        ) &&
-        combo.fragments.every((comboFragment) =>
-          bonusFragments.some(
-            (bonusFragment) => bonusFragment?.id === comboFragment,
-          ),
-        )
-      ) {
-        matchedCombos.push(combo);
-      }
-    }
-  }
-
-  const dedupedCombos = matchedCombos.filter(
-    (combo, index, self) =>
-      index ===
-      self.findIndex(
-        (otherCombo) =>
-          otherCombo.name === combo.name &&
-          otherCombo.fragments.every((fragment) =>
-            combo.fragments.some((otherFragment) => otherFragment === fragment),
-          ),
-      ),
-  );
-
-  const returnedCombos: Array<{
-    comboItem: ComboItem;
-    fragmentSlot: number;
-  }> = dedupedCombos.map((combo) => {
-    const fragmentSlot = bonusFragments.findIndex((fragment) =>
-      combo.fragments.some((comboFragment) => comboFragment === fragment?.id),
-    );
-    return { comboItem: combo, fragmentSlot };
-  });
-
-  return returnedCombos;
+  return dedupedFusions.map((fusionItem) => ({ fusionItem }));
 }
 
 interface Props {
@@ -155,36 +90,43 @@ export function PrismDisplay({
   onShowInfo,
   onToggleOptional,
 }: Props) {
+  const [appliedFusions, setAppliedFusions] = useState<FusionItem[]>([]);
+
+  // TODO
+  const bonusSlots = getArrayOfLength(5);
+
   // TODO is automatically applying combo before it's selected
-  const bonusSlots: Array<RelicFragmentItem | ComboItem | null> =
-    useMemo(() => {
-      const existingCombos = getExistingCombos(buildState);
-      const bonusSlots: Array<RelicFragmentItem | ComboItem | null> = [];
-      const bonusFragmentCount = 5;
+  // const bonusSlots: Array<RelicFragmentItem | FusionItem | null> =
+  //   useMemo(() => {
+  //     const existingCombos = getExistingCombos(buildState);
+  //     const bonusSlots: Array<RelicFragmentItem | ComboItem | null> = [];
+  //     const bonusFragmentCount = 5;
 
-      for (let i = 0; i < bonusFragmentCount; i++) {
-        const existingCombo = existingCombos.find(
-          (combo) => combo.fragmentSlot === i,
-        );
-        if (existingCombo) {
-          bonusSlots.push(existingCombo.comboItem);
-        } else {
-          const fragment = buildState.items.relicfragment[i + 3];
-          if (fragment?.index !== i + 3 || !fragment) {
-            bonusSlots.push(null);
-            continue;
-          }
-          bonusSlots.push(fragment);
-        }
-      }
+  //     for (let i = 0; i < bonusFragmentCount; i++) {
+  //       const existingCombo = existingCombos.find(
+  //         (combo) => combo.fragmentSlot === i,
+  //       );
 
-      return bonusSlots;
-    }, [buildState]);
+  //       const comboIsApplied = appliedCombos.some(
+  //         (combo) => combo.name === existingCombo?.comboItem.name,
+  //       );
+  //       if (existingCombo && comboIsApplied) {
+  //         bonusSlots.push(existingCombo.comboItem);
+  //       } else {
+  //         const fragment = buildState.items.relicfragment[i + 3];
+  //         if (fragment?.index !== i + 3 || !fragment) {
+  //           bonusSlots.push(null);
+  //           continue;
+  //         }
+  //         bonusSlots.push(fragment);
+  //       }
+  //     }
 
-  // const existingCombos = getExistingCombos(buildState);
+  //     return bonusSlots;
+  //   }, [buildState, appliedCombos]);
 
-  const detectedComboPossibilities = useMemo(
-    () => detectComboPossibilities(buildState),
+  const possibleFusions = useMemo(
+    () => getPossibleFusions(buildState),
     [buildState],
   );
 
@@ -192,46 +134,56 @@ export function PrismDisplay({
     string | null
   >(null);
 
-  function handleCreateCombo() {
-    const selectedComboItem = comboItems.find(
-      (comboItem) => comboItem.name === selectedComboPossibility,
-    );
+  // function handleCreateCombo() {
+  //   const selectedComboItem = comboItems.find(
+  //     (comboItem) => comboItem.name === selectedComboPossibility,
+  //   );
 
-    if (!selectedComboItem) {
-      console.error('Could not find selected combo', selectedComboPossibility);
-      return;
-    }
+  //   if (!selectedComboItem) {
+  //     console.error('Could not find selected combo', selectedComboPossibility);
+  //     return;
+  //   }
 
-    const firstFragment = buildState.items.relicfragment.find(
-      (item) => item?.id === selectedComboItem.fragments[0],
-    );
-    const secondFragment = buildState.items.relicfragment.find(
-      (item) => item?.id === selectedComboItem.fragments[1],
-    );
+  //   const comboAlreadyApplied = appliedCombos.some(
+  //     (combo) => combo.name === selectedComboItem.name,
+  //   );
+  //   if (comboAlreadyApplied) {
+  //     console.error('Combo already applied', selectedComboItem);
+  //     return;
+  //   }
 
-    if (!firstFragment || !secondFragment) {
-      console.error('Could not find fragments for combo', selectedComboItem);
-      return;
-    }
+  //   const firstFragment = buildState.items.relicfragment.find(
+  //     (item) => item?.id === selectedComboItem.fragments[0],
+  //   );
+  //   const secondFragment = buildState.items.relicfragment.find(
+  //     (item) => item?.id === selectedComboItem.fragments[1],
+  //   );
 
-    const firstFragmentIndex = buildState.items.relicfragment.findIndex(
-      (item) => item?.id === selectedComboItem.fragments[0],
-    );
-    const secondFragmentIndex = buildState.items.relicfragment.findIndex(
-      (item) => item?.id === selectedComboItem.fragments[1],
-    );
+  //   if (!firstFragment || !secondFragment) {
+  //     console.error('Could not find fragments for combo', selectedComboItem);
+  //     return;
+  //   }
 
-    if (!firstFragmentIndex || !secondFragmentIndex) {
-      console.error(
-        'Could not find index for fragments for combo',
-        selectedComboItem,
-      );
-      return;
-    }
+  //   const firstFragmentIndex = buildState.items.relicfragment.findIndex(
+  //     (item) => item?.id === selectedComboItem.fragments[0],
+  //   );
+  //   const secondFragmentIndex = buildState.items.relicfragment.findIndex(
+  //     (item) => item?.id === selectedComboItem.fragments[1],
+  //   );
 
-    // Change the index of the secondFragment to be the same index as the firstFragment
-    onCreateCombo(secondFragment, firstFragmentIndex);
-  }
+  //   if (!firstFragmentIndex || !secondFragmentIndex) {
+  //     console.error(
+  //       'Could not find index for fragments for combo',
+  //       selectedComboItem,
+  //     );
+  //     return;
+  //   }
+
+  //   // Change the index of the secondFragment to be the same index as the firstFragment
+  //   onCreateCombo(secondFragment, firstFragmentIndex);
+
+  //   setAppliedCombos([...appliedCombos, selectedComboItem]);
+  // }
 
   return (
     <div
@@ -296,23 +248,16 @@ export function PrismDisplay({
           {bonusSlots.map((bonusSlot, index) => {
             // Account for the first 3 slots being the main fragments
             const relicFragmentOffset = 3;
-
-            if (isComboItem(bonusSlot)) {
-              return (
-                <ComboButton
-                  key={bonusSlot.name}
-                  comboItem={bonusSlot}
-                  isEditable={isEditable}
-                  isScreenshotMode={isScreenshotMode}
-                  unoptimized={isScreenshotMode}
-                />
-              );
-            }
-
             return (
               <ItemButton
-                key={bonusSlot?.id ?? index}
-                item={bonusSlot}
+                key={
+                  buildState.items.relicfragment[index + relicFragmentOffset]
+                    ?.id ?? index
+                }
+                item={
+                  buildState.items.relicfragment[index + relicFragmentOffset] ||
+                  null
+                }
                 isEditable={isEditable}
                 isScreenshotMode={isScreenshotMode}
                 manualWordBreaks={true}
@@ -348,30 +293,30 @@ export function PrismDisplay({
           unoptimized={isScreenshotMode}
         />
       </BaseFieldset>
-      {detectedComboPossibilities.length > 0 ? (
+      {possibleFusions.length > 0 ? (
         <BaseFieldset className="mt-4 flex w-full items-center justify-center">
           <BaseLabel>Apply Combos:</BaseLabel>
           <BaseListbox
             name="combos"
-            defaultValue={detectedComboPossibilities[0]?.comboItem.name}
+            defaultValue={possibleFusions[0]?.fusionItem.name}
             onChange={(e) => setSelectedComboPossibility(e)}
             value={selectedComboPossibility}
           >
-            {detectedComboPossibilities.map((comboPossibility) => (
+            {possibleFusions.map((comboPossibility) => (
               <BaseListboxOption
-                key={comboPossibility.comboItem.name}
-                value={comboPossibility.comboItem.name}
+                key={comboPossibility.fusionItem.name}
+                value={comboPossibility.fusionItem.name}
               >
                 <BaseListboxLabel>
-                  {comboPossibility.comboItem.name} (
-                  {comboPossibility.fragmentNames.join(',')})
+                  {comboPossibility.fusionItem.name} (
+                  {/* {comboPossibility.fragmentNames.join(',')}) */}
                 </BaseListboxLabel>
               </BaseListboxOption>
             ))}
           </BaseListbox>
-          <BaseButton color="green" onClick={handleCreateCombo}>
+          {/* <BaseButton color="green" onClick={handleCreateCombo}>
             Apply
-          </BaseButton>
+          </BaseButton> */}
         </BaseFieldset>
       ) : null}
     </div>
