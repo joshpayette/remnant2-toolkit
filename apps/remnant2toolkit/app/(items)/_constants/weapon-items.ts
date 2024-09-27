@@ -107,7 +107,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/items/weapons/blackgreatsword.png',
     id: '71k6w5',
     dlc: 'dlc3',
-    tags:['Encumbrance', 'Charged Melee'],
+    tags: ['Encumbrance', 'Charged Melee'],
     description: `A massive weapon of pure destruction. Attacks can be enhanced by Charging at the cost of Stamina over time. Increases Encumbrance by 15.`,
     wikiLinks: [`https://remnant.wiki/Black_Greatsword`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
@@ -411,7 +411,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/items/weapons/genesis.png',
     id: 'okmk07',
     dlc: 'dlc3',
-    tags:['Charged Shot'],
+    tags: ['Charged Shot'],
     description: `N'Erudian tool with low energy reserves that generates energy bolts. Charging turbines generates additional projectiles. Max 5.`,
     wikiLinks: [`https://remnant.wiki/Genesis`],
     location: { world: `N'Erud`, dungeon: 'World Drop' },
@@ -1025,6 +1025,8 @@ export const weaponItems: WeaponItem[] = [
     weakspot: 100,
     stagger: 0,
   },
+
+  // #region Melee
   {
     category: 'weapon',
     type: 'melee',
@@ -1186,6 +1188,22 @@ export const weaponItems: WeaponItem[] = [
   {
     category: 'weapon',
     type: 'melee',
+    name: 'Dark Matter Gauntlets',
+    imagePath: '/items/weapons/darkmattergauntlets.png',
+    saveFileSlug: 'Weapon_DarkMatterGauntlets_C', // TODO Check
+    id: 'p1o9av',
+    dlc: 'base',
+    description: `The gauntlets harness the power of a neutron star and a black hole. When merged, cosmic forces are unleashed.`,
+    wikiLinks: [`https://remnant.wiki/Dark_Matter_Gauntlets`],
+    location: { world: `N'Erud`, dungeon: 'Quest' },
+    damage: 50,
+    crit: 5,
+    weakspot: 110,
+    stagger: 5,
+  },
+  {
+    category: 'weapon',
+    type: 'melee',
     name: 'Dreamcatcher',
     imagePath: '/items/weapons/dreamcatcher.png',
     saveFileSlug: 'Weapon_Dreamcatcher_C',
@@ -1285,6 +1303,22 @@ export const weaponItems: WeaponItem[] = [
     crit: 2,
     weakspot: 50,
     stagger: -20,
+  },
+  {
+    category: 'weapon',
+    type: 'melee',
+    name: 'Harvester Scythe',
+    imagePath: '/items/weapons/harvesterscythe.png',
+    saveFileSlug: 'Weapon_HarvesterScythe_C', // TODO Check
+    id: '5xx5zt',
+    dlc: 'dlc3',
+    description: `Harvester automaton limb fitted with a plasma torch. The system breach of a Drzyr phantom initiated jettisoned protocols, trapping strange properties within the makeshift weapon.`,
+    wikiLinks: [`https://remnant.wiki/Harvester_Scythe`],
+    location: { world: `N'Erud`, dungeon: [`Agronomy Sector`] },
+    damage: 65,
+    crit: 12,
+    weakspot: 100,
+    stagger: -33.4,
   },
   {
     category: 'weapon',
@@ -1848,6 +1882,8 @@ export const weaponItems: WeaponItem[] = [
     weakspot: 85,
     stagger: 80,
   },
+
+  // #region Hand Guns
   {
     category: 'weapon',
     type: 'hand gun',

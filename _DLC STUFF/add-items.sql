@@ -1,6 +1,21 @@
 INSERT INTO
   Item (id, itemId, dlc, isActive)
 VALUES
+  ("clrlgfe0j0000eioq7dp1o9av", "p1o9av", "base", 1);
+
+INSERT INTO
+  Item (id, itemId, dlc, isActive)
+VALUES
+  ("clrlgfe0j0000eioq7d5xx5zt", "5xx5zt", "dlc3", 1);
+
+INSERT INTO
+  Item (id, itemId, dlc, isActive)
+VALUES
+  ("clrlgfe0j0000eioq7dXXXXXX", "XXXXXX", "dlc3", 1);
+
+INSERT INTO
+  Item (id, itemId, dlc, isActive)
+VALUES
   ("clrlgfe0j0000eioq7dXXXXXX", "XXXXXX", "dlc3", 1);
 
 INSERT INTO
@@ -11,32 +26,37 @@ VALUES
 INSERT INTO
   Item (id, itemId, dlc, isActive)
 VALUES
-  ("clrlgfe0j0000eioq7d6ybk0o", "6ybk0o", "base", 1);
+  ("clrlgfe0j0000eioq7dXXXXXX", "XXXXXX", "dlc3", 1);
 
 INSERT INTO
   Item (id, itemId, dlc, isActive)
 VALUES
-  ("clrlgfe0j0000eioq7dd6hgip", "d6hgip", "base", 1);
+  ("clrlgfe0j0000eioq7dXXXXXX", "XXXXXX", "dlc3", 1);
 
 INSERT INTO
   Item (id, itemId, dlc, isActive)
 VALUES
-  ("clrlgfe0j0000eioq7dw962ng", "w962ng", "base", 1);
+  ("clrlgfe0j0000eioq7dXXXXXX", "XXXXXX", "dlc3", 1);
 
 INSERT INTO
   Item (id, itemId, dlc, isActive)
 VALUES
-  ("clrlgfe0j0000eioq7dt2myua", "t2myua", "base", 1);
+  ("clrlgfe0j0000eioq7dXXXXXX", "XXXXXX", "dlc3", 1);
 
 INSERT INTO
   Item (id, itemId, dlc, isActive)
 VALUES
-  ("clrlgfe0j0000eioq7dynxc2m", "ynxc2m", "base", 1);
+  ("clrlgfe0j0000eioq7dXXXXXX", "XXXXXX", "dlc3", 1);
 
 INSERT INTO
   Item (id, itemId, dlc, isActive)
 VALUES
-  ("clrlgfe0j0000eioq7dm1h26g", "m1h26g", "base", 1);
+  ("clrlgfe0j0000eioq7dXXXXXX", "XXXXXX", "dlc3", 1);
+
+INSERT INTO
+  Item (id, itemId, dlc, isActive)
+VALUES
+  ("clrlgfe0j0000eioq7dXXXXXX", "XXXXXX", "dlc3", 1);
 
 INSERT INTO
   Item (id, itemId, dlc, isActive)
