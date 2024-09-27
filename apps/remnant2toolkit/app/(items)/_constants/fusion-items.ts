@@ -129,6 +129,15 @@ export const fusionItems: FusionItem[] = [
   },
   {
     category: 'fusion',
+    name: 'Selfless',
+    fragmentIds: ['0jam5w', 'y52c32'], // Revive Speed, Healing Effectivness
+    imagePath: '/items/fusions/blue-blue.png',
+    id: 'q0ox6w',
+    dlc: 'base',
+    description: 'Revive Speed + Healing Effectivness',
+  },
+  {
+    category: 'fusion',
     name: 'Sniper',
     fragmentIds: ['wlnbc1', 'i5kymp'], // Ranged Damage, Ideal Range
     imagePath: '/items/fusions/red-yellow.png',
