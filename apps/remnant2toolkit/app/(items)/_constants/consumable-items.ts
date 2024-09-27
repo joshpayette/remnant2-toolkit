@@ -248,6 +248,18 @@ Cooldown: 60m.`,
   },
   {
     category: 'consumable',
+    name: 'Light Extract',
+    imagePath: '/items/consumables/lightextract.png',
+    saveFileSlug: 'Consumable_LightExtract_C', // TODO Check
+    id: 'E5CbP6',
+    dlc: 'base',
+    tags: [],
+    description: `Grants HASTE. Lasts 60s.`,
+    wikiLinks: [`https://remnant.wiki/Light_Extract`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
+  },
+  {
+    category: 'consumable',
     name: 'Liquid Escape',
     saveFileSlug: 'Consumable_LiquidEscape_C',
     imagePath: '/items/consumables/liquidescape.png',
