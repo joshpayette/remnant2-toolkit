@@ -1,7 +1,7 @@
 import { type BuildTags } from '@repo/db';
 import { BaseInput, BaseLink, cn, EyeIcon, FavoriteIcon, Logo } from '@repo/ui';
 import { getArrayOfLength, stripUnicode } from '@repo/utils';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { FaRegEye } from 'react-icons/fa';
 import { HiOutlineDuplicate as DuplicateIcon } from 'react-icons/hi';
 
@@ -31,6 +31,7 @@ import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { ItemSelectDialog } from '@/app/(items)/_components/item-select-dialog';
 import { perkItems } from '@/app/(items)/_constants/perk-items';
 import { type Item } from '@/app/(items)/_types/item';
+import { RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
 
 import { MemberFeatures } from './member-features';
@@ -166,9 +167,38 @@ export function Builder({
       if (Array.isArray(categoryItemOrItems)) {
         const buildItems = categoryItemOrItems;
 
-        const itemAlreadyInBuild = buildItems.find(
-          (i) => i?.id === selectedItem.id,
-        );
+        let itemAlreadyInBuild = false;
+
+        if (selectedItemSlot.category !== 'relicfragment') {
+          itemAlreadyInBuild = Boolean(
+            buildItems.find((i) => i?.id === selectedItem.id),
+          );
+        } else {
+          console.info('Got here!');
+          if (!RelicFragmentItem.isRelicFragmentItem(selectedItem)) {
+            return;
+          }
+          if (selectedItemSlot.index === undefined) {
+            return Boolean(buildItems.find((i) => i?.id === selectedItem.id));
+          }
+          // If the selectedItem.slot is 0-2, then we need to check only those slots
+          // If the selectedItem.slot is 3-7, then we need to check only those slots
+          // if the selectedItem.slot is 8, then we need to check only that slot
+          if (selectedItemSlot.index < 3) {
+            itemAlreadyInBuild = Boolean(
+              buildItems.slice(0, 3).find((i) => i?.id === selectedItem.id),
+            );
+          } else if (selectedItemSlot.index < 8) {
+            itemAlreadyInBuild = Boolean(
+              buildItems.slice(3, 8).find((i) => i?.id === selectedItem.id),
+            );
+          } else {
+            itemAlreadyInBuild = Boolean(
+              buildItems.find((i) => i?.id === selectedItem.id),
+            );
+          }
+        }
+
         if (itemAlreadyInBuild) return;
 
         /** Used to add the new item to the array of items for this slot */
