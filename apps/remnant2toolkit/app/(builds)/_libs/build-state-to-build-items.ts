@@ -1,6 +1,5 @@
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
-import { RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 
 export function buildStateToBuildItems(buildState: BuildState): Array<{
   itemId: string;
@@ -168,22 +167,31 @@ export function buildStateToBuildItems(buildState: BuildState): Array<{
           },
         ]),
     ...(items.relicfragment
-      ? items.relicfragment
-          .filter(
-            (relicfragment) =>
-              relicfragment &&
-              RelicFragmentItem.isRelicFragmentItem(relicfragment),
-          )
-          .map((relicfragment, index) => ({
-            itemId: relicfragment?.id ?? '',
-            category: 'relicfragment' as ItemCategory,
-            optional: relicfragment?.optional ?? false,
-            index,
-          }))
+      ? items.relicfragment.map((relicfragment, index) => ({
+          itemId: relicfragment?.id ?? '',
+          category: 'relicfragment' as ItemCategory,
+          optional: relicfragment?.optional ?? false,
+          index,
+        }))
       : [
           {
             itemId: '',
             category: 'relicfragment' as ItemCategory,
+            index: 0,
+            optional: false,
+          },
+        ]),
+    ...(items.fusion
+      ? items.fusion.map((fusion, index) => ({
+          itemId: fusion?.id ?? '',
+          category: 'fusion' as ItemCategory,
+          optional: fusion?.optional ?? false,
+          index,
+        }))
+      : [
+          {
+            itemId: '',
+            category: 'fusion' as ItemCategory,
             index: 0,
             optional: false,
           },

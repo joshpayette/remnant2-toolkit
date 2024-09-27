@@ -44,22 +44,14 @@ export class RelicFragmentItem
 
     const items: RelicFragmentItem[] = [];
     itemIds.forEach((itemId, index) => {
-      // if the itemId ends with `-#`, it's specifying an index
-      let specifiedIndex = index;
-      if (itemId.includes('-')) {
-        const [id, indexStr] = itemId.split('-');
-        itemId = id as string;
-        specifiedIndex = parseInt(indexStr as string, 10);
-      }
-
       const optional = itemId.includes(OPTIONAL_ITEM_SYMBOL);
       itemId = itemId.replace(OPTIONAL_ITEM_SYMBOL, '');
 
       const item = relicFragmentItems.find((i) => i.id === itemId);
       if (!item) return;
       items[index] = optional
-        ? { ...item, index: specifiedIndex, optional }
-        : { ...item, index: specifiedIndex };
+        ? { ...item, index, optional }
+        : { ...item, index };
     });
 
     if (items.length === 0) return null;

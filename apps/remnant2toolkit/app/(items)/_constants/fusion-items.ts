@@ -4,98 +4,110 @@ export const fusionItems: FusionItem[] = [
   {
     category: 'fusion',
     name: 'Athletic',
-    fragmentIds: ['c0hy5s', 'kp0rff'], // Movement Speed, Evade Speed
+    fragmentIds: ['c0hy5s', 'kp0rff'],
     imagePath: '/items/fusions/yellow-blue.png',
     id: '62uunk',
     dlc: 'base',
+    description: `Movement Speed + Evade Speed`,
   },
   {
     category: 'fusion',
     name: 'Cleric',
-    fragmentIds: ['y52c32', 'omefk5'], // Healing Efficacy, Use Speed
+    fragmentIds: ['y52c32', 'omefk5'],
     imagePath: '/items/fusions/blue-yellow.png',
     id: 'zr00kz',
     dlc: 'base',
+    description: 'Healing Effectiveness + Consumable Speed',
   },
   {
     category: 'fusion',
     name: 'Flash',
-    fragmentIds: ['51y6ih', 'omefk5'], // Cast Speed, Use Speed
+    fragmentIds: ['51y6ih', 'omefk5'],
     imagePath: '/items/fusions/yellow-yellow.png',
     id: '6ybk0o',
     dlc: 'base',
+    description: 'Casting Speed + Consumable Speed',
   },
   {
     category: 'fusion',
     name: 'Grip',
-    fragmentIds: ['oiiiu2', 'h9e463'], // Weapon Spread, Swap Speed
+    fragmentIds: ['oiiiu2', 'h9e463'],
     imagePath: '/items/fusions/yellow-yellow.png',
     id: 'd6hgip',
     dlc: 'base',
+    description: 'Weapon Spread + Weapon Swap',
   },
   {
     category: 'fusion',
     name: 'Gunfighter',
-    fragmentIds: ['w8ruyt', '5wuf2j'], // Fire Rate, Reload Speed
+    fragmentIds: ['w8ruyt', '5wuf2j'],
     imagePath: '/items/fusions/red-yellow.png',
     id: 'w962ng',
     dlc: 'base',
+    description: 'Ranged Fire Rate + Reload Speed',
   },
   {
     category: 'fusion',
     name: 'Hulk',
-    fragmentIds: ['6qz6t1', '4gbcn0'], // Health (Percent), Stamina (Percent)
+    fragmentIds: ['6qz6t1', '4gbcn0'],
     imagePath: '/items/fusions/blue-blue.png',
     id: 't2myua',
     dlc: 'base',
+    description: 'Base Health + Base Stamina',
   },
   {
     category: 'fusion',
     name: 'Longevity',
-    fragmentIds: ['c2t1p6', '7c8uka'], // Mod Duration, Skill Duration
+    fragmentIds: ['c2t1p6', '7c8uka'],
     imagePath: '/items/fusions/yellow-yellow.png',
     id: 'ynxc2m',
     dlc: 'base',
+    description: 'Mod Duration + Skill Duration',
   },
   {
     category: 'fusion',
     name: 'Mage',
-    fragmentIds: ['zkr2us', 'pk57hf'], // Mod Damage, Mod Generation
+    fragmentIds: ['zkr2us', 'pk57hf'],
     imagePath: '/items/fusions/red-yellow.png',
     id: 'm1h26g',
     dlc: 'base',
+    description: 'Mod Damage + Mod Generation',
   },
   {
     category: 'fusion',
     name: 'Meta',
-    fragmentIds: ['oszz4u', '0qxyqo'], // Weakspot Damage, Critical Damage
+    fragmentIds: ['oszz4u', '0qxyqo'],
     imagePath: '/items/fusions/red-red.png',
     id: 'g58d3p',
     dlc: 'base',
+    description: 'Weakspot Damage + Critical Damage',
   },
   {
     category: 'fusion',
     name: 'Munitions',
-    fragmentIds: ['dp184t', '3aqiq5'], // Ranged Crit Chance, Ammo Reserves
+    fragmentIds: ['dp184t', '3aqiq5'],
     imagePath: '/items/fusions/red-yellow.png',
     id: 'wi41h6',
     dlc: 'base',
+    description: 'Ranged Critical Chance + Ammo Reserves',
   },
   {
     category: 'fusion',
     name: 'Protected',
-    fragmentIds: ['alp59n', 'h6sk9p'], // Shield Efficacy, Armor (Flat)
+    fragmentIds: ['alp59n', 'h6sk9p'],
     imagePath: '/items/fusions/blue-blue.png',
     id: 'x59m5x',
     dlc: 'base',
+    description: 'Shield Effectiveness + Base Armor',
   },
   {
     category: 'fusion',
     name: 'Pugilist',
-    fragmentIds: ['t8jgpe', 'qqmdc0'], // Melee Speed, Stamina (flat)
+    fragmentIds: ['t8jgpe', 'qqmdc0'],
     imagePath: '/items/fusions/red-blue.png',
     id: 'jeu7d6',
     dlc: 'base',
+    description: 'Melee Speed + Base Stamina',
   },
   {
     category: 'fusion',
@@ -104,6 +116,7 @@ export const fusionItems: FusionItem[] = [
     imagePath: '/items/fusions/blue-yellow.png',
     id: '3fenef',
     dlc: 'base',
+    description: 'Health Regen + Skill Cooldown',
   },
   {
     category: 'fusion',
@@ -112,6 +125,7 @@ export const fusionItems: FusionItem[] = [
     imagePath: '/items/fusions/red-blue.png',
     id: 'q0ox6z',
     dlc: 'base',
+    description: 'Melee Critical Chance + Evade Speed',
   },
   {
     category: 'fusion',
@@ -120,6 +134,7 @@ export const fusionItems: FusionItem[] = [
     imagePath: '/items/fusions/red-yellow.png',
     id: '26o0ys',
     dlc: 'base',
+    description: 'Ranged Damage + Weapon Ideal Range',
   },
   {
     category: 'fusion',
@@ -128,6 +143,7 @@ export const fusionItems: FusionItem[] = [
     imagePath: '/items/fusions/blue-blue.png',
     id: '3b43hx',
     dlc: 'base',
+    description: 'Damage Reduction + Base Armor',
   },
   {
     category: 'fusion',
@@ -136,6 +152,7 @@ export const fusionItems: FusionItem[] = [
     imagePath: '/items/fusions/blue-blue.png',
     id: '6p6ssk',
     dlc: 'base',
+    description: 'Base Health + Grey Health Rate',
   },
   {
     category: 'fusion',
@@ -144,6 +161,7 @@ export const fusionItems: FusionItem[] = [
     imagePath: '/items/fusions/red-red.png',
     id: 'oxap1d',
     dlc: 'base',
+    description: 'Melee Damage + Melee Speed',
   },
   {
     category: 'fusion',
@@ -152,5 +170,6 @@ export const fusionItems: FusionItem[] = [
     imagePath: '/items/fusions/red-red.png',
     id: 'g9u4i3',
     dlc: 'base',
+    description: 'Mod Critical Chance + Skill Critical Chance',
   },
 ];

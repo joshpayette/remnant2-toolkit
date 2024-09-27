@@ -31,7 +31,6 @@ import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { ItemSelectDialog } from '@/app/(items)/_components/item-select-dialog';
 import { perkItems } from '@/app/(items)/_constants/perk-items';
 import { type Item } from '@/app/(items)/_types/item';
-import { type RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
 
 import { MemberFeatures } from './member-features';
@@ -300,33 +299,6 @@ export function Builder({
       buildState,
       category: 'isPatchAffected',
       value: isPatchAffected ? 'true' : 'false',
-    });
-  }
-
-  function handleCreateCombo(
-    fragmentToMerge: RelicFragmentItem,
-    newIndex: number,
-  ) {
-    if (!onUpdateBuildState) return;
-
-    const equippedFragments = buildState.items.relicfragment;
-    const newEquippedFragments = equippedFragments.map((fragment, index) => {
-      if (fragment?.id === fragmentToMerge.id) {
-        return {
-          ...fragment,
-          index: newIndex,
-        };
-      }
-      return {
-        ...fragment,
-        index,
-      };
-    });
-    const newItemIds = newEquippedFragments.map((i) => `${i?.id}-${i?.index}`);
-    onUpdateBuildState({
-      buildState,
-      category: 'relicfragment',
-      value: newItemIds,
     });
   }
 
@@ -1026,8 +998,7 @@ export function Builder({
             isScreenshotMode={isScreenshotMode}
             itemInfoOpen={itemInfoOpen}
             itemOwnershipPreference={itemOwnershipPreference}
-            onCreateCombo={handleCreateCombo}
-            onItemSelect={handleItemSlotClick}
+            onItemSlotClick={handleItemSlotClick}
             onShowInfo={handleShowInfo}
             onToggleOptional={handleToggleOptional}
           />

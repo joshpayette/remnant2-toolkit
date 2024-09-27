@@ -9,6 +9,7 @@ import { ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { ArmorItem } from '@/app/(items)/_types/armor-item';
 import { ConcoctionItem } from '@/app/(items)/_types/concotion-item';
 import { ConsumableItem } from '@/app/(items)/_types/consumable-item';
+import { FusionItem } from '@/app/(items)/_types/fusion-item';
 import { type Item } from '@/app/(items)/_types/item';
 import { ModItem } from '@/app/(items)/_types/mod-item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
@@ -204,7 +205,6 @@ export function updateBuildState({
       itemOrItems = MutatorItem.fromParams(params);
       break;
     case 'relicfragment':
-      console.info('params', params);
       itemOrItems = RelicFragmentItem.fromParams(params);
       break;
     case 'ring':
@@ -218,6 +218,9 @@ export function updateBuildState({
       break;
     case 'prism':
       itemOrItems = PrismItem.fromParams(params);
+      break;
+    case 'fusion':
+      itemOrItems = FusionItem.fromParams(params);
       break;
     default:
       console.error(`Unknown category ${category}`);

@@ -2,8 +2,10 @@ import { type BuildItems } from '@repo/db';
 
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/optional-item-symbol';
 import { fusionItems } from '@/app/(items)/_constants/fusion-items';
+import { relicFragmentItems } from '@/app/(items)/_constants/relic-fragment-items';
 import { BaseItem } from '@/app/(items)/_types/base-item';
 import { type Item } from '@/app/(items)/_types/item';
+import { type RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 
 interface BaseFusionItem extends BaseItem {
   fragmentIds: string[];
@@ -71,6 +73,7 @@ export class FusionItem extends BaseItem implements BaseFusionItem {
     for (const buildItem of buildItems) {
       const item = fusionItems.find((i) => i.id === buildItem.itemId);
       if (!item) continue;
+
       buildItem.index
         ? (fusionValues[buildItem.index] = {
             ...item,
@@ -86,5 +89,15 @@ export class FusionItem extends BaseItem implements BaseFusionItem {
     }
 
     return fusionValues;
+  }
+
+  static getFragmentInfo(fusion: FusionItem): RelicFragmentItem[] {
+    return fusion.fragmentIds.map((fragmentId) => {
+      const fragment = relicFragmentItems.find((i) => i.id === fragmentId);
+      if (!fragment) {
+        throw new Error(`Fragment with id ${fragmentId} not found`);
+      }
+      return fragment;
+    });
   }
 }
