@@ -238,7 +238,9 @@ export async function createBuild({
                       name: 'Build Link',
                       value: `https://remnant2toolkit.com/builder/${
                         response.id
-                      }?t=${Date.now()}${index > 0 ? `&variant=${index}` : ''}`,
+                      }?t=${Date.now()}${
+                        index > 0 ? `&variant=${index + 1}` : ''
+                      }`,
                     },
                     {
                       name: 'Reference Link',

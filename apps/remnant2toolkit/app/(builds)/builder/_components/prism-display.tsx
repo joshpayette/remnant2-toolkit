@@ -10,6 +10,11 @@ import { FragmentOrFusionDialog } from '@/app/(builds)/builder/_components/fragm
 import { ItemButton } from '@/app/(items)/_components/item-button';
 import { type Item } from '@/app/(items)/_types/item';
 
+import {
+  MAX_BONUS_RELIC_FRAGMENT_COUNT,
+  MAX_RELIC_FRAGMENT_COUNT,
+} from '../../_constants/max-relic-fragment-count';
+
 interface Props {
   buildState: BuildState;
   isEditable: boolean;
@@ -81,7 +86,7 @@ export function PrismDisplay({
           </BaseLabel>
         ) : null}
         <div className="flex w-full flex-wrap items-start justify-start gap-x-1">
-          {getArrayOfLength(3).map((fragmentIndex) => (
+          {getArrayOfLength(MAX_RELIC_FRAGMENT_COUNT).map((fragmentIndex) => (
             <ItemButton
               key={
                 buildState.items.relicfragment[fragmentIndex]?.id ||
@@ -108,9 +113,9 @@ export function PrismDisplay({
           </BaseLabel>
         ) : null}
         <div className="flex w-full flex-wrap items-start justify-start gap-x-1">
-          {getArrayOfLength(5).map((index) => {
+          {getArrayOfLength(MAX_BONUS_RELIC_FRAGMENT_COUNT).map((index) => {
             // Account for the first 3 slots being the main fragments
-            const slotOffset = 3;
+            const slotOffset = MAX_RELIC_FRAGMENT_COUNT;
 
             const fusionInSlot = buildState.items.fusion[index + slotOffset];
             const fragmentInSlot =

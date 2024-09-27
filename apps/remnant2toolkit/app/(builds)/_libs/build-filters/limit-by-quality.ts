@@ -1,10 +1,7 @@
 import { Prisma } from '@repo/db';
 
 import { MINIMUM_QUALITY_DESCRIPTION_LENGTH } from '@/app/(builds)/_components/filters/build-misc-filter';
-import {
-  MAX_TRAIT_AMOUNT,
-  TRAIT_TRAITOR_BONUS,
-} from '@/app/(builds)/_constants/max-trait-amount';
+import { MAX_TRAIT_AMOUNT } from '@/app/(builds)/_constants/max-trait-amount';
 
 export function limitToQualityBuilds(limitToQualityBuilds: boolean) {
   if (!limitToQualityBuilds) return Prisma.empty;
@@ -15,14 +12,12 @@ export function limitToQualityBuilds(limitToQualityBuilds: boolean) {
   AND (ItemCounts.archtypeCount = 2)
   AND (ItemCounts.skillCount = 2)
   AND (ItemCounts.relicCount = 1)
-  AND (ItemCounts.relicfragmentCount = 3)
+  AND (ItemCounts.relicfragmentCount > 2)
   AND (ItemCounts.weaponCount = 3)
   AND (ItemCounts.modCount = 3)
   AND (ItemCounts.mutatorCount = 3)
   AND (ItemCounts.amuletCount = 1)
   AND (ItemCounts.ringCount = 4)
-  AND (ItemCounts.traitSum = ${
-    MAX_TRAIT_AMOUNT || MAX_TRAIT_AMOUNT + TRAIT_TRAITOR_BONUS
-  })
+  AND (ItemCounts.traitSum = ${MAX_TRAIT_AMOUNT})
   `;
 }

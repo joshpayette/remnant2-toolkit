@@ -1,4 +1,3 @@
-import { PRISM_SLOT_MAP } from '@/app/(builds)/_constants/prism-slot-map';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { allItems } from '@/app/(items)/_constants/all-items';
@@ -146,36 +145,49 @@ export function getItemListForSlot(
   }
 
   // If the selected slot is a relicfragment, we need to limit
-  // the items based on the index
+  // the items based on the index.
+  // The first 3 indexes for relic fragments are the main fragments.
+  // These fragments can also show up in the next 5 slots as bonus fragments.
   if (selectedItem.category === 'relicfragment') {
-    const fragmentItems = unequippedItems.filter(
+    const allFragmentItems = allItems.filter(
       (item) => item.category === 'relicfragment',
     );
 
-    if (selectedItem.index === undefined) return fragmentItems;
+    if (selectedItem.index === undefined) return allFragmentItems;
 
-    const slotType = PRISM_SLOT_MAP[selectedItem.index];
-
-    switch (slotType) {
-      case 'relicfragment':
-        return fragmentItems.filter(
-          (item) =>
-            RelicFragmentItem.isRelicFragmentItem(item) &&
-            item.color !== 'legendary',
-        );
-      case 'bonus':
-        return fragmentItems.filter(
-          (item) =>
-            RelicFragmentItem.isRelicFragmentItem(item) &&
-            item.color !== 'legendary',
-        );
-      case 'legendary':
-        return fragmentItems.filter(
-          (item) =>
-            RelicFragmentItem.isRelicFragmentItem(item) &&
-            item.color === 'legendary',
-        );
+    // If the index is 0-3, then we are looking at the main fragments
+    // We need to remove the equipped main fragments from the list
+    if (selectedItem.index < 3) {
+      const mainFragments = buildState.items.relicfragment.slice(0, 3);
+      return allFragmentItems.filter(
+        (item) =>
+          RelicFragmentItem.isRelicFragmentItem(item) &&
+          !mainFragments.find((f) => f?.id === item.id) &&
+          item.color !== 'legendary',
+      );
     }
+
+    // If the index is 3-8, then we are looking at the bonus fragments
+    // We need to remove the equipped bonus fragments from the list
+    if (selectedItem.index < 8) {
+      const bonusFragments = buildState.items.relicfragment.slice(3, 8);
+      return allFragmentItems.filter(
+        (item) =>
+          RelicFragmentItem.isRelicFragmentItem(item) &&
+          !bonusFragments.find((f) => f?.id === item.id) &&
+          item.color !== 'legendary',
+      );
+    }
+
+    // If the index is 8, then we are looking at the legendary fragment
+    // We need to remove the equipped legendary fragment from the list
+    const legendaryFragment = buildState.items.relicfragment[8];
+    return allFragmentItems.filter(
+      (item) =>
+        RelicFragmentItem.isRelicFragmentItem(item) &&
+        item.color === 'legendary' &&
+        item.id !== legendaryFragment?.id,
+    );
   }
 
   // If we got this far, then return all items for the selected slot
