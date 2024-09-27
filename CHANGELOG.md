@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Fixed bug preventing relic fragments from being equipped in the main slots if equipped in the bonus slots, and vice versa.
 - Fixed bug causing items to be highlighted mid-word. Ex: `mage` showing up in the word `damage`.
+- Fixed bug where I forgot there are more than 3 relic fragments now, causing some quality builds to not show in the quality build feed.
 
 ## 2024-09-26
 
