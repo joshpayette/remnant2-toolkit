@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed bug preventing relic fragments from being equipped in the main slots if equipped in the bonus slots, and vice versa.
+- Fixed bug causing items to be highlighted mid-word. Ex: `mage` showing up in the word `damage`.
 
 ## 2024-09-26
 
