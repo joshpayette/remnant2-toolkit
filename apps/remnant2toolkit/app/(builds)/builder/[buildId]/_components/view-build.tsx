@@ -13,6 +13,7 @@ import {
   type ItemOwnershipPreference,
   LOCALSTORAGE_KEY,
 } from '@/app/_types/localstorage';
+import { LoadoutDialog } from '@/app/(builds)/_components/loadout-dialog';
 import { ModeratorBuildToolsDialog } from '@/app/(builds)/_components/moderator-build-tools-dialog';
 import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
 import { buildStateToCsvData } from '@/app/(builds)/_libs/build-state-to-csv-data';
@@ -30,6 +31,7 @@ import { FavoriteBuildDialog } from '@/app/(builds)/builder/_components/favorite
 import { GenerateBuildImageButton } from '@/app/(builds)/builder/_components/generate-build-image';
 import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/image-download-info-dialog';
 import { ItemOwnershipPreferenceButton } from '@/app/(builds)/builder/_components/item-ownership-preference-button';
+import { LoadoutManagementButton } from '@/app/(builds)/builder/_components/loadout-management-button';
 import { ModeratorToolsButton } from '@/app/(builds)/builder/_components/moderator-tools-button';
 import { ShareBuildButton } from '@/app/(builds)/builder/_components/share-build-button';
 import { useDiscoveredItems } from '@/app/(items)/_hooks/use-discovered-items';
@@ -69,6 +71,7 @@ export function ViewBuild({
     );
 
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);
+  const [loadoutDialogOpen, setLoadoutDialogOpen] = useState(false);
   const [signInRequiredDialogOpen, setSignInRequiredDialogOpen] =
     useState(false);
 
@@ -127,6 +130,13 @@ export function ViewBuild({
               buildState={activeBuildState}
               open={detailedBuildDialogOpen}
               onClose={() => setDetailedBuildDialogOpen(false)}
+            />
+            <LoadoutDialog
+              key={mainBuildState.buildId}
+              buildId={mainBuildState.buildId}
+              open={loadoutDialogOpen}
+              onClose={() => setLoadoutDialogOpen(false)}
+              isEditable={true}
             />
             <ImageDownloadInfoDialog
               onClose={handleClearImageDownloadInfo}
@@ -188,6 +198,14 @@ export function ViewBuild({
                 toast.success('Copied Build URL to clipboard.');
               }}
             />
+
+            {session?.user?.id && (
+              <LoadoutManagementButton
+                key={loadoutDialogOpen ? 'open' : 'closed'}
+                buildId={mainBuildState.buildId}
+                onClick={() => setLoadoutDialogOpen(true)}
+              />
+            )}
 
             {mainBuildState.createdById !== session?.user?.id && (
               <FavoriteBuildButton

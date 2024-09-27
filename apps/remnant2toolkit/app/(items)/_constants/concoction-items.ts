@@ -102,18 +102,6 @@ export const concoctionItems: ConcoctionItem[] = [
   },
   {
     category: 'concoction',
-    name: 'Light Extract',
-    imagePath: '/items/consumables/lightextract.png',
-    saveFileSlug: 'Consumable_LightExtract_C', // TODO Check
-    id: 'E5CbP6',
-    dlc: 'base',
-    tags: [],
-    description: `Grants HASTE. Lasts 60s.`,
-    wikiLinks: [`https://remnant.wiki/Light_Extract`],
-    location: { world: 'Ward 13', dungeon: 'Vendor' },
-  },
-  {
-    category: 'concoction',
     name: 'Meat Shake',
     imagePath: '/items/consumables/meatshake.png',
     saveFileSlug: 'Consumable_MeatShake_C',
