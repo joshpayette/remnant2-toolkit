@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed bug where I forgot there are more than 3 relic fragments now, causing some quality builds to not show in the quality build feed.
 - Reclassified Light Extract as a consumable (was mistakenly labeled a concoction).
 - Remember when we could add builds to loadout? Well, I didn't. I added the button back to add builds to loadouts - this was removed mistakenly.
+- Updated all relic fragment descriptions and file paths for more consistent importing from save files. (Legendary fragments coming soon!)
 
 ## 2024-09-26
 
