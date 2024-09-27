@@ -101,7 +101,7 @@ function parseStringForToken({
       .sort((a, b) => b.length - a.length); // Sort in descending order of length
 
     const allItemNamesRegex = new RegExp(
-      `(${allItemNames.map((token) => escapeRegExp(token)).join('|')})`,
+      `\\b(${allItemNames.map((token) => escapeRegExp(token)).join('|')})`,
       'gi',
     );
 
