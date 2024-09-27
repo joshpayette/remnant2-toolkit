@@ -73,6 +73,7 @@ export async function generateMetadata(
   }
 
   const buildState = dbBuildToBuildState(build);
+
   const archetypes = buildState.items.archetype.map(
     (a) => a?.name.toLowerCase(),
   );

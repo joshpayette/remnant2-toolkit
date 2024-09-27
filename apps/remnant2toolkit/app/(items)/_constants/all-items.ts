@@ -1,3 +1,4 @@
+import { fusionItems } from '@/app/(items)/_constants/fusion-items';
 import { prismItems } from '@/app/(items)/_constants/prism-items';
 import { type Item } from '@/app/(items)/_types/item';
 
@@ -22,6 +23,7 @@ export const allItems = [
   ...armorItems,
   ...concoctionItems,
   ...consumableItems,
+  ...fusionItems,
   ...modItems,
   ...mutatorItems,
   ...perkItems,

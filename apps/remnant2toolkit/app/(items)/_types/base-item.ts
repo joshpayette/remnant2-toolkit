@@ -18,6 +18,7 @@ type ItemCategory =
   | 'mod'
   | 'mutator'
   | 'relicfragment'
+  | 'fusion'
   | 'ring'
   | 'skill'
   | 'trait'

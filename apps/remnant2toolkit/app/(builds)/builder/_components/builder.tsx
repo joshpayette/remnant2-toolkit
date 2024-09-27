@@ -25,6 +25,7 @@ import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { FeaturedBuildBadge } from '@/app/(builds)/builder/_components/featured-build-badge';
 import { NewBuildBadge } from '@/app/(builds)/builder/_components/new-build-badge';
 import { PopularBuildBadge } from '@/app/(builds)/builder/_components/popular-build-badge';
+import { PrismDisplay } from '@/app/(builds)/builder/_components/prism-display';
 import { ItemButton } from '@/app/(items)/_components/item-button';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { ItemSelectDialog } from '@/app/(items)/_components/item-select-dialog';
@@ -753,67 +754,18 @@ export function Builder({
                   tooltipDisabled={itemInfoOpen}
                   unoptimized={isScreenshotMode}
                 />
-                <div
-                  id="relic-container"
-                  className="relative flex items-start justify-start"
-                >
-                  <ItemButton
-                    item={buildState.items.relic}
-                    isEditable={isEditable}
-                    isScreenshotMode={isScreenshotMode}
-                    manualWordBreaks={true}
-                    onClick={() => handleItemSlotClick('relic')}
-                    onItemInfoClick={handleShowInfo}
-                    onToggleOptional={handleToggleOptional}
-                    showOwnership={itemOwnershipPreference}
-                    tooltipDisabled={itemInfoOpen}
-                    unoptimized={isScreenshotMode}
-                  />
-                  <div
-                    id="relic-fragment-container"
-                    className="absolute left-[66px] top-0 flex w-[160px] flex-col items-start justify-start"
-                  >
-                    <ItemButton
-                      item={buildState.items.relicfragment[0] || null}
-                      isEditable={isEditable}
-                      isScreenshotMode={isScreenshotMode}
-                      manualWordBreaks={true}
-                      onClick={() => handleItemSlotClick('relicfragment', 0)}
-                      onItemInfoClick={handleShowInfo}
-                      onToggleOptional={handleToggleOptional}
-                      showOwnership={itemOwnershipPreference}
-                      tooltipDisabled={itemInfoOpen}
-                      unoptimized={isScreenshotMode}
-                      variant="relic-fragment"
-                    />
-                    <ItemButton
-                      item={buildState.items.relicfragment[1] || null}
-                      isEditable={isEditable}
-                      isScreenshotMode={isScreenshotMode}
-                      manualWordBreaks={true}
-                      onClick={() => handleItemSlotClick('relicfragment', 1)}
-                      onItemInfoClick={handleShowInfo}
-                      onToggleOptional={handleToggleOptional}
-                      showOwnership={itemOwnershipPreference}
-                      tooltipDisabled={itemInfoOpen}
-                      unoptimized={isScreenshotMode}
-                      variant="relic-fragment"
-                    />
-                    <ItemButton
-                      item={buildState.items.relicfragment[2] || null}
-                      isEditable={isEditable}
-                      isScreenshotMode={isScreenshotMode}
-                      manualWordBreaks={true}
-                      onClick={() => handleItemSlotClick('relicfragment', 2)}
-                      onItemInfoClick={handleShowInfo}
-                      onToggleOptional={handleToggleOptional}
-                      showOwnership={itemOwnershipPreference}
-                      tooltipDisabled={itemInfoOpen}
-                      unoptimized={isScreenshotMode}
-                      variant="relic-fragment"
-                    />
-                  </div>
-                </div>
+                <ItemButton
+                  item={buildState.items.relic}
+                  isEditable={isEditable}
+                  isScreenshotMode={isScreenshotMode}
+                  manualWordBreaks={true}
+                  onClick={() => handleItemSlotClick('relic')}
+                  onItemInfoClick={handleShowInfo}
+                  onToggleOptional={handleToggleOptional}
+                  showOwnership={itemOwnershipPreference}
+                  tooltipDisabled={itemInfoOpen}
+                  unoptimized={isScreenshotMode}
+                />
               </div>
               <div
                 id="center-column"
@@ -1034,6 +986,22 @@ export function Builder({
               )}
             </div>
           </div>
+        </div>
+
+        <div
+          id="prism-row"
+          className="mb-4 flex w-full items-center justify-center"
+        >
+          <PrismDisplay
+            buildState={buildState}
+            isEditable={isEditable}
+            isScreenshotMode={isScreenshotMode}
+            itemInfoOpen={itemInfoOpen}
+            itemOwnershipPreference={itemOwnershipPreference}
+            onItemSlotClick={handleItemSlotClick}
+            onShowInfo={handleShowInfo}
+            onToggleOptional={handleToggleOptional}
+          />
         </div>
 
         {showMemberFeatures ? (

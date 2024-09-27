@@ -107,7 +107,8 @@ export function importedLoadoutToBuildState({
       consumable: [],
       mod: [null, null, null],
       mutator: [null, null, null],
-      relicfragment: [], // cannot determine fragment order if missing fragments
+      relicfragment: [],
+      fusion: [],
       trait: [],
       perk: [],
       prism: null,

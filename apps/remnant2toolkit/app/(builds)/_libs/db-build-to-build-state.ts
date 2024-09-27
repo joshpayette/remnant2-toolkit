@@ -5,6 +5,7 @@ import { ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { ArmorItem } from '@/app/(items)/_types/armor-item';
 import { ConcoctionItem } from '@/app/(items)/_types/concotion-item';
 import { ConsumableItem } from '@/app/(items)/_types/consumable-item';
+import { FusionItem } from '@/app/(items)/_types/fusion-item';
 import { ModItem } from '@/app/(items)/_types/mod-item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { PerkItem } from '@/app/(items)/_types/perk-item';
@@ -53,6 +54,7 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
       concoction: ConcoctionItem.fromDBValue(buildItems),
       consumable: ConsumableItem.fromDBValue(buildItems),
       relicfragment: RelicFragmentItem.fromDBValue(buildItems),
+      fusion: FusionItem.fromDBValue(buildItems),
       weapon: WeaponItem.fromDBValue(buildItems),
       mod: ModItem.fromDBValue(buildItems),
       mutator: MutatorItem.fromDBValue(buildItems),

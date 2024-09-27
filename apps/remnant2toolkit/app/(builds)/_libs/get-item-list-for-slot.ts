@@ -1,9 +1,11 @@
+import { PRISM_SLOT_MAP } from '@/app/(builds)/_constants/prism-slot-map';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { allItems } from '@/app/(items)/_constants/all-items';
 import { type ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { type Item } from '@/app/(items)/_types/item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
+import { RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
 
 /**
@@ -141,6 +143,39 @@ export function getItemListForSlot(
     );
 
     return itemsForSkill;
+  }
+
+  // If the selected slot is a relicfragment, we need to limit
+  // the items based on the index
+  if (selectedItem.category === 'relicfragment') {
+    const fragmentItems = unequippedItems.filter(
+      (item) => item.category === 'relicfragment',
+    );
+
+    if (selectedItem.index === undefined) return fragmentItems;
+
+    const slotType = PRISM_SLOT_MAP[selectedItem.index];
+
+    switch (slotType) {
+      case 'relicfragment':
+        return fragmentItems.filter(
+          (item) =>
+            RelicFragmentItem.isRelicFragmentItem(item) &&
+            item.color !== 'legendary',
+        );
+      case 'bonus':
+        return fragmentItems.filter(
+          (item) =>
+            RelicFragmentItem.isRelicFragmentItem(item) &&
+            item.color !== 'legendary',
+        );
+      case 'legendary':
+        return fragmentItems.filter(
+          (item) =>
+            RelicFragmentItem.isRelicFragmentItem(item) &&
+            item.color === 'legendary',
+        );
+    }
   }
 
   // If we got this far, then return all items for the selected slot

@@ -3,6 +3,7 @@ import { type ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { type ArmorItem } from '@/app/(items)/_types/armor-item';
 import { type ConcoctionItem } from '@/app/(items)/_types/concotion-item';
 import { type ConsumableItem } from '@/app/(items)/_types/consumable-item';
+import { type FusionItem } from '@/app/(items)/_types/fusion-item';
 import { type ModItem } from '@/app/(items)/_types/mod-item';
 import { type MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { type PerkItem } from '@/app/(items)/_types/perk-item';
@@ -20,6 +21,7 @@ export type Item =
   | ArmorItem
   | ConcoctionItem
   | ConsumableItem
+  | FusionItem
   | ModItem
   | MutatorItem
   | PerkItem
