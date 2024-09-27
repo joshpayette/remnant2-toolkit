@@ -181,6 +181,21 @@ export function buildStateToBuildItems(buildState: BuildState): Array<{
             optional: false,
           },
         ]),
+    ...(items.fusion
+      ? items.fusion.map((fusion, index) => ({
+          itemId: fusion?.id ?? '',
+          category: 'fusion' as ItemCategory,
+          optional: fusion?.optional ?? false,
+          index,
+        }))
+      : [
+          {
+            itemId: '',
+            category: 'fusion' as ItemCategory,
+            index: 0,
+            optional: false,
+          },
+        ]),
     ...(items.trait
       ? items.trait.map((trait) => ({
           itemId: trait.id,

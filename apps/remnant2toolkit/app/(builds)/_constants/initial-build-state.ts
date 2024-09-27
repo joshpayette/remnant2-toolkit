@@ -50,6 +50,7 @@ export const INITIAL_BUILD_STATE: BuildState = {
     mod: [],
     mutator: [],
     relicfragment: [],
+    fusion: [],
     trait: [],
     perk: [],
     prism: null,

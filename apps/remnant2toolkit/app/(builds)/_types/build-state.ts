@@ -5,6 +5,7 @@ import { type ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { type ArmorItem } from '@/app/(items)/_types/armor-item';
 import { type ConcoctionItem } from '@/app/(items)/_types/concotion-item';
 import { type ConsumableItem } from '@/app/(items)/_types/consumable-item';
+import { type FusionItem } from '@/app/(items)/_types/fusion-item';
 import { type ModItem } from '@/app/(items)/_types/mod-item';
 import { type MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { type PerkItem } from '@/app/(items)/_types/perk-item';
@@ -53,6 +54,7 @@ export interface BuildState {
     mod: Array<(ModItem & { isOwned?: boolean }) | null>;
     mutator: Array<(MutatorItem & { isOwned?: boolean }) | null>;
     relicfragment: Array<(RelicFragmentItem & { isOwned?: boolean }) | null>;
+    fusion: Array<(FusionItem & { isOwned?: boolean }) | null>;
     trait: Array<TraitItem & { isOwned?: boolean }>;
     perk: Array<(PerkItem & { isOwned?: boolean }) | null>;
     prism: (PrismItem & { isOwned?: boolean }) | null;
