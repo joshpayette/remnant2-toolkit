@@ -418,7 +418,7 @@ export async function updateBuild({
       ]) {
         const buildLink = `${urlNoCache(
           `https://remnant2toolkit.com/builder/${mainBuildState.buildId}`,
-        )}${index > 0 ? `&variant=${index}` : ''}`;
+        )}${index > 0 ? `&variant=${index + 1}` : ''}`;
 
         const existingBuild = existingUpdatableBuilds.find(
           (build) => build.id === response.id,
