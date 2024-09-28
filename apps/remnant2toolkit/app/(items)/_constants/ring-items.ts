@@ -855,6 +855,18 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Demolition Coil',
+    imagePath: '/items/rings/demolitioncoil.png',
+    saveFileSlug: 'Ring_DemolitionCoil_C', // TODO Check
+    id: '6xu3sb',
+    tags: [],
+    description: `Unarmed Charged Melee Attacks explode when hitting an enemy, dealing 30% additional explosive damage over 1.5m.`,
+    wikiLinks: [`https://remnant.wiki/Demolition_Coil`],
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
+    dlc: 'base',
+  },
+  {
+    category: 'ring',
     name: 'Dense Silicon Ring',
     imagePath: '/items/rings/densesilicon.png',
     saveFileSlug: 'Ring_DenseSiliconRing_C',
@@ -1961,6 +1973,18 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Ring of Ashes',
+    imagePath: '/items/rings/ringofashes.png',
+    saveFileSlug: 'Ring_RingOfAshes_C', // TODO Check
+    id: '1hx3g8',
+    tags: [],
+    description: `Stowed weapons generate 15 Mod Power per second.`,
+    dlc: 'dlc3',
+    wikiLinks: [`https://remnant.wiki/Ring_of_Ashes`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
+  },
+  {
+    category: 'ring',
     name: 'Ring of Bones',
     imagePath: '/items/rings/ringofbones.png',
     saveFileSlug: 'Ring_RingOfBones_C', // TODO Check
@@ -2814,6 +2838,18 @@ export const ringItems: RingItem[] = [
       biome: 'Ziggurats',
       injectable: 'Wind Hollow',
     },
+  },
+  {
+    category: 'ring',
+    name: 'Wired Inhibitor',
+    imagePath: '/items/rings/wiredinhibitor.png',
+    saveFileSlug: 'Ring_WiredInhibitor_C', // TODO Check
+    id: '0j6y53',
+    tags: [],
+    description: `Applying a Negative Status Effect on an enemy also applies SLOW for 1s. Applying or refreshing additional Negative Statuses will increase the duration by 1s. Max 5s.`,
+    wikiLinks: [`https://remnant.wiki/Wired_Inhibitor`],
+    dlc: 'dlc3',
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'ring',
