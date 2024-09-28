@@ -174,7 +174,6 @@ export function Builder({
             buildItems.find((i) => i?.id === selectedItem.id),
           );
         } else {
-          console.info('Got here!');
           if (!RelicFragmentItem.isRelicFragmentItem(selectedItem)) {
             return;
           }

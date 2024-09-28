@@ -1,7 +1,5 @@
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 
-// TODO Update for new prism fragments
-
 /**
  * Determines how many concoction slots the build has
  */
@@ -47,6 +45,15 @@ export function getConcoctionSlotCount(buildState: BuildState): number {
 
   const hasBrewmastersCork = buildState.items.amulet?.id === '6il3tm';
   if (hasBrewmastersCork) concoctionCount += 2;
+
+  // -------------------------------------------------------------------
+  // Add 5 concoctions if they are wearing Heavy Drinker
+  // -------------------------------------------------------------------
+
+  const hasHeavyDrinker = buildState.items.relicfragment?.some(
+    (fragment) => fragment?.id === 'fant12',
+  );
+  if (hasHeavyDrinker) concoctionCount += 5;
 
   return concoctionCount;
 }

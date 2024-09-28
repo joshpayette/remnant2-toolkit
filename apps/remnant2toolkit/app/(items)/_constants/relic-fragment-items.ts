@@ -72,6 +72,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     tags: ['Armor Increase'],
     description: 'Increases Armor by 15.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    armor: 15,
   },
   {
     category: 'relicfragment',
@@ -84,6 +85,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     tags: ['Health'],
     description: 'Increases Health by 10.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    health: 10,
   },
   {
     category: 'relicfragment',
@@ -96,6 +98,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     tags: ['Stamina'],
     description: 'Increases Stamina by 15.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    stamina: 15,
   },
   {
     category: 'relicfragment',
@@ -298,6 +301,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     tags: [],
     description: 'Increases Dodge Weight Threshold by 100.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    weightThreshold: 100,
   },
   {
     category: 'relicfragment',
@@ -322,6 +326,8 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     tags: [],
     description: 'Grants 50 Health and Stamina.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    health: 50,
+    stamina: 50,
   },
   {
     category: 'relicfragment',
@@ -623,6 +629,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     tags: [],
     description: 'Grants Infinite Stamina.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    stamina: 99999,
   },
   {
     category: 'relicfragment',
@@ -936,6 +943,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     tags: [],
     description: 'Increases Armor by 100.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    armor: 100,
   },
   {
     category: 'relicfragment',
