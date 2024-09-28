@@ -1109,7 +1109,7 @@ export const amuletItems: AmuletItem[] = [
     id: 'yuW4pJ',
     dlc: 'dlc3',
     tags: ['Critical Chance', 'Critical Damage', 'Reduce Skill Cooldown'],
-    description: `Critical Chance and Critical Damage by 10% and Skill Cooldowns are reduced by 6% once every 5s.`,
+    description: `While a SHIELD is active, increases Critical Chance and Critical Damage by 10% and Skill Cooldowns are reduced by 6% once every 5s.`,
     wikiLinks: ['https://remnant.wiki/Short_Circuit'],
     location: { world: `N'Erud`, dungeon: ['Mucid Terrarium'] },
   },
