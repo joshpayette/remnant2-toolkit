@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-09-28
 
+### Added
+
+- Added a few more discovered rings and amulets.
+
 ### Fixed
 
 - Corrected description for `Short Circuit`.
