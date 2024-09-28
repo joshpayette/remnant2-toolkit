@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Quality Builds now allow 145 points if Traitor is equipped as a legendary gem.
 - Added more new items.
+- Added more enemy images to the Boss Tracker. (thanks ConRaven!)
+- Added more avatars to use on your profile! (thanks ConRaven!)
 
 ### Fixed
 
