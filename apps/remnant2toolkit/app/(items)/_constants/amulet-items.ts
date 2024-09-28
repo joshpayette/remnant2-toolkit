@@ -55,6 +55,18 @@ export const amuletItems: AmuletItem[] = [
   },
   {
     category: 'amulet',
+    name: 'Brazen Amalgam',
+    imagePath: '/items/amulets/brazenamalgam.png',
+    saveFileSlug: 'Amulet_BrazenAmalgam_C', // TODO Check
+    id: 'mkroo2',
+    dlc: 'dlc3',
+    tags: [],
+    description: `Increases Critical Chance by 1.5% and Movement Speed while Aiming by 2.5% per second. Max 10 stacks. Dodge, Slide, or Flop removes stacks`,
+    wikiLinks: ['https://remnant.wiki/Brazen_Amalgam'],
+    location: { world: `N'Erud`, dungeon: ['Logistics Bridge'] },
+  },
+  {
+    category: 'amulet',
     name: "Brewmaster's Cork",
     imagePath: '/items/amulets/brewmasterscork.png',
     saveFileSlug: 'Amulet_BrewmastersCork_C',

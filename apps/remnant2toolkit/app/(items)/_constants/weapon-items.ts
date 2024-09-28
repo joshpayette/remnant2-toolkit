@@ -2270,6 +2270,54 @@ export const weaponItems: WeaponItem[] = [
   {
     category: 'weapon',
     type: 'hand gun',
+    name: 'Repair Tool',
+    saveFileSlug: 'Weapon_RepairTool_C', // TODO: Check this
+    imagePath: '/items/weapons/repairtool.png',
+    id: '5go8dn',
+    dlc: 'dlc3',
+    externalTokens: ['Explosive Damage'],
+    description: `Fires a stream of nanomachines, dealing damage to enemies or healing allies for 3% of their Max Health per second. The nano-tech also restores N'Erudian Energy to Turrets and Drones.`,
+    wikiLinks: [`https://remnant.wiki/Repair_Tool`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
+    damage: 10,
+    rps: 11,
+    magazine: 150,
+    accuracy: 100,
+    ideal: 15,
+    falloff: 30,
+    ammo: 300,
+    crit: 5,
+    weakspot: 80,
+    stagger: -20,
+  },
+  {
+    category: 'weapon',
+    type: 'hand gun',
+    name: 'Redeemer',
+    imagePath: '/items/weapons/redeemer.png',
+    saveFileSlug: 'Weapon_Redeemer_C', // TODO: Check this
+    id: '0kob6g',
+    dlc: 'dlc3',
+    tags: [],
+    description:
+      `Fires a tight grouping of World Stone slugs. Hits rip away a small portion of the enemy, sending it to another realm.\n` +
+      '\n' +
+      `Incapable of standard Mod Generation.`,
+    wikiLinks: [`https://remnant.wiki/Redeemer`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
+    damage: 69,
+    rps: 2.5,
+    magazine: 6,
+    ammo: 36,
+    ideal: 20,
+    falloff: 60,
+    crit: 5,
+    weakspot: 100,
+    stagger: -35,
+  },
+  {
+    category: 'weapon',
+    type: 'hand gun',
     name: 'Repeater Pistol',
     saveFileSlug: 'Weapon_Repeater_C',
     imagePath: '/items/weapons/repeater.png',
@@ -2526,33 +2574,5 @@ export const weaponItems: WeaponItem[] = [
     crit: 5,
     weakspot: 105,
     stagger: 5,
-  },
-  {
-    category: 'weapon',
-    type: 'hand gun',
-    name: 'Repair Tool',
-    saveFileSlug: 'Weapon_RepairTool_C', // TODO: Check this
-    imagePath: '/items/weapons/repairtool.png',
-    id: '5go8dn',
-    dlc: 'dlc3',
-    externalTokens: ['Explosive Damage'],
-    description:
-      `In the heat of battle, it's easy to focus on taking down as many enemies as possible, but when an ally falls, your priorities have a way of shifting fast. This thing may not be the deadliest weapon, but its ability to heal those brave enough to fight at your side is invaluable.\n` +
-      '\n' +
-      `"For a species as long-lived as the Drzyr, the restorative capabilities of nanotechnology proved essential to the preservation of vitality. They knew that to prevent decay on a micro level was the first step in potentially unlocking the secret to preventing decay on the macro level as well."\n` +
-      '\n' +
-      `Fires a stream of nanomachines, dealing damage to enemies or healing allies for 3% of their Max Health per second. The nano-tech also restores N'Erudian Energy to Turrets`,
-    wikiLinks: [`https://remnant.wiki/Repair_Tool`],
-    location: { world: 'Ward 13', dungeon: 'Vendor' },
-    damage: 10,
-    rps: 11,
-    magazine: 150,
-    accuracy: 100,
-    ideal: 15,
-    falloff: 30,
-    ammo: 300,
-    crit: 5,
-    weakspot: 80,
-    stagger: -20,
   },
 ];
