@@ -1,7 +1,7 @@
 import { type BuildTags } from '@repo/db';
 import { BaseInput, BaseLink, cn, EyeIcon, FavoriteIcon, Logo } from '@repo/ui';
 import { getArrayOfLength, stripUnicode } from '@repo/utils';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { FaRegEye } from 'react-icons/fa';
 import { HiOutlineDuplicate as DuplicateIcon } from 'react-icons/hi';
 

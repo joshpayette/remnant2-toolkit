@@ -43,7 +43,7 @@ export function PrismDisplay({
   return (
     <div
       className={cn(
-        'flex flex-row flex-wrap items-center justify-center gap-x-1 gap-y-0',
+        'flex flex-row flex-wrap items-center justify-start gap-x-1 gap-y-0 md:justify-center',
         isScreenshotMode && 'justify-start',
       )}
     >
@@ -62,7 +62,7 @@ export function PrismDisplay({
       />
       <BaseFieldset className="flex max-w-full flex-col items-start justify-start gap-y-2 border border-transparent p-1">
         {isEditable ? (
-          <BaseLabel className="w-full text-center">
+          <BaseLabel className="w-full text-left md:text-center">
             <span className="text-sm">Prism</span>
           </BaseLabel>
         ) : null}
@@ -81,11 +81,11 @@ export function PrismDisplay({
       </BaseFieldset>
       <BaseFieldset className="flex max-w-full flex-col items-start justify-start gap-y-2 border border-transparent p-1">
         {isEditable && !isScreenshotMode ? (
-          <BaseLabel className="w-full text-center">
+          <BaseLabel className="w-full text-left md:text-center">
             <span className="text-sm">Fragments</span>
           </BaseLabel>
         ) : null}
-        <div className="flex w-full flex-wrap items-start justify-start gap-x-1">
+        <div className="flex w-full flex-wrap items-start justify-start gap-x-2 md:gap-x-1">
           {getArrayOfLength(MAX_RELIC_FRAGMENT_COUNT).map((fragmentIndex) => (
             <ItemButton
               key={
@@ -108,11 +108,11 @@ export function PrismDisplay({
       </BaseFieldset>
       <BaseFieldset className="flex max-w-full flex-col items-start justify-start gap-y-2 border border-transparent p-1">
         {isEditable && !isScreenshotMode ? (
-          <BaseLabel className="w-full text-center">
+          <BaseLabel className="w-full text-left md:text-center">
             <span className="text-sm">Bonuses</span>
           </BaseLabel>
         ) : null}
-        <div className="flex w-full flex-wrap items-start justify-start gap-x-1">
+        <div className="flex w-full flex-wrap items-start justify-start gap-x-2 md:gap-x-1">
           {getArrayOfLength(MAX_BONUS_RELIC_FRAGMENT_COUNT).map((index) => {
             // Account for the first 3 slots being the main fragments
             const slotOffset = MAX_RELIC_FRAGMENT_COUNT;
