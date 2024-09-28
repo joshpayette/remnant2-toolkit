@@ -1731,6 +1731,18 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Mortal Coil',
+    imagePath: '/items/rings/mortalcoil.png',
+    saveFileSlug: 'Ring_MortalCoil_C', // TODO Check
+    id: '',
+    tags: [],
+    description: `Increases All Damage dealt by 1% for every 2% of the wearer's total Lifesteal. Max 20% All Damage.`,
+    wikiLinks: [`https://remnant.wiki/Mortal_Coil`],
+    location: { world: 'Ward 13', dungeon: 'Quest' },
+    dlc: 'dlc3',
+  },
+  {
+    category: 'ring',
     name: 'Nanofiber Strand',
     imagePath: '/items/rings/nanofiberstrand.png',
     saveFileSlug: 'Ring_NanofiberStrand_C', // TODO Check
@@ -2581,6 +2593,18 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Strand of Sinew',
+    imagePath: '/items/rings/strandofsinew.png',
+    saveFileSlug: 'Ring_StrandOfSinew_C', // TODO Check
+    id: `c24g9g`,
+    tags: [],
+    description: `Slows Firearm Charge Time by 30% and increases Ranged Charge Damage by 20%.`,
+    wikiLinks: [`https://remnant.wiki/Strand_of_Sinew`],
+    dlc: 'dlc3',
+    location: { world: `N'Erud`, dungeon: 'Quest' },
+  },
+  {
+    category: 'ring',
     name: 'Stream Coupler',
     imagePath: '/items/rings/streamcoupler.png',
     saveFileSlug: 'Ring_StreamCoupler_C',
@@ -2617,6 +2641,18 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Suppression_Ward`],
     dlc: 'base',
     location: { world: `N'Erud`, dungeon: ['Ascension Spire'] },
+  },
+  {
+    category: 'ring',
+    name: 'Symbol of Royalty',
+    imagePath: '/items/rings/symbolofroyalty.png',
+    saveFileSlug: 'Ring_SymbolOfRoyalty_C', // TODO Check
+    id: '362ynf',
+    tags: ['Perfect Dodge'],
+    description: `On Perfect Dodge, grants 1 stack of BULWARK for 10s. Max 3 stacks.`,
+    wikiLinks: [`https://remnant.wiki/Symbol_of_Royalty`],
+    dlc: 'dlc3',
+    location: { world: `N'Erud`, dungeon: 'Vendor' },
   },
   {
     category: 'ring',
@@ -2849,7 +2885,7 @@ export const ringItems: RingItem[] = [
     description: `Applying a Negative Status Effect on an enemy also applies SLOW for 1s. Applying or refreshing additional Negative Statuses will increase the duration by 1s. Max 5s.`,
     wikiLinks: [`https://remnant.wiki/Wired_Inhibitor`],
     dlc: 'dlc3',
-    location: { world: 'Ward 13', dungeon: 'Vendor' },
+    location: { world: 'Ward 13', dungeon: 'Quest' },
   },
   {
     category: 'ring',

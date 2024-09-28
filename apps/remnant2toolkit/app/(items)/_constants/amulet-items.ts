@@ -920,6 +920,16 @@ export const amuletItems: AmuletItem[] = [
   },
   {
     category: 'amulet',
+    name: 'Ornate Amulet',
+    imagePath: `/items/amulets/ornateamulet.png`,
+    saveFileSlug: 'Amulet_OrnateAmulet_C', // TODO Check
+    id: '',
+    dlc: 'dlc3',
+    tags: [],
+    description: `Activating a Skill increases All Damage by 5% for 10s. Maximum 5 stacks.`,
+  },
+  {
+    category: 'amulet',
     name: 'Participation Medal',
     imagePath: '/items/amulets/participationmedal.png',
     saveFileSlug: 'Amulet_ParticipationMedal_C',
@@ -1221,6 +1231,18 @@ export const amuletItems: AmuletItem[] = [
   },
   {
     category: 'amulet',
+    name: `Timekeeper's Forfeit`,
+    imagePath: '/items/amulets/timekeepersforfeit.png',
+    saveFileSlug: 'Amulet_TimekeepersForfeit_C', // TODO Check
+    id: 't4ho4m',
+    dlc: 'dlc3',
+    tags: [],
+    description: `Increases Status Effect Damage by 50%. Applying a Status Effect to an enemy also applies it to the wearer.`,
+    wikiLinks: [`https://remnant.wiki/Timekeeper's_Forfeit`],
+    location: { world: 'Ward 13', dungeon: 'Quest' },
+  },
+  {
+    category: 'amulet',
     name: 'Toxic Release Valve',
     imagePath: '/items/amulets/toxicreleasevalve.png',
     saveFileSlug: 'Amulet_ToxicReleaseValve_C',
@@ -1275,6 +1297,18 @@ export const amuletItems: AmuletItem[] = [
       world: `N'Erud`,
       dungeon: ['Ascension Spire'],
     },
+  },
+  {
+    category: 'amulet',
+    name: 'Volatile Cartridge',
+    imagePath: '/items/amulets/volatilecartridge.png',
+    saveFileSlug: 'Amulet_VolatileCartridge_C', // TODO Check
+    id: 'up6mi1',
+    dlc: 'dlc3',
+    tags: [],
+    description: `Increases Explosive Critical Chance and Explosive Critical Damage by 1% for every 5% of Max Health protected by a SHIELD.`,
+    wikiLinks: ['https://remnant.wiki/Volatile_Cartridge'],
+    location: { world: 'Ward 13', dungeon: 'Quest' },
   },
   {
     category: 'amulet',
