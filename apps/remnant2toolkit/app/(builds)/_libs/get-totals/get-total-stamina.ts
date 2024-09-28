@@ -60,7 +60,6 @@ export function getTotalStamina(buildState: BuildState): {
   const isPeakConditioningEquipped = buildState.items.relicfragment.some(
     (trait) => trait?.id === '34g3gm',
   );
-  console.log('isPerceptionEquipped', isPeakConditioningEquipped);
 
   return {
     totalStamina: isPeakConditioningEquipped ? '∞' : totalStamina.toFixed(2),

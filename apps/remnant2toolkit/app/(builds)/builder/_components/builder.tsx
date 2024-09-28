@@ -263,7 +263,7 @@ export function Builder({
 
     if (Array.isArray(categoryItemOrItems)) {
       const newBuildItems = (categoryItemOrItems as Item[]).map((item) => {
-        if (item?.id === selectedItem?.id) {
+        if (item.id === selectedItem.id && item?.index === selectedItem.index) {
           return { ...item, optional };
         }
         return item;
