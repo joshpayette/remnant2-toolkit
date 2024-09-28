@@ -57,8 +57,13 @@ export function getTotalStamina(buildState: BuildState): {
     (baseStaminaAmount + totalStaminaIncrease + totalStaminaStep) *
     (1 + totalStaminaPercent + totalStaminaStepPercent);
 
+  const isPeakConditioningEquipped = buildState.items.relicfragment.some(
+    (trait) => trait?.id === '34g3gm',
+  );
+  console.log('isPerceptionEquipped', isPeakConditioningEquipped);
+
   return {
-    totalStamina: totalStamina.toFixed(2),
+    totalStamina: isPeakConditioningEquipped ? '∞' : totalStamina.toFixed(2),
     breakdown: {
       equippedStaminaIncreaseItems,
       equippedStaminaPercentItems,
