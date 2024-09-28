@@ -1,7 +1,7 @@
-import nextMDX from '@next/mdx'
-import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin'
+import nextMDX from '@next/mdx';
+import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
 
-const withMDX = nextMDX()
+const withMDX = nextMDX();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -25,13 +25,19 @@ const nextConfig = {
       config.watchOptions = {
         poll: 1000,
         aggregateTimeout: 300,
-      }
+      };
     }
     if (isServer) {
-      config.plugins = [...config.plugins, new PrismaPlugin()]
+      config.plugins = [...config.plugins, new PrismaPlugin()];
     }
-    return config
-  },
-}
 
-export default withMDX(nextConfig)
+    // silence webpack cache errors
+    config.infrastructureLogging = {
+      level: 'error',
+    };
+
+    return config;
+  },
+};
+
+export default withMDX(nextConfig);
