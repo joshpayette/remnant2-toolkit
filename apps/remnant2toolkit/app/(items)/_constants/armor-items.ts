@@ -1,5 +1,7 @@
 import { type ArmorItem } from '@/app/(items)/_types/armor-item';
 
+// #region HELM
+
 export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
@@ -479,6 +481,24 @@ export const armorItems: ArmorItem[] = [
   },
   {
     category: 'helm',
+    name: 'Phetyr Sensor',
+    saveFileSlug: 'Armor_Head_Phetyr_C', // TODO Check
+    imagePath: '/items/armors/phetyrsensor.png',
+    id: '3emu93',
+    dlc: 'dlc3',
+    set: 'Phetyr Set',
+    armor: 19.8,
+    weight: 9.8,
+    bleedResistance: 3,
+    fireResistance: 3,
+    shockResistance: 3,
+    toxinResistance: 4,
+    blightResistance: 5,
+    wikiLinks: [`https://remnant.wiki/Phetyr_Sensor`],
+    location: { world: `N'Erud`, dungeon: [`Logistics Bridge`] },
+  },
+  {
+    category: 'helm',
     name: 'Radiant Visage',
     saveFileSlug: 'Armor_Head_Radiant_C',
     imagePath: '/items/armors/radiantvisage.png',
@@ -652,6 +672,9 @@ export const armorItems: ArmorItem[] = [
     wikiLinks: [`https://remnant.wiki/Zealot's_Hat`],
     location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
+
+  // #region TORSO
+
   {
     category: 'torso',
     name: "Academic's Overcoat",
@@ -998,6 +1021,24 @@ export const armorItems: ArmorItem[] = [
   },
   {
     category: 'torso',
+    name: 'Phetyr Chassis',
+    saveFileSlug: 'Armor_Body_Phetyr_C', // TODO Check
+    imagePath: '/items/armors/phetyrchassis.png',
+    id: 'smq21h',
+    dlc: 'dlc3',
+    set: 'Phetyr Set',
+    armor: 80.6,
+    weight: 39.9,
+    bleedResistance: 4,
+    fireResistance: 6,
+    shockResistance: 6,
+    toxinResistance: 7,
+    blightResistance: 3,
+    wikiLinks: [`https://remnant.wiki/Phetyr_Chasis`],
+    location: { world: `N'Erud`, dungeon: [`Logistics Bridge`] },
+  },
+  {
+    category: 'torso',
     name: 'Radiant Protector',
     saveFileSlug: 'Armor_Body_Radiant_C',
     imagePath: '/items/armors/radiantprotector.png',
@@ -1169,6 +1210,9 @@ export const armorItems: ArmorItem[] = [
     wikiLinks: [`https://remnant.wiki/Zealot's_Overcoat`],
     location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
+
+  // #region LEGS
+
   {
     category: 'legs',
     name: "Academic's Trousers",
@@ -1514,6 +1558,24 @@ export const armorItems: ArmorItem[] = [
     description: `Thin shoes that fit perfectly and feel like they practically disappear on your feet. They're ideal for stealthy maneuvering while stalking your prey.`,
     wikiLinks: [`https://remnant.wiki/Nightstalker_Pants`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
+  },
+  {
+    category: 'legs',
+    name: 'Phetyr Locomotor',
+    saveFileSlug: 'Armor_Legs_Phetyr_C', // TODO Check
+    imagePath: '/items/armors/phetyrlocomotor.png',
+    id: 'pd68a7',
+    dlc: 'dlc3',
+    set: 'Phetyr Set',
+    armor: 43.8,
+    weight: 21.7,
+    bleedResistance: 2,
+    fireResistance: 2,
+    shockResistance: 3,
+    toxinResistance: 4,
+    blightResistance: 2,
+    wikiLinks: [`https://remnant.wiki/Phetyr_Locomotor`],
+    location: { world: `N'Erud`, dungeon: [`Logistics Bridge`] },
   },
   {
     category: 'legs',
@@ -2036,6 +2098,24 @@ export const armorItems: ArmorItem[] = [
     description: `A single glove and arm wrap are all you need or want for arm protection. The only defense you can truly rely on is a loaded gun and a clear shot.`,
     wikiLinks: [`https://remnant.wiki/Nightstalker_Gloves`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
+  },
+  {
+    category: 'gloves',
+    name: 'Phetyr Crushers',
+    saveFileSlug: 'Armor_Gloves_Phetyr_C', // TODO Check
+    imagePath: '/items/armors/phetyrcrushers.png',
+    id: 'i21ob4',
+    dlc: 'dlc3',
+    set: 'Phetyr Set',
+    armor: 17.4,
+    weight: 8.6,
+    bleedResistance: 2,
+    fireResistance: 2,
+    shockResistance: 1,
+    toxinResistance: 2,
+    blightResistance: 1,
+    wikiLinks: [`https://remnant.wiki/Phetyr_Crushers`],
+    location: { world: `N'Erud`, dungeon: [`Logistics Bridge`] },
   },
   {
     category: 'gloves',
