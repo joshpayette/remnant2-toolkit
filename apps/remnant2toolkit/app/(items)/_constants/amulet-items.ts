@@ -923,7 +923,7 @@ export const amuletItems: AmuletItem[] = [
     name: 'Ornate Amulet',
     imagePath: `/items/amulets/ornateamulet.png`,
     saveFileSlug: 'Amulet_OrnateAmulet_C', // TODO Check
-    id: '',
+    id: 'xz3z4k',
     dlc: 'dlc3',
     tags: [],
     description: `Activating a Skill increases All Damage by 5% for 10s. Maximum 5 stacks.`,
