@@ -1,10 +1,13 @@
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { allItems } from '@/app/(items)/_constants/all-items';
-import { type ArchetypeItem } from '@/app/(items)/_types/archetype-item';
+import { ArchetypeItem } from '@/app/(items)/_types/archetype-item';
+import { FusionItem } from '@/app/(items)/_types/fusion-item';
 import { type Item } from '@/app/(items)/_types/item';
+import { ModItem } from '@/app/(items)/_types/mod-item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
+import { SkillItem } from '@/app/(items)/_types/skill-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
 
 /**
@@ -19,7 +22,7 @@ export function getItemListForSlot(
     index?: number; // Used for slots that can have multiple items, such as rings
   },
 ) {
-  if (!selectedItem.category) return [];
+  if (selectedItem.category === null) return [];
 
   // Remove items that are already in the build
   // for the current category
@@ -38,7 +41,7 @@ export function getItemListForSlot(
 
   // If the selected slot is a weapon, then limit the
   // weapons based on the corresponding weapon type
-  if (selectedItem.category === 'weapon') {
+  if (WeaponItem.isWeaponItem(selectedItem as Item)) {
     let type: WeaponItem['type'];
     switch (selectedItem.index) {
       case 0:
@@ -59,7 +62,7 @@ export function getItemListForSlot(
 
   // If the selected slot is a mod, then limit the
   // mods to those without a linked weapon
-  if (selectedItem.category === 'mod') {
+  if (ModItem.isModItem(selectedItem as Item)) {
     // If melee weapon is selected, no mods are allowed that are not linked
     // to a melee weapon
     if (selectedItem.index === 1) {
@@ -73,7 +76,7 @@ export function getItemListForSlot(
 
   // If the selected slot is a mutator,
   // then limit the mutators to the weapon type
-  if (selectedItem.category === 'mutator') {
+  if (MutatorItem.isMutatorItem(selectedItem as Item)) {
     // Get the corresponding weapon from the build
     const buildWeapon = buildState.items.weapon[selectedItem.index ?? 0];
     if (!buildWeapon) return [];
@@ -87,7 +90,7 @@ export function getItemListForSlot(
 
   // If the selected slot is a skill, try to limit
   // skills based on the equipped archetypes
-  if (selectedItem.category === 'skill') {
+  if (SkillItem.isSkillItem(selectedItem as Item)) {
     const skillItems = unequippedItems.filter(
       (item) => item.category === 'skill',
     );
@@ -124,7 +127,7 @@ export function getItemListForSlot(
 
   // If the selected slot is an archetype, try to limit
   // the archetypes based on the corresponding skill
-  if (selectedItem.category === 'archetype') {
+  if (ArchetypeItem.isArchetypeItem(selectedItem as Item)) {
     const archtypeItems = (unequippedItems as ArchetypeItem[]).filter(
       (item) => item.category === 'archetype',
     );
@@ -144,11 +147,57 @@ export function getItemListForSlot(
     return itemsForSkill;
   }
 
+  // If a fusion is equipped, the fragments that make it up
+  // cannot exist in another fragment or fusion in the other bonus slots.
+  if (FusionItem.isFusionItem(selectedItem as Item)) {
+    const equippedFragmentsInBonusSlots = buildState.items.relicfragment.slice(
+      3,
+      8,
+    );
+    const equippedFusions = buildState.items.fusion;
+
+    return (
+      allItems
+        .filter((item) => FusionItem.isFusionItem(item))
+        // Remove fusions that use fragments that are equipped
+        .filter((item) => {
+          for (const fragmentId of (item as FusionItem).fragmentIds) {
+            if (
+              equippedFragmentsInBonusSlots.find(
+                (fragment) => fragment?.id === fragmentId,
+              )
+            ) {
+              return false;
+            }
+          }
+          return true;
+        })
+        // Remove fusions that use the same fragments as other equipped fusions
+        .filter((item) => {
+          for (const equippedFusion of equippedFusions) {
+            for (const fragmentId of (item as FusionItem).fragmentIds) {
+              if (
+                equippedFusion?.fragmentIds.includes(fragmentId) &&
+                equippedFusion?.id !== item.id
+              ) {
+                return false;
+              }
+            }
+          }
+          return true;
+        })
+        // filter out the euiqpped fusions
+        .filter((item) => {
+          return !equippedFusions.find((f) => f?.id === item.id);
+        })
+    );
+  }
+
   // If the selected slot is a relicfragment, we need to limit
   // the items based on the index.
   // The first 3 indexes for relic fragments are the main fragments.
   // These fragments can also show up in the next 5 slots as bonus fragments.
-  if (selectedItem.category === 'relicfragment') {
+  if (RelicFragmentItem.isRelicFragmentItem(selectedItem as Item)) {
     const allFragmentItems = allItems.filter(
       (item) => item.category === 'relicfragment',
     );
