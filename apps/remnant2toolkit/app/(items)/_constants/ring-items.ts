@@ -1734,7 +1734,7 @@ export const ringItems: RingItem[] = [
     name: 'Mortal Coil',
     imagePath: '/items/rings/mortalcoil.png',
     saveFileSlug: 'Ring_MortalCoil_C', // TODO Check
-    id: '',
+    id: 'm8xta9',
     tags: [],
     description: `Increases All Damage dealt by 1% for every 2% of the wearer's total Lifesteal. Max 20% All Damage.`,
     wikiLinks: [`https://remnant.wiki/Mortal_Coil`],
