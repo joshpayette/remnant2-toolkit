@@ -49,6 +49,21 @@ export const modItems: ModItem[] = [
   },
   {
     category: 'mod',
+    name: 'Aftermath',
+    saveFileSlug: 'Mod_Aftermath_C', // TODO Check
+    imagePath: '/items/mods/aftermath.png',
+    id: 'vi86jx',
+    dlc: 'dlc3',
+    description: `On Relic Use, Redeemer stores the wielder's equipped Relic effect with the weapon as a launchable payload. Upon firing, the payload bursts across 4m when contacting a human ally, or lays dormant up to 15s until an ally gets close. Max 1 stored Relic which cannot be modified.`,
+    wikiLinks: [`https://remnant.wiki/Redeemer`],
+    linkedItems: {
+      weapon: {
+        name: 'Redeemer',
+      },
+    },
+  },
+  {
+    category: 'mod',
     name: 'Astral Burst',
     saveFileSlug: 'Mod_AstralBurst_C',
     imagePath: '/items/mods/astralburst.png',
@@ -974,7 +989,12 @@ export const modItems: ModItem[] = [
     imagePath: '/items/mods/indomitablestrike.png',
     id: '778jv8',
     dlc: 'dlc3',
-    tags:['Damage Reduction', 'Grey Health','Stagger', 'Charged Melee Damage'],
+    tags: [
+      'Damage Reduction',
+      'Grey Health',
+      'Stagger',
+      'Charged Melee Damage',
+    ],
     description:
       `Charged Attacks become INDOMITABLE.\n` +
       '\n' +
@@ -1273,7 +1293,7 @@ export const modItems: ModItem[] = [
     imagePath: '/items/mods/recoildampener.png',
     id: 'Rix6Sr',
     dlc: 'dlc3',
-    tags:['Charged Shot', 'Recoil', 'Critical Chance', 'Critical Damage'],
+    tags: ['Charged Shot', 'Recoil', 'Critical Chance', 'Critical Damage'],
     description:
       `Activation stabilizes Monorail, increasing Charge Speed by 25% and reducing Recoil and Sway by 75%. Lasts 20s.\n` +
       '\n' +
