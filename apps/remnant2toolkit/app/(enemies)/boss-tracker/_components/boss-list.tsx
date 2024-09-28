@@ -140,7 +140,7 @@ export function BossList() {
     <div className="w-full">
       {bossCategories.map((bossCategory) => (
         <Disclosure
-          key={bossCategory.label}
+          key={`${bossCategory.label}-${bossCategory.category}`}
           defaultOpen={!collapsedBossCategories.includes(bossCategory.category)}
         >
           {({ open }) => (

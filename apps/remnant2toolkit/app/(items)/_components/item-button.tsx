@@ -305,7 +305,7 @@ export function ItemButton({
             variant === 'default' && 'min-h-[55px] w-[66px] rounded-b-lg',
             variant === 'large' && 'min-h-[40px] w-[99px] rounded-b-lg',
             variant === 'boss-tracker' &&
-              'text-md min-h-[40px] w-[200px] rounded-b-lg',
+              'text-md overflow:hidden min-h-[40px] w-[200px] whitespace-normal break-all rounded-b-lg',
             variant === 'weapon' && 'min-h-[22px] w-[149px] rounded-b-lg',
           )}
         >

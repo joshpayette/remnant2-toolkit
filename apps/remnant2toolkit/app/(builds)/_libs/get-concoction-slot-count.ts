@@ -55,5 +55,13 @@ export function getConcoctionSlotCount(buildState: BuildState): number {
   );
   if (hasHeavyDrinker) concoctionCount += 5;
 
+  // -------------------------------------------------------------------
+  // Add 1 concoction if they are wearing Mudtooth's Snake Oil
+  // -------------------------------------------------------------------
+  const hasMudtoothsSnakeOil = buildState.items.concoction.some(
+    (concoction) => concoction?.id === 'ru74g9',
+  );
+  if (hasMudtoothsSnakeOil) concoctionCount += 1;
+
   return concoctionCount;
 }

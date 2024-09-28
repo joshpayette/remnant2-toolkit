@@ -2,6 +2,18 @@ import { type Enemy } from '@/app/(enemies)/_types';
 
 export const aberrationEnemies = [
   {
+    id: 'ug7BZq',
+    name: 'Abyssal Dreadnought',
+    dlc: 'base',
+    category: 'aberration',
+    imagePath: '/enemies/aberration/abyssal_dreadnought.jpg',
+    wikiLinks: [],
+    bleedResistance: 15,
+    fireResistance: -15,
+    shockResistance: -15,
+    acidResistance: 15,
+  },
+  {
     id: 'bp8Z4T',
     name: 'Arcanum Diviner',
     category: 'aberration',
@@ -9,6 +21,13 @@ export const aberrationEnemies = [
     wikiLinks: [],
     fireResistance: 10,
     acidResistance: 10,
+  },
+  {
+    id: '8gjtp0',
+    name: 'Astral Harvester',
+    category: 'aberration',
+    imagePath: '/enemies/aberration/astral_harvester.jpg',
+    wikiLinks: [],
   },
   {
     name: 'Atrophy',
@@ -304,6 +323,14 @@ export const aberrationEnemies = [
     wikiLinks: [],
   },
   {
+    id: 'n1y0i0',
+    name: 'Inverted Shambler',
+    dlc: 'dlc3',
+    category: 'aberration',
+    imagePath: '/enemies/aberration/inverted_shambler.jpg',
+    wikiLinks: [],
+  },
+  {
     id: 'cTNC5t',
     name: 'Lichwing',
     category: 'aberration',
@@ -369,7 +396,14 @@ export const aberrationEnemies = [
     wikiLinks: [],
     bleedResistance: -10,
   },
-
+  {
+    id: 'xqfa2m',
+    name: 'Netherbound Specter',
+    dlc: 'dlc3',
+    category: 'aberration',
+    imagePath: '/enemies/aberration/netherbound_specter.jpg',
+    wikiLinks: [],
+  },
   {
     id: 'Ls6k9S',
     name: 'Plaguebringer',
@@ -596,6 +630,13 @@ export const aberrationEnemies = [
     wikiLinks: [],
   },
   {
+    id: 'ir929t',
+    name: 'The Prototype',
+    category: 'aberration',
+    imagePath: '/enemies/aberration/the_prototype.jpg',
+    wikiLinks: [],
+  },
+  {
     id: '5xJq5F',
     name: 'Thunderpiercer',
     dlc: 'dlc1',
@@ -616,6 +657,14 @@ export const aberrationEnemies = [
     fireResistance: 50,
     meleeResistance: -35,
     notes: 'Immune to Burning Status',
+  },
+  {
+    id: 'n668ip',
+    name: 'V. Sentinel-23',
+    category: 'aberration',
+    dlc: 'dlc3',
+    imagePath: '/enemies/aberration/v_sentinel_23.jpg',
+    wikiLinks: [],
   },
   {
     id: '7KEpUS',
@@ -648,6 +697,14 @@ export const aberrationEnemies = [
     imagePath: '/enemies/aberration/vilethorn_scrapper.jpg',
     wikiLinks: [],
     bleedResistance: -10,
+  },
+  {
+    id: 'g0ji1x',
+    name: 'Void Amalgamate',
+    category: 'aberration',
+    dlc: 'dlc3',
+    imagePath: '/enemies/aberration/void_amalgamate.jpg',
+    wikiLinks: [],
   },
   {
     id: 'Y5Ak63',
@@ -810,16 +867,12 @@ export const bossEnemies = [
     acidResistance: 15,
   },
   {
-    id: 'ug7BZq',
-    name: 'Abyssal Dreadnought',
-    dlc: 'base',
-    category: 'aberration',
-    imagePath: '/enemies/aberration/abyssal_dreadnought.jpg',
+    id: 'fwh6yy',
+    name: 'Amalgams',
+    dlc: 'dlc3',
+    category: 'boss',
+    imagePath: '/enemies/boss/amalgams.jpg',
     wikiLinks: [],
-    bleedResistance: 15,
-    fireResistance: -15,
-    shockResistance: -15,
-    acidResistance: 15,
   },
   {
     name: 'Befouled Altar',
@@ -932,6 +985,13 @@ export const bossEnemies = [
     location: { world: 'Yaesha', dungeon: ['The Nameless Nest'] },
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Mother+Mind'],
     id: 'HTbt5M',
+  },
+  {
+    name: `N'Erudian Reaper`,
+    category: 'boss',
+    imagePath: '/enemies/boss/nerudian_reaper.jpg',
+    id: '7s3vyh',
+    wikiLinks: [],
   },
   {
     id: 'JBn8ob',
@@ -1417,6 +1477,14 @@ const enemies = [
 
 export const worldBossEnemies = [
   {
+    name: 'Alepsis Taura',
+    category: 'world boss',
+    imagePath: '/enemies/worldboss/alepsis-taura.jpg',
+    wikiLinks: ['https://remnant.wiki/Alepsis-Taura'],
+    id: 'm1dxsf',
+    // location: { world: `N'Erud` }, // TODO
+  },
+  {
     name: 'Annihilation',
     category: 'world boss',
     imagePath: '/enemies/worldboss/annihilation1.jpg',
@@ -1469,7 +1537,7 @@ export const worldBossEnemies = [
     name: 'Lydusa',
     dlc: 'dlc2',
     category: 'world boss',
-    imagePath: '/enemies/worldboss/lydusa.png',
+    imagePath: '/enemies/worldboss/lydusa.jpg',
     wikiLinks: ['https://remnant2.wiki.fextralife.com/Lydusa'],
   },
   {

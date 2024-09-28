@@ -29,6 +29,16 @@ const amuletImages = amuletItems
 
 export const ADDITIONAL_AVATARS = [
   {
+    id: 'a3ygfg',
+    name: 'Alepsis Taura',
+    imagePath: '/avatars/alepsis_taura.jpg',
+  },
+  {
+    id: '7ukbf2',
+    name: 'The Prototype',
+    imagePath: '/avatars/the_prototype.jpg',
+  },
+  {
     id: 'AD7cnH',
     name: 'Dran Nurse',
     imagePath: '/avatars/dran_nurse.jpg',
@@ -94,6 +104,26 @@ export const ADDITIONAL_AVATARS = [
     imagePath: '/avatars/clementine.jpg',
   },
   {
+    id: '7zhk1e',
+    name: 'Custodian',
+    imagePath: '/avatars/custodian1.jpg',
+  },
+  {
+    id: '3x8ox4',
+    name: 'Custodian',
+    imagePath: '/avatars/custodian2.jpg',
+  },
+  {
+    id: 'mpw37i',
+    name: 'Custodian',
+    imagePath: '/avatars/custodian3.jpg',
+  },
+  {
+    id: 's7oo3c',
+    name: 'Custodian',
+    imagePath: '/avatars/custodian4.jpg',
+  },
+  {
     id: 'DX77uX',
     name: 'Don "Rigs" Rigler',
     imagePath: '/avatars/don_rigs_rigler.jpg',
@@ -149,6 +179,26 @@ export const ADDITIONAL_AVATARS = [
     imagePath: '/avatars/feast_master.jpg',
   },
   {
+    id: 'gn3cr2',
+    name: 'Crawler',
+    imagePath: '/avatars/fodder_crawler1.jpg',
+  },
+  {
+    id: 'ao063c',
+    name: 'Crawler',
+    imagePath: '/avatars/fodder_crawler2.jpg',
+  },
+  {
+    id: 'i1ea4t',
+    name: 'Doe',
+    imagePath: '/avatars/doe_face.jpg',
+  },
+  {
+    id: 'aav3y6',
+    name: 'Dog',
+    imagePath: '/avatars/dog_face.jpg',
+  },
+  {
     id: 'CLni6o',
     name: 'Jester',
     imagePath: '/avatars/jester.jpg',
@@ -182,6 +232,36 @@ export const ADDITIONAL_AVATARS = [
     id: '5NEkfE',
     name: 'Riewen',
     imagePath: '/avatars/riewen.jpg',
+  },
+  {
+    id: 'o3wdy2',
+    name: 'Shrimp',
+    imagePath: '/avatars/fodder_shrimp1.jpg',
+  },
+  {
+    id: 'o99d9a',
+    name: 'Shrimp',
+    imagePath: '/avatars/fodder_shrimp2.jpg',
+  },
+  {
+    id: 'm9ibdk',
+    name: 'Shrimp',
+    imagePath: '/avatars/fodder_shrimp3.jpg',
+  },
+  {
+    id: '0b9i50',
+    name: 'Shrimp Sniper',
+    imagePath: '/avatars/shrimp_sniper1.jpg',
+  },
+  {
+    id: 'q8fwru',
+    name: 'Shrimp Sniper',
+    imagePath: '/avatars/shrimp_sniper2.jpg',
+  },
+  {
+    id: '',
+    name: 'Spark',
+    imagePath: '/avatars/spark.jpg',
   },
   {
     id: 'UZq9G2',
