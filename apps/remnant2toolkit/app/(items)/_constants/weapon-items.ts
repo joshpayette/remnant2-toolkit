@@ -2314,6 +2314,11 @@ export const weaponItems: WeaponItem[] = [
     crit: 5,
     weakspot: 100,
     stagger: -35,
+    linkedItems: {
+      mod: {
+        name: 'Aftermath',
+      },
+    },
   },
   {
     category: 'weapon',

@@ -1,15 +1,14 @@
-import { fusionItems } from '@/app/(items)/_constants/fusion-items';
-import { prismItems } from '@/app/(items)/_constants/prism-items';
-import { type Item } from '@/app/(items)/_types/item';
-
+import { type Item } from '../_types/item';
 import { amuletItems } from './amulet-items';
 import { archetypeItems } from './archetype-items';
 import { armorItems } from './armor-items';
 import { concoctionItems } from './concoction-items';
 import { consumableItems } from './consumable-items';
+import { fusionItems } from './fusion-items';
 import { modItems } from './mod-items';
 import { mutatorItems } from './mutator-items';
 import { perkItems } from './perk-items';
+import { prismItems } from './prism-items';
 import { relicFragmentItems } from './relic-fragment-items';
 import { relicItems } from './relic-items';
 import { ringItems } from './ring-items';
