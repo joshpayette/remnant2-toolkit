@@ -1961,6 +1961,18 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Ring of Bones',
+    imagePath: '/items/rings/ringofbones.png',
+    saveFileSlug: 'Ring_RingOfBones_C', // TODO Check
+    id: 'd9mtz2',
+    tags: [],
+    description: `On Relic Use, increase All Damage by 10% for 15s.`,
+    wikiLinks: [`https://remnant.wiki/Ring_of_Bones`],
+    dlc: 'base',
+    location: { world: 'Losomn', dungeon: 'World Drop' },
+  },
+  {
+    category: 'ring',
     name: 'Ring of Crisis',
     imagePath: '/items/rings/ringofcrisis.png',
     saveFileSlug: 'Ring_RingOfCrisis_C',
