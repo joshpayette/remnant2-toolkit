@@ -14,6 +14,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Reclassified Light Extract as a consumable (was mistakenly labeled a concoction).
 - Remember when we could add builds to loadout? Well, I didn't. I added the button back to add builds to loadouts - this was removed mistakenly.
 - Updated all relic fragment descriptions and file paths for more consistent importing from save files. (Legendary fragments coming soon!)
+- Fixed issue where fragments and fusions could be equipped in scenarios they shouldn't.
+- Added missing fusions and updated text for all fusions.
 
 ## 2024-09-26
 
