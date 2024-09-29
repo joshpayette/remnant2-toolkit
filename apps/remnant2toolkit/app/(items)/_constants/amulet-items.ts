@@ -47,9 +47,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['Perfect Dodge'],
     description:
-      'Increases All Damage by 10%. On Perfect Dodge, apply EXPOSED on the attacker and enemies with 3m of the wearer for 15s.\n' +
-      '\n' +
-      'EXPOSED: Target receives 15% additional damage from all sources.',
+      'Increases All Damage by 10%. On Perfect Dodge, apply EXPOSED on the attacker and enemies with 3m of the wearer for 15s.\n\nEXPOSED: Target receives 15% additional damage from all sources.',
     wikiLinks: [`https://remnant.wiki/Birthright_of_the_Lost`],
     location: { world: 'Losomn', dungeon: 'World Drop' },
   },
@@ -108,7 +106,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Canine Keepsake',
     imagePath: '/items/amulets/caninekeepsake.png',
-    saveFileSlug: 'Amulet_CanineKeepsake_C', // TODO Check
+    saveFileSlug: 'Amulet_CanineKeepsake_C',
     id: 'z496hr',
     dlc: 'base',
     tags: [],
@@ -125,9 +123,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'dlc2',
     tags: ['Movement Speed'],
     description:
-      'On Relic Use, gain a stack of CALL OF THE DOE for 30s. Max 5 stacks.\n' +
-      '\n' +
-      'CALL OF THE DOE: Increases Movement Speed by 4% per stack. When CALL OF THE DOE expires, regain 1 Relic Charge per stack.',
+      'On Relic Use, gain a stack of CALL OF THE DOE for 30s. Max 5 stacks.\n\nCALL OF THE DOE: Increases Movement Speed by 4% per stack. When CALL OF THE DOE expires, regain 1 Relic Charge per stack.',
     wikiLinks: [`https://remnant.wiki/Cervine_Keepsake`],
     externalTokens: [`Misty Step`],
     location: {
@@ -140,7 +136,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Cessation Bulbel',
     imagePath: '/items/amulets/cessationbulbel.png',
-    saveFileSlug: 'Amulet_CessationBulbel_C', // TODO Check
+    saveFileSlug: 'Amulet_CessationBulbel_C',
     id: 'zXxT8K',
     dlc: 'dlc3',
     tags: ['All Damage'],
@@ -164,7 +160,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Chef Medal',
     imagePath: '/items/amulets/chefmedal.png',
-    saveFileSlug: 'Amulet_ChefMedal_C', // TODO Check
+    saveFileSlug: 'Amulet_ChefMedal_C',
     id: '9yuvc8',
     dlc: 'dlc3',
     tags: ['Perfect Dodge'],
@@ -219,7 +215,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Crisis Core',
     imagePath: '/items/amulets/crisiscore.png',
-    saveFileSlug: 'Amulet_CrisisCore_C', // TODO Check
+    saveFileSlug: 'Amulet_Crisiscore_C',
     id: 'L6noPy',
     dlc: 'dlc3',
     tags: ['Perfect Dodge', 'Damage Reduction'],
@@ -330,15 +326,12 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Echo Chamber',
     imagePath: '/items/amulets/echochamber.png',
-    saveFileSlug: 'Amulet_EchoChamber_C', // TODO Check
+    saveFileSlug: 'Amulet_EchoChamber_C',
     id: 'rPV99a',
     dlc: 'dlc3',
     tags: [],
     externalTokens: ['Explosive Damage'],
-    description:
-      `Increases Explosive Damage by 10% and AOE Size by 25%. Inflicting Explosive Damage applies EXPOSED for 5s. Max 15s.\n` +
-      '\n' +
-      `EXPOSED: Target receives 15% additional damage from all sources.`,
+    description: `Increases Explosive Damage by 10% and AOE Size by 25%. Inflicting Explosive Damage applies EXPOSED for 5s. Max 15s.\n\nEXPOSED: Target receives 15% additional damage from all sources.`,
     wikiLinks: ['https://remnant.wiki/Echo_Chamber'],
     location: { world: `N'Erud`, dungeon: ['Anathaeum Wek'] },
   },
@@ -404,9 +397,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['Status Effect'],
     description:
-      'Increases Status Effect damage by 20%. Directly applying a damaging Status Effect creates a 2m Explosion for 20% of its full damage.\n' +
-      '\n' +
-      'Each target can be affected once every 5s.',
+      'Increases Status Effect damage by 20%. Directly applying a damaging Status Effect creates a 2m Explosion for 20% of its full damage.\n\nEach target can be affected once every 5s.',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Energized_Neck_Coil`],
     location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
@@ -443,7 +434,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Exhaust Valve',
     imagePath: '/items/amulets/exhaustvalve.png',
-    saveFileSlug: 'Amulet_ExhaustValve_C', // TODO Check
+    saveFileSlug: 'Amulet_ExhaustValve_C',
     id: 'C22peH',
     dlc: 'dlc3',
     tags: ['Heat Generation', 'Fire Rate'],
@@ -460,9 +451,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['Status Effect', 'All Damage'],
     description:
-      'Increases Status Effect Damage by 20%. Inflicting 4 or more unique Negative Status Effects on a target applies EXPOSED for 15s.\n' +
-      '\n' +
-      'EXPOSED: Target receives 15% additional damage from all sources.',
+      'Increases Status Effect Damage by 20%. Inflicting 4 or more unique Negative Status Effects on a target applies EXPOSED for 15s.\n\nEXPOSED: Target receives 15% additional damage from all sources.',
     wikiLinks: ['https://remnant.wiki/Fragrant_Thorn'],
     location: { world: 'Yaesha', dungeon: 'World Drop' },
   },
@@ -577,7 +566,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: `Hangman's Noose`,
     imagePath: '/items/amulets/hangmansnoose.png',
-    saveFileSlug: 'Amulet_HangmansNoose_C', // TODO Check
+    saveFileSlug: 'Amulet_HangmansNoose_C',
     id: '4zvuco',
     dlc: 'base',
     tags: [],
@@ -594,9 +583,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['Mod Power'],
     description:
-      'Doubles Base Skill Charges but increases all Skill Cooldowns by 25%.\n' +
-      '\n' +
-      'For Heavy Weapons, doubles Heavy Weapon Base Ammo instead.',
+      'Doubles Base Skill Charges but increases all Skill Cooldowns by 25%.\n\nFor Heavy Weapons, doubles Heavy Weapon Base Ammo instead.',
     wikiLinks: [`https://remnant.wiki/Hyperconductor`],
     location: { world: `N'Erud`, dungeon: ['Terminus Station'] },
   },
@@ -642,7 +629,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Insipid Talon',
     imagePath: '/items/amulets/insipidtalon.png',
-    saveFileSlug: 'Amulet_InsipidTalon_C', // TODO Check
+    saveFileSlug: 'Amulet_InsipidTalon_C',
     id: '65ygbg',
     dlc: 'dlc1',
     tags: ['All Damage'],
@@ -924,11 +911,14 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Ornate Amulet',
     imagePath: `/items/amulets/ornateamulet.png`,
-    saveFileSlug: 'Amulet_OrnateAmulet_C', // TODO Check
+    saveFileSlug: 'Amulet_OrnateAmulet_C',
     id: 'xz3z4k',
     dlc: 'dlc3',
     tags: [],
-    description: `Activating a Skill increases All Damage by 5% for 10s. Maximum 5 stacks.`,
+    description:
+      'Activating a Skill increases All Damage by 5% for 10s. Max 5 stacks.',
+    wikiLinks: ['https://remnant.wiki/Ornate_Amulet'],
+    location: { world: 'Ward 13', dungeon: 'Quest' },
   },
   {
     category: 'amulet',
@@ -962,7 +952,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Quantum Memory',
     imagePath: '/items/amulets/quantummemory.png',
-    saveFileSlug: 'Amulet_QuantumMemory_C', // TODO Check
+    saveFileSlug: 'Amulet_QuantumMemory_C',
     id: '542njq',
     dlc: 'dlc3',
     tags: ['Reload Speed', 'Perfect Dodge'],
@@ -1040,7 +1030,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Relay Device',
     imagePath: '/items/amulets/relaydevice.png',
-    saveFileSlug: 'Amulet_RelayDevice_C', // TODO Check
+    saveFileSlug: 'Amulet_RelayDevice_C',
     id: 'fwtqy6',
     dlc: 'dlc3',
     tags: ['Ranged Damage'],
@@ -1117,7 +1107,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Short Circuit',
     imagePath: '/items/amulets/shortcircuit.png',
-    saveFileSlug: 'Amulet_ShortCircuit_C', // TODO Check
+    saveFileSlug: 'Amulet_ShortCircuit_C',
     id: 'yuW4pJ',
     dlc: 'dlc3',
     tags: ['Critical Chance', 'Critical Damage', 'Reduce Skill Cooldown'],
@@ -1235,7 +1225,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: `Timekeeper's Forfeit`,
     imagePath: '/items/amulets/timekeepersforfeit.png',
-    saveFileSlug: 'Amulet_TimekeepersForfeit_C', // TODO Check
+    saveFileSlug: 'Amulet_TimekeepersForfeit_C',
     id: 't4ho4m',
     dlc: 'dlc3',
     tags: [],
@@ -1251,9 +1241,7 @@ export const amuletItems: AmuletItem[] = [
     id: 'nevpy5',
     dlc: 'base',
     description:
-      'Swapping Firearms releases a Toxic Cloud, which deals 60.5-170.5 ACID Damage to all enemies within 7m and applies CORROSION dealing 280 ACID damage over 7s.\n' +
-      '\n' +
-      'Can only happen once every 3s.',
+      'Swapping Firearms releases a Toxic Cloud, which deals 60.5-170.5 ACID Damage to all enemies within 7m and applies CORROSION dealing 280 ACID damage over 7s.\n\nCan only happen once every 3s.',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Toxic_Release_Valve`],
     location: { world: `N'Erud`, dungeon: [`Dormant N'Erudian Facility`] },
@@ -1304,7 +1292,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Volatile Cartridge',
     imagePath: '/items/amulets/volatilecartridge.png',
-    saveFileSlug: 'Amulet_VolatileCartridge_C', // TODO Check
+    saveFileSlug: 'Amulet_VolatileCartridge_C',
     id: 'up6mi1',
     dlc: 'dlc3',
     tags: [],
@@ -1366,7 +1354,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Zero Hour',
     imagePath: '/items/amulets/zerohour.png',
-    saveFileSlug: 'Amulet_ZeroHour_C', // TODO Check
+    saveFileSlug: 'Amulet_ZeroHour_C',
     id: 'ozin1d',
     dlc: 'dlc3',
     tags: [],

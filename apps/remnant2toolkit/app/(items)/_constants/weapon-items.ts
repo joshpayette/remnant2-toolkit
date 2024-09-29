@@ -19,7 +19,7 @@ export const weaponItems: WeaponItem[] = [
       },
     },
     damage: 14,
-    rps: 7.42,
+    rps: 6.89,
     magazine: 55,
     accuracy: 95,
     ideal: 24,
@@ -103,7 +103,7 @@ export const weaponItems: WeaponItem[] = [
     category: 'weapon',
     type: 'melee',
     name: 'Black Greatsword',
-    saveFileSlug: 'Weapon_BlackGreatsword_C', // TODO Check
+    saveFileSlug: 'Weapon_BlackGreatsword_C',
     imagePath: '/items/weapons/blackgreatsword.png',
     id: '71k6w5',
     dlc: 'dlc3',
@@ -311,9 +311,7 @@ export const weaponItems: WeaponItem[] = [
     id: 'p7wc7k',
     dlc: 'base',
     description:
-      'An ethereal weapon that seems to resonate.\n' +
-      '\n' +
-      'Can be charged for more damage. Perfect release after Charge for maximum damage.',
+      'An ethereal weapon that seems to resonate.\n\nCan be charged for more damage. Perfect release after Charge for maximum damage.',
     wikiLinks: [`https://remnant.wiki/Crescent_Moon`],
     linkedItems: {
       mod: {
@@ -407,7 +405,7 @@ export const weaponItems: WeaponItem[] = [
     category: 'weapon',
     type: 'long gun',
     name: 'Genesis',
-    saveFileSlug: 'Weapon_Genesis_C', // TODO Check
+    saveFileSlug: 'Weapon_Genesis_C',
     imagePath: '/items/weapons/genesis.png',
     id: 'okmk07',
     dlc: 'dlc3',
@@ -460,7 +458,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/items/weapons/merciless.png',
     id: 'g3esv1',
     dlc: 'base',
-    description: `Fires tooth-like flechettes. When weapon reticle is fully compressed, flechettes apply 200 - 600 BLEEDING damage over 10s.`,
+    description:
+      'Fires tooth-like flechettes. When weapon reticle is fully compressed, flechettes apply 200 → 600 BLEED damage over 10s.',
     wikiLinks: [`https://remnant.wiki/Merciless`],
     location: { world: 'Yaesha', dungeon: ["Ravager's Lair"] },
     linkedItems: {
@@ -515,9 +514,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'dlc2',
     id: 'WjE2nZ',
     description:
-      'Fires concentrated sand. Sustained primary fire and Sandstorm hits apply EXPOSED for 1s. Max 15s.\n' +
-      '\n' +
-      'EXPOSED: Target receives 15% additional damage from all sources.',
+      'Fires concentrated sand. Sustained primary fire and Sandstorm hits apply EXPOSED for 1s. Max 15s.\n\nEXPOSED: Target receives 15% additional damage from all sources.',
     wikiLinks: [`https://remnant.wiki/Monolith`],
     location: { world: 'Yaesha', dungeon: ['Bloodless Throne'] },
     linkedItems: {
@@ -540,7 +537,7 @@ export const weaponItems: WeaponItem[] = [
     category: 'weapon',
     name: 'Monorail',
     type: 'long gun',
-    saveFileSlug: 'Weapon_Monorail_C', // TODO Check
+    saveFileSlug: 'Weapon_Monorail_C',
     imagePath: '/items/weapons/monorail.png',
     id: 'oz9amG',
     dlc: 'dlc3',
@@ -554,8 +551,8 @@ export const weaponItems: WeaponItem[] = [
     },
     damage: 125,
     rps: 60,
-    ammo: 3,
-    magazine: 27,
+    ammo: 27,
+    magazine: 3,
     ideal: 35,
     falloff: 85,
     crit: 5,
@@ -811,7 +808,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/items/weapons/sparkfireshotgun.png',
     id: '3r9jm7',
     description:
-      'Fires incendiary shells that apply BURNING which deals 30 - 90 FIRE damage over 3 seconds.',
+      'Fires incendiary shells that apply BURNING which deals 30 → 90 FIRE damage over 3 seconds.',
     wikiLinks: [`https://remnant.wiki/Sparkfire_Shotgun`],
     location: { world: 'Losomn', dungeon: ['Derelict Lighthouse'] },
     damage: 100,
@@ -947,13 +944,13 @@ export const weaponItems: WeaponItem[] = [
     description: `A powerful Pan crossbow designed for mid-range combat. Fires 3 bolts at a time.`,
     wikiLinks: [`https://remnant.wiki/Trinity_Crossbow`],
     location: { world: 'Yaesha', dungeon: ['Ancient Canopy'] },
-    damage: 48,
+    damage: 44,
     rps: 0.63,
-    magazine: 24,
+    magazine: 18,
     accuracy: 100,
     ideal: 22,
     falloff: 65,
-    ammo: 96,
+    ammo: 90,
     crit: 10,
     weakspot: 115,
     stagger: -65,
@@ -1190,7 +1187,7 @@ export const weaponItems: WeaponItem[] = [
     type: 'melee',
     name: 'Dark Matter Gauntlets',
     imagePath: '/items/weapons/darkmattergauntlets.png',
-    saveFileSlug: 'Weapon_DarkMatterGauntlets_C', // TODO Check
+    saveFileSlug: 'Weapon_DarkMatterGauntlets_C',
     id: 'p1o9av',
     dlc: 'base',
     description: `The gauntlets harness the power of a neutron star and a black hole. When merged, cosmic forces are unleashed.`,
@@ -1309,7 +1306,7 @@ export const weaponItems: WeaponItem[] = [
     type: 'melee',
     name: 'Harvester Scythe',
     imagePath: '/items/weapons/harvesterscythe.png',
-    saveFileSlug: 'Weapon_HarvesterScythe_C', // TODO Check
+    saveFileSlug: 'Weapon_HarvesterScythe_C',
     id: '5xx5zt',
     dlc: 'dlc3',
     description: `Harvester automaton limb fitted with a plasma torch. The system breach of a Drzyr phantom initiated jettisoned protocols, trapping strange properties within the makeshift weapon.`,
@@ -1927,7 +1924,7 @@ export const weaponItems: WeaponItem[] = [
     damage: 26,
     rps: 7.63,
     magazine: 24,
-    accuracy: 99,
+    accuracy: 90,
     ideal: 17,
     falloff: 52,
     ammo: 96,
@@ -2071,7 +2068,7 @@ export const weaponItems: WeaponItem[] = [
     ideal: 17,
     falloff: 52,
     ammo: 60,
-    crit: 7,
+    crit: 8,
     weakspot: 105,
     stagger: 0,
   },
@@ -2271,7 +2268,7 @@ export const weaponItems: WeaponItem[] = [
     category: 'weapon',
     type: 'hand gun',
     name: 'Repair Tool',
-    saveFileSlug: 'Weapon_RepairTool_C', // TODO: Check this
+    saveFileSlug: 'Weapon_RepairTool_C',
     imagePath: '/items/weapons/repairtool.png',
     id: '5go8dn',
     dlc: 'dlc3',
@@ -2295,14 +2292,11 @@ export const weaponItems: WeaponItem[] = [
     type: 'hand gun',
     name: 'Redeemer',
     imagePath: '/items/weapons/redeemer.png',
-    saveFileSlug: 'Weapon_Redeemer_C', // TODO: Check this
+    saveFileSlug: 'Weapon_Redeemer_C',
     id: '0kob6g',
     dlc: 'dlc3',
     tags: [],
-    description:
-      `Fires a tight grouping of World Stone slugs. Hits rip away a small portion of the enemy, sending it to another realm.\n` +
-      '\n' +
-      `Incapable of standard Mod Generation.`,
+    description: `Fires a tight grouping of World Stone slugs. Hits rip away a small portion of the enemy, sending it to another realm.\n\nIncapable of standard Mod Generation.`,
     wikiLinks: [`https://remnant.wiki/Redeemer`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 69,

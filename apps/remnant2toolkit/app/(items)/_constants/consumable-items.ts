@@ -231,7 +231,8 @@ export const consumableItems: ConsumableItem[] = [
     saveFileSlug: 'Consumable_HuntersDream_C',
     id: 'PvwhJ5',
     dlc: 'base',
-    description: `The sphere emits a soft breeze that smells of flowers and ash. You can't explain why, but you feel like it's watching you. Waiting.`,
+    description:
+      "The sphere emits a soft breeze that smells of flower and ash. You can't explain why, but you feel like it's watching you. Waiting.",
     wikiLinks: [`https://remnant.wiki/Huntress%27s_Dream`],
     location: { world: 'Losomn', dungeon: [`Briella's Garden`] },
   },
@@ -251,7 +252,7 @@ export const consumableItems: ConsumableItem[] = [
     category: 'consumable',
     name: 'Light Extract',
     imagePath: '/items/consumables/lightextract.png',
-    saveFileSlug: 'Consumable_LightExtract_C', // TODO Check
+    saveFileSlug: 'Consumable_LightExtract_C',
     id: 'E5CbP6',
     dlc: 'base',
     tags: [],
@@ -276,8 +277,8 @@ export const consumableItems: ConsumableItem[] = [
     saveFileSlug: 'Consumable_ThaenFruit_Mature_C',
     id: '3gZ3s3',
     dlc: 'base',
-    description: `An ancient fruit that was harvested at a mid-life age. After consuming, upon death the hero will be revived with 30% Health, and be immune to STATUS Effects for 30s.
-Cooldown: 60m.`,
+    description:
+      'An ancient fruit that was harvested at a mid-life age. After consuming, upon death the hero will be revived with 30% Health, and be immune to STATUS Effects for 30s.\n Cooldown: 60m.',
     wikiLinks: [`https://remnant.wiki/Thaen_Fruit`],
     location: { world: 'Yaesha', dungeon: 'Quest' },
   },
@@ -313,7 +314,8 @@ Cooldown: 60m.`,
     saveFileSlug: 'Consumable_NimuesDream_C',
     id: '4Sv3yg',
     dlc: 'base',
-    description: `An alto hum emanates from the sphere, rising and falling seemingly at random in a peaceful, unrepeated melody.`,
+    description:
+      'An alto hum emanates from the sphere, rising and falling seemingly at ranadom in a paceful, unrepeated melody.',
     wikiLinks: [`https://remnant.wiki/Nimue%27s_Dream`],
     location: { world: 'Losomn', dungeon: [`Nimue's Retreat`] },
   },

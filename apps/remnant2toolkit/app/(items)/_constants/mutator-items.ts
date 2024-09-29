@@ -11,9 +11,7 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'base',
     tags: ['Ammo Reserves', 'Fire Rate'],
     description:
-      'On hit, grants a 10% - 30% chance to return spent Ammo directly into the magazine of this weapon.\n' +
-      '\n' +
-      'Bows: On hit, grants a 10% - 30% chance to return spent Ammo back into the reserves of this weapon.',
+      'On hit, grants a 10% - 30% chance to return spent Ammo directly into the magazine of this weapon.\n\nBows: On hit, grants a 10% - 30% chance to return spent Ammo back into the reserves of this weapon.',
     maxLevelBonus:
       'When Ammo is returned to this weapon, it gains 10% increased Fire Rate for 3s. Duration can increase up to 10s.',
     wikiLinks: [`https://remnant.wiki/Bandit_(Mutator)`],
@@ -117,7 +115,7 @@ export const mutatorItems: MutatorItem[] = [
     tags: [],
     externalTokens: ['Explosive Damage', 'Amplitude'],
     description:
-      "Each 10% of this weapon's magazine spent, cause an explosion for 5 Explosive Damage to targets within 0.5m of impact location.\n\nLevel 10: Increases this weapon's explosive damage by 20%.",
+      "Each 10% of this weapon's magazine spent, cause an explosion for 5 Explosive Damage to targets within 0.5m of impact location.",
     maxLevelBonus: `Increases this weapon's explosive damage by 20%.`,
     wikiLinks: [`https://remnant.wiki/Detonator`],
     location: { world: `N'Erud`, dungeon: ['Agronomy Sector'] },
@@ -198,9 +196,7 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'base',
     tags: ['Magazine Capacity', 'Reload Speed'],
     description:
-      'Increases Magazine Capacity of this weapon by 20% - 45%.\n' +
-      '\n' +
-      'Bows: Increases Reserve Size of this weapon by 20% - 45%.',
+      'Increases Magazine Capacity of this weapon by 20% - 45%.\n\nBows: Increases Reserve Size of this weapon by 20% - 45%.',
     maxLevelBonus: 'Increases Reload Speed of this weapon by 20%.',
     wikiLinks: [`https://remnant.wiki/Extender`],
     location: {
@@ -403,10 +399,7 @@ export const mutatorItems: MutatorItem[] = [
     id: 'rzfptj',
     dlc: 'base',
     description:
-      'Switching to this weapon creates an Explosive Burst which deals 50 - 250 Damage to all enemies within 7m.\n' +
-      '\n' +
-      '\n' +
-      'Can only happen once every 10s.',
+      'Switching to this weapon creates an Explosive Burst which deals 50 - 250 Damage to all enemies within 7m.\n\nCan only happen once every 10s.',
     maxLevelBonus:
       "This weapon's kills with any Explosive Damage reduce Kill Switch cooldown by 1s.",
     externalTokens: [`Amplitude`, `Explosive Damage`],
@@ -945,9 +938,7 @@ export const mutatorItems: MutatorItem[] = [
     tags: ['Ranged Damage', 'Ammo Reserves'],
     description: 'Gaining Ammo increases Ranged Damage by 5% - 15% for 15s.',
     maxLevelBonus:
-      "New Ammo gains are added directly to into this weapon's magazine.\n" +
-      '\n' +
-      'Bows: New Ammo gains grants this weapon Infinite Reserves for 15s.',
+      "New Ammo gains are added directly to into this weapon's magazine.\n\nBows: New Ammo gains grants this weapon Infinite Reserves for 15s.",
     wikiLinks: [`https://remnant.wiki/Transpose`],
     location: {
       world: `N'Erud`,

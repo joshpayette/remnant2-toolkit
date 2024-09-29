@@ -44,9 +44,7 @@ export const skillItems: SkillItem[] = [
     id: 'wyw9r4',
     dlc: 'base',
     description:
-      'Enters a heightened state of battle which increases Fire Rate by 10%, Reload Speed by 25%, and Movement Speed by 15%. Lasts 10s.\n' +
-      '\n' +
-      'Kills and dealing significant damage grant 1 Stack of RAGE which increases Ranged Damage by 2.5% per Stack. Upon reaching 10 Stacks, the Challenger goes BERSERK, which reloads their current firearm and doubles Rampage effects for 15s.',
+      'Enters a heightened state of battle which increases Fire Rate by 10%, Reload Speed by 25%, and Movement Speed by 15%. Lasts 10s.\n\nKills and dealing significant damage grant 1 Stack of RAGE which increases Ranged Damage by 2.5% per Stack. Upon reaching 10 Stacks, the Challenger goes BERSERK, which reloads their current firearm and doubles Rampage effects for 15s.',
     cooldown: 90,
     wikiLinks: [`https://remnant.wiki/Rampage`],
     linkedItems: {
