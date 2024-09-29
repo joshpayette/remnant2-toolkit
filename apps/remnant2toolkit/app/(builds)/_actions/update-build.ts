@@ -424,34 +424,6 @@ export async function updateBuild({
           (build) => build.id === response.id,
         );
 
-        const isBuildNameChanged =
-          existingBuild?.name !== response.name &&
-          !isPermittedBuilder(session.user.id);
-
-        if (isBuildNameChanged) {
-          await sendWebhook({
-            webhook: 'modQueue',
-            params: {
-              embeds: [
-                {
-                  title: `Build Name Changed`,
-                  color: 0x00ff00,
-                  fields: [
-                    {
-                      name: 'Changes',
-                      value: `New Build Name: ${response.name}`,
-                    },
-                    {
-                      name: 'Build Link',
-                      value: buildLink,
-                    },
-                  ],
-                },
-              ],
-            },
-          });
-        }
-
         const isPrivateBuildNowPublic =
           existingBuild?.isPublic === false &&
           mainBuildState.isPublic === true &&
@@ -482,6 +454,40 @@ export async function updateBuild({
                         response.description && response.description.length > 0
                           ? `Yes (${response.description.length} chars)`
                           : 'No',
+                    },
+                    {
+                      name: 'Build Link',
+                      value: buildLink,
+                    },
+                  ],
+                },
+              ],
+            },
+          });
+
+          // We don't need to send any other webhooks if the build went from private to public
+          return {
+            message: 'Build successfully updated!',
+            buildId: mainBuildState.buildId,
+          };
+        }
+
+        const isBuildNameChanged =
+          existingBuild?.name !== response.name &&
+          !isPermittedBuilder(session.user.id);
+
+        if (isBuildNameChanged) {
+          await sendWebhook({
+            webhook: 'modQueue',
+            params: {
+              embeds: [
+                {
+                  title: `Build Name Changed`,
+                  color: 0x00ff00,
+                  fields: [
+                    {
+                      name: 'Changes',
+                      value: `New Build Name: ${response.name}`,
                     },
                     {
                       name: 'Build Link',
