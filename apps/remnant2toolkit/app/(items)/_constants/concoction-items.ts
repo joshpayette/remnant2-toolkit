@@ -10,9 +10,7 @@ export const concoctionItems: ConcoctionItem[] = [
     dlc: 'base',
     tags: ['Armor Increase', 'Damage Reduction', 'Consumable'],
     description:
-      'Increases Armor by 30. Lasts 60m and will stay in effect after death.\n' +
-      '\n' +
-      'Only one Concoction may be active at a time.',
+      'Increases Armor by 30.Concoctions will stay in effect after death.\n\nOnly one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Bark_Extract`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
     armor: 30,

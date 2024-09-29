@@ -136,7 +136,7 @@ export const ringItems: RingItem[] = [
     id: 'ez01nk',
     tags: ['Critical Chance', 'Grey Health'], // The damage it causes is grey health
     description:
-      'Self-inflicts BLEEDING Status upon the wearer, causing 0.55 BLEED damage per second. Increases Critical Chance by 5%.',
+      'Self-inflicts BLEEDING Status upon the wearer, causing 0.275 - 0.55 BLEEDINGBLEED damage per second. Increases Critical Chance by 5%.',
     wikiLinks: [`https://remnant.wiki/Atonement_Fold`],
     location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
@@ -995,8 +995,8 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
-    name: 'Drzyr Sniper Sigil',
-    imagePath: '/items/rings/drzyrsnipersigil.png',
+    name: 'Dryzr Sniper Sigil',
+    imagePath: '/items/rings/dryzrsnipersigil.png',
     saveFileSlug: 'Ring_DrzyrSniperSigil_C',
     id: 'gtli7e',
     tags: ['Hardcore Reward'],

@@ -1360,4 +1360,16 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: ['https://remnant.wiki/Zero_Divide'],
     location: { world: `N'Erud`, dungeon: 'World Drop' },
   },
+  {
+    category: 'amulet',
+    name: 'Zero Hour',
+    imagePath: '/items/amulets/zerohour.png',
+    saveFileSlug: 'Amulet_ZeroHour_C', // TODO Check
+    id: 'ozin1d',
+    dlc: 'dlc3',
+    tags: [],
+    description: `Increases All Damage by 20% and Critical Chance by 10%. Each Weight Class above LIGHT reduces All Damage bonus by 5% and Critical Chance by 2.5%.`,
+    wikiLinks: ['https://remnant.wiki/Zero_Hour'],
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
+  },
 ];

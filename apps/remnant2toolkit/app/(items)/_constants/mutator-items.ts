@@ -378,6 +378,20 @@ export const mutatorItems: MutatorItem[] = [
   },
   {
     category: 'mutator',
+    name: 'Insulator',
+    type: 'gun',
+    imagePath: '/misc/placeholder.jpg',
+    saveFileSlug: 'MetaGem_Insulator_C', // TODO Check
+    id: '9x521w',
+    dlc: 'dlc3',
+    tags: [],
+    description: `Spending 20% of this weapon's magazine grants a SHIELD for 5% of Max Health for 10s. Max 25% SHIELD.`,
+    maxLevelBonus: `Level 10: Increases Ranged Critical Chance for this weapon by 10% when SHIELD is above 10% of Max Health.`,
+    wikiLinks: [`https://remnant.wiki/Insulator`],
+    location: { world: `N'Erud`, dungeon: 'Aberration' },
+  },
+  {
+    category: 'mutator',
     name: 'Kill Switch',
     type: 'gun',
     imagePath: '/items/mutators/kill_switch.png',
