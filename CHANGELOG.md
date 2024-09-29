@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed error when trying to load a randomized build.
+- Fixed an issue preventing prism and fusions from working in unauthenticated builds.
 
 ## 2024-09-28
 
