@@ -1,6 +1,7 @@
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { allItems } from '@/app/(items)/_constants/all-items';
 import { type Item } from '@/app/(items)/_types/item';
+import { RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 
 /** We don't track these categories at all */
 export const SKIPPED_ITEM_TRACKER_CATEGORIES: Array<ItemCategory> = [
@@ -19,6 +20,11 @@ export const ALL_TRACKABLE_ITEMS = allItems
   .filter((item) => {
     if (item.category !== 'mod') return true;
     return item.linkedItems?.weapon === undefined;
+  })
+  // Remove legendary relic fragments
+  .filter((item) => {
+    if (!RelicFragmentItem.isRelicFragmentItem(item)) return true;
+    return item.color !== 'legendary';
   })
   .map((item) => ({
     ...item,
