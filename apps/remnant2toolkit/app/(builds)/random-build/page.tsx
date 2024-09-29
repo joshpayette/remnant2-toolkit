@@ -7,6 +7,7 @@ import { NAV_ITEMS } from '@/app/_types/navigation';
 import { getRandomBuild } from '@/app/(builds)/_libs/get-random-build';
 import { CreateBuild } from '@/app/(builds)/builder/create/create-build';
 import { allItems } from '@/app/(items)/_constants/all-items';
+import { FusionItem } from '@/app/(items)/_types/fusion-item';
 import { type Item } from '@/app/(items)/_types/item';
 import { getDiscoveredItems } from '@/app/(items)/item-tracker/_actions/get-discovered-items';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
@@ -90,7 +91,9 @@ export default async function Page() {
   const randomBuildState =
     itemList && itemList.length > 0
       ? getRandomBuild(itemList)
-      : getRandomBuild(allItems);
+      : getRandomBuild(
+          allItems.filter((item) => !FusionItem.isFusionItem(item)),
+        );
 
   return (
     <div className="flex w-full flex-col items-center">
