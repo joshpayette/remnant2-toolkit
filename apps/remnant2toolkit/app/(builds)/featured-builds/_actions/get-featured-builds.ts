@@ -137,6 +137,10 @@ export async function getFeaturedBuilds({
       build.buildTags = buildTags;
     }
 
+    builds.forEach((build) => {
+      console.log('build.percentageOwned', build.percentageOwned);
+    });
+
     return bigIntFix({ builds, totalBuildCount });
   } catch (e) {
     if (e) {
