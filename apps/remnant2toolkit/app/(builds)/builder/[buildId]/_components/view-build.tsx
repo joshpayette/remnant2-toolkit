@@ -147,22 +147,20 @@ export function ViewBuild({
               onClose={() => setSignInRequiredDialogOpen(false)}
             />
 
-            {session &&
-              session.user?.id !== mainBuildState.createdById &&
-              session.user?.role === 'admin' && (
-                <>
-                  <ModeratorBuildToolsDialog
-                    key={activeBuildState.buildId}
-                    open={showModeratorTooling}
-                    onClose={() => setShowModeratorTooling(false)}
-                    buildToModerate={activeBuildState}
-                    mainBuildState={mainBuildState}
-                  />
-                  <ModeratorToolsButton
-                    onClick={() => setShowModeratorTooling(true)}
-                  />
-                </>
-              )}
+            {session && session.user?.role === 'admin' && (
+              <>
+                <ModeratorBuildToolsDialog
+                  key={activeBuildState.buildId}
+                  open={showModeratorTooling}
+                  onClose={() => setShowModeratorTooling(false)}
+                  buildToModerate={activeBuildState}
+                  mainBuildState={mainBuildState}
+                />
+                <ModeratorToolsButton
+                  onClick={() => setShowModeratorTooling(true)}
+                />
+              </>
+            )}
             {session && session.user?.id === mainBuildState.createdById && (
               <EditBuildButton
                 onClick={() =>

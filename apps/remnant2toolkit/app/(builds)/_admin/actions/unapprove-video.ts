@@ -7,6 +7,8 @@ import { sendWebhook } from '@/app/_libs/moderation/send-webhook';
 import { type AdminToolResponse } from '@/app/(builds)/_types/admin-tool-response';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
+import { removeAllParamsExceptV } from '../../../../../../packages/utils/src/youtube';
+
 export default async function unapproveVideo(
   buildId: string | null,
 ): Promise<AdminToolResponse> {
@@ -28,18 +30,41 @@ export default async function unapproveVideo(
   }
 
   try {
-    const build = await prisma.build.update({
+    // Get the existing videoUrl first
+    const existingBuild = await prisma.build.findUnique({
       where: { id: buildId },
+    });
+    const existingVideoUrl = existingBuild?.videoUrl;
+    if (!existingVideoUrl) {
+      return {
+        status: 'error',
+        message: 'No video to approve.',
+      };
+    }
+
+    const buildsWithVideo = await prisma.build.findMany({
+      where: { videoUrl: removeAllParamsExceptV(existingVideoUrl) },
+    });
+
+    const buildIdsToUpdate = buildsWithVideo.map((build) => build.id);
+
+    const _buildUpdateResponse = await prisma.build.updateMany({
+      where: {
+        id: {
+          in: buildIdsToUpdate,
+        },
+      },
       data: { isVideoApproved: false },
     });
 
     // write to the audit log
     await prisma.auditLog.create({
       data: {
-        userId: build.createdById,
+        userId: existingBuild.createdById,
         moderatorId: session.user.id,
         action: 'UNAPPROVE_VIDEO',
-        details: '',
+        details:
+          'This video URL has been unapproved in ALL builds it is found, not just the one you are currently viewing.',
       },
     });
 
@@ -62,7 +87,7 @@ export default async function unapproveVideo(
               },
               {
                 name: 'Build Link',
-                value: `https://remnant2toolkit.com/builder/${build.id}`,
+                value: `https://remnant2toolkit.com/builder/${buildId}`,
               },
             ],
           },
