@@ -49,11 +49,11 @@ export const fusionItems: FusionItem[] = [
   {
     category: 'fusion',
     name: 'Hulk',
-    fragmentIds: ['6qz6t1', '4gbcn0'],
+    fragmentIds: ['j87rzn', 'qqmdc0'],
     imagePath: '/items/fusions/blue-blue.png',
     id: 't2myua',
     dlc: 'base',
-    description: 'Base Health + Base Stamina',
+    description: 'Health Bonus + Stamina Bonus',
   },
   {
     category: 'fusion',
