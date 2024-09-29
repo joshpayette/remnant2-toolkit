@@ -7,7 +7,7 @@ import { type DataRow, dataSchema } from './data-schema';
 
 const ENDPOINTS = {
   remote: {
-    data: 'https://remnant.wiki/index.php?title=Special:CargoExport&tables=items%2C+ranged_weapons%2C+armor&join+on=items.item_id+%3D+ranged_weapons.item_id%2C+items.item_id+%3D+armor.item_id&fields=items.name+%3D+Name%2C+class+%3D+Class%2C+description+%3D+Description%2C+filepath+%3D+Filepath%2C+require_dlc+%3D+DLC%2C+ranged_weapons.damage+%3D+Damage%2C+rps+%3D+RPS%2C+magazine+%3D+Magazine%2C+accuracy+%3D+Accuracy%2C+ideal+%3D+Ideal+Range%2C+falloff+%3D+Falloff+Range%2C+ammo+%3D+Ammo%2C+crit+%3D+Crit%2C+weakspot+%3D+Weakspot%2C+stagger+%3D+Stagger%2C+attached_mod+%3D+Mod&where=NOT+items.class+%3D+"Melee+Weapon"&format=csv&limit=2000',
+    data: 'https://remnant.wiki/index.php?title=Special:CargoExport&tables=items%2C+ranged_weapons%2C+armor%2C+weapon_mods&join+on=items.item_id+%3D+ranged_weapons.item_id%2C+items.item_id+%3D+armor.item_id%2C+items.item_id+%3D+weapon_mods.item_id&fields=items.name+%3D+Name%2C+class+%3D+Class%2C+description+%3D+Description%2C+filepath+%3D+Filepath%2C+require_dlc+%3D+DLC%2C+ranged_weapons.damage+%3D+Damage%2C+rps+%3D+RPS%2C+magazine+%3D+Magazine%2C+accuracy+%3D+Accuracy%2C+ideal+%3D+Ideal+Range%2C+falloff+%3D+Falloff+Range%2C+ammo+%3D+Ammo%2C+crit+%3D+Crit%2C+weakspot+%3D+Weakspot%2C+stagger+%3D+Stagger%2C+attached_mod+%3D+Mod%2C+weapon_mods.power_cost+%3D+ModCost%2C+charges+%3D+ModCharges%2C+armor.armor+%3D+Armor%2C+weight+%3D+Weight%2C+bleed_res+%3D+BleedResistance%2C+fire_res+%3D+FireResistance%2C+shock_res+%3D+ShockResistance%2C+corrosive_res+%3D+CorrosiveResistance%2C+blight_res+%3D+BlightResistance&where=NOT+items.class+%3D+"Melee+Weapon"&limit=2000&format=csv',
   },
   local: {
     data: 'public/scripts/wiki/wiki-data.csv',
@@ -82,13 +82,6 @@ export async function getFileContents({
       (row) =>
         !SKIPPED_ITEMS.some((i) => i.toLowerCase() === row.Name.toLowerCase()),
     )
-    // For testing items before description change
-    // .map((row) => {
-    //   if (row.Name === 'Bark Extract') {
-    //     console.info('Bark Extract', he.decode(row.Description || ''));
-    //   }
-    //   return row;
-    // })
     .map((row) => {
       const name = cleanName(row.Name || '');
       const { description, maxLevelBonus } = cleanDescription(

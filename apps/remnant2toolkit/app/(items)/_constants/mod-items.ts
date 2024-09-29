@@ -1434,6 +1434,17 @@ export const modItems: ModItem[] = [
   },
   {
     category: 'mod',
+    name: 'Voidlight',
+    saveFileSlug: 'Mod_Voidlight_C',
+    imagePath: '/items/mods/voidlight.png',
+    id: '0ycjs9',
+    dlc: 'dlc3',
+    description: `Launches a projectile that releases Voidlight which remains dormant for 10s. While active, aborbs other damage sources.\n\nAfter expiration, explodes and fires up to 5 protectiles which home in on enemies within 22.5m. Projectiles deal 250 → 750 Mod Damage split among enemies hit, dealing an additional 150 → 450 per 100 Base Damage absorbed. Max 5x.`,
+    wikiLinks: [`https://remnant.wiki/Voidlight`],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
+  },
+  {
+    category: 'mod',
     name: 'Voltaic Rondure',
     saveFileSlug: 'Mod_VoltaicRondure_C',
     imagePath: '/items/mods/voltaicrondure.png',

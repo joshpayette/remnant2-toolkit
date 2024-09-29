@@ -23,5 +23,22 @@ export const dataSchema = z.object({
   Weakspot: z.string({ required_error: 'Weakspot is required' }).optional(),
   Stagger: z.string({ required_error: 'Stagger is required' }).optional(),
   Mod: z.string({ required_error: 'Mod is required' }).optional(),
+  Armor: z.string({ required_error: 'Armor is required' }).optional(),
+  Weight: z.string({ required_error: 'Weight is required' }).optional(),
+  BleedResistance: z
+    .string({ required_error: 'BleedResistance is required' })
+    .optional(),
+  FireResistance: z
+    .string({ required_error: 'FireResistance is required' })
+    .optional(),
+  ShockResistance: z
+    .string({ required_error: 'ShockResistance is required' })
+    .optional(),
+  CorrosiveResistance: z
+    .string({ required_error: 'CorrosiveResistance is required' })
+    .optional(),
+  BlightResistance: z
+    .string({ required_error: 'BlightResistance is required' })
+    .optional(),
 });
 export type DataRow = z.infer<typeof dataSchema>;

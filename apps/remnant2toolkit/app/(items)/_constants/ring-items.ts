@@ -2873,7 +2873,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Wired Inhibitor',
     imagePath: '/items/rings/wiredinhibitor.png',
-    saveFileSlug: 'Ring_Wiredinhibitor_C',
+    saveFileSlug: 'Ring_WiredInhibitor_C',
     id: '0j6y53',
     tags: [],
     description: `Applying a Negative Status Effect on an enemy also applies SLOW for 1s. Applying or refreshing additional Negative Statuses will increase the duration by 1s. Max 5s.`,
