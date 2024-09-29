@@ -158,7 +158,7 @@ export const concoctionItems: ConcoctionItem[] = [
     category: 'concoction',
     name: 'Numbing Agent',
     imagePath: '/items/consumables/numbingagent.png',
-    saveFileSlug: 'Consumable_NumbingAgent_C', // TODO Check
+    saveFileSlug: 'Consumable_NumbingAgent_C',
     id: 'd715ws',
     tags: ['Grey Health', 'Consumable'],
     description:

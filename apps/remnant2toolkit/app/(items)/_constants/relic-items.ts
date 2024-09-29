@@ -112,7 +112,7 @@ export const relicItems: RelicItem[] = [
     category: 'relic',
     name: 'Gossamer Heart',
     imagePath: '/items/relics/gossamerheart.png',
-    saveFileSlug: 'Relic_Consumable_GossamerHeart_C', // TODO Check
+    saveFileSlug: 'Relic_Consumable_GossamerHeart_C',
     id: '4yjd4c',
     dlc: 'dlc3',
     description: `Innate base Evade Window Frames increased by 1. On use, increases Evade Window Bonus Frames by an additional 2 for 15s.`,

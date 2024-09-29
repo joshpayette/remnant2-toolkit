@@ -103,7 +103,7 @@ export const weaponItems: WeaponItem[] = [
     category: 'weapon',
     type: 'melee',
     name: 'Black Greatsword',
-    saveFileSlug: 'Weapon_BlackGreatsword_C', // TODO Check
+    saveFileSlug: 'Weapon_BlackGreatsword_C',
     imagePath: '/items/weapons/blackgreatsword.png',
     id: '71k6w5',
     dlc: 'dlc3',
@@ -405,7 +405,7 @@ export const weaponItems: WeaponItem[] = [
     category: 'weapon',
     type: 'long gun',
     name: 'Genesis',
-    saveFileSlug: 'Weapon_Genesis_C', // TODO Check
+    saveFileSlug: 'Weapon_Genesis_C',
     imagePath: '/items/weapons/genesis.png',
     id: 'okmk07',
     dlc: 'dlc3',
@@ -537,7 +537,7 @@ export const weaponItems: WeaponItem[] = [
     category: 'weapon',
     name: 'Monorail',
     type: 'long gun',
-    saveFileSlug: 'Weapon_Monorail_C', // TODO Check
+    saveFileSlug: 'Weapon_Monorail_C',
     imagePath: '/items/weapons/monorail.png',
     id: 'oz9amG',
     dlc: 'dlc3',
@@ -1187,7 +1187,7 @@ export const weaponItems: WeaponItem[] = [
     type: 'melee',
     name: 'Dark Matter Gauntlets',
     imagePath: '/items/weapons/darkmattergauntlets.png',
-    saveFileSlug: 'Weapon_DarkMatterGauntlets_C', // TODO Check
+    saveFileSlug: 'Weapon_DarkMatterGauntlets_C',
     id: 'p1o9av',
     dlc: 'base',
     description: `The gauntlets harness the power of a neutron star and a black hole. When merged, cosmic forces are unleashed.`,
@@ -1306,7 +1306,7 @@ export const weaponItems: WeaponItem[] = [
     type: 'melee',
     name: 'Harvester Scythe',
     imagePath: '/items/weapons/harvesterscythe.png',
-    saveFileSlug: 'Weapon_HarvesterScythe_C', // TODO Check
+    saveFileSlug: 'Weapon_HarvesterScythe_C',
     id: '5xx5zt',
     dlc: 'dlc3',
     description: `Harvester automaton limb fitted with a plasma torch. The system breach of a Drzyr phantom initiated jettisoned protocols, trapping strange properties within the makeshift weapon.`,
@@ -2268,7 +2268,7 @@ export const weaponItems: WeaponItem[] = [
     category: 'weapon',
     type: 'hand gun',
     name: 'Repair Tool',
-    saveFileSlug: 'Weapon_RepairTool_C', // TODO: Check this
+    saveFileSlug: 'Weapon_RepairTool_C',
     imagePath: '/items/weapons/repairtool.png',
     id: '5go8dn',
     dlc: 'dlc3',
@@ -2292,7 +2292,7 @@ export const weaponItems: WeaponItem[] = [
     type: 'hand gun',
     name: 'Redeemer',
     imagePath: '/items/weapons/redeemer.png',
-    saveFileSlug: 'Weapon_Redeemer_C', // TODO: Check this
+    saveFileSlug: 'Weapon_Redeemer_C',
     id: '0kob6g',
     dlc: 'dlc3',
     tags: [],

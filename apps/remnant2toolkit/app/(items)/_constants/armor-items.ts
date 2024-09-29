@@ -422,7 +422,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Nanoplated Transmitter',
-    saveFileSlug: 'Armor_Head_Warden_C', // TODO Check
+    saveFileSlug: 'Armor_Head_Warden_C',
     imagePath: '/items/armors/nanoplatedtransmitter.png',
     id: '2x3sxo',
     dlc: 'dlc3',
@@ -479,7 +479,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: 'Phetyr Sensor',
-    saveFileSlug: 'Armor_Head_Phetyr_C', // TODO Check
+    saveFileSlug: 'Armor_Head_NerudWarrior_C',
     imagePath: '/items/armors/phetyrsensor.png',
     id: '3emu93',
     dlc: 'dlc3',
@@ -978,7 +978,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Nanoplated Vestments',
-    saveFileSlug: 'Armor_Body_Warden_C', // TODO Check
+    saveFileSlug: 'Armor_Body_Warden_C',
     imagePath: '/items/armors/nanoplatedvestments.png',
     id: '4rt0f9',
     dlc: 'dlc3',
@@ -1016,7 +1016,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'torso',
     name: 'Phetyr Chassis',
-    saveFileSlug: 'Armor_Body_Phetyr_C', // TODO Check
+    saveFileSlug: 'Armor_Body_NerudWarrior_C',
     imagePath: '/items/armors/phetyrchassis.png',
     id: 'smq21h',
     dlc: 'dlc3',
@@ -1515,7 +1515,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Nanoplated Waist',
-    saveFileSlug: 'Armor_Legs_Warden_C', // TODO Check
+    saveFileSlug: 'Armor_Legs_Warden_C',
     imagePath: '/items/armors/nanoplatedwaist.png',
     id: 'im4rk0',
     dlc: 'dlc3',
@@ -1553,7 +1553,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'legs',
     name: 'Phetyr Locomotor',
-    saveFileSlug: 'Armor_Legs_Phetyr_C', // TODO Check
+    saveFileSlug: 'Armor_Legs_NerudWarrior_C',
     imagePath: '/items/armors/phetyrlocomotor.png',
     id: 'pd68a7',
     dlc: 'dlc3',
@@ -2052,7 +2052,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Nanoplated Hands',
-    saveFileSlug: 'Armor_Gloves_Warden_C', // TODO Check
+    saveFileSlug: 'Armor_Gloves_Warden_C',
     imagePath: '/items/armors/nanoplatedhands.png',
     id: '1asxjo',
     dlc: 'dlc3',
@@ -2090,7 +2090,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'gloves',
     name: 'Phetyr Crushers',
-    saveFileSlug: 'Armor_Gloves_Phetyr_C', // TODO Check
+    saveFileSlug: 'Armor_Gloves_NerudWarrior_C',
     imagePath: '/items/armors/phetyrcrushers.png',
     id: 'i21ob4',
     dlc: 'dlc3',

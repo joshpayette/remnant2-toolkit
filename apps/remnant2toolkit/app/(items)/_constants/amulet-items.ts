@@ -106,7 +106,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Canine Keepsake',
     imagePath: '/items/amulets/caninekeepsake.png',
-    saveFileSlug: 'Amulet_CanineKeepsake_C', // TODO Check
+    saveFileSlug: 'Amulet_CanineKeepsake_C',
     id: 'z496hr',
     dlc: 'base',
     tags: [],
@@ -136,7 +136,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Cessation Bulbel',
     imagePath: '/items/amulets/cessationbulbel.png',
-    saveFileSlug: 'Amulet_CessationBulbel_C', // TODO Check
+    saveFileSlug: 'Amulet_CessationBulbel_C',
     id: 'zXxT8K',
     dlc: 'dlc3',
     tags: ['All Damage'],
@@ -160,7 +160,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Chef Medal',
     imagePath: '/items/amulets/chefmedal.png',
-    saveFileSlug: 'Amulet_ChefMedal_C', // TODO Check
+    saveFileSlug: 'Amulet_ChefMedal_C',
     id: '9yuvc8',
     dlc: 'dlc3',
     tags: ['Perfect Dodge'],
@@ -215,7 +215,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Crisis Core',
     imagePath: '/items/amulets/crisiscore.png',
-    saveFileSlug: 'Amulet_CrisisCore_C', // TODO Check
+    saveFileSlug: 'Amulet_Crisiscore_C',
     id: 'L6noPy',
     dlc: 'dlc3',
     tags: ['Perfect Dodge', 'Damage Reduction'],
@@ -326,7 +326,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Echo Chamber',
     imagePath: '/items/amulets/echochamber.png',
-    saveFileSlug: 'Amulet_EchoChamber_C', // TODO Check
+    saveFileSlug: 'Amulet_EchoChamber_C',
     id: 'rPV99a',
     dlc: 'dlc3',
     tags: [],
@@ -434,7 +434,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Exhaust Valve',
     imagePath: '/items/amulets/exhaustvalve.png',
-    saveFileSlug: 'Amulet_ExhaustValve_C', // TODO Check
+    saveFileSlug: 'Amulet_ExhaustValve_C',
     id: 'C22peH',
     dlc: 'dlc3',
     tags: ['Heat Generation', 'Fire Rate'],
@@ -566,7 +566,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: `Hangman's Noose`,
     imagePath: '/items/amulets/hangmansnoose.png',
-    saveFileSlug: 'Amulet_HangmansNoose_C', // TODO Check
+    saveFileSlug: 'Amulet_HangmansNoose_C',
     id: '4zvuco',
     dlc: 'base',
     tags: [],
@@ -629,7 +629,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Insipid Talon',
     imagePath: '/items/amulets/insipidtalon.png',
-    saveFileSlug: 'Amulet_InsipidTalon_C', // TODO Check
+    saveFileSlug: 'Amulet_InsipidTalon_C',
     id: '65ygbg',
     dlc: 'dlc1',
     tags: ['All Damage'],
@@ -952,7 +952,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Quantum Memory',
     imagePath: '/items/amulets/quantummemory.png',
-    saveFileSlug: 'Amulet_QuantumMemory_C', // TODO Check
+    saveFileSlug: 'Amulet_QuantumMemory_C',
     id: '542njq',
     dlc: 'dlc3',
     tags: ['Reload Speed', 'Perfect Dodge'],
@@ -1030,7 +1030,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Relay Device',
     imagePath: '/items/amulets/relaydevice.png',
-    saveFileSlug: 'Amulet_RelayDevice_C', // TODO Check
+    saveFileSlug: 'Amulet_RelayDevice_C',
     id: 'fwtqy6',
     dlc: 'dlc3',
     tags: ['Ranged Damage'],
@@ -1107,7 +1107,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Short Circuit',
     imagePath: '/items/amulets/shortcircuit.png',
-    saveFileSlug: 'Amulet_ShortCircuit_C', // TODO Check
+    saveFileSlug: 'Amulet_ShortCircuit_C',
     id: 'yuW4pJ',
     dlc: 'dlc3',
     tags: ['Critical Chance', 'Critical Damage', 'Reduce Skill Cooldown'],
@@ -1225,7 +1225,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: `Timekeeper's Forfeit`,
     imagePath: '/items/amulets/timekeepersforfeit.png',
-    saveFileSlug: 'Amulet_TimekeepersForfeit_C', // TODO Check
+    saveFileSlug: 'Amulet_TimekeepersForfeit_C',
     id: 't4ho4m',
     dlc: 'dlc3',
     tags: [],
@@ -1292,7 +1292,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Volatile Cartridge',
     imagePath: '/items/amulets/volatilecartridge.png',
-    saveFileSlug: 'Amulet_VolatileCartridge_C', // TODO Check
+    saveFileSlug: 'Amulet_VolatileCartridge_C',
     id: 'up6mi1',
     dlc: 'dlc3',
     tags: [],
@@ -1354,7 +1354,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Zero Hour',
     imagePath: '/items/amulets/zerohour.png',
-    saveFileSlug: 'Amulet_ZeroHour_C', // TODO Check
+    saveFileSlug: 'Amulet_ZeroHour_C',
     id: 'ozin1d',
     dlc: 'dlc3',
     tags: [],

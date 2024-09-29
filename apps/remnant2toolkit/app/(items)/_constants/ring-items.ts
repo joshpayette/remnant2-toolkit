@@ -390,7 +390,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Breach Accelerator',
     imagePath: '/items/rings/breachaccelerator.png',
-    saveFileSlug: 'Ring_BreachAccelerator_C', // TODO Check
+    saveFileSlug: 'Ring_BreachAccelerator_C',
     id: 'w268ge',
     description: `Increases Movement Speed and Physical Damage by 5%. Bonus is doubled when HASTE is active.`,
     wikiLinks: [`https://remnant.wiki/Breach_Accelerator`],
@@ -467,7 +467,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Burden of the Excavator',
     imagePath: '/items/rings/burdenoftheexcavator.png',
-    saveFileSlug: 'Ring_BurdenOfTheExcavator_C', // TODO Check
+    saveFileSlug: 'Ring_BurdenOfTheExcavator_C',
     id: 'NmzR7o',
     tags: ['Critical Hit', 'Critical Chance'],
     externalTokens: ['Explosive Damage'],
@@ -614,7 +614,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Bypass Primer',
     imagePath: '/items/rings/bypassprimer.png',
-    saveFileSlug: 'Ring_BypassPrimer_C', // TODO Check
+    saveFileSlug: 'Ring_BypassPrimer_C',
     id: 'b99sey',
     tags: ['Perfect Dodge', 'Reload Speed'],
     description: `On Perfect Dodge, reload current Firearm`,
@@ -669,7 +669,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Clear Halo',
     imagePath: '/items/rings/clearhalo.png',
-    saveFileSlug: 'Ring_ClearHalo_C', // TODO Check
+    saveFileSlug: 'Ring_ClearHalo_C',
     id: '5rAV7V',
     tags: [],
     description: `After 10s of not being damaged, generate a SHIELD for 10% of Max Health over 2s.`,
@@ -693,7 +693,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Combat Shield Generator',
     imagePath: '/items/rings/combatshieldgenerator.png',
-    saveFileSlug: 'Ring_CombatShieldGenerator_C', // TODO Check
+    saveFileSlug: 'Ring_CombatShieldGenerator_C',
     id: 'zeA523',
     tags: [],
     externalTokens: ['Amplitude'],
@@ -778,7 +778,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: `Custodian's Bastion`,
     imagePath: '/items/rings/custodiansbastion.png',
-    saveFileSlug: 'Ring_CustodiansBastion_C', // TODO Check
+    saveFileSlug: 'Ring_CustodiansBastion_C',
     id: 'k6Sqka',
     tags: ['Damage Reduction'],
     description: `Increases Armor by 1 per 2% of active SHIELD. Max 100 Bonus Armor.`,
@@ -852,7 +852,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Demolition Coil',
     imagePath: '/items/rings/demolitioncoil.png',
-    saveFileSlug: 'Ring_DemolitionCoil_C', // TODO Check
+    saveFileSlug: 'Ring_DemolitionCoil_C',
     id: '6xu3sb',
     tags: [],
     description: `Unarmed Charged Melee Attacks explode when hitting an enemy, dealing 30% additional explosive damage over 1.5m.`,
@@ -876,7 +876,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Detonating Cord',
     imagePath: '/items/rings/detonatingcord.png',
-    saveFileSlug: 'Ring_DetonatingCord_C', // TODO Check
+    saveFileSlug: 'Ring_DetonatingCord_C',
     id: '267d3s',
     tags: [],
     externalTokens: ['Explosive Damage', 'Amplitude'],
@@ -914,7 +914,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Disaster Converter',
     imagePath: '/items/rings/disasterconverter.png',
-    saveFileSlug: 'Ring_DisasterConverter_C', // TODO Check
+    saveFileSlug: 'Ring_DisasterConverter_C',
     id: 'yry5r0',
     tags: ['Grey Health'],
     description: `When wearer's Health drops below 25%, gain a SHIELD for 50% of total current Grey Health for 10s. Max 50% SHIELD. Does not stack with itself.`,
@@ -1063,7 +1063,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Empowering Loop',
     imagePath: '/items/rings/empoweringloop.png',
-    saveFileSlug: 'Ring_EmpoweringLoop_C', // TODO Check
+    saveFileSlug: 'Ring_EmpoweringLoop_C',
     id: 'huu4fi',
     dlc: 'base',
     tags: ['Ranged Damage'],
@@ -1249,7 +1249,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Feeding Tube',
     imagePath: '/items/rings/feedingtube.png',
-    saveFileSlug: 'Ring_FeedingTube_C', // TODO Check
+    saveFileSlug: 'Ring_FeedingTube_C',
     id: 'ic2sn8',
     tags: [],
     description: `While in combat, auto-consume the compatible item in the first quick-slot every 30s. Increases Consumable and Relic Use Speed by 10%.\n\nNot compatible with Concoctions, Grenades and some Unique Consumables.`,
@@ -1313,7 +1313,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Force Multiplier',
     imagePath: '/items/rings/forcemultiplier.png',
-    saveFileSlug: 'Ring_ForceMultiplier_C', // TODO CHECk
+    saveFileSlug: 'Ring_ForceMultiplier_C',
     id: '9E5qGu',
     tags: ['Charged Shot'],
     description:
@@ -1498,7 +1498,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Infinity Pocket',
     imagePath: '/items/rings/infinitypocket.png',
-    saveFileSlug: 'Ring_InfinityPocket_C', // TODO Check
+    saveFileSlug: 'Ring_InfinityPocket_C',
     id: '7EmKj6',
     tags: ['Reload Speed'],
     description: `Reloading an Empty Magazine refills 10% of the stowed weapon's Max Ammo. When stowed weapon is full, the refill amount applies to the primary weapon instead.`,
@@ -1726,7 +1726,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Mortal Coil',
     imagePath: '/items/rings/mortalcoil.png',
-    saveFileSlug: 'Ring_MortalCoil_C', // TODO Check
+    saveFileSlug: 'Ring_MortalCoil_C',
     id: 'm8xta9',
     tags: [],
     description: `Increases All Damage dealt by 1% for every 2% of the wearer's total Lifesteal. Max 20% All Damage.`,
@@ -1738,7 +1738,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Nanofiber Strand',
     imagePath: '/items/rings/nanofiberstrand.png',
-    saveFileSlug: 'Ring_NanofiberStrand_C', // TODO Check
+    saveFileSlug: 'Ring_NanoFiberStrand_C',
     id: '0sb21d',
     tags: [],
     description: `Increases SHIELD Amount by 10%.`,
@@ -1750,7 +1750,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Nightmare Sigil',
     imagePath: '/items/rings/nightmaresigil.png',
-    saveFileSlug: 'Ring_NightmareSigil_C', // TODO Check
+    saveFileSlug: 'Ring_NightmareSigil_C',
     id: 'JuMRf8',
     tags: [],
     description: `On Perfect Dodge, increases base Lifesteal by 5% for 10s.`,
@@ -1979,7 +1979,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Ring of Ashes',
     imagePath: '/items/rings/ringofashes.png',
-    saveFileSlug: 'Ring_RingOfAshes_C', // TODO Check
+    saveFileSlug: 'Ring_RingOfAshes_C',
     id: '1hx3g8',
     tags: [],
     description: `Stowed weapons generate 15 Mod Power per second.`,
@@ -1991,7 +1991,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Ring of Bones',
     imagePath: '/items/rings/ringofbones.png',
-    saveFileSlug: 'Ring_RingOfBones_C', // TODO Check
+    saveFileSlug: 'Ring_RingOfBones_C',
     id: 'd9mtz2',
     tags: [],
     description: `On Relic Use, increase All Damage by 10% for 15s.`,
@@ -2111,7 +2111,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Ring of Phantom Pain',
     imagePath: '/items/rings/ringofphantompain.png',
-    saveFileSlug: 'Ring_RingOfPhantomPain_C', // TODO Check
+    saveFileSlug: 'Ring_PhantomPain_C',
     id: 'r6xmgj',
     dlc: 'dlc3',
     tags: ['Grey Health'],
@@ -2327,7 +2327,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Security Half-Measure',
     imagePath: '/items/rings/securityhalfmeasure.png',
-    saveFileSlug: 'Ring_SecurityHalfMeasure_C', // TODO Check
+    saveFileSlug: 'Ring_SecurityHalfMeasure_C',
     id: 'acmch3',
     tags: [],
     description: `On Relic Use, sacrifices 15% of Max Health and grants a SHIELD for 10% of the wearer's Max Health to allies within 8m. Conversion cannot kill wearer. Lasts 15s.`,
@@ -2383,7 +2383,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Shield Alternator',
     imagePath: '/items/rings/shieldalternator.png',
-    saveFileSlug: 'Ring_ShieldAlternator_C', // TODO Check
+    saveFileSlug: 'Ring_ShieldAlternator_C',
     id: 'fsh7tv',
     tags: [],
     description:
@@ -2428,7 +2428,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Siphon Filter',
     imagePath: '/items/rings/siphonfilter.png',
-    saveFileSlug: 'Ring_SiphonFilter_C', // TODO Check
+    saveFileSlug: 'Ring_SiphonFilter_C',
     id: '3nifjz',
     tags: ['All Damage'],
     description: `Increases All Damage dealt by an amount equal to an active HASTE bonus. Grants HASTE when within 15m of an entity suffering from SLOW`,
@@ -2505,7 +2505,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Spirit Alternator',
     imagePath: '/items/rings/spiritalternator.png',
-    saveFileSlug: 'Ring_SpiritAlternator_C', // TODO Check
+    saveFileSlug: 'Ring_SpiritAlternator_C',
     id: 'LfHjW4',
     tags: [],
     description: `Incoming SHIELD grants 150% of the SHIELD generated as Mod Power.`,
@@ -2589,7 +2589,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Strand of Sinew',
     imagePath: '/items/rings/strandofsinew.png',
-    saveFileSlug: 'Ring_StrandOfSinew_C', // TODO Check
+    saveFileSlug: 'Ring_StrandOfSinew_C',
     id: `c24g9g`,
     tags: [],
     description: `Slows Firearm Charge Time by 30% and increases Ranged Charge Damage by 20%.`,
@@ -2640,7 +2640,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Symbol of Royalty',
     imagePath: '/items/rings/symbolofroyalty.png',
-    saveFileSlug: 'Ring_SymbolOfRoyalty_C', // TODO Check
+    saveFileSlug: 'Ring_SymbolOfRoyalty_C',
     id: '362ynf',
     tags: ['Perfect Dodge'],
     description: `On Perfect Dodge, grants 1 stack of BULWARK for 10s. Max 3 stacks.`,
@@ -2763,7 +2763,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Tolerance Band',
     imagePath: '/items/rings/toleranceband.png',
-    saveFileSlug: 'Ring_ToleranceBand_C', // TODO Check
+    saveFileSlug: 'Ring_ToleranceBand_C',
     id: '80psct',
     tags: [],
     description: `Decreases Firearm Charge Time by 10% and increases Perfect Charge Window for applicable ranged weaponry.`,
@@ -2873,7 +2873,7 @@ export const ringItems: RingItem[] = [
     category: 'ring',
     name: 'Wired Inhibitor',
     imagePath: '/items/rings/wiredinhibitor.png',
-    saveFileSlug: 'Ring_WiredInhibitor_C', // TODO Check
+    saveFileSlug: 'Ring_Wiredinhibitor_C',
     id: '0j6y53',
     tags: [],
     description: `Applying a Negative Status Effect on an enemy also applies SLOW for 1s. Applying or refreshing additional Negative Statuses will increase the duration by 1s. Max 5s.`,

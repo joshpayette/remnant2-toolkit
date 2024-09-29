@@ -252,7 +252,7 @@ export const consumableItems: ConsumableItem[] = [
     category: 'consumable',
     name: 'Light Extract',
     imagePath: '/items/consumables/lightextract.png',
-    saveFileSlug: 'Consumable_LightExtract_C', // TODO Check
+    saveFileSlug: 'Consumable_LightExtract_C',
     id: 'E5CbP6',
     dlc: 'base',
     tags: [],
