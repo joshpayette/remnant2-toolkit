@@ -57,7 +57,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Brazen Amalgam',
     imagePath: '/items/amulets/brazenamalgam.png',
-    saveFileSlug: 'Amulet_BrazenAmalgam_C', // TODO Check
+    saveFileSlug: 'Amulet_BrazenAlloy_C',
     id: 'mkroo2',
     dlc: 'dlc3',
     tags: [],
@@ -223,7 +223,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'L6noPy',
     dlc: 'dlc3',
     tags: ['Perfect Dodge', 'Damage Reduction'],
-    description: `When a single source of Enemy Damage exceeds 15% of Max Health, automatically trigger effects that require Perfect Dodge to activate and gain 15% Damage Reduction for 3s.`,
+    description:
+      'When a single source of Enemy Damage exceeds 15% of Max Health, automatically trigger effects that require Perfect Dodge to activate and gain 15% Damage Reduction for 3s.\n\nCan only happen once every 3 seconds.',
     wikiLinks: ['https://remnant.wiki/Crisis_Core'],
     location: { world: 'Any', dungeon: 'World Drop' },
   },
@@ -320,7 +321,8 @@ export const amuletItems: AmuletItem[] = [
     id: '1k2x4r',
     dlc: 'base',
     tags: ['Fire Rate', 'Melee Attack Speed', 'Ranged Damage', 'Melee Damage'],
-    description: `Increase Fire Rate by 10% and Melee Attack Speed by 15%. For every missing 10% of Max Health, gain 4% Ranged Damage (Max 20%) and 5% Melee Damage (Max 25%)`,
+    description:
+      'Increase Fire Rate by 10% and Melee Attack Speed by 15%. For every missing 10% of Max Health, gain 4% Ranged Damage (Max 20%) and 5% Melee Damage (Max 25%).',
     wikiLinks: [`https://remnant.wiki/Downward_Spiral`],
     location: { world: 'Yaesha', dungeon: [`The Chimney`] },
   },

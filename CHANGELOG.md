@@ -14,6 +14,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Corrected description for `Short Circuit`.
 - Fixed bug preventing the same fragment from being marked optional independently.
+- Corrected a bunch of save file import paths and item descriptions.
+  - Wrote a new wiki parser and have been correcting deviations in Toolkit data.
 
 ## 2024-09-27
 

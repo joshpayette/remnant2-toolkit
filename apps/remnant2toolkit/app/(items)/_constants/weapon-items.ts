@@ -2001,7 +2001,7 @@ export const weaponItems: WeaponItem[] = [
     id: '8u8j4G',
     dlc: 'base',
     description:
-      'Semi-automatic laser weapon. Weakspot hits and kills create a Nano-bot for 8s that seeks enemies within 20m and repeatedly attacks dealing 6 - 18 ACID damage per hit. Max 5 Nano-bots.',
+      'Semi-automatic laser weapon. Weakspot hits and kills create a Nano-bot for 8s that seeks enemies within 20m and repeatedly attacks dealing 6 → 18 ACID damage per hit. Max 5 Nano-bots.',
     wikiLinks: ['https://remnant.wiki/Corrupted_Nebula'],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
     linkedItems: {
@@ -2164,7 +2164,7 @@ export const weaponItems: WeaponItem[] = [
     id: '797iqq',
     dlc: 'base',
     description:
-      'Spews flames that apply BURNING which deals 300 - 900 FIRE damage over 10 seconds.',
+      'Spews flames that apply BURNING which deals 300 → 900 FIRE damage over 10 seconds.',
     wikiLinks: [`https://remnant.wiki/Hellfire`],
     location: { world: 'Root Earth', dungeon: ['Ashen Wasteland'] },
     linkedItems: {

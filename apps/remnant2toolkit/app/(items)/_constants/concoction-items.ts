@@ -10,7 +10,7 @@ export const concoctionItems: ConcoctionItem[] = [
     dlc: 'base',
     tags: ['Armor Increase', 'Damage Reduction', 'Consumable'],
     description:
-      'Increases Armor by 30.Concoctions will stay in effect after death.\n\nOnly one Concoction may be active at a time.',
+      'Increases Armor by 30.\n\nConcoctions will stay in effect after death. Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Bark_Extract`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
     armor: 30,
@@ -24,9 +24,7 @@ export const concoctionItems: ConcoctionItem[] = [
     dlc: 'base',
     tags: ['Mod Power', 'Consumable'],
     description:
-      'Increases Mod Power Generation by 10%. Lasts 60m and will stay in effect after death.\n' +
-      '\n' +
-      'Only one Concoction may be active at a time.',
+      'Increases Mod Power Generation by 10%.\n\nConcoctions will stay in effect after death. Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Bottled_Shaedberry`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
@@ -39,9 +37,7 @@ export const concoctionItems: ConcoctionItem[] = [
     dlc: 'base',
     tags: ['Movement Speed', 'Consumable'],
     description:
-      'Increases Movement Speed by 10%. Lasts 60m and will stay in effect after death.\n' +
-      '\n' +
-      'Only one Concoction may be active at a time.',
+      'Increases Movement Speed by 10%.\n\nConcoctions will stay in effect after death. Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Chilled_Steam`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
@@ -54,9 +50,7 @@ export const concoctionItems: ConcoctionItem[] = [
     dlc: 'base',
     tags: ['Health', 'Stamina', 'Movement Speed', 'Consumable'],
     description:
-      'Increases Health by 6.66%, Stamina by 6.66%, and Movement Speed by 6.66%. Lasts 60m and will stay in effect after death.\n' +
-      '\n' +
-      'Only one Concoction may be active at a time.',
+      'Increases Health by 6.66%, Stamina by 6.66%, and Movement Speed by 6.66%.\n\nConcoctions will stay in effect after death. Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Dark_Cider`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
     healthPercent: 0.0666,
@@ -76,9 +70,7 @@ export const concoctionItems: ConcoctionItem[] = [
       'Consumable',
     ],
     description:
-      'Increases Distance of Evade and Combat Slide by 15% and reduces the cost by 20%. Lasts 60m and will stay in effect after death.\n' +
-      '\n' +
-      'Only one Concoction may be active at a time.',
+      'Increases Distance of Evade and Combat Slide by 15% and reduces the cost by 20%.\n\nConcoctions will stay in effect after death. Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Dark_Fluid`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
@@ -86,14 +78,12 @@ export const concoctionItems: ConcoctionItem[] = [
     category: 'concoction',
     name: 'Egg Drink',
     imagePath: '/items/consumables/eggdrink.png',
-    saveFileSlug: 'Consumable_EggDrink.Consumable_EggDrink_C',
+    saveFileSlug: 'Consumable_EggDrink_C',
     id: 'byi9d',
     dlc: 'dlc2',
     tags: ['Encumbrance'],
     description:
-      'Increases Dodge Weight Threshold by 10. Lasts 60m and will stay in effect after death.\n' +
-      '\n' +
-      'Only one concoction may be active at a time.',
+      'Increases Dodge Weight Threshold by 10.\n\nConcoctions will stay in effect after death. Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Egg_Drink`],
     location: { world: 'Ward 13', dungeon: 'Quest' },
     weightThreshold: 10,
@@ -132,7 +122,7 @@ export const concoctionItems: ConcoctionItem[] = [
     category: 'concoction',
     name: `Mudtooth's Snake Oil`,
     imagePath: '/items/consumables/mudtoothssnakeoil.png',
-    saveFileSlug: 'Consumable_MudToothsSnakeOil_C', // TODO Check
+    saveFileSlug: 'Consumable_MudtoothsSnakeOil_C',
     id: 'ru74g9',
     dlc: 'base',
     tags: ['Consumable'],
