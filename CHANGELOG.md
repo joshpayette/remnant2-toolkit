@@ -6,10 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-09-29
 
+### Added
+
+- Added a new script to scrape the Remnant.wiki data, and then compare it against Toolkit data. This helps a ton with keeping up on new items and any corrections needing to be made. It also allows contributors to only need to contribute once, to the wiki, in order to make the correction on Toolkit.
+
+### Changed
+
+- Removed legendary relic fragments from Item Tracker.
+
 ### Fixed
 
 - Fixed error when trying to load a randomized build.
 - Fixed an issue preventing prism and fusions from working in unauthenticated builds.
+- Corrected a bunch of item descriptions and values based on the Remnant.wiki data.
 
 ## 2024-09-28
 
