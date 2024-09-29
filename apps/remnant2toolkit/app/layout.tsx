@@ -1,6 +1,6 @@
 import './globals.css';
 
-import { BaseTextLink, GlobalActionButtons, RootLayout } from '@repo/ui';
+import { GlobalActionButtons, RootLayout } from '@repo/ui';
 import { Analytics } from '@vercel/analytics/react';
 import { type Viewport } from 'next';
 import dynamic from 'next/dynamic';
@@ -28,15 +28,9 @@ export default async function Layout({
   return (
     <RootLayout
       alertBanner={
-        <AlertBanner localStorageKey="dlc-submission-cta">
-          DLC drops today! Please submit your discovery screenshots and details{' '}
-          <BaseTextLink href="https://discord.com/invite/BEan7bgvuF">
-            to the Remnant.wiki
-          </BaseTextLink>{' '}
-          in order to get it into the Toolkit for community use!{' '}
-          <BaseTextLink href="https://discord.com/invite/BEan7bgvuF">
-            Join now!
-          </BaseTextLink>
+        <AlertBanner localStorageKey="curated-build-notice">
+          Curated build submissions will start again after the next patch! Stay
+          tuned for new featured builds and more soon!
         </AlertBanner>
       }
       footer={<Footer />}
