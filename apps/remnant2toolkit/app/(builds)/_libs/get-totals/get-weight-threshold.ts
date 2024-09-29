@@ -7,6 +7,7 @@ export function getWeightThreshold(buildState: BuildState) {
     buildState,
     'weightThreshold',
   );
+
   const equippedWeightThresholdTraits = getTraitItemsByKey(
     buildState,
     'weightThresholds',
@@ -16,6 +17,7 @@ export function getWeightThreshold(buildState: BuildState) {
     (acc, item) => acc + (item?.weightThreshold ?? 0),
     0,
   );
+
   const totalWeightThresholdTrait = equippedWeightThresholdTraits.reduce(
     (acc, item) => acc + (item.weightThresholds?.[item.amount - 1] ?? 0),
     0,

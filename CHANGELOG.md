@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed error when trying to load a randomized build.
 - Fixed an issue preventing prism and fusions from working in unauthenticated builds.
 - Corrected a bunch of item descriptions and values based on the Remnant.wiki data.
+- Added Burden of the Mason logic to the weight calculations.
 
 ## 2024-09-28
 
