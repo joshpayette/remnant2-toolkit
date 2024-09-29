@@ -28,6 +28,7 @@ export function getWeightClass(buildState: BuildState): WeightClassResponse {
       label: 'HEAVY',
     };
   }
+
   if (totalWeight > WEIGHT_CLASSES.HEAVY.maxWeight + combinedWeightThreshold) {
     weightClass = {
       ...WEIGHT_CLASSES.ULTRA,
@@ -40,11 +41,19 @@ export function getWeightClass(buildState: BuildState): WeightClassResponse {
   // For Ultra though, it's not enough to lower it to Heavy
   // So we need to check if the build is Ultra and has the Dull Steel Ring
   // If so, we lower it to Heavy
+  // However, if the build has Burden of the Mason, we should not lower it to Heavy
   const buildHasDullSteelRing = buildState.items.ring.some(
     (ring) => ring?.id === 's76ytc',
   );
+  const buildHasBurdenOfTheMason = buildState.items.ring.some(
+    (ring) => ring?.id === 'k89bxz',
+  );
 
-  if (weightClass.label === 'ULTRA' && buildHasDullSteelRing) {
+  if (
+    weightClass.label === 'ULTRA' &&
+    buildHasDullSteelRing &&
+    !buildHasBurdenOfTheMason
+  ) {
     weightClass = {
       ...WEIGHT_CLASSES.HEAVY,
       label: 'HEAVY',

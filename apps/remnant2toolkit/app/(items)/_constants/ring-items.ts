@@ -532,6 +532,7 @@ export const ringItems: RingItem[] = [
     description: `Impairs Dodges by 1 Weight Class. Increases Melee damage by 35% of the wearer's total Damage Reduction.`,
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Mason`],
     location: { world: 'Yaesha', dungeon: ['Luminous Vale'] },
+    weightThreshold: -25,
   },
   {
     category: 'ring',
