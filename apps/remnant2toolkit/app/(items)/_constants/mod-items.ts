@@ -100,7 +100,7 @@ export const modItems: ModItem[] = [
     id: 'k7z7r2',
     dlc: 'base',
     description:
-      "Banishes enemies or allies into another dimension for 4s. When Banish ends, enemies take 1.25x → 1.5x the damage from the Repulsor's primary fire for 8s.Powerful enemies won't be banished, but will take increased damage from any Repulsor while debuffed.",
+      "Banishes enemies or allies into another dimension for 4s. When Banish ends, enemies take 1.25x → 1.5x the damage from the Repulsor's primary fire for 8s.\n\nPowerful enemies won't be banished, but will take increased damage from any Repulsor while debuffed.",
     externalTokens: [`Multiplicative Debuffs`],
     wikiLinks: [`https://remnant.wiki/Repulsor`],
     linkedItems: {
@@ -118,11 +118,7 @@ export const modItems: ModItem[] = [
     id: '5ke493',
     dlc: 'base',
     description:
-      'Brands a target for 30s. Branded enemies that die leave a Brand at their location.\n' +
-      '\n' +
-      'Reloading or Swapping detonates Brands dealing 225 - 675 damage. Additional Brands (3 Max) on the same target deal 50% damage. Slain enemies return 5 - 15% of Ammo and Mod Power to the weapon.\n' +
-      '\n' +
-      'Mod Power Requirement: 450',
+      'Brands a target for 30s. Branded enemies that die leave a Brand at their location.\n\nReloading or Swapping detonates Brands dealing 225 → 675 damage. Additional Brands (3 Max) on the same target deal 50% damage. Slain enemies return 5% - 15% of Ammo and Mod Power to the weapon.',
     externalTokens: [`Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Alpha_/_Omega`],
     linkedItems: {
@@ -156,11 +152,7 @@ export const modItems: ModItem[] = [
     id: 's7ozpe',
     dlc: 'base',
     description:
-      'Funnels all current Mod Charges into the next shot. Projectile deals 65 - 195 direct damage and 65 - 195 Explosive damage per Charge consumed in a 5m radius. Explosion applies 75 - 225 BURNING damage over 10s per Charge consumed.\n' +
-      '\n' +
-      'Additional Charges consumed increase all damage by 5%. Max 5 Charges.\n' +
-      '\n' +
-      'Mod Power Requirement: 420',
+      'Funnels all current Mod Charges into the next shot. Projectile deals 65 → 195 direct damage and 65 → 195 Explosive damage per Charge consumed in a 5m radius. Explosion applies 75 → 225 BURNING damage over 10s per Charge consumed.\n\nAdditional Charges consumed increase all damage by 5%. Max 5 Charges.',
     externalTokens: [`Explosive Damage`, `Amplitude`],
     wikiLinks: [`https://remnant.wiki/Star_Shot`],
     linkedItems: {
@@ -210,11 +202,7 @@ export const modItems: ModItem[] = [
     id: 'yxxajn',
     dlc: 'base',
     description:
-      'Fires a devastating blast with penetrates through all enemies in its path. Deals 150 - 450 damage with a 25% Critical damage bonus, and 3x additional stagger.\n' +
-      '\n' +
-      'Bloodline damage increases by 50% for each enemy penetrated.\n' +
-      '\n' +
-      'Mod Power Requirement: 350',
+      'Fires a devastating blast which penetrates through all enemies in its path. Deals 150 → 450 damage with a 25% Critical damage bonus, and 3x additional stagger.\n\nBloodline damage increases by 50% for each enemy penetrated.',
     wikiLinks: [`https://remnant.wiki/Merciless`],
     linkedItems: {
       weapon: {
@@ -231,9 +219,7 @@ export const modItems: ModItem[] = [
     id: 'tw8tbh',
     dlc: 'base',
     description:
-      'While active, grants unlimited Reserve Ammo, increases Reload Speed by 50%, and shots appy 250 BLEEDING damage over 10s. If 3 shot hit a Weakspot reloading, Merciless will automatically perform a quick Reload. Lasts 13s.\n' +
-      '\n' +
-      'Mod Power Requirement: 1,250',
+      'While active, grants unlimited Reserve Ammo, increases Reload Speed by 50%, and shots appy 250 → 750  damage over 10s. If 3 shot hit a Weakspot reloading, Merciless will automatically perform a quick Reload. Lasts 13s.',
     wikiLinks: [`https://remnant.wiki/Corrupted_Merciless`],
     linkedItems: {
       weapon: {
@@ -300,11 +286,7 @@ export const modItems: ModItem[] = [
     id: 'dxnd9s',
     dlc: 'base',
     description:
-      'Drives electrified rods which tether to other rods within 10m. Tethers last 10s and deal 20 -  60 SHOCK damage per second. \n' +
-      '\n' +
-      ' Targets take  50 -  150 SHOCK damage per second, and  25% damage per extra rod. Increases  1.5x if linked to another rod. Rods in the same target will not link. \n' +
-      '\n' +
-      ' Mod Power Requirment: 450',
+      'Drives electrified rods which tether to other rods within 10m. Tethers last 10s and deal 20 → 60 SHOCK damage per second. \n\n Targets take 50 → 150 SHOCK damage per second, and 25% damage per extra rod. Increases 1.5x if linked to another rod. Rods in the same target will not link.',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Enigma`],
     linkedItems: {
@@ -369,9 +351,7 @@ export const modItems: ModItem[] = [
     id: '2nMTRG',
     dlc: 'base',
     description:
-      'Conjures a 5m anomalous Cube Room which grants allies an increase of 50% Heat Decay Rate, reduces Heat Generation per round when firing weapons that Overheat by 15% and automatically generates missing reserve ammo per second. Lasts 15s.\n' +
-      '\n' +
-      'Mod Power Requirement: 1,000',
+      'Conjures a 5m anomalous Cube Room which grants allies an increase of 75% Heat Decay Rate, reduces Heat Generation per round when firing weapons that Overheat by 20% and automatically generates missing reserve ammo per second. Lasts 15s.',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Corrupted_Cube_Gun`],
     linkedItems: {
@@ -389,11 +369,7 @@ export const modItems: ModItem[] = [
     id: '1bfanq',
     dlc: 'base',
     description:
-      'Generates a Cube Shield with absorbs up to 500 - 1,500 damage from incoming enemy projectiles. Lasts 15s.\n' +
-      '\n' +
-      'Reactivating fires the Cube Shield with damages enemies as it travels. Damage is increased if the Cube Shield has absorbed enemy projectile damage before firing.\n' +
-      '\n' +
-      'Mod Power Requirement: 1,000',
+      'Generates a Cube Shield with absorbs up to 500 → 1500 damage from incoming enemy projectiles. Lasts 15s.\n\nReactivating fires the Cube Shield with damages enemies as it travels. Damage is increased if the Cube Shield has absorbed enemy projectile damage before firing.',
     wikiLinks: [`https://remnant.wiki/Cube_Gun`],
     linkedItems: {
       weapon: {
@@ -426,9 +402,7 @@ export const modItems: ModItem[] = [
     id: 'ysz4fw',
     dlc: 'base',
     description:
-      'Fires a cluster bomb which detonates on impact across 2.5m. Each cluster deals up to 50 - 150 damage per explosion within 3.5m.\n' +
-      '\n' +
-      'Mod Power Requirement: 1,000',
+      'Fires a cluster bomb which detonates on impact across 2.5m. Each cluster deals up to 50 → 150 damage per explosion within 3.5m.',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Corrupted_Meridian`],
     linkedItems: {
@@ -447,11 +421,7 @@ export const modItems: ModItem[] = [
     id: 'k7z7rz',
     dlc: 'dlc2',
     description:
-      "Disables automatic BLOWBACK, while increasing Thorn's Reload Speed by 25%, and Fire Rate by 15%.\n" +
-      '\n' +
-      'Reactivating the Mod will trigger an EMPOWERED BLOWBACK, which detonates all needles at once for 100% additional damage. Lasts 20s.\n' +
-      '\n' +
-      'Mod Power Requirement: 1,000',
+      "Disables automatic BLOWBACK, while increasing Thorn's Reload Speed by 25%, and Fire Rate by 15%.\n\nReactivating the Mod will trigger an EMPOWERED BLOWBACK, which detonates all needles at once for 100% additional damage. Lasts 20s.",
     wikiLinks: [`https://remnant.wiki/Thorn`],
     linkedItems: {
       weapon: {
@@ -468,11 +438,7 @@ export const modItems: ModItem[] = [
     id: 'd3q99g',
     dlc: 'base',
     description:
-      'Applies Death Brand to all non-allies within 25m, increasing incoming damage by 10%. Enemies killed while bearing the Death Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm.\n' +
-      '\n' +
-      'Echoes are drawn to any survivor who walks within 3m, increasing Weakspot Damage dealt by 10% for 10s.\n' +
-      '\n' +
-      'Mod Power Requirement: 850',
+      'Applies Death Brand to all non-allies within 25m, increasing incoming damage by 10%. Enemies killed while bearing the Death Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm.\n\nEchoes are drawn to any survivor who walks within 3m, increasing Weakspot Damage dealt by 10% for 10s.',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Corrupted_Rune_Pistol`],
     linkedItems: {
@@ -527,11 +493,7 @@ export const modItems: ModItem[] = [
     id: 'ybej3w',
     dlc: 'base',
     description:
-      'Enter the Nightmare Realm. Nightfall gains infinite Ammo, a 25% Fire Rate increase, 10% Lifesteal, and becomes fully automatic. The wielder becomes significantly harder to hit while moving.\n' +
-      '\n' +
-      'Disables other weapons and Skills for the duration, or until Dreadwalker is deactivated. Lasts 10s.\n' +
-      '\n' +
-      'Mod Power Requirement: 1,250',
+      'Enter the Nightmare Realm. Nightfall gains infinite Ammo, a 25% Fire Rate increase, 10% Lifesteal, and becomes fully automatic. The wielder becomes significantly harder to hit while moving.\n\nDisables other weapons and Skills for the duration, or until Dreadwalker is deactivated. Lasts 10s.',
     wikiLinks: [`https://remnant.wiki/Nightfall`],
     linkedItems: {
       weapon: {
@@ -617,11 +579,7 @@ export const modItems: ModItem[] = [
     id: '3xf7i2',
     dlc: 'base',
     description:
-      'Recalls bolts which deal 30 - 90 damage when pulled from a target and when striking targets on their return. Recalled bolts grant 2% of Max Health.\n' +
-      '\n' +
-      'Recalled bolts can also overfill Sorrow up to +5. Any additional bolts will be returned to reserves.\n' +
-      '\n' +
-      'Mod Power Requirement: 600',
+      'Recalls bolts which deal 30 → 90 damage when pulled from a target and when striking targets on their return. Recalled bolts grant 2% of Max Health.\n\nRecalled bolts can also overfill Sorrow up to +5. Any additional bolts will be returned to reserves.',
     externalTokens: [`Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Sorrow`],
     linkedItems: {
@@ -639,9 +597,7 @@ export const modItems: ModItem[] = [
     id: 'hpfdzp',
     dlc: 'base',
     description:
-      'Fires an explosive round that deals up to 175 - 525 FIRE damage within 9m and applies BURNING, dealing 250 - 750 FIRE damage over 5s.\n' +
-      '\n' +
-      'Mod Power Requirement: 650',
+      'Fires an explosive round that deals up to 175 → 525 FIRE damage within 9m and applies BURNING, dealing 250 → 750 FIRE damage over 10s.',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Hellfire`],
     linkedItems: {
@@ -792,11 +748,7 @@ export const modItems: ModItem[] = [
     id: 'D8obdv',
     dlc: 'base',
     description:
-      'Funnels all current Mod Charges into a powerful penetrating rail dealing 100 - 300 base damage which is increased per Charge consumed. Max 5 Charges.\n' +
-      '\n' +
-      'Consuming a Charge refills 20% of the Primary Magazine.\n' +
-      '\n' +
-      'Mod Power Requirement: 340',
+      'Funnels all current Mod Charges into a powerful penetrating rail dealing 100 → 300 base damage which is increased per Charge consumed. Max 5 Charges.\n\nConsuming a Charge refills 20% of the Primary Magazine.',
     wikiLinks: [`https://remnant.wiki/Corrupted_Savior`],
     linkedItems: {
       weapon: {
@@ -813,11 +765,7 @@ export const modItems: ModItem[] = [
     id: 'kep3kb',
     dlc: 'base',
     description:
-      'Fires a highly compressed sphere which creates a large Gravity Well on contact, pulling in enemies for 4s.\n' +
-      '\n' +
-      'When the Gravity Well expires, it deals 375 - 1,125 damage within 10m. Adds 250 - 750 damage per enemy and divides total damage among all enemies.\n' +
-      '\n' +
-      'Mod Power Requirement: 1,500',
+      'Fires a highly compressed sphere which creates a large Gravity Well on contact, pulling in enemies for 4s.\n\nWhen the Gravity Well expires, it deals 375 → 1125 damage within 10m. Adds 250 → 750 damage per enemy and divides total damage among all enemies.',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Starkiller`],
     linkedItems: {
@@ -835,11 +783,7 @@ export const modItems: ModItem[] = [
     id: 'anhbhf',
     dlc: 'base',
     description:
-      'When Mod Power is full, Primary Fire becomes Empowered and highlights enemies it strikes.\n' +
-      '\n' +
-      'Activating the Mod calls down a Guardian Sword on enemies struck by an Empowered Energy Disc. Swords deal 150 - 450 damage and 3x stagger within 3m.\n' +
-      '\n' +
-      'Mod Power Requirement: 750',
+      'When Mod Power is full, Primary Fire becomes Empowered and highlights enemies it strikes.\n\nActivating the Mod calls down a Guardian Sword on enemies struck by an Empowered Energy Disc. Swords deal 150 → 450 damage and 3x stagger within 3m.',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Twisted_Arbalest`],
     linkedItems: {
@@ -857,9 +801,7 @@ export const modItems: ModItem[] = [
     id: 'WzXG4x',
     dlc: 'base',
     description:
-      "Imbues the Arbalest with the power of Yaesha's corrupted guardian, increases Fire Rate by 20%, reduces Recoil and Sway by 25% and each disc impact with an enemy explodes over 3.5m for 69 - 207 damage. Lasts 15s.\n" +
-      '\n' +
-      'Mod Power Requirement: 1,250',
+      "Imbues the Arbalest with the power of Yaesha's corrupted guardian, increases Fire Rate by 20%, reduces Recoil and Sway by 25% and each disc impact with an enemy explodes over 3.5m for 69 → 207 damage. Lasts 15s.",
     externalTokens: [`Amplitude`, 'Explosive Damage'],
     wikiLinks: [`https://remnant.wiki/Corrupted_Arbalest`],
     linkedItems: {
@@ -921,9 +863,7 @@ export const modItems: ModItem[] = [
     id: 's49h0c',
     dlc: 'base',
     description:
-      "Forces open Plasma Cutter's heat vents dispersing all heat. While active, Plasma Cutter generates 50% less heat, and ramping damage cap is increased to 3x Damage. Overheats automatically when deactivated. Lasts 20s.\n" +
-      '\n' +
-      'Mod Power Requirement: 850',
+      "Forces open Plasma Cutter's heat vents dispersing all heat. While active, Plasma Cutter generates 50% less heat, and ramping damage cap is increased to 3x Damage. Overheats automatically when deactivated. Lasts 20s.",
     wikiLinks: [`https://remnant.wiki/Plasma_Cutter`],
     linkedItems: {
       weapon: {

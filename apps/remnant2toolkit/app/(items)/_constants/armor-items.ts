@@ -25,7 +25,7 @@ export const armorItems: ArmorItem[] = [
   {
     category: 'helm',
     name: "Bandit's Mask",
-    saveFileSlug: 'Armor_Body_Bandit_C',
+    saveFileSlug: 'Armor_Head_Bandit_C',
     imagePath: '/items/armors/banditsmask.png',
     id: 'v66pgu',
     dlc: 'base',

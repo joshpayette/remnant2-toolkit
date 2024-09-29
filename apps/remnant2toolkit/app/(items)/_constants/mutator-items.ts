@@ -116,7 +116,8 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'dlc3',
     tags: [],
     externalTokens: ['Explosive Damage', 'Amplitude'],
-    description: `Each 10% of this weapon's magazine spent, cause an explosion for 5 Explosive Damage to targets within 0.5m of impact location.`,
+    description:
+      "Each 10% of this weapon's magazine spent, cause an explosion for 5 Explosive Damage to targets within 0.5m of impact location.\n\nLevel 10: Increases this weapon's explosive damage by 20%.",
     maxLevelBonus: `Increases this weapon's explosive damage by 20%.`,
     wikiLinks: [`https://remnant.wiki/Detonator`],
     location: { world: `N'Erud`, dungeon: ['Agronomy Sector'] },
@@ -343,7 +344,8 @@ export const mutatorItems: MutatorItem[] = [
     id: '9154v1',
     dlc: 'dlc3',
     tags: ['Ranged Damage', 'Reload Speed'],
-    description: `Increases the attached weapon's Ranged Damage by 15% → 25% after being stowed for 2s. Lasts 7s upon being brandished.`,
+    description:
+      "Increases the attached weapon's Ranged Damage by 15% → 25% after being stowed for 2s. Lasts 7s upon being brandished.",
     maxLevelBonus: `Automatically reloads the attached weapon after being stowed for 2s.`,
     wikiLinks: [`https://remnant.wiki/Hidden_Power`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
@@ -358,7 +360,8 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'dlc3',
     tags: [],
     description: `Increases Charged Melee Stamina Cost by 65%. Increases Charged Melee Damage by 25%.`,
-    maxLevelBonus: `Level 10: Charged Melee Hits increase Stamina Recovery Rate by 100% for 3s.`,
+    maxLevelBonus:
+      'Charged Melee Hits increase Stamina Recovery Rate by 100% for 3s.',
     wikiLinks: [`https://remnant.wiki/Hyper_Charger`],
     location: { world: `N'Erud`, dungeon: ['Logistics Bridge'] },
   },
@@ -386,7 +389,8 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'dlc3',
     tags: [],
     description: `Spending 20% of this weapon's magazine grants a SHIELD for 5% of Max Health for 10s. Max 25% SHIELD.`,
-    maxLevelBonus: `Level 10: Increases Ranged Critical Chance for this weapon by 10% when SHIELD is above 10% of Max Health.`,
+    maxLevelBonus:
+      'Increases Ranged Critical Chance for this weapon by 10% when SHIELD is above 10% of Max Health.',
     wikiLinks: [`https://remnant.wiki/Insulator`],
     location: { world: `N'Erud`, dungeon: 'Aberration' },
   },
