@@ -31,7 +31,7 @@ function getVideoUrlType(
  * @example
  * removeAllParamsExceptV('https://www.youtube.com/watch?v=4kIQKHxZGS8&si=XXXX
  */
-function removeAllParamsExceptV(videoUrl: string): string {
+export function removeAllParamsExceptV(videoUrl: string): string {
   const url = new URL(videoUrl);
   const vParam = url.searchParams.get('v');
 

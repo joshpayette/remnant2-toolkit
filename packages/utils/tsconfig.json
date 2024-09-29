@@ -4,8 +4,9 @@
     "module": "esnext",
     "moduleResolution": "Bundler",
     "lib": ["dom", "ES2015"],
-    "types": ["jest", "node"]
+    "outDir": "dist",
+    "rootDir": "src"
   },
-  "include": ["."],
-  "exclude": ["dist", "build", "node_modules"]
+  "include": ["src"],
+  "exclude": ["dist", "node_modules"]
 }

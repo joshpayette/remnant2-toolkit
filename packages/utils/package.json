@@ -9,9 +9,6 @@
     "test": "jest",
     "typecheck": "tsc --noEmit"
   },
-  "files": [
-    "dist/**"
-  ],
   "exports": {
     ".": "./src/index.ts"
   },
