@@ -311,9 +311,7 @@ export const weaponItems: WeaponItem[] = [
     id: 'p7wc7k',
     dlc: 'base',
     description:
-      'An ethereal weapon that seems to resonate.\n' +
-      '\n' +
-      'Can be charged for more damage. Perfect release after Charge for maximum damage.',
+      'An ethereal weapon that seems to resonate.\n\nCan be charged for more damage. Perfect release after Charge for maximum damage.',
     wikiLinks: [`https://remnant.wiki/Crescent_Moon`],
     linkedItems: {
       mod: {
@@ -460,7 +458,8 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/items/weapons/merciless.png',
     id: 'g3esv1',
     dlc: 'base',
-    description: `Fires tooth-like flechettes. When weapon reticle is fully compressed, flechettes apply 200 - 600 BLEEDING damage over 10s.`,
+    description:
+      'Fires tooth-like flechettes. When weapon reticle is fully compressed, flechettes apply 200 → 600 BLEED damage over 10s.',
     wikiLinks: [`https://remnant.wiki/Merciless`],
     location: { world: 'Yaesha', dungeon: ["Ravager's Lair"] },
     linkedItems: {
@@ -515,9 +514,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'dlc2',
     id: 'WjE2nZ',
     description:
-      'Fires concentrated sand. Sustained primary fire and Sandstorm hits apply EXPOSED for 1s. Max 15s.\n' +
-      '\n' +
-      'EXPOSED: Target receives 15% additional damage from all sources.',
+      'Fires concentrated sand. Sustained primary fire and Sandstorm hits apply EXPOSED for 1s. Max 15s.\n\nEXPOSED: Target receives 15% additional damage from all sources.',
     wikiLinks: [`https://remnant.wiki/Monolith`],
     location: { world: 'Yaesha', dungeon: ['Bloodless Throne'] },
     linkedItems: {
@@ -811,7 +808,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/items/weapons/sparkfireshotgun.png',
     id: '3r9jm7',
     description:
-      'Fires incendiary shells that apply BURNING which deals 30 - 90 FIRE damage over 3 seconds.',
+      'Fires incendiary shells that apply BURNING which deals 30 → 90 FIRE damage over 3 seconds.',
     wikiLinks: [`https://remnant.wiki/Sparkfire_Shotgun`],
     location: { world: 'Losomn', dungeon: ['Derelict Lighthouse'] },
     damage: 100,
@@ -2299,10 +2296,7 @@ export const weaponItems: WeaponItem[] = [
     id: '0kob6g',
     dlc: 'dlc3',
     tags: [],
-    description:
-      `Fires a tight grouping of World Stone slugs. Hits rip away a small portion of the enemy, sending it to another realm.\n` +
-      '\n' +
-      `Incapable of standard Mod Generation.`,
+    description: `Fires a tight grouping of World Stone slugs. Hits rip away a small portion of the enemy, sending it to another realm.\n\nIncapable of standard Mod Generation.`,
     wikiLinks: [`https://remnant.wiki/Redeemer`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
     damage: 69,

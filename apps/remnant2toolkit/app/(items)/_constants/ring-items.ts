@@ -697,10 +697,7 @@ export const ringItems: RingItem[] = [
     id: 'zeA523',
     tags: [],
     externalTokens: ['Amplitude'],
-    description:
-      `While in combat, Crouching or Combat Slide generates a stationary 3m x 1.5m Energy Shield with 700 Health which blocks enemy projectiles. Lasts 10s or until broken by damage.\n` +
-      '\n' +
-      `Can only happen once every 10s after expiring.`,
+    description: `While in combat, Crouching or Combat Slide generates a stationary 3m x 1.5m Energy Shield with 700 Health which blocks enemy projectiles. Lasts 10s or until broken by damage.\n\nCan only happen once every 10s after expiring.`,
     wikiLinks: [`https://remnant.wiki/Combat_Shield_Generator`],
     dlc: 'dlc3',
     location: { world: `N'Erud`, dungeon: ['Mucid Terrarium'] },
@@ -726,9 +723,7 @@ export const ringItems: RingItem[] = [
     dlc: 'dlc2',
     tags: ['Stagger', 'Grey Health', 'Summon'],
     description:
-      "When the wearer's Summon enters the battlefield, conjure a 5m Summoning Circle. Allies in the Summoning Circle have their Stagger Level reduced by 1 and regenerates 5 Grey Health per second. Lasts 10s.\n" +
-      '\n' +
-      'Can only happen once every 10s after expiring.',
+      "When the wearer's Summon enters the battlefield, conjure a 5m Summoning Circle. Allies in the Summoning Circle have their Stagger Level reduced by 1 and regenerates 5 Grey Health per second. Lasts 10s.\n\nCan only happen once every 10s after expiring.",
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Conjurer's_Circle`],
     location: { world: 'Yaesha', dungeon: ['Infested Abyss'] },
@@ -1257,10 +1252,7 @@ export const ringItems: RingItem[] = [
     saveFileSlug: 'Ring_FeedingTube_C', // TODO Check
     id: 'ic2sn8',
     tags: [],
-    description:
-      `While in combat, auto-consume the compatible item in the first quick-slot every 30s. Increases Consumable and Relic Use Speed by 10%.\n` +
-      '\n' +
-      `Not compatible with Concoctions, Grenades and some Unique Consumables.`,
+    description: `While in combat, auto-consume the compatible item in the first quick-slot every 30s. Increases Consumable and Relic Use Speed by 10%.\n\nNot compatible with Concoctions, Grenades and some Unique Consumables.`,
     dlc: 'base',
     wikiLinks: [`https://remnant.wiki/Feeding_Tube`],
     location: { world: `N'Erud`, dungeon: 'World Drop' },
@@ -1797,8 +1789,7 @@ export const ringItems: RingItem[] = [
     saveFileSlug: 'Ring_PainlessObsidian_C',
     id: '6y14c4',
     tags: ['Grey Health', 'Damage Reduction'],
-    description:
-      'When Grey Health is present gain HASTE and 1 stack of BULWARK.',
+    description: 'When Grey Health is present gain HASTE and 1 stack of HASTE.',
     wikiLinks: [`https://remnant.wiki/Painless_Obsidian`],
     location: { world: 'Losomn', dungeon: 'World Drop' },
     dlc: 'base',
@@ -2111,7 +2102,8 @@ export const ringItems: RingItem[] = [
     id: 'RDi2ad',
     dlc: 'base',
     tags: [],
-    description: `Allows Heavy Weapon Ammo to gradually regenerate while in both Heavy Carry or Turret modes. Doubles the stowed Ammo Regeneration Rate of Heavy Weapons.`,
+    description:
+      "Allows N'Erudian Tech to gradually regenerate while both Deployed or Stowed. While Deployed, Tech will regenerate at 75% of the normal value. While Stowed, Tech regeneration rate is doubled.",
     wikiLinks: [`https://remnant.wiki/Ring_Of_Ordnance`],
     location: { world: `N'Erud`, dungeon: 'World Drop' },
   },
@@ -2394,7 +2386,8 @@ export const ringItems: RingItem[] = [
     saveFileSlug: 'Ring_ShieldAlternator_C', // TODO Check
     id: 'fsh7tv',
     tags: [],
-    description: `Activating a Mod that costs 100 Mod Power or greater, generates a SHIELD for 23% of Max Health. Lasts 15s. Cannot stack with itself.`,
+    description:
+      'Activating a Mod that costs 100 Mod Power or greater, generates a SHIELD for 20% of Max Health. Lasts 15s. Cannot stack with itself.',
     wikiLinks: [`https://remnant.wiki/Shield_Alternator`],
     dlc: 'dlc3',
     location: { world: `N'Erud`, dungeon: 'World Drop' },

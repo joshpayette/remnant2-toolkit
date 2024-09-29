@@ -97,9 +97,7 @@ export const concoctionItems: ConcoctionItem[] = [
     dlc: 'base',
     tags: ['Damage Reduction', 'Consumable'],
     description:
-      'Increases Damage Reduction by 6.5%. Lasts 60m and will stay in effect after death.\n' +
-      '\n' +
-      'Only one concoction may be active at a time.',
+      'Increases Damage Reduction by 6.5%.\n\nConcoctions will stay in effect after death. Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Meat_Shake`],
     location: { world: `Ward 13`, dungeon: 'Quest' },
   },
@@ -112,9 +110,7 @@ export const concoctionItems: ConcoctionItem[] = [
     id: 'yduuj3',
     dlc: 'base',
     description:
-      'Increases Experience Gains by 15%. Lasts 60m and will stay in effect after death.\n' +
-      '\n' +
-      'Only one Concoction may be active at a time.',
+      'Increases Experience Gains by 15%.\n\nConcoctions will stay in effect after death. Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Mudtooth's_Elixir`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
@@ -126,10 +122,7 @@ export const concoctionItems: ConcoctionItem[] = [
     id: 'ru74g9',
     dlc: 'base',
     tags: ['Consumable'],
-    description:
-      `Grants 1 random Concoction effect. Ignores concoction limit.\n` +
-      '\n' +
-      `Concoctions will stay in effect after death.`,
+    description: `Grants 1 random Concoction effect. Ignores concoction limit.\n\nConcoctions will stay in effect after death.`,
     wikiLinks: [`https://remnant.wiki/Mudtooth's_Snake_Oil`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
@@ -142,9 +135,7 @@ export const concoctionItems: ConcoctionItem[] = [
     dlc: 'base',
     tags: ['Stamina', 'Consumable'],
     description:
-      'Increases Max Stamina by 20. Lasts 60m and will stay in effect after death.\n' +
-      '\n' +
-      'Only one Concoction may be active at a time.',
+      'Increases Max Stamina by 20.\n\nConcoctions will stay in effect after death. Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Mudtooth's_Stew`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
     stamina: 25,
@@ -158,8 +149,7 @@ export const concoctionItems: ConcoctionItem[] = [
     dlc: 'base',
     tags: ['Health', 'Consumable'],
     description:
-      'Increases Max Health by 20. Lasts 60m and will stay in effect after death.\n' +
-      'Only one Concoction may be active at a time.',
+      'Increases Max Health by 20.\n\nConcoctions will stay in effect after death. Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Mudtooth's_Tonic`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
     health: 20,
@@ -171,7 +161,8 @@ export const concoctionItems: ConcoctionItem[] = [
     saveFileSlug: 'Consumable_NumbingAgent_C', // TODO Check
     id: 'd715ws',
     tags: ['Grey Health', 'Consumable'],
-    description: `Increases the hits that can be taken before losing Grey Health by 1. Lasts 60m and will stay in effect after death.`,
+    description:
+      'Increases the hits that can be taken before losing Grey Health by 1. Lasts 60m and will stay in effect after death.\n\nOnly one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Numbing_Agent`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
     dlc: 'dlc3',
@@ -185,9 +176,7 @@ export const concoctionItems: ConcoctionItem[] = [
     dlc: 'base',
     tags: ['Heal', 'Consumable'],
     description:
-      'Regenerates 1 Health per second. Lasts 60m and will stay in effect after death.\n' +
-      '\n' +
-      'Only one Concoction may be active at a time.',
+      'Regenerates 1 Health per second.\n\nConcoctions will stay in effect after death. Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Root_Water`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
@@ -200,9 +189,7 @@ export const concoctionItems: ConcoctionItem[] = [
     dlc: 'base',
     tags: ['Grey Health', 'Heal', 'Consumable'],
     description:
-      'Increases Grey Health Conversion by 20% and Grey Health Regen by 2 per second. Lasts 60m and will stay in effect after death.\n' +
-      '\n' +
-      'Only one Concoction may be active at a time.',
+      'Increases Grey Health Conversion by 20% and Grey Health Regen by 2 per second.\n\nConcoctions will stay in effect after death. Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Sacred_Lakewater`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
@@ -215,9 +202,7 @@ export const concoctionItems: ConcoctionItem[] = [
     dlc: 'base',
     tags: ['Lifesteal', 'Consumable'],
     description:
-      'Increases Lifesteal by 2% of base damage. Lasts 60m and will stay in effect after death.\n' +
-      '\n' +
-      'Only one Concoction may be active at a time.',
+      'Grants 2% of base damage dealt as Lifesteal.\n\nConcoctions will stay in effect after death. Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Sanguine_Vapor`],
     location: {
       world: `N'Erud`,
@@ -233,9 +218,7 @@ export const concoctionItems: ConcoctionItem[] = [
     dlc: 'base',
     tags: ['Encumbrance', 'Consumable'],
     description:
-      'Reduces Encumbrance by 10. Lasts 60m and will stay in effect after death.\n' +
-      '\n' +
-      'Only one Concoction may be active at a time.',
+      'Reduces Encumbrance by 10.\n\nConcoctions will stay in effect after death. Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Strong_Drink`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
     weight: -10,
@@ -249,9 +232,7 @@ export const concoctionItems: ConcoctionItem[] = [
     dlc: 'base',
     tags: ['Spread', 'Recoil', 'Consumable'],
     description:
-      'Reduces Reticle Sway, Spread, and Gun Recoil by 25%. Lasts 60m and will stay in effect after death.\n' +
-      '\n' +
-      'Only one Concoction may be active at a time.',
+      'Reduces Reticle Sway, Spread, and Gun Recoil by 25%.\n\nConcoctions will stay in effect after death. Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Tranquility_Font`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
@@ -264,9 +245,7 @@ export const concoctionItems: ConcoctionItem[] = [
     dlc: 'base',
     tags: ['Stamina', 'Consumable'],
     description:
-      'Increases Stamina Recovery by 20 per second and reduces Stamina Regen Penalty by 50%. Lasts 60m and will stay in effect after death.\n' +
-      '\n' +
-      'Only one Concoction may be active at a time.',
+      'Increases Stamina Recovery by 20 per second and reduces Stamina Regen Penalty by 50%.\n\nConcoctions will stay in effect after death. Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Verdant_Tea`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
@@ -279,9 +258,7 @@ export const concoctionItems: ConcoctionItem[] = [
     dlc: 'base',
     tags: ['Reduce Skill Cooldown', 'Consumable'],
     description:
-      'Reduces Skill Cooldowns 10%. Lasts 60m and will stay in effect after death.\n' +
-      '\n' +
-      'Only one Concoction may be active at a time.',
+      'Reduces Skill Cooldowns 10%.\n\nConcoctions will stay in effect after death. Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Xenoplasm`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },

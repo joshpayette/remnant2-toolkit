@@ -47,9 +47,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['Perfect Dodge'],
     description:
-      'Increases All Damage by 10%. On Perfect Dodge, apply EXPOSED on the attacker and enemies with 3m of the wearer for 15s.\n' +
-      '\n' +
-      'EXPOSED: Target receives 15% additional damage from all sources.',
+      'Increases All Damage by 10%. On Perfect Dodge, apply EXPOSED on the attacker and enemies with 3m of the wearer for 15s.\n\nEXPOSED: Target receives 15% additional damage from all sources.',
     wikiLinks: [`https://remnant.wiki/Birthright_of_the_Lost`],
     location: { world: 'Losomn', dungeon: 'World Drop' },
   },
@@ -125,9 +123,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'dlc2',
     tags: ['Movement Speed'],
     description:
-      'On Relic Use, gain a stack of CALL OF THE DOE for 30s. Max 5 stacks.\n' +
-      '\n' +
-      'CALL OF THE DOE: Increases Movement Speed by 4% per stack. When CALL OF THE DOE expires, regain 1 Relic Charge per stack.',
+      'On Relic Use, gain a stack of CALL OF THE DOE for 30s. Max 5 stacks.\n\nCALL OF THE DOE: Increases Movement Speed by 4% per stack. When CALL OF THE DOE expires, regain 1 Relic Charge per stack.',
     wikiLinks: [`https://remnant.wiki/Cervine_Keepsake`],
     externalTokens: [`Misty Step`],
     location: {
@@ -335,10 +331,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'dlc3',
     tags: [],
     externalTokens: ['Explosive Damage'],
-    description:
-      `Increases Explosive Damage by 10% and AOE Size by 25%. Inflicting Explosive Damage applies EXPOSED for 5s. Max 15s.\n` +
-      '\n' +
-      `EXPOSED: Target receives 15% additional damage from all sources.`,
+    description: `Increases Explosive Damage by 10% and AOE Size by 25%. Inflicting Explosive Damage applies EXPOSED for 5s. Max 15s.\n\nEXPOSED: Target receives 15% additional damage from all sources.`,
     wikiLinks: ['https://remnant.wiki/Echo_Chamber'],
     location: { world: `N'Erud`, dungeon: ['Anathaeum Wek'] },
   },
@@ -404,9 +397,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['Status Effect'],
     description:
-      'Increases Status Effect damage by 20%. Directly applying a damaging Status Effect creates a 2m Explosion for 20% of its full damage.\n' +
-      '\n' +
-      'Each target can be affected once every 5s.',
+      'Increases Status Effect damage by 20%. Directly applying a damaging Status Effect creates a 2m Explosion for 20% of its full damage.\n\nEach target can be affected once every 5s.',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Energized_Neck_Coil`],
     location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
@@ -460,9 +451,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['Status Effect', 'All Damage'],
     description:
-      'Increases Status Effect Damage by 20%. Inflicting 4 or more unique Negative Status Effects on a target applies EXPOSED for 15s.\n' +
-      '\n' +
-      'EXPOSED: Target receives 15% additional damage from all sources.',
+      'Increases Status Effect Damage by 20%. Inflicting 4 or more unique Negative Status Effects on a target applies EXPOSED for 15s.\n\nEXPOSED: Target receives 15% additional damage from all sources.',
     wikiLinks: ['https://remnant.wiki/Fragrant_Thorn'],
     location: { world: 'Yaesha', dungeon: 'World Drop' },
   },
@@ -594,9 +583,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['Mod Power'],
     description:
-      'Doubles Base Skill Charges but increases all Skill Cooldowns by 25%.\n' +
-      '\n' +
-      'For Heavy Weapons, doubles Heavy Weapon Base Ammo instead.',
+      'Doubles Base Skill Charges but increases all Skill Cooldowns by 25%.\n\nFor Heavy Weapons, doubles Heavy Weapon Base Ammo instead.',
     wikiLinks: [`https://remnant.wiki/Hyperconductor`],
     location: { world: `N'Erud`, dungeon: ['Terminus Station'] },
   },
@@ -924,11 +911,14 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Ornate Amulet',
     imagePath: `/items/amulets/ornateamulet.png`,
-    saveFileSlug: 'Amulet_OrnateAmulet_C', // TODO Check
+    saveFileSlug: 'Amulet_OrnateAmulet_C',
     id: 'xz3z4k',
     dlc: 'dlc3',
     tags: [],
-    description: `Activating a Skill increases All Damage by 5% for 10s. Maximum 5 stacks.`,
+    description:
+      'Activating a Skill increases All Damage by 5% for 10s. Max 5 stacks.',
+    wikiLinks: ['https://remnant.wiki/Ornate_Amulet'],
+    location: { world: 'Ward 13', dungeon: 'Quest' },
   },
   {
     category: 'amulet',
@@ -1251,9 +1241,7 @@ export const amuletItems: AmuletItem[] = [
     id: 'nevpy5',
     dlc: 'base',
     description:
-      'Swapping Firearms releases a Toxic Cloud, which deals 60.5-170.5 ACID Damage to all enemies within 7m and applies CORROSION dealing 280 ACID damage over 7s.\n' +
-      '\n' +
-      'Can only happen once every 3s.',
+      'Swapping Firearms releases a Toxic Cloud, which deals 60.5-170.5 ACID Damage to all enemies within 7m and applies CORROSION dealing 280 ACID damage over 7s.\n\nCan only happen once every 3s.',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Toxic_Release_Valve`],
     location: { world: `N'Erud`, dungeon: [`Dormant N'Erudian Facility`] },

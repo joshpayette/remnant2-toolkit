@@ -436,10 +436,7 @@ export const armorItems: ArmorItem[] = [
     blightResistance: 2,
     wikiLinks: [`https://remnant.wiki/Nanoplated_Transmitter`],
     location: { world: `N'Erud`, dungeon: [`Withered Necropolis`] },
-    description:
-      `    The wide, dish-shaped helmet functions as a long-range radar to translate the wearer's thoughts into commands for their drone.\n` +
-      '\n' +
-      `“Cae'Loa Iturius was nominated to the Convocation on account of her innovative genius. However, she preferred the company of machines and artificial intelligence and rarely appeared in the public eye. Of the five Seekers, she was the least resistant to accepting my analysis of Alepsis-Taura.”`,
+    description: `The wide, dish-shaped helmet functions as a long-range radar to translate the wearer's thoughts into commands for their drone.\n\n“Cae'Loa Iturius was nominated to the Convocation on account of her innovative genius. However, she preferred the company of machines and artificial intelligence and rarely appeared in the public eye. Of the five Seekers, she was the least resistant to accepting my analysis of Alepsis-Taura.”`,
   },
   {
     category: 'helm',
@@ -995,10 +992,7 @@ export const armorItems: ArmorItem[] = [
     blightResistance: 4,
     wikiLinks: [`https://remnant.wiki/Nanoplated_Vestments`],
     location: { world: `N'Erud`, dungeon: [`Withered Necropolis`] },
-    description:
-      `The light-plated design of this armor protects not only flesh, but a[sic] highly advanced artificial nervous system that conducts stellar energy to power the entire suit.\n` +
-      '\n' +
-      `“Risynth Neko's reputation as a Seeker faltered in recent cycles due to a rumor arising about his addiction to ambit ember. His reputation was not the only one damaged during the civil debates regarding N'Erud jump,[sic] but it was one of the most momentous.”`,
+    description: `The light-plated design of this armor protects not only flesh, but a[sic] highly advanced artificial nervous system that conducts stellar energy to power the entire suit.\n\n“Risynth Neko's reputation as a Seeker faltered in recent cycles due to a rumor arising about his addiction to ambit ember. His reputation was not the only one damaged during the civil debates regarding N'Erud jump,[sic] but it was one of the most momentous.”`,
   },
   {
     category: 'torso',
@@ -1535,10 +1529,7 @@ export const armorItems: ArmorItem[] = [
     blightResistance: 2,
     wikiLinks: [`https://remnant.wiki/Nanoplated_Waist`],
     location: { world: `N'Erud`, dungeon: [`Withered Necropolis`] },
-    description:
-      `These boots end in a foot with three long toes, which help augment the wearer's balance and flexibility, allowing them to navigate complex and unforeseen environments.\n` +
-      '\n' +
-      `“Maxim Lar'Veli, the People's Seeker, was nominated to the Convocation despite his relatively low status within House Al'Maruun due to his earnest nature and passionate dedication to his people. He elected himself to stay awake alongside the Seeker Primis while the rest of the Drzyr entered cryostasis. For that short while, Precept Surus and I were his only confidants.”`,
+    description: `These boots end in a foot with three long toes, which help augment the wearer's balance and flexibility, allowing them to navigate complex and unforeseen environments.\n\n“Maxim Lar'Veli, the People's Seeker, was nominated to the Convocation despite his relatively low status within House Al'Maruun due to his earnest nature and passionate dedication to his people. He elected himself to stay awake alongside the Seeker Primis while the rest of the Drzyr entered cryostasis. For that short while, Precept Surus and I were his only confidants.”`,
   },
   {
     category: 'legs',
@@ -2075,10 +2066,7 @@ export const armorItems: ArmorItem[] = [
     blightResistance: 1,
     wikiLinks: [`https://remnant.wiki/Nanoplated_Hands`],
     location: { world: `N'Erud`, dungeon: [`Withered Necropolis`] },
-    description:
-      `These lithe vambraces taper to tightly fitted gloves made of thin, malleable metal sourced from passing asteroids caught in N'Erud's gravitational pull.\n` +
-      '\n' +
-      `“Axion Cadyar was a high-ranking member of House Al'Maruun and the eldest of the Convocation. It was only his demoralizing temper that kept him from becoming Seeker Primis. Though he and I engaged in countless debates, he could never shake his distrust of my artificial design.”`,
+    description: `These lithe vambraces taper to tightly fitted gloves made of thin, malleable metal sourced from passing asteroids caught in N'Erud's gravitational pull.\n\n“Axion Cadyar was a high-ranking member of House Al'Maruun and the eldest of the Convocation. It was only his demoralizing temper that kept him from becoming Seeker Primis. Though he and I engaged in countless debates, he could never shake his distrust of my artificial design.”`,
   },
   {
     category: 'gloves',

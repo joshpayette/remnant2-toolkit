@@ -12,9 +12,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'dlc1',
     tags: ['Status Effect', 'Status Duration'],
     description:
-      'Increases STATUS EFFECT duration against enemies by 10 - 100%.\n' +
-      '\n' +
-      'RITUALIST Archetype Trait',
+      'Increases STATUS EFFECT duration against enemies by 10 - 100%.\n\nRITUALIST Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Affliction`],
     linkedItems: {
       archetype: {
@@ -74,9 +72,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     tags: ['Mod Cast Speed', 'Skill Cast Speed'],
     description:
-      'Increases Mod and Skill Casting Speed by 5 - 50%.\n' +
-      '\n' +
-      'ARCHON Archetype Trait.',
+      'Increases Mod and Skill Casting Speed by 5 - 50%.\n\nARCHON Archetype Trait.',
     wikiLinks: [`https://remnant.wiki/Flash_Caster`],
     linkedItems: {
       archetype: {
@@ -136,9 +132,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     tags: ['Damage Reduction'],
     description:
-      'Reduces Friendly Fire Damage Dealt and Received by 8% - 80%.\n' +
-      '\n' +
-      'HANDLER Archetype Trait.',
+      'Reduces Friendly Fire Damage Dealt and Received by 8% - 80%.\n\nHANDLER Archetype Trait.',
     wikiLinks: [`https://remnant.wiki/Kinship`],
     linkedItems: {
       archetype: {
@@ -198,9 +192,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     tags: ['Health'],
     description:
-      'Increases Health Regeneration by 0.15/s - 1.5/s.\n' +
-      '\n' +
-      'SUMMONER Archetype Trait',
+      'Increases Health Regeneration by 0.15/s - 1.5/s.\n\nSUMMONER Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Regrowth`],
     linkedItems: {
       archetype: {
@@ -220,13 +212,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     tags: ['Movement Speed'],
     description:
-      'Increases Movement Speed by 1% - 15%.\n' +
-      '\n' +
-      'Increases Environmental Movement Speed by 5% - 50%.\n' +
-      '\n' +
-      '(Vaulting, Ladders, Wading)\n' +
-      '\n' +
-      'EXPLORER Archetype Trait.',
+      'Increases Movement Speed by 1% - 15%.\n\nIncreases Environmental Movement Speed by 5% - 50%.\n\n(Vaulting, Ladders, Wading)\n\nEXPLORER Archetype Trait.',
     wikiLinks: [`https://remnant.wiki/Swiftness`],
     linkedItems: {
       archetype: {
@@ -246,9 +232,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     tags: ['Neutral Dodge', 'Perfect Dodge', 'Perfect Neutral Evade'],
     description:
-      'Increases Dodge Weight Threshold by 1.5 - 15.\n' +
-      '\n' +
-      'CHALLENGER Archetype Trait',
+      'Increases Dodge Weight Threshold by 1.5 - 15.\n\nCHALLENGER Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Strong_Back`],
     linkedItems: {
       archetype: {

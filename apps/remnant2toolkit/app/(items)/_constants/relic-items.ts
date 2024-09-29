@@ -9,9 +9,7 @@ export const relicItems: RelicItem[] = [
     id: 'LQho3X',
     dlc: 'dlc2',
     description:
-      'Innate 50% Use Speed bonus. One use, grants a SHIELD that prevents nearly all damage for 3s.\n' +
-      '\n' +
-      'Cannot prevent certain death mechanics.',
+      'Innate 50% Use Speed bonus. One use, grants a SHIELD that prevents nearly all damage for 3s.\n\nCannot prevent certain death mechanics.',
     wikiLinks: [`https://remnant.wiki/Bloodless_Heart`],
     location: { world: 'Yaesha', dungeon: [`Goddess's Rest`] },
   },
@@ -35,9 +33,7 @@ export const relicItems: RelicItem[] = [
     dlc: 'dlc1',
     id: 'm71h9m',
     description:
-      'Innate 50% Use Speed Bonus. Passively grants or removes 2 Health per sec until Health reaches 50%. On use, sets Health to 50%.\n' +
-      '\n' +
-      'Not affected by other healing items or perks.',
+      'Innate 50% Use Speed Bonus. Passively grants or removes 2 Health per sec until Health reaches 50%. On use, sets Health to 50%.\n\nNot affected by other healing items or perks.',
     wikiLinks: [`https://remnant.wiki/Broken_Heart`],
     location: { world: 'Losomn', dungeon: 'Quest' },
   },
@@ -143,9 +139,7 @@ export const relicItems: RelicItem[] = [
     dlc: 'dlc1',
     id: 'n9fm2r',
     description:
-      'On use, heals 100% Max Health and grants 10 Stacks of PAPER HEALTH. After 10s, each Stack is converted to 10% Grey Health.\n' +
-      '\n' +
-      'Dealing 75 Base Damage from any source removes 1 Stack of PAPER HEALTH.',
+      'On use, heals 100% Max Health and grants 10 Stacks of PAPER HEALTH. After 10s, each Stack is converted to 10% Grey Health.\n\nDealing 75 Base Damage from any source removes 1 Stack of PAPER HEALTH.',
     wikiLinks: [`https://remnant.wiki/Paper_Heart`],
     location: { world: 'Losomn', dungeon: ['Chamber of the Faithless'] },
   },
