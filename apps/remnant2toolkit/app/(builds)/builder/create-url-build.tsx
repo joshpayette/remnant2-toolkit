@@ -27,9 +27,11 @@ import { ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { ArmorItem } from '@/app/(items)/_types/armor-item';
 import { ConcoctionItem } from '@/app/(items)/_types/concotion-item';
 import { ConsumableItem } from '@/app/(items)/_types/consumable-item';
+import { FusionItem } from '@/app/(items)/_types/fusion-item';
 import { ModItem } from '@/app/(items)/_types/mod-item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { PerkItem } from '@/app/(items)/_types/perk-item';
+import { PrismItem } from '@/app/(items)/_types/prism-item';
 import { RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 import { RelicItem } from '@/app/(items)/_types/relic-item';
 import { RingItem } from '@/app/(items)/_types/ring-item';
@@ -108,6 +110,15 @@ function parseQueryString(searchParams: URLSearchParams): BuildState {
         if (amuletItem) buildState.items.amulet = amuletItem;
         break;
       }
+      case 'prism': {
+        if (!params) {
+          buildState.items.prism = null;
+          break;
+        }
+        const prismItem = PrismItem.fromParams(params);
+        if (prismItem) buildState.items.prism = prismItem;
+        break;
+      }
       case 'weapon': {
         if (!params) {
           buildState.items.weapon = [];
@@ -170,6 +181,15 @@ function parseQueryString(searchParams: URLSearchParams): BuildState {
         const relicFragmentItems = RelicFragmentItem.fromParams(params);
         if (relicFragmentItems)
           buildState.items.relicfragment = relicFragmentItems;
+        break;
+      }
+      case 'fusion': {
+        if (!params) {
+          buildState.items.fusion = [];
+          break;
+        }
+        const fusionItems = FusionItem.fromParams(params);
+        if (fusionItems) buildState.items.fusion = fusionItems;
         break;
       }
       case 'ring': {
