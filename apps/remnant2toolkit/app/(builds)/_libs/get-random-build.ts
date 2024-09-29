@@ -92,7 +92,8 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
       itemList?.filter(
         (item) =>
           RelicFragmentItem.isRelicFragmentItem(item) &&
-          item.color !== 'legendary',
+          item.color !== 'legendary' &&
+          !randomBuild.items.relicfragment.some((i) => i?.id === item.id),
       ),
     );
     randomBuild.items.relicfragment[index] =
