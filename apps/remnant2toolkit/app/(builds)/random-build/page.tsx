@@ -90,10 +90,8 @@ export default async function Page() {
 
   const randomBuildState =
     itemList && itemList.length > 0
-      ? getRandomBuild(itemList)
-      : getRandomBuild(
-          allItems.filter((item) => !FusionItem.isFusionItem(item)),
-        );
+      ? getRandomBuild(allItems) // TODO Fix this to work with your collection
+      : getRandomBuild(allItems);
 
   return (
     <div className="flex w-full flex-col items-center">
