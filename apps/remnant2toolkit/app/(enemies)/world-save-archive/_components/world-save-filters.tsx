@@ -155,7 +155,7 @@ export function WorldSaveFilters() {
     <Disclosure defaultOpen={true}>
       {({ open }) => (
         <div className="w-full">
-          <div className="border-b-primary-500 flex w-full flex-row items-end justify-end border-b py-2">
+          <div className="border-b-primary-500 flex w-full flex-row items-center justify-center border-b py-2">
             <div className="w-full pr-4">
               <BossNameFilter
                 value={unappliedFilters.bossName}
