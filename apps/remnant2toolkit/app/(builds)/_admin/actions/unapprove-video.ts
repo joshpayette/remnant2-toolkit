@@ -43,10 +43,16 @@ export default async function unapproveVideo(
     }
 
     const buildsWithVideo = await prisma.build.findMany({
-      where: { videoUrl: removeAllParamsExceptV(existingVideoUrl) },
+      where: {
+        videoUrl: removeAllParamsExceptV(existingVideoUrl),
+        id: { not: buildId },
+      },
     });
 
-    const buildIdsToUpdate = buildsWithVideo.map((build) => build.id);
+    const buildIdsToUpdate = [
+      buildId,
+      ...buildsWithVideo.map((build) => build.id),
+    ];
 
     const _buildUpdateResponse = await prisma.build.updateMany({
       where: {
