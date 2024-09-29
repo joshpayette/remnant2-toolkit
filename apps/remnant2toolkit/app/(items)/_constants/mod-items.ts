@@ -100,11 +100,7 @@ export const modItems: ModItem[] = [
     id: 'k7z7r2',
     dlc: 'base',
     description:
-      "Banishes enemies or allies into another dimension for 4s. When Banish ends, enemies take 1.25x - 1.5x the damage from the Repulsor's primary fire for 8s.\n" +
-      '\n' +
-      "Powerful enemies won't be banished, but will take increased damage from any Repulsor while debuffed.\n" +
-      '\n' +
-      'Mod Power Requirement: 250',
+      "Banishes enemies or allies into another dimension for 4s. When Banish ends, enemies take 1.25x → 1.5x the damage from the Repulsor's primary fire for 8s.Powerful enemies won't be banished, but will take increased damage from any Repulsor while debuffed.",
     externalTokens: [`Multiplicative Debuffs`],
     wikiLinks: [`https://remnant.wiki/Repulsor`],
     linkedItems: {
