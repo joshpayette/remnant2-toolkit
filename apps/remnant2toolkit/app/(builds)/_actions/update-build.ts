@@ -500,13 +500,6 @@ export async function updateBuild({
           response.isPublic &&
           !isPermittedBuilder(session.user.id);
 
-        console.info(
-          'isBuildDescriptionChanged',
-          isBuildDescriptionChanged,
-          existingBuild?.description,
-          response.description,
-        );
-
         if (isBuildDescriptionChanged) {
           await sendWebhook({
             webhook: 'modQueue',
