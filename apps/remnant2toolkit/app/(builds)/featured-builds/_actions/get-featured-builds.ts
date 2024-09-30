@@ -111,10 +111,13 @@ export async function getFeaturedBuilds({
         orderBySegment,
         whereConditions,
         searchText: trimmedSearchText,
+        percentageOwned: 95,
       }),
       communityBuildsCountQuery({
         whereConditions,
         searchText: trimmedSearchText,
+        percentageOwned: 95,
+        userId,
       }),
     ]);
 
@@ -136,10 +139,6 @@ export async function getFeaturedBuilds({
       build.buildItems = buildItems;
       build.buildTags = buildTags;
     }
-
-    builds.forEach((build) => {
-      console.log('build.percentageOwned', build.percentageOwned);
-    });
 
     return bigIntFix({ builds, totalBuildCount });
   } catch (e) {
