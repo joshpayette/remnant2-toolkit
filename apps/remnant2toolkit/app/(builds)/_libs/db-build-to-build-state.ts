@@ -63,6 +63,7 @@ export function dbBuildToBuildState(dbBuild: DBBuild): BuildState {
       prism: PrismItem.fromDBValue(buildItems),
     },
     name: dbBuild.name,
+    percentageOwned: dbBuild.percentageOwned,
     thumbnailUrl: dbBuild.thumbnailUrl,
     totalUpvotes: dbBuild.totalUpvotes,
     updatedAt: dbBuild.updatedAt,

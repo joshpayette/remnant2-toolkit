@@ -1,4 +1,5 @@
 import { type DefaultFilter } from '@/app/_types/default-filter';
+import { type PercentageOwned } from '@/app/(builds)/_components/filters/build-collection-filter';
 
 export interface BuildListFilters {
   amulet: string | DefaultFilter;
@@ -12,10 +13,10 @@ export interface BuildListFilters {
   releases: string[] | [DefaultFilter];
   searchText: string;
   patchAffected: boolean;
-  withCollection: boolean;
   withQuality: boolean;
   withVideo: boolean;
   withReference: boolean;
+  withCollection: PercentageOwned;
 }
 
 /** The keys used in the URL for the filters */

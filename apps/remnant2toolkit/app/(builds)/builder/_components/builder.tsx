@@ -449,25 +449,6 @@ export function Builder({
     buildState.items.archetype[0]?.linkedItems?.perks?.[0]?.name;
   const primePerk = perkItems.find((i) => i.name === primePerkName);
 
-  function countOwnedItems(items: BuildState['items']): string {
-    // Filter out skills and perks
-    const { skill: _skill, perk: _perk, ...filteredItems } = items;
-
-    const itemsArray = Object.values(filteredItems).flat();
-    if (!itemsArray) return '---';
-
-    const ownedItemsCount = itemsArray.reduce((acc, item) => {
-      if (!item) return acc;
-      return item.isOwned ? acc + 1 : acc;
-    }, 0);
-    const totalItemsCount = itemsArray.length;
-    const ownedPercentage = Math.round(
-      (ownedItemsCount / totalItemsCount) * 100,
-    );
-
-    return `${ownedItemsCount} / ${totalItemsCount} (${ownedPercentage}%)`;
-  }
-
   // #region Render
 
   return (
@@ -624,12 +605,12 @@ export function Builder({
               </p>
             </div>
           )}
-          {itemOwnershipPreference && (
+          {itemOwnershipPreference && buildState.percentageOwned && (
             <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
               <p className="text-left text-xs text-gray-400">
                 Item Ownership:{' '}
                 <span className="text-gray-300">
-                  {countOwnedItems(buildState.items)}
+                  {Number(buildState.percentageOwned).toFixed(0)}% Owned
                 </span>
               </p>
             </div>

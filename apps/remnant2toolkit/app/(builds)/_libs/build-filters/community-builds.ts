@@ -1,5 +1,6 @@
 import { Prisma, prisma } from '@repo/db';
 
+import { type PercentageOwned } from '@/app/(builds)/_components/filters/build-collection-filter';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
 type Props = {
@@ -9,7 +10,7 @@ type Props = {
   whereConditions: Prisma.Sql;
   orderBySegment: Prisma.Sql;
   searchText: string;
-  percentageOwned: 99 | 95 | 90 | 75 | 50;
+  percentageOwned: PercentageOwned;
 };
 
 export function communityBuildsQuery({

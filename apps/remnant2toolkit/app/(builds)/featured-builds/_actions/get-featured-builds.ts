@@ -20,7 +20,6 @@ import {
   buildTagsFilterToValues,
   limitByBuildTagsSegment,
 } from '@/app/(builds)/_libs/build-filters/limit-by-build-tags';
-import { limitByCollectionSegment } from '@/app/(builds)/_libs/build-filters/limit-by-collection';
 import { limitByPatchAffected } from '@/app/(builds)/_libs/build-filters/limit-by-patch-affected';
 import { limitToQualityBuilds } from '@/app/(builds)/_libs/build-filters/limit-by-quality';
 import { limitByReferenceLink } from '@/app/(builds)/_libs/build-filters/limit-by-reference-link';
@@ -95,7 +94,6 @@ export async function getFeaturedBuilds({
   ${limitToBuildsWithVideo(withVideo)}
   ${limitByPatchAffected(patchAffected)}
   ${limitToQualityBuilds(withQuality)}
-  ${limitByCollectionSegment(withCollection, userId)}
   `;
 
   const orderBySegment = getOrderBySegment(orderBy, true);
@@ -111,12 +109,12 @@ export async function getFeaturedBuilds({
         orderBySegment,
         whereConditions,
         searchText: trimmedSearchText,
-        percentageOwned: 95,
+        percentageOwned: withCollection,
       }),
       communityBuildsCountQuery({
         whereConditions,
         searchText: trimmedSearchText,
-        percentageOwned: 95,
+        percentageOwned: withCollection,
         userId,
       }),
     ]);

@@ -18,10 +18,6 @@ export const MINIMUM_QUALITY_DESCRIPTION_LENGTH = 200;
 export function BuildMiscFilter({ value, onChange }: Props) {
   const options = [
     {
-      label: `Only Owned Items`,
-      value: BUILD_FILTER_KEYS.WITHCOLLECTION,
-    },
-    {
       label: 'Only Builds w/ Video',
       value: BUILD_FILTER_KEYS.WITHVIDEO,
     },
