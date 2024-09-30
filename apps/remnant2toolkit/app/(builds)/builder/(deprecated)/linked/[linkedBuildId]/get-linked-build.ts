@@ -146,6 +146,7 @@ export async function getLinkedBuild(linkedBuildId: string): Promise<{
               duplicateCount: build.duplicateCount,
               variantIndex: 0,
               buildItems: build.BuildItems,
+              percentageOwned: 0, // TODO Fix this
             },
           };
         }),

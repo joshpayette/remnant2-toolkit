@@ -54,10 +54,13 @@ export async function getUserCreatedBuilds({
         orderBySegment,
         whereConditions,
         searchText: '',
+        percentageOwned: 0,
       }),
       communityBuildsCountQuery({
         whereConditions,
         searchText: '',
+        percentageOwned: 0,
+        userId,
       }),
     ]);
 

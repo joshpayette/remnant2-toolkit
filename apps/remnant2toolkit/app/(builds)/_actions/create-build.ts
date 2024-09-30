@@ -60,6 +60,7 @@ export async function createBuild({
       viewCount: 0,
       validatedViewCount: 0,
       duplicateCount: 0,
+      percentageOwned: 0,
       isVideoApproved: false,
     };
 

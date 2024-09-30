@@ -123,6 +123,7 @@ export function validateBuildState(buildState: unknown) {
     validatedViewCount: z.number(),
     duplicateCount: z.number(),
     variantIndex: z.number(),
+    percentageOwned: z.number(),
     items: z.object({
       helm: armorItemSchema.nullable(),
       torso: armorItemSchema.nullable(),

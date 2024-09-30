@@ -70,6 +70,7 @@ SELECT * FROM (
       FROM BuildItems
       JOIN UserItems ON BuildItems.itemId = UserItems.itemId
       WHERE UserItems.userId = ${userId}
+      AND BuildItems.category <> IN ('skill','prism','fusion','perk','helm','torso','legs','gloves')
       GROUP BY BuildItems.buildId
     ) as UserItemCounts ON Build.id = UserItemCounts.buildId
     ${whereConditions}
