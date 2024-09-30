@@ -208,12 +208,13 @@ export function BuildCard({
                 ) : null}
                 {buildState.percentageOwned > 0 && (
                   <Tooltip
-                    content={`You own ${Number(
+                    content={`You own >= ${Number(
                       buildState.percentageOwned,
-                    ).toFixed(0)}% of the items in this build`}
+                    ).toFixed(0)}% of the items in this build.`}
                   >
                     <BaseButton outline>
                       <span className="text-xs text-gray-300">
+                        {`>= `}
                         {Number(buildState.percentageOwned).toFixed(0)}% Owned
                       </span>
                     </BaseButton>

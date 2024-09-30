@@ -58,7 +58,7 @@ export const DEFAULT_BUILD_FILTERS = {
   rings: [DEFAULT_FILTER],
   searchText: '',
   patchAffected: false,
-  withCollection: 75,
+  withCollection: 0,
   withQuality: true,
   withVideo: false,
   withReference: false,
@@ -522,21 +522,21 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
                       value={unappliedFilters.withCollection}
                       onChange={handleCollectionChange}
                     />
-                    {unappliedFilters.withCollection && (
+                    {unappliedFilters.withCollection ? (
                       <div className="flex flex-col gap-y-2">
-                        {sessionStatus !== 'authenticated' && (
+                        {sessionStatus !== 'authenticated' ? (
                           <p className="text-accent1-500 text-sm">
                             If you are not logged in, the "Only Owned Items"
                             filter will not work.
                           </p>
-                        )}
+                        ) : null}
                         <p className="text-sm text-red-500">
                           If it seems like you aren't getting enough results,
                           try untoggling/toggling a single item in the Item
                           Tracker to force a refresh of your owned items.
                         </p>
                       </div>
-                    )}
+                    ) : null}
                   </div>
                 </div>
                 <div className="flex w-full items-center justify-end gap-x-4">

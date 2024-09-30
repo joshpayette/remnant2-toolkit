@@ -16,6 +16,10 @@ export type PercentageOwned = 99 | 95 | 90 | 75 | 50 | 0;
 export function BuildCollectionFilter({ value, onChange }: Props) {
   const options = [
     {
+      label: 'All',
+      value: 0,
+    },
+    {
       label: '>= 99% Owned',
       value: 99,
     },
