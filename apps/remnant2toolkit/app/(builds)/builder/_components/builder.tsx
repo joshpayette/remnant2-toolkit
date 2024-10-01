@@ -605,7 +605,7 @@ export function Builder({
               </p>
             </div>
           )}
-          {itemOwnershipPreference && buildState.percentageOwned && (
+          {itemOwnershipPreference && buildState.percentageOwned ? (
             <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
               <p className="text-left text-xs text-gray-400">
                 Item Ownership:{' '}
@@ -614,7 +614,7 @@ export function Builder({
                 </span>
               </p>
             </div>
-          )}
+          ) : null}
           {buildState.isPatchAffected && (
             <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
               <p className="border border-red-500 p-2 text-left text-xs font-bold text-red-500">

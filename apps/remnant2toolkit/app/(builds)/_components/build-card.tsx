@@ -214,7 +214,6 @@ export function BuildCard({
                   >
                     <BaseButton outline>
                       <span className="text-xs text-gray-300">
-                        {`>= `}
                         {Number(buildState.percentageOwned).toFixed(0)}% Owned
                       </span>
                     </BaseButton>

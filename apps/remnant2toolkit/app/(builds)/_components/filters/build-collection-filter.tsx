@@ -11,7 +11,7 @@ interface Props {
   onChange: (value: PercentageOwned) => void;
 }
 
-export type PercentageOwned = 99 | 95 | 90 | 75 | 50 | 0;
+export type PercentageOwned = 100 | 95 | 90 | 75 | 50 | 0;
 
 export function BuildCollectionFilter({ value, onChange }: Props) {
   const options = [
@@ -20,8 +20,8 @@ export function BuildCollectionFilter({ value, onChange }: Props) {
       value: 0,
     },
     {
-      label: '>= 99% Owned',
-      value: 99,
+      label: '100% Owned',
+      value: 100,
     },
     {
       label: '>= 95% Owned',
