@@ -78,6 +78,20 @@ export const mutatorItems: MutatorItem[] = [
   },
   {
     category: 'mutator',
+    name: 'Charged Wounds',
+    type: 'gun',
+    imagePath: '/items/mutators/chargedwounds.png',
+    saveFileSlug: 'MetaGem_ChargedWounds_C', // TODO Check
+    id: '77hc49',
+    dlc: 'dlc3',
+    tags: [],
+    description: `Increases this weapon's Fire Rate and Reload Speed by 2.5% → 5% per OVERLOADED entity within 15m. Max 5 stacks.`,
+    maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply OVERLOADED, dealing 75 → 225 SHOCK damage over 10s.`,
+    wikiLinks: [`https://remnant.wiki/Charged_Wounds`],
+    location: { world: `N'Erud`, dungeon: 'Quest' },
+  },
+  {
+    category: 'mutator',
     name: 'Deadly Calm',
     type: 'gun',
     imagePath: '/items/mutators/deadly_calm.png',
@@ -355,7 +369,8 @@ export const mutatorItems: MutatorItem[] = [
     id: 'mh4scd',
     dlc: 'dlc3',
     tags: [],
-    description: `Increases Charged Melee Stamina Cost by 65%. Increases Charged Melee Damage by 25%.`,
+    description:
+      'Increases Charged Melee Stamina Cost by 65%. Increases Charged Melee Damage by 25% → 50%.',
     maxLevelBonus:
       'Charged Melee Hits increase Stamina Recovery Rate by 100% for 3s.',
     wikiLinks: [`https://remnant.wiki/Hyper_Charger`],

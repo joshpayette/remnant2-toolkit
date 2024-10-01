@@ -216,6 +216,7 @@ export const BIOMES = [
       `Shockwire`,
       `Store Room`,
       `The Claw`,
+      `Security Drone Maze`,
     ],
   },
   {

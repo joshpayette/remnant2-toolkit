@@ -136,7 +136,7 @@ export const ringItems: RingItem[] = [
     id: 'ez01nk',
     tags: ['Critical Chance', 'Grey Health'], // The damage it causes is grey health
     description:
-      'Self-inflicts BLEEDING Status upon the wearer, causing 0.275 - 0.55 BLEEDING damage per second. Increases Critical Chance by 5%.',
+      'Self-inflicts BLEEDING Status upon the wearer, causing 0.275 - 0.55 BLEED damage per second. Increases Critical Chance by 5%.',
     wikiLinks: [`https://remnant.wiki/Atonement_Fold`],
     location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
@@ -328,7 +328,7 @@ export const ringItems: RingItem[] = [
     id: 'rw8rn0',
     tags: ['Charged Melee'],
     description:
-      'Charged Melee Attacks apply BLEEDING, dealing 620 BLEEDING damage over 20s.',
+      'Charged Melee Attacks apply BLEEDING, dealing 620 BLEED damage over 20s.',
     wikiLinks: [`https://remnant.wiki/Blood_Jewel`],
     location: { world: 'Yaesha', dungeon: ['The Forbidden Grove'] },
     dlc: 'base',
@@ -547,6 +547,22 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Mesmer`],
     location: { world: 'Yaesha', dungeon: ['Ancient Canopy', 'Luminous Vale'] },
     healthCap: 0.2,
+  },
+  {
+    category: 'ring',
+    name: 'Burden of the Protector',
+    imagePath: '/items/rings/burdenoftheprotector.png',
+    saveFileSlug: 'Ring_BurdenOfTheProtector_C', // TODO Check
+    id: '0d9eg9',
+    dlc: 'dlc3',
+    tags: [],
+    description: `Reduces incoming SHIELD Duration by 50%. Increases SHIELD amount by 15%.`,
+    wikiLinks: [`https://remnant.wiki/Burden_of_the_Protector`],
+    location: {
+      world: `N'Erud`,
+      biome: `N'Erud Underworld`,
+      injectable: `Security Drone Maze`,
+    },
   },
   {
     category: 'ring',
@@ -1497,6 +1513,17 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Impact Augment',
+    imagePath: '/items/rings/impactaugment.png',
+    saveFileSlug: 'Ring_ImpactAugment_C', // TODO Check
+    id: '9v791d',
+    description: `When a single source of Enemy Damage exceeds 15% of Max Health, increase All Damage dealt by 3% for 10s. Max 5 Stacks.`,
+    wikiLinks: [`https://remnant.wiki/Impact_Augment`],
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
+    dlc: 'base',
+  },
+  {
+    category: 'ring',
     name: 'Infinity Pocket',
     imagePath: '/items/rings/infinitypocket.png',
     saveFileSlug: 'Ring_InfinityPocket_C',
@@ -1790,7 +1817,8 @@ export const ringItems: RingItem[] = [
     saveFileSlug: 'Ring_PainlessObsidian_C',
     id: '6y14c4',
     tags: ['Grey Health', 'Damage Reduction'],
-    description: 'When Grey Health is present gain HASTE and 1 stack of HASTE.',
+    description:
+      'When Grey Health is present gain HASTE and 1 stack of BULWARK.',
     wikiLinks: [`https://remnant.wiki/Painless_Obsidian`],
     location: { world: 'Losomn', dungeon: 'World Drop' },
     dlc: 'base',
@@ -2588,6 +2616,18 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
+    name: 'Stone of Revelation',
+    imagePath: '/items/rings/stoneofrevelation.png',
+    saveFileSlug: 'Ring_StoneOfRevelation_C', // TODO Check
+    id: 'zmj6n9',
+    tags: [],
+    description: `Increases Mod Generation and Mod Damage by 5%. Bonus is doubled against EXPOSED targets.`,
+    wikiLinks: [`https://remnant.wiki/Stone_of_Revelation`],
+    dlc: 'base',
+    location: { world: 'Losomn', dungeon: 'World Drop' },
+  },
+  {
+    category: 'ring',
     name: 'Strand of Sinew',
     imagePath: '/items/rings/strandofsinew.png',
     saveFileSlug: 'Ring_StrandOfSinew_C',
@@ -2787,6 +2827,18 @@ export const ringItems: RingItem[] = [
       biome: 'Undead Tombs',
       injectable: 'Hidden Crypt',
     },
+  },
+  {
+    category: 'ring',
+    name: 'Transient Cord',
+    imagePath: '/items/rings/transientcord.png',
+    saveFileSlug: `Ring_TransientCord_C`, // TODO Check
+    id: 'v1w5ba',
+    tags: [],
+    description: `On Relic Use, increases Critical Chance by 10% and Critical Damage by 10% for 15s. Reduce bonus by 1% once every 1.5s.`,
+    wikiLinks: [`https://remnant.wiki/Transient_Cord`],
+    dlc: 'base',
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
   },
   {
     category: 'ring',

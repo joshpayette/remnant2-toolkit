@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Added the ability to sort builds by percentage of items owned. Update your items in the Item Tracker, and then use the new build filter!
+- Added more new items.
 
 ## 2024-09-29
 

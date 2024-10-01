@@ -215,7 +215,7 @@ export const amuletItems: AmuletItem[] = [
     category: 'amulet',
     name: 'Crisis Core',
     imagePath: '/items/amulets/crisiscore.png',
-    saveFileSlug: 'Amulet_Crisiscore_C',
+    saveFileSlug: 'Amulet_CrisisCore_C',
     id: 'L6noPy',
     dlc: 'dlc3',
     tags: ['Perfect Dodge', 'Damage Reduction'],
