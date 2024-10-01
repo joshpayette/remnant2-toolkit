@@ -526,15 +526,10 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
                       <div className="flex flex-col gap-y-2">
                         {sessionStatus !== 'authenticated' ? (
                           <p className="text-accent1-500 text-sm">
-                            If you are not logged in, the "Only Owned Items"
+                            If you are not logged in, the "Owned Items Filter"
                             filter will not work.
                           </p>
                         ) : null}
-                        <p className="text-sm text-red-500">
-                          If it seems like you aren't getting enough results,
-                          try untoggling/toggling a single item in the Item
-                          Tracker to force a refresh of your owned items.
-                        </p>
                       </div>
                     ) : null}
                   </div>

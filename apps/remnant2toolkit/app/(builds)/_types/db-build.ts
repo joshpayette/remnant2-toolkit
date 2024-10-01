@@ -33,6 +33,4 @@ export interface DBBuild {
   videoUrl: Build['videoUrl'];
   viewCount: number;
   percentageOwned: number;
-  totalItems: number;
-  ownedItems: number;
 }

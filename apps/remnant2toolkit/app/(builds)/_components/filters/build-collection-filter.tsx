@@ -5,6 +5,7 @@ import {
   BaseListboxLabel,
   BaseListboxOption,
 } from '@repo/ui';
+import { useSession } from 'next-auth/react';
 
 interface Props {
   value: PercentageOwned;
@@ -14,6 +15,8 @@ interface Props {
 export type PercentageOwned = 100 | 95 | 90 | 75 | 50 | 0;
 
 export function BuildCollectionFilter({ value, onChange }: Props) {
+  const { data: session } = useSession();
+
   const options = [
     {
       label: 'All',
@@ -44,7 +47,12 @@ export function BuildCollectionFilter({ value, onChange }: Props) {
   return (
     <BaseField>
       <BaseLabel>Owned Items</BaseLabel>
-      <BaseListbox name="withCollection" value={value} onChange={onChange}>
+      <BaseListbox
+        disabled={!session?.user?.id}
+        name="withCollection"
+        value={value}
+        onChange={onChange}
+      >
         {options.map(({ label: l, value: v }) => (
           <BaseListboxOption key={v} value={v}>
             <BaseListboxLabel>{l}</BaseListboxLabel>

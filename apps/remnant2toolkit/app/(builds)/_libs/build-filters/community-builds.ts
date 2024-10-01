@@ -32,6 +32,10 @@ export function communityBuildsQuery({
   searchText,
   percentageOwned,
 }: Props): Prisma.PrismaPromise<DBBuild[]> {
+  if (!userId) {
+    percentageOwned = 0;
+  }
+
   const query = Prisma.sql`
 SELECT * FROM (
   SELECT 
@@ -82,9 +86,9 @@ SELECT * FROM (
           COUNT(*) as ownedItems
       FROM BuildItems
       JOIN UserItems ON BuildItems.itemId = UserItems.itemId
-      WHERE UserItems.userId = ${userId}
+      WHERE BuildItems.ItemId <> ''
       AND BuildItems.category NOT IN (${Prisma.join(EXCLUDED_CATEGORIES)})
-      AND BuildItems.itemId <> ''
+      AND UserItems.userId = ${userId}
       GROUP BY BuildItems.buildId
     ) as UserItemCounts ON Build.id = UserItemCounts.buildId
     ${whereConditions}
@@ -108,9 +112,11 @@ SELECT * FROM (
     ${orderBySegment}
 ) as SubQuery
 WHERE ${
-    percentageOwned === 100
-      ? Prisma.sql`SubQuery.percentageOwned = 100`
-      : Prisma.sql`SubQuery.percentageOwned >= ${percentageOwned}`
+    userId
+      ? percentageOwned === 100
+        ? Prisma.sql`SubQuery.percentageOwned = 100`
+        : Prisma.sql`SubQuery.percentageOwned >= ${percentageOwned}`
+      : Prisma.sql`1=1`
   }
 LIMIT ${itemsPerPage}
 OFFSET ${(pageNumber - 1) * itemsPerPage}
@@ -138,6 +144,10 @@ export function communityBuildsCountQuery({
     totalBuildCount: number;
   }>
 > {
+  if (!userId) {
+    percentageOwned = 0;
+  }
+
   const query = Prisma.sql`
 SELECT COUNT(DISTINCT SubQuery.id) as totalBuildCount FROM (
   SELECT 
@@ -198,7 +208,13 @@ SELECT COUNT(DISTINCT SubQuery.id) as totalBuildCount FROM (
 
     GROUP BY Build.id, User.id, ItemCounts.totalItems, UserItemCounts.ownedItems
 ) as SubQuery
-WHERE SubQuery.percentageOwned >= ${percentageOwned}`;
+WHERE ${
+    userId
+      ? percentageOwned === 100
+        ? Prisma.sql`SubQuery.percentageOwned = 100`
+        : Prisma.sql`SubQuery.percentageOwned >= ${percentageOwned}`
+      : Prisma.sql`1=1`
+  }`;
 
   return prisma.$queryRaw<
     Array<{

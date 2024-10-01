@@ -10,6 +10,7 @@ import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/optional-item-symbol';
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/_constants/default-trait-amount';
 import { MAX_BUILD_TAGS } from '@/app/(builds)/_constants/max-build-tags';
 import { buildHasFeaturedBadge } from '@/app/(builds)/_libs/build-has-featured-badge';
+import { countOwnedItems } from '@/app/(builds)/_libs/count-owned-items';
 import { formatUpdatedAt } from '@/app/(builds)/_libs/format-updated-at';
 import {
   type ArchetypeName,
@@ -615,6 +616,16 @@ export function Builder({
               </p>
             </div>
           ) : null}
+          {itemOwnershipPreference && (
+            <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
+              <p className="text-left text-xs text-gray-400">
+                Item Ownership:{' '}
+                <span className="text-gray-300">
+                  {countOwnedItems(buildState.items)}
+                </span>
+              </p>
+            </div>
+          )}
           {buildState.isPatchAffected && (
             <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
               <p className="border border-red-500 p-2 text-left text-xs font-bold text-red-500">

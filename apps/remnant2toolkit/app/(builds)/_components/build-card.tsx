@@ -12,6 +12,7 @@ import {
   VideoIcon,
 } from '@repo/ui';
 import { isValidYoutubeUrl } from '@repo/utils';
+import { useSession } from 'next-auth/react';
 
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
 import { Tooltip } from '@/app/_components/tooltip';
@@ -46,6 +47,8 @@ export function BuildCard({
   memberFrameEnabled = true,
   showBuildVisibility = false,
 }: Props) {
+  const { data: session } = useSession();
+
   const buildState = dbBuildToBuildState(build);
   const { isPopular, popularLevel } = isBuildPopular(build.totalUpvotes);
   const isNew = isBuildNew(buildState.createdAt);
@@ -206,11 +209,13 @@ export function BuildCard({
                     </BaseButton>
                   </Tooltip>
                 ) : null}
-                {buildState.percentageOwned > 0 && (
+                {buildState.percentageOwned > 0 && session?.user?.id && (
                   <Tooltip
                     content={`You own >= ${Number(
                       buildState.percentageOwned,
-                    ).toFixed(0)}% of the items in this build.`}
+                    ).toFixed(
+                      0,
+                    )}% of the items in this build. Excludes armor and other non-essential items.`}
                   >
                     <BaseButton outline>
                       <span className="text-xs text-gray-300">
