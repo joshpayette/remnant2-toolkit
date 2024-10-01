@@ -85,15 +85,49 @@ export function buildToVashUrl(buildState: BuildState) {
   const accessoryString = accessoryParams.join(',');
   vashUrl += `accessory=${accessoryString}&`;
 
-  // relic and relic fragments
+  // relic
   const relicParams = [
     items.relic?.name.replace(' ', '+') ?? '',
+    // items.relicfragment[0]?.name.replace(' ', '+') ?? '',
+    // items.relicfragment[1]?.name.replace(' ', '+') ?? '',
+    // items.relicfragment[2]?.name.replace(' ', '+') ?? '',
+  ];
+
+  const relicString = relicParams.join(',');
+  vashUrl += `relic=${relicString}&`;
+
+  // prism
+  const relicFragmentParams = [
     items.relicfragment[0]?.name.replace(' ', '+') ?? '',
     items.relicfragment[1]?.name.replace(' ', '+') ?? '',
     items.relicfragment[2]?.name.replace(' ', '+') ?? '',
   ];
-  const relicString = relicParams.join(',');
-  vashUrl += `relic=${relicString}&`;
+  const bonusFragmentParams = [
+    items.relicfragment[3]?.name.replace(' ', '+') ??
+      items.fusion[3]?.name.replace(' ', '+') ??
+      '',
+    items.relicfragment[4]?.name.replace(' ', '+') ??
+      items.fusion[4]?.name.replace(' ', '+') ??
+      '',
+    items.relicfragment[5]?.name.replace(' ', '+') ??
+      items.fusion[5]?.name.replace(' ', '+') ??
+      '',
+    items.relicfragment[6]?.name.replace(' ', '+') ??
+      items.fusion[6]?.name.replace(' ', '+') ??
+      '',
+    items.relicfragment[7]?.name.replace(' ', '+') ??
+      items.fusion[7]?.name.replace(' ', '+') ??
+      '',
+  ];
+  const legendaryFragmentParams = [
+    items.relicfragment[8]?.name.replace(' ', '+') ?? '',
+  ];
+  const prismString = [
+    ...relicFragmentParams,
+    ...bonusFragmentParams,
+    ...legendaryFragmentParams,
+  ].join(',');
+  vashUrl += `prism=${prismString}&`;
 
   // Remove the last & from the string
   vashUrl = vashUrl.slice(0, -1);
