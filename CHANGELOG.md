@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-10-01
+
+### Changed
+
+- Removed the Builds By Collection link from navbar, as that functionality is now included in the filters.
+
 ## 2024-09-30
 
 ### Added
