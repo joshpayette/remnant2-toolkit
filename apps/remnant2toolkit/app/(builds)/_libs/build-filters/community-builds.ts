@@ -112,7 +112,7 @@ SELECT * FROM (
     ${orderBySegment}
 ) as SubQuery
 WHERE ${
-    userId
+    userId && percentageOwned !== 0
       ? percentageOwned === 100
         ? Prisma.sql`SubQuery.percentageOwned = 100`
         : Prisma.sql`SubQuery.percentageOwned >= ${percentageOwned}`
@@ -209,7 +209,7 @@ SELECT COUNT(DISTINCT SubQuery.id) as totalBuildCount FROM (
     GROUP BY Build.id, User.id, ItemCounts.totalItems, UserItemCounts.ownedItems
 ) as SubQuery
 WHERE ${
-    userId
+    userId && percentageOwned !== 0
       ? percentageOwned === 100
         ? Prisma.sql`SubQuery.percentageOwned = 100`
         : Prisma.sql`SubQuery.percentageOwned >= ${percentageOwned}`
