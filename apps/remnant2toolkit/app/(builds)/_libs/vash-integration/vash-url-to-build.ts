@@ -6,6 +6,7 @@ import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
 import { armorItems } from '@/app/(items)/_constants/armor-items';
 import { concoctionItems } from '@/app/(items)/_constants/concoction-items';
 import { consumableItems } from '@/app/(items)/_constants/consumable-items';
+import { fusionItems } from '@/app/(items)/_constants/fusion-items';
 import { modItems } from '@/app/(items)/_constants/mod-items';
 import { mutatorItems } from '@/app/(items)/_constants/mutator-items';
 import { relicFragmentItems } from '@/app/(items)/_constants/relic-fragment-items';
@@ -19,6 +20,7 @@ import { ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { ArmorItem } from '@/app/(items)/_types/armor-item';
 import { ConcoctionItem } from '@/app/(items)/_types/concotion-item';
 import { ConsumableItem } from '@/app/(items)/_types/consumable-item';
+import { FusionItem } from '@/app/(items)/_types/fusion-item';
 import { ModItem } from '@/app/(items)/_types/mod-item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
@@ -324,37 +326,75 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
         buildState.items.relic = relicItem;
       }
     }
+  }
 
-    if (relics[1]) {
-      const relicFragmentItem = relicFragmentItems.find(
-        (item) =>
-          item.name.toLowerCase() ===
-          relics[1]?.replace('+', ' ').toLowerCase(),
-      );
-      if (relicFragmentItem) {
-        buildState.items.relicfragment[0] = relicFragmentItem;
+  const prismString = searchParams.get('prism');
+  if (prismString) {
+    const prisms = prismString.split(',');
+
+    // First three slots are always relic fragments
+    for (let i = 0; i < 3; i++) {
+      if (prisms[i]) {
+        const relicFragmentItem = relicFragmentItems.find(
+          (item) =>
+            item.name.toLowerCase() ===
+            prisms[i]?.replace('+', ' ').toLowerCase(),
+        );
+        if (relicFragmentItem) {
+          buildState.items.relicfragment[i] = {
+            ...relicFragmentItem,
+            index: i,
+          };
+        }
       }
     }
 
-    if (relics[2]) {
-      const relicFragmentItem = relicFragmentItems.find(
-        (item) =>
-          item.name.toLowerCase() ===
-          relics[2]?.replace('+', ' ').toLowerCase(),
-      );
-      if (relicFragmentItem) {
-        buildState.items.relicfragment[1] = relicFragmentItem;
+    // Next five slots can be either relic fragments or fusions
+    for (let i = 3; i < 8; i++) {
+      if (prisms[i]) {
+        const relicFragmentItem = relicFragmentItems.find(
+          (item) =>
+            item.name.toLowerCase() ===
+            prisms[i]?.replace('+', ' ').toLowerCase(),
+        );
+
+        if (relicFragmentItem) {
+          buildState.items.relicfragment[i] = {
+            ...relicFragmentItem,
+            index: i,
+          };
+          continue;
+        }
+
+        const fusionItem = fusionItems.find(
+          (item) =>
+            item.name.toLowerCase() ===
+            prisms[i]?.replace('+', ' ').toLowerCase(),
+        );
+
+        console.info('fusionItem', fusionItem);
+
+        if (fusionItem) {
+          buildState.items.fusion[i] = {
+            ...fusionItem,
+            index: i,
+          };
+        }
       }
     }
 
-    if (relics[3]) {
+    // Last slot is the legendary gem
+    if (prisms[8]) {
       const relicFragmentItem = relicFragmentItems.find(
         (item) =>
           item.name.toLowerCase() ===
-          relics[3]?.replace('+', ' ').toLowerCase(),
+          prisms[8]?.replace('+', ' ').toLowerCase(),
       );
       if (relicFragmentItem) {
-        buildState.items.relicfragment[2] = relicFragmentItem;
+        buildState.items.relicfragment[8] = {
+          ...relicFragmentItem,
+          index: 8,
+        };
       }
     }
   }
@@ -428,6 +468,9 @@ export function vashUrlToBuild(searchParams: URLSearchParams): string | null {
     ? `&relicfragment=${RelicFragmentItem.toParams(
         buildState.items.relicfragment,
       )}`
+    : '';
+  newBuildUrl += buildState.items.fusion
+    ? `&fusion=${FusionItem.toParams(buildState.items.fusion)}`
     : '';
   newBuildUrl += `&weapon=${WeaponItem.toParams(buildState.items.weapon)}`;
   newBuildUrl += buildState.items.amulet
