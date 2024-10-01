@@ -10,7 +10,6 @@ import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/optional-item-symbol';
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/_constants/default-trait-amount';
 import { MAX_BUILD_TAGS } from '@/app/(builds)/_constants/max-build-tags';
 import { buildHasFeaturedBadge } from '@/app/(builds)/_libs/build-has-featured-badge';
-import { countOwnedItems } from '@/app/(builds)/_libs/count-owned-items';
 import { formatUpdatedAt } from '@/app/(builds)/_libs/format-updated-at';
 import {
   type ArchetypeName,
@@ -470,7 +469,7 @@ export function Builder({
       />
 
       {buildState.isPublic === false && !isScreenshotMode && (
-        <div className="text-md mb-4 flex flex-col items-center justify-center gap-4 border-2 border-red-500 p-4 font-semibold text-red-500">
+        <div className="flex flex-col items-center justify-center gap-4 p-4 mb-4 font-semibold text-red-500 border-2 border-red-500 text-md">
           This build is currently marked private. Other users will be unable to
           view it until you mark it public.
         </div>
@@ -494,18 +493,18 @@ export function Builder({
             (isPopular || isNew || hasFeaturedBadge) && 'mb-10 pb-6',
           )}
         >
-          <div className="relative flex w-full flex-col items-center justify-center gap-2">
+          <div className="relative flex flex-col items-center justify-center w-full gap-2">
             {isEditable && !isScreenshotMode ? (
               <BaseInput
                 id="build-name"
                 type="text"
                 onChange={(e) => handleChangeBuildName(e.target.value)}
-                className="mb-2 w-full text-center "
+                className="w-full mb-2 text-center "
                 placeholder="My Build"
                 value={buildState.name}
               />
             ) : (
-              <div className="mb-2 flex w-full items-center justify-center gap-2">
+              <div className="flex items-center justify-center w-full gap-2 mb-2">
                 <span className="sr-only">{stripUnicode(buildState.name)}</span>
                 <h2
                   aria-hidden="true"
@@ -521,7 +520,7 @@ export function Builder({
           </div>
           {showCreatedBy && (
             <div className="mb-1">
-              <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
+              <div className="flex items-center justify-center mb-2 text-sm text-gray-400">
                 <span>
                   {`${getArchetypeComboName({
                     archetype1:
@@ -535,12 +534,12 @@ export function Builder({
                 </span>
                 <BaseLink
                   href={`/profile/${buildState.createdById}/created-builds`}
-                  className="text-primary-500 ml-1 underline"
+                  className="ml-1 underline text-primary-500"
                 >
                   {buildState.createdByDisplayName}
                 </BaseLink>
               </div>
-              <div className="flex w-full flex-row items-center justify-center gap-x-4 text-sm text-gray-400">
+              <div className="flex flex-row items-center justify-center w-full text-sm text-gray-400 gap-x-4">
                 <Tooltip content={`${buildState.totalUpvotes} Favorites`}>
                   <button className="flex flex-row items-center justify-center gap-x-1">
                     <FavoriteIcon
@@ -590,15 +589,15 @@ export function Builder({
             </div>
           )}
           {buildState.buildLink && (
-            <div className="mb-2 flex w-full items-center justify-center text-sm text-gray-300">
-              <span className="overflow-y-auto whitespace-pre-wrap text-center">
+            <div className="flex items-center justify-center w-full mb-2 text-sm text-gray-300">
+              <span className="overflow-y-auto text-center whitespace-pre-wrap">
                 {buildState.buildLink}
               </span>
             </div>
           )}
           {buildState.updatedAt && (
-            <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
-              <p className="text-left text-xs text-gray-400">
+            <div className="flex items-center justify-center mb-2 text-sm text-gray-400">
+              <p className="text-xs text-left text-gray-400">
                 Last Updated:{' '}
                 <span className="text-gray-300">
                   {formatUpdatedAt(buildState.updatedAt)}
@@ -607,8 +606,8 @@ export function Builder({
             </div>
           )}
           {itemOwnershipPreference && buildState.percentageOwned ? (
-            <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
-              <p className="text-left text-xs text-gray-400">
+            <div className="flex items-center justify-center mb-2 text-sm text-gray-400">
+              <p className="text-xs text-left text-gray-400">
                 Item Ownership:{' '}
                 <span className="text-gray-300">
                   {Number(buildState.percentageOwned).toFixed(0)}% Owned
@@ -616,19 +615,9 @@ export function Builder({
               </p>
             </div>
           ) : null}
-          {itemOwnershipPreference && (
-            <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
-              <p className="text-left text-xs text-gray-400">
-                Item Ownership:{' '}
-                <span className="text-gray-300">
-                  {countOwnedItems(buildState.items)}
-                </span>
-              </p>
-            </div>
-          )}
           {buildState.isPatchAffected && (
-            <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
-              <p className="border border-red-500 p-2 text-left text-xs font-bold text-red-500">
+            <div className="flex items-center justify-center mb-2 text-sm text-gray-400">
+              <p className="p-2 text-xs font-bold text-left text-red-500 border border-red-500">
                 This build might have been affected by a past update. If you
                 created this build, please update it and untoggle the
                 patch-affected setting.
@@ -636,7 +625,7 @@ export function Builder({
             </div>
           )}
           {(isPopular || isNew || hasFeaturedBadge) && (
-            <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center gap-x-2">
+            <div className="absolute bottom-0 flex items-center justify-center w-full transform -translate-x-1/2 translate-y-1/2 left-1/2 gap-x-2">
               {isNew ? <NewBuildBadge unoptimized={isScreenshotMode} /> : null}
               {isPopular ? (
                 <PopularBuildBadge
@@ -835,7 +824,7 @@ export function Builder({
 
           <div
             id="build-right-column"
-            className="flex w-full flex-col items-center justify-start"
+            className="flex flex-col items-center justify-start w-full"
           >
             <div
               id="guns-row"
@@ -865,7 +854,7 @@ export function Builder({
                     unoptimized={isScreenshotMode}
                     variant="weapon"
                   />
-                  <div className="flex w-full grow items-start justify-around gap-4">
+                  <div className="flex items-start justify-around w-full gap-4 grow">
                     {(weaponIndex === 1 &&
                       !buildState.items.mod[weaponIndex]) ||
                     buildState.items.weapon[weaponIndex]?.isRusty ? (
@@ -1015,7 +1004,7 @@ export function Builder({
 
         <div
           id="prism-row"
-          className="mb-4 flex w-full items-center justify-center"
+          className="flex items-center justify-center w-full mb-4"
         >
           <PrismDisplay
             buildState={buildState}
@@ -1032,7 +1021,7 @@ export function Builder({
         {showMemberFeatures ? (
           <div
             id="member-features-row"
-            className="mt-2 flex w-full items-start justify-center"
+            className="flex items-start justify-center w-full mt-2"
           >
             <MemberFeatures
               buildLink={buildState.buildLink}

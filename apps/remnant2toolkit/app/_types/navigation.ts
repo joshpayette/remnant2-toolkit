@@ -70,13 +70,13 @@ export const NAV_ITEMS = {
     href: CHANGELOG_URL,
     icon: ChangeLogIcon,
   },
-  collectionBuilds: {
-    label: 'Builds by Collection',
-    description:
-      'View Remnant 2 builds that you can create based on items you have collected and logged in the Remnant 2 Item Tracker.',
-    href: '/community-builds?withCollection=true',
-    icon: BuildsByCollectionIcon,
-  },
+  // collectionBuilds: {
+  //   label: 'Builds by Collection',
+  //   description:
+  //     'View Remnant 2 builds that you can create based on items you have collected and logged in the Remnant 2 Item Tracker.',
+  //   href: '/community-builds?withCollection=true',
+  //   icon: BuildsByCollectionIcon,
+  // },
   communityBuilds: {
     label: 'Community Builds',
     description:

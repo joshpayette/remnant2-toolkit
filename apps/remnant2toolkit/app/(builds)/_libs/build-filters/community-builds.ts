@@ -11,6 +11,8 @@ const EXCLUDED_CATEGORIES = [
   'torso',
   'legs',
   'gloves',
+  'concoction',
+  'consumable',
 ];
 
 type Props = {
