@@ -394,7 +394,7 @@ export const mutatorItems: MutatorItem[] = [
     category: 'mutator',
     name: 'Insulator',
     type: 'gun',
-    imagePath: '/misc/placeholder.jpg',
+    imagePath: '/items/mutators/insulator.png',
     saveFileSlug: 'MetaGem_Insulator_C', // TODO Check
     id: '9x521w',
     dlc: 'dlc3',
