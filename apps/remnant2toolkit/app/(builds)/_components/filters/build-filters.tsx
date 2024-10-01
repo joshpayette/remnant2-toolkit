@@ -45,6 +45,7 @@ import {
   MAX_RINGS,
 } from '@/app/(builds)/_components/filters/types';
 import { parseUrlFilters } from '@/app/(builds)/_components/filters/utils';
+import { QualityBuildDialog } from '@/app/(builds)/_components/quality-build-dialog';
 
 export const DEFAULT_BUILD_FILTERS = {
   archetypes: VALID_ARCHETYPES,
@@ -86,6 +87,8 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
   }, [searchParams, defaultFilters]);
 
   const [unappliedFilters, setUnappliedFilters] = useState(filters);
+
+  const [qualityBuildDialogOpen, setQualityBuildDialogOpen] = useState(false);
 
   function clearFilters() {
     setUnappliedFilters(defaultFilters);
@@ -501,6 +504,10 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
                     />
                   </div>
                   <div className="col-span-full sm:col-span-1 md:col-span-2">
+                    <QualityBuildDialog
+                      open={qualityBuildDialogOpen}
+                      onClose={() => setQualityBuildDialogOpen(false)}
+                    />
                     <BuildMiscFilter
                       value={[
                         unappliedFilters.patchAffected
@@ -518,10 +525,20 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
                       ]}
                       onChange={handleMiscFilterChange}
                     />
-                    <BuildCollectionFilter
-                      value={unappliedFilters.withCollection}
-                      onChange={handleCollectionChange}
-                    />
+                    <div className="my-2">
+                      <BuildCollectionFilter
+                        value={unappliedFilters.withCollection}
+                        onChange={handleCollectionChange}
+                      />
+                    </div>
+                    {unappliedFilters.withQuality ? (
+                      <BaseButton
+                        plain
+                        onClick={() => setQualityBuildDialogOpen(true)}
+                      >
+                        What makes a Quality Build?
+                      </BaseButton>
+                    ) : null}
                     {unappliedFilters.withCollection ? (
                       <div className="flex flex-col gap-y-2">
                         {sessionStatus !== 'authenticated' ? (
