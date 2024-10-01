@@ -216,6 +216,7 @@ export async function getLinkedBuilds({
               duplicateCount: build.duplicateCount,
               variantIndex: 0,
               buildItems: [],
+              percentageOwned: 0, // TODO Fix this
             },
           };
         }),

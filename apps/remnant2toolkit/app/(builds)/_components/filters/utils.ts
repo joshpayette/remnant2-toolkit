@@ -3,6 +3,7 @@ import { type ReadonlyURLSearchParams } from 'next/navigation';
 
 import { VALID_RELEASE_KEYS } from '@/app/_components/releases-filter';
 import { VALID_ARCHETYPES } from '@/app/(builds)/_components/filters/archetype-filter';
+import { type PercentageOwned } from '@/app/(builds)/_components/filters/build-collection-filter';
 import { DEFAULT_BUILD_FILTERS } from '@/app/(builds)/_components/filters/build-filters';
 import { VALID_BUILD_TAGS } from '@/app/(builds)/_components/filters/build-tag-filter';
 import {
@@ -177,7 +178,7 @@ export function parseUrlFilters(
   );
   let withCollection = defaultFilters.withCollection;
   if (typeof withCollectionParam === 'string') {
-    withCollection = withCollectionParam === 'true';
+    withCollection = parseInt(withCollectionParam, 10) as PercentageOwned;
   } else if (withCollectionParam === null) {
     withCollection = defaultFilters.withCollection;
   }

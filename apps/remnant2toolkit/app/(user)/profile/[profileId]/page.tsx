@@ -30,6 +30,7 @@ async function getCreatedBuilds(profileId: string) {
       orderBySegment,
       whereConditions: whereConditionsAllTime,
       searchText: '',
+      percentageOwned: 0,
     }),
     communityBuildsQuery({
       userId: profileId,
@@ -38,6 +39,7 @@ async function getCreatedBuilds(profileId: string) {
       orderBySegment,
       whereConditions: whereConditionsCurrent,
       searchText: '',
+      percentageOwned: 0,
     }),
   ]);
 

@@ -28,6 +28,10 @@ export function getOrderBySegment(
     orderBySegment = Prisma.sql`
     ORDER BY validatedViewCount DESC
     `;
+  } else if (orderBy === 'percentage owned') {
+    orderBySegment = Prisma.sql`
+    ORDER BY percentageOwned DESC
+    `;
   }
 
   return orderBySegment;

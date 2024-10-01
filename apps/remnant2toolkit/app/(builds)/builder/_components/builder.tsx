@@ -10,6 +10,7 @@ import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/optional-item-symbol';
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/_constants/default-trait-amount';
 import { MAX_BUILD_TAGS } from '@/app/(builds)/_constants/max-build-tags';
 import { buildHasFeaturedBadge } from '@/app/(builds)/_libs/build-has-featured-badge';
+import { countOwnedItems } from '@/app/(builds)/_libs/count-owned-items';
 import { formatUpdatedAt } from '@/app/(builds)/_libs/format-updated-at';
 import {
   type ArchetypeName,
@@ -449,25 +450,6 @@ export function Builder({
     buildState.items.archetype[0]?.linkedItems?.perks?.[0]?.name;
   const primePerk = perkItems.find((i) => i.name === primePerkName);
 
-  function countOwnedItems(items: BuildState['items']): string {
-    // Filter out skills and perks
-    const { skill: _skill, perk: _perk, ...filteredItems } = items;
-
-    const itemsArray = Object.values(filteredItems).flat();
-    if (!itemsArray) return '---';
-
-    const ownedItemsCount = itemsArray.reduce((acc, item) => {
-      if (!item) return acc;
-      return item.isOwned ? acc + 1 : acc;
-    }, 0);
-    const totalItemsCount = itemsArray.length;
-    const ownedPercentage = Math.round(
-      (ownedItemsCount / totalItemsCount) * 100,
-    );
-
-    return `${ownedItemsCount} / ${totalItemsCount} (${ownedPercentage}%)`;
-  }
-
   // #region Render
 
   return (
@@ -624,6 +606,16 @@ export function Builder({
               </p>
             </div>
           )}
+          {itemOwnershipPreference && buildState.percentageOwned ? (
+            <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
+              <p className="text-left text-xs text-gray-400">
+                Item Ownership:{' '}
+                <span className="text-gray-300">
+                  {Number(buildState.percentageOwned).toFixed(0)}% Owned
+                </span>
+              </p>
+            </div>
+          ) : null}
           {itemOwnershipPreference && (
             <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
               <p className="text-left text-xs text-gray-400">

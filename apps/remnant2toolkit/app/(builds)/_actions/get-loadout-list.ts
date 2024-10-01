@@ -88,6 +88,7 @@ export async function getLoadoutList(userId?: string) {
           duplicateCount: loadout.build.duplicateCount,
           buildItems: loadout.build.BuildItems,
           slot: loadout.slot,
+          percentageOwned: 0, // TODO Fix this
         }
       : {
           id: loadout.build.id,
@@ -125,6 +126,7 @@ export async function getLoadoutList(userId?: string) {
           duplicateCount: 0,
           buildItems: [],
           slot: loadout.slot,
+          percentageOwned: 0, // TODO Fix this
         },
   ) satisfies Array<DBBuild & { slot: number }>;
 
