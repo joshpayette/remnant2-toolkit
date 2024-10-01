@@ -213,7 +213,7 @@ export const modItems: ModItem[] = [
     id: 'tw8tbh',
     dlc: 'base',
     description:
-      'While active, grants unlimited Reserve Ammo, increases Reload Speed by 50%, and shots appy 250 → 750  damage over 10s. If 3 shot hit a Weakspot reloading, Merciless will automatically perform a quick Reload. Lasts 13s.',
+      'While active, grants unlimited Reserve Ammo, increases Reload Speed by 50%, and shots appy 250 → 750 BLEEDING damage over 10s. If 3 shot hit a Weakspot reloading, Merciless will automatically perform a quick Reload. Lasts 13s.',
     wikiLinks: [`https://remnant.wiki/Corrupted_Merciless`],
     linkedItems: {
       weapon: {

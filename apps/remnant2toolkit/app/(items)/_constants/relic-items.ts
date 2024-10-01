@@ -121,6 +121,17 @@ export const relicItems: RelicItem[] = [
   },
   {
     category: 'relic',
+    name: 'Latent Heart',
+    imagePath: '/items/relics/latentheart.png',
+    saveFileSlug: 'Relic_Consumable_LatentHeart_C', // TODO: Check this
+    id: 'x66ure',
+    dlc: 'dlc3',
+    description: `On use, absorbs 95% incoming damage for 5s. Upon expiring, the absorbed damage is then applied to the wearer at a rate of 10% of the total absorbed damage per second for 10s.\n\nDamage reduction does not apply to SHIELD.`,
+    wikiLinks: [`https://remnant.wiki/Latent_Heart`],
+    location: { world: `N'Erud`, dungeon: ['Agronomy Sector'] },
+  },
+  {
+    category: 'relic',
     name: 'Lifeless Heart',
     imagePath: '/items/relics/lifelessheart.png',
     saveFileSlug: 'Relic_Consumable_LifelessHeart_C',

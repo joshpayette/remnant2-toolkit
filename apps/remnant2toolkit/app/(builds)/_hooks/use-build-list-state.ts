@@ -47,6 +47,7 @@ const DEFAULT_STATE: State = {
     validatedViewCount: 0,
     duplicateCount: 0,
     buildItems: [],
+    percentageOwned: 0,
   })),
   totalBuildCount: 0,
   isLoading: false,

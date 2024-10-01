@@ -38,10 +38,11 @@ export function getWeightClass(buildState: BuildState): WeightClassResponse {
 
   // Dull Steel Ring lowers by one weight class
   // Typically, the -25 weight it provides is enough to lower the build by one weight class
-  // For Ultra though, it's not enough to lower it to Heavy
+  // For Ultra though, -25 is not enough to lower it to Heavy
   // So we need to check if the build is Ultra and has the Dull Steel Ring
   // If so, we lower it to Heavy
   // However, if the build has Burden of the Mason, we should not lower it to Heavy
+  // Burden of the Mason negates the weight of the Dull Steel Ring
   const buildHasDullSteelRing = buildState.items.ring.some(
     (ring) => ring?.id === 's76ytc',
   );

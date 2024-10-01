@@ -71,6 +71,7 @@ export async function getBuild(
       variantIndex: 0,
       duplicateCount: build.duplicateCount,
       buildItems: build.BuildItems,
+      percentageOwned: 0, // TODO: Fix this
     };
 
     const [voteResult, isPaidUser] = await Promise.all([

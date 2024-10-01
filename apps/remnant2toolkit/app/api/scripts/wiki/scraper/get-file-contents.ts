@@ -143,11 +143,12 @@ function cleanFilePath(filePath: string): string {
 // Function to strip HTML tags from a string
 function stripHtmlTags(str: string): string {
   const $ = cheerio.load(str);
-  // need to get the text inside of the span with the class `hoverbox__hoverable`
-  const tooltipValue = $('.hoverbox__hoverable').html();
   // Need to remove the hoverbox element from the string
   // and replace it with the tooltipValue text
-  $('.hoverbox').replaceWith(tooltipValue?.toString() || '');
+  $('.hoverbox').each((_, el) => {
+    const tooltipValue = $(el).find('.hoverbox__hoverable').html();
+    $(el).replaceWith(tooltipValue?.toString() || '');
+  });
 
   return $.root().find('br').replaceWith('\n').end().text();
 }

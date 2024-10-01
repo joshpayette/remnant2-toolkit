@@ -25,6 +25,10 @@ import {
   ArchetypeFilter,
   VALID_ARCHETYPES,
 } from '@/app/(builds)/_components/filters/archetype-filter';
+import {
+  BuildCollectionFilter,
+  type PercentageOwned,
+} from '@/app/(builds)/_components/filters/build-collection-filter';
 import { BuildMiscFilter } from '@/app/(builds)/_components/filters/build-misc-filter';
 import {
   BuildTagFilter,
@@ -54,7 +58,7 @@ export const DEFAULT_BUILD_FILTERS = {
   rings: [DEFAULT_FILTER],
   searchText: '',
   patchAffected: false,
-  withCollection: false,
+  withCollection: 0,
   withQuality: true,
   withVideo: false,
   withReference: false,
@@ -198,6 +202,7 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
     if (filtersToApply.withQuality !== defaultFilters.withQuality) {
       url += `${BUILD_FILTER_KEYS.WITHQUALITY}=${filtersToApply.withQuality}&`;
     }
+
     if (filtersToApply.withCollection !== defaultFilters.withCollection) {
       url += `${BUILD_FILTER_KEYS.WITHCOLLECTION}=${filtersToApply.withCollection}&`;
     }
@@ -338,9 +343,6 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
 
   function handleMiscFilterChange(newFilters: string[]) {
     const patchAffected = newFilters.includes(BUILD_FILTER_KEYS.PATCHAFFECTED);
-    const withCollection = newFilters.includes(
-      BUILD_FILTER_KEYS.WITHCOLLECTION,
-    );
     const withQuality = newFilters.includes(BUILD_FILTER_KEYS.WITHQUALITY);
     const withVideo = newFilters.includes(BUILD_FILTER_KEYS.WITHVIDEO);
     const withReference = newFilters.includes(BUILD_FILTER_KEYS.WITHREFERENCE);
@@ -348,11 +350,15 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
     setUnappliedFilters((prev) => ({
       ...prev,
       patchAffected,
-      withCollection,
       withQuality,
       withVideo,
       withReference,
     }));
+  }
+
+  function handleCollectionChange(newCollection: PercentageOwned) {
+    const newFilters = { ...unappliedFilters, withCollection: newCollection };
+    setUnappliedFilters(newFilters);
   }
 
   // #region Render
@@ -500,9 +506,6 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
                         unappliedFilters.patchAffected
                           ? BUILD_FILTER_KEYS.PATCHAFFECTED
                           : '',
-                        unappliedFilters.withCollection
-                          ? BUILD_FILTER_KEYS.WITHCOLLECTION
-                          : '',
                         unappliedFilters.withQuality
                           ? BUILD_FILTER_KEYS.WITHQUALITY
                           : '',
@@ -515,21 +518,20 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
                       ]}
                       onChange={handleMiscFilterChange}
                     />
-                    {unappliedFilters.withCollection && (
+                    <BuildCollectionFilter
+                      value={unappliedFilters.withCollection}
+                      onChange={handleCollectionChange}
+                    />
+                    {unappliedFilters.withCollection ? (
                       <div className="flex flex-col gap-y-2">
-                        {sessionStatus !== 'authenticated' && (
+                        {sessionStatus !== 'authenticated' ? (
                           <p className="text-accent1-500 text-sm">
-                            If you are not logged in, the "Only Owned Items"
+                            If you are not logged in, the "Owned Items Filter"
                             filter will not work.
                           </p>
-                        )}
-                        <p className="text-sm text-red-500">
-                          If it seems like you aren't getting enough results,
-                          try untoggling/toggling a single item in the Item
-                          Tracker to force a refresh of your owned items.
-                        </p>
+                        ) : null}
                       </div>
-                    )}
+                    ) : null}
                   </div>
                 </div>
                 <div className="flex w-full items-center justify-end gap-x-4">

@@ -60,6 +60,7 @@ export interface BuildState {
     prism: (PrismItem & { isOwned?: boolean }) | null;
   };
   name: string;
+  percentageOwned: number;
   thumbnailUrl: string | null;
   totalUpvotes: number;
   updatedAt: Date | null;
