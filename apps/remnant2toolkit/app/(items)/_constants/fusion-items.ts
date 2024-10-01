@@ -175,7 +175,7 @@ export const fusionItems: FusionItem[] = [
   {
     category: 'fusion',
     name: 'Tank',
-    fragmentIds: ['1pddio', 'h6sk9p'],
+    fragmentIds: ['1pddio', '7u1bma'],
     imagePath: '/items/fusions/blue-blue.png',
     id: '3b43hx',
     dlc: 'base',
