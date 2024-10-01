@@ -672,7 +672,7 @@ export function Builder({
                 <div
                   key={`archetype-${archetypeIndex}`}
                   className={cn(
-                    'flex flex-row gap-1',
+                    'flex flex-row items-start gap-1',
                     archetypeIndex === 0 ? 'sm:order-1' : 'sm:order-3',
                     isScreenshotMode && archetypeIndex === 1 && 'order-3',
                   )}

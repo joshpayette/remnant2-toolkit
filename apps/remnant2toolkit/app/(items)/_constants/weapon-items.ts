@@ -2272,7 +2272,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/items/weapons/repairtool.png',
     id: '5go8dn',
     dlc: 'dlc3',
-    externalTokens: ['Explosive Damage'],
+    externalTokens: [],
     description: `Fires a stream of nanomachines, dealing damage to enemies or healing allies for 3% of their Max Health per second. The nano-tech also restores N'Erudian Energy to Turrets and Drones.`,
     wikiLinks: [`https://remnant.wiki/Repair_Tool`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
