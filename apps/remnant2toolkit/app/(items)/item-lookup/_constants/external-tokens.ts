@@ -1,9 +1,9 @@
 export const EXTERNAL_TOKENS = [
   {
-    token: 'Amplitude',
+    token: 'AOE/Aura',
     color: 'text-[#1f7a5c] dark:text-[#66ffcc]',
     description:
-      "All, or part, of this item's effect benefits from Amplitude trait.",
+      "This item benefits from AOE or Aura size increasing effects.",
   },
   // * We keep this here as well as in the description tokens because of the need
   // * to specify that the Handler skills apply bleed.

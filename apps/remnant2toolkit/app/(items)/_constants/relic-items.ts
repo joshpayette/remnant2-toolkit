@@ -290,7 +290,7 @@ export const relicItems: RelicItem[] = [
     dlc: 'base',
     description:
       'Innate 25% Relic Use Speed bonus. On use, deals 150 - 450 Explosive Damage to enemies within 5m and Lifesteals 20% of damage dealt.',
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Tormented_Heart`],
     location: { world: 'Losomn', dungeon: ['Tormented Asylum'] },
   },
