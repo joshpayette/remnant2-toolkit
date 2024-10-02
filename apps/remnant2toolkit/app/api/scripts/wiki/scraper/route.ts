@@ -114,7 +114,11 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    if (toolkitItem.saveFileSlug !== row.Filepath && row.Filepath !== '') {
+    if (
+      toolkitItem.saveFileSlug !== row.Filepath &&
+      row.Filepath !== '' &&
+      !row.Filepath?.includes('Material_')
+    ) {
       results.badFilePaths.push({
         wikiName: Name,
         wikiFilePath: row.Filepath || '',
@@ -122,7 +126,6 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    // TODO
     if (ArmorItem.isArmorItem(toolkitItem)) {
       const armor =
         row.Armor && row.Armor !== '' ? parseFloat(row.Armor) : undefined;
