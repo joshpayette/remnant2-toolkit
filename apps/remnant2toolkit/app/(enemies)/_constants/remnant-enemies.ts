@@ -868,7 +868,7 @@ export const bossEnemies = [
   },
   {
     id: 'fwh6yy',
-    name: 'Amalgams',
+    name: 'Amalgam Duo',
     dlc: 'dlc3',
     category: 'boss',
     imagePath: '/enemies/boss/amalgams.jpg',
