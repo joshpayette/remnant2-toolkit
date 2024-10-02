@@ -713,7 +713,7 @@ export const ringItems: RingItem[] = [
     saveFileSlug: 'Ring_CombatShieldGenerator_C',
     id: 'zeA523',
     tags: [],
-    externalTokens: ['Amplitude'],
+    externalTokens: ['AOE/Aura'],
     description: `While in combat, Crouching or Combat Slide generates a stationary 3m x 1.5m Energy Shield with 700 Health which blocks enemy projectiles. Lasts 10s or until broken by damage.\n\nCan only happen once every 10s after expiring.`,
     wikiLinks: [`https://remnant.wiki/Combat_Shield_Generator`],
     dlc: 'dlc3',
@@ -741,7 +741,7 @@ export const ringItems: RingItem[] = [
     tags: ['Stagger', 'Grey Health', 'Summon'],
     description:
       "When the wearer's Summon enters the battlefield, conjure a 5m Summoning Circle. Allies in the Summoning Circle have their Stagger Level reduced by 1 and regenerates 5 Grey Health per second. Lasts 10s.\n\nCan only happen once every 10s after expiring.",
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Conjurer's_Circle`],
     location: { world: 'Yaesha', dungeon: ['Infested Abyss'] },
   },
@@ -896,7 +896,7 @@ export const ringItems: RingItem[] = [
     saveFileSlug: 'Ring_DetonatingCord_C',
     id: '267d3s',
     tags: [],
-    externalTokens: ['Explosive Damage', 'Amplitude'],
+    externalTokens: ['Explosive Damage', 'AOE/Aura'],
     description: `On Relic Use, increases Explosive Damage by 10% for 15s and casts a 3m Explosive AOE which deals 120 Base Damage.`,
     wikiLinks: [`https://remnant.wiki/Detonating_Cord`],
     location: { world: `N'Erud`, dungeon: 'World Drop' },
@@ -1257,7 +1257,7 @@ export const ringItems: RingItem[] = [
     tags: ['Perfect Dodge'],
     description:
       'Perfect Dodge triggers a 3m AOE blast that deals 55 - 155 SHOCK Damage and applies OVERLOADED which deals 55 - 155 SHOCK damage every 5s.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Feedback_Loop`],
     location: { world: `N'Erud`, dungeon: 'World Drop' },
     dlc: 'base',
@@ -1412,7 +1412,7 @@ export const ringItems: RingItem[] = [
     tags: ['Damage Reduction'],
     description:
       'Adds 1 Stack of BULWARK when within 15m of an enemy. Increases to 2 Stacks for 15s after taking Melee damage.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Guardian's_Ring`],
     location: { world: 'Yaesha', dungeon: 'World Drop' },
     dlc: 'base',
@@ -1649,7 +1649,7 @@ export const ringItems: RingItem[] = [
     tags: ['Perfect Dodge'],
     description:
       'Perfect Dodge triggers a 3m AOE blast that deals 110 - 310 Explosive Damage.',
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Mark_of_the_Destroyer`],
     location: {
       world: 'Yaesha',

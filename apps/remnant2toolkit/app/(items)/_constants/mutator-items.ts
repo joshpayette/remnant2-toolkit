@@ -127,7 +127,7 @@ export const mutatorItems: MutatorItem[] = [
     id: 'fgs17j',
     dlc: 'dlc3',
     tags: [],
-    externalTokens: ['Explosive Damage', 'Amplitude'],
+    externalTokens: ['Explosive Damage', 'AOE/Aura'],
     description:
       "Each 10% of this weapon's magazine spent, cause an explosion for 5 Explosive Damage to targets within 0.5m of impact location.",
     maxLevelBonus: `Increases this weapon's explosive damage by 20%.`,
@@ -417,7 +417,7 @@ export const mutatorItems: MutatorItem[] = [
       'Switching to this weapon creates an Explosive Burst which deals 50 - 250 Damage to all enemies within 7m.\n\nCan only happen once every 10s.',
     maxLevelBonus:
       "This weapon's kills with any Explosive Damage reduce Kill Switch cooldown by 1s.",
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Kill_Switch`],
     location: { world: 'Any', dungeon: 'Aberration' },
   },
@@ -691,7 +691,7 @@ export const mutatorItems: MutatorItem[] = [
     description: `Empowers weapon after 3 hits. While empowered. the next Charged Melee Hit strikes all enemies within 7m with 50 - 100 SHOCK Damage.`,
     maxLevelBonus:
       'The SHOCK  Damage now applies OVERLOADED dealing 125 damage every 5s over 25s.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Shocker`],
     location: { world: 'Any', dungeon: 'Aberration' },
   },
@@ -851,7 +851,7 @@ export const mutatorItems: MutatorItem[] = [
     id: '97fccn',
     dlc: 'dlc3',
     tags: ['Heat Generation', 'Status Effect'],
-    externalTokens: ['Explosive Damage', 'Amplitude'],
+    externalTokens: ['Explosive Damage', 'AOE/Aura'],
     description: `When this weapon is above 25% Heat, a 7.5m Pulse deals 150 Explosive Damage once every 5s.`,
     maxLevelBonus: `At Max Heat, a 10m Pulse deals 300 Explosive Damage which applies BURNING to all entities for 100 FIRE damage over 20s. Can only happen once every 5s.`,
     wikiLinks: [`https://remnant.wiki/Superheated`],
@@ -904,7 +904,7 @@ export const mutatorItems: MutatorItem[] = [
     description:
       "Increase this weapon's Ranged damage by 5% - 20% to enemies inflicted with SLOW status.",
     maxLevelBonus: `Mod Use applies SLOW status on all enemies within 10m for 5s. Can only happen once every 10s.`,
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Timewave`],
     location: {
       world: `N'Erud`,
@@ -994,7 +994,7 @@ export const mutatorItems: MutatorItem[] = [
     id: 'dhwqt4',
     dlc: 'base',
     tags: ['Melee Damage', 'Lifesteal'],
-    externalTokens: ['Amplitude'],
+    externalTokens: ['AOE/Aura'],
     description:
       'Increases Melee Damage by 10% - 30% while within 10m of a BLEEDING entity.', //No info whether its R or A
     maxLevelBonus: `Melee Hits vs BLEEDING targets will Lifesteal 3% of base damage dealt.`,
@@ -1010,7 +1010,7 @@ export const mutatorItems: MutatorItem[] = [
     id: 'qej6k5',
     dlc: 'dlc3',
     tags: ['Melee Damage', 'Movement Speed'],
-    externalTokens: ['Amplitude', 'Explosive Damage'],
+    externalTokens: ['AOE/Aura', 'Explosive Damage'],
     description: `Dealing Melee Damage creates a 3m blast which deals 50 → 150 Explosive Damage. Can only happen once every 1s.`,
     maxLevelBonus: `When Volatile Strike triggers a blast, increases Movement Speed by 20% for 5s.`,
     wikiLinks: [`https://remnant.wiki/Volatile_Strike`],

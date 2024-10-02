@@ -11,7 +11,7 @@ export const skillItems: SkillItem[] = [
     description:
       'Creates a high-impact tremor that deals 150 damage and additional stagger in a forward cone up to 7.5m. Deals damage in all directions at point blank range.',
     cooldown: 50,
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/War_Stomp`],
     linkedItems: {
       archetype: {
@@ -69,7 +69,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'HOLD: Howl reduces damage by 15% to all allies within 20m and the Companion generates additional Threat. Lasts 20s.',
     cooldown: 90,
-    externalTokens: [`Amplitude`, `Guard Dog`],
+    externalTokens: [`AOE/Aura`, `Guard Dog`],
     wikiLinks: [`https://remnant.wiki/Guard_Dog`],
     linkedItems: {
       archetype: {
@@ -93,7 +93,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'HOLD: Howl grants 2% of Max Health per second and 25% increased Movement Speed to all allies within 20m. Lasts 25s.',
     cooldown: 90,
-    externalTokens: [`Amplitude`, `Support Dog`],
+    externalTokens: [`AOE/Aura`, `Support Dog`],
     wikiLinks: [`https://remnant.wiki/Support_Dog`],
     linkedItems: {
       archetype: {
@@ -117,7 +117,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'HOLD: Howl increases damage by 20% for all allies within 20m. Lasts 20s.',
     cooldown: 90,
-    externalTokens: [`Amplitude`, `Attack Dog`],
+    externalTokens: [`AOE/Aura`, `Attack Dog`],
     wikiLinks: [`https://remnant.wiki/Attack_Dog`],
     linkedItems: {
       archetype: {
@@ -135,7 +135,7 @@ export const skillItems: SkillItem[] = [
     description:
       'The Medic channels healing energy into their fist, punching a hole into the ground to create a 3m Healing Spring AOE which restores 10 Health per second and greatly increases Blight Decay Rate. Lasts 15s.',
     cooldown: 60,
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Wellspring`],
     linkedItems: {
       archetype: {
@@ -153,7 +153,7 @@ export const skillItems: SkillItem[] = [
     description:
       'The Medic quickly expels healing energy to SHIELD all allies within 25m for 100% of their Max Health for 10s. While shielded, allies regenerate 20% of their Max Health over the duration.',
     cooldown: 100,
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Healing_Shield`],
     linkedItems: {
       archetype: {
@@ -173,7 +173,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'Revived allies will only receive 50% of the healing amount. If revived, allies cannot be revived again by Redemption for another 180s. Resets at Worldstone or on death.',
     cooldown: 120,
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Redemption`],
     linkedItems: {
       archetype: {
@@ -241,7 +241,7 @@ export const skillItems: SkillItem[] = [
     id: 'ufkx9q',
     dlc: 'base',
     tags: ['Ranged Damage', 'Melee Damage', 'Critical Chance', 'Melee Hit'],
-    externalTokens: ['Amplitude'],
+    externalTokens: ['AOE/Aura'],
     description:
       'Hunter becomes Shrouded, reducing enemy awareness and making them harder to hit while moving. Attacking or activating a Mod or Skill will instantly exit Shroud.\n' +
       '\n' +
@@ -278,7 +278,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.',
     cooldown: 75,
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Vial:_Stone_Mist`],
     linkedItems: {
       archetype: {
@@ -302,7 +302,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.',
     cooldown: 75,
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Vial:_Frenzy_Dust`],
     linkedItems: {
       archetype: {
@@ -328,7 +328,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.',
     cooldown: 90,
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Vial:_Elixir_of_Life`],
     linkedItems: {
       archetype: {
@@ -346,7 +346,7 @@ export const skillItems: SkillItem[] = [
     tags: ['Status Effect', 'Damage Reduction'],
     description: `Conjures a 7m protective dome which applies SLOW to any enemy or enemy projectile. Allies inside gain 25% Damage Reduction and automatically generate 50 Mod Power per second. Lasts 15s.`,
     cooldown: 75,
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Reality_Rune`],
     linkedItems: {
       archetype: {
@@ -368,7 +368,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'Having any stacks grants 10% Mod Generation.',
     cooldown: 85,
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Chaos_Gate`],
     linkedItems: {
       archetype: {
@@ -394,7 +394,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'DODGE: Performs a Blink Evade that deals 150 SHOCK damage to enemies within 5m.',
     cooldown: 90,
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Havoc_Form`],
     linkedItems: {
       archetype: {
@@ -439,7 +439,7 @@ export const skillItems: SkillItem[] = [
       'DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining Ammo.\n' +
       '\n' +
       'Heavy Weapon Ammo is regenerated by 1.02% every second, and Heavy Weapons can only be deployed if at least 25% Ammo is available.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Heavy_Weapon:_Flamethrower`],
     linkedItems: {
       archetype: {
@@ -462,7 +462,7 @@ export const skillItems: SkillItem[] = [
       'DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining Ammo.\n' +
       '\n' +
       'Heavy Weapon Ammo is regenerated by 1.02% every second, and Heavy Weapons can only be deployed if at least 25% Ammo is available.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Heavy_Weapon:_Impact_Cannon`],
     linkedItems: {
       archetype: {
@@ -499,7 +499,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'Fountains can grant either: 10% increased All Damage dealt, 15% Damage Reduction, 2 Health Regeneration per second, or HASTE.',
     cooldown: 45,
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Gold_Digger`],
     linkedItems: {
       archetype: {
@@ -659,7 +659,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'HOLD: SACRIFICE Root Hollow Minions to explode, dealing 150 damage within 5m. Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.',
     cooldown: 30,
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Minion:_Hollow`],
     tags: ['Reduce Skill Cooldown', 'Summon'],
     linkedItems: {
@@ -682,7 +682,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.',
     cooldown: 45,
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Minion:_Flyer`],
     linkedItems: {
       archetype: {
@@ -704,7 +704,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'Reduces Skill Cooldown by up to 50% based on remaining Health of Minion.',
     cooldown: 120,
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     tags: ['Reduce Skill Cooldown', 'Summon'],
     wikiLinks: [`https://remnant.wiki/Minion:_Reaver`],
     linkedItems: {
@@ -724,7 +724,7 @@ export const skillItems: SkillItem[] = [
     description:
       'Creates 1m explosion for 50 damage on all enemies within 15m. Explosion Radius and Damage increases 100% for each unique Status Effect on the target. Refreshes all current Status Effects on the target.',
     cooldown: 40,
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Eruption`],
     linkedItems: {
       archetype: {
@@ -742,7 +742,7 @@ export const skillItems: SkillItem[] = [
     tags: ['Status Effect'],
     description: `Casts an AOE burst that applies BLEEDING, BURNING, OVERLOADED, and CORRODED to all enemies within 15m, and dealing a total 300 base damage. Lasts 10s.`,
     cooldown: 45,
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Miasma`],
     linkedItems: {
       archetype: {
@@ -802,7 +802,7 @@ export const skillItems: SkillItem[] = [
       '\n' +
       'Cooldown: 120s.',
     cooldown: 120,
-    externalTokens: ['Amplitude'],
+    externalTokens: ['AOE/Aura'],
     wikiLinks: ['https://remnant.wiki/Way_of_Meidra'],
     linkedItems: {
       archetype: {
@@ -818,7 +818,7 @@ export const skillItems: SkillItem[] = [
     id: 'T2xA6c',
     dlc: 'dlc2',
     tags: ['Critical Chance', 'Critical Damage', 'Elemental Damage'],
-    externalTokens: ['Amplitude'],
+    externalTokens: ['AOE/Aura'],
     description:
       'Invoke Lydusa to infuse Ranged and Melee Damage with the power to apply BRITTLE, allowing the Invoker to generate Sand Devils through damage or kills. Lasts 15s\n' +
       '\n' +

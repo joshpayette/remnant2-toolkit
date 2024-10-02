@@ -78,7 +78,7 @@ export const consumableItems: ConsumableItem[] = [
     tags: ['Grenade', 'Status Effect'],
     description:
       'When thrown, Device becomes an anchor and applies SLOW to all enemies within 4m. Lasts 20s.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Binding_Orb`],
     location: {
       world: `N'Erud`,
@@ -91,7 +91,7 @@ export const consumableItems: ConsumableItem[] = [
     imagePath: '/items/consumables/blacktar.png',
     saveFileSlug: 'Consumable_BlackTar_C',
     tags: ['Grenade'],
-    externalTokens: ['Amplitude'],
+    externalTokens: ['AOE/Aura'],
     id: 'nrdcko',
     dlc: 'base',
     description:
@@ -123,7 +123,7 @@ export const consumableItems: ConsumableItem[] = [
     tags: ['Grenade'],
     description:
       'When thrown, explodes in a 6m radius dealing 50 - 150 damage and leaving a mysterious Mist which causes enemies to receive 10% additional damage. Duration lasts 10s after enemies leave the Mist. Last 15s.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Brightstone`],
     location: { world: 'Yaesha', dungeon: ['The Forgotten Grove'] },
   },
@@ -353,7 +353,7 @@ export const consumableItems: ConsumableItem[] = [
     tags: ['Grenade'],
     description:
       'When thrown, explodes in a 4m radius dealing 150 - 450 damage and applying BLEEDING, which deals an additional 250 - 750 BLEED damage over 30s.',
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Pipe_Bomb`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },

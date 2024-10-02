@@ -178,7 +178,7 @@ export const amuletItems: AmuletItem[] = [
     tags: ['Status Effect'],
     description:
       'Reduces Duration of Elemental Status Effects against wearer by 50%. Relic use cleanses Elemental Status effects and grants 25% of wearers Max Health to all allies within 20m when cleansed.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Cleansing_Stone`],
     location: { world: 'Losomn', biome: 'Burning City', injectable: 'Rookery' },
   },
@@ -398,7 +398,7 @@ export const amuletItems: AmuletItem[] = [
     tags: ['Status Effect'],
     description:
       'Increases Status Effect damage by 20%. Directly applying a damaging Status Effect creates a 2m Explosion for 20% of its full damage.\n\nEach target can be affected once every 5s.',
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Energized_Neck_Coil`],
     location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
   },
@@ -852,7 +852,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['Critical Chance', 'Status Effect'],
     description: `Gain 15% Critical Chance and HASTE when within 20m of an entity suffering from a Status Effect.`,
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Nightweaver's_Grudge`],
     location: { world: 'Losomn', dungeon: ['Tormented Asylum'] },
   },
@@ -1242,7 +1242,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     description:
       'Swapping Firearms releases a Toxic Cloud, which deals 60.5-170.5 ACID Damage to all enemies within 7m and applies CORROSION dealing 280 ACID damage over 7s.\n\nCan only happen once every 3s.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Toxic_Release_Valve`],
     location: { world: `N'Erud`, dungeon: [`Dormant N'Erudian Facility`] },
   },

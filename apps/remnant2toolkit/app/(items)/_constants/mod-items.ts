@@ -149,7 +149,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Funnels all current Mod Charges into the next shot. Projectile deals 65 → 195 direct damage and 65 → 195 Explosive damage per Charge consumed in a 5m radius. Explosion applies 75 → 225 BURNING damage over 10s per Charge consumed.\n\nAdditional Charges consumed increase all damage by 5%. Max 5 Charges.',
-    externalTokens: [`Explosive Damage`, `Amplitude`],
+    externalTokens: [`Explosive Damage`, `AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Star_Shot`],
     linkedItems: {
       weapon: {
@@ -278,7 +278,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Drives electrified rods which tether to other rods within 10m. Tethers last 10s and deal 20 → 60 SHOCK damage per second. \n\n Targets take 50 → 150 SHOCK damage per second, and 25% damage per extra rod. Increases 1.5x if linked to another rod. Rods in the same target will not link.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Enigma`],
     linkedItems: {
       weapon: {
@@ -296,7 +296,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Fires a focused blast of air through all targets within 8m, dealing 155 - 465 damage and 4x impact.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Concussive_Shot`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
@@ -322,7 +322,7 @@ export const modItems: ModItem[] = [
     id: 'a3ctlf',
     description:
       'Shoots out a canister that shatters to reveal an expanding mist, starting at 7.5m and growing to 15m over 5s. Lasts 20s.\n\nEnemies within the mist receive 25% additional Status Effect Damage and are 5% more likely to be struck with a critical hit from any source. The mists debuff persists for 10s after targets exit the mist.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Creeping_Mist`],
     location: { world: 'Losomn', dungeon: ['Sunken Haunt'] },
   },
@@ -335,7 +335,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Conjures a 5m anomalous Cube Room which grants allies an increase of 75% Heat Decay Rate, reduces Heat Generation per round when firing weapons that Overheat by 20% and automatically generates missing reserve ammo per second. Lasts 15s.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Corrupted_Cube_Gun`],
     linkedItems: {
       weapon: {
@@ -386,7 +386,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Fires a cluster bomb which detonates on impact across 2.5m. Each cluster deals up to 50 → 150 damage per explosion within 3.5m.',
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Corrupted_Meridian`],
     linkedItems: {
       weapon: {
@@ -422,7 +422,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Applies Death Brand to all non-allies within 25m, increasing incoming damage by 10%. Enemies killed while bearing the Death Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm.\n\nEchoes are drawn to any survivor who walks within 3m, increasing Weakspot Damage dealt by 10% for 10s.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Corrupted_Rune_Pistol`],
     linkedItems: {
       weapon: {
@@ -457,7 +457,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Infects weapon with Malware for 30s, causing shots to apply FRAGMENTED for 5s. When a FRAGMENTED enemy dies, they create a Glitch that lasts 15s.\n\nPicking up a Glitch increases All damage by 20% for 15s.\n\nDestroying a Glitch causes it to destabilize, creating a 5m Virus Pool which deals 25 damage per second and applies the FRAGMENTED debuff to enemies inside. Virus Pools last 15s.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Defrag`],
     location: { world: 'Root Earth', dungeon: ['Ashen Wasteland'] },
   },
@@ -488,7 +488,7 @@ export const modItems: ModItem[] = [
     tags: ['Status Effect'],
     description:
       'After dealing 250 → 750 damage, Charge Attack will release a Dreamwave, floating outwards 20m and returning to caster.\n\nDreamwave applies SLOW to all enemies for 10s and grants a Stack of REVERIE for each enemy affected. Each Stack grants 2% to All Damage and 2% Movement Speed, which lasts 15s.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Dreamcatcher`],
     linkedItems: {
       weapon: {
@@ -505,7 +505,7 @@ export const modItems: ModItem[] = [
     id: '22nk8x',
     dlc: 'base',
     description: `When Infused, Neutral Backdash Charge Attack explodes in a 3m AOE and leaves an ACID Cloud which lasts for 15s.`,
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Gas_Giant`],
     linkedItems: {
       weapon: {
@@ -570,7 +570,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Fires an explosive round that deals up to 175 → 525 FIRE damage within 9m and applies BURNING, dealing 250 → 750 FIRE damage over 10s.',
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Hellfire`],
     linkedItems: {
       weapon: {
@@ -588,7 +588,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Summons Fearie Familiar to aid in combat. The Familiar selects a random enemy within 10m and slashes through them for 25 damage each attack. Familiar will select a new target when the previous one dies. Lasts 15s.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Familiar`],
     location: { world: 'Losomn', dungeon: [`Briella's Garden`] },
   },
@@ -647,7 +647,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Creates a whirling cyclone that sucks in nearby targets and applies BURNING for 10s. The center of the cyclone deals 75 FIRE damage per second. Lasts 15s.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Firestorm`],
     location: { world: 'Losomn', dungeon: ['Gilded Chambers'] },
   },
@@ -675,7 +675,7 @@ export const modItems: ModItem[] = [
     imagePath: '/items/mods/flyingbombtrap.png',
     id: '2GWpcL',
     dlc: 'dlc2',
-    externalTokens: ['Amplitude'],
+    externalTokens: ['AOE/Aura'],
     description:
       'Fires a projectile that deploys up to 5 traps after contacting the ground.\n\nEach trap can launch a flask of deadly liquid up to 15m when an enemy travels above and will rearm once every 1.5s. Flask detonations release a 7m shockwave which deals 50 Damage and splashes targets within 4m of the center for 100 ACID Damage, applying CORRODED for 100 damage over 10s.\n\nLasts 20s or 10 total flask launches.',
     wikiLinks: [`https://remnant.wiki/Flying_Bomb_Trap`],
@@ -724,7 +724,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Fires a highly compressed sphere which creates a large Gravity Well on contact, pulling in enemies for 4s.\n\nWhen the Gravity Well expires, it deals 375 → 1125 damage within 10m. Adds 250 → 750 damage per enemy and divides total damage among all enemies.',
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Starkiller`],
     linkedItems: {
       weapon: {
@@ -742,7 +742,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'When Mod Power is full, Primary Fire becomes Empowered and highlights enemies it strikes.\n\nActivating the Mod calls down a Guardian Sword on enemies struck by an Empowered Energy Disc. Swords deal 150 → 450 damage and 3x stagger within 3m.',
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Twisted_Arbalest`],
     linkedItems: {
       weapon: {
@@ -760,7 +760,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       "Imbues the Arbalest with the power of Yaesha's corrupted guardian, increases Fire Rate by 20%, reduces Recoil and Sway by 25% and each disc impact with an enemy explodes over 3.5m for 69 → 207 damage. Lasts 15s.",
-    externalTokens: [`Amplitude`, 'Explosive Damage'],
+    externalTokens: [`AOE/Aura`, 'Explosive Damage'],
     wikiLinks: [`https://remnant.wiki/Corrupted_Arbalest`],
     linkedItems: {
       weapon: {
@@ -788,7 +788,7 @@ export const modItems: ModItem[] = [
     imagePath: '/items/mods/heatwave.png',
     dlc: 'dlc2',
     id: 'vc3s1n',
-    externalTokens: ['Amplitude'],
+    externalTokens: ['AOE/Aura'],
     description:
       'Activates a 15m aura of sweltering heat, causing enemies inside the aura for 3s to begin BURNING for 250 FIRE Damage over 5s. Lasts 30s.',
     wikiLinks: [`https://remnant.wiki/Heatwave`],
@@ -1008,7 +1008,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       "Fires 5 shattered star orbs. On contact, they each explode for 75 → 225 FIRE damage, and apply 200 → 600 BURNING damage over 10s to all targets within 2.75m.\n\nStriking the Micronova with Corrupted Aphelion's primary fire causes a chain reaction of larger and more powerful detonations which also apply the initial BURNING amount.\n\nGenerates 1 Primary Ammo on Fire.",
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Corrupted_Aphelion`],
     linkedItems: {
       weapon: {
@@ -1043,7 +1043,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Detonate active Nano-bots, each dealing 100 → 300 ACID damage plus an additional 25 → 75 ACID damage per Nano-bot detonated to enemies within 2m and applies CORRODED, dealing 50 → 150 damage over 10s per Nano-bot detonated.',
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Corrupted_Nebula`],
     linkedItems: {
       weapon: {
@@ -1127,7 +1127,7 @@ export const modItems: ModItem[] = [
     tags: ['Status Effect'],
     description:
       'Charged Melee empowers the staff for 10s, causing Melee Attacks to launch an energy bolt that seeks enemies within 30m, dealing 50 → 150 SHOCK Damage and grants 1 stack of POWER STONE. Max 10 stacks.\n\nWhile empowered, Charged Melee calls a 6m shockwave dealing 75 → 225 SHOCK Damage and ends POWER STONE. For each POWER STONE stack built when ended, release 1 energy bolt that seeks a random enemy and applies OVERLOADED, dealing 50 → 150 SHOCK damage every 5s for 10s.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Crystal_Staff`],
     linkedItems: {
       weapon: {
@@ -1145,7 +1145,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Fires a superheated beam which deals 25 Mod Damage per second. Sustaining the beam on a target causes an explosion which deals 150 Mod damage in a 3m AOE',
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Prismatic_Driver`],
     location: { world: `N'Erud`, dungeon: [`Spectrum Nexus`] },
   },
@@ -1191,7 +1191,7 @@ export const modItems: ModItem[] = [
     id: '4rdl8r',
     description:
       'Calls forth 7 Phantom Spears to encircle the wielder for 25s. Deals up to 35 damage per second to nearby enemies, based on the number of spears remaining in the ring.\n\nWhile active, spears can be thrown by reactivating the Mod. Spears deal 100 and will remain at their impact point for the duration of the Mod.\n\nHolding the Mod Button recalls embedded Spears, dealing 50 damage to enemies along their path. When all recalled spears return, they cause an Explosion dealing up to 350 damage based on the number of spears recalled.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Ring_of_Spears`],
     location: { world: 'Losomn', dungeon: ['Glistering Cloister'] },
   },
@@ -1216,7 +1216,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Fires a rotten arrow that deals 75 - 225 Base Damage with a 125% bonus Weakspot modifier. Detonates for another 100 - 300 damage within 1.5m.',
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Rotted_Arrow`],
     location: { world: 'Yaesha', dungeon: ['The Expanding Glade'] },
   },
@@ -1230,7 +1230,7 @@ export const modItems: ModItem[] = [
     tags: [],
     description:
       "Launch a sphere of loam. Impact creates a 5m swirling storm of sand which seeks to center itself on an enemy and deals 45 → 135 Elemental damage per second. When Sandstorm's focused target dies, it will seek a new enemy within 10m. Lasts 15s.",
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Monolith`],
     linkedItems: {
       weapon: {
@@ -1249,7 +1249,7 @@ export const modItems: ModItem[] = [
     tags: ['Status Effect'],
     description:
       'Fires a canister that releases Caltrops over an area of 6m. Caltrops apply SLOW and BLEEDING to enemies, dealing 400 - 1,200 damage over 10s. Lasts 10s.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Scrap_Shot`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
@@ -1262,7 +1262,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Fires a high-powered rocket that deals up to 200 → 600 damage within 2.5m.',
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Meridian`],
     linkedItems: {
       weapon: {
@@ -1308,7 +1308,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Fires a Wretched Spear which embeds itself on contact. Spears deal 125 damage on hit, rapidly dividing inside the target until bursting, dealing 140 damage to all targets within 3m. Spears embedded in the environment remain in place for 10s.',
-    externalTokens: ['Amplitude'],
+    externalTokens: ['AOE/Aura'],
     wikiLinks: [`https://remnant.wiki/Skewer_2.0`],
     location: { world: 'Root Earth', dungeon: ['Corrupted Harbor'] },
   },
@@ -1322,7 +1322,7 @@ export const modItems: ModItem[] = [
     tags: ['Status Effect', 'Damage Reduction'],
     description:
       'Fires a shot infused with the binding power of the Song of Eafir. Staggers most ground enemies within 10m and deals 150 → 450 damage to Flying enemies within the same range.\n\nThe song continues for 15s, afflicting targets within 15m with SLOW reducing their damage by 10%.',
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Song_of_Eafir`],
     location: { world: 'Yaesha', dungeon: 'Quest' },
   },
@@ -1335,7 +1335,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Applies Soul Brand to all enemies within 25m which lasts 25s. Enemies killed while bearing the Soul Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm.\n\nEchoes are drawn to any survivor who walks within 3m, granting 20% of Max Health on contact.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Rune_Pistol`],
     linkedItems: {
       weapon: {
@@ -1353,7 +1353,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Fires a projectile that attaches to the enemy dealing 40 damage. Enemies within 7m become bound to the primary target after impact and share 60% of damage dealt to them. Lasts 15s.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Soulbinder`],
     location: { world: 'Yaesha', dungeon: ['The Chimney'] },
   },
@@ -1397,7 +1397,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Fires a magical arrow which deals 30 → 90 damage and opens a 7m portal that rains down star fragments. Each fragment deals 50 → 150 damage within 2m. Last 6s.',
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Sagittarius`],
     linkedItems: {
       weapon: {
@@ -1429,7 +1429,7 @@ export const modItems: ModItem[] = [
     tags: ['Status Effect'],
     description:
       "Fires the compressed remains of a dying star. On contact, explodes for 150 → 450 FIRE damage, and 350 → 1050 BURNING damage over 10s to all targets within 4m.\n\nStriking the Supernova with Aphelion's primary fire spawns a massive shockwave which greatly increases the area of effect, total damage, and applies the initial BURNING amount.\n\nGenerates 1 Primary Ammo on Fire.",
-    externalTokens: [`Amplitude`, 'Explosive Damage'],
+    externalTokens: [`AOE/Aura`, 'Explosive Damage'],
     wikiLinks: [`https://remnant.wiki/Aphelion`],
     linkedItems: {
       weapon: {
@@ -1448,7 +1448,7 @@ export const modItems: ModItem[] = [
     tags: ['Status Effect'],
     description:
       'Creates a 6m blast which freezes all standard enemies for 7s.\n\nDealing damage to frozen enemies immediately breaks the Time Lapse effect, applying SLOW for the remaining duration.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Time_Lapse`],
     location: { world: 'Losomn', dungeon: ['Hewdas Clock'] },
   },
@@ -1461,7 +1461,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Fires a projectile that cracks the ground and spawns shockwaves that deal 75 damage Within 9m for 6s. Shockwaves inflict 3x impact.',
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Tremor`],
     location: { world: 'Yaesha', dungeon: ['The Nameless Nest'] },
   },
@@ -1486,7 +1486,7 @@ export const modItems: ModItem[] = [
     tags: ['Status Effect'],
     description:
       'Launches a slow-moving orb that pulses every 0.5s, striking enemies within 3m for 20 → 60 SHOCK damage and applying OVERLOADED, dealing 25 → 75 SHOCK damage every 5s for 15s. The orb lasts 20s.\n\nRepeatedly damaging the orb overcharges it, increasing its radius. Overcharged orb deals 50% increased pulse damage.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Voltaic_Rondure`],
     location: { world: 'Losomn', dungeon: ['The Great Sewers'] },
   },
@@ -1550,7 +1550,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Fires a highly volatile projectile that explodes to leave a line of flaming terrain. Deals 55 FIRE Damage per second, and applies BURNING, dealing 200 damage over 10s. Lasts 5s.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Witchfire`],
     location: { world: 'Losomn', dungeon: [`Cotton's Kiln`] },
   },
