@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed small bug preventing toggling newly added items as optional in some situations.
+- When the Traitor legendary gem is equipped in the builder, the core traits in the build are now maxed as described in the item description.
 
 ## 2024-10-01
 

@@ -36,7 +36,7 @@ import { TraitItem } from '@/app/(items)/_types/trait-item';
 
 import { MemberFeatures } from './member-features';
 import { Stats } from './stats';
-import { Traits } from './traits';
+import { TraitsContainer } from './traits-container';
 
 type BuilderProps = {
   buildState: BuildState;
@@ -390,14 +390,15 @@ export function Builder({
 
     // validate the amounts
     const validatedTraitItems = newTraitItems.map((traitItem) => {
+      const primaryArchetype = buildState.items.archetype[0];
+      const secondaryArchetype = buildState.items.archetype[1];
+
+      // Start at the amount the user entered
       let validAmount = traitItem.amount;
 
       // if this is the linked trait to an archetype,
       // the default should be the linked amount
       let defaultAmount = DEFAULT_TRAIT_AMOUNT;
-
-      const primaryArchetype = buildState.items.archetype[0];
-      const secondaryArchetype = buildState.items.archetype[1];
 
       // if this is the linked trait for the primary archetype,
       // make sure the amount is not less than the minimum allowed
@@ -904,7 +905,7 @@ export function Builder({
             </div>
 
             <div id="trait-row" className="w-full">
-              <Traits
+              <TraitsContainer
                 buildState={buildState}
                 showControls={showControls}
                 isEditable={isEditable}

@@ -1,3 +1,4 @@
+import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/_constants/default-trait-amount';
 import { linkArchetypesToPerks } from '@/app/(builds)/_libs/link-archetypes-to-perks';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { traitItems } from '@/app/(items)/_constants/trait-items';
@@ -57,6 +58,30 @@ export function cleanUpBuildState(buildState: BuildState): BuildState {
   const secondaryArchetype = buildState.items.archetype[1];
   if (secondaryArchetype) {
     setArchetypePrimeTraitPoints(secondaryArchetype, buildState, 'secondary');
+  }
+
+  // if Traitor is equipped, ensure all core trait points are maxed
+  // if the user has the Traitor legendary gem equipped, all core traits
+  const isTraitorEquipped = buildState.items.relicfragment[8]?.id === 'cya6q1';
+  if (isTraitorEquipped) {
+    const coreTraits = traitItems.filter((trait) => trait.type === 'core');
+    for (const coreTrait of coreTraits) {
+      // If the core trait is in the build, set it to 10
+      // Otherwise, add it to the build and set it to 10
+      const coreTraitIndex = buildState.items.trait.findIndex(
+        (item) => item.id === coreTrait.id,
+      );
+      const isCoreTraitEquipped = coreTraitIndex !== -1;
+      if (isCoreTraitEquipped) {
+        (buildState.items.trait[coreTraitIndex] as TraitItem).amount =
+          DEFAULT_TRAIT_AMOUNT;
+      } else {
+        buildState.items.trait.push({
+          ...coreTrait,
+          amount: DEFAULT_TRAIT_AMOUNT,
+        });
+      }
+    }
   }
 
   // link weapons to mods
