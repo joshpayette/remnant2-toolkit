@@ -9,10 +9,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Added several new world saves to the World Save Archive.
+- Added new items.
 
 ### Changed
 
 - Removed the Builds By Collection link from navbar, as that functionality is now included in the filters.
+- Updated melee weapon item descriptions to match the Remnant.wiki.
 
 ## 2024-09-30
 

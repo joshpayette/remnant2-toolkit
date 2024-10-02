@@ -229,7 +229,8 @@ export const modItems: ModItem[] = [
     imagePath: '/items/mods/bloodthirst.png',
     id: '1rw0kk',
     dlc: 'base',
-    description: `Attacks from behind enemies always count as Weakspots. Charge Attacks deal 200 - 600 BLEEDING damage over 10s.`,
+    description:
+      'Attacks from behind enemies always count as Weakspots. Charge Attacks deal 200 → 600 BLEEDING damage over 10s.',
     wikiLinks: [`https://remnant.wiki/Assassin's_Dagger`],
     linkedItems: {
       weapon: {
@@ -438,7 +439,7 @@ export const modItems: ModItem[] = [
     id: 'wilhsl',
     dlc: 'base',
     description:
-      'Dealing Melee Damage 6 times over 10s empowers Feral Judgement. When empowered, Neutral Backdash Charge Attacks apply Death Sentence.\n\nAfter 1.5s of being sentenced, the enemy will suffer 10 Phantom Strikes, dealing 25 - 75 Damage each. Deals 25% additional damage to BLEEDING enemies.',
+      'Dealing Melee Damage 6 times over 10s empowers Feral Judgement. When empowered, Neutral Backdash Charge Attacks apply Death Sentence.\n\nAfter 1.5s of being sentenced, the enemy will suffer 10 Phantom Strikes, dealing 25 → 75 Damage each. Deals 25% additional damage to BLEEDING enemies.',
     wikiLinks: [`https://remnant.wiki/Feral_Judgement`],
     linkedItems: {
       weapon: {
@@ -486,7 +487,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     tags: ['Status Effect'],
     description:
-      'After dealing 250 - 750 damage, Charge Attack will release a Dreamwave, floating outwards 20m and returning to caster.\n\nDreamwave applies SLOW to all enemies for 10s and grants a Stack of REVERIE for each enemy affected. Each Stack grants 2% to All Damage and 2% Movement Speed, which lasts 15s.',
+      'After dealing 250 → 750 damage, Charge Attack will release a Dreamwave, floating outwards 20m and returning to caster.\n\nDreamwave applies SLOW to all enemies for 10s and grants a Stack of REVERIE for each enemy affected. Each Stack grants 2% to All Damage and 2% Movement Speed, which lasts 15s.',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Dreamcatcher`],
     linkedItems: {
@@ -628,7 +629,7 @@ export const modItems: ModItem[] = [
     id: '5mlisj',
     dlc: 'base',
     description:
-      'Melee Charge attacks fire off ground-based shockwaves which deal 115 - 345 damage.',
+      'Melee Charge attacks fire off ground-based shockwaves which deal 115 → 345 damage.',
     wikiLinks: [`https://remnant.wiki/Stonebreaker`],
     linkedItems: {
       weapon: {
@@ -658,7 +659,7 @@ export const modItems: ModItem[] = [
     id: 'd490vt',
     dlc: 'base',
     description:
-      'On Neutral Evade Attacks Atom Splitter achieves Nuclear Fission, releashing a wave of charged particles which deals 150 - 450 damage to targets within 20m.\n\nCharged Neutral Evade Attacks increase range by 3x and damage by 25%.',
+      'On Neutral Evade Attacks Atom Splitter achieves Nuclear Fission, releasing a wave of charged particles which deals 150 → 450 damage to targets within 20m.\n\nCharged Neutral Evade Attacks increase range by 3x and damage by 25%.',
     wikiLinks: [`https://remnant.wiki/Atom_Splitter`],
     linkedItems: {
       weapon: {
@@ -843,7 +844,7 @@ export const modItems: ModItem[] = [
     id: '2fjw9q',
     dlc: 'base',
     description:
-      'Charge Attacks release a wide horizontal projectile that penetrates through multiple enemies dealing 101 - 302 damage.',
+      'Charge Attacks release a wide horizontal projectile that penetrates through multiple enemies dealing 100.8 → 302.4 damage.',
     wikiLinks: [`https://remnant.wiki/World's_Edge`],
     linkedItems: {
       weapon: {
@@ -904,6 +905,22 @@ export const modItems: ModItem[] = [
   },
   {
     category: 'mod',
+    name: 'Kilonova',
+    saveFileSlug: 'Mod_Kilonova_C', // TODO Check
+    imagePath: '/items/mods/kilonova.png',
+    id: '4hu8s0',
+    dlc: 'dlc3',
+    description: `Charged Melee empowers the Gauntlets for 15s, increasing Standard Melee Damage by 25% and causing Charged Melee Attacks to release 8m penetrating blasts. Each blast reduces the duration.\n\nWhile empowered, performing a Charged Melee Attack during a Neutral Backdash gathers power for up to 5s, then fires a DARKNESS BEAM that deals 125 → 375 Melee Damage every 0.5s. The beam duration equals its time charged, then ends Kilonova after firing.`,
+    wikiLinks: [`https://remnant.wiki/Dark_Matter_Gauntlets`],
+    linkedItems: {
+      weapon: {
+        name: 'Dark Matter Gauntlets',
+      },
+    },
+    location: { world: 'Any', dungeon: 'Linked Item' },
+  },
+  {
+    category: 'mod',
     name: 'Knight Guard',
     saveFileSlug: 'Mod_KnightGuard_C',
     imagePath: '/items/mods/knightguard.png',
@@ -922,7 +939,7 @@ export const modItems: ModItem[] = [
     id: '38rncx',
     dlc: 'base',
     description:
-      'Charge to throw the Krell Axe which applies OVERLOADED on hit, dealing 50 - 150 SHOCK damage every 5s for 20s. Shortly after throwing, another will appear in the wielders hand.\n\nCosts 25 Stamina.',
+      'Charge to throw the Krell Axe which applies OVERLOADED on hit, dealing 50 - 150 SHOCK damage every 5s for 10s. Shortly after throwing, another will appear in the wielders hand.\n\nCosts 25 Stamina.',
     wikiLinks: [`https://remnant.wiki/Krell_Axe`],
     linkedItems: {
       weapon: {
@@ -1086,6 +1103,22 @@ export const modItems: ModItem[] = [
   },
   {
     category: 'mod',
+    name: 'Phantom Blade',
+    saveFileSlug: 'Mod_PhantomBlade_C', // TODO Check
+    imagePath: '/items/mods/phantomblade.png',
+    id: 't1ugnb',
+    dlc: 'dlc3',
+    description: `Charged Melee Attacks release a Phantom that trails behind the host weapon, dealing 35% of the Harvester Scythe’s damage. Each hit of the Phantom Blade increases Melee Attack Speed and Melee Charge Speed by 6% for 5s. Max 5 stacks.`,
+    wikiLinks: [`https://remnant.wiki/Harvester_Scythe`],
+    linkedItems: {
+      weapon: {
+        name: 'Harvester Scythe',
+      },
+    },
+    location: { world: 'Any', dungeon: 'Linked Item' },
+  },
+  {
+    category: 'mod',
     name: 'Power Stone',
     saveFileSlug: undefined,
     imagePath: '/items/mods/powerstone.png',
@@ -1093,7 +1126,7 @@ export const modItems: ModItem[] = [
     dlc: 'dlc2',
     tags: ['Status Effect'],
     description:
-      'Charged Melee empowers the staff for 10s, causing Melee Attacks to launch an energy bolt that seeks enemies within 30m, dealing 50 - 150 SHOCK Damage and grants 1 stack of POWER STONE. Max 10 stacks.\n\nWhile empowered, Charged Melee calls a 6m shockwave dealing 75 - 225 SHOCK Damage and ends POWER STONE. For each POWER STONE stack built when ended, release 1 energy bolt that seeks a random enemy and applies OVERLOADED to 10s.',
+      'Charged Melee empowers the staff for 10s, causing Melee Attacks to launch an energy bolt that seeks enemies within 30m, dealing 50 → 150 SHOCK Damage and grants 1 stack of POWER STONE. Max 10 stacks.\n\nWhile empowered, Charged Melee calls a 6m shockwave dealing 75 → 225 SHOCK Damage and ends POWER STONE. For each POWER STONE stack built when ended, release 1 energy bolt that seeks a random enemy and applies OVERLOADED, dealing 50 → 150 SHOCK damage every 5s for 10s.',
     externalTokens: [`Amplitude`],
     wikiLinks: [`https://remnant.wiki/Crystal_Staff`],
     linkedItems: {
@@ -1111,7 +1144,7 @@ export const modItems: ModItem[] = [
     id: 'vtcg3o',
     dlc: 'base',
     description:
-      'Fires a superheated beam which deals 25 Mod Damage per second. Sustaining the beam on a target causes an explosion which deals 150 Mod damage in a 3m AOE.',
+      'Fires a superheated beam which deals 25 Mod Damage per second. Sustaining the beam on a target causes an explosion which deals 150 Mod damage in a 3m AOE',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Prismatic_Driver`],
     location: { world: `N'Erud`, dungeon: [`Spectrum Nexus`] },
@@ -1288,7 +1321,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     tags: ['Status Effect', 'Damage Reduction'],
     description:
-      'Fires a shot infused with the binding power of the Song of Eafir. Staggers most ground enemies within 10m and deals 150 - 450 damage to Flying enemies within the same range.\n\nThe song continues for 15s, afflicting targets within 15m with SLOW reducing their damage by 10%.',
+      'Fires a shot infused with the binding power of the Song of Eafir. Staggers most ground enemies within 10m and deals 150 → 450 damage to Flying enemies within the same range.\n\nThe song continues for 15s, afflicting targets within 15m with SLOW reducing their damage by 10%.',
     externalTokens: [`Amplitude`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Song_of_Eafir`],
     location: { world: 'Yaesha', dungeon: 'Quest' },
@@ -1465,7 +1498,7 @@ export const modItems: ModItem[] = [
     id: '2y6xm7',
     dlc: 'base',
     description:
-      'Performing a Charged Melee Attack during a Neutral Backdash creates a Whirlwind of slashes which strike all enemies within 8m for 91 - 273 damage.',
+      'Performing a Charged Melee Attack during a Neutral Backdash creates a Whirlwind of slashes which strike all enemies within 8m for 91 → 273 damage.',
     wikiLinks: [`https://remnant.wiki/Spectral_Blade`],
     linkedItems: {
       weapon: {
