@@ -166,7 +166,7 @@ export const perkItems: PerkItem[] = [
       'Level 10:\n' +
       'Gain 30% Ranged, Melee, and Skill Damage and 5% Ranged, Melee, and Skill Critical Chance while Companion is active and within 40m of the Handler.',
     wikiLinks: [`https://remnant.wiki/Pack_Hunter`],
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     linkedItems: {
       archetype: {
         name: 'Handler',
@@ -189,7 +189,7 @@ export const perkItems: PerkItem[] = [
       'Level 7:\n' +
       "Increases Movement Speed by 10%. All allies within 10m of the Handler gain the Handler's Movement Speed (if faster). Reduces the Stamina Cost of actions for allies by 15%.",
     wikiLinks: [`https://remnant.wiki/Spirit_of_the_Wolf`],
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     linkedItems: {
       archetype: {
         name: 'Handler',
@@ -536,7 +536,7 @@ export const perkItems: PerkItem[] = [
       'Level 7:\n' +
       'After activating a Challenger Skill, enemies within 15m deal 10% less damage for 15s, with an additional 2.5% damage reduction per enemy affected. (Max 10%).',
     wikiLinks: [`https://remnant.wiki/Intimidating_Presence`],
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     linkedItems: {
       archetype: {
         name: 'Challenger',
@@ -893,7 +893,7 @@ export const perkItems: PerkItem[] = [
       '\n' +
       'Level 7:\n' +
       'Heavy Weapons grant 15% Damage Reduction and gradually restore Ammo to all allies within 2.5m.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Magnetic_Field`],
     linkedItems: {
       archetype: {
@@ -1322,7 +1322,7 @@ export const perkItems: PerkItem[] = [
       '\n' +
       'Level 10:\n' +
       'Negative Status Effects applied by Ritualist inflict INFECTED.INFECTED: Victim receives 15% more Status Effect damage. On death, spreads all statuses to nearby enemies within 15m.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Vile`],
     linkedItems: {
       archetype: {

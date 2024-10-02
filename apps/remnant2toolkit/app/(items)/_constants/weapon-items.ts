@@ -1434,7 +1434,7 @@ export const weaponItems: WeaponItem[] = [
     id: 'gts5dh',
     dlc: 'base',
     description: `Basic Strikes generate 10% additional Mod Power. Charge Attacks perform an AOE which strikes all enemies within 2m, dealing 75 Damage. AOE Damage generates 50% additional Mod Power.`,
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
     wikiLinks: [`https://remnant.wiki/Labyrinth_Staff`],
     damage: 64,
@@ -1980,7 +1980,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description:
       'Fires rocket that deals AOE damage within 2m. Charging the weapon can load additional rockets. (Max 3). Cannot Weakspot.',
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Corrupted_Meridian`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
     linkedItems: {
@@ -2143,7 +2143,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description:
       'Fires an electrical stream that jumps to nearby targets within 7.5m, dealing 30% reduced damage per jump. Applies OVERLOADED.',
-    externalTokens: [`Amplitude`],
+    externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Enigma`],
     location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
     linkedItems: {
@@ -2200,7 +2200,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description:
       'Fires grenades that explode on contact with enemies and deal AOE damage within 4m. Dormant grenades eventually explode and can be shot to detonate early. Cannot Weakspot.',
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Meridian`],
     location: {
       world: 'Losomn',
@@ -2499,7 +2499,7 @@ export const weaponItems: WeaponItem[] = [
     id: 'tldnuq',
     dlc: 'base',
     description: `Fires a fast moving projectile which explodes on contact. Explosion has no damage falloff.`,
-    externalTokens: [`Amplitude`, `Explosive Damage`],
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Star_Shot`],
     location: { world: `N'Erud`, dungeon: [`The Dark Conduit`] },
     linkedItems: {

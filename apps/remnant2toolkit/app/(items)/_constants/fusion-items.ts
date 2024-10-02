@@ -121,7 +121,7 @@ export const fusionItems: FusionItem[] = [
   {
     category: 'fusion',
     name: 'Pugilist',
-    fragmentIds: ['t8jgpe', 'qqmdc0'],
+    fragmentIds: ['t8jgpe', '4gbcn0'],
     imagePath: '/items/fusions/red-blue.png',
     id: 'jeu7d6',
     dlc: 'base',

@@ -31,6 +31,8 @@ const SKIPPED_ITEMS = [
   'MOD',
   'Polygun (Marksman)',
   'Polygun (Shotgun)',
+  'Confidence Booster', // TODO Change after wiki description fixed
+  'Hardcore Metal Band', // TODO Change after wiki description fixed
 ];
 
 /**

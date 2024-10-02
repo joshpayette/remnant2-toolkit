@@ -120,8 +120,8 @@ export const INLINE_TOKENS = [
   {
     type: 'Defrag',
     token: 'DEFRAG',
-    color: 'text-[#6b6161] dark:text-[#ede6e6]',
-    description: 'Physical Damage.',
+    color: 'text-[#6d6650] dark:text-[#fff1bc]',
+    description: undefined,
   },
   {
     type: 'Drenched',
@@ -132,7 +132,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Elemental Damage',
     token: 'Elemental Damage',
-    color: 'text-[#0a7552] dark:text-[#10B981]',
+    color: 'text-[#0a7552] dark:text-green-500',
     description: `Acid, Corrosive, Fire, Shock, certain skills and mods.`,
   },
   {
@@ -235,8 +235,8 @@ export const INLINE_TOKENS = [
   {
     type: 'Madness',
     token: 'MADNESS',
-    color: 'text-[#6b6161] dark:text-[#ede6e6]',
-    description: 'Physical Damage.',
+    color: 'text-[#6d6650] dark:text-[#fff1bc]',
+    description: undefined,
   },
   {
     type: 'Marked',
@@ -287,7 +287,7 @@ export const INLINE_TOKENS = [
     type: 'Shield',
     token: 'SHIELD',
     color: 'text-[#357273] dark:text-[#80e0e1]',
-    description: `Provides a shield on top of your health. Shields from different sources stack.`,
+    description: `Shields stack up to 100% of Total Health.`,
   },
   {
     type: 'Shock',
@@ -324,49 +324,49 @@ export const INLINE_TOKENS = [
   {
     type: 'Negative Status Effects',
     token: 'Negative Status Effects',
-    color: 'text-[#885EB3] dark:text-[#C084FC]',
+    color: 'text-[#885EB3] dark:text-purple-500',
     description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
   {
     type: 'Negative Status Effect',
     token: 'Negative Status Effect',
-    color: 'text-[#885EB3] dark:text-[#C084FC]',
+    color: 'text-[#885EB3] dark:text-purple-500',
     description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
   {
     type: 'Negative Status',
     token: 'Negative Status',
-    color: 'text-[#885EB3] dark:text-[#C084FC]',
+    color: 'text-[#885EB3] dark:text-purple-500',
     description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
   {
     type: 'Elemental Status Effects',
     token: 'Elemental Status Effects',
-    color: 'text-[#036f96] dark:text-[#05baf9]',
+    color: 'text-[#036f96] dark:text-blue-500',
     description: `Burning, Corroded, Overloaded.`,
   },
   {
     type: 'Elemental Status Effect',
     token: 'Elemental Status Effect',
-    color: 'text-[#036f96] dark:text-[#05baf9]',
+    color: 'text-[#036f96] dark:text-blue-500',
     description: `Burning, Corroded, Overloaded.`,
   },
   {
     type: 'Elemental Status',
     token: 'Elemental Status',
-    color: 'text-[#036f96] dark:text-[#05baf9]',
+    color: 'text-[#036f96] dark:text-blue-500',
     description: `Burning, Corroded, Overloaded.`,
   },
   {
     type: 'Status Effects',
     token: 'Status Effects',
-    color: 'text-[#885EB3] dark:text-[#C084FC]',
+    color: 'text-[#885EB3] dark:text-purple-500',
     description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
   {
     type: 'Status Effect',
     token: 'Status Effect',
-    color: 'text-[#885EB3] dark:text-[#C084FC]',
+    color: 'text-[#885EB3] dark:text-purple-500',
     description: `Bleeding, Burning, Corroded, Overloaded, Slow.`,
   },
   {
