@@ -2636,7 +2636,7 @@ export const ringItems: RingItem[] = [
     description: `Slows Firearm Charge Time by 30% and increases Ranged Charge Damage by 20%.`,
     wikiLinks: [`https://remnant.wiki/Strand_of_Sinew`],
     dlc: 'dlc3',
-    location: { world: `N'Erud`, dungeon: 'Quest' },
+    location: { world: `Ward 13`, dungeon: 'Quest' },
   },
   {
     category: 'ring',
@@ -2687,7 +2687,7 @@ export const ringItems: RingItem[] = [
     description: `On Perfect Dodge, grants 1 stack of BULWARK for 10s. Max 3 stacks.`,
     wikiLinks: [`https://remnant.wiki/Symbol_of_Royalty`],
     dlc: 'dlc3',
-    location: { world: `N'Erud`, dungeon: 'Vendor' },
+    location: { world: `Ward 13`, dungeon: 'Quest' },
   },
   {
     category: 'ring',
