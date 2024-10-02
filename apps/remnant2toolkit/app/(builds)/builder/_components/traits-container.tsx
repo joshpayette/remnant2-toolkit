@@ -10,7 +10,7 @@ import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type Item } from '@/app/(items)/_types/item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
 
-export function Traits({
+export function TraitsContainer({
   buildState,
   isEditable,
   isScreenshotMode,
@@ -44,6 +44,9 @@ export function Traits({
     0,
   );
 
+  /**
+   * Whether the trait should be an input box that can change
+   */
   function shouldAllowEdit(traitItem: TraitItem) {
     const primaryArchetype = archetypeItems[0];
     const isLinkedPrimaryArchetypeTraitMaxed =
@@ -70,6 +73,9 @@ export function Traits({
     return true;
   }
 
+  /**
+   * Whether the trait should be deletable
+   */
   function shouldAllowDelete(traitItem: TraitItem) {
     // Default values based on editable and wheisEditable && showControlsther controls are shown
     let shouldAllowDelete = isEditable && showControls;
@@ -82,8 +88,12 @@ export function Traits({
     return shouldAllowDelete;
   }
 
+  /**
+   * Whether the trait is linked to an archetype
+   * Used primarily in shouldAllowDelete
+   */
   function isArchetypeTrait(traitItem: TraitItem) {
-    // If the trait is linked to an archtype, it should not be deletable
+    // If the trait is linked to an archetype, it should not be deletable
     const primaryArchtype = archetypeItems[0];
     if (
       primaryArchtype?.linkedItems?.traits?.some(
@@ -93,8 +103,7 @@ export function Traits({
       return true;
     }
 
-    // If the trait is linked to the secondary archtype, it should not be deletable
-    // but only if it's the main archtype trait, i.e. amount is 10
+    // If the trait is linked to the secondary archetype, it should not be deletable
     const secondaryArchtype = archetypeItems[1];
     if (
       secondaryArchtype?.linkedItems?.traits?.some(
@@ -107,8 +116,11 @@ export function Traits({
     }
   }
 
+  /**
+   * Whether the trait is a core trait of an archetype
+   * Used primarily in shouldAllowDelete
+   */
   function isArchetypeCoreTrait(traitItem: TraitItem) {
-    // If the trait is linked to an archtype, it should not be deletable
     const primaryArchtype = archetypeItems[0];
     if (
       primaryArchtype?.linkedItems?.traits?.some(
@@ -213,11 +225,9 @@ export function Traits({
                   // Update the local state when the user types
                   onChange={(e) => {
                     const { value } = e.target;
-
                     if (value.trim() === '') return;
 
                     const amount = Number(value);
-
                     setEditingTraitItem(
                       new TraitItem({
                         ...traitItem,
