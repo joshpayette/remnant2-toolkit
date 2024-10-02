@@ -20,6 +20,30 @@ export const worldSaves = [
     isCursed: undefined,
   },
   {
+    bossName: 'Alepsis Taura (0 active crystals)',
+    bossAffixes: ['Drain', 'Thick Skin'],
+    release: 'dlc3',
+    isCursed: undefined,
+  },
+  {
+    bossName: 'Alepsis Taura (2 active crystals)',
+    bossAffixes: ['Drain', 'Vicious'],
+    release: 'dlc3',
+    isCursed: undefined,
+  },
+  {
+    bossName: 'Alepsis Taura (2 active crystals)',
+    bossAffixes: ['Thick Skin', 'Vicious'],
+    release: 'dlc3',
+    isCursed: undefined,
+  },
+  {
+    bossName: 'Amalgam Duo',
+    bossAffixes: ['Regenerator', 'Regenerator', 'Thick Skin', 'Vicious'],
+    release: 'dlc3',
+    isCursed: undefined,
+  },
+  {
     bossName: 'Annihilation',
     bossAffixes: ['Hearty', 'Thick Skin'],
     release: 'dlc1',
@@ -57,8 +81,20 @@ export const worldSaves = [
   },
   {
     bossName: 'Bruin, Blade of the King',
+    bossAffixes: ['Regenerator', 'Vicious'],
+    release: 'dlc3',
+    isCursed: undefined,
+  },
+  {
+    bossName: 'Bruin, Blade of the King',
     bossAffixes: ['Skullcracker', 'Thick Skin'],
     release: 'dlc1',
+    isCursed: undefined,
+  },
+  {
+    bossName: 'Cancer',
+    bossAffixes: ['Elemental Resist', 'Regenerator'],
+    release: 'dlc3',
     isCursed: undefined,
   },
   {
@@ -83,6 +119,12 @@ export const worldSaves = [
     bossName: 'Cancer',
     bossAffixes: ['Spiteful', 'Vicious'],
     release: 'dlc2',
+    isCursed: undefined,
+  },
+  {
+    bossName: 'Cinderclad Forge',
+    bossAffixes: ['Drain', 'Thick Skin'],
+    release: 'dlc3',
     isCursed: undefined,
   },
   {
@@ -477,6 +519,24 @@ export const worldSaves = [
     isCursed: undefined,
   },
   {
+    bossName: `N'Erudian Reaper`,
+    bossAffixes: ['Drain', 'Vicious'],
+    release: 'dlc3',
+    isCursed: undefined,
+  },
+  {
+    bossName: `N'Erudian Reaper`,
+    bossAffixes: ['Hearty', 'Thick Skin'],
+    release: 'dlc3',
+    isCursed: undefined,
+  },
+  {
+    bossName: `N'Erudian Reaper`,
+    bossAffixes: ['Skullcracker', 'Thick Skin'],
+    release: 'dlc3',
+    isCursed: undefined,
+  },
+  {
     bossName: 'Primogenitor',
     bossAffixes: ['Elemental Resist', 'Hearty'],
     release: 'dlc1',
@@ -622,8 +682,20 @@ export const worldSaves = [
   },
   {
     bossName: 'The Astropath',
+    bossAffixes: ['Regenerator', 'Skullcracker'],
+    release: 'dlc3',
+    isCursed: undefined,
+  },
+  {
+    bossName: 'The Astropath',
     bossAffixes: ['Regenerator', 'Vicious'],
     release: 'dlc1',
+    isCursed: undefined,
+  },
+  {
+    bossName: `The Custodian's Eye`,
+    bossAffixes: ['Elemental Resist', 'Skullcracker'],
+    release: 'dlc3',
     isCursed: undefined,
   },
   {
@@ -658,7 +730,7 @@ export const worldSaves = [
   },
   {
     bossName: `The Custodian's Eye`,
-    bossAffixes: ['Thick Skin', 'Regenerator'],
+    bossAffixes: ['Regenerator', 'Thick Skin'],
     release: 'dlc2',
     isCursed: undefined,
   },
@@ -766,6 +838,12 @@ export const worldSaves = [
   },
   {
     bossName: 'The Stonewarden',
+    bossAffixes: ['Regenerator', 'Thick Skin'],
+    release: 'dlc3',
+    isCursed: undefined,
+  },
+  {
+    bossName: 'The Stonewarden',
     bossAffixes: ['Spiteful', 'Thick Skin'],
     release: 'dlc2',
     isCursed: false,
@@ -834,6 +912,12 @@ export const worldSaves = [
     bossName: 'Venom',
     bossAffixes: ['Spiteful', 'Vicious'],
     release: 'dlc2',
+    isCursed: undefined,
+  },
+  {
+    bossName: 'Venom',
+    bossAffixes: ['Thick Skin', 'Vicious'],
+    release: 'dlc3',
     isCursed: undefined,
   },
 ] as const satisfies WorldSave[];

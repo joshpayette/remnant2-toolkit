@@ -26,7 +26,7 @@ export function WorldSaveCard({ saveItem }: Props) {
           <h3 className="text-surface-solid mb-2 text-center text-lg font-bold">
             {saveItem.bossName}
           </h3>
-          <div className="mb-2 flex items-center justify-center gap-x-2">
+          <div className="mb-2 flex w-full flex-wrap items-center justify-center gap-1">
             {saveItem.bossAffixes.map((affix) => (
               <Tooltip
                 key={`${uuidv4()}}`}
@@ -36,9 +36,9 @@ export function WorldSaveCard({ saveItem }: Props) {
                   )?.description
                 }
               >
-                <button className="bg-accent1-500 text-background-solid rounded-sm px-2 py-1 text-xs">
-                  {affix}
-                </button>
+                <BaseButton color="yellow">
+                  <span className="text-xs">{affix}</span>
+                </BaseButton>
               </Tooltip>
             ))}
           </div>

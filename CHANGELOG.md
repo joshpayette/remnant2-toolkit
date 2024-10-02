@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-10-01
 
+### Added
+
+- Added several new world saves to the World Save Archive.
+
 ### Changed
 
 - Removed the Builds By Collection link from navbar, as that functionality is now included in the filters.

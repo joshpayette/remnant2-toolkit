@@ -7,6 +7,10 @@ import {
 const bossData = [...bossEnemies, ...worldBossEnemies];
 const bossNames = [
   { name: 'Abomination' },
+  { name: 'Alepsis Taura (0 active crystals)' },
+  { name: 'Alepsis Taura (1 active crystal)' },
+  { name: 'Alepsis Taura (2 active crystals)' },
+  { name: 'Amalgam Duo' },
   { name: 'Annihilation' },
   { name: 'Bloat King' },
   { name: 'Bruin, Blade of the King' },
@@ -19,10 +23,11 @@ const bossNames = [
   { name: 'Gwendil: The Unburnt' },
   { name: `Kaeula's Shadow` },
   { name: 'Labyrinth Sentinel' },
-  { name: 'Magister Dullain' },
-  { name: 'Mother Mind' },
   { name: 'Legion' },
   { name: 'Lydusa' },
+  { name: 'Magister Dullain' },
+  { name: 'Mother Mind' },
+  { name: `N'Erudian Reaper` },
   { name: 'Primogenitor' },
   { name: `Sha'Hala: Guardian of N'Erud` },
   { name: `Sha'Hala: Guardian of N'Erud (Phase 2)` },
@@ -44,7 +49,10 @@ const bossNames = [
 ] as const satisfies Array<{
   name:
     | (typeof bossData)[number]['name']
-    | `Sha'Hala: Guardian of N'Erud (Phase 2)`;
+    | `Sha'Hala: Guardian of N'Erud (Phase 2)`
+    | `Alepsis Taura (0 active crystals)`
+    | `Alepsis Taura (1 active crystal)`
+    | `Alepsis Taura (2 active crystals)`;
 }>;
 
 /**
@@ -59,5 +67,15 @@ export const ALL_BOSSES = bossNames.map((boss) => {
   if (boss.name === `Sha'Hala: Guardian of N'Erud (Phase 2)`) {
     return { ...boss, imagePath: '/enemies/worldboss/sha_hala_normal.jpg' };
   }
+  if (boss.name === 'Alepsis Taura (0 active crystals)') {
+    return { ...boss, imagePath: '/enemies/worldboss/alepsis-taura.jpg' };
+  }
+  if (boss.name === 'Alepsis Taura (1 active crystal)') {
+    return { ...boss, imagePath: '/enemies/worldboss/alepsis-taura.jpg' };
+  }
+  if (boss.name === 'Alepsis Taura (2 active crystals)') {
+    return { ...boss, imagePath: '/enemies/worldboss/alepsis-taura.jpg' };
+  }
+
   throw new Error(`No data found for boss: ${boss.name}`);
 });
