@@ -1197,6 +1197,11 @@ export const weaponItems: WeaponItem[] = [
     crit: 5,
     weakspot: 110,
     stagger: 5,
+    linkedItems: {
+      mod: {
+        name: 'Kilonova',
+      },
+    },
   },
   {
     category: 'weapon',
@@ -1316,6 +1321,11 @@ export const weaponItems: WeaponItem[] = [
     crit: 12,
     weakspot: 100,
     stagger: -33.4,
+    linkedItems: {
+      mod: {
+        name: 'Phantom Blade',
+      },
+    },
   },
   {
     category: 'weapon',

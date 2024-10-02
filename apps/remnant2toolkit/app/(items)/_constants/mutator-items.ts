@@ -22,7 +22,7 @@ export const mutatorItems: MutatorItem[] = [
     name: 'Battle Mage',
     type: 'melee',
     imagePath: '/items/mutators/battle_mage.png',
-    saveFileSlug: 'MetaGem_BattleMage.MetaGem_BattleMage_C',
+    saveFileSlug: 'MetaGem_BattleMage_C',
     dlc: 'base',
     id: 'y5hY8J',
     tags: ['Mod Power', 'Melee Damage'],
