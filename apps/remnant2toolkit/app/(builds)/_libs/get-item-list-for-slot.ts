@@ -149,12 +149,18 @@ export function getItemListForSlot(
 
   // If a fusion is equipped, the fragments that make it up
   // cannot exist in another fragment or fusion in the other bonus slots.
+  // However, if the current clicked slot is a fusion, we can allow any fusion to be selected
   if (FusionItem.isFusionItem(selectedItem as Item)) {
     const equippedFragmentsInBonusSlots = buildState.items.relicfragment.slice(
       3,
       8,
     );
-    const equippedFusions = buildState.items.fusion;
+
+    // Remove the currently equipped fusion for this slot
+    // so that it can be re-selected
+    const equippedFusions = buildState.items.fusion.filter(
+      (item) => item?.index !== selectedItem.index,
+    );
 
     return (
       allItems
