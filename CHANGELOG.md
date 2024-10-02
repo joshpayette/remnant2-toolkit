@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Amplitude tag has been replaced by AOE/Aura Size to match in-game.
 
+### Fixed
+
+- Fixed small bug preventing toggling newly added items as optional in some situations.
+
 ## 2024-10-01
 
 ### Added
