@@ -24,6 +24,7 @@ async function getCreatedBuilds(profileId: string) {
 
   const [topBuildsAllTime, topBuildsCurrent] = await Promise.all([
     communityBuildsQuery({
+      includeBuildVariants: false,
       userId: profileId,
       itemsPerPage: itemsToFetch,
       pageNumber: 1,
@@ -33,6 +34,7 @@ async function getCreatedBuilds(profileId: string) {
       percentageOwned: 0,
     }),
     communityBuildsQuery({
+      includeBuildVariants: false,
       userId: profileId,
       itemsPerPage: itemsToFetch,
       pageNumber: 1,
