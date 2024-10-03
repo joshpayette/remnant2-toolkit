@@ -16,6 +16,7 @@ const EXCLUDED_CATEGORIES = [
 ];
 
 type Props = {
+  includeBuildVariants: boolean;
   itemsPerPage: number;
   pageNumber: number;
   userId: string | undefined;
@@ -26,6 +27,7 @@ type Props = {
 };
 
 export function communityBuildsQuery({
+  includeBuildVariants,
   itemsPerPage,
   pageNumber,
   userId,
@@ -95,6 +97,15 @@ SELECT * FROM (
     ) as UserItemCounts ON Build.id = UserItemCounts.buildId
     ${whereConditions}
     ${
+      !includeBuildVariants
+        ? Prisma.sql`AND NOT EXISTS (
+      SELECT 1
+      FROM BuildVariant
+      WHERE BuildVariant.secondaryBuildId = Build.id
+    )`
+        : Prisma.empty
+    }
+    ${
       searchText && searchText.length > 0
         ? Prisma.sql`AND (
       User.displayName LIKE ${'%' + searchText + '%'} 
@@ -127,11 +138,13 @@ OFFSET ${(pageNumber - 1) * itemsPerPage}
  * response[0].totalBuildCount
  */
 export function communityBuildsCountQuery({
+  includeBuildVariants,
   whereConditions,
   searchText,
   percentageOwned,
   userId,
 }: {
+  includeBuildVariants: Props['includeBuildVariants'];
   whereConditions: Props['whereConditions'];
   searchText: Props['searchText'];
   percentageOwned: Props['percentageOwned'];
@@ -187,6 +200,15 @@ SELECT COUNT(DISTINCT SubQuery.id) as totalBuildCount FROM (
       GROUP BY BuildItems.buildId
     ) as UserItemCounts ON Build.id = UserItemCounts.buildId
     ${whereConditions}
+    ${
+      !includeBuildVariants
+        ? Prisma.sql`AND NOT EXISTS (
+      SELECT 1
+      FROM BuildVariant
+      WHERE BuildVariant.secondaryBuildId = Build.id
+    )`
+        : Prisma.empty
+    }
     ${
       searchText && searchText.length > 0
         ? Prisma.sql`AND (

@@ -38,6 +38,7 @@ export async function getBuildList({
 
   const [builds, totalBuildsCountResponse] = await Promise.all([
     communityBuildsQuery({
+      includeBuildVariants,
       userId,
       itemsPerPage,
       pageNumber,
@@ -47,6 +48,7 @@ export async function getBuildList({
       percentageOwned,
     }),
     communityBuildsCountQuery({
+      includeBuildVariants,
       whereConditions,
       searchText: trimmedSearchText,
       percentageOwned,
