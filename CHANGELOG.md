@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed bug with build variants showing on feeds they should not have been.
+- Fixed bug where build variants were showing 0 favorites.
 
 ## 2024-10-02
 

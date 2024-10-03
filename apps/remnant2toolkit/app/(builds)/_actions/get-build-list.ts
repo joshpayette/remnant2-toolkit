@@ -79,10 +79,15 @@ export async function getBuildList({
     if (buildVariant) {
       const primaryBuild = await prisma.build.findFirst({
         where: { id: buildVariant.primaryBuildId },
+        include: {
+          BuildVotes: true,
+          BuildValidatedViews: true,
+        },
       });
       build.id = primaryBuild?.id ?? build.id;
       build.name = primaryBuild?.name ?? build.name;
       build.variantIndex = buildVariant.index ?? 0;
+      build.totalUpvotes = primaryBuild?.BuildVotes.length ?? 0;
     }
   }
 
