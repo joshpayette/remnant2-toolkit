@@ -37,7 +37,7 @@ export function QualityBuildsFeed({ builds }: Props) {
         className="my-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4"
       >
         {builds.map((build) => (
-          <div key={build.id} className="mt-4 w-full">
+          <div key={`${build.id}${build.variantIndex}`} className="mt-4 w-full">
             <BuildCard
               build={build}
               isLoading={false}

@@ -33,6 +33,8 @@ export function ArchetypeLabel({ name }: { name: string }) {
           `${ARCHETYPE_COLORS.SUMMONER.bg} ${ARCHETYPE_COLORS.SUMMONER.text}`,
         name.toLowerCase() === 'ritualist' &&
           `${ARCHETYPE_COLORS.RITUALIST.bg} ${ARCHETYPE_COLORS.RITUALIST.text}`,
+        name.toLowerCase() === 'warden' &&
+          `${ARCHETYPE_COLORS.WARDEN.bg} ${ARCHETYPE_COLORS.WARDEN.text}`,
       )}
     >
       {name}

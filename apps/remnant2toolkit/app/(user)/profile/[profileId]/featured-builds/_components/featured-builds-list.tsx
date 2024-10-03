@@ -140,7 +140,7 @@ export function FeaturedBuildsList({
           {isEditable ? <CreateBuildCard /> : null}
 
           {builds.map((build) => (
-            <div key={build.id} className="w-full">
+            <div key={`${build.id}${build.variantIndex}`} className="w-full">
               <BuildCard
                 build={build}
                 isLoading={isLoading}

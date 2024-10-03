@@ -1,13 +1,9 @@
 'use server';
 
-import { Prisma, prisma } from '@repo/db';
+import { Prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
-import {
-  communityBuildsCountQuery,
-  communityBuildsQuery,
-} from '@/app/(builds)/_libs/build-filters/community-builds';
-import { getOrderBySegment } from '@/app/(builds)/_libs/build-filters/get-order-by';
+import { getBuildList } from '@/app/(builds)/_actions/get-build-list';
 import {
   amuletFilterToId,
   limitByAmuletSegment,
@@ -72,73 +68,39 @@ export async function getBeginnerBuilds({
 
   if (releases.length === 0) return { builds: [], totalBuildCount: 0 };
 
-  const archetypeIds = archetypeFiltersToIds({ archetypes });
-  const weaponIds = weaponFiltersToIds({ longGun, handGun, melee });
-  const amuletId = amuletFilterToId({ amulet });
-  const relicId = relicFilterToId({ relic });
-  const ringIds = ringsFilterToIds({ rings });
-  const tagValues = buildTagsFilterToValues(buildTags);
-
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
   AND Build.isBeginnerBuild = true
-  ${limitByAmuletSegment(amuletId)}
-  ${limitByArchetypesSegment(archetypeIds)}
-  ${limitByBuildTagsSegment(tagValues)}
+  ${limitByAmuletSegment(amuletFilterToId({ amulet }))}
+  ${limitByArchetypesSegment(archetypeFiltersToIds({ archetypes }))}
+  ${limitByBuildTagsSegment(buildTagsFilterToValues(buildTags))}
   ${limitByReleasesSegment(releases)}
-  ${limitByRelicSegment(relicId)}
-  ${limitByRingsSegment(ringIds)}
+  ${limitByRelicSegment(relicFilterToId({ relic }))}
+  ${limitByRingsSegment(ringsFilterToIds({ rings }))}
   ${limitByTimeConditionSegment(timeRange)}
-  ${limitByWeaponsSegment(weaponIds)}
+  ${limitByWeaponsSegment(weaponFiltersToIds({ longGun, handGun, melee }))}
   ${limitByReferenceLink(withReference)}
   ${limitToBuildsWithVideo(withVideo)}
   ${limitByPatchAffected(patchAffected)}
   ${limitToQualityBuilds(withQuality)}
   `;
 
-  const orderBySegment = getOrderBySegment(orderBy, true);
-
-  const trimmedSearchText = searchText.trim();
-
   try {
-    const [builds, totalBuildCountResponse] = await Promise.all([
-      communityBuildsQuery({
-        userId,
-        itemsPerPage,
-        pageNumber,
-        orderBySegment,
-        whereConditions,
-        searchText: trimmedSearchText,
-        percentageOwned: withCollection,
-      }),
-      communityBuildsCountQuery({
-        whereConditions,
-        searchText: trimmedSearchText,
-        percentageOwned: withCollection,
-        userId,
-      }),
-    ]);
+    const { builds, totalBuildCount } = await getBuildList({
+      includeBuildVariants: false,
+      itemsPerPage,
+      orderBy,
+      pageNumber,
+      percentageOwned: withCollection,
+      searchText,
+      userId,
+      whereConditions,
+    });
 
-    if (!builds) return { builds: [], totalBuildCount: 0 };
-
-    const totalBuildCount = totalBuildCountResponse[0]?.totalBuildCount ?? 0;
-
-    // Find all build items for each build
-    for (const build of builds) {
-      const [buildItems, buildTags] = await Promise.all([
-        prisma.buildItems.findMany({
-          where: { buildId: build.id },
-        }),
-        prisma.buildTags.findMany({
-          where: { buildId: build.id },
-        }),
-      ]);
-
-      build.buildItems = buildItems;
-      build.buildTags = buildTags;
-    }
-
-    return bigIntFix({ builds, totalBuildCount });
+    return bigIntFix({
+      builds,
+      totalBuildCount,
+    });
   } catch (e) {
     if (e) {
       console.error(e);

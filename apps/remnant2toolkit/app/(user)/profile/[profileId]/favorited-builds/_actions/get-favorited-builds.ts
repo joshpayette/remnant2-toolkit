@@ -1,13 +1,9 @@
 'use server';
 
-import { Prisma, prisma } from '@repo/db';
+import { Prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
-import {
-  communityBuildsCountQuery,
-  communityBuildsQuery,
-} from '@/app/(builds)/_libs/build-filters/community-builds';
-import { getOrderBySegment } from '@/app/(builds)/_libs/build-filters/get-order-by';
+import { getBuildList } from '@/app/(builds)/_actions/get-build-list';
 import {
   amuletFilterToId,
   limitByAmuletSegment,
@@ -102,45 +98,17 @@ export async function getFavoritedBuilds({
   ${limitToQualityBuilds(withQuality)}
 `;
 
-  const orderBySegment = getOrderBySegment(orderBy);
-
-  const trimmedSearchText = searchText.trim();
-
   try {
-    const [builds, totalBuildsCountResponse] = await Promise.all([
-      communityBuildsQuery({
-        userId,
-        itemsPerPage,
-        pageNumber,
-        orderBySegment,
-        whereConditions,
-        searchText: trimmedSearchText,
-        percentageOwned: withCollection,
-      }),
-      communityBuildsCountQuery({
-        whereConditions,
-        searchText: trimmedSearchText,
-        percentageOwned: withCollection,
-        userId,
-      }),
-    ]);
-
-    // Then, for each Build, get the associated BuildItems
-    for (const build of builds) {
-      const [buildItems, buildTags] = await Promise.all([
-        prisma.buildItems.findMany({
-          where: { buildId: build.id },
-        }),
-        prisma.buildTags.findMany({
-          where: { buildId: build.id },
-        }),
-      ]);
-
-      build.buildItems = buildItems;
-      build.buildTags = buildTags;
-    }
-
-    const totalBuildCount = totalBuildsCountResponse[0]?.totalBuildCount ?? 0;
+    const { builds, totalBuildCount } = await getBuildList({
+      includeBuildVariants: false,
+      itemsPerPage,
+      orderBy,
+      pageNumber,
+      percentageOwned: withCollection,
+      searchText,
+      userId,
+      whereConditions,
+    });
 
     return bigIntFix({
       builds,

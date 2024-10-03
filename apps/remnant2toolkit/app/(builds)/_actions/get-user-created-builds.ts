@@ -1,15 +1,11 @@
 'use server';
 
-import { Prisma, prisma } from '@repo/db';
+import { Prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
+import { getBuildList } from '@/app/(builds)/_actions/get-build-list';
 import { type OrderBy } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
 import { type TimeRange } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
-import {
-  communityBuildsCountQuery,
-  communityBuildsQuery,
-} from '@/app/(builds)/_libs/build-filters/community-builds';
-import { getOrderBySegment } from '@/app/(builds)/_libs/build-filters/get-order-by';
 import { limitByTimeConditionSegment } from '@/app/(builds)/_libs/build-filters/limit-by-time-condition';
 import { type BuildListResponse } from '@/app/(builds)/_types/build-list-response';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
@@ -43,43 +39,17 @@ export async function getUserCreatedBuilds({
   ${limitByTimeConditionSegment(timeRange)}
   `;
 
-  const orderBySegment = getOrderBySegment(orderBy);
-
   try {
-    const [builds, totalBuildsCountResponse] = await Promise.all([
-      communityBuildsQuery({
-        userId,
-        itemsPerPage,
-        pageNumber,
-        orderBySegment,
-        whereConditions,
-        searchText: '',
-        percentageOwned: 0,
-      }),
-      communityBuildsCountQuery({
-        whereConditions,
-        searchText: '',
-        percentageOwned: 0,
-        userId,
-      }),
-    ]);
-
-    // Then, for each Build, get the associated BuildItems
-    for (const build of builds) {
-      const [buildItems, buildTags] = await Promise.all([
-        prisma.buildItems.findMany({
-          where: { buildId: build.id },
-        }),
-        prisma.buildTags.findMany({
-          where: { buildId: build.id },
-        }),
-      ]);
-
-      build.buildItems = buildItems;
-      build.buildTags = buildTags;
-    }
-
-    const totalBuildCount = totalBuildsCountResponse[0]?.totalBuildCount ?? 0;
+    const { builds, totalBuildCount } = await getBuildList({
+      includeBuildVariants: false,
+      itemsPerPage,
+      orderBy,
+      pageNumber,
+      percentageOwned: 0,
+      searchText: '',
+      userId,
+      whereConditions,
+    });
 
     return bigIntFix({
       builds,
