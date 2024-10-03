@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-10-03
 
+### Added
+
+- Added Genesis code to the home page.
+
 ### Fixed
 
 - Fixed bug with build variants showing on feeds they should not have been.

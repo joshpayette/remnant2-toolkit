@@ -11,6 +11,7 @@ import { QualityBuildsFeed } from '@/app/(builds)/_components/quality-builds-fee
 import { getLeaderBoard as getItemQuizLeaderBoard } from '@/app/(items)/item-quiz/_actions/get-leader-board';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
+import { GenesisCode } from './_components/genesis-code';
 import { getQualityBuildFeed } from './(builds)/_actions/get-quality-build-feed';
 
 export default async function Page() {
@@ -22,7 +23,7 @@ export default async function Page() {
   ]);
 
   return (
-    <div className="grid w-full grid-cols-4 gap-x-4">
+    <div className="grid grid-cols-4 gap-x-4">
       <div className="col-span-full w-full xl:col-span-3">
         <LandingPageContainer
           description={
@@ -89,6 +90,9 @@ export default async function Page() {
                 />
               }
             />
+          </div>
+          <div className="col-span-full mt-8 w-full">
+            <GenesisCode />
           </div>
           <div className="col-span-full mt-8 hidden w-full md:block">
             <QualityBuildsFeed builds={qualityBuilds.builds} />
