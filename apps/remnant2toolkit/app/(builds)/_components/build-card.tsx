@@ -13,6 +13,7 @@ import {
 } from '@repo/ui';
 import { isValidYoutubeUrl } from '@repo/utils';
 import { useSession } from 'next-auth/react';
+import { VscIndent as IndentIcon } from 'react-icons/vsc';
 
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
 import { Tooltip } from '@/app/_components/tooltip';
@@ -100,8 +101,11 @@ export function BuildCard({
               </BaseLink>
               <div className="mb-1 grid w-full grid-cols-3 truncate text-sm">
                 {build.variantIndex > 0 ? (
-                  <div className="col-span-2 truncate text-left text-xs text-gray-300">
-                    Build Variant
+                  <div className="col-span-2 flex flex-row truncate text-left text-xs text-gray-300">
+                    <IndentIcon className="mr-1 h-4 w-4" />
+                    {build.buildVariantName
+                      ? `${build.buildVariantName}`
+                      : `Build Variant`}
                   </div>
                 ) : null}
                 <div className="col-span-2 truncate text-left text-gray-300">
