@@ -597,7 +597,7 @@ export function Builder({
             </div>
           )}
           {buildState.updatedAt && (
-            <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
+            <div className="my-1 flex items-center justify-center text-sm text-gray-400">
               <p className="text-left text-xs text-gray-400">
                 Last Updated:{' '}
                 <span className="text-gray-300">
