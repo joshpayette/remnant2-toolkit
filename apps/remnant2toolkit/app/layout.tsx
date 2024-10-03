@@ -29,8 +29,9 @@ export default async function Layout({
     <RootLayout
       alertBanner={
         <AlertBanner localStorageKey="curated-builds-returned">
-          Curated build submissions are back! Stay on the lookout for new builds
-          from the community.
+          Curated build submissions are back! Many previously curated builds
+          have been updated! Stay on the lookout for new and updated builds from
+          the community.
         </AlertBanner>
       }
       footer={<Footer />}
