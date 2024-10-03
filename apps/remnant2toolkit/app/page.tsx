@@ -6,71 +6,20 @@ import { LandingPageCard } from '@/app/_components/landing-page-card';
 import { LandingPageCardDisabled } from '@/app/_components/landing-page-card-disabled';
 import { LandingPageContainer } from '@/app/_components/landing-page-container';
 import { NAV_ITEMS } from '@/app/_types/navigation';
-import { getTotalBuildCount } from '@/app/(builds)/_actions/get-total-build-count';
-import { QualityBuildsFeed } from '@/app/(builds)/_components/quality-builds-feed';
 import { getLeaderBoard as getItemQuizLeaderBoard } from '@/app/(items)/item-quiz/_actions/get-leader-board';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 import { GenesisCode } from './_components/genesis-code';
-import { getQualityBuildFeed } from './(builds)/_actions/get-quality-build-feed';
+import { LandingPageHeaderDescription } from './_components/landing-page-header-description';
+import { QualityBuildFeedContainer } from './(builds)/_components/quality-build-feed-container';
 
 export default async function Page() {
   const session = await getSession();
 
-  const [totalBuildCount, qualityBuilds] = await Promise.all([
-    getTotalBuildCount(),
-    getQualityBuildFeed(),
-  ]);
-
   return (
     <div className="grid grid-cols-4 gap-x-4">
       <div className="col-span-full w-full xl:col-span-3">
-        <LandingPageContainer
-          description={
-            <>
-              <p className="text-lg leading-8 text-gray-300">
-                <BaseLink
-                  href={NAV_ITEMS.communityBuilds.href}
-                  className="hover:text-primary-500 underline"
-                >
-                  Search the community&apos;s{' '}
-                  <span className="text-primary-500 text-2xl font-bold">
-                    {totalBuildCount}
-                  </span>{' '}
-                  submitted builds
-                </BaseLink>
-                ,{' '}
-                <BaseLink
-                  href={session?.user?.id ? '/builder/create' : '/builder'}
-                  className="hover:text-primary-500 underline"
-                >
-                  create your own builds
-                </BaseLink>
-                ,{' '}
-                <BaseLink
-                  href={NAV_ITEMS.itemTracker.href}
-                  className="hover:text-primary-500 underline"
-                >
-                  track your collectibles
-                </BaseLink>
-                , and more!
-              </p>
-              <p className="mt-6 text-lg leading-8 text-gray-300">
-                <span className="text-primary-500 font-bold">100% free</span>{' '}
-                and{' '}
-                <span className="text-primary-500 font-bold">open source</span>{' '}
-                toolkit for Remnant 2. No ads, no tracking, no BS.
-              </p>
-              <p className="mt-6 text-lg leading-8 text-gray-300">
-                <span className="text-primary-500 font-bold">
-                  No login required
-                </span>{' '}
-                to start creating builds, searching community builds, tracking
-                your collectibles, or searching for detailed item information.
-              </p>
-            </>
-          }
-        >
+        <LandingPageContainer description={<LandingPageHeaderDescription />}>
           <div className="mt-8 hidden sm:col-span-1 sm:mt-0 md:block">
             <LandingPageCard
               {...NAV_ITEMS.featuredBuilds}
@@ -95,7 +44,7 @@ export default async function Page() {
             <GenesisCode />
           </div>
           <div className="col-span-full mt-8 hidden w-full md:block">
-            <QualityBuildsFeed builds={qualityBuilds.builds} />
+            <QualityBuildFeedContainer />
           </div>
           <div className="col-span-full mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
             <div className="md:hidden">
@@ -119,7 +68,7 @@ export default async function Page() {
               }
             />
             <div className="col-span-full md:hidden">
-              <QualityBuildsFeed builds={qualityBuilds.builds} />
+              <QualityBuildFeedContainer />
             </div>
             <div className="md:hidden">
               <LandingPageCard
