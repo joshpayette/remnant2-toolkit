@@ -136,7 +136,7 @@ function ProfileButtonComponent({
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
-              {NAV_ITEMS.signout.label}
+              {NAV_ITEMS.signout.label} {session?.user?.displayName}
             </div>
           </BaseLink>
         )}
