@@ -33,4 +33,6 @@ export interface DBBuild {
   videoUrl: Build['videoUrl'];
   viewCount: number;
   percentageOwned: number;
+  buildVariantName?: string;
+  totalVariants?: number;
 }
