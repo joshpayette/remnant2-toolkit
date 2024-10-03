@@ -12,6 +12,7 @@ import { getOrderBySegment } from '@/app/(builds)/_libs/build-filters/get-order-
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
 export async function getBuildList({
+  includeBuildVariants,
   itemsPerPage,
   orderBy,
   pageNumber,
@@ -20,6 +21,7 @@ export async function getBuildList({
   userId,
   whereConditions,
 }: {
+  includeBuildVariants: boolean;
   itemsPerPage: number;
   orderBy: OrderBy;
   pageNumber: number;
@@ -52,19 +54,34 @@ export async function getBuildList({
     }),
   ]);
 
-  // Then, for each Build, get the associated BuildItems
+  // Fetch associated build data
   for (const build of builds) {
-    const [buildItems, buildTags] = await Promise.all([
+    const [buildItems, buildTags, buildVariant] = await Promise.all([
       prisma.buildItems.findMany({
         where: { buildId: build.id },
       }),
       prisma.buildTags.findMany({
         where: { buildId: build.id },
       }),
+      includeBuildVariants
+        ? prisma.buildVariant.findFirst({
+            where: { secondaryBuildId: build.id },
+          })
+        : null,
     ]);
 
     build.buildItems = buildItems;
     build.buildTags = buildTags;
+
+    // If this is a build variant, we need to use the primary build name
+    if (buildVariant) {
+      const primaryBuild = await prisma.build.findFirst({
+        where: { id: buildVariant.primaryBuildId },
+      });
+      build.id = primaryBuild?.id ?? build.id;
+      build.name = primaryBuild?.name ?? build.name;
+      build.variantIndex = buildVariant.index ?? 0;
+    }
   }
 
   const totalBuildCount = totalBuildsCountResponse[0]?.totalBuildCount ?? 0;

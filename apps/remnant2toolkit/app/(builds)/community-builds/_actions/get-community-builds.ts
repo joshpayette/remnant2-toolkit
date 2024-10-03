@@ -92,6 +92,7 @@ export async function getCommunityBuilds({
 
   try {
     const { builds, totalBuildCount } = await getBuildList({
+      includeBuildVariants: true,
       itemsPerPage,
       orderBy,
       pageNumber,

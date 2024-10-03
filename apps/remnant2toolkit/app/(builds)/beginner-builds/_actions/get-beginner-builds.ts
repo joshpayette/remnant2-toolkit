@@ -87,6 +87,7 @@ export async function getBeginnerBuilds({
 
   try {
     const { builds, totalBuildCount } = await getBuildList({
+      includeBuildVariants: false,
       itemsPerPage,
       orderBy,
       pageNumber,

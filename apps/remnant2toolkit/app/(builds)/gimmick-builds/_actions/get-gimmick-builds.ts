@@ -87,6 +87,7 @@ export async function getGimmickBuilds({
 
   try {
     const { builds, totalBuildCount } = await getBuildList({
+      includeBuildVariants: false,
       itemsPerPage,
       orderBy,
       pageNumber,

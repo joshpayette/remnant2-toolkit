@@ -89,7 +89,7 @@ export const relicItems: RelicItem[] = [
     category: 'relic',
     name: 'Dragon Heart',
     imagePath: '/items/relics/dragonheart.png',
-    saveFileSlug: 'DragonHeart',
+    saveFileSlug: 'Consumable_DragonHeart_C',
     id: 'f96bom',
     dlc: 'base',
     description: 'On use, Heals 70 Health over 0.5s.',

@@ -56,7 +56,6 @@ export function BuildCard({
 
   return (
     <div
-      key={build.id}
       className={cn('h-full min-h-[440px] w-full text-left')}
       role="listitem"
     >
@@ -83,7 +82,11 @@ export function BuildCard({
           <div className="flex w-full flex-1 items-start justify-start p-4 pb-0">
             <div className="flex w-full flex-col items-start justify-start">
               <BaseLink
-                href={`/builder/${build.id}`}
+                href={`/builder/${build.id}${
+                  buildState.variantIndex > 0
+                    ? `?variant=${buildState.variantIndex}`
+                    : ''
+                }`}
                 className="text-surface-solid w-full hover:text-gray-200 hover:underline"
               >
                 <h3
@@ -96,6 +99,11 @@ export function BuildCard({
                 </h3>
               </BaseLink>
               <div className="mb-1 grid w-full grid-cols-3 truncate text-sm">
+                {build.variantIndex > 0 ? (
+                  <div className="col-span-2 truncate text-left text-xs text-gray-300">
+                    Build Variant
+                  </div>
+                ) : null}
                 <div className="col-span-2 truncate text-left text-gray-300">
                   by{' '}
                   <BaseLink

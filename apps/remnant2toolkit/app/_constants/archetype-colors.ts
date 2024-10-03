@@ -51,4 +51,8 @@ export const ARCHETYPE_COLORS = {
     bg: 'bg-[#C6BBCD] dark:bg-[#251133]',
     text: 'text-[#562475] dark:text-[#bb4fff]',
   },
+  WARDEN: {
+    bg: 'bg-[#0a1014] dark:bg-[#0a1014]',
+    text: 'text-[#a3bdd1] dark:text-[#a3bdd1]',
+  },
 };

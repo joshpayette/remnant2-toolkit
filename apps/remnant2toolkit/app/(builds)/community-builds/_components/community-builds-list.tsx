@@ -126,7 +126,7 @@ export function CommunityBuildsList({
         >
           {builds.map((build) => (
             <BuildCard
-              key={build.id}
+              key={`${build.id}${build.variantIndex}`}
               build={build}
               isLoading={isLoading}
               footerActions={

@@ -26,10 +26,7 @@ import {
   IoShieldCheckmark as BossTrackerIcon,
 } from 'react-icons/io5';
 import { LuBanana as GimmickBuildsIcon } from 'react-icons/lu';
-import {
-  MdCollectionsBookmark as BuildsByCollectionIcon,
-  MdQuiz as ItemQuizIcon,
-} from 'react-icons/md';
+import { MdQuiz as ItemQuizIcon } from 'react-icons/md';
 import {
   PiCubeFocus as FeaturedBuildsIcon,
   PiLadder as BeginnerBuildsIcon,

@@ -87,6 +87,7 @@ export async function getBaseGameBuilds({
 
   try {
     const { builds, totalBuildCount } = await getBuildList({
+      includeBuildVariants: false,
       itemsPerPage,
       orderBy,
       pageNumber,

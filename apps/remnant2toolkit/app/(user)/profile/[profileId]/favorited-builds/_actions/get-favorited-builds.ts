@@ -100,6 +100,7 @@ export async function getFavoritedBuilds({
 
   try {
     const { builds, totalBuildCount } = await getBuildList({
+      includeBuildVariants: false,
       itemsPerPage,
       orderBy,
       pageNumber,

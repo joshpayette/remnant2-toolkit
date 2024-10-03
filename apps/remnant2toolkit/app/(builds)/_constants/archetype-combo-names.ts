@@ -18,8 +18,9 @@ export const ARCHETYPE_COMBO_NAMES: Array<{
     | 'medic'
     | 'ritualist'
     | 'summoner'
-  >
-  name: string
+    | 'warden'
+  >;
+  name: string;
 }> = [
   { archetypes: ['invoker', 'summoner'], name: 'Spirit of Darkness' },
   { archetypes: ['invoker', 'handler'], name: 'Spirit of Friendship' },
@@ -98,4 +99,17 @@ export const ARCHETYPE_COMBO_NAMES: Array<{
   { archetypes: ['ritualist', 'invader'], name: 'Reaper' },
   { archetypes: ['ritualist', 'alchemist'], name: 'Diabolist' },
   { archetypes: ['ritualist', 'archon'], name: 'Harbinger' },
-]
+  { archetypes: ['warden', 'alchemist'], name: 'Purifier' },
+  { archetypes: ['warden', 'archon'], name: 'Oracle' },
+  { archetypes: ['warden', 'challenger'], name: 'Defender' },
+  { archetypes: ['warden', 'engineer'], name: 'Automator' },
+  { archetypes: ['warden', 'explorer'], name: 'Diviner' },
+  { archetypes: ['warden', 'gunslinger'], name: 'Vindicator' },
+  { archetypes: ['warden', 'handler'], name: 'Kindred' },
+  { archetypes: ['warden', 'hunter'], name: 'Liberator' },
+  { archetypes: ['warden', 'invader'], name: 'Deceiver' },
+  { archetypes: ['warden', 'invoker'], name: 'Spirit of Protection' },
+  { archetypes: ['warden', 'medic'], name: 'Advocate' },
+  { archetypes: ['warden', 'ritualist'], name: 'Occultist' },
+  { archetypes: ['warden', 'summoner'], name: 'Heretic' },
+];
