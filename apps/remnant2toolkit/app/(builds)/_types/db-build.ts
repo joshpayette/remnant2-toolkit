@@ -34,4 +34,5 @@ export interface DBBuild {
   viewCount: number;
   percentageOwned: number;
   buildVariantName?: string;
+  totalVariants?: number;
 }

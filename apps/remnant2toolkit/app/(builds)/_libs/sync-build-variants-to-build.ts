@@ -18,6 +18,7 @@ export function syncBuildVariantsToBuild({
     buildVariant.validatedViewCount = build.validatedViewCount;
     buildVariant.upvoted = build.upvoted;
     buildVariant.buildTags = build.buildTags;
+    buildVariant.isFeaturedBuild = build.isFeaturedBuild;
     return buildVariant;
   });
 

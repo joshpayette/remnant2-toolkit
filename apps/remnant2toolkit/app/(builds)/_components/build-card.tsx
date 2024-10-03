@@ -99,12 +99,18 @@ export function BuildCard({
                   {build.name}
                 </h3>
               </BaseLink>
-              <div className="mb-1 grid w-full grid-cols-3 truncate text-sm">
+              {build.totalVariants && build.totalVariants > 0 ? (
+                <div className="col-span-3 flex flex-row items-center justify-start gap-x-2 text-left text-xs text-gray-400">
+                  {build.totalVariants} Build{' '}
+                  {build.totalVariants > 1 ? 'Variants' : 'Variant'}
+                </div>
+              ) : null}
+              <div className="grid w-full grid-cols-3 text-sm">
                 {build.variantIndex > 0 ? (
-                  <div className="col-span-2 flex flex-row truncate text-left text-xs text-gray-300">
+                  <div className="col-span-3 flex flex-row text-left text-xs text-gray-300">
                     <IndentIcon className="mr-1 h-4 w-4" />
                     {build.buildVariantName
-                      ? `${build.buildVariantName}`
+                      ? `Variant: ${build.buildVariantName}`
                       : `Build Variant`}
                   </div>
                 ) : null}
