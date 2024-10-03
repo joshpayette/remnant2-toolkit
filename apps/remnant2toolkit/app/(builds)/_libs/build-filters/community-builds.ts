@@ -94,11 +94,6 @@ SELECT * FROM (
       GROUP BY BuildItems.buildId
     ) as UserItemCounts ON Build.id = UserItemCounts.buildId
     ${whereConditions}
-    AND NOT EXISTS (
-      SELECT 1
-      FROM BuildVariant
-      WHERE BuildVariant.secondaryBuildId = Build.id
-    )
     ${
       searchText && searchText.length > 0
         ? Prisma.sql`AND (
@@ -192,11 +187,6 @@ SELECT COUNT(DISTINCT SubQuery.id) as totalBuildCount FROM (
       GROUP BY BuildItems.buildId
     ) as UserItemCounts ON Build.id = UserItemCounts.buildId
     ${whereConditions}
-    AND NOT EXISTS (
-      SELECT 1
-      FROM BuildVariant
-      WHERE BuildVariant.secondaryBuildId = Build.id
-    )
     ${
       searchText && searchText.length > 0
         ? Prisma.sql`AND (
