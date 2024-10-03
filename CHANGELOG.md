@@ -6,9 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-10-02
 
+### Added
+
+- Added missing Warden archetype combo names.
+
 ### Changed
 
 - Amplitude tag has been replaced by AOE/Aura Size to match in-game.
+- Build Variants will now also show up in community build results. Links will go straight to the variant. The build card will show the name of the main build, since build variant names typically lack context, but have a (Build Variant) note under it.
 
 ### Fixed
 
