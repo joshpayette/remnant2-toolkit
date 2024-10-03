@@ -12,7 +12,7 @@ interface Props {
   builds: DBBuild[];
 }
 
-export function QualityBuildsFeed({ builds }: Props) {
+export function QualityBuildFeed({ builds }: Props) {
   const [qualityBuildDialogOpen, setQualityBuildDialogOpen] = useState(false);
 
   return (
