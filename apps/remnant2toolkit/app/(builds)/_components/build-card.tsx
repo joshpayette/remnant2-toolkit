@@ -136,7 +136,7 @@ export function BuildCard({
                   </Tooltip>
                 </div>
               </div>
-              <div className="mb-1 flex flex-row items-center justify-start gap-x-2">
+              <div className="my-1 flex flex-row items-center justify-start gap-x-2">
                 {build.updatedAt && (
                   <p className="text-left text-xs text-gray-400">
                     Last Updated:{' '}
