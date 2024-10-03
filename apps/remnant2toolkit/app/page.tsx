@@ -40,7 +40,8 @@ export default async function Page() {
               }
             />
           </div>
-          <div className="col-span-full mt-8 w-full">
+
+          <div id="genesis" className="col-span-full mt-8 w-full">
             <GenesisCode />
           </div>
           <div className="col-span-full mt-8 hidden w-full md:block">
