@@ -6,11 +6,12 @@ import { LandingPageCard } from '@/app/_components/landing-page-card';
 import { LandingPageCardDisabled } from '@/app/_components/landing-page-card-disabled';
 import { LandingPageContainer } from '@/app/_components/landing-page-container';
 import { NAV_ITEMS } from '@/app/_types/navigation';
-import { getQualityBuildFeed } from '@/app/(builds)/_actions/get-quality-build-feed';
 import { getTotalBuildCount } from '@/app/(builds)/_actions/get-total-build-count';
 import { QualityBuildsFeed } from '@/app/(builds)/_components/quality-builds-feed';
 import { getLeaderBoard as getItemQuizLeaderBoard } from '@/app/(items)/item-quiz/_actions/get-leader-board';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
+
+import { getQualityBuildFeed } from './(builds)/_actions/get-quality-build-feed';
 
 export default async function Page() {
   const session = await getSession();
