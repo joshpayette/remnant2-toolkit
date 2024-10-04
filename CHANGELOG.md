@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-10-04
+
+### Fixed
+
+- Fixed bug where mutator description was showing beneath max level description in Item Info dialog boxes.
+
 ## 2024-10-03
 
 ### Added
