@@ -990,7 +990,8 @@ export const modItems: ModItem[] = [
     imagePath: '/items/mods/megadrive.png',
     id: '5s9x12',
     dlc: 'dlc3',
-    description: `Activate while a valid target is in-sights, marking it with quantum Entanglement. All Genesis projectiles seek to the Entanglement target after initial impact, dealing 50% of Primary Fire damage.\n\nWhile active, activating can switch Entanglement target. Lasts 15s.`,
+    description:
+      'Activate while a valid target is in-sights, marking it with quantum Entanglement. All Genesis projectiles seek to the Entanglement target after initial impact, dealing 35% of Primary Fire damage.\n\nWhile active, activating can switch Entanglement target. Lasts 15s.',
     wikiLinks: [`https://remnant.wiki/Genesis`],
     linkedItems: {
       weapon: {
@@ -1472,7 +1473,8 @@ export const modItems: ModItem[] = [
     imagePath: '/items/mods/voidlight.png',
     id: '0ycjs9',
     dlc: 'dlc3',
-    description: `Launches a projectile that releases Voidlight which remains dormant for 10s. While active, aborbs other damage sources.\n\nAfter expiration, explodes and fires up to 5 protectiles which home in on enemies within 22.5m. Projectiles deal 250 → 750 Mod Damage split among enemies hit, dealing an additional 150 → 450 per 100 Base Damage absorbed. Max 5x.`,
+    description:
+      'Launches a projectile that releases Voidlight which remains dormant for 10s. While active, aborbs other damage sources.\n\nAfter expiration, explodes and fires up to 5 protectiles which home in on enemies within 15m. Projectiles deal 250 → 750 Mod Damage split among enemies hit, dealing an additional 150 → 450 per 100 Base Damage absorbed. Max 5x.',
     wikiLinks: [`https://remnant.wiki/Voidlight`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
