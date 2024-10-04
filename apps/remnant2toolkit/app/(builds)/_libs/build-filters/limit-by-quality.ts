@@ -17,7 +17,7 @@ export function limitToQualityBuilds(limitToQualityBuilds: boolean) {
   AND (ItemCounts.relicCount = 1)
   AND (ItemCounts.relicfragmentCount > 2)
   AND (ItemCounts.weaponCount = 3)
-  AND (ItemCounts.modCount = 3)
+  AND (ItemCounts.modCount >= 2)
   AND (ItemCounts.mutatorCount = 3)
   AND (ItemCounts.amuletCount = 1)
   AND (ItemCounts.ringCount = 4)
