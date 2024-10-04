@@ -32,6 +32,7 @@ export async function updateBuild({
       message: 'You must be logged in.',
     };
   }
+  const userId = session.user.id;
 
   const buildVariants: BuildState[] = [];
   for (const variant of buildVariantsStringified) {
@@ -49,7 +50,7 @@ export async function updateBuild({
         : null,
       buildLinkUpdatedAt: unvalidatedData.buildLinkUpdatedAt
         ? new Date(unvalidatedData.buildLinkUpdatedAt)
-        : null,
+        : new Date(),
       buildTags: unvalidatedData.buildTags
         ? unvalidatedData.buildTags.map((tag: BuildTags) => ({
             ...tag,
@@ -104,7 +105,6 @@ export async function updateBuild({
       const verifyBuildStateResponse = verifyBuildState({
         buildState: variant,
         userDisplayName: session.user?.name as string,
-        userId: session.user?.id as string,
       });
 
       if (verifyBuildStateResponse.errorMessage) {
@@ -265,6 +265,21 @@ export async function updateBuild({
     });
 
     // Update the Build table for all variants in the new batch
+    const existingBuild = existingUpdatableBuilds.find(
+      (build) => build.id === mainBuildState.buildId,
+    );
+
+    let buildLinkUpdatedAt = mainBuildState.buildLinkUpdatedAt;
+    let isVideoApproved = mainBuildState.isVideoApproved;
+
+    if (existingBuild?.buildLink !== mainBuildState.buildLink) {
+      buildLinkUpdatedAt = isPermittedBuilder(userId)
+        ? new Date(Date.now() - 60 * 60 * 24 * 1000)
+        : new Date();
+
+      isVideoApproved = false;
+    }
+
     const updateMainBuildResponse = await prisma.build.update({
       where: {
         id: mainBuildState.buildId,
@@ -286,7 +301,8 @@ export async function updateBuild({
         isModeratorApproved: false,
         videoUrl: mainBuildState.videoUrl,
         buildLink: mainBuildState.buildLink,
-        buildLinkUpdatedAt: mainBuildState.buildLinkUpdatedAt,
+        buildLinkUpdatedAt,
+        isVideoApproved,
         BuildItems: {
           deleteMany: {},
           create: buildStateToBuildItems(mainBuildState).filter(
@@ -308,6 +324,21 @@ export async function updateBuild({
 
     const updateBuildVariantsResponse = await Promise.all(
       variantsToUpdate.map(async (variant) => {
+        const existingBuild = existingUpdatableBuilds.find(
+          (build) => build.id === variant.buildId,
+        );
+
+        let buildLinkUpdatedAt = variant.buildLinkUpdatedAt;
+        let isVideoApproved = variant.isVideoApproved;
+
+        if (existingBuild?.buildLink !== variant.buildLink) {
+          buildLinkUpdatedAt = isPermittedBuilder(userId)
+            ? new Date(Date.now() - 60 * 60 * 24 * 1000)
+            : new Date();
+
+          isVideoApproved = false;
+        }
+
         return prisma.build.update({
           where: {
             id: variant.buildId as string,
@@ -328,9 +359,9 @@ export async function updateBuild({
             isPatchAffected: Boolean(variant.isPatchAffected),
             videoUrl: variant.videoUrl,
             buildLink: variant.buildLink,
-            buildLinkUpdatedAt: variant.buildLinkUpdatedAt,
+            buildLinkUpdatedAt,
             isModeratorApproved: false,
-            isVideoApproved: variant.isVideoApproved,
+            isVideoApproved,
             BuildItems: {
               deleteMany: {},
               create: buildStateToBuildItems(variant).filter(

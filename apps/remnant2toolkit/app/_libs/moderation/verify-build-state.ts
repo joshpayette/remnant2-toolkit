@@ -3,17 +3,14 @@ import { isValidYoutubeUrl } from '@repo/utils';
 import { badWordFilter } from '@/app/_libs/bad-word-filter';
 import { type SendWebhookParams } from '@/app/_libs/moderation/send-webhook';
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
-import { isPermittedBuilder } from '@/app/(builds)/_libs/is-permitted-builder';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 
 export function verifyBuildState({
   buildState,
   userDisplayName,
-  userId,
 }: {
   buildState: BuildState;
   userDisplayName: string;
-  userId: string;
 }): {
   buildState: BuildState;
   webhook?: SendWebhookParams;
@@ -41,9 +38,8 @@ export function verifyBuildState({
 
   buildState.description = truncateDescription({ buildState });
 
-  const buildLinkResults = checkBuildLink({ buildState, userId });
+  const buildLinkResults = checkBuildLink({ buildState });
   buildState.buildLink = buildLinkResults.buildLink;
-  buildState.buildLinkUpdatedAt = buildLinkResults.buildLinkUpdatedAt;
   buildState.videoUrl = buildLinkResults.videoUrl;
 
   return { buildState };
@@ -180,25 +176,10 @@ function archetypeCheckPassed({
   return true;
 }
 
-function checkBuildLink({
-  buildState,
-  userId,
-}: {
-  buildState: BuildState;
-  userId: string;
-}): {
+function checkBuildLink({ buildState }: { buildState: BuildState }): {
   buildLink: BuildState['buildLink'];
-  buildLinkUpdatedAt: BuildState['buildLinkUpdatedAt'];
   videoUrl: BuildState['videoUrl'];
 } {
-  // If there is a buildLink, set the buildLinkUpdatedAt to now
-  // If the user is a permitted builder, immediately validate the link by setting buildLinkUpdatedAt to yesterday
-  if (buildState.buildLink) {
-    buildState.buildLinkUpdatedAt = isPermittedBuilder(userId)
-      ? new Date(Date.now() - 60 * 60 * 24 * 1000)
-      : new Date();
-  }
-
   // Ensure the build link is less than 190 characters
   if (buildState.buildLink && buildState.buildLink.length > 190) {
     buildState.buildLink = buildState.buildLink?.slice(0, 190);
@@ -211,7 +192,6 @@ function checkBuildLink({
 
   return {
     buildLink: buildState.buildLink,
-    buildLinkUpdatedAt: buildState.buildLinkUpdatedAt,
     videoUrl: buildState.videoUrl,
   };
 }
