@@ -10,6 +10,8 @@ import { limitByTimeConditionSegment } from '@/app/(builds)/_libs/build-filters/
 import { type BuildListResponse } from '@/app/(builds)/_types/build-list-response';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
+import { getOrderBySegment } from '../_libs/build-filters/get-order-by';
+
 export type CreatedBuildsFilter = 'date created' | 'upvotes';
 
 export async function getUserCreatedBuilds({
@@ -39,11 +41,13 @@ export async function getUserCreatedBuilds({
   ${limitByTimeConditionSegment(timeRange)}
   `;
 
+  const orderBySegment = getOrderBySegment(orderBy);
+
   try {
     const { builds, totalBuildCount } = await getBuildList({
       includeBuildVariants: false,
       itemsPerPage,
-      orderBy,
+      orderBy: orderBySegment,
       pageNumber,
       percentageOwned: 0,
       searchText: '',

@@ -4,6 +4,7 @@ import { Prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
 import { getBuildList } from '@/app/(builds)/_actions/get-build-list';
+import { getOrderBySegment } from '@/app/(builds)/_libs/build-filters/get-order-by';
 import {
   amuletFilterToId,
   limitByAmuletSegment,
@@ -114,11 +115,13 @@ export async function getUserCreatedBuilds({
   ${limitByFeatured(featuredBuildsOnly)}
   `;
 
+  const orderBySegment = getOrderBySegment(orderBy);
+
   try {
     const { builds, totalBuildCount } = await getBuildList({
       includeBuildVariants: false,
       itemsPerPage,
-      orderBy,
+      orderBy: orderBySegment,
       pageNumber,
       percentageOwned: withCollection,
       searchText,
