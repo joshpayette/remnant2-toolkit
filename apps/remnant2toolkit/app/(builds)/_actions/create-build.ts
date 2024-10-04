@@ -48,7 +48,7 @@ export async function createBuild({
         : null,
       buildLinkUpdatedAt: unvalidatedData.buildLinkUpdatedAt
         ? new Date(unvalidatedData.buildLinkUpdatedAt)
-        : null,
+        : new Date(),
       buildTags: unvalidatedData.buildTags
         ? unvalidatedData.buildTags.map((tag: BuildTags) => ({
             ...tag,
@@ -90,7 +90,6 @@ export async function createBuild({
       const verifyBuildStateResponse = verifyBuildState({
         buildState: variant,
         userDisplayName: session.user?.name as string,
-        userId: session.user?.id as string,
       });
 
       if (verifyBuildStateResponse.errorMessage) {
