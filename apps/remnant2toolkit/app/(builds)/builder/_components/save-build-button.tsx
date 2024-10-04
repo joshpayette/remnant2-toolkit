@@ -69,6 +69,12 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
               if (!hasBuildLink) {
                 variant.videoUrl = '';
               }
+              const isAnyVariantPrivate = buildVariants.some(
+                (variant) => !variant.isPublic,
+              );
+              if (isAnyVariantPrivate) {
+                variant.isPublic = false;
+              }
               return JSON.stringify(variant);
             }),
           });
@@ -109,9 +115,15 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
         setSaveInProgress(true);
 
         const createBuildResponse = await createBuild({
-          buildVariantsStringified: buildVariants.map((variant) =>
-            JSON.stringify(variant),
-          ),
+          buildVariantsStringified: buildVariants.map((variant) => {
+            const anyVariantIsPrivate = buildVariants.some(
+              (variant) => !variant.isPublic,
+            );
+            if (anyVariantIsPrivate) {
+              variant.isPublic = false;
+            }
+            return JSON.stringify(variant);
+          }),
         });
 
         if (isErrorResponse(createBuildResponse)) {
