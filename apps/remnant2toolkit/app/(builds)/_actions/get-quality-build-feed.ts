@@ -7,6 +7,7 @@ import { limitToQualityBuilds } from '@/app/(builds)/_libs/build-filters/limit-b
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
+import { getOrderBySegment } from '../_libs/build-filters/get-order-by';
 import { getBuildList } from './get-build-list';
 
 export async function getQualityBuildFeed(): Promise<{
@@ -15,10 +16,12 @@ export async function getQualityBuildFeed(): Promise<{
   const session = await getSession();
   const userId = session?.user?.id;
 
+  const orderBySegment = getOrderBySegment('newest');
+
   const { builds } = await getBuildList({
     includeBuildVariants: false,
     itemsPerPage: 4,
-    orderBy: 'newest',
+    orderBy: orderBySegment,
     pageNumber: 1,
     percentageOwned: 0,
     searchText: '',

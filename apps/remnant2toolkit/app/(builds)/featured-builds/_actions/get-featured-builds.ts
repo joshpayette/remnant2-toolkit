@@ -38,6 +38,8 @@ import { type BuildListRequest } from '@/app/(builds)/_types/build-list-request'
 import { type BuildListResponse } from '@/app/(builds)/_types/build-list-response';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
+import { getOrderBySegment } from '../../_libs/build-filters/get-order-by';
+
 export async function getFeaturedBuilds({
   buildListFilters,
   itemsPerPage,
@@ -85,11 +87,13 @@ export async function getFeaturedBuilds({
   ${limitToQualityBuilds(withQuality)}
   `;
 
+  const orderBySegment = getOrderBySegment(orderBy, true);
+
   try {
     const { builds, totalBuildCount } = await getBuildList({
       includeBuildVariants: false,
       itemsPerPage,
-      orderBy,
+      orderBy: orderBySegment,
       pageNumber,
       percentageOwned: withCollection,
       searchText,

@@ -3,12 +3,10 @@
 import { type Prisma, prisma } from '@repo/db';
 
 import { type PercentageOwned } from '@/app/(builds)/_components/filters/build-collection-filter';
-import { type OrderBy } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
 import {
   communityBuildsCountQuery,
   communityBuildsQuery,
 } from '@/app/(builds)/_libs/build-filters/community-builds';
-import { getOrderBySegment } from '@/app/(builds)/_libs/build-filters/get-order-by';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
 export async function getBuildList({
@@ -23,7 +21,7 @@ export async function getBuildList({
 }: {
   includeBuildVariants: boolean;
   itemsPerPage: number;
-  orderBy: OrderBy;
+  orderBy: Prisma.Sql;
   pageNumber: number;
   percentageOwned: PercentageOwned;
   searchText: string;
@@ -34,7 +32,6 @@ export async function getBuildList({
   totalBuildCount: number;
 }> {
   const trimmedSearchText = searchText.trim();
-  const orderBySegment = getOrderBySegment(orderBy);
 
   const [builds, totalBuildsCountResponse] = await Promise.all([
     communityBuildsQuery({
@@ -42,7 +39,7 @@ export async function getBuildList({
       userId,
       itemsPerPage,
       pageNumber,
-      orderBySegment,
+      orderBySegment: orderBy,
       whereConditions,
       searchText: trimmedSearchText,
       percentageOwned,
