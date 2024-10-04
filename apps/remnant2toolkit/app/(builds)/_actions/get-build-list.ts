@@ -77,7 +77,7 @@ export async function getBuildList({
 
     // If this is a build variant, we need to use the primary build name
     if (buildVariant) {
-      const primaryBuild = await prisma.build.findMany({
+      const primaryBuild = await prisma.build.findFirst({
         where: { id: buildVariant.primaryBuildId, isPublic: true },
         include: {
           BuildVotes: true,
@@ -86,15 +86,15 @@ export async function getBuildList({
       });
 
       const totalVariants = await prisma.buildVariant.findMany({
-        where: { primaryBuildId: primaryBuild[0]?.id },
+        where: { primaryBuildId: primaryBuild?.id },
       });
 
-      build.id = primaryBuild[0]?.id ?? build.id;
+      build.id = primaryBuild?.id ?? build.id;
       build.buildVariantName = build.name;
-      build.totalVariants = totalVariants.length;
-      build.name = primaryBuild[0]?.name ?? build.name;
+      build.totalVariants = primaryBuild ? totalVariants.length : 0;
+      build.name = primaryBuild?.name ?? build.name;
       build.variantIndex = buildVariant.index ?? 0;
-      build.totalUpvotes = primaryBuild[0]?.BuildVotes.length ?? 0;
+      build.totalUpvotes = primaryBuild?.BuildVotes.length ?? 0;
     } else {
       const buildVariant = await prisma.buildVariant.findMany({
         where: { primaryBuildId: build.id },
