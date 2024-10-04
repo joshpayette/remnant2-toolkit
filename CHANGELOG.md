@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed bug with build variants showing on feeds they should not have been.
 - Fixed bug where build variants were showing 0 favorites.
 - Fixed quality build requirements that were erroneously excluding builds using melee weapons that cannot have mods.
+- Fixed bug where build variants and main bu ild could have different privacy settings.
 
 ## 2024-10-02
 
