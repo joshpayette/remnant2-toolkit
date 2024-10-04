@@ -96,7 +96,7 @@ DATABASE_URL="mysql://forlinauser:password@localhost:3306/forlinadb"
 
 **Use this same database URL in every other `.env` file where the `DATABASE_URL` field exists.**
 
-### Initialize the `apps/remnant2toolkit/env.local` file
+### Initialize the `apps/remnant2toolkit/.env` file
 
 ```bash
 cp ./apps/remnant2toolkit/.env.example ./apps/remnant2toolkit/.env
@@ -110,7 +110,7 @@ Copy the `DATABASE_URL` value from the `packages/database/.env` file and paste i
 
 You will need to create a Reddit app and a Discord app to allow users to sign in with those services.
 
-##### Discord
+#### Discord
 
 1. Go to [https://discord.com/developers/applications](https://discord.com/developers/applications).
 2. Click "New Application" in the top right.
@@ -121,7 +121,7 @@ You will need to create a Reddit app and a Discord app to allow users to sign in
 7. Enter `http://localhost:3000/api/auth/callback/discord` and click "Save Changes".
 8. Copy the `client_id` and `client_secret` values into the `.env` file, in the `DISCORD_CLIENT_ID` and `DISCORD_CLIENT_SECRET` fields, respectively.
 
-##### Reddit
+#### Reddit
 
 1. Go to [https://www.reddit.com/prefs/apps](https://www.reddit.com/prefs/apps).
 2. Click "Create App" at the bottom of the page.
@@ -129,7 +129,7 @@ You will need to create a Reddit app and a Discord app to allow users to sign in
 4. Click "Create App".
 5. Copy the `client_id` and `client_secret` values into the `.env` file, in the `REDDIT_CLIENT_ID` and `REDDIT_CLIENT_SECRET` fields, respectively.
 
-##### `NEXTAUTH_SECRET` Environment Variable
+#### `NEXTAUTH_SECRET` Environment Variable
 
 This is a secret key used by NextAuth. You can generate a random string of characters using a tool like [https://passwordsgenerator.net/](https://passwordsgenerator.net/), then paste that value into the `.env` file for `NEXTAUTH_SECRET`.
 

@@ -7,7 +7,7 @@ function GlyphImage({ digit }: { digit: string }) {
   const baseImagePath = `${getImageUrl('/misc/genesis-vault')}`;
   return (
     <Image
-      src={`${baseImagePath}/Genesis Glyph ${digit}.png`}
+      src={`${baseImagePath}/${digit}.png`}
       width={36}
       height={36}
       alt={digit}
@@ -21,17 +21,17 @@ export function GenesisCode() {
 
   return (
     <>
-      <h2 className="text-primary-500 w-full text-center text-2xl font-bold">
+      <h2 className="text-surface-solid w-full text-center text-2xl font-bold">
         Genesis Code
       </h2>
       <div className="flex w-full flex-col items-center justify-center">
         <div
           id="code-container"
-          className="flex flex-row items-center justify-center gap-x-12"
+          className="grid grid-cols-2 gap-y-4 sm:gap-x-12 sm:gap-y-0"
         >
           <div
             id="code-top-row"
-            className="flex flex-col items-center justify-center"
+            className="col-span-full flex flex-col items-center justify-center sm:col-span-1"
           >
             <h3 className="text-md mb-1 font-bold underline">Top Row</h3>
             <div className="flex flex-row items-center justify-center gap-x-2">
@@ -42,7 +42,7 @@ export function GenesisCode() {
           </div>
           <div
             id="code-bottom-row"
-            className="flex flex-col items-center justify-center"
+            className="col-span-full flex flex-col items-center justify-center sm:col-span-1"
           >
             <h3 className="text-md mb-1 font-bold underline">Bottom Row</h3>
             <div className="flex flex-row items-center justify-center gap-x-2">
