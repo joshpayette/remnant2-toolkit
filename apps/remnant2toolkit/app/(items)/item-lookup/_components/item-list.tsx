@@ -4,8 +4,9 @@ import { BaseButton } from '@repo/ui';
 import { capitalize } from '@repo/utils';
 import isEqual from 'lodash.isequal';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useIsClient } from 'usehooks-ts';
+import { v4 as uuidv4 } from 'uuid';
 
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 import { MasonryItemList } from '@/app/(items)/_components/masonry-item-list';
@@ -235,24 +236,6 @@ export function ItemList() {
 
   const isClient = useIsClient();
 
-  // * Masonic workaround
-  // * This still causes a slight flicker, but without it, Masonic breaks when
-  // * filtering with search text
-  const itemsCount = filteredItems.length;
-  const prevItemsCount = useRef(itemsCount);
-  const removesCount = useRef(0);
-
-  const gridKeyPostfix = useMemo(() => {
-    if (!itemsCount || !prevItemsCount.current) return removesCount.current;
-    if (itemsCount < prevItemsCount.current) {
-      removesCount.current += 1;
-      prevItemsCount.current = itemsCount;
-      return removesCount.current;
-    }
-
-    return removesCount.current;
-  }, [itemsCount, prevItemsCount]);
-
   // #region Render
 
   return (
@@ -268,7 +251,7 @@ export function ItemList() {
         </div>
       ) : (
         <MasonryItemList
-          key={`${gridKeyPostfix}`}
+          key={uuidv4()}
           label={`Items (${filteredItems.length} Total)`}
           items={filteredItems}
           allowItemCompare={true}
