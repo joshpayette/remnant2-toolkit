@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Updated other miscellaneous item descriptions.
 - Added black background to genesis code for light mode users.
 - Fixed bug where you could equip fragments even though they were part of an equipped fusion.
+- Fixed bug where item lookup list would flicker when tabbing out and back in.
 
 ## 2024-10-03
 

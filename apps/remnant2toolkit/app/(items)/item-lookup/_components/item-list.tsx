@@ -6,7 +6,6 @@ import isEqual from 'lodash.isequal';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useIsClient } from 'usehooks-ts';
-import { v4 as uuidv4 } from 'uuid';
 
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 import { MasonryItemList } from '@/app/(items)/_components/masonry-item-list';
@@ -251,7 +250,6 @@ export function ItemList() {
         </div>
       ) : (
         <MasonryItemList
-          key={uuidv4()}
           label={`Items (${filteredItems.length} Total)`}
           items={filteredItems}
           allowItemCompare={true}
