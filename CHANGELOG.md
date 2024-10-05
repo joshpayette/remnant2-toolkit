@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed bug where mutator description was showing beneath max level description in Item Info dialog boxes.
 - Updated Genesis item descriptions and values.
 - Updated other miscellaneous item descriptions.
+- Added black background to genesis code for light mode users.
 
 ## 2024-10-03
 
