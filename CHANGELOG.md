@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - Genesis code display now has improved and uniform look for light mode users.
+- Bad word list updated to allow `shit` and `asshole`.
 
 ### Fixed
 

@@ -1,37 +1,31 @@
 import { CHANGELOG_URL, DISCORD_INVITE_URL } from '@repo/constants';
 import {
+  ArmorGeneratorIcon,
+  BaseGameBuildsIcon,
+  BeginnerBuildsIcon,
+  BossIcon,
   ChangeLogIcon,
   CommunityBuildsIcon,
   CreateBuildIcon,
   DiscordIcon,
   FavoriteIcon,
+  FeaturedBuildsIcon,
+  GimmickBuildsIcon,
+  HardcoreIcon,
   ItemLookupIcon,
   ItemTrackerIcon,
+  LoadoutIcon,
+  ModdingIcon,
   MyBuildsIcon,
   ProfileIcon,
+  QuizIcon,
   RandomIcon,
   ResourcesIcon,
   SignInIcon,
   SignOutIcon,
   SupportIcon,
+  WorldSaveIcon,
 } from '@repo/ui';
-import { BiSolidPyramid as BaseGameBuildsIcon } from 'react-icons/bi';
-import {
-  GiBarbute as LoadoutIcon,
-  GiChestArmor as ArmorGeneratorIcon,
-  GiStrong as HardcoreVeteranIcon,
-} from 'react-icons/gi';
-import {
-  IoArchive as WorldSaveArchiveIcon,
-  IoShieldCheckmark as BossTrackerIcon,
-} from 'react-icons/io5';
-import { LuBanana as GimmickBuildsIcon } from 'react-icons/lu';
-import { MdQuiz as ItemQuizIcon } from 'react-icons/md';
-import {
-  PiCubeFocus as FeaturedBuildsIcon,
-  PiLadder as BeginnerBuildsIcon,
-} from 'react-icons/pi';
-import { SiModrinth as ModdingDiscordIcon } from 'react-icons/si';
 
 import VashIcon from '@/app/_components/vash-icon';
 import WikiIcon from '@/app/_components/wiki-icon';
@@ -58,7 +52,7 @@ export const NAV_ITEMS = {
     description:
       'A Remnant 2 boss tracker to keep tabs on which bosses you have defeated, and the bosses that are still escaping your grasp.',
     href: '/boss-tracker',
-    icon: BossTrackerIcon,
+    icon: BossIcon,
   },
   changeLog: {
     label: 'Change Log',
@@ -120,7 +114,7 @@ export const NAV_ITEMS = {
     description:
       'An opinionated guide to best help you complete your first Remnant 2 hardcore veteran run.',
     href: '/guides/hardcore-veteran',
-    icon: HardcoreVeteranIcon,
+    icon: HardcoreIcon,
   },
   itemLookup: {
     label: 'Item Lookup',
@@ -134,7 +128,7 @@ export const NAV_ITEMS = {
     description:
       'Test your ability to recognize Remnant 2 items by only their icons! How many can you get in 60 seconds?',
     href: '/item-quiz',
-    icon: ItemQuizIcon,
+    icon: QuizIcon,
   },
   itemTracker: {
     label: 'Item Tracker',
@@ -155,7 +149,7 @@ export const NAV_ITEMS = {
     description:
       'Join the Discord community for Remnant modding and mod support.',
     href: 'https://discord.gg/ghvBzT5gxF',
-    icon: ModdingDiscordIcon,
+    icon: ModdingIcon,
   },
   myBuilds: {
     label: 'My Builds',
@@ -227,6 +221,6 @@ export const NAV_ITEMS = {
     label: 'World Save Archive',
     description: `A collection of curated Remnant 2 world saves for apocalypse bosses with specific affixes.`,
     href: '/world-save-archive',
-    icon: WorldSaveArchiveIcon,
+    icon: WorldSaveIcon,
   },
 };
