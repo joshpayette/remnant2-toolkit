@@ -18,7 +18,7 @@ const nextConfig = {
     ],
   },
   experimental: {
-    optimizePackageImports: ['react-icons/*', '@repo/ui/*'],
+    optimizePackageImports: ['@repo/ui/*'],
   },
   webpack: (config, { dev, isServer }) => {
     if (dev) {

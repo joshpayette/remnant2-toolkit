@@ -1,5 +1,4 @@
-import { BaseCheckbox, BaseField, BaseLabel } from '@repo/ui';
-import { AiFillLayout as LayoutIcon } from 'react-icons/ai';
+import { BaseCheckbox, BaseField, BaseLabel, LayoutIcon } from '@repo/ui';
 
 import { type LayoutPreference } from '@/app/(items)/item-quiz/_types/layout-preference';
 

@@ -1,7 +1,13 @@
-import { BaseButton, BaseInput, CloseCircleIcon, cn, ZINDEXES } from '@repo/ui';
+import {
+  BaseButton,
+  BaseInput,
+  CloseCircleIcon,
+  cn,
+  OptionalIcon,
+  OwnershipIcon,
+  ZINDEXES,
+} from '@repo/ui';
 import { useState } from 'react';
-import { PiBagSimpleFill as OwnershipIcon } from 'react-icons/pi';
-import { TbHttpOptions } from 'react-icons/tb';
 
 import { Tooltip } from '@/app/_components/tooltip';
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/_constants/default-trait-amount';
@@ -291,7 +297,7 @@ export function TraitsContainer({
                   }
                   aria-label="Toggle item as optional"
                 >
-                  <TbHttpOptions className="text-accent1-500 h-5 w-5" />
+                  <OptionalIcon className="text-accent1-500 h-5 w-5" />
                 </BaseButton>
               </Tooltip>
             )}
