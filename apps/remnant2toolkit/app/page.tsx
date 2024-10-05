@@ -9,9 +9,9 @@ import { NAV_ITEMS } from '@/app/_types/navigation';
 import { getLeaderBoard as getItemQuizLeaderBoard } from '@/app/(items)/item-quiz/_actions/get-leader-board';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
-import { GenesisCode } from './_components/genesis-code';
 import { LandingPageHeaderDescription } from './_components/landing-page-header-description';
 import { QualityBuildFeedContainer } from './(builds)/_components/quality-build-feed-container';
+import { GenesisCodeDisplay } from './(features)/_genesis-code/_components/genesis-code-display';
 
 export default async function Page() {
   const session = await getSession();
@@ -42,7 +42,7 @@ export default async function Page() {
           </div>
 
           <div id="genesis" className="col-span-full mt-8 w-full">
-            <GenesisCode />
+            <GenesisCodeDisplay />
           </div>
           <div className="col-span-full mt-8 hidden w-full md:block">
             <QualityBuildFeedContainer />

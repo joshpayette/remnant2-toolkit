@@ -33,8 +33,8 @@ import {
 } from 'react-icons/pi';
 import { SiModrinth as ModdingDiscordIcon } from 'react-icons/si';
 
-import VashIcon from '@/app/_components/images/vash-icon';
-import WikiIcon from '@/app/_components/images/wiki-icon';
+import VashIcon from '@/app/_components/vash-icon';
+import WikiIcon from '@/app/_components/wiki-icon';
 
 /**
  * The base pages for the site
