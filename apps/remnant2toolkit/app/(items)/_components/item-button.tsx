@@ -1,9 +1,14 @@
 'use client';
 
-import { cn, getImageUrl, InfoCircleIcon, ZINDEXES } from '@repo/ui';
+import {
+  cn,
+  getImageUrl,
+  InfoCircleIcon,
+  OptionalIcon,
+  OwnershipIcon,
+  ZINDEXES,
+} from '@repo/ui';
 import Image from 'next/image';
-import { PiBagSimpleFill as OwnershipIcon } from 'react-icons/pi';
-import { TbHttpOptions } from 'react-icons/tb';
 
 import { Tooltip } from '@/app/_components/tooltip';
 import { type Enemy, isEnemy } from '@/app/(enemies)/_types';
@@ -224,7 +229,7 @@ export function ItemButton({
             onClick={() => onToggleOptional(item, !item.optional)}
             aria-label="Toggle item as optional"
           >
-            <TbHttpOptions className="text-accent1-500 h-4 w-4" />
+            <OptionalIcon className="text-accent1-500 h-4 w-4" />
           </button>
         </Tooltip>
       )}

@@ -7,13 +7,13 @@ import {
   EyeIcon,
   EyeOffIcon,
   FavoriteIcon,
+  IndentIcon,
   PaperClipIcon,
   Skeleton,
   VideoIcon,
 } from '@repo/ui';
 import { isValidYoutubeUrl } from '@repo/utils';
 import { useSession } from 'next-auth/react';
-import { VscIndent as IndentIcon } from 'react-icons/vsc';
 
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
 import { Tooltip } from '@/app/_components/tooltip';

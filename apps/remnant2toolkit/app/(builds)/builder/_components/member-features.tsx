@@ -10,12 +10,12 @@ import {
   BaseSwitch,
   BaseTextarea,
   cn,
+  DocumentIcon,
   Skeleton,
+  TokensIcon,
 } from '@repo/ui';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
-import { IoDocumentTextSharp } from 'react-icons/io5';
-import { MdOutlineGeneratingTokens } from 'react-icons/md';
 
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
 import { BuildDescriptionTemplateAlert } from '@/app/(builds)/_components/build-description-template-alert';
@@ -153,7 +153,7 @@ Watch the build in action: [insert Youtube link here]
                 className="flex flex-col items-center justify-start text-sm underline sm:flex-row"
                 onClick={() => setBuildTagsDialogOpen(true)}
               >
-                <MdOutlineGeneratingTokens className="text-surface-solid h-4 w-4" />
+                <TokensIcon className="text-surface-solid h-4 w-4" />
                 Description Tokens
               </BaseButton>
 
@@ -162,7 +162,7 @@ Watch the build in action: [insert Youtube link here]
                 className="flex flex-col items-center justify-start text-sm underline sm:flex-row"
                 onClick={() => setBuildDescriptionAlertOpen(true)}
               >
-                <IoDocumentTextSharp className="text-surface-solid h-4 w-4" />{' '}
+                <DocumentIcon className="text-surface-solid h-4 w-4" />{' '}
                 Description Template
               </BaseButton>
             </div>
