@@ -80,7 +80,7 @@ export async function GET(request: NextRequest) {
       const url = urlNoCache(`https://remnant2toolkit.com/builder/${build.id}`);
 
       const params = {
-        content: `${TOTAL_FAVORITES_MILESTONE} favorites milestone reached! ${url}`,
+        content: `# ${TOTAL_FAVORITES_MILESTONE} favorites milestone reached! ${url}`,
       };
 
       const res = await fetch(`${process.env.WEBHOOK_MILESTONES}`, {

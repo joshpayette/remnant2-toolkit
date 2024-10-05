@@ -95,7 +95,7 @@ export async function GET(request: NextRequest) {
     const url = urlNoCache(`https://remnant2toolkit.com/builder/${build.id}`);
 
     const params = {
-      content: `${milestone.targetBuildCount}th build created! ${url}`,
+      content: `# ${milestone.targetBuildCount}th build created! ${url}`,
     };
 
     const res = await fetch(`${process.env.WEBHOOK_MILESTONES}`, {
