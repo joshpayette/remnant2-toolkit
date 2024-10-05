@@ -1,4 +1,4 @@
-import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin'
+import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -17,18 +17,21 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    optimizePackageImports: ['react-icons/*', '@repo/ui/*'],
+  },
   webpack: (config, { dev, isServer }) => {
     if (dev) {
       config.watchOptions = {
         poll: 1000,
         aggregateTimeout: 300,
-      }
+      };
     }
     if (isServer) {
-      config.plugins = [...config.plugins, new PrismaPlugin()]
+      config.plugins = [...config.plugins, new PrismaPlugin()];
     }
-    return config
+    return config;
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;

@@ -20,6 +20,9 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    optimizePackageImports: ['react-icons/*', '@repo/ui/*'],
+  },
   webpack: (config, { dev, isServer }) => {
     if (dev) {
       config.watchOptions = {
