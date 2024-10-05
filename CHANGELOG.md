@@ -6,12 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-10-04
 
+### Changed
+
+- Added user avatar and display name to nav menu for mobile users.
+
 ### Fixed
 
 - Fixed bug where mutator description was showing beneath max level description in Item Info dialog boxes.
 - Updated Genesis item descriptions and values.
 - Updated other miscellaneous item descriptions.
 - Added black background to genesis code for light mode users.
+- Fixed bug where you could equip fragments even though they were part of an equipped fusion.
 
 ## 2024-10-03
 
