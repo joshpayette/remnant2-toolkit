@@ -1,13 +1,18 @@
 import { lazy } from 'react';
 
-import { getGenesisCode } from '../_libs/get-genesis-code';
+import { getGenesisCode } from '@/app/(features)/_genesis-code/_lib/get-genesis-code';
 
 function GlyphImage({ digit }: { digit: string }) {
-  const GlpyhElement = lazy(() => import(`@/app/_components/images/genesis/gen-icon-${digit}`));
-  return <GlpyhElement className="text-primary-300 h-12 w-12 drop-shadow-[0_0_0.1rem_rgb(var(--color-primary-400))]"/>
+  const GlpyhElement = lazy(
+    () =>
+      import(`@/app/(features)/_genesis-code/_components/gen-icon-${digit}`),
+  );
+  return (
+    <GlpyhElement className="text-primary-300 h-12 w-12 drop-shadow-[0_0_0.1rem_rgb(var(--color-primary-400))]" />
+  );
 }
 
-export function GenesisCode() {
+export function GenesisCodeDisplay() {
   const topCode = getGenesisCode({ timestamp: Date.now(), row: 'top' });
   const bottomCode = getGenesisCode({ timestamp: Date.now(), row: 'bottom' });
 
@@ -25,7 +30,7 @@ export function GenesisCode() {
             id="code-top-row"
             className="col-span-full flex flex-col items-center justify-center sm:col-span-1"
           >
-            <h3 className="text-md mb-1 font-bold text-surface-solid underline">
+            <h3 className="text-md text-surface-solid mb-1 font-bold underline">
               Top Row
             </h3>
             <div className="flex flex-row items-center justify-center gap-x-2">
@@ -38,7 +43,7 @@ export function GenesisCode() {
             id="code-bottom-row"
             className="col-span-full flex flex-col items-center justify-center sm:col-span-1"
           >
-            <h3 className="text-md mb-1 font-bold text-surface-solid underline">
+            <h3 className="text-md text-surface-solid mb-1 font-bold underline">
               Bottom Row
             </h3>
             <div className="flex flex-row items-center justify-center gap-x-2">
