@@ -224,14 +224,24 @@ export function getItemListForSlot(
 
     // If the index is 3-8, then we are looking at the bonus fragments
     // We need to remove the equipped bonus fragments from the list
+    // We also need to remove any fragments found in the equipped fusions
     if (selectedItem.index < 8) {
       const bonusFragments = buildState.items.relicfragment.slice(3, 8);
-      return allFragmentItems.filter(
-        (item) =>
-          RelicFragmentItem.isRelicFragmentItem(item) &&
-          !bonusFragments.find((f) => f?.id === item.id) &&
-          item.color !== 'legendary',
-      );
+      return allFragmentItems
+        .filter(
+          (item) =>
+            RelicFragmentItem.isRelicFragmentItem(item) &&
+            !bonusFragments.find((f) => f?.id === item.id) &&
+            item.color !== 'legendary',
+        )
+        .filter((item) => {
+          for (const fusion of buildState.items.fusion) {
+            if (fusion?.fragmentIds.includes(item.id)) {
+              return false;
+            }
+          }
+          return true;
+        });
     }
 
     // If the index is 8, then we are looking at the legendary fragment

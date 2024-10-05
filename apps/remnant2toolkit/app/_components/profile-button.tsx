@@ -127,18 +127,31 @@ function ProfileButtonComponent({
             </div>
           </BaseLink>
         ) : (
-          <BaseLink
-            href={NAV_ITEMS.signout.href}
-            className="flex flex-row items-center justify-start"
-          >
-            <NAV_ITEMS.signout.icon
-              className="text-primary-500 mr-2 h-7 w-5 flex-none"
-              aria-hidden="true"
-            />
+          <div className="flex flex-row items-center justify-start gap-x-2">
+            {session?.user?.image ? (
+              <img
+                src={profileImage}
+                className="border-secondary-700 h-[56px] w-[56px] overflow-hidden rounded-full border p-1"
+                alt={`${session?.user.name} Avatar`}
+              />
+            ) : (
+              <span className="border-secondary-700 h-[56px] w-[56px] overflow-hidden rounded-full border bg-gray-100 p-1">
+                <PlaceHolderIcon />
+              </span>
+            )}
             <div className="flex flex-col items-start justify-start px-3 py-2">
-              {NAV_ITEMS.signout.label} {session?.user?.displayName}
+              {session?.user?.displayName}
             </div>
-          </BaseLink>
+            <BaseLink
+              href={NAV_ITEMS.signout.href}
+              className="flex flex-1 flex-row items-center justify-end"
+            >
+              <NAV_ITEMS.signout.icon
+                className="text-primary-500 mr-1 h-7 w-5 flex-none"
+                aria-hidden="true"
+              />
+            </BaseLink>
+          </div>
         )}
       </div>
     );
