@@ -1189,7 +1189,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/items/weapons/darkmattergauntlets.png',
     saveFileSlug: 'Weapon_DarkMatterGauntlets_C',
     id: 'p1o9av',
-    dlc: 'base',
+    dlc: 'dlc3',
     description: `The gauntlets harness the power of a neutron star and a black hole. When merged, cosmic forces are unleashed.`,
     wikiLinks: [`https://remnant.wiki/Dark_Matter_Gauntlets`],
     location: { world: `N'Erud`, dungeon: 'Quest' },
