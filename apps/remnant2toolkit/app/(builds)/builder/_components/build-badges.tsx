@@ -31,9 +31,9 @@ export function BuildBadges({ buildState, isScreenshotMode = false }: Props) {
       {hasFeaturedBadge ? (
         <FeaturedBuildBadge unoptimized={isScreenshotMode} />
       ) : null}
-      {/* {hasGimmickBadge ? (
+      {hasGimmickBadge ? (
         <GimmickBuildBadge unoptimized={isScreenshotMode} />
-      ) : null} */}
+      ) : null}
     </>
   );
 }

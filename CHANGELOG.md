@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Item Lookup filters now have a "Not world drop" entry in the dropdown, making it easier to look at a list of only the items you need to farm.
+- Gimmick Builds now show a unique build badge. Badges for beginner and base game builds coming soon!
 
 ### Changed
 

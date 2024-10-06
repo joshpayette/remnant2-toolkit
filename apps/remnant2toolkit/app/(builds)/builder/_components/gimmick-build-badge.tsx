@@ -1,3 +1,4 @@
+import { getImageUrl } from '@repo/ui';
 import Image from 'next/image';
 
 import { Tooltip } from '@/app/_components/tooltip';
@@ -11,8 +12,7 @@ export function GimmickBuildBadge({
     <Tooltip content={`Denotes a gimmick build.`}>
       <button aria-label="Badge denoting the build is a gimmick build.">
         <Image
-          // src={getImageUrl(`/badges/featured_build_badge1.png`)}
-          src="/gimmick-badge.png"
+          src={getImageUrl(`/badges/gimmick_build_badge.png`)}
           width={52}
           height={60}
           alt="Badge denoting the build is a gimmick build."
