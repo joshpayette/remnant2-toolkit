@@ -85,6 +85,7 @@ export default function ThemeSelection({
   return (
     <ThemeProvider
       defaultTheme={defaultTheme}
+      enableColorScheme={false} // This helper isn't playing nice with the extra themes
       themes={Object.keys(colorThemes)}
       value={colorThemes}
     >
