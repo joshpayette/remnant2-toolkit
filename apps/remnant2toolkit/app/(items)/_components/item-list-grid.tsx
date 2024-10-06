@@ -2,7 +2,6 @@
 
 import { Skeleton } from '@repo/ui';
 import { getArrayOfLength } from '@repo/utils';
-import { Masonry } from 'masonic';
 import { useState } from 'react';
 import { useIsClient } from 'usehooks-ts';
 
@@ -16,7 +15,7 @@ interface Props {
   items: Item[];
 }
 
-export function MasonryItemList({
+export function ItemListGrid({
   allowItemCompare = false,
   items,
   label,
@@ -44,20 +43,18 @@ export function MasonryItemList({
           <h3 className="text-primary-500 mb-4 text-2xl font-bold">{label}</h3>
         )}
 
-        <Masonry
-          items={items}
-          render={({ index, data, width }) => (
+        <div className="mt-12 grid w-full grid-cols-1 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+          {items.map((item, index) => (
             <ItemCard
-              index={index}
+              key={index}
               allowItemCompare={allowItemCompare}
-              data={data}
-              width={width}
+              index={index}
+              width={200}
+              data={item}
               onMoreInfoClick={handleMoreInfoClick}
             />
-          )}
-          columnGutter={8}
-          rowGutter={8}
-        />
+          ))}
+        </div>
       </div>
     </>
   );
