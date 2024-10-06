@@ -8,7 +8,6 @@ import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
 interface State {
   builds: DBBuild[];
-  totalBuildCount: number;
   isLoading: boolean;
 }
 
@@ -49,7 +48,6 @@ const DEFAULT_STATE: State = {
     buildItems: [],
     percentageOwned: 0,
   })),
-  totalBuildCount: 0,
   isLoading: false,
 };
 

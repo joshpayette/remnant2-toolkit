@@ -3,6 +3,7 @@
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 
+import { Pagination } from '@/app/_components/pagination';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';
@@ -38,7 +39,7 @@ export function FavoritedBuildsList({
   );
 
   const { buildListState, setBuildListState } = useBuildListState();
-  const { builds, totalBuildCount, isLoading } = buildListState;
+  const { builds, isLoading } = buildListState;
 
   const { orderBy, handleOrderByChange } = useOrderByFilter('newest');
   const { timeRange, handleTimeRangeChange } = useTimeRangeFilter('all-time');
@@ -47,14 +48,11 @@ export function FavoritedBuildsList({
     currentPage,
     firstVisibleItemNumber,
     lastVisibleItemNumber,
-    pageNumbers,
-    totalPages,
-    handleSpecificPageClick,
     handleNextPageClick,
     handlePreviousPageClick,
   } = usePagination({
-    totalItemCount: totalBuildCount,
     itemsPerPage: ITEMS_PER_PAGE,
+    itemsOnThisPage: builds.length,
   });
 
   useEffect(() => {
@@ -81,7 +79,6 @@ export function FavoritedBuildsList({
         ...prevState,
         isLoading: false,
         builds: response.builds,
-        totalBuildCount: response.totalBuildCount,
       }));
     };
     getItemsAsync();
@@ -95,14 +92,20 @@ export function FavoritedBuildsList({
         isLoading={isLoading}
         isWithQuality={buildListFilters.withQuality}
         label="Favorited Builds"
-        pageNumbers={pageNumbers}
-        totalItems={totalBuildCount}
-        totalPages={totalPages}
         firstVisibleItemNumber={firstVisibleItemNumber}
         lastVisibleItemNumber={lastVisibleItemNumber}
         onPreviousPage={handlePreviousPageClick}
         onNextPage={handleNextPageClick}
-        onSpecificPage={handleSpecificPageClick}
+        pagination={
+          <Pagination
+            isLoading={isLoading}
+            currentPage={currentPage}
+            firstVisibleItemNumber={firstVisibleItemNumber}
+            lastVisibleItemNumber={lastVisibleItemNumber}
+            onPreviousPage={handlePreviousPageClick}
+            onNextPage={handleNextPageClick}
+          />
+        }
         headerActions={
           <BuildSecondaryFilters
             isLoading={isLoading}

@@ -4,7 +4,6 @@ import { BaseButton, cn } from '@repo/ui';
 import { useState } from 'react';
 import { useIsClient } from 'usehooks-ts';
 
-import { Pagination } from '@/app/_components/pagination';
 import { QualityBuildDialog } from '@/app/(builds)/_components/quality-build-dialog';
 
 function NonQualityBuildsBox({ isWithQuality }: { isWithQuality: boolean }) {
@@ -55,32 +54,21 @@ interface Props {
   firstVisibleItemNumber: number;
   lastVisibleItemNumber: number;
   headerActions: React.ReactNode | undefined;
+  pagination: React.ReactNode;
   isLoading: boolean;
   isWithQuality: boolean;
   label?: string;
-  pageNumbers: number[];
-  totalItems: number;
-  totalPages: number;
   onPreviousPage: () => void;
   onNextPage: () => void;
-  onSpecificPage: (pageNumber: number) => void;
 }
 
 export function BuildList({
   children,
-  currentPage,
-  firstVisibleItemNumber,
-  lastVisibleItemNumber,
   headerActions,
   isLoading,
   isWithQuality,
   label,
-  pageNumbers,
-  totalItems,
-  totalPages,
-  onPreviousPage,
-  onNextPage,
-  onSpecificPage,
+  pagination,
 }: Props) {
   return (
     <div className={cn(isLoading ? 'min-h-[1000px]' : 'min-h-0')}>
@@ -89,31 +77,9 @@ export function BuildList({
         {label ? <div className="w-full text-xl">{label}</div> : null}
         {headerActions}
       </div>
-      <Pagination
-        isLoading={isLoading}
-        currentPage={currentPage}
-        firstVisibleItemNumber={firstVisibleItemNumber}
-        lastVisibleItemNumber={lastVisibleItemNumber}
-        pageNumbers={pageNumbers}
-        totalItems={totalItems}
-        totalPages={totalPages}
-        onPreviousPage={onPreviousPage}
-        onNextPage={onNextPage}
-        onSpecificPage={onSpecificPage}
-      />
+      {pagination}
       {children}
-      <Pagination
-        currentPage={currentPage}
-        isLoading={isLoading}
-        firstVisibleItemNumber={firstVisibleItemNumber}
-        lastVisibleItemNumber={lastVisibleItemNumber}
-        pageNumbers={pageNumbers}
-        totalItems={totalItems}
-        totalPages={totalPages}
-        onPreviousPage={onPreviousPage}
-        onNextPage={onNextPage}
-        onSpecificPage={onSpecificPage}
-      />
+      {pagination}
       <NonQualityBuildsBox isWithQuality={isWithQuality} />
     </div>
   );
