@@ -84,8 +84,10 @@ export function Pagination({
                 <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
               </button>
 
-              <div className="text-surface-solid ring-primary-500 flex h-[36px] w-[45px] items-center justify-center px-2 py-2 ring-1 ring-inset ">
-                <span className="text-surface-solid">{currentPage}</span>
+              <div className="text-surface-solid ring-primary-500 flex h-[36px] w-[125px] items-center justify-center px-2 py-2 text-sm ring-1 ring-inset">
+                <span className="text-surface-solid">
+                  Current Page: {currentPage}
+                </span>
               </div>
 
               <button
