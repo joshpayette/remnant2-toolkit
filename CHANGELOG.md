@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed issue with item lookup filters giving a server error in some situations.
+- Dark Matter Gauntlets were incorrectly marked as base game.
 
 ## 2024-10-04
 
