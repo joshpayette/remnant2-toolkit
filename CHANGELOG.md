@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Item Lookup filters now have a "Not world drop" entry in the dropdown, making it easier to look at a list of only the items you need to farm.
 
+### Changed
+
+- Removed the masonry-styled smart grid from the Item Lookup list. While it was nice to try to save space using the grid, it introduced a number of frustrating maintenance and UI interactions that I felt outweigh the tighter grid spacing it offered.
+
 ### Fixed
 
 - Styles on the toast notifications were not working correctly on all themes.
