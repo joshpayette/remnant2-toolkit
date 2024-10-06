@@ -5,7 +5,6 @@ import { useState } from 'react';
 
 import { buildStateToItemList } from '@/app/(builds)/_libs/build-state-to-item-list';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { ItemCard } from '@/app/(items)/_components/item-card';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { ItemListGrid } from '@/app/(items)/_components/item-list-grid';
 import { type Item } from '@/app/(items)/_types/item';
