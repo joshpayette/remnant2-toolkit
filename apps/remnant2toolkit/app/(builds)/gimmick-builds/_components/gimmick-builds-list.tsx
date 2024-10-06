@@ -123,29 +123,24 @@ export function GimmickBuildsList({
           />
         }
       >
-        <ul
-          role="list"
-          className="my-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-        >
-          {builds.map((build) => (
-            <div key={`${build.id}${build.variantIndex}`} className="w-full">
-              <BuildCard
-                build={build}
-                isLoading={isLoading}
-                footerActions={
-                  <Tooltip content="View Build">
-                    <BaseLink
-                      href={`/builder/${build.id}`}
-                      className="text-primary-500 hover:text-primary-300 flex flex-col items-center gap-x-3 rounded-br-lg border border-transparent px-4 py-2 text-xs font-semibold hover:underline"
-                    >
-                      <EyeIcon className="h-4 w-4" /> View
-                    </BaseLink>
-                  </Tooltip>
-                }
-              />
-            </div>
-          ))}
-        </ul>
+        {builds.map((build) => (
+          <div key={`${build.id}${build.variantIndex}`} className="w-full">
+            <BuildCard
+              build={build}
+              isLoading={isLoading}
+              footerActions={
+                <Tooltip content="View Build">
+                  <BaseLink
+                    href={`/builder/${build.id}`}
+                    className="text-primary-500 hover:text-primary-300 flex flex-col items-center gap-x-3 rounded-br-lg border border-transparent px-4 py-2 text-xs font-semibold hover:underline"
+                  >
+                    <EyeIcon className="h-4 w-4" /> View
+                  </BaseLink>
+                </Tooltip>
+              }
+            />
+          </div>
+        ))}
       </BuildList>
     </>
   );

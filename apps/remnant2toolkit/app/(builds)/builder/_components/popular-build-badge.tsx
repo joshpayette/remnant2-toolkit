@@ -1,4 +1,4 @@
-import { BaseButton, getImageUrl } from '@repo/ui';
+import { getImageUrl } from '@repo/ui';
 import Image from 'next/image';
 
 import { Tooltip } from '@/app/_components/tooltip';
@@ -34,7 +34,7 @@ export function PopularBuildBadge({
     <Tooltip
       content={`Awarded to builds that have ${voteThreshold}+ favorites!`}
     >
-      <BaseButton aria-label="Badge denoting the build is popular" plain>
+      <button aria-label="Badge denoting the build is popular">
         <Image
           src={src}
           width={52}
@@ -44,7 +44,7 @@ export function PopularBuildBadge({
           loading="eager"
           unoptimized={unoptimized}
         />
-      </BaseButton>
+      </button>
     </Tooltip>
   );
 }
