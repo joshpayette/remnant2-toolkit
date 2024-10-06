@@ -70,7 +70,7 @@ export function parseUrlFilters(
   let dungeon = parsedParams.get(ITEM_TRACKER_KEYS.DUNGEON) || DEFAULT_FILTER;
 
   // if the dungeon doesn't match the world, set it to default
-  if (dungeon !== DEFAULT_FILTER && dungeon !== 'World Drop') {
+  if (dungeon !== DEFAULT_FILTER && !dungeon.includes('World Drop')) {
     switch (world) {
       case 'Losomn':
         if (!(LOSOMN_DUNGEONS as string[]).includes(dungeon)) {

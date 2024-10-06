@@ -1,5 +1,5 @@
-import '@repo/ui/styles.css';
 import 'react-toastify/dist/ReactToastify.min.css';
+import '@repo/ui/styles.css';
 
 import { type Viewport } from 'next';
 import dynamic from 'next/dynamic';
