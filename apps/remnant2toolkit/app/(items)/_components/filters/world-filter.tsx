@@ -37,15 +37,9 @@ export function WorldFilter({
   }));
   worldOptions.unshift({ label: DEFAULT_FILTER, value: DEFAULT_FILTER });
 
-  const showDungeons =
-    worldValue === 'Losomn' ||
-    worldValue === `N'Erud` ||
-    worldValue === 'Yaesha' ||
-    worldValue === 'Root Earth' ||
-    worldValue === 'Labyrinth';
-
   let dungeonOptions = [
     { label: DEFAULT_FILTER, value: DEFAULT_FILTER },
+    { label: 'Not World Drop', value: 'Not World Drop' },
     { label: 'World Drop', value: 'World Drop' },
   ];
   switch (worldValue) {
@@ -109,22 +103,20 @@ export function WorldFilter({
           ))}
         </BaseListbox>
       </BaseField>
-      {showDungeons && (
-        <BaseField>
-          <BaseLabel>Dungeon</BaseLabel>
-          <BaseListbox
-            name="dungeon"
-            value={dungeonValue}
-            onChange={onChangeDungeon}
-          >
-            {dungeonOptions.map(({ label, value }) => (
-              <BaseListboxOption key={value} value={value}>
-                <BaseListboxLabel>{label}</BaseListboxLabel>
-              </BaseListboxOption>
-            ))}
-          </BaseListbox>
-        </BaseField>
-      )}
+      <BaseField>
+        <BaseLabel>Dungeon</BaseLabel>
+        <BaseListbox
+          name="dungeon"
+          value={dungeonValue}
+          onChange={onChangeDungeon}
+        >
+          {dungeonOptions.map(({ label, value }) => (
+            <BaseListboxOption key={value} value={value}>
+              <BaseListboxLabel>{label}</BaseListboxLabel>
+            </BaseListboxOption>
+          ))}
+        </BaseListbox>
+      </BaseField>
     </div>
   );
 }

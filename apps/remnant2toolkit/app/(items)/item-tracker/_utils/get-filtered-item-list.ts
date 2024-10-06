@@ -118,9 +118,11 @@ export function getFilteredItemList(
 
   // filter by dungeon
   if (filters.dungeon !== DEFAULT_FILTER) {
-    if (filters.dungeon === 'World Drop') {
+    if (filters.dungeon.includes('World Drop')) {
       filteredItems = filteredItems.filter(
-        (item) => item.location?.dungeon === 'World Drop',
+        (item) =>
+          (item.location?.dungeon === 'World Drop') !==
+          filters.dungeon.startsWith('Not'),
       );
     } else {
       filteredItems = filteredItems.filter((item) => {
