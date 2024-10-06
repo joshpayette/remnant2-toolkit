@@ -1,6 +1,9 @@
 'use client';
 
+import { Skeleton } from '@repo/ui';
+import { getArrayOfLength } from '@repo/utils';
 import { useState } from 'react';
+import { useIsClient } from 'usehooks-ts';
 
 import { ItemCard } from '@/app/(items)/_components/item-card';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
@@ -17,6 +20,7 @@ export function ItemListGrid({
   items,
   label,
 }: Props) {
+  const isClient = useIsClient();
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
   const infoOpen = selectedItem !== null;
 
@@ -24,6 +28,7 @@ export function ItemListGrid({
     setSelectedItem(item);
   }
 
+  if (!isClient) return <Loading />;
   if (items.length === 0) return null;
 
   return (
@@ -50,5 +55,15 @@ export function ItemListGrid({
         </div>
       </div>
     </>
+  );
+}
+
+function Loading() {
+  return (
+    <div className="flex h-[500px] w-full flex-row flex-wrap items-center justify-center gap-4 p-4 sm:h-[1000px]">
+      {getArrayOfLength(12).map((_, i) => (
+        <Skeleton key={i} className="h-[300px] w-[250px]" />
+      ))}
+    </div>
   );
 }
