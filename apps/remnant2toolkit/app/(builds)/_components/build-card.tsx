@@ -17,21 +17,17 @@ import { useSession } from 'next-auth/react';
 
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
 import { Tooltip } from '@/app/_components/tooltip';
-import { buildHasFeaturedBadge } from '@/app/(builds)/_libs/build-has-featured-badge';
+import { useBadges } from '@/app/_hooks/use-badges';
 import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
 import { formatUpdatedAt } from '@/app/(builds)/_libs/format-updated-at';
 import {
   type ArchetypeName,
   getArchetypeComboName,
 } from '@/app/(builds)/_libs/get-archetype-combo-name';
-import { isBuildNew } from '@/app/(builds)/_libs/is-build-new';
-import { isBuildPopular } from '@/app/(builds)/_libs/is-build-popular';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { ArchetypeLabel } from '@/app/(builds)/builder/_components/archetype-label';
+import { BuildBadges } from '@/app/(builds)/builder/_components/build-badges';
 import { BuildTagsDisplay } from '@/app/(builds)/builder/_components/build-tags-display';
-import { FeaturedBuildBadge } from '@/app/(builds)/builder/_components/featured-build-badge';
-import { NewBuildBadge } from '@/app/(builds)/builder/_components/new-build-badge';
-import { PopularBuildBadge } from '@/app/(builds)/builder/_components/popular-build-badge';
 
 interface Props {
   build: DBBuild;
@@ -51,9 +47,8 @@ export function BuildCard({
   const { data: session } = useSession();
 
   const buildState = dbBuildToBuildState(build);
-  const { isPopular, popularLevel } = isBuildPopular(build.totalUpvotes);
-  const isNew = isBuildNew(buildState.createdAt);
-  const hasFeaturedBadge = buildHasFeaturedBadge(build);
+
+  const { hasAnyBadge } = useBadges({ buildState });
 
   return (
     <div
@@ -71,13 +66,9 @@ export function BuildCard({
               'border-accent1-300 shadow-accent1-600 border-2 shadow-lg',
           )}
         >
-          {isPopular || isNew || hasFeaturedBadge ? (
+          {hasAnyBadge || buildState.isMember ? (
             <div className="absolute left-1/2 top-0 flex w-full -translate-x-1/2 -translate-y-1/2 transform items-center justify-center gap-x-2">
-              {isNew ? <NewBuildBadge /> : null}
-              {isPopular ? (
-                <PopularBuildBadge level={popularLevel} unoptimized={true} />
-              ) : null}
-              {hasFeaturedBadge ? <FeaturedBuildBadge /> : null}
+              <BuildBadges buildState={buildState} />
             </div>
           ) : null}
           <div className="flex w-full flex-1 items-start justify-start p-4 pb-0">
@@ -93,7 +84,7 @@ export function BuildCard({
                 <h3
                   className={cn(
                     'text-md whitespace-pre-wrap font-medium',
-                    (isPopular || isNew || hasFeaturedBadge) && 'mt-3',
+                    hasAnyBadge && 'mt-4',
                   )}
                 >
                   {build.name}

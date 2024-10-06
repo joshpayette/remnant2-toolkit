@@ -13,9 +13,9 @@ import { useCallback, useMemo, useState } from 'react';
 
 import { Tooltip } from '@/app/_components/tooltip';
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/optional-item-symbol';
+import { useBadges } from '@/app/_hooks/use-badges';
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/_constants/default-trait-amount';
 import { MAX_BUILD_TAGS } from '@/app/(builds)/_constants/max-build-tags';
-import { buildHasFeaturedBadge } from '@/app/(builds)/_libs/build-has-featured-badge';
 import { formatUpdatedAt } from '@/app/(builds)/_libs/format-updated-at';
 import {
   type ArchetypeName,
@@ -23,14 +23,10 @@ import {
 } from '@/app/(builds)/_libs/get-archetype-combo-name';
 import { getConcoctionSlotCount } from '@/app/(builds)/_libs/get-concoction-slot-count';
 import { getItemListForSlot } from '@/app/(builds)/_libs/get-item-list-for-slot';
-import { isBuildNew } from '@/app/(builds)/_libs/is-build-new';
-import { isBuildPopular } from '@/app/(builds)/_libs/is-build-popular';
 import { type UpdateBuildCategory } from '@/app/(builds)/_libs/update-build-state';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
-import { FeaturedBuildBadge } from '@/app/(builds)/builder/_components/featured-build-badge';
-import { NewBuildBadge } from '@/app/(builds)/builder/_components/new-build-badge';
-import { PopularBuildBadge } from '@/app/(builds)/builder/_components/popular-build-badge';
+import { BuildBadges } from '@/app/(builds)/builder/_components/build-badges';
 import { PrismDisplay } from '@/app/(builds)/builder/_components/prism-display';
 import { ItemButton } from '@/app/(items)/_components/item-button';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
@@ -83,9 +79,8 @@ export function Builder({
   onUpdateBuildState,
 }: BuilderProps) {
   const concoctionSlotCount = getConcoctionSlotCount(buildState);
-  const { isPopular, popularLevel } = isBuildPopular(buildState.totalUpvotes);
-  const isNew = isBuildNew(buildState.createdAt) && showCreatedBy;
-  const hasFeaturedBadge = buildHasFeaturedBadge(buildState);
+
+  const { hasAnyBadge } = useBadges({ buildState });
 
   // Tracks information about the slot the user is selecting an item for
   const [selectedItemSlot, setSelectedItemSlot] = useState<{
@@ -497,7 +492,7 @@ export function Builder({
           id="build-header"
           className={cn(
             'border-b-primary-900 relative mb-4 border-b',
-            (isPopular || isNew || hasFeaturedBadge) && 'mb-10 pb-6',
+            hasAnyBadge && 'mb-10 pb-8',
           )}
         >
           <div className="relative flex w-full flex-col items-center justify-center gap-2">
@@ -631,18 +626,12 @@ export function Builder({
               </p>
             </div>
           )}
-          {(isPopular || isNew || hasFeaturedBadge) && (
+          {hasAnyBadge && (
             <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center gap-x-2">
-              {isNew ? <NewBuildBadge unoptimized={isScreenshotMode} /> : null}
-              {isPopular ? (
-                <PopularBuildBadge
-                  level={popularLevel}
-                  unoptimized={isScreenshotMode}
-                />
-              ) : null}
-              {hasFeaturedBadge ? (
-                <FeaturedBuildBadge unoptimized={isScreenshotMode} />
-              ) : null}
+              <BuildBadges
+                buildState={buildState}
+                isScreenshotMode={isScreenshotMode}
+              />
             </div>
           )}
         </div>

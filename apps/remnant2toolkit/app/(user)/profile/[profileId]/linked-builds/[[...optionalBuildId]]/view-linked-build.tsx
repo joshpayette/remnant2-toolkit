@@ -107,6 +107,7 @@ export function ViewLinkedBuild({
           </div>
         </div>
       )}
+      P
       <BuildList
         currentPage={currentPage}
         isLoading={isLoading}
@@ -127,64 +128,57 @@ export function ViewLinkedBuild({
         }
         headerActions={undefined}
       >
-        <ul
-          role="list"
-          className="my-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-        >
-          {linkedBuilds.map((linkedBuildState) => (
-            <div key={linkedBuildState.id} className="w-full">
-              <LinkedBuildCard
-                linkedBuildState={linkedBuildState}
-                isLoading={false}
-                footerActions={
-                  <>
-                    <div className="flex w-full items-center justify-center gap-6 p-2 text-sm">
-                      <Tooltip content="View Build">
-                        <BaseButton
-                          color="violet"
-                          onClick={() =>
-                            router.push(
-                              `/builder/linked/${linkedBuildState.id}`,
-                            )
-                          }
-                          aria-label="View Linked Build"
-                        >
-                          <EyeIcon className="h-4 w-4" />
-                        </BaseButton>
-                      </Tooltip>
-                      <Tooltip content="Copy Build URL">
-                        <BaseButton
-                          color="cyan"
-                          aria-label="Copy build URL to clipboard"
-                          onClick={() => handleCopyBuild(linkedBuildState.id)}
-                        >
-                          <ShareIcon className="h-4 w-4" />
-                        </BaseButton>
-                      </Tooltip>
-                      {isEditable && (
-                        <>
-                          <Tooltip content="Edit Build">
-                            <BaseButton
-                              color="green"
-                              onClick={() =>
-                                router.push(
-                                  `/builder/linked/edit/${linkedBuildState.id}`,
-                                )
-                              }
-                              aria-label="Edit Linked Build"
-                            >
-                              <EditIcon className="h-4 w-4" />
-                            </BaseButton>
-                          </Tooltip>
-                        </>
-                      )}
-                    </div>
-                  </>
-                }
-              />
-            </div>
-          ))}
-        </ul>
+        {linkedBuilds.map((linkedBuildState) => (
+          <div key={linkedBuildState.id} className="w-full">
+            <LinkedBuildCard
+              linkedBuildState={linkedBuildState}
+              isLoading={false}
+              footerActions={
+                <>
+                  <div className="flex w-full items-center justify-center gap-6 p-2 text-sm">
+                    <Tooltip content="View Build">
+                      <BaseButton
+                        color="violet"
+                        onClick={() =>
+                          router.push(`/builder/linked/${linkedBuildState.id}`)
+                        }
+                        aria-label="View Linked Build"
+                      >
+                        <EyeIcon className="h-4 w-4" />
+                      </BaseButton>
+                    </Tooltip>
+                    <Tooltip content="Copy Build URL">
+                      <BaseButton
+                        color="cyan"
+                        aria-label="Copy build URL to clipboard"
+                        onClick={() => handleCopyBuild(linkedBuildState.id)}
+                      >
+                        <ShareIcon className="h-4 w-4" />
+                      </BaseButton>
+                    </Tooltip>
+                    {isEditable && (
+                      <>
+                        <Tooltip content="Edit Build">
+                          <BaseButton
+                            color="green"
+                            onClick={() =>
+                              router.push(
+                                `/builder/linked/edit/${linkedBuildState.id}`,
+                              )
+                            }
+                            aria-label="Edit Linked Build"
+                          >
+                            <EditIcon className="h-4 w-4" />
+                          </BaseButton>
+                        </Tooltip>
+                      </>
+                    )}
+                  </div>
+                </>
+              }
+            />
+          </div>
+        ))}
       </BuildList>
     </>
   );

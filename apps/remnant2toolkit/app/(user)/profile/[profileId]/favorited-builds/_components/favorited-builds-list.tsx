@@ -128,20 +128,15 @@ export function FavoritedBuildsList({
           />
         }
       >
-        <ul
-          role="list"
-          className="mb-4 mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          {builds.map((build) => (
-            <div key={`${build.id}${build.variantIndex}`} className="w-full">
-              <BuildCard
-                build={build}
-                isLoading={isLoading}
-                footerActions={undefined}
-              />
-            </div>
-          ))}
-        </ul>
+        {builds.map((build) => (
+          <div key={`${build.id}${build.variantIndex}`} className="w-full">
+            <BuildCard
+              build={build}
+              isLoading={isLoading}
+              footerActions={undefined}
+            />
+          </div>
+        ))}
       </BuildList>
     </>
   );
