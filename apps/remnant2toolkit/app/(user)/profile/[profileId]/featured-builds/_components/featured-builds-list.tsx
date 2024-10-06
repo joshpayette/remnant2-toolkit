@@ -4,6 +4,7 @@ import { Skeleton } from '@repo/ui';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 
+import { Pagination } from '@/app/_components/pagination';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';
@@ -43,7 +44,7 @@ export function FeaturedBuildsList({
   );
 
   const { buildListState, setBuildListState } = useBuildListState();
-  const { builds, totalBuildCount, isLoading } = buildListState;
+  const { builds, isLoading } = buildListState;
 
   const itemsPerPage = isEditable ? 15 : 16;
 
@@ -54,14 +55,11 @@ export function FeaturedBuildsList({
     currentPage,
     firstVisibleItemNumber,
     lastVisibleItemNumber,
-    pageNumbers,
-    totalPages,
-    handleSpecificPageClick,
     handleNextPageClick,
     handlePreviousPageClick,
   } = usePagination({
-    totalItemCount: totalBuildCount,
     itemsPerPage,
+    itemsOnThisPage: builds.length,
   });
 
   useEffect(() => {
@@ -91,7 +89,6 @@ export function FeaturedBuildsList({
         ...prevState,
         isLoading: false,
         builds: response.builds,
-        totalBuildCount: response.totalBuildCount,
       }));
     };
     getItemsAsync();
@@ -109,14 +106,20 @@ export function FeaturedBuildsList({
         isLoading={isLoading}
         isWithQuality={buildListFilters.withQuality}
         label="Featured builds"
-        pageNumbers={pageNumbers}
-        totalItems={totalBuildCount}
-        totalPages={totalPages}
         firstVisibleItemNumber={firstVisibleItemNumber}
         lastVisibleItemNumber={lastVisibleItemNumber}
         onPreviousPage={handlePreviousPageClick}
         onNextPage={handleNextPageClick}
-        onSpecificPage={handleSpecificPageClick}
+        pagination={
+          <Pagination
+            isLoading={isLoading}
+            currentPage={currentPage}
+            firstVisibleItemNumber={firstVisibleItemNumber}
+            lastVisibleItemNumber={lastVisibleItemNumber}
+            onPreviousPage={handlePreviousPageClick}
+            onNextPage={handleNextPageClick}
+          />
+        }
         headerActions={
           <BuildSecondaryFilters
             isLoading={isLoading}
@@ -155,7 +158,6 @@ export function FeaturedBuildsList({
                           builds: prevState.builds.filter(
                             (b) => b.id !== buildId,
                           ),
-                          totalBuildCount: prevState.totalBuildCount - 1,
                         }));
                       }}
                     />

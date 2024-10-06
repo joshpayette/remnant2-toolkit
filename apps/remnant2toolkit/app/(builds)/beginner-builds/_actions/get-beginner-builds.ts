@@ -35,7 +35,7 @@ import {
   weaponFiltersToIds,
 } from '@/app/(builds)/_libs/build-filters/limit-by-weapons';
 import { type BuildListRequest } from '@/app/(builds)/_types/build-list-request';
-import { type BuildListResponse } from '@/app/(builds)/_types/build-list-response';
+import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 import { getOrderBySegment } from '../../_libs/build-filters/get-order-by';
@@ -46,7 +46,7 @@ export async function getBeginnerBuilds({
   orderBy,
   pageNumber,
   timeRange,
-}: BuildListRequest): Promise<BuildListResponse> {
+}: BuildListRequest): Promise<{ builds: DBBuild[] }> {
   const session = await getSession();
   const userId = session?.user?.id;
 
@@ -68,7 +68,7 @@ export async function getBeginnerBuilds({
     withQuality,
   } = buildListFilters;
 
-  if (releases.length === 0) return { builds: [], totalBuildCount: 0 };
+  if (releases.length === 0) return { builds: [] };
 
   const whereConditions = Prisma.sql`
   WHERE Build.isPublic = true
@@ -90,7 +90,7 @@ export async function getBeginnerBuilds({
   const orderBySegment = getOrderBySegment(orderBy);
 
   try {
-    const { builds, totalBuildCount } = await getBuildList({
+    const { builds } = await getBuildList({
       includeBuildVariants: false,
       itemsPerPage,
       orderBy: orderBySegment,
@@ -103,7 +103,6 @@ export async function getBeginnerBuilds({
 
     return bigIntFix({
       builds,
-      totalBuildCount,
     });
   } catch (e) {
     if (e) {
