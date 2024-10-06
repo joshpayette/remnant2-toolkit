@@ -37,7 +37,7 @@ import {
   weaponFiltersToIds,
 } from '@/app/(builds)/_libs/build-filters/limit-by-weapons';
 import { type BuildListRequest } from '@/app/(builds)/_types/build-list-request';
-import { type BuildListResponse } from '@/app/(builds)/_types/build-list-response';
+import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function getFavoritedBuilds({
@@ -46,7 +46,7 @@ export async function getFavoritedBuilds({
   orderBy,
   pageNumber,
   timeRange,
-}: BuildListRequest): Promise<BuildListResponse> {
+}: BuildListRequest): Promise<{ builds: DBBuild[] }> {
   const session = await getSession();
   const userId = session?.user?.id;
 
@@ -68,7 +68,7 @@ export async function getFavoritedBuilds({
     withReference,
   } = buildListFilters;
 
-  if (releases.length === 0) return { builds: [], totalBuildCount: 0 };
+  if (releases.length === 0) return { builds: [] };
 
   const archetypeIds = archetypeFiltersToIds({ archetypes });
   const weaponIds = weaponFiltersToIds({
@@ -102,7 +102,7 @@ export async function getFavoritedBuilds({
   const orderBySegment = getOrderBySegment(orderBy);
 
   try {
-    const { builds, totalBuildCount } = await getBuildList({
+    const { builds } = await getBuildList({
       includeBuildVariants: false,
       itemsPerPage,
       orderBy: orderBySegment,
@@ -115,7 +115,6 @@ export async function getFavoritedBuilds({
 
     return bigIntFix({
       builds,
-      totalBuildCount,
     });
   } catch (e) {
     if (e) {

@@ -3,10 +3,7 @@
 import { type Prisma, prisma } from '@repo/db';
 
 import { type PercentageOwned } from '@/app/(builds)/_components/filters/build-collection-filter';
-import {
-  communityBuildsCountQuery,
-  communityBuildsQuery,
-} from '@/app/(builds)/_libs/build-filters/community-builds';
+import { communityBuildsQuery } from '@/app/(builds)/_libs/build-filters/community-builds';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
 export async function getBuildList({
@@ -29,29 +26,19 @@ export async function getBuildList({
   whereConditions: Prisma.Sql;
 }): Promise<{
   builds: DBBuild[];
-  totalBuildCount: number;
 }> {
   const trimmedSearchText = searchText.trim();
 
-  const [builds, totalBuildsCountResponse] = await Promise.all([
-    communityBuildsQuery({
-      includeBuildVariants,
-      userId,
-      itemsPerPage,
-      pageNumber,
-      orderBySegment: orderBy,
-      whereConditions,
-      searchText: trimmedSearchText,
-      percentageOwned,
-    }),
-    communityBuildsCountQuery({
-      includeBuildVariants,
-      whereConditions,
-      searchText: trimmedSearchText,
-      percentageOwned,
-      userId,
-    }),
-  ]);
+  const builds = await communityBuildsQuery({
+    includeBuildVariants,
+    userId,
+    itemsPerPage,
+    pageNumber,
+    orderBySegment: orderBy,
+    whereConditions,
+    searchText: trimmedSearchText,
+    percentageOwned,
+  });
 
   // Fetch associated build data
   for (const build of builds) {
@@ -102,7 +89,5 @@ export async function getBuildList({
     }
   }
 
-  const totalBuildCount = totalBuildsCountResponse[0]?.totalBuildCount ?? 0;
-
-  return { builds, totalBuildCount };
+  return { builds };
 }

@@ -14,6 +14,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
+import { Pagination } from '@/app/_components/pagination';
 import { Tooltip } from '@/app/_components/tooltip';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildList } from '@/app/(builds)/_components/build-list';
@@ -38,7 +39,6 @@ export function ViewLinkedBuild({
 
   const [linkedBuilds, setLinkedBuilds] = useState<LinkedBuildState[]>([]);
 
-  const [totalBuildCount, setTotalBuildCount] = useState(0);
   const [requestedBuildName, setRequestedBuildName] = useState<
     string | undefined
   >(undefined);
@@ -48,14 +48,11 @@ export function ViewLinkedBuild({
     currentPage,
     firstVisibleItemNumber,
     lastVisibleItemNumber,
-    pageNumbers,
-    totalPages,
-    handleSpecificPageClick,
     handleNextPageClick,
     handlePreviousPageClick,
   } = usePagination({
-    totalItemCount: totalBuildCount,
     itemsPerPage,
+    itemsOnThisPage: linkedBuilds.length,
   });
 
   // Fetch data
@@ -69,19 +66,11 @@ export function ViewLinkedBuild({
         userId: profileId,
       });
       setIsLoading(false);
-      setTotalBuildCount(response.totalCount);
       setLinkedBuilds(response.linkedBuilds);
       setRequestedBuildName(response.requestedBuildName);
     };
     getItemsAsync();
-  }, [
-    buildId,
-    currentPage,
-    itemsPerPage,
-    setLinkedBuilds,
-    setTotalBuildCount,
-    profileId,
-  ]);
+  }, [buildId, currentPage, itemsPerPage, setLinkedBuilds, profileId]);
 
   function handleCopyBuild(linkedBuildId: string) {
     const url = urlNoCache(
@@ -122,14 +111,20 @@ export function ViewLinkedBuild({
         currentPage={currentPage}
         isLoading={isLoading}
         isWithQuality={false}
-        pageNumbers={pageNumbers}
-        totalItems={totalBuildCount}
-        totalPages={totalPages}
         firstVisibleItemNumber={firstVisibleItemNumber}
         lastVisibleItemNumber={lastVisibleItemNumber}
         onPreviousPage={handlePreviousPageClick}
         onNextPage={handleNextPageClick}
-        onSpecificPage={handleSpecificPageClick}
+        pagination={
+          <Pagination
+            isLoading={isLoading}
+            currentPage={currentPage}
+            firstVisibleItemNumber={firstVisibleItemNumber}
+            lastVisibleItemNumber={lastVisibleItemNumber}
+            onPreviousPage={handlePreviousPageClick}
+            onNextPage={handleNextPageClick}
+          />
+        }
         headerActions={undefined}
       >
         <ul

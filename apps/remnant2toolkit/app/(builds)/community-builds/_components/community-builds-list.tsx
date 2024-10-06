@@ -4,6 +4,7 @@ import { BaseLink, EyeIcon, Skeleton } from '@repo/ui';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
+import { Pagination } from '@/app/_components/pagination';
 import { Tooltip } from '@/app/_components/tooltip';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
@@ -30,7 +31,7 @@ export function CommunityBuildsList({
   );
 
   const { buildListState, setBuildListState } = useBuildListState();
-  const { builds, totalBuildCount, isLoading } = buildListState;
+  const { builds, isLoading } = buildListState;
 
   const { orderBy, handleOrderByChange } = useOrderByFilter('newest');
   const { timeRange, handleTimeRangeChange } = useTimeRangeFilter('all-time');
@@ -39,14 +40,11 @@ export function CommunityBuildsList({
     currentPage,
     firstVisibleItemNumber,
     lastVisibleItemNumber,
-    pageNumbers,
-    totalPages,
-    handleSpecificPageClick,
     handleNextPageClick,
     handlePreviousPageClick,
   } = usePagination({
-    totalItemCount: totalBuildCount,
     itemsPerPage,
+    itemsOnThisPage: builds.length,
   });
 
   useEffect(() => {
@@ -73,7 +71,6 @@ export function CommunityBuildsList({
         ...prevState,
         isLoading: false,
         builds: response.builds,
-        totalBuildCount: response.totalBuildCount,
       }));
     };
     getItemsAsync();
@@ -90,14 +87,20 @@ export function CommunityBuildsList({
         currentPage={currentPage}
         isLoading={isLoading}
         isWithQuality={buildListFilters.withQuality}
-        pageNumbers={pageNumbers}
-        totalItems={totalBuildCount}
-        totalPages={totalPages}
         firstVisibleItemNumber={firstVisibleItemNumber}
         lastVisibleItemNumber={lastVisibleItemNumber}
         onPreviousPage={handlePreviousPageClick}
         onNextPage={handleNextPageClick}
-        onSpecificPage={handleSpecificPageClick}
+        pagination={
+          <Pagination
+            isLoading={isLoading}
+            currentPage={currentPage}
+            firstVisibleItemNumber={firstVisibleItemNumber}
+            lastVisibleItemNumber={lastVisibleItemNumber}
+            onPreviousPage={handlePreviousPageClick}
+            onNextPage={handleNextPageClick}
+          />
+        }
         headerActions={
           <BuildSecondaryFilters
             isLoading={isLoading}

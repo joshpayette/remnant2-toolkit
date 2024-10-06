@@ -7,7 +7,7 @@ import { getBuildList } from '@/app/(builds)/_actions/get-build-list';
 import { type OrderBy } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
 import { type TimeRange } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
 import { limitByTimeConditionSegment } from '@/app/(builds)/_libs/build-filters/limit-by-time-condition';
-import { type BuildListResponse } from '@/app/(builds)/_types/build-list-response';
+import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 import { getOrderBySegment } from '../_libs/build-filters/get-order-by';
@@ -26,12 +26,11 @@ export async function getUserCreatedBuilds({
   pageNumber: number;
   timeRange: TimeRange;
   userId: string;
-}): Promise<BuildListResponse> {
+}): Promise<{ builds: DBBuild[] }> {
   const session = await getSession();
   if (!session || !session.user) {
     return {
       builds: [],
-      totalBuildCount: 0,
     };
   }
 
@@ -44,7 +43,7 @@ export async function getUserCreatedBuilds({
   const orderBySegment = getOrderBySegment(orderBy);
 
   try {
-    const { builds, totalBuildCount } = await getBuildList({
+    const { builds } = await getBuildList({
       includeBuildVariants: false,
       itemsPerPage,
       orderBy: orderBySegment,
@@ -57,7 +56,6 @@ export async function getUserCreatedBuilds({
 
     return bigIntFix({
       builds,
-      totalBuildCount,
     });
   } catch (e) {
     if (e) {

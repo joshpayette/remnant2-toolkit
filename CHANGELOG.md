@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Genesis code display now has improved and uniform look for light mode users.
 - Bad word list updated to allow `shit` and `asshole`.
+- Removed total pages and total result count from all paginated build results. This functionality essentially required the same query to run twice. With the increased database load, it seemed better to halve the amount of queries versus the gain of having a total build and page count.
 
 ### Fixed
 

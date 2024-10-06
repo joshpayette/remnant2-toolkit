@@ -37,7 +37,7 @@ import {
   weaponFiltersToIds,
 } from '@/app/(builds)/_libs/build-filters/limit-by-weapons';
 import { type ProfileBuildListRequest } from '@/app/(builds)/_types/build-list-request';
-import { type BuildListResponse } from '@/app/(builds)/_types/build-list-response';
+import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export type UserCreatedBuildsFilter = 'date created' | 'upvotes';
@@ -51,7 +51,7 @@ export async function getUserCreatedBuilds({
   pageNumber,
   profileId,
   timeRange,
-}: ProfileBuildListRequest): Promise<BuildListResponse> {
+}: ProfileBuildListRequest): Promise<{ builds: DBBuild[] }> {
   const session = await getSession();
 
   const {
@@ -72,7 +72,7 @@ export async function getUserCreatedBuilds({
     withQuality,
   } = buildListFilters;
 
-  if (releases.length === 0) return { builds: [], totalBuildCount: 0 };
+  if (releases.length === 0) return { builds: [] };
 
   // If the user is not the owner of the profile, only show public builds
   // If the user is the owner of the profile, show all builds based on buildVisibility filter
@@ -118,7 +118,7 @@ export async function getUserCreatedBuilds({
   const orderBySegment = getOrderBySegment(orderBy);
 
   try {
-    const { builds, totalBuildCount } = await getBuildList({
+    const { builds } = await getBuildList({
       includeBuildVariants: false,
       itemsPerPage,
       orderBy: orderBySegment,
@@ -131,7 +131,6 @@ export async function getUserCreatedBuilds({
 
     return bigIntFix({
       builds,
-      totalBuildCount,
     });
   } catch (e) {
     if (e) {

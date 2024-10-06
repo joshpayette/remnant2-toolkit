@@ -1,23 +1,12 @@
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  ChevronsLeftIcon,
-  ChevronsRightIcon,
-  cn,
-  Skeleton,
-} from '@repo/ui';
+import { ChevronLeftIcon, ChevronRightIcon, Skeleton } from '@repo/ui';
 
 interface Props {
   currentPage: number;
   isLoading: boolean;
   firstVisibleItemNumber: number;
   lastVisibleItemNumber: number;
-  pageNumbers: number[];
-  totalItems: number;
-  totalPages: number;
   onPreviousPage: () => void;
   onNextPage: () => void;
-  onSpecificPage: (pageNumber: number) => void;
 }
 
 export function Pagination({
@@ -25,12 +14,8 @@ export function Pagination({
   isLoading,
   firstVisibleItemNumber,
   lastVisibleItemNumber,
-  pageNumbers,
-  totalItems,
-  totalPages,
   onPreviousPage,
   onNextPage,
-  onSpecificPage,
 }: Props) {
   return (
     <div className="bg-background-solid flex w-full items-center justify-between bg-opacity-40 px-4 py-4 sm:px-6">
@@ -52,12 +37,7 @@ export function Pagination({
             to{' '}
             <span id="end_page_count" className="font-medium">
               {lastVisibleItemNumber}
-            </span>{' '}
-            of{' '}
-            <span className="font-medium">
-              {totalItems > 1000 ? '1000+' : totalItems}
-            </span>{' '}
-            results
+            </span>
           </p>
         </div>
         <button
@@ -82,12 +62,7 @@ export function Pagination({
               to{' '}
               <span id="end_page_count" className="font-medium">
                 {lastVisibleItemNumber}
-              </span>{' '}
-              of{' '}
-              <span className="font-medium">
-                {totalItems > 1000 ? '1000+' : totalItems}
-              </span>{' '}
-              results
+              </span>
             </p>
           </div>
         )}
@@ -101,14 +76,6 @@ export function Pagination({
               aria-label="Pagination"
             >
               <button
-                onClick={() => onSpecificPage(1)}
-                aria-label="First page"
-                className="ring-primary-500 relative inline-flex w-[45px] items-center justify-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset hover:bg-gray-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
-              >
-                <span className="sr-only">First</span>
-                <ChevronsLeftIcon className="h-5 w-5" aria-hidden="true" />
-              </button>
-              <button
                 onClick={onPreviousPage}
                 aria-label="Previous page"
                 className="ring-primary-500 relative inline-flex w-[45px] items-center justify-center px-2 py-2 text-gray-400 ring-1 ring-inset hover:bg-gray-50 hover:text-gray-800 focus:z-20 focus:outline-offset-0"
@@ -116,21 +83,10 @@ export function Pagination({
                 <span className="sr-only">Previous</span>
                 <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
               </button>
-              {pageNumbers.map((pageNumber) => (
-                <button
-                  key={pageNumber}
-                  aria-label={`Goto page ${pageNumber}`}
-                  aria-current="page"
-                  className={cn(
-                    'ring-primary-500 hover:bg-primary-50 relative inline-flex w-[45px] items-center justify-center px-4 py-2 text-sm font-semibold text-gray-200 ring-1 ring-inset hover:text-gray-800 focus:z-20 focus:outline-offset-0',
-                    currentPage === pageNumber &&
-                      'bg-primary-600 text-surface-solid focus-visible:outline-primary-600 relative z-10 inline-flex px-4 py-2 text-sm font-semibold focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
-                  )}
-                  onClick={() => onSpecificPage(pageNumber)}
-                >
-                  {pageNumber}
-                </button>
-              ))}
+
+              <div className="text-surface-solid ring-primary-500 flex h-[36px] w-[45px] items-center justify-center px-2 py-2 ring-1 ring-inset ">
+                <span className="text-surface-solid">{currentPage}</span>
+              </div>
 
               <button
                 onClick={onNextPage}
@@ -139,14 +95,6 @@ export function Pagination({
               >
                 <span className="sr-only">Next</span>
                 <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
-              </button>
-              <button
-                onClick={() => onSpecificPage(totalPages)}
-                aria-label="Last page"
-                className="ring-primary-500 hover:bg-primary-50 relative inline-flex w-[45px] items-center justify-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset hover:text-gray-800 focus:z-20 focus:outline-offset-0"
-              >
-                <span className="sr-only">Last</span>
-                <ChevronsRightIcon className="h-5 w-5" aria-hidden="true" />
               </button>
             </nav>
           </div>

@@ -90,14 +90,11 @@ export function ArmorSuggestionDialog({
     currentPage,
     firstVisibleItemNumber,
     lastVisibleItemNumber,
-    pageNumbers,
-    totalPages,
-    handleSpecificPageClick,
     handleNextPageClick,
     handlePreviousPageClick,
   } = usePagination({
-    totalItemCount: armorSuggestions.length,
     itemsPerPage: ITEMS_PER_PAGE,
+    itemsOnThisPage: armorSuggestions.length,
   });
 
   useEffect(() => {
@@ -110,13 +107,12 @@ export function ArmorSuggestionDialog({
       setArmorSuggestions(
         getArmorSuggestions({ buildState, desiredWeightClass }),
       );
-      handleSpecificPageClick(1);
       setIsCalculating(false);
     }, 250);
 
     // Clear the timeout when the component unmounts or when the dependencies change
     return () => clearTimeout(timeoutId);
-  }, [buildState, desiredWeightClass, isCalculating, handleSpecificPageClick]);
+  }, [buildState, desiredWeightClass, isCalculating]);
 
   const allSlotsFull = Boolean(
     buildState.items.helm &&
@@ -219,12 +215,8 @@ export function ArmorSuggestionDialog({
               currentPage={currentPage}
               firstVisibleItemNumber={firstVisibleItemNumber}
               lastVisibleItemNumber={lastVisibleItemNumber}
-              pageNumbers={pageNumbers}
-              totalItems={armorSuggestions.length}
-              totalPages={totalPages}
               onPreviousPage={handlePreviousPageClick}
               onNextPage={handleNextPageClick}
-              onSpecificPage={handleSpecificPageClick}
             />
             <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {armorSuggestions
@@ -270,12 +262,8 @@ export function ArmorSuggestionDialog({
               currentPage={currentPage}
               firstVisibleItemNumber={firstVisibleItemNumber}
               lastVisibleItemNumber={lastVisibleItemNumber}
-              pageNumbers={pageNumbers}
-              totalItems={armorSuggestions.length}
-              totalPages={totalPages}
               onPreviousPage={handlePreviousPageClick}
               onNextPage={handleNextPageClick}
-              onSpecificPage={handleSpecificPageClick}
             />
           </div>
         </div>
