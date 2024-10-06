@@ -1,7 +1,7 @@
 'use client';
 
 import { PageHeader } from '@/app/_components/page-header';
-import { MasonryItemList } from '@/app/(items)/_components/masonry-item-list';
+import { ItemListGrid } from '@/app/(items)/_components/item-list-grid';
 import { type Item } from '@/app/(items)/_types/item';
 
 export default function Page({
@@ -19,7 +19,7 @@ export default function Page({
 
   return (
     <>
-      <MasonryItemList items={items} label={`"${tagName}" Items`} />
+      <ItemListGrid items={items} label={`"${tagName}" Items`} />
     </>
   );
 }
