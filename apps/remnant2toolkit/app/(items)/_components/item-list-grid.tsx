@@ -1,10 +1,6 @@
 'use client';
 
-import { Skeleton } from '@repo/ui';
-import { getArrayOfLength } from '@repo/utils';
-import { Masonry } from 'masonic';
 import { useState } from 'react';
-import { useIsClient } from 'usehooks-ts';
 
 import { ItemCard } from '@/app/(items)/_components/item-card';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
@@ -16,12 +12,11 @@ interface Props {
   items: Item[];
 }
 
-export function MasonryItemList({
+export function ItemListGrid({
   allowItemCompare = false,
   items,
   label,
 }: Props) {
-  const isClient = useIsClient();
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
   const infoOpen = selectedItem !== null;
 
@@ -29,7 +24,6 @@ export function MasonryItemList({
     setSelectedItem(item);
   }
 
-  if (!isClient) return <Loading />;
   if (items.length === 0) return null;
 
   return (
@@ -44,31 +38,17 @@ export function MasonryItemList({
           <h3 className="text-primary-500 mb-4 text-2xl font-bold">{label}</h3>
         )}
 
-        <Masonry
-          items={items}
-          render={({ index, data, width }) => (
+        <div className="mt-12 grid w-full grid-cols-1 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+          {items.map((item, index) => (
             <ItemCard
-              index={index}
+              key={index}
               allowItemCompare={allowItemCompare}
-              data={data}
-              width={width}
+              data={item}
               onMoreInfoClick={handleMoreInfoClick}
             />
-          )}
-          columnGutter={8}
-          rowGutter={8}
-        />
+          ))}
+        </div>
       </div>
     </>
-  );
-}
-
-function Loading() {
-  return (
-    <div className="flex h-[500px] w-full flex-row flex-wrap items-center justify-center gap-4 p-4 sm:h-[1000px]">
-      {getArrayOfLength(12).map((_, i) => (
-        <Skeleton key={i} className="h-[300px] w-[250px]" />
-      ))}
-    </div>
   );
 }

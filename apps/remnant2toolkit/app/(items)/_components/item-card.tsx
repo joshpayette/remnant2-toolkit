@@ -40,9 +40,7 @@ import { itemShareEndpoint } from '@/app/(items)/_utils/get-item-endpoint';
 
 interface Props {
   allowItemCompare?: boolean;
-  index?: number;
   data: Item;
-  width?: number;
   onMoreInfoClick: (item: Item) => void;
 }
 

@@ -3,10 +3,10 @@
 import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@repo/ui';
 import { useState } from 'react';
 
-import { buildStateToMasonryItems } from '@/app/(builds)/_libs/build-state-to-masonry-items';
+import { buildStateToItemList } from '@/app/(builds)/_libs/build-state-to-item-list';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { ItemCard } from '@/app/(items)/_components/item-card';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
+import { ItemListGrid } from '@/app/(items)/_components/item-list-grid';
 import { type Item } from '@/app/(items)/_types/item';
 
 interface Props {
@@ -16,7 +16,7 @@ interface Props {
 }
 
 export function DetailedBuildDialog({ open, buildState, onClose }: Props) {
-  const masonryItems = buildStateToMasonryItems(buildState);
+  const itemList = buildStateToItemList(buildState);
 
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
   const isItemInfoOpen = Boolean(selectedItem);
@@ -30,17 +30,7 @@ export function DetailedBuildDialog({ open, buildState, onClose }: Props) {
       />
       <BaseDialogTitle>Detailed Build View</BaseDialogTitle>
       <BaseDialogBody>
-        <div className="mt-12 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {masonryItems.map((item, index) => (
-            <ItemCard
-              key={index}
-              index={index}
-              width={200}
-              data={item}
-              onMoreInfoClick={() => setSelectedItem(item)}
-            />
-          ))}
-        </div>
+        <ItemListGrid items={itemList} />
       </BaseDialogBody>
     </BaseDialog>
   );
