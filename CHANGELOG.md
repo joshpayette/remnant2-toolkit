@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Gimmick Build badge made brighter for more pop.
 - New Build badge updated to better match intent.
 - Added Prisms to trackable items on the Item Tracker.
+- Build variants will now show the same badges as the main build.
 
 ### Fixed
 
