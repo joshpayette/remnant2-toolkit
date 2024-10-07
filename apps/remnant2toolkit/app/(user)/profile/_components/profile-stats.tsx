@@ -5,7 +5,7 @@ import { prisma } from '@repo/db';
 import {
   ALL_TRACKABLE_ITEMS,
   TOTAL_TRACKABLE_ITEM_COUNT,
-} from '@/app/(items)/item-tracker/_constants';
+} from '@/app/(items)/item-tracker/_constants/trackable-items';
 import { DiscoveredItemsStatBox } from '@/app/(user)/profile/_components/discovered-items-stat-box';
 import { StatBox } from '@/app/(user)/profile/_components/stat-box';
 

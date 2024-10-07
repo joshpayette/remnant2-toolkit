@@ -1,7 +1,7 @@
 import { type Item } from '@/app/(items)/_types/item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
-import { type ItemTrackerCategory } from '@/app/(items)/item-tracker/_types';
+import { type ItemTrackerCategory } from '@/app/(items)/item-tracker/_types/item-tracker-category';
 
 export function getFilteredItemsForCategory(
   items: Array<Item & { discovered: boolean }>,

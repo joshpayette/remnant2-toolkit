@@ -14,6 +14,7 @@ export type ItemTrackerCategory =
   | 'Mod'
   | 'Mutator (Gun)'
   | 'Mutator (Melee)'
+  | 'Prism'
   | 'Relic Fragment'
   | 'Concoction'
-  | 'Consumable'
+  | 'Consumable';

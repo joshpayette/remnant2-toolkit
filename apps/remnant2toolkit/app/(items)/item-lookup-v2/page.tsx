@@ -1,13 +1,12 @@
-'use server';
-
 import { type Metadata } from 'next';
 
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_types/navigation';
+import { FilterForm } from '@/app/(items)/item-lookup-v2/_components/filter-form';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `${NAV_ITEMS.itemTracker.label} - ${SITE_TITLE}`;
-  const description = NAV_ITEMS.itemTracker.description;
+  const title = `${NAV_ITEMS.itemLookup.label} - ${SITE_TITLE}`;
+  const description = NAV_ITEMS.itemLookup.description;
 
   return {
     title,
@@ -16,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description: description,
       siteName: SITE_TITLE,
-      url: `https://remnant2toolkit.com/${NAV_ITEMS.itemTracker.href}`,
+      url: `https://remnant2toolkit.com/${NAV_ITEMS.itemLookup.href}`,
       images: [
         {
           url: OG_IMAGE_URL,
@@ -33,10 +32,15 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function Layout({
-  children,
+export default async function Page({
+  searchParams,
 }: {
-  children: React.ReactNode;
+  searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <p>Search Params: {searchParams.searchText}</p>
+      <FilterForm />
+    </>
+  );
 }

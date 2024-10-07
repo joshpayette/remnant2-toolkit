@@ -14,7 +14,7 @@ import {
   ROOT_EARTH_DUNGEONS,
   YAESHA_DUNGEONS,
 } from '@/app/(items)/_types/locations';
-import { VALID_ITEM_CATEGORIES } from '@/app/(items)/item-tracker/_components/categories-filter';
+import { VALID_ITEM_CATEGORIES } from '@/app/(items)/item-tracker/_constants/valid-item-categories';
 
 export function parseUrlFilters(
   searchParams: ReadonlyURLSearchParams,

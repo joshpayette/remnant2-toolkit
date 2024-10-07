@@ -1,4 +1,4 @@
-import { ALL_TRACKABLE_ITEMS } from '@/app/(items)/item-tracker/_constants';
+import { ALL_TRACKABLE_ITEMS } from '@/app/(items)/item-tracker/_constants/trackable-items';
 
 export function getDiscoveredCount(discoveredItemIds: string[]) {
   return ALL_TRACKABLE_ITEMS.reduce((acc, item) => {

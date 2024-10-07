@@ -7,9 +7,10 @@ export const prismItems: PrismItem[] = [
     id: 'zn2x47',
     dlc: 'base',
     imagePath: '/items/prisms/prismofgreed.png',
-    saveFileSlug: '', // TODO
-    description: '', // TODO
-    wikiLinks: [], // TODO
+    saveFileSlug: 'PrismOfGreed_C',
+    description: '',
+    wikiLinks: ['https://remnant.wiki/Prism#Prisms'],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'prism',
@@ -17,9 +18,10 @@ export const prismItems: PrismItem[] = [
     id: 't15adx',
     dlc: 'base',
     imagePath: '/items/prisms/prismofhatred.png',
-    saveFileSlug: '', // TODO
-    description: '', // TODO
-    wikiLinks: [], // TODO
+    saveFileSlug: 'PrismOfHatred_C',
+    description: '',
+    wikiLinks: ['https://remnant.wiki/Prism#Prisms'],
+    location: { world: 'Any', dungeon: 'Quest' },
   },
   {
     category: 'prism',
@@ -27,9 +29,10 @@ export const prismItems: PrismItem[] = [
     id: 'ked8b3',
     dlc: 'base',
     imagePath: '/items/prisms/prismofjealousy.png',
-    saveFileSlug: '', // TODO
-    description: '', // TODO
-    wikiLinks: [], // TODO
+    saveFileSlug: 'PrismOfJealousy_C',
+    description: '',
+    wikiLinks: ['https://remnant.wiki/Prism#Prisms'],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'prism',
@@ -37,9 +40,10 @@ export const prismItems: PrismItem[] = [
     id: '0nbaj2',
     dlc: 'base',
     imagePath: '/items/prisms/prismoflethargy.png',
-    saveFileSlug: '', // TODO
-    description: '', // TODO
-    wikiLinks: [], // TODO
+    saveFileSlug: 'PrismOfLethargy_C',
+    description: '',
+    wikiLinks: ['https://remnant.wiki/Prism#Prisms'],
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'prism',
@@ -47,9 +51,10 @@ export const prismItems: PrismItem[] = [
     id: 'j2uus8',
     dlc: 'base',
     imagePath: '/items/prisms/prismofpassion.png',
-    saveFileSlug: '', // TODO
-    description: '', // TODO
-    wikiLinks: [], // TODO
+    saveFileSlug: 'PrismOfPassion_C',
+    description: '',
+    wikiLinks: ['https://remnant.wiki/Prism#Prisms'],
+    location: { world: 'Any', dungeon: 'Quest' },
   },
   {
     category: 'prism',
@@ -57,9 +62,10 @@ export const prismItems: PrismItem[] = [
     id: '03034f',
     dlc: 'base',
     imagePath: '/items/prisms/prismofpride.png',
-    saveFileSlug: '', // TODO
-    description: '', // TODO
-    wikiLinks: [], // TODO
+    saveFileSlug: 'PrismOfPride_C',
+    description: '',
+    wikiLinks: ['https://remnant.wiki/Prism#Prisms'],
+    location: { world: 'Any', dungeon: 'Quest' },
   },
   {
     category: 'prism',
@@ -67,8 +73,9 @@ export const prismItems: PrismItem[] = [
     id: '16tce1',
     dlc: 'base',
     imagePath: '/items/prisms/prismofvoracity.png',
-    saveFileSlug: '', // TODO
-    description: '', // TODO
-    wikiLinks: [], // TODO
+    saveFileSlug: 'PrismOfVoracity_C',
+    description: '',
+    wikiLinks: ['https://remnant.wiki/Prism#Prisms'],
+    location: { world: 'Any', dungeon: 'Quest' },
   },
 ];

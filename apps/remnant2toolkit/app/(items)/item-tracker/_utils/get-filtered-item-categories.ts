@@ -1,7 +1,7 @@
 import { type Item } from '@/app/(items)/_types/item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
-import { type ItemTrackerCategory } from '@/app/(items)/item-tracker/_types';
+import { type ItemTrackerCategory } from '@/app/(items)/item-tracker/_types/item-tracker-category';
 
 export function getFilteredItemCategories(
   filteredItems: Array<Item & { discovered: boolean }>,
@@ -89,6 +89,11 @@ export function getFilteredItemCategories(
     (item) => item.category === 'consumable',
   );
   if (consumableItemsFound) filteredItemCategories.push('Consumable');
+
+  const prismItemsFound = filteredItems.some(
+    (item) => item.category === 'prism',
+  );
+  if (prismItemsFound) filteredItemCategories.push('Prism');
 
   return filteredItemCategories;
 }
