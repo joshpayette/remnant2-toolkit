@@ -12,8 +12,7 @@ export function GimmickBuildBadge({
     <Tooltip content={`Denotes a gimmick build.`}>
       <button aria-label="Badge denoting the build is a gimmick build.">
         <Image
-          src="/gimmick_build_badge1.png"
-          // src={getImageUrl(`/badges/gimmick_build_badge.png`)}
+          src={getImageUrl(`/badges/gimmick_build_badge1.png`)}
           width={52}
           height={60}
           alt="Badge denoting the build is a gimmick build."
