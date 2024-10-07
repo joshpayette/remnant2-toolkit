@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import { Tooltip } from '@/app/_components/tooltip';
 
-export function GimmickBuildBadge({
+export function BeginnerBuildBadge({
   unoptimized = false,
 }: {
   unoptimized?: boolean;
@@ -12,7 +12,7 @@ export function GimmickBuildBadge({
     <Tooltip content={`Denotes a gimmick build.`}>
       <button aria-label="Badge denoting the build is a gimmick build.">
         <Image
-          src="/gimmick_build_badge1.png"
+          src="/beginner_build_badge.png"
           // src={getImageUrl(`/badges/gimmick_build_badge.png`)}
           width={52}
           height={60}

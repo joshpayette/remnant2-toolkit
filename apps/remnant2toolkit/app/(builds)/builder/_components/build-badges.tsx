@@ -5,6 +5,8 @@ import { GimmickBuildBadge } from '@/app/(builds)/builder/_components/gimmick-bu
 import { NewBuildBadge } from '@/app/(builds)/builder/_components/new-build-badge';
 import { PopularBuildBadge } from '@/app/(builds)/builder/_components/popular-build-badge';
 
+import { BeginnerBuildBadge } from './beginner-build-badge';
+
 interface Props {
   buildState: BuildState;
   isScreenshotMode?: boolean;
@@ -17,6 +19,7 @@ export function BuildBadges({ buildState, isScreenshotMode = false }: Props) {
     hasPopularBadge,
     popularLevel,
     hasFeaturedBadge,
+    hasBeginnerBadge,
   } = useBadges({ buildState });
 
   return (
@@ -33,6 +36,9 @@ export function BuildBadges({ buildState, isScreenshotMode = false }: Props) {
       ) : null}
       {hasGimmickBadge ? (
         <GimmickBuildBadge unoptimized={isScreenshotMode} />
+      ) : null}
+      {hasBeginnerBadge ? (
+        <BeginnerBuildBadge unoptimized={isScreenshotMode} />
       ) : null}
     </>
   );
