@@ -12,7 +12,7 @@ export function NewBuildBadge({
     <Tooltip content={`Denotes a build created in the past 24 hours.`}>
       <button aria-label="Badge denoting the build is a new build in the toolkit.">
         <Image
-          src={getImageUrl(`/badges/new_build_badge1.png`)}
+          src={getImageUrl(`/badges/new_build_badge.png`)}
           width={50}
           height={50}
           alt="image denoting the build was created in the past 24 hours"

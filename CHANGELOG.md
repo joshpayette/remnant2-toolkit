@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-10-07
+
+### Added
+
+- Added a Beginner Build badge for curated builds that quality.
+  - Base Game build badge coming soon!
+
+### Changed
+
+- Gimmick Build badge made brighter for more pop.
+- New Build badge updated to better match intent.
+
 ## 2024-10-06
 
 ### Added
