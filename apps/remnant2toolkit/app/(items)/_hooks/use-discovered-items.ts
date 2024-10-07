@@ -9,7 +9,7 @@ import {
 } from '@/app/_types/localstorage';
 import { getDiscoveredItems } from '@/app/(items)/item-tracker/_actions/get-discovered-items';
 import { setDiscoveredItems } from '@/app/(items)/item-tracker/_actions/set-discovered-items';
-import { ALL_TRACKABLE_ITEMS } from '@/app/(items)/item-tracker/_constants';
+import { ALL_TRACKABLE_ITEMS } from '@/app/(items)/item-tracker/_constants/trackable-items';
 
 export function useDiscoveredItems() {
   const { data: sessionData, status: sessionStatus } = useSession();

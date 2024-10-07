@@ -14,7 +14,7 @@ import { Tooltip } from '@/app/_components/tooltip';
 import { type Enemy, isEnemy } from '@/app/(enemies)/_types';
 import { ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { type Item } from '@/app/(items)/_types/item';
-import { SKIPPED_ITEM_TRACKER_CATEGORIES } from '@/app/(items)/item-tracker/_constants';
+import { SKIPPED_ITEM_TRACKER_CATEGORIES } from '@/app/(items)/item-tracker/_constants/trackable-items';
 
 /**
  * Some words are too long to fit in the item label on the builder

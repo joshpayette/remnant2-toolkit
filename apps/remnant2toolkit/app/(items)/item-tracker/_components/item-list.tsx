@@ -17,8 +17,8 @@ import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { ItemLocationsDialog } from '@/app/(items)/_components/item-locations-dialog';
 import { ItemTrackerCard } from '@/app/(items)/_components/item-tracker-card';
 import { type Item } from '@/app/(items)/_types/item';
-import { ALL_TRACKABLE_ITEMS } from '@/app/(items)/item-tracker/_constants';
-import { type ItemTrackerCategory } from '@/app/(items)/item-tracker/_types';
+import { ALL_TRACKABLE_ITEMS } from '@/app/(items)/item-tracker/_constants/trackable-items';
+import { type ItemTrackerCategory } from '@/app/(items)/item-tracker/_types/item-tracker-category';
 import { getCategoryProgressLabel } from '@/app/(items)/item-tracker/_utils/get-category-progress-label';
 import { getFilteredItemCategories } from '@/app/(items)/item-tracker/_utils/get-filtered-item-categories';
 import { getFilteredItemList } from '@/app/(items)/item-tracker/_utils/get-filtered-item-list';
@@ -67,6 +67,7 @@ export function ItemList({
   }, [filters]);
 
   const filteredItems = getFilteredItemList(filters, discoveredItemIds);
+
   // Remove the categories not found in the filtered items
   const visibleItemCategories = getFilteredItemCategories(filteredItems);
 

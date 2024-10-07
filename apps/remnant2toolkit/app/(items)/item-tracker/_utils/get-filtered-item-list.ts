@@ -7,7 +7,7 @@ import { BIOMES } from '@/app/(items)/_types/locations';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
-import { ALL_TRACKABLE_ITEMS } from '@/app/(items)/item-tracker/_constants';
+import { ALL_TRACKABLE_ITEMS } from '@/app/(items)/item-tracker/_constants/trackable-items';
 
 export function getFilteredItemList(
   filters: ItemTrackerFilters,

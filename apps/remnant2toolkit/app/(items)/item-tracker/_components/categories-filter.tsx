@@ -9,28 +9,7 @@ import {
 } from '@repo/ui';
 
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
-import { type ItemTrackerCategory } from '@/app/(items)/item-tracker/_types';
-
-export const VALID_ITEM_CATEGORIES = [
-  'Amulet',
-  'Archetype',
-  'Concoction',
-  'Consumable',
-  'Gloves',
-  'Hand Gun',
-  'Helm',
-  'Legs',
-  'Long Gun',
-  'Melee',
-  'Mod',
-  'Mutator (Gun)',
-  'Mutator (Melee)',
-  'Relic',
-  'Relic Fragment',
-  'Ring',
-  'Torso',
-  'Trait',
-] as const satisfies ItemTrackerCategory[];
+import { VALID_ITEM_CATEGORIES } from '@/app/(items)/item-tracker/_constants/valid-item-categories';
 
 interface Props {
   values: string[];
@@ -137,6 +116,15 @@ export function CategoriesFilter({
               onChange={(checked) => onChange('Relic Fragment', checked)}
             />
             <BaseLabel>Relic Fragment</BaseLabel>
+          </BaseCheckboxField>
+          <BaseCheckboxField key="Prism">
+            <BaseCheckbox
+              name="prism"
+              value="Prism"
+              checked={values.includes('Prism')}
+              onChange={(checked) => onChange('Prism', checked)}
+            />
+            <BaseLabel>Prism</BaseLabel>
           </BaseCheckboxField>
         </BaseCheckboxGroup>
         <BaseCheckboxGroup className="col-span-1 border border-gray-800 p-2">

@@ -6,7 +6,7 @@ import { parseSaveFile } from '@/app/(items)/item-tracker/_actions/parse-save-fi
 import {
   ALL_TRACKABLE_ITEMS,
   SKIPPED_ITEM_TRACKER_CATEGORIES,
-} from '@/app/(items)/item-tracker/_constants';
+} from '@/app/(items)/item-tracker/_constants/trackable-items';
 
 interface Props {
   handleSetDiscoveredItems: (discoveredItemIds: string[]) => void;

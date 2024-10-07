@@ -541,7 +541,7 @@ export const traitItems: TraitItem[] = [
     type: 'trait',
     name: 'Perception',
     imagePath: '/items/traits/perception.png',
-    saveFileSlug: 'Trait_Perception_C', // TODO Check this
+    saveFileSlug: 'Trait_Perception_C',
     id: '7pxnhi',
     dlc: 'dlc3',
     tags: [],

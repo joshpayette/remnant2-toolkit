@@ -28,10 +28,8 @@ import {
   type ItemTrackerFilters,
 } from '@/app/(items)/_components/filters/item-tracker/types';
 import { WorldFilter } from '@/app/(items)/_components/filters/world-filter';
-import {
-  CategoriesFilter,
-  VALID_ITEM_CATEGORIES,
-} from '@/app/(items)/item-tracker/_components/categories-filter';
+import { CategoriesFilter } from '@/app/(items)/item-tracker/_components/categories-filter';
+import { VALID_ITEM_CATEGORIES } from '@/app/(items)/item-tracker/_constants/valid-item-categories';
 import { parseUrlFilters } from '@/app/(items)/item-tracker/_utils/parse-url-filters';
 
 export const DEFAULT_ITEM_TRACKER_FILTERS = {

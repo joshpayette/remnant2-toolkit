@@ -10,11 +10,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added a Beginner Build badge for curated builds that quality.
   - Base Game build badge coming soon!
+- Added locations for all prisms.
 
 ### Changed
 
 - Gimmick Build badge made brighter for more pop.
 - New Build badge updated to better match intent.
+- Added Prisms to trackable items on the Item Tracker.
+
+### Fixed
+
+- Item Tracker total included prisms, but you could not track prisms. Added the ability to track prisms to account for this.
 
 ## 2024-10-06
 
