@@ -569,7 +569,7 @@ export const aberrationEnemies = [
     wikiLinks: [],
   },
   {
-    id: '',
+    id: 'a23o9m',
     name: 'Soulshrieker',
     category: 'aberration',
     imagePath: '/enemies/aberration/soulshrieker.jpg',

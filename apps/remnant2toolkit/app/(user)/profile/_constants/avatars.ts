@@ -259,7 +259,7 @@ export const ADDITIONAL_AVATARS = [
     imagePath: '/avatars/shrimp_sniper2.jpg',
   },
   {
-    id: '',
+    id: 'owto03',
     name: 'Spark',
     imagePath: '/avatars/spark.jpg',
   },
