@@ -1,12 +1,15 @@
-import { ChevronLeftIcon, ChevronRightIcon, Skeleton } from '@repo/ui';
+import { ChevronLeftIcon, ChevronRightIcon, cn, Skeleton } from '@repo/ui';
 
 interface Props {
   currentPage: number;
   isLoading: boolean;
   firstVisibleItemNumber: number;
   lastVisibleItemNumber: number;
+  isNextPageDisabled: boolean;
+  pageNumbers: number[];
   onPreviousPage: () => void;
   onNextPage: () => void;
+  onSpecificPage: (pageNumber: number) => void;
 }
 
 export function Pagination({
@@ -14,8 +17,11 @@ export function Pagination({
   isLoading,
   firstVisibleItemNumber,
   lastVisibleItemNumber,
+  isNextPageDisabled,
+  pageNumbers,
   onPreviousPage,
   onNextPage,
+  onSpecificPage,
 }: Props) {
   return (
     <div className="bg-background-solid flex w-full items-center justify-between bg-opacity-40 px-4 py-4 sm:px-6">
@@ -28,6 +34,7 @@ export function Pagination({
         >
           Previous
         </button>
+
         <div className="w-full text-center">
           <p className="text-xs text-gray-200">
             Showing{' '}
@@ -40,7 +47,9 @@ export function Pagination({
             </span>
           </p>
         </div>
+
         <button
+          disabled={isNextPageDisabled}
           onClick={onNextPage}
           aria-label="Next page"
           className="border-primary-300 bg-primary-500 text-surface-solid hover:bg-primary-300 relative ml-3 inline-flex items-center rounded-md border px-4 py-2 text-sm font-medium"
@@ -83,14 +92,24 @@ export function Pagination({
                 <span className="sr-only">Previous</span>
                 <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
               </button>
-
-              <div className="text-surface-solid ring-primary-500 flex h-[36px] w-[125px] items-center justify-center px-2 py-2 text-sm ring-1 ring-inset">
-                <span className="text-surface-solid">
-                  Current Page: {currentPage}
-                </span>
-              </div>
+              {pageNumbers.map((pageNumber) => (
+                <button
+                  key={pageNumber}
+                  aria-label={`Goto page ${pageNumber}`}
+                  aria-current="page"
+                  className={cn(
+                    'ring-primary-500 hover:bg-primary-50 relative inline-flex w-[45px] items-center justify-center px-4 py-2 text-sm font-semibold text-gray-200 ring-1 ring-inset hover:text-gray-800 focus:z-20 focus:outline-offset-0',
+                    currentPage === pageNumber &&
+                      'bg-primary-600 text-surface-solid focus-visible:outline-primary-600 relative z-10 inline-flex px-4 py-2 text-sm font-semibold focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+                  )}
+                  onClick={() => onSpecificPage(pageNumber)}
+                >
+                  {pageNumber}
+                </button>
+              ))}
 
               <button
+                disabled={isNextPageDisabled}
                 onClick={onNextPage}
                 aria-label="Next page"
                 className="ring-primary-500 hover:bg-primary-50 relative inline-flex h-[36px] w-[45px] items-center justify-center px-2 py-2 text-gray-400 ring-1 ring-inset hover:text-gray-800 focus:z-20 focus:outline-offset-0"

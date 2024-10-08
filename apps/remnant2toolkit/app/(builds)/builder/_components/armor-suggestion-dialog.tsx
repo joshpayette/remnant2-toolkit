@@ -86,15 +86,20 @@ export function ArmorSuggestionDialog({
     [],
   );
 
+  const itemsOnThisPage = armorSuggestions.length;
+
   const {
     currentPage,
     firstVisibleItemNumber,
     lastVisibleItemNumber,
+    isNextPageDisabled,
+    pageNumbers,
     handleNextPageClick,
     handlePreviousPageClick,
+    handleSpecificPageClick,
   } = usePagination({
     itemsPerPage: ITEMS_PER_PAGE,
-    itemsOnThisPage: armorSuggestions.length,
+    itemsOnThisPage,
   });
 
   useEffect(() => {
@@ -207,7 +212,7 @@ export function ArmorSuggestionDialog({
           </div>
         </div>
       )}
-      {armorSuggestions.length > 0 && (
+      {itemsOnThisPage > 0 && (
         <div className="mt-4 flex w-full flex-col items-center justify-center">
           <div className="flex w-full flex-col items-center justify-center">
             <Pagination
@@ -215,8 +220,11 @@ export function ArmorSuggestionDialog({
               currentPage={currentPage}
               firstVisibleItemNumber={firstVisibleItemNumber}
               lastVisibleItemNumber={lastVisibleItemNumber}
+              isNextPageDisabled={isNextPageDisabled}
+              pageNumbers={pageNumbers}
               onPreviousPage={handlePreviousPageClick}
               onNextPage={handleNextPageClick}
+              onSpecificPage={handleSpecificPageClick}
             />
             <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {armorSuggestions
@@ -262,8 +270,11 @@ export function ArmorSuggestionDialog({
               currentPage={currentPage}
               firstVisibleItemNumber={firstVisibleItemNumber}
               lastVisibleItemNumber={lastVisibleItemNumber}
+              isNextPageDisabled={isNextPageDisabled}
+              pageNumbers={pageNumbers}
               onPreviousPage={handlePreviousPageClick}
               onNextPage={handleNextPageClick}
+              onSpecificPage={handleSpecificPageClick}
             />
           </div>
         </div>
