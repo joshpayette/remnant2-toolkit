@@ -61,7 +61,7 @@ export function PrismDisplay({
         }}
       />
       <BaseFieldset className="flex max-w-full flex-col items-start justify-start gap-y-2 border border-transparent p-1">
-        {isEditable ? (
+        {isEditable && !isScreenshotMode ? (
           <BaseLabel className="w-full text-left md:text-center">
             <span className="text-sm">Prism</span>
           </BaseLabel>

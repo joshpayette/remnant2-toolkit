@@ -12,7 +12,7 @@ export function FeaturedBuildBadge({
     <Tooltip content={`Denotes a featured build.`}>
       <button aria-label="Badge denoting the build is a featured build.">
         <Image
-          src={getImageUrl(`/badges/featured_build_badge1.png`)}
+          src={getImageUrl(`/badges/featured-build-badge.png`)}
           width={60}
           height={60}
           alt="Badge denoting the build is a featured build."
