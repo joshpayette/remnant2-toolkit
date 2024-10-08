@@ -27,7 +27,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
       desktopChildren={
         <>
           <Menu as="div" className="relative">
-            <Menu.Button className="flex text-sm font-semibold bg-background text-surface-solid hover:text-primary-500">
+            <Menu.Button className="bg-background text-surface-solid hover:text-primary-500 flex text-sm font-semibold">
               {({ active }) => (
                 <div className="flex items-center justify-center gap-1">
                   <span className="absolute -inset-1.5" />
@@ -68,7 +68,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                       )}
                     >
                       <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.createBuild.icon className="w-5 h-5 text-primary-600" />
+                        <NAV_ITEMS.createBuild.icon className="text-primary-600 h-5 w-5" />
                       </div>
                       <div className="flex flex-col items-start justify-start gap-y-1">
                         {NAV_ITEMS.createBuild.label}
@@ -89,7 +89,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                       )}
                     >
                       <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.featuredBuilds.icon className="w-5 h-5 text-primary-600" />
+                        <NAV_ITEMS.featuredBuilds.icon className="text-primary-600 h-5 w-5" />
                       </div>
                       <div className="flex flex-col items-start justify-start gap-y-1">
                         {NAV_ITEMS.featuredBuilds.label}
@@ -110,7 +110,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                       )}
                     >
                       <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.communityBuilds.icon className="w-5 h-5 text-primary-600" />
+                        <NAV_ITEMS.communityBuilds.icon className="text-primary-600 h-5 w-5" />
                       </div>
                       <div className="flex flex-col items-start justify-start gap-y-1">
                         {NAV_ITEMS.communityBuilds.label}
@@ -131,7 +131,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                       )}
                     >
                       <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.gimmickBuilds.icon className="w-5 h-5 text-primary-600" />
+                        <NAV_ITEMS.gimmickBuilds.icon className="text-primary-600 h-5 w-5" />
                       </div>
                       <div className="flex flex-col items-start justify-start gap-y-1">
                         {NAV_ITEMS.gimmickBuilds.label}
@@ -152,7 +152,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                       )}
                     >
                       <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.baseGameBuilds.icon className="w-5 h-5 text-primary-600" />
+                        <NAV_ITEMS.baseGameBuilds.icon className="text-primary-600 h-5 w-5" />
                       </div>
                       <div className="flex flex-col items-start justify-start gap-y-1">
                         {NAV_ITEMS.baseGameBuilds.label}
@@ -173,7 +173,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                       )}
                     >
                       <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.beginnerBuilds.icon className="w-5 h-5 text-primary-600" />
+                        <NAV_ITEMS.beginnerBuilds.icon className="text-primary-600 h-5 w-5" />
                       </div>
                       <div className="flex flex-col items-start justify-start gap-y-1">
                         {NAV_ITEMS.beginnerBuilds.label}
@@ -194,7 +194,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                       )}
                     >
                       <div className="mr-4 w-[20px]">
-                        <NAV_ITEMS.randomBuild.icon className="w-5 h-5 text-primary-600" />
+                        <NAV_ITEMS.randomBuild.icon className="text-primary-600 h-5 w-5" />
                       </div>
                       <div className="flex flex-col items-start justify-start gap-y-1">
                         {NAV_ITEMS.randomBuild.label}
@@ -253,6 +253,25 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
       mobileChildren={
         <>
           <BaseLink
+            href={NAV_ITEMS.supportR2TK.href}
+            className="flex flex-row items-center justify-start"
+          >
+            <NAV_ITEMS.supportR2TK.icon
+              className="text-accent1-500 mr-2 h-7 w-5 flex-none"
+              aria-hidden="true"
+            />
+            <div className="text-accent1-500 flex flex-col items-start justify-start px-3 py-2">
+              {NAV_ITEMS.supportR2TK.label}
+
+              <p className="text-xs text-gray-400">
+                {NAV_ITEMS.supportR2TK.description}
+              </p>
+            </div>
+          </BaseLink>
+
+          <hr className="border-secondary-900" />
+
+          <BaseLink
             href={
               status === 'loading' || status === 'authenticated'
                 ? NAV_ITEMS.createBuild.href
@@ -261,7 +280,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.createBuild.icon
-              className="flex-none w-5 mr-2 text-primary-600 h-7"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -278,7 +297,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.featuredBuilds.icon
-              className="flex-none w-5 mr-2 text-primary-600 h-7"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -295,7 +314,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.communityBuilds.icon
-              className="flex-none w-5 mr-2 text-primary-600 h-7"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -312,7 +331,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.gimmickBuilds.icon
-              className="flex-none w-5 mr-2 text-primary-600 h-7"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -329,7 +348,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.baseGameBuilds.icon
-              className="flex-none w-5 mr-2 text-primary-600 h-7"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -346,7 +365,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.beginnerBuilds.icon
-              className="flex-none w-5 mr-2 text-primary-600 h-7"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -363,7 +382,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.randomBuild.icon
-              className="flex-none w-5 mr-2 text-primary-600 h-7"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -382,7 +401,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.itemLookup.icon
-              className="flex-none w-5 mr-2 text-primary-600 h-7"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -399,7 +418,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.itemTracker.icon
-              className="flex-none w-5 mr-2 text-primary-600 h-7"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -416,7 +435,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.itemQuiz.icon
-              className="flex-none w-5 mr-2 text-primary-600 h-7"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -433,7 +452,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.resources.icon
-              className="flex-none w-5 mr-2 text-primary-600 h-7"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
@@ -441,25 +460,6 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
 
               <p className="text-xs text-gray-400">
                 {NAV_ITEMS.resources.description}
-              </p>
-            </div>
-          </BaseLink>
-
-          <hr className="border-secondary-900" />
-
-          <BaseLink
-            href={NAV_ITEMS.supportR2TK.href}
-            className="flex flex-row items-center justify-start"
-          >
-            <NAV_ITEMS.supportR2TK.icon
-              className="flex-none w-5 mr-2 text-primary-600 h-7"
-              aria-hidden="true"
-            />
-            <div className="flex flex-col items-start justify-start px-3 py-2">
-              {NAV_ITEMS.supportR2TK.label}
-
-              <p className="text-xs text-gray-400">
-                {NAV_ITEMS.supportR2TK.description}
               </p>
             </div>
           </BaseLink>
