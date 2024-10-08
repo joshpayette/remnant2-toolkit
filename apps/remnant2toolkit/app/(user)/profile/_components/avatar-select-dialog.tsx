@@ -10,7 +10,7 @@ import { useSession } from 'next-auth/react';
 import {
   getPermittedBuilder,
   isPermittedBuilder,
-} from '@/app/(builds)/_libs/is-permitted-builder';
+} from '@/app/(builds)/_libs/permitted-builders';
 import { AvatarBox } from '@/app/(user)/profile/_components/avatar-box';
 import { AVATARS } from '@/app/(user)/profile/_constants/avatars';
 
