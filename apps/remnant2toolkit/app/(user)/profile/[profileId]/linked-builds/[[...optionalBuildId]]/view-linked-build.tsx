@@ -44,15 +44,20 @@ export function ViewLinkedBuild({
   >(undefined);
   const [isLoading, setIsLoading] = useState(true);
 
+  const itemsOnThisPage = linkedBuilds.length;
+
   const {
     currentPage,
     firstVisibleItemNumber,
     lastVisibleItemNumber,
+    isNextPageDisabled,
+    pageNumbers,
     handleNextPageClick,
     handlePreviousPageClick,
+    handleSpecificPageClick,
   } = usePagination({
     itemsPerPage,
-    itemsOnThisPage: linkedBuilds.length,
+    itemsOnThisPage,
   });
 
   // Fetch data
@@ -122,63 +127,76 @@ export function ViewLinkedBuild({
             currentPage={currentPage}
             firstVisibleItemNumber={firstVisibleItemNumber}
             lastVisibleItemNumber={lastVisibleItemNumber}
+            isNextPageDisabled={isNextPageDisabled}
+            pageNumbers={pageNumbers}
             onPreviousPage={handlePreviousPageClick}
             onNextPage={handleNextPageClick}
+            onSpecificPage={handleSpecificPageClick}
           />
         }
         headerActions={undefined}
       >
-        {linkedBuilds.map((linkedBuildState) => (
-          <div key={linkedBuildState.id} className="w-full">
-            <LinkedBuildCard
-              linkedBuildState={linkedBuildState}
-              isLoading={false}
-              footerActions={
-                <>
-                  <div className="flex w-full items-center justify-center gap-6 p-2 text-sm">
-                    <Tooltip content="View Build">
-                      <BaseButton
-                        color="violet"
-                        onClick={() =>
-                          router.push(`/builder/linked/${linkedBuildState.id}`)
-                        }
-                        aria-label="View Linked Build"
-                      >
-                        <EyeIcon className="h-4 w-4" />
-                      </BaseButton>
-                    </Tooltip>
-                    <Tooltip content="Copy Build URL">
-                      <BaseButton
-                        color="cyan"
-                        aria-label="Copy build URL to clipboard"
-                        onClick={() => handleCopyBuild(linkedBuildState.id)}
-                      >
-                        <ShareIcon className="h-4 w-4" />
-                      </BaseButton>
-                    </Tooltip>
-                    {isEditable && (
-                      <>
-                        <Tooltip content="Edit Build">
-                          <BaseButton
-                            color="green"
-                            onClick={() =>
-                              router.push(
-                                `/builder/linked/edit/${linkedBuildState.id}`,
-                              )
-                            }
-                            aria-label="Edit Linked Build"
-                          >
-                            <EditIcon className="h-4 w-4" />
-                          </BaseButton>
-                        </Tooltip>
-                      </>
-                    )}
-                  </div>
-                </>
-              }
-            />
+        {itemsOnThisPage > 0 ? (
+          linkedBuilds.map((linkedBuildState) => (
+            <div key={linkedBuildState.id} className="w-full">
+              <LinkedBuildCard
+                linkedBuildState={linkedBuildState}
+                isLoading={false}
+                footerActions={
+                  <>
+                    <div className="flex w-full items-center justify-center gap-6 p-2 text-sm">
+                      <Tooltip content="View Build">
+                        <BaseButton
+                          color="violet"
+                          onClick={() =>
+                            router.push(
+                              `/builder/linked/${linkedBuildState.id}`,
+                            )
+                          }
+                          aria-label="View Linked Build"
+                        >
+                          <EyeIcon className="h-4 w-4" />
+                        </BaseButton>
+                      </Tooltip>
+                      <Tooltip content="Copy Build URL">
+                        <BaseButton
+                          color="cyan"
+                          aria-label="Copy build URL to clipboard"
+                          onClick={() => handleCopyBuild(linkedBuildState.id)}
+                        >
+                          <ShareIcon className="h-4 w-4" />
+                        </BaseButton>
+                      </Tooltip>
+                      {isEditable && (
+                        <>
+                          <Tooltip content="Edit Build">
+                            <BaseButton
+                              color="green"
+                              onClick={() =>
+                                router.push(
+                                  `/builder/linked/edit/${linkedBuildState.id}`,
+                                )
+                              }
+                              aria-label="Edit Linked Build"
+                            >
+                              <EditIcon className="h-4 w-4" />
+                            </BaseButton>
+                          </Tooltip>
+                        </>
+                      )}
+                    </div>
+                  </>
+                }
+              />
+            </div>
+          ))
+        ) : (
+          <div className="col-span-full flex w-full items-center justify-center py-8">
+            <h2 className="text-primary-400 text-2xl font-bold">
+              No builds found. Try adjusting your filters.
+            </h2>
           </div>
-        ))}
+        )}
       </BuildList>
     </>
   );

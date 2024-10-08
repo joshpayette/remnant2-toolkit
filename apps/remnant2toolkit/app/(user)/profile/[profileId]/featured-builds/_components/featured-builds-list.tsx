@@ -55,8 +55,11 @@ export function FeaturedBuildsList({
     currentPage,
     firstVisibleItemNumber,
     lastVisibleItemNumber,
+    isNextPageDisabled,
+    pageNumbers,
     handleNextPageClick,
     handlePreviousPageClick,
+    handleSpecificPageClick,
   } = usePagination({
     itemsPerPage,
     itemsOnThisPage: builds.length,
@@ -116,8 +119,11 @@ export function FeaturedBuildsList({
             currentPage={currentPage}
             firstVisibleItemNumber={firstVisibleItemNumber}
             lastVisibleItemNumber={lastVisibleItemNumber}
+            isNextPageDisabled={isNextPageDisabled}
+            pageNumbers={pageNumbers}
             onPreviousPage={handlePreviousPageClick}
             onNextPage={handleNextPageClick}
+            onSpecificPage={handleSpecificPageClick}
           />
         }
         headerActions={

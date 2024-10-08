@@ -50,6 +50,7 @@ export function CreatedBuildsList({
   const { buildListState, setBuildListState } = useBuildListState();
   const { builds, isLoading } = buildListState;
 
+  const itemsOnThisPage = builds.length;
   const itemsPerPage = isEditable ? 15 : 16;
 
   const { orderBy, handleOrderByChange } = useOrderByFilter('newest');
@@ -61,11 +62,14 @@ export function CreatedBuildsList({
     currentPage,
     firstVisibleItemNumber,
     lastVisibleItemNumber,
+    isNextPageDisabled,
+    pageNumbers,
     handleNextPageClick,
     handlePreviousPageClick,
+    handleSpecificPageClick,
   } = usePagination({
     itemsPerPage,
-    itemsOnThisPage: builds.length,
+    itemsOnThisPage,
   });
 
   useEffect(() => {
@@ -120,8 +124,11 @@ export function CreatedBuildsList({
             currentPage={currentPage}
             firstVisibleItemNumber={firstVisibleItemNumber}
             lastVisibleItemNumber={lastVisibleItemNumber}
+            isNextPageDisabled={isNextPageDisabled}
+            pageNumbers={pageNumbers}
             onPreviousPage={handlePreviousPageClick}
             onNextPage={handleNextPageClick}
+            onSpecificPage={handleSpecificPageClick}
           />
         }
         headerActions={
@@ -166,30 +173,38 @@ export function CreatedBuildsList({
       >
         {isEditable ? <CreateBuildCard /> : null}
 
-        {builds.map((build) => (
-          <div key={`${build.id}${build.variantIndex}`} className="w-full">
-            <BuildCard
-              build={build}
-              isLoading={isLoading}
-              showBuildVisibility={true}
-              footerActions={
-                isEditable ? (
-                  <CreatedBuildCardActions
-                    build={build}
-                    onDelete={(buildId: string) => {
-                      setBuildListState((prevState) => ({
-                        ...prevState,
-                        builds: prevState.builds.filter(
-                          (b) => b.id !== buildId,
-                        ),
-                      }));
-                    }}
-                  />
-                ) : undefined
-              }
-            />
+        {itemsOnThisPage > 0 ? (
+          builds.map((build) => (
+            <div key={`${build.id}${build.variantIndex}`} className="w-full">
+              <BuildCard
+                build={build}
+                isLoading={isLoading}
+                showBuildVisibility={true}
+                footerActions={
+                  isEditable ? (
+                    <CreatedBuildCardActions
+                      build={build}
+                      onDelete={(buildId: string) => {
+                        setBuildListState((prevState) => ({
+                          ...prevState,
+                          builds: prevState.builds.filter(
+                            (b) => b.id !== buildId,
+                          ),
+                        }));
+                      }}
+                    />
+                  ) : undefined
+                }
+              />
+            </div>
+          ))
+        ) : (
+          <div className="col-span-full flex w-full items-center justify-center py-8">
+            <h2 className="text-primary-400 text-2xl font-bold">
+              No builds found. Try adjusting your filters.
+            </h2>
           </div>
-        ))}
+        )}
       </BuildList>
     </>
   );
