@@ -19,6 +19,7 @@ export function FeaturedBuildBadge({
           className="h-[60px] max-h-[60px] w-[60px] max-w-[60px]"
           loading="eager"
           unoptimized={unoptimized}
+          quality={100}
         />
       </button>
     </Tooltip>

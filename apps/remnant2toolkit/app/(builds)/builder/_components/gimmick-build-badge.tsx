@@ -19,6 +19,7 @@ export function GimmickBuildBadge({
           className="h-[60px] max-h-[60px] w-[52px] max-w-[52px]"
           loading="eager"
           unoptimized={unoptimized}
+          quality={100}
         />
       </button>
     </Tooltip>
