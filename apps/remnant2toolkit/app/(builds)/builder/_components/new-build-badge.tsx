@@ -18,6 +18,7 @@ export function NewBuildBadge({
           alt="image denoting the build was created in the past 24 hours"
           loading="eager"
           unoptimized={unoptimized}
+          quality={100}
         />
       </button>
     </Tooltip>
