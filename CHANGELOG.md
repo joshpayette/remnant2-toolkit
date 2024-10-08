@@ -6,9 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-10-08
 
+### Added
+
+- Added Base Game Build badge to curated builds that qualify.
+
 ### Changed
 
 - Build result pagination will now allow you to click specific pages again. While I put some guard rails up, it is still possible to click too high of a page and get zero results. However, being able to click specific pages seemed to still be helpful in spite of this.
+
+### Fixed
+
+- Prism label was showing in build screenshots.
 
 ## 2024-10-07
 
