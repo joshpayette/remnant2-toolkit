@@ -12,7 +12,7 @@ import { verifyCreatorInfo } from '@/app/_libs/moderation/verify-creator-info';
 import { BUILD_REVALIDATE_PATHS } from '@/app/(builds)/_constants/build-revalidate-paths';
 import { DEFAULT_BUILD_NAME } from '@/app/(builds)/_constants/default-build-name';
 import { buildStateToBuildItems } from '@/app/(builds)/_libs/build-state-to-build-items';
-import { isPermittedBuilder } from '@/app/(builds)/_libs/is-permitted-builder';
+import { isPermittedBuilder } from '@/app/(builds)/_libs/permitted-builders';
 import { type BuildActionResponse } from '@/app/(builds)/_types/build-action-response';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
