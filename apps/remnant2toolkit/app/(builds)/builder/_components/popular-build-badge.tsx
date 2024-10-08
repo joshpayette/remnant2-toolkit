@@ -35,7 +35,7 @@ export function PopularBuildBadge({
       content={`Awarded to builds that have ${voteThreshold}+ favorites!`}
     >
       <button aria-label="Badge denoting the build is popular">
-        <Image
+        {/* <Image
           src={src}
           width={52}
           height={60}
@@ -44,6 +44,12 @@ export function PopularBuildBadge({
           loading="eager"
           unoptimized={unoptimized}
           quality={100}
+        /> */}
+        <img
+          src={src}
+          width={52}
+          height={60}
+          alt="image denoting the build is popular"
         />
       </button>
     </Tooltip>
