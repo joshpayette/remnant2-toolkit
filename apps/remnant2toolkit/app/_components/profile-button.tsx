@@ -7,7 +7,7 @@ import { Fragment, useEffect, useState } from 'react';
 
 import { PlaceHolderIcon } from '@/app/_components/placeholder-icon';
 import { NAV_ITEMS } from '@/app/_types/navigation';
-import getAvatarId from '@/app/(user)/profile/_actions/get-avatar-id';
+import { getAvatarId } from '@/app/(user)/profile/_actions/get-avatar-id';
 import { getAvatarById } from '@/app/(user)/profile/_utils/get-avatar-by-id';
 
 function ProfileButtonComponent({
@@ -25,12 +25,12 @@ function ProfileButtonComponent({
     async function getAvatarIdAsync() {
       const response = await getAvatarId();
       if (response.avatarId) {
-        const avatar = getAvatarById(response.avatarId);
+        const avatar = getAvatarById(response.avatarId, session?.user?.id);
         setProfileImage(getImageUrl(avatar.imagePath));
       }
     }
     getAvatarIdAsync();
-  }, []);
+  }, [session?.user?.id]);
 
   if (variant === 'mobile')
     return (

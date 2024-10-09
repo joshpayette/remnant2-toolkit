@@ -78,7 +78,7 @@ export async function generateMetadata(
     profileData.bio ?? `View ${userName}'s profile on ${SITE_TITLE}.`;
 
   const avatarId = profileData.avatarId;
-  const avatar = getAvatarById(avatarId);
+  const avatar = getAvatarById(avatarId, profileId);
 
   return {
     title,

@@ -70,7 +70,7 @@ export async function generateMetadata({
   const description = '(Deprecated) View Remnant 2 Linked Builds.';
 
   const avatarId = profileData.avatarId;
-  const avatar = getAvatarById(avatarId);
+  const avatar = getAvatarById(avatarId, profileId);
 
   return {
     title,
