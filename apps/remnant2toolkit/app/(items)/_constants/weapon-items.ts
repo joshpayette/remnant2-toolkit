@@ -1674,7 +1674,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/items/weapons/shovel.png',
     saveFileSlug: 'Weapon_BasicShovel_C',
     id: 'vpEWS5',
-    dlc: 'dlc2',
+    dlc: 'base',
     description: `It's a shovel.`,
     wikiLinks: [`https://remnant.wiki/Shovel`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
