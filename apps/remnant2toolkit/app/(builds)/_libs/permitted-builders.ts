@@ -4,7 +4,7 @@
 const PERMITTED_BUILDERS = [
   {
     userId: 'clql3zq8k0000a6m41vtnvldq',
-    avatar: '/avatars/custom/tk.jpg',
+    avatar: '/avatars/custom/tk.png',
     name: 'TK',
   },
   {
