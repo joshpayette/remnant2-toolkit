@@ -65,7 +65,7 @@ export async function generateMetadata({
   }
 
   const avatarId = profileData?.avatarId;
-  const avatar = getAvatarById(avatarId);
+  const avatar = getAvatarById(avatarId, profileId);
 
   if (!profileData?.isLoadoutPublic) {
     return {
