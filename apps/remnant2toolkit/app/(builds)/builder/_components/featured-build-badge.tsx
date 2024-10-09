@@ -24,6 +24,7 @@ export function FeaturedBuildBadge({
           src={getImageUrl(`/badges/featured-build-badge.png`)}
           width={60}
           height={60}
+          className="h-[60px] w-[60px]"
           alt="Badge denoting the build is a featured build."
         />
       </button>
