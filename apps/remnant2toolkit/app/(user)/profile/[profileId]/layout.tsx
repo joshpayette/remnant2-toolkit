@@ -80,11 +80,6 @@ export async function generateMetadata(
   const avatarId = profileData.avatarId;
   const avatar = getAvatarById(avatarId, profileId);
 
-  console.info(
-    'image path',
-    `https://d2sqltdcj8czo5.cloudfront.net/remnant2${avatar.imagePath}`,
-  );
-
   return {
     title,
     description,
