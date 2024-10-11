@@ -114,6 +114,7 @@ export function FavoritedBuildsList({
                 ...prevState,
                 isLoading: true,
               }));
+              onFiltersChange();
             }}
             timeRange={timeRange}
             onTimeRangeChange={(value) => {
@@ -122,6 +123,7 @@ export function FavoritedBuildsList({
                 ...prevState,
                 isLoading: true,
               }));
+              onFiltersChange();
             }}
           />
         }

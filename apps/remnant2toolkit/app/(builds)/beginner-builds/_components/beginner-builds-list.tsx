@@ -107,6 +107,7 @@ export function BeginnerBuildsList({
                 ...prevState,
                 isLoading: true,
               }));
+              onFiltersChange();
             }}
             timeRange={timeRange}
             onTimeRangeChange={(value) => {
@@ -115,6 +116,7 @@ export function BeginnerBuildsList({
                 ...prevState,
                 isLoading: true,
               }));
+              onFiltersChange();
             }}
           />
         }

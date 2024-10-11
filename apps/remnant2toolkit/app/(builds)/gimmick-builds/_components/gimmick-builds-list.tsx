@@ -108,6 +108,7 @@ export function GimmickBuildsList({
                 ...prevState,
                 isLoading: true,
               }));
+              onFiltersChange();
             }}
             timeRange={timeRange}
             onTimeRangeChange={(value) => {
@@ -116,6 +117,7 @@ export function GimmickBuildsList({
                 ...prevState,
                 isLoading: true,
               }));
+              onFiltersChange();
             }}
           />
         }
