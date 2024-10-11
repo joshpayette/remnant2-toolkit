@@ -53,7 +53,6 @@ export function CommunityBuildsList({
 
   useEffect(() => {
     const getItemsAsync = async () => {
-      if (!isLoading) return;
       const response = await getCommunityBuilds({
         itemsPerPage,
         pageNumber: currentPage,
