@@ -1,7 +1,7 @@
-import { OrderByFilter } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter';
-import { type OrderBy } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
-import { TimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter';
-import { type TimeRange } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
+import { OrderByFilter } from '@/app/(builds)/_features/filters/secondary-filters/order-by-filter';
+import { type OrderBy } from '@/app/(builds)/_features/filters/secondary-filters/order-by-filter/use-order-by-filter';
+import { TimeRangeFilter } from '@/app/(builds)/_features/filters/secondary-filters/time-range-filter';
+import { type TimeRange } from '@/app/(builds)/_features/filters/secondary-filters/time-range-filter/use-time-range-filter';
 
 interface Props {
   isLoading: boolean;

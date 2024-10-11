@@ -1,10 +1,10 @@
 import { Prisma } from '@repo/db';
 
-import { MINIMUM_QUALITY_DESCRIPTION_LENGTH } from '@/app/(builds)/_components/filters/build-misc-filter';
 import {
   MAX_TRAIT_AMOUNT,
   MAX_TRAIT_AMOUNT_WITH_TRAITOR,
 } from '@/app/(builds)/_constants/max-trait-amount';
+import { MINIMUM_QUALITY_DESCRIPTION_LENGTH } from '@/app/(builds)/_features/filters/build-misc-filter';
 
 export function limitToQualityBuilds(limitToQualityBuilds: boolean) {
   if (!limitToQualityBuilds) return Prisma.empty;

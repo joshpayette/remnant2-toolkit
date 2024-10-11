@@ -1,20 +1,20 @@
 'use client';
 
-import { Skeleton } from '@repo/ui';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 
 import { Pagination } from '@/app/_components/pagination';
+import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_constants/pagination';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';
 import { CreateBuildCard } from '@/app/(builds)/_components/create-build-card';
-import { DEFAULT_BUILD_FILTERS } from '@/app/(builds)/_components/filters/build-filters';
-import { BuildSecondaryFilters } from '@/app/(builds)/_components/filters/secondary-filters';
-import { useOrderByFilter } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
-import { useTimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
-import { type BuildListFilters } from '@/app/(builds)/_components/filters/types';
-import { parseUrlFilters } from '@/app/(builds)/_components/filters/utils';
+import { DEFAULT_BUILD_FILTERS } from '@/app/(builds)/_features/filters/build-filters';
+import { parseSearchParams } from '@/app/(builds)/_features/filters/parse-search-params';
+import { BuildSecondaryFilters } from '@/app/(builds)/_features/filters/secondary-filters';
+import { useOrderByFilter } from '@/app/(builds)/_features/filters/secondary-filters/order-by-filter/use-order-by-filter';
+import { useTimeRangeFilter } from '@/app/(builds)/_features/filters/secondary-filters/time-range-filter/use-time-range-filter';
+import { type BuildListFilters } from '@/app/(builds)/_features/filters/types';
 import { useBuildListState } from '@/app/(builds)/_hooks/use-build-list-state';
 import { CreatedBuildCardActions } from '@/app/(user)/profile/_components/created-build-card-actions';
 import { getUserCreatedBuilds } from '@/app/(user)/profile/[profileId]/created-builds/_actions/get-user-created-builds';
@@ -23,14 +23,14 @@ interface Props {
   buildFiltersOverrides?: Partial<BuildListFilters>;
   isEditable: boolean;
   profileId: string;
-  onToggleLoadingResults: (isLoading: boolean) => void;
+  onFiltersChange: () => void;
 }
 
 export function FeaturedBuildsList({
   buildFiltersOverrides,
   isEditable,
   profileId,
-  onToggleLoadingResults,
+  onFiltersChange,
 }: Props) {
   const defaultFilters = useMemo(() => {
     return buildFiltersOverrides
@@ -39,14 +39,14 @@ export function FeaturedBuildsList({
   }, [buildFiltersOverrides]);
 
   const searchParams = useSearchParams();
-  const [buildListFilters, setBuildListFilters] = useState(
-    parseUrlFilters(searchParams, defaultFilters),
-  );
+  const buildListFilters = parseSearchParams(searchParams, defaultFilters);
 
   const { buildListState, setBuildListState } = useBuildListState();
   const { builds, isLoading } = buildListState;
 
-  const itemsPerPage = isEditable ? 15 : 16;
+  const itemsPerPage = isEditable
+    ? DEFAULT_ITEMS_PER_PAGE - 1
+    : DEFAULT_ITEMS_PER_PAGE;
 
   const { orderBy, handleOrderByChange } = useOrderByFilter('newest');
   const { timeRange, handleTimeRangeChange } = useTimeRangeFilter('all-time');
@@ -66,18 +66,7 @@ export function FeaturedBuildsList({
   });
 
   useEffect(() => {
-    setBuildListFilters(parseUrlFilters(searchParams, defaultFilters));
-    setBuildListState((prevState) => ({ ...prevState, isLoading: true }));
-  }, [searchParams, defaultFilters, setBuildListState]);
-
-  useEffect(() => {
-    onToggleLoadingResults(isLoading);
-  }, [isLoading, onToggleLoadingResults]);
-
-  // Whenever loading is set to true, we should update the build items
-  useEffect(() => {
     const getItemsAsync = async () => {
-      if (!isLoading) return;
       const response = await getUserCreatedBuilds({
         buildListFilters,
         featuredBuildsOnly: true,
@@ -96,23 +85,14 @@ export function FeaturedBuildsList({
     };
     getItemsAsync();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoading]);
-
-  if (!buildListFilters) {
-    return <Skeleton className="min-h-[1100px] w-full" />;
-  }
+  }, []);
 
   return (
     <>
       <BuildList
-        currentPage={currentPage}
         isLoading={isLoading}
-        isWithQuality={buildListFilters.withQuality}
         label="Featured builds"
-        firstVisibleItemNumber={firstVisibleItemNumber}
-        lastVisibleItemNumber={lastVisibleItemNumber}
-        onPreviousPage={handlePreviousPageClick}
-        onNextPage={handleNextPageClick}
+        itemsOnThisPage={builds.length}
         pagination={
           <Pagination
             isLoading={isLoading}
@@ -121,9 +101,18 @@ export function FeaturedBuildsList({
             lastVisibleItemNumber={lastVisibleItemNumber}
             isNextPageDisabled={isNextPageDisabled}
             pageNumbers={pageNumbers}
-            onPreviousPage={handlePreviousPageClick}
-            onNextPage={handleNextPageClick}
-            onSpecificPage={handleSpecificPageClick}
+            onPreviousPage={() => {
+              handlePreviousPageClick();
+              onFiltersChange();
+            }}
+            onNextPage={() => {
+              handleNextPageClick();
+              onFiltersChange();
+            }}
+            onSpecificPage={(pageNumber: number) => {
+              handleSpecificPageClick(pageNumber);
+              onFiltersChange();
+            }}
           />
         }
         headerActions={

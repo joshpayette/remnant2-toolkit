@@ -4,13 +4,13 @@ import { Prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
 import { getBuildList } from '@/app/(builds)/_actions/get-build-list';
-import { type OrderBy } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
-import { type TimeRange } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
-import { limitByTimeConditionSegment } from '@/app/(builds)/_libs/build-filters/limit-by-time-condition';
+import { type OrderBy } from '@/app/(builds)/_features/filters/secondary-filters/order-by-filter/use-order-by-filter';
+import { type TimeRange } from '@/app/(builds)/_features/filters/secondary-filters/time-range-filter/use-time-range-filter';
+import { limitByTimeConditionSegment } from '@/app/(builds)/_features/filters/_libs/limit-by-time-condition';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
-import { getOrderBySegment } from '../_libs/build-filters/get-order-by';
+import { getOrderBySegment } from '../_features/filters/_libs/get-order-by';
 
 export type CreatedBuildsFilter = 'date created' | 'upvotes';
 
