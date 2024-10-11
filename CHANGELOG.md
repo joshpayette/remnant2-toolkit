@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-10-10
 
+### Changed
+
+- Secondary build filters (order by, time range) are now persisted to the URL, allowing these settings to be shared as well.
+
 ### Fixed
 
 - Fixed bug with user avatars not displaying correctly on profile.
