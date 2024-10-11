@@ -1,6 +1,6 @@
 import { Prisma } from '@repo/db';
 
-import { type TimeRange } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
+import { type TimeRange } from '@/app/(builds)/_features/filters/secondary-filters/time-range-filter/use-time-range-filter';
 
 function formatDateToMySQL(date: Date): string {
   return date.toISOString().slice(0, 19).replace('T', ' ');

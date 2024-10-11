@@ -3,11 +3,11 @@
 import { Prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
-import { limitToQualityBuilds } from '@/app/(builds)/_libs/build-filters/limit-by-quality';
+import { limitToQualityBuilds } from '@/app/(builds)/_features/filters/_libs/limit-by-quality';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
-import { getOrderBySegment } from '../_libs/build-filters/get-order-by';
+import { getOrderBySegment } from '../_features/filters/_libs/get-order-by';
 import { getBuildList } from './get-build-list';
 
 export async function getQualityBuildFeed(): Promise<{

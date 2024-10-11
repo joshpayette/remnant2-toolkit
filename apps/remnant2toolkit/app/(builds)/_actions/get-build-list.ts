@@ -2,8 +2,8 @@
 
 import { type Prisma, prisma } from '@repo/db';
 
-import { type PercentageOwned } from '@/app/(builds)/_components/filters/build-collection-filter';
-import { communityBuildsQuery } from '@/app/(builds)/_libs/build-filters/community-builds';
+import { type PercentageOwned } from '@/app/(builds)/_features/filters/build-collection-filter';
+import { communityBuildsQuery } from '@/app/(builds)/_features/filters/_libs/community-builds';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
 export async function getBuildList({

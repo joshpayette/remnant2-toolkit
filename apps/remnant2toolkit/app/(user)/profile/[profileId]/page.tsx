@@ -2,7 +2,7 @@ import { Prisma, prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
 import { BuildCard } from '@/app/(builds)/_components/build-card';
-import { communityBuildsQuery } from '@/app/(builds)/_libs/build-filters/community-builds';
+import { communityBuildsQuery } from '@/app/(builds)/_features/filters/_libs/community-builds';
 
 export const maxDuration = 60;
 

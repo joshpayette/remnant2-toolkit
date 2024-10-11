@@ -1,28 +1,28 @@
 import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@repo/ui';
 
 import {
-  type OrderBy,
-  useOrderByFilter,
-} from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
+  type TimeRange,
+  useTimeRangeFilter,
+} from '@/app/(builds)/_features/filters/secondary-filters/time-range-filter/use-time-range-filter';
 
 interface Props {
   isLoading: boolean;
-  value: OrderBy;
-  onChange: (value: OrderBy) => void;
+  value: TimeRange;
+  onChange: (value: TimeRange) => void;
 }
 
-export function OrderByFilter({ isLoading, value, onChange }: Props) {
-  const { orderByOptions } = useOrderByFilter();
+export function TimeRangeFilter({ isLoading, value, onChange }: Props) {
+  const { timeRangeOptions } = useTimeRangeFilter();
 
   return (
     <BaseListbox
       key={value}
-      name="orderBy"
+      name="timeRange"
       value={value}
       disabled={isLoading}
       onChange={onChange}
     >
-      {orderByOptions.map(({ label, value }) => (
+      {timeRangeOptions.map(({ label, value }) => (
         <BaseListboxOption key={value} value={value}>
           <BaseListboxLabel>{label}</BaseListboxLabel>
         </BaseListboxOption>

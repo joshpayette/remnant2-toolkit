@@ -7,7 +7,6 @@ import {
   BaseTextarea,
   EditIcon,
 } from '@repo/ui';
-import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -31,14 +30,12 @@ export function ProfileHeader({
   isEditable,
   profileId,
 }: Props) {
-  const { data: sessionData } = useSession();
-
   const [isEditing, setIsEditing] = useState(false);
   const [newDisplayName, setNewDisplayName] = useState(displayName);
   const [newBio, setNewBio] = useState(bio);
 
   const [newAvatarId, setNewAvatarId] = useState(avatarId);
-  const avatar = getAvatarById(newAvatarId, sessionData?.user?.id);
+  const avatar = getAvatarById(newAvatarId, profileId);
 
   const [isAvatarSelectDialogOpen, setIsAvatarSelectDialogOpen] =
     useState(false);

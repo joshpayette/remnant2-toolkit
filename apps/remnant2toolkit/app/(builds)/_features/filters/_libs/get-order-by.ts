@@ -1,6 +1,6 @@
 import { Prisma } from '@repo/db';
 
-import { type OrderBy } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
+import { type OrderBy } from '@/app/(builds)/_features/filters/secondary-filters/order-by-filter/use-order-by-filter';
 
 export function getOrderBySegment(
   orderBy: OrderBy,
