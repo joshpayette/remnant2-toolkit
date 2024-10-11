@@ -18,7 +18,7 @@ import { useOrderByFilter } from '@/app/(builds)/_components/filters/secondary-f
 import { TimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter';
 import { useTimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
 import { type BuildListFilters } from '@/app/(builds)/_components/filters/types';
-import { parseUrlFilters } from '@/app/(builds)/_components/filters/utils';
+import { parseUrlFilters } from '@/app/(builds)/_components/filters/parse-search-params';
 import { useBuildListState } from '@/app/(builds)/_hooks/use-build-list-state';
 import { CreatedBuildCardActions } from '@/app/(user)/profile/_components/created-build-card-actions';
 import { getUserCreatedBuilds } from '@/app/(user)/profile/[profileId]/created-builds/_actions/get-user-created-builds';

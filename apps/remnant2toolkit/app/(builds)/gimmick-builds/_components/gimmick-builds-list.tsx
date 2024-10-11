@@ -12,7 +12,7 @@ import { BuildList } from '@/app/(builds)/_components/build-list';
 import { BuildSecondaryFilters } from '@/app/(builds)/_components/filters/secondary-filters';
 import { useOrderByFilter } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
 import { useTimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
-import { parseUrlFilters } from '@/app/(builds)/_components/filters/utils';
+import { parseUrlFilters } from '@/app/(builds)/_components/filters/parse-search-params';
 import { useBuildListState } from '@/app/(builds)/_hooks/use-build-list-state';
 import { getGimmickBuilds } from '@/app/(builds)/gimmick-builds/_actions/get-gimmick-builds';
 

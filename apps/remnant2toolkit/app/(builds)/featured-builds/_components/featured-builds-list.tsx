@@ -9,10 +9,10 @@ import { Tooltip } from '@/app/_components/tooltip';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';
+import { parseSearchParams } from '@/app/(builds)/_components/filters/parse-search-params';
 import { BuildSecondaryFilters } from '@/app/(builds)/_components/filters/secondary-filters';
 import { useOrderByFilter } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
 import { useTimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
-import { parseUrlFilters } from '@/app/(builds)/_components/filters/utils';
 import { useBuildListState } from '@/app/(builds)/_hooks/use-build-list-state';
 import { getFeaturedBuilds } from '@/app/(builds)/featured-builds/_actions/get-featured-builds';
 
@@ -26,9 +26,7 @@ export function FeaturedBuildsList({
   onToggleLoadingResults,
 }: Props) {
   const searchParams = useSearchParams();
-  const [buildListFilters, setBuildListFilters] = useState(
-    parseUrlFilters(searchParams),
-  );
+  const buildListFilters = parseSearchParams(searchParams);
 
   const { buildListState, setBuildListState } = useBuildListState();
   const { builds, isLoading } = buildListState;
@@ -53,18 +51,12 @@ export function FeaturedBuildsList({
   });
 
   useEffect(() => {
-    setBuildListFilters(parseUrlFilters(searchParams));
-    setBuildListState((prevState) => ({ ...prevState, isLoading: true }));
-  }, [searchParams, setBuildListState]);
-
-  useEffect(() => {
     onToggleLoadingResults(isLoading);
   }, [isLoading, onToggleLoadingResults]);
 
   // Whenever loading is set to true, we should update the build items
   useEffect(() => {
     const getItemsAsync = async () => {
-      if (!isLoading) return;
       const response = await getFeaturedBuilds({
         itemsPerPage,
         pageNumber: currentPage,
@@ -80,7 +72,7 @@ export function FeaturedBuildsList({
     };
     getItemsAsync();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoading]);
+  }, []);
 
   if (!buildListFilters) {
     return <Skeleton className="min-h-[1100px] w-full" />;

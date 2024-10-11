@@ -16,7 +16,7 @@ import { relicItems } from '@/app/(items)/_constants/relic-items';
 import { ringItems } from '@/app/(items)/_constants/ring-items';
 import { weaponItems } from '@/app/(items)/_constants/weapon-items';
 
-export function parseUrlFilters(
+export function parseSearchParams(
   searchParams: ReadonlyURLSearchParams,
   defaultFilters: BuildListFilters = DEFAULT_BUILD_FILTERS,
 ): BuildListFilters {

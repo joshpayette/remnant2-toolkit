@@ -37,6 +37,7 @@ import {
 import { HandGunFilter } from '@/app/(builds)/_components/filters/hand-gun-filter';
 import { LongGunFilter } from '@/app/(builds)/_components/filters/long-gun-filter';
 import { MeleeFilter } from '@/app/(builds)/_components/filters/melee-filter';
+import { parseSearchParams } from '@/app/(builds)/_components/filters/parse-search-params';
 import { RelicFilter } from '@/app/(builds)/_components/filters/relic-filter';
 import { RingFilter } from '@/app/(builds)/_components/filters/ring-filter';
 import {
@@ -44,7 +45,6 @@ import {
   type BuildListFilters,
   MAX_RINGS,
 } from '@/app/(builds)/_components/filters/types';
-import { parseUrlFilters } from '@/app/(builds)/_components/filters/utils';
 import { QualityBuildDialog } from '@/app/(builds)/_components/quality-build-dialog';
 
 export const DEFAULT_BUILD_FILTERS = {
@@ -68,11 +68,16 @@ export const DEFAULT_BUILD_FILTERS = {
 interface Props {
   buildFiltersOverrides?: Partial<BuildListFilters>;
   loadingResults: boolean;
+  onFiltersChange: () => void;
 }
 
 // #region Component
 
-export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
+export function BuildFilters({
+  buildFiltersOverrides,
+  loadingResults,
+  onFiltersChange,
+}: Props) {
   const { status: sessionStatus } = useSession();
 
   const defaultFilters = useMemo(() => {
@@ -83,7 +88,7 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
 
   const searchParams = useSearchParams();
   const filters = useMemo(() => {
-    return parseUrlFilters(searchParams, defaultFilters);
+    return parseSearchParams(searchParams, defaultFilters);
   }, [searchParams, defaultFilters]);
 
   const [unappliedFilters, setUnappliedFilters] = useState(filters);
@@ -113,11 +118,13 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
   function applyUrlFilters(filtersToApply: BuildListFilters) {
     if (loadingResults) return;
 
-    let url = `${pathname}?t=${Date.now()}&`;
+    const params = new URLSearchParams();
+
+    params.append('t', Date.now().toString());
 
     // Add the amulet filter
     if (filtersToApply.amulet !== defaultFilters.amulet) {
-      url += `${BUILD_FILTER_KEYS.AMULET}=${filtersToApply.amulet}&`;
+      params.append(BUILD_FILTER_KEYS.AMULET, filtersToApply.amulet);
     }
 
     // Add the archetype filter
@@ -125,9 +132,10 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
       !isEqual(filtersToApply, defaultFilters.archetypes) &&
       filtersToApply.archetypes.length !== VALID_ARCHETYPES.length
     ) {
-      url += `${BUILD_FILTER_KEYS.ARCHETYPES}=${filtersToApply.archetypes.join(
-        ',',
-      )}&`;
+      params.append(
+        BUILD_FILTER_KEYS.ARCHETYPES,
+        filtersToApply.archetypes.join(','),
+      );
     }
 
     // Add the build tag filters
@@ -135,9 +143,10 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
       !isEqual(filtersToApply.buildTags, defaultFilters.buildTags) &&
       filtersToApply.buildTags.length !== VALID_BUILD_TAGS.length
     ) {
-      url += `${BUILD_FILTER_KEYS.BUILDTAGS}=${filtersToApply.buildTags.join(
-        ',',
-      )}&`;
+      params.append(
+        BUILD_FILTER_KEYS.BUILDTAGS,
+        filtersToApply.buildTags.join(','),
+      );
     }
 
     // Add the long gun filters
@@ -145,7 +154,7 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
       filtersToApply.longGun !== defaultFilters.longGun &&
       filtersToApply.longGun !== DEFAULT_FILTER
     ) {
-      url += `${BUILD_FILTER_KEYS.LONGGUN}=${filtersToApply.longGun}&`;
+      params.append(BUILD_FILTER_KEYS.LONGGUN, filtersToApply.longGun);
     }
 
     // Add the hand gun filters
@@ -153,7 +162,7 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
       filtersToApply.handGun !== defaultFilters.handGun &&
       filtersToApply.handGun !== DEFAULT_FILTER
     ) {
-      url += `${BUILD_FILTER_KEYS.HANDGUN}=${filtersToApply.handGun}&`;
+      params.append(BUILD_FILTER_KEYS.HANDGUN, filtersToApply.handGun);
     }
 
     // Add the melee filters
@@ -161,7 +170,7 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
       filtersToApply.melee !== defaultFilters.melee &&
       filtersToApply.melee !== DEFAULT_FILTER
     ) {
-      url += `${BUILD_FILTER_KEYS.MELEE}=${filtersToApply.melee}&`;
+      params.append(BUILD_FILTER_KEYS.MELEE, filtersToApply.melee);
     }
 
     // Add the releases filters
@@ -169,14 +178,15 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
       !isEqual(filtersToApply.releases, defaultFilters.releases) &&
       filtersToApply.releases.length !== VALID_RELEASE_KEYS.length
     ) {
-      url += `${BUILD_FILTER_KEYS.RELEASES}=${filtersToApply.releases.join(
-        ',',
-      )}&`;
+      params.append(
+        BUILD_FILTER_KEYS.RELEASES,
+        filtersToApply.releases.join(','),
+      );
     }
 
     // Add the relic filter
     if (filtersToApply.relic !== defaultFilters.relic) {
-      url += `${BUILD_FILTER_KEYS.RELIC}=${filtersToApply.relic}&`;
+      params.append(BUILD_FILTER_KEYS.RELIC, filtersToApply.relic);
     }
 
     // Add the ring filters
@@ -184,38 +194,49 @@ export function BuildFilters({ buildFiltersOverrides, loadingResults }: Props) {
       !isEqual(filtersToApply.rings, defaultFilters.rings) &&
       !filtersToApply.rings.includes(DEFAULT_FILTER)
     ) {
-      url += `${BUILD_FILTER_KEYS.RINGS}=${filtersToApply.rings.join(',')}&`;
+      params.append(BUILD_FILTER_KEYS.RINGS, filtersToApply.rings.join(','));
     }
 
     // Add the search text
     if (filtersToApply.searchText !== defaultFilters.searchText) {
-      url += `${BUILD_FILTER_KEYS.SEARCHTEXT}=${filtersToApply.searchText}&`;
+      params.append(BUILD_FILTER_KEYS.SEARCHTEXT, filtersToApply.searchText);
     }
 
     // Add the misc filters
     if (filtersToApply.patchAffected !== defaultFilters.patchAffected) {
-      url += `${BUILD_FILTER_KEYS.PATCHAFFECTED}=${filtersToApply.patchAffected}&`;
+      params.append(
+        BUILD_FILTER_KEYS.PATCHAFFECTED,
+        filtersToApply.patchAffected.toString(),
+      );
     }
     if (filtersToApply.withVideo !== defaultFilters.withVideo) {
-      url += `${BUILD_FILTER_KEYS.WITHVIDEO}=${filtersToApply.withVideo}&`;
+      params.append(
+        BUILD_FILTER_KEYS.WITHVIDEO,
+        filtersToApply.withVideo.toString(),
+      );
     }
     if (filtersToApply.withReference !== defaultFilters.withReference) {
-      url += `${BUILD_FILTER_KEYS.WITHREFERENCE}=${filtersToApply.withReference}&`;
+      params.append(
+        BUILD_FILTER_KEYS.WITHREFERENCE,
+        filtersToApply.withReference.toString(),
+      );
     }
     if (filtersToApply.withQuality !== defaultFilters.withQuality) {
-      url += `${BUILD_FILTER_KEYS.WITHQUALITY}=${filtersToApply.withQuality}&`;
+      params.append(
+        BUILD_FILTER_KEYS.WITHQUALITY,
+        filtersToApply.withQuality.toString(),
+      );
     }
 
     if (filtersToApply.withCollection !== defaultFilters.withCollection) {
-      url += `${BUILD_FILTER_KEYS.WITHCOLLECTION}=${filtersToApply.withCollection}&`;
+      params.append(
+        BUILD_FILTER_KEYS.WITHCOLLECTION,
+        filtersToApply.withCollection.toString(),
+      );
     }
 
-    // trim the final &
-    if (url.endsWith('&')) {
-      url = url.slice(0, -1);
-    }
-
-    router.push(url, { scroll: false });
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    onFiltersChange();
   }
 
   // #region Filter Change Handlers
