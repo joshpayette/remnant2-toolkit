@@ -38,7 +38,7 @@ export function ProfileHeader({
   const [newBio, setNewBio] = useState(bio);
 
   const [newAvatarId, setNewAvatarId] = useState(avatarId);
-  const avatar = getAvatarById(newAvatarId, sessionData?.user?.id);
+  const avatar = getAvatarById(newAvatarId, profileId);
 
   const [isAvatarSelectDialogOpen, setIsAvatarSelectDialogOpen] =
     useState(false);
