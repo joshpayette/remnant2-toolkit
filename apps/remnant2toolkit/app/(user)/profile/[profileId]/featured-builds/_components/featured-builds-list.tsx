@@ -125,9 +125,17 @@ export function FeaturedBuildsList({
                 ...prevState,
                 isLoading: true,
               }));
+              onFiltersChange();
             }}
             timeRange={timeRange}
-            onTimeRangeChange={handleTimeRangeChange}
+            onTimeRangeChange={() => {
+              handleTimeRangeChange(timeRange);
+              setBuildListState((prevState) => ({
+                ...prevState,
+                isLoading: true,
+              }));
+              onFiltersChange();
+            }}
           />
         }
       >
