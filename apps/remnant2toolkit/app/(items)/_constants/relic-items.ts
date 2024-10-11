@@ -117,7 +117,11 @@ export const relicItems: RelicItem[] = [
     dlc: 'dlc3',
     description: `Innate base Evade Window Frames increased by 1. On use, increases Evade Window Bonus Frames by an additional 2 for 15s.`,
     wikiLinks: [`https://remnant.wiki/Gossamer_Heart`],
-    location: { world: `N'Erud`, dungeon: ['Detritus Foundry'] },
+    location: {
+      world: `N'Erud`,
+      biome: `Towers of N'Erud`,
+      injectable: `Crop Lab`,
+    },
   },
   {
     category: 'relic',

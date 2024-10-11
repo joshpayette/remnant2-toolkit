@@ -616,7 +616,11 @@ export const mutatorItems: MutatorItem[] = [
     description: `Each enemy hit by Primary Fire grants 1 stack of REPERCUSSION, increasing Ranged Damage by 3% per stack. Max 5 stacks. Shots consume stacks.`,
     maxLevelBonus: `Increases this weapon's Critical Chance by 3% per stack of REPERCUSSION.`,
     wikiLinks: [`https://remnant.wiki/Repercussion`],
-    location: { world: `N'Erud`, dungeon: [] }, // TODO
+    location: {
+      world: `N'Erud`,
+      biome: `Towers of N'Erud`,
+      injectable: 'Crop Lab',
+    },
   },
   {
     category: 'mutator',
