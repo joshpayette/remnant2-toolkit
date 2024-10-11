@@ -13,6 +13,7 @@ import isEqual from 'lodash.isequal';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { useMemo, useState } from 'react';
+import { useIsClient } from 'usehooks-ts';
 
 import { InputWithClear } from '@/app/_components/input-with-clear';
 import {
@@ -47,6 +48,56 @@ import {
 } from '@/app/(builds)/_components/filters/types';
 import { QualityBuildDialog } from '@/app/(builds)/_components/quality-build-dialog';
 
+function NonQualityBuildsBox({
+  isWithQuality,
+  onFiltersChange,
+}: {
+  isWithQuality: boolean;
+  onFiltersChange: () => void;
+}) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const isClient = useIsClient();
+
+  const [qualityBuildDialogOpen, setQualityBuildDialogOpen] = useState(false);
+
+  const params = new URLSearchParams();
+  params.append('withQuality', isWithQuality ? 'false' : 'true');
+
+  const label = isWithQuality
+    ? 'Not seeing enough builds?'
+    : 'Too many builds?';
+
+  const label2 = isWithQuality ? 'remove' : 'apply';
+
+  if (!isClient) {
+    return null;
+  }
+
+  return (
+    <div className="mt-8 flex w-full flex-col items-center justify-center sm:mt-4">
+      <QualityBuildDialog
+        open={qualityBuildDialogOpen}
+        onClose={() => setQualityBuildDialogOpen(false)}
+      />
+      <BaseButton
+        color="violet"
+        onClick={() => {
+          router.push(`${pathname}?${params.toString()}`, { scroll: false });
+          onFiltersChange();
+        }}
+        className="flex flex-col"
+      >
+        <strong>{label}</strong>
+        <span>Click to {label2} the Quality Build filter!</span>
+      </BaseButton>
+      <BaseButton plain onClick={() => setQualityBuildDialogOpen(true)}>
+        What makes a Quality Build?
+      </BaseButton>
+    </div>
+  );
+}
+
 export const DEFAULT_BUILD_FILTERS = {
   archetypes: VALID_ARCHETYPES,
   amulet: DEFAULT_FILTER,
@@ -67,7 +118,6 @@ export const DEFAULT_BUILD_FILTERS = {
 
 interface Props {
   buildFiltersOverrides?: Partial<BuildListFilters>;
-  loadingResults: boolean;
   onFiltersChange: () => void;
 }
 
@@ -75,7 +125,6 @@ interface Props {
 
 export function BuildFilters({
   buildFiltersOverrides,
-  loadingResults,
   onFiltersChange,
 }: Props) {
   const { status: sessionStatus } = useSession();
@@ -116,8 +165,6 @@ export function BuildFilters({
   const router = useRouter();
 
   function applyUrlFilters(filtersToApply: BuildListFilters) {
-    if (loadingResults) return;
-
     const params = new URLSearchParams();
 
     params.append('t', Date.now().toString());
@@ -388,208 +435,218 @@ export function BuildFilters({
   // #region Render
 
   return (
-    <Disclosure defaultOpen={true}>
-      {({ open }) => (
-        <div className="w-full">
-          <div className="border-b-primary-500 flex w-full flex-row items-end justify-end border-b py-2">
-            <div className="w-full pr-4">
-              <BaseField className="col-span-full sm:col-span-2">
-                <div className="w-full max-w-[600px]">
-                  <InputWithClear
-                    disabled={loadingResults}
-                    type="text"
-                    value={unappliedFilters.searchText}
-                    placeholder="Build name, description, or creator"
-                    onClear={() => {
-                      const newFilters = {
-                        ...unappliedFilters,
-                        searchText: '',
-                      };
-                      setUnappliedFilters(newFilters);
-                      applyUrlFilters(newFilters);
-                    }}
-                    onChange={(e) => handleSearchTextChange(e.target.value)}
-                    onKeyDown={(e) => {
-                      // If the user presses enter, apply the filters
-                      if (e.key === 'Enter') {
-                        applyUrlFilters(unappliedFilters);
-                      }
-                    }}
-                  />
-                </div>
-              </BaseField>
+    <div className="flex flex-col gap-y-8">
+      <Disclosure defaultOpen={true}>
+        {({ open }) => (
+          <div className="w-full">
+            <div className="border-b-primary-500 flex w-full flex-row items-end justify-end border-b py-2">
+              <div className="w-full pr-4">
+                <BaseField className="col-span-full sm:col-span-2">
+                  <div className="w-full max-w-[600px]">
+                    <InputWithClear
+                      type="text"
+                      value={unappliedFilters.searchText}
+                      placeholder="Build name, description, or creator"
+                      onClear={() => {
+                        const newFilters = {
+                          ...unappliedFilters,
+                          searchText: '',
+                        };
+                        setUnappliedFilters(newFilters);
+                        applyUrlFilters(newFilters);
+                      }}
+                      onChange={(e) => handleSearchTextChange(e.target.value)}
+                      onKeyDown={(e) => {
+                        // If the user presses enter, apply the filters
+                        if (e.key === 'Enter') {
+                          applyUrlFilters(unappliedFilters);
+                        }
+                      }}
+                    />
+                  </div>
+                </BaseField>
+              </div>
+              <Disclosure.Button as={BaseButton}>
+                <FilterIcon className="h-4 w-4" />
+                {open ? 'Hide' : 'Show'}
+              </Disclosure.Button>
             </div>
-            <Disclosure.Button as={BaseButton}>
-              <FilterIcon className="h-4 w-4" />
-              {open ? 'Hide' : 'Show'}
-            </Disclosure.Button>
-          </div>
-          <Disclosure.Panel
-            className={cn(
-              'border-primary-500 mt-2 w-full border bg-gray-950 p-4',
-              areAnyFiltersActive &&
-                'border-accent1-300 shadow-accent1-600 shadow-xl',
-            )}
-          >
-            <BaseFieldset>
-              <BaseFieldGroup>
-                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4 md:grid-cols-4 lg:grid-cols-6">
-                  <div className="col-span-full md:col-span-3">
-                    <ArchetypeFilter
-                      values={unappliedFilters.archetypes}
-                      onChange={handleArchetypeChange}
-                      onCheckAll={() => {
-                        const newFilters = {
-                          ...unappliedFilters,
-                          archetypes: VALID_ARCHETYPES,
-                        };
-                        setUnappliedFilters(newFilters);
-                      }}
-                      onUncheckAll={() => {
-                        const newFilters = {
-                          ...unappliedFilters,
-                          archetypes: [],
-                        };
-                        setUnappliedFilters(newFilters);
-                      }}
-                    />
-                  </div>
-                  <div className="col-span-full flex flex-col gap-y-8 sm:col-span-1 sm:gap-y-2">
-                    <AmuletFilter
-                      value={unappliedFilters.amulet}
-                      onChange={handleAmuletChange}
-                    />
-                    <RingFilter
-                      value={unappliedFilters.rings}
-                      onChange={handleRingChange}
-                    />
-                    <RelicFilter
-                      value={unappliedFilters.relic}
-                      onChange={handleRelicChange}
-                    />
-                  </div>
-                  <div className="col-span-full flex flex-col gap-y-8 sm:col-span-1 sm:gap-y-2">
-                    <LongGunFilter
-                      value={unappliedFilters.longGun}
-                      onChange={handleLongGunChange}
-                    />
-                    <MeleeFilter
-                      value={unappliedFilters.melee}
-                      onChange={handleMeleeChange}
-                    />
-                  </div>
-                  <div className="col-span-full sm:col-span-1">
-                    <HandGunFilter
-                      value={unappliedFilters.handGun}
-                      onChange={handleHandGunChange}
-                    />
-                  </div>
-                  <div className="col-span-full sm:col-span-1 md:col-span-2">
-                    <ReleasesFilter
-                      values={unappliedFilters.releases}
-                      onChange={handleReleasesChange}
-                      onCheckAll={() => {
-                        const newFilters = {
-                          ...unappliedFilters,
-                          releases: VALID_RELEASE_KEYS,
-                        };
-                        setUnappliedFilters(newFilters);
-                      }}
-                      onUncheckAll={() => {
-                        const newFilters = {
-                          ...unappliedFilters,
-                          releases: [],
-                        };
-                        setUnappliedFilters(newFilters);
-                      }}
-                    />
-                  </div>
-                  <div className="col-span-full md:col-span-2">
-                    <BuildTagFilter
-                      values={unappliedFilters.buildTags}
-                      onChange={handleBuildTagChange}
-                      onCheckAll={() => {
-                        const newFilters = {
-                          ...unappliedFilters,
-                          buildTags: VALID_BUILD_TAGS,
-                        };
-                        setUnappliedFilters(newFilters);
-                      }}
-                      onUncheckAll={() => {
-                        const newFilters = {
-                          ...unappliedFilters,
-                          buildTags: [],
-                        };
-                        setUnappliedFilters(newFilters);
-                      }}
-                    />
-                  </div>
-                  <div className="col-span-full sm:col-span-1 md:col-span-2">
-                    <QualityBuildDialog
-                      open={qualityBuildDialogOpen}
-                      onClose={() => setQualityBuildDialogOpen(false)}
-                    />
-                    <BuildMiscFilter
-                      value={[
-                        unappliedFilters.patchAffected
-                          ? BUILD_FILTER_KEYS.PATCHAFFECTED
-                          : '',
-                        unappliedFilters.withQuality
-                          ? BUILD_FILTER_KEYS.WITHQUALITY
-                          : '',
-                        unappliedFilters.withVideo
-                          ? BUILD_FILTER_KEYS.WITHVIDEO
-                          : '',
-                        unappliedFilters.withReference
-                          ? BUILD_FILTER_KEYS.WITHREFERENCE
-                          : '',
-                      ]}
-                      onChange={handleMiscFilterChange}
-                    />
-                    <div className="my-2">
-                      <BuildCollectionFilter
-                        value={unappliedFilters.withCollection}
-                        onChange={handleCollectionChange}
+            <Disclosure.Panel
+              className={cn(
+                'border-primary-500 mt-2 w-full border bg-gray-950 p-4',
+                areAnyFiltersActive &&
+                  'border-accent1-300 shadow-accent1-600 shadow-xl',
+              )}
+            >
+              <BaseFieldset>
+                <BaseFieldGroup>
+                  <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4 md:grid-cols-4 lg:grid-cols-6">
+                    <div className="col-span-full md:col-span-3">
+                      <ArchetypeFilter
+                        values={unappliedFilters.archetypes}
+                        onChange={handleArchetypeChange}
+                        onCheckAll={() => {
+                          const newFilters = {
+                            ...unappliedFilters,
+                            archetypes: VALID_ARCHETYPES,
+                          };
+                          setUnappliedFilters(newFilters);
+                        }}
+                        onUncheckAll={() => {
+                          const newFilters = {
+                            ...unappliedFilters,
+                            archetypes: [],
+                          };
+                          setUnappliedFilters(newFilters);
+                        }}
                       />
                     </div>
-                    {unappliedFilters.withQuality ? (
-                      <BaseButton
-                        plain
-                        onClick={() => setQualityBuildDialogOpen(true)}
-                      >
-                        What makes a Quality Build?
-                      </BaseButton>
-                    ) : null}
-                    {unappliedFilters.withCollection ? (
-                      <div className="flex flex-col gap-y-2">
-                        {sessionStatus !== 'authenticated' ? (
-                          <p className="text-accent1-500 text-sm">
-                            If you are not logged in, the "Owned Items Filter"
-                            filter will not work.
-                          </p>
-                        ) : null}
+                    <div className="col-span-full flex flex-col gap-y-8 sm:col-span-1 sm:gap-y-2">
+                      <AmuletFilter
+                        value={unappliedFilters.amulet}
+                        onChange={handleAmuletChange}
+                      />
+                      <RingFilter
+                        value={unappliedFilters.rings}
+                        onChange={handleRingChange}
+                      />
+                      <RelicFilter
+                        value={unappliedFilters.relic}
+                        onChange={handleRelicChange}
+                      />
+                    </div>
+                    <div className="col-span-full flex flex-col gap-y-8 sm:col-span-1 sm:gap-y-2">
+                      <LongGunFilter
+                        value={unappliedFilters.longGun}
+                        onChange={handleLongGunChange}
+                      />
+                      <MeleeFilter
+                        value={unappliedFilters.melee}
+                        onChange={handleMeleeChange}
+                      />
+                    </div>
+                    <div className="col-span-full sm:col-span-1">
+                      <HandGunFilter
+                        value={unappliedFilters.handGun}
+                        onChange={handleHandGunChange}
+                      />
+                    </div>
+                    <div className="col-span-full sm:col-span-1 md:col-span-2">
+                      <ReleasesFilter
+                        values={unappliedFilters.releases}
+                        onChange={handleReleasesChange}
+                        onCheckAll={() => {
+                          const newFilters = {
+                            ...unappliedFilters,
+                            releases: VALID_RELEASE_KEYS,
+                          };
+                          setUnappliedFilters(newFilters);
+                        }}
+                        onUncheckAll={() => {
+                          const newFilters = {
+                            ...unappliedFilters,
+                            releases: [],
+                          };
+                          setUnappliedFilters(newFilters);
+                        }}
+                      />
+                    </div>
+                    <div className="col-span-full md:col-span-2">
+                      <BuildTagFilter
+                        values={unappliedFilters.buildTags}
+                        onChange={handleBuildTagChange}
+                        onCheckAll={() => {
+                          const newFilters = {
+                            ...unappliedFilters,
+                            buildTags: VALID_BUILD_TAGS,
+                          };
+                          setUnappliedFilters(newFilters);
+                        }}
+                        onUncheckAll={() => {
+                          const newFilters = {
+                            ...unappliedFilters,
+                            buildTags: [],
+                          };
+                          setUnappliedFilters(newFilters);
+                        }}
+                      />
+                    </div>
+                    <div className="col-span-full sm:col-span-1 md:col-span-2">
+                      <QualityBuildDialog
+                        open={qualityBuildDialogOpen}
+                        onClose={() => setQualityBuildDialogOpen(false)}
+                      />
+                      <BuildMiscFilter
+                        value={[
+                          unappliedFilters.patchAffected
+                            ? BUILD_FILTER_KEYS.PATCHAFFECTED
+                            : '',
+                          unappliedFilters.withQuality
+                            ? BUILD_FILTER_KEYS.WITHQUALITY
+                            : '',
+                          unappliedFilters.withVideo
+                            ? BUILD_FILTER_KEYS.WITHVIDEO
+                            : '',
+                          unappliedFilters.withReference
+                            ? BUILD_FILTER_KEYS.WITHREFERENCE
+                            : '',
+                        ]}
+                        onChange={handleMiscFilterChange}
+                      />
+                      <div className="my-2">
+                        <BuildCollectionFilter
+                          value={unappliedFilters.withCollection}
+                          onChange={handleCollectionChange}
+                        />
                       </div>
-                    ) : null}
+                      {unappliedFilters.withQuality ? (
+                        <BaseButton
+                          plain
+                          onClick={() => setQualityBuildDialogOpen(true)}
+                        >
+                          What makes a Quality Build?
+                        </BaseButton>
+                      ) : null}
+                      {unappliedFilters.withCollection ? (
+                        <div className="flex flex-col gap-y-2">
+                          {sessionStatus !== 'authenticated' ? (
+                            <p className="text-accent1-500 text-sm">
+                              If you are not logged in, the "Owned Items Filter"
+                              filter will not work.
+                            </p>
+                          ) : null}
+                        </div>
+                      ) : null}
+                    </div>
                   </div>
-                </div>
-                <div className="flex w-full items-center justify-end gap-x-4">
-                  <BaseButton color="red" onClick={clearFilters}>
-                    Clear Filters
-                  </BaseButton>
-                  <BaseButton
-                    color="green"
-                    onClick={() => applyUrlFilters(unappliedFilters)}
-                    className={cn(!areFiltersApplied && 'animate-pulse')}
-                    disabled={loadingResults}
-                  >
-                    Apply Filters
-                  </BaseButton>
-                </div>
-              </BaseFieldGroup>
-            </BaseFieldset>
-          </Disclosure.Panel>
-        </div>
-      )}
-    </Disclosure>
+                  <div className="flex w-full items-center justify-end gap-x-4">
+                    <BaseButton color="red" onClick={clearFilters}>
+                      Clear Filters
+                    </BaseButton>
+                    <BaseButton
+                      color="green"
+                      onClick={() => applyUrlFilters(unappliedFilters)}
+                      className={cn(!areFiltersApplied && 'animate-pulse')}
+                    >
+                      Apply Filters
+                    </BaseButton>
+                  </div>
+                </BaseFieldGroup>
+              </BaseFieldset>
+            </Disclosure.Panel>
+          </div>
+        )}
+      </Disclosure>
+      <NonQualityBuildsBox
+        isWithQuality={unappliedFilters.withQuality}
+        onFiltersChange={() => {
+          setUnappliedFilters((prev) => ({
+            ...prev,
+            withQuality: !prev.withQuality,
+          }));
+          onFiltersChange();
+        }}
+      />
+    </div>
   );
 }

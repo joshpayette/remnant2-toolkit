@@ -1,11 +1,12 @@
 'use client';
 
-import { BaseLink, EyeIcon, Skeleton } from '@repo/ui';
+import { BaseLink, EyeIcon } from '@repo/ui';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import { Pagination } from '@/app/_components/pagination';
 import { Tooltip } from '@/app/_components/tooltip';
+import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_constants/pagination';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';
@@ -18,12 +19,12 @@ import { getFeaturedBuilds } from '@/app/(builds)/featured-builds/_actions/get-f
 
 interface Props {
   itemsPerPage?: number;
-  onToggleLoadingResults: (isLoading: boolean) => void;
+  onFiltersChange: () => void;
 }
 
 export function FeaturedBuildsList({
-  itemsPerPage = 8,
-  onToggleLoadingResults,
+  itemsPerPage = DEFAULT_ITEMS_PER_PAGE,
+  onFiltersChange,
 }: Props) {
   const searchParams = useSearchParams();
   const buildListFilters = parseSearchParams(searchParams);
@@ -51,11 +52,6 @@ export function FeaturedBuildsList({
   });
 
   useEffect(() => {
-    onToggleLoadingResults(isLoading);
-  }, [isLoading, onToggleLoadingResults]);
-
-  // Whenever loading is set to true, we should update the build items
-  useEffect(() => {
     const getItemsAsync = async () => {
       const response = await getFeaturedBuilds({
         itemsPerPage,
@@ -74,20 +70,11 @@ export function FeaturedBuildsList({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (!buildListFilters) {
-    return <Skeleton className="min-h-[1100px] w-full" />;
-  }
-
   return (
     <>
       <BuildList
-        currentPage={currentPage}
         isLoading={isLoading}
-        isWithQuality={buildListFilters.withQuality}
-        firstVisibleItemNumber={firstVisibleItemNumber}
-        lastVisibleItemNumber={lastVisibleItemNumber}
-        onPreviousPage={handlePreviousPageClick}
-        onNextPage={handleNextPageClick}
+        itemsOnThisPage={itemsOnThisPage}
         pagination={
           <Pagination
             isLoading={isLoading}
@@ -96,9 +83,18 @@ export function FeaturedBuildsList({
             lastVisibleItemNumber={lastVisibleItemNumber}
             isNextPageDisabled={isNextPageDisabled}
             pageNumbers={pageNumbers}
-            onPreviousPage={handlePreviousPageClick}
-            onNextPage={handleNextPageClick}
-            onSpecificPage={handleSpecificPageClick}
+            onPreviousPage={() => {
+              handlePreviousPageClick();
+              onFiltersChange();
+            }}
+            onNextPage={() => {
+              handleNextPageClick();
+              onFiltersChange();
+            }}
+            onSpecificPage={(pageNumber: number) => {
+              handleSpecificPageClick(pageNumber);
+              onFiltersChange();
+            }}
           />
         }
         headerActions={
@@ -111,6 +107,7 @@ export function FeaturedBuildsList({
                 ...prevState,
                 isLoading: true,
               }));
+              onFiltersChange();
             }}
             timeRange={timeRange}
             onTimeRangeChange={(value) => {
@@ -119,36 +116,29 @@ export function FeaturedBuildsList({
                 ...prevState,
                 isLoading: true,
               }));
+              onFiltersChange();
             }}
           />
         }
       >
-        {itemsOnThisPage > 0 ? (
-          builds.map((build) => (
-            <div key={`${build.id}${build.variantIndex}`} className="w-full">
-              <BuildCard
-                build={build}
-                isLoading={isLoading}
-                footerActions={
-                  <Tooltip content="View Build">
-                    <BaseLink
-                      href={`/builder/${build.id}`}
-                      className="text-primary-500 hover:text-primary-300 flex flex-col items-center gap-x-3 rounded-br-lg border border-transparent px-4 py-2 text-xs font-semibold hover:underline"
-                    >
-                      <EyeIcon className="h-4 w-4" /> View
-                    </BaseLink>
-                  </Tooltip>
-                }
-              />
-            </div>
-          ))
-        ) : (
-          <div className="col-span-full flex w-full items-center justify-center py-8">
-            <h2 className="text-primary-400 text-2xl font-bold">
-              No builds found. Try adjusting your filters.
-            </h2>
+        {builds.map((build) => (
+          <div key={`${build.id}${build.variantIndex}`} className="w-full">
+            <BuildCard
+              build={build}
+              isLoading={false}
+              footerActions={
+                <Tooltip content="View Build">
+                  <BaseLink
+                    href={`/builder/${build.id}`}
+                    className="text-primary-500 hover:text-primary-300 flex flex-col items-center gap-x-3 rounded-br-lg border border-transparent px-4 py-2 text-xs font-semibold hover:underline"
+                  >
+                    <EyeIcon className="h-4 w-4" /> View
+                  </BaseLink>
+                </Tooltip>
+              }
+            />
           </div>
-        )}
+        ))}
       </BuildList>
     </>
   );

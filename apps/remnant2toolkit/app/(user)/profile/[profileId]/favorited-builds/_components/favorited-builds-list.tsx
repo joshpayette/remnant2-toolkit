@@ -1,31 +1,30 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 
 import { Pagination } from '@/app/_components/pagination';
+import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_constants/pagination';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';
 import { DEFAULT_BUILD_FILTERS } from '@/app/(builds)/_components/filters/build-filters';
+import { parseSearchParams } from '@/app/(builds)/_components/filters/parse-search-params';
 import { BuildSecondaryFilters } from '@/app/(builds)/_components/filters/secondary-filters';
 import { useOrderByFilter } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
 import { useTimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
 import { type BuildListFilters } from '@/app/(builds)/_components/filters/types';
-import { parseUrlFilters } from '@/app/(builds)/_components/filters/parse-search-params';
 import { useBuildListState } from '@/app/(builds)/_hooks/use-build-list-state';
 import { getFavoritedBuilds } from '@/app/(user)/profile/[profileId]/favorited-builds/_actions/get-favorited-builds';
 
-const ITEMS_PER_PAGE = 16;
-
 interface Props {
   buildFiltersOverrides?: Partial<BuildListFilters>;
-  onToggleLoadingResults: (isLoading: boolean) => void;
+  onFiltersChange: () => void;
 }
 
 export function FavoritedBuildsList({
   buildFiltersOverrides,
-  onToggleLoadingResults,
+  onFiltersChange,
 }: Props) {
   const defaultFilters = useMemo(() => {
     return buildFiltersOverrides
@@ -34,9 +33,7 @@ export function FavoritedBuildsList({
   }, [buildFiltersOverrides]);
 
   const searchParams = useSearchParams();
-  const [buildListFilters, setBuildListFilters] = useState(
-    parseUrlFilters(searchParams, defaultFilters),
-  );
+  const buildListFilters = parseSearchParams(searchParams, defaultFilters);
 
   const { buildListState, setBuildListState } = useBuildListState();
   const { builds, isLoading } = buildListState;
@@ -56,26 +53,15 @@ export function FavoritedBuildsList({
     handlePreviousPageClick,
     handleSpecificPageClick,
   } = usePagination({
-    itemsPerPage: ITEMS_PER_PAGE,
+    itemsPerPage: DEFAULT_ITEMS_PER_PAGE,
     itemsOnThisPage,
   });
 
   useEffect(() => {
-    setBuildListFilters(parseUrlFilters(searchParams, defaultFilters));
-    setBuildListState((prevState) => ({ ...prevState, isLoading: true }));
-  }, [searchParams, defaultFilters, setBuildListState]);
-
-  useEffect(() => {
-    onToggleLoadingResults(isLoading);
-  }, [isLoading, onToggleLoadingResults]);
-
-  // Whenever loading is set to true, we should update the build items
-  useEffect(() => {
     const getItemsAsync = async () => {
-      if (!isLoading) return;
       const response = await getFavoritedBuilds({
         buildListFilters,
-        itemsPerPage: ITEMS_PER_PAGE,
+        itemsPerPage: DEFAULT_ITEMS_PER_PAGE,
         orderBy,
         pageNumber: currentPage,
         timeRange,
@@ -88,19 +74,14 @@ export function FavoritedBuildsList({
     };
     getItemsAsync();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoading]);
+  }, []);
 
   return (
     <>
       <BuildList
-        currentPage={currentPage}
         isLoading={isLoading}
-        isWithQuality={buildListFilters.withQuality}
+        itemsOnThisPage={itemsOnThisPage}
         label="Favorited Builds"
-        firstVisibleItemNumber={firstVisibleItemNumber}
-        lastVisibleItemNumber={lastVisibleItemNumber}
-        onPreviousPage={handlePreviousPageClick}
-        onNextPage={handleNextPageClick}
         pagination={
           <Pagination
             isLoading={isLoading}
@@ -109,9 +90,18 @@ export function FavoritedBuildsList({
             lastVisibleItemNumber={lastVisibleItemNumber}
             isNextPageDisabled={isNextPageDisabled}
             pageNumbers={pageNumbers}
-            onPreviousPage={handlePreviousPageClick}
-            onNextPage={handleNextPageClick}
-            onSpecificPage={handleSpecificPageClick}
+            onPreviousPage={() => {
+              handlePreviousPageClick();
+              onFiltersChange();
+            }}
+            onNextPage={() => {
+              handleNextPageClick();
+              onFiltersChange();
+            }}
+            onSpecificPage={(pageNumber: number) => {
+              handleSpecificPageClick(pageNumber);
+              onFiltersChange();
+            }}
           />
         }
         headerActions={
@@ -136,23 +126,15 @@ export function FavoritedBuildsList({
           />
         }
       >
-        {itemsOnThisPage > 0 ? (
-          builds.map((build) => (
-            <div key={`${build.id}${build.variantIndex}`} className="w-full">
-              <BuildCard
-                build={build}
-                isLoading={isLoading}
-                footerActions={undefined}
-              />
-            </div>
-          ))
-        ) : (
-          <div className="col-span-full flex w-full items-center justify-center py-8">
-            <h2 className="text-primary-400 text-2xl font-bold">
-              No builds found. Try adjusting your filters.
-            </h2>
+        {builds.map((build) => (
+          <div key={`${build.id}${build.variantIndex}`} className="w-full">
+            <BuildCard
+              build={build}
+              isLoading={isLoading}
+              footerActions={undefined}
+            />
           </div>
-        )}
+        ))}
       </BuildList>
     </>
   );

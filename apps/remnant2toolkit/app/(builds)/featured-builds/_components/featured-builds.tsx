@@ -1,22 +1,18 @@
 'use client';
 
-import { useCallback, useRef, useState } from 'react';
+import { useRef } from 'react';
 
 import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_constants/pagination';
 import { BuildFilters } from '@/app/(builds)/_components/filters/build-filters';
 import { FeaturedBuildsList } from '@/app/(builds)/featured-builds/_components/featured-builds-list';
 
 export function FeaturedBuilds() {
-  // TODO Remove
-  const [loadingResults, setLoadingResults] = useState(false);
-
-  const handleToggleLoadingResults = useCallback(
-    (isLoading: boolean) => setLoadingResults(isLoading),
-    [],
-  );
-
   const buildListKey = useRef(new Date().getTime());
 
+  /**
+   * When a filter changes, we need the build list to re-render
+   * to re-fetch the data
+   */
   function onFiltersChange() {
     buildListKey.current = new Date().getTime();
   }
@@ -26,7 +22,6 @@ export function FeaturedBuilds() {
       <div className="flex w-full items-center justify-center sm:mb-6">
         <BuildFilters
           key="featured-build-filters"
-          loadingResults={loadingResults}
           onFiltersChange={onFiltersChange}
         />
       </div>
@@ -34,7 +29,7 @@ export function FeaturedBuilds() {
         <FeaturedBuildsList
           key={buildListKey.current}
           itemsPerPage={DEFAULT_ITEMS_PER_PAGE}
-          onToggleLoadingResults={handleToggleLoadingResults}
+          onFiltersChange={onFiltersChange}
         />
       </div>
     </>

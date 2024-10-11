@@ -1,36 +1,39 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useRef } from 'react';
 
 import { BuildFilters } from '@/app/(builds)/_components/filters/build-filters';
-import { type BuildListFilters } from '@/app/(builds)/_components/filters/types';
 import { FavoritedBuildsList } from '@/app/(user)/profile/[profileId]/favorited-builds/_components/favorited-builds-list';
 
-const buildFilters: Partial<BuildListFilters> = {
+const buildFiltersOverrides = {
   patchAffected: true,
 };
 
 export function FavoritedBuilds() {
-  const [loadingResults, setLoadingResults] = useState(false);
+  const buildListKey = useRef(new Date().getTime());
 
-  const handleToggleLoadingResults = useCallback(
-    (isLoading: boolean) => setLoadingResults(isLoading),
-    [],
-  );
+  /**
+   * When a filter changes, we need the build list to re-render
+   * to re-fetch the data
+   */
+  function onFiltersChange() {
+    buildListKey.current = new Date().getTime();
+  }
 
   return (
     <>
       <div className="flex w-full flex-col items-center justify-center sm:mb-6">
         <BuildFilters
           key="user-favorited-builds-filters"
-          buildFiltersOverrides={buildFilters}
-          loadingResults={loadingResults}
+          buildFiltersOverrides={buildFiltersOverrides}
+          onFiltersChange={onFiltersChange}
         />
       </div>
       <div className="mb-4 grid w-full grid-cols-1 gap-2">
         <FavoritedBuildsList
-          buildFiltersOverrides={buildFilters}
-          onToggleLoadingResults={handleToggleLoadingResults}
+          key={buildListKey.current}
+          buildFiltersOverrides={buildFiltersOverrides}
+          onFiltersChange={onFiltersChange}
         />
       </div>
     </>
