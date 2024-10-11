@@ -333,7 +333,7 @@ export const amuletItems: AmuletItem[] = [
     externalTokens: ['Explosive Damage'],
     description: `Increases Explosive Damage by 10% and AOE Size by 25%. Inflicting Explosive Damage applies EXPOSED for 5s. Max 15s.\n\nEXPOSED: Target receives 15% additional damage from all sources.`,
     wikiLinks: ['https://remnant.wiki/Echo_Chamber'],
-    location: { world: `N'Erud`, dungeon: ['Anathaeum Wek'] },
+    location: { world: `N'Erud`, dungeon: ['Athenaeum Wek'] },
   },
   {
     category: 'amulet',

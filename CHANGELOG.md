@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
   - Genesis "N'Erud - world drop" -> N'Erud - Withered Necropolis
   - Monorail "Ward 13 - Vendor" -> N'Erud - Quest
   - Repair Tool " Ward 13 - Vendor" -> N'Erud - Agronomy Sector
+- Fixed injectable and biome classifications to give better information in the location of items.
 
 ## 2024-10-10
 
