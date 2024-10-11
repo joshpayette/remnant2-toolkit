@@ -165,9 +165,7 @@ export function BuildFilters({
   const router = useRouter();
 
   function applyUrlFilters(filtersToApply: BuildListFilters) {
-    const params = new URLSearchParams();
-
-    params.append('t', Date.now().toString());
+    const params = new URLSearchParams(searchParams.toString());
 
     // Add the amulet filter
     if (filtersToApply.amulet !== defaultFilters.amulet) {
@@ -281,6 +279,8 @@ export function BuildFilters({
         filtersToApply.withCollection.toString(),
       );
     }
+
+    params.append('t', Date.now().toString());
 
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
     onFiltersChange();

@@ -1,3 +1,4 @@
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 
 export type OrderBy =
@@ -8,7 +9,15 @@ export type OrderBy =
   | 'percentage owned';
 
 export function useOrderByFilter(defaultOrderBy: OrderBy = 'most favorited') {
-  const [orderBy, setOrderBy] = useState<OrderBy>(defaultOrderBy);
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const paramOrderBy = searchParams.get('orderBy');
+
+  const [orderBy, setOrderBy] = useState<OrderBy>(
+    paramOrderBy ? (paramOrderBy as OrderBy) : defaultOrderBy,
+  );
   const orderByOptions: Array<{ label: string; value: OrderBy }> = [
     { label: 'alphabetical', value: 'alphabetical' },
     { label: 'most favorited', value: 'most favorited' },
@@ -18,6 +27,9 @@ export function useOrderByFilter(defaultOrderBy: OrderBy = 'most favorited') {
   ];
   function handleOrderByChange(orderBy: OrderBy) {
     setOrderBy(orderBy as OrderBy);
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('orderBy', orderBy);
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
   }
 
   return {

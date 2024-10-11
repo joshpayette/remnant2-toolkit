@@ -1,5 +1,5 @@
 import { type DefaultFilter } from '@/app/_types/default-filter';
-import { type PercentageOwned } from '@/app/(builds)/_components/filters/build-collection-filter';
+import { type PercentageOwned } from '@/app/(builds)/_features/filters/build-collection-filter';
 
 export interface BuildListFilters {
   amulet: string | DefaultFilter;
