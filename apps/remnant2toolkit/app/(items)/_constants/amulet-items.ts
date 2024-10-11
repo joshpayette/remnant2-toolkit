@@ -222,7 +222,7 @@ export const amuletItems: AmuletItem[] = [
     description:
       'When a single source of Enemy Damage exceeds 15% of Max Health, automatically trigger effects that require Perfect Dodge to activate and gain 15% Damage Reduction for 3s.\n\nCan only happen once every 3 seconds.',
     wikiLinks: ['https://remnant.wiki/Crisis_Core'],
-    location: { world: 'Any', dungeon: 'World Drop' },
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
   },
 
   {
@@ -958,7 +958,11 @@ export const amuletItems: AmuletItem[] = [
     tags: ['Reload Speed', 'Perfect Dodge'],
     description: `Combat Slide reloads currently equipped Firearm. Perfect Dodge Combat Slide reloads both firearms.`,
     wikiLinks: ['https://remnant.wiki/Quantum_Memory'],
-    location: { world: `N'Erud`, dungeon: ['Detritus Foundry'] },
+    location: {
+      world: `N'Erud`,
+      biome: `Towers of N'Erud`,
+      injectable: `Crop Lab`,
+    },
   },
   {
     category: 'amulet',
@@ -1113,7 +1117,11 @@ export const amuletItems: AmuletItem[] = [
     tags: ['Critical Chance', 'Critical Damage', 'Reduce Skill Cooldown'],
     description: `While a SHIELD is active, increases Critical Chance and Critical Damage by 10% and Skill Cooldowns are reduced by 6% once every 5s.`,
     wikiLinks: ['https://remnant.wiki/Short_Circuit'],
-    location: { world: `N'Erud`, dungeon: ['Mucid Terrarium'] },
+    location: {
+      world: `N'Erud`,
+      biome: `N'Erud Underworld`,
+      injectable: 'Power Hub',
+    },
   },
   {
     category: 'amulet',

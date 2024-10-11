@@ -211,6 +211,7 @@ export const BIOMES = [
     ],
     injectables: [
       `Black Hole`,
+      'Power Hub',
       `Robot Hangar`,
       `Sewage Facility`,
       `Shockwire`,
@@ -229,13 +230,7 @@ export const BIOMES = [
       `The Eon Vault`,
       'Stagnant Manufactory', // TODO CHECK THIS
     ],
-    // TODO Check this
-    injectables: [
-      `Ascension Spire`,
-      `Titan's Reach`,
-      `Extraction Hub`,
-      `Stealth Maze`,
-    ],
+    injectables: [`Ascension Spire`, `Titan's Reach`, `Extraction Hub`],
   },
   {
     name: 'Streets of Losomn',
@@ -260,7 +255,7 @@ export const BIOMES = [
       `Seeker's Rest`,
       `Sentinel's Keep`,
     ],
-    injectables: [`Elevator Shaft`, `Remains Below`],
+    injectables: [`Elevator Shaft`, `Remains Below`, `Crop Lab`],
   },
   {
     name: `Undead Tombs`,

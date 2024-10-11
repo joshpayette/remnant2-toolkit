@@ -9,7 +9,7 @@ export const relicItems: RelicItem[] = [
     id: 'LQho3X',
     dlc: 'dlc2',
     description:
-      'Innate 50% Use Speed bonus. One use, grants a SHIELD that prevents nearly all damage for 3s.\n\nCannot prevent certain death mechanics.',
+      'Innate 50% Use Speed bonus. On use, grants a SHIELD that prevents nearly all damage for 3s.\n\nCannot prevent certain death mechanics.',
     wikiLinks: [`https://remnant.wiki/Bloodless_Heart`],
     location: { world: 'Yaesha', dungeon: [`Goddess's Rest`] },
   },
@@ -117,7 +117,11 @@ export const relicItems: RelicItem[] = [
     dlc: 'dlc3',
     description: `Innate base Evade Window Frames increased by 1. On use, increases Evade Window Bonus Frames by an additional 2 for 15s.`,
     wikiLinks: [`https://remnant.wiki/Gossamer_Heart`],
-    location: { world: `N'Erud`, dungeon: ['Detritus Foundry'] },
+    location: {
+      world: `N'Erud`,
+      biome: `Towers of N'Erud`,
+      injectable: `Crop Lab`,
+    },
   },
   {
     category: 'relic',
