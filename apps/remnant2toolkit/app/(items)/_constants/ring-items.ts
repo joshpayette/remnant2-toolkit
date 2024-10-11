@@ -692,7 +692,7 @@ export const ringItems: RingItem[] = [
     description: `After 10s of not being damaged, generate a SHIELD for 10% of Max Health over 2s.`,
     wikiLinks: [`https://remnant.wiki/Clear_Halo`],
     dlc: 'dlc3',
-    location: { world: `N'Erud`, dungeon: ['Anathaeum Wek'] },
+    location: { world: `N'Erud`, dungeon: ['Athenaeum Wek'] },
   },
   {
     category: 'ring',

@@ -1298,7 +1298,7 @@ export const modItems: ModItem[] = [
     dlc: 'dlc3',
     description: `Launches a payload that bursts on contact with allies, applying a SHIELD for 25% of their Max Health for 15s. Max 50% SHIELD. When no ally is struck, payload lays dormant until an ally gets close. Dormant payload lasts 30s and slowly loses Shield potency over time.`,
     wikiLinks: [`https://remnant.wiki/Shielding_Shot`],
-    location: { world: `N'Erud`, dungeon: [`Anathaeum Wek`] },
+    location: { world: `N'Erud`, dungeon: [`Athenaeum Wek`] },
   },
   {
     category: 'mod',
