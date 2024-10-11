@@ -4,10 +4,7 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build", "^db:generate"],
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        ".env"
-      ],
+      "inputs": ["$TURBO_DEFAULT$", ".env"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
       "env": [
         "CRON_SECRET",
@@ -34,6 +31,7 @@
         "WEBHOOK_CRON_LOGS",
         "WEBHOOK_MILESTONES",
         "WEBHOOK_NEW_BUILD_FEED",
+        "WEBHOOK_REPORT_DATA",
         "WEBHOOK_WIKI_SCRAPER_FEED",
         "NODE_ENV"
       ]
