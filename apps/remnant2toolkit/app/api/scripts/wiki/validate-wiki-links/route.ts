@@ -144,5 +144,5 @@ export async function GET(request: NextRequest) {
   }
 
   console.info('Wiki Link Validation Complete.');
-  return Response.json({ success: false });
+  return Response.json({ success: true });
 }

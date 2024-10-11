@@ -1,7 +1,7 @@
 import { prisma } from '@repo/db';
-import { writeFile } from 'fs';
-import path from 'path';
+import { type NextRequest } from 'next/server';
 
+import { validateEnv } from '@/app/_libs/validate-env';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { allItems } from '@/app/(items)/_constants/all-items';
 import { amuletItems } from '@/app/(items)/_constants/amulet-items';
@@ -23,10 +23,16 @@ import { type Item } from '@/app/(items)/_types/item';
 type Result = {
   id: string;
   name: string;
-  count: number;
+  category: string;
+  description: string;
+  totalCount: number;
+  featuredCount: number;
 };
 
-async function runReportForCategory(category: ItemCategory | 'all') {
+async function runReportForCategory(
+  category: ItemCategory | 'all',
+  webhook: string,
+) {
   let reportVars: { fileName: string; reportName: string; items: Item[] } = {
     fileName: 'all-items-report.csv',
     reportName: 'allItems',
@@ -183,64 +189,133 @@ async function runReportForCategory(category: ItemCategory | 'all') {
 
   const results: Result[] = [];
   for (const item of reportVars.items) {
-    const { name, id } = item;
-    const count = await prisma.buildItems.count({
-      where: {
-        itemId: id,
-        build: {
-          isPublic: true,
-          isPatchAffected: false,
+    const { name, id, category: itemCategory } = item;
+    const [totalCount, featuredCount] = await Promise.all([
+      prisma.buildItems.count({
+        where: {
+          itemId: id,
+          build: {
+            isPublic: true,
+            isPatchAffected: false,
+          },
         },
-      },
-    });
+      }),
+      prisma.buildItems.count({
+        where: {
+          itemId: id,
+          build: {
+            isPublic: true,
+            isPatchAffected: false,
+            isFeaturedBuild: true,
+          },
+        },
+      }),
+    ]);
 
-    results.push({ id, name, count });
+    results.push({
+      id,
+      name,
+      category: itemCategory,
+      description:
+        allItems.find((i) => i.id === id)?.description ??
+        'Error getting description',
+      totalCount,
+      featuredCount,
+    });
   }
 
   // sort results by count, highest to lowest
-  results.sort((a, b) => b.count - a.count);
+  results.sort((a, b) => b.totalCount - a.totalCount);
+
+  // Need today's date in the format YYYY-MM-DD
+  const today = new Date();
+  const formattedDate = `${today.getFullYear()}-${
+    today.getMonth() + 1
+  }-${today.getDate()}`;
 
   // write the results to a csv file
-  const csv = results
-    .map((result) => `${result.id},${result.name},${result.count}`)
-    .join('\n');
-  // write to the current folder
-  writeFile(
-    path.join(__dirname, 'output', `${reportVars.fileName}`),
-    csv,
-    (err) => {
-      if (err) {
-        console.error('error writing report', err);
-      }
-    },
+  const headers = [
+    'Item Id',
+    'Item Name',
+    'Item Category',
+    'Item Description',
+    'Total Count',
+    'Featured Count',
+  ];
+  const csv = results.map(
+    (result) =>
+      `${result.id},${result.name},${result.category},${result.description},${result.totalCount},${result.featuredCount}`,
   );
+  csv.unshift(headers.join(','));
+
+  // write file to a blob
+  const csvBlob = new Blob([csv.join('\n')], { type: 'text/csv' });
+
+  const formData = new FormData();
+  formData.append(
+    'content',
+    `# ${formattedDate} ${reportVars.reportName} Report\n`,
+  );
+  formData.append('file', csvBlob, reportVars.fileName);
+
+  const response = await fetch(webhook, {
+    method: 'POST',
+    body: formData,
+  });
+
+  if (!response.ok) {
+    console.error('Error in sending report webhook to Discord!');
+  }
 }
 
-async function main() {
+export async function GET(request: NextRequest) {
+  const envVars = validateEnv();
+
+  const authHeader = request.headers.get('authorization');
+  if (
+    authHeader !== `Bearer ${envVars.CRON_SECRET}` &&
+    envVars.NODE_ENV === 'production'
+  ) {
+    return new Response('Unauthorized', {
+      status: 401,
+    });
+  }
+
   console.info(`Running all items reports...`);
 
-  await Promise.resolve([
-    runReportForCategory('all'),
-    runReportForCategory('amulet'),
-    runReportForCategory('archetype'),
-    runReportForCategory('helm'),
-    runReportForCategory('torso'),
-    runReportForCategory('gloves'),
-    runReportForCategory('legs'),
-    runReportForCategory('concoction'),
-    runReportForCategory('consumable'),
-    runReportForCategory('mod'),
-    runReportForCategory('mutator'),
-    runReportForCategory('perk'),
-    runReportForCategory('relicfragment'),
-    runReportForCategory('relic'),
-    runReportForCategory('ring'),
-    runReportForCategory('skill'),
-    runReportForCategory('trait'),
-    runReportForCategory('weapon'),
-  ]);
+  const categories = [
+    'all',
+    'amulet',
+    'archetype',
+    'helm',
+    'torso',
+    'gloves',
+    'legs',
+    'concoction',
+    'consumable',
+    'mod',
+    'mutator',
+    'perk',
+    'relicfragment',
+    'relic',
+    'ring',
+    'skill',
+    'trait',
+    'weapon',
+  ];
+
+  async function runReportsWithStagger() {
+    for (const category of categories) {
+      await runReportForCategory(
+        category as ItemCategory,
+        envVars.WEBHOOK_REPORT_DATA,
+      );
+      await new Promise((resolve) => setTimeout(resolve, 5000)); // 5 seconds delay
+    }
+  }
+  runReportsWithStagger();
 
   console.info(`All items reports complete.`);
-}
 
-main();
+  return Response.json({ success: true });
+}
