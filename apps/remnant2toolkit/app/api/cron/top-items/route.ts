@@ -20,11 +20,46 @@ import { traitItems } from '@/app/(items)/_constants/trait-items';
 import { weaponItems } from '@/app/(items)/_constants/weapon-items';
 import { type Item } from '@/app/(items)/_types/item';
 
+/** To quickly reference for the AFTER_DATE */
+const _DLC3_RELEASE_DATE = new Date('2024-09-24');
+
+/**
+ * * Used to fetch builds updatedAt after this date
+ */
+const AFTER_DATE = new Date('2022-01-01');
+/**
+ * * The amount of ms to stagger each report run
+ * * to avoid rate limiting on the Discord webhook.
+ */
+const STAGGER_TIME = 5000; // 5 seconds
+/**
+ * * Which categories to run the report for
+ */
+const CATEGORIES = [
+  'all',
+  'amulet',
+  'archetype',
+  'helm',
+  'torso',
+  'gloves',
+  'legs',
+  'concoction',
+  'consumable',
+  'mod',
+  'mutator',
+  'perk',
+  'relicfragment',
+  'relic',
+  'ring',
+  'skill',
+  'trait',
+  'weapon',
+];
+
 type Result = {
   id: string;
   name: string;
   category: string;
-  description: string;
   totalCount: number;
   featuredCount: number;
 };
@@ -197,6 +232,9 @@ async function runReportForCategory(
           build: {
             isPublic: true,
             isPatchAffected: false,
+            updatedAt: {
+              gte: AFTER_DATE,
+            },
           },
         },
       }),
@@ -207,6 +245,9 @@ async function runReportForCategory(
             isPublic: true,
             isPatchAffected: false,
             isFeaturedBuild: true,
+            updatedAt: {
+              gte: AFTER_DATE,
+            },
           },
         },
       }),
@@ -216,9 +257,6 @@ async function runReportForCategory(
       id,
       name,
       category: itemCategory,
-      description:
-        allItems.find((i) => i.id === id)?.description ??
-        'Error getting description',
       totalCount,
       featuredCount,
     });
@@ -227,30 +265,30 @@ async function runReportForCategory(
   // sort results by count, highest to lowest
   results.sort((a, b) => b.totalCount - a.totalCount);
 
+  // write the results to a csv file
+  const headers = [
+    'Item Id',
+    'Item Name',
+    'Item Category',
+    'Total Count',
+    'Featured Count',
+  ];
+  const csv = results.map(
+    (result) =>
+      `${result.id},${result.name},${result.category},${result.totalCount},${result.featuredCount}`,
+  );
+  csv.unshift(headers.join(','));
+
   // Need today's date in the format YYYY-MM-DD
   const today = new Date();
   const formattedDate = `${today.getFullYear()}-${
     today.getMonth() + 1
   }-${today.getDate()}`;
 
-  // write the results to a csv file
-  const headers = [
-    'Item Id',
-    'Item Name',
-    'Item Category',
-    'Item Description',
-    'Total Count',
-    'Featured Count',
-  ];
-  const csv = results.map(
-    (result) =>
-      `${result.id},${result.name},${result.category},${result.description},${result.totalCount},${result.featuredCount}`,
-  );
-  csv.unshift(headers.join(','));
-
   // write file to a blob
   const csvBlob = new Blob([csv.join('\n')], { type: 'text/csv' });
 
+  // Add content to FormData so it can be passed to the webhook
   const formData = new FormData();
   formData.append(
     'content',
@@ -258,6 +296,7 @@ async function runReportForCategory(
   );
   formData.append('file', csvBlob, reportVars.fileName);
 
+  // send the report to the webhook
   const response = await fetch(webhook, {
     method: 'POST',
     body: formData,
@@ -271,6 +310,7 @@ async function runReportForCategory(
 export async function GET(request: NextRequest) {
   const envVars = validateEnv();
 
+  /** Used to be sure that no one can randomly run this other than me in production. */
   const authHeader = request.headers.get('authorization');
   if (
     authHeader !== `Bearer ${envVars.CRON_SECRET}` &&
@@ -283,34 +323,13 @@ export async function GET(request: NextRequest) {
 
   console.info(`Running all items reports...`);
 
-  const categories = [
-    'all',
-    'amulet',
-    'archetype',
-    'helm',
-    'torso',
-    'gloves',
-    'legs',
-    'concoction',
-    'consumable',
-    'mod',
-    'mutator',
-    'perk',
-    'relicfragment',
-    'relic',
-    'ring',
-    'skill',
-    'trait',
-    'weapon',
-  ];
-
   async function runReportsWithStagger() {
-    for (const category of categories) {
+    for (const category of CATEGORIES) {
       await runReportForCategory(
         category as ItemCategory,
         envVars.WEBHOOK_REPORT_DATA,
       );
-      await new Promise((resolve) => setTimeout(resolve, 5000)); // 5 seconds delay
+      await new Promise((resolve) => setTimeout(resolve, STAGGER_TIME));
     }
   }
   runReportsWithStagger();
