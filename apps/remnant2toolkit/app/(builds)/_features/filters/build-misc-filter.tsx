@@ -6,7 +6,7 @@ import {
   BaseListboxOption,
 } from '@repo/ui';
 
-import { BUILD_FILTER_KEYS } from '@/app/(builds)/_components/filters/types';
+import { BUILD_FILTER_KEYS } from '@/app/(builds)/_features/filters/types';
 
 interface Props {
   value: string[];

@@ -21,32 +21,32 @@ import {
   VALID_RELEASE_KEYS,
 } from '@/app/_components/releases-filter';
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
-import { AmuletFilter } from '@/app/(builds)/_components/filters/amulet-filter';
+import { QualityBuildDialog } from '@/app/(builds)/_components/quality-build-dialog';
+import { AmuletFilter } from '@/app/(builds)/_features/filters/amulet-filter';
 import {
   ArchetypeFilter,
   VALID_ARCHETYPES,
-} from '@/app/(builds)/_components/filters/archetype-filter';
+} from '@/app/(builds)/_features/filters/archetype-filter';
 import {
   BuildCollectionFilter,
   type PercentageOwned,
-} from '@/app/(builds)/_components/filters/build-collection-filter';
-import { BuildMiscFilter } from '@/app/(builds)/_components/filters/build-misc-filter';
+} from '@/app/(builds)/_features/filters/build-collection-filter';
+import { BuildMiscFilter } from '@/app/(builds)/_features/filters/build-misc-filter';
 import {
   BuildTagFilter,
   VALID_BUILD_TAGS,
-} from '@/app/(builds)/_components/filters/build-tag-filter';
-import { HandGunFilter } from '@/app/(builds)/_components/filters/hand-gun-filter';
-import { LongGunFilter } from '@/app/(builds)/_components/filters/long-gun-filter';
-import { MeleeFilter } from '@/app/(builds)/_components/filters/melee-filter';
-import { parseSearchParams } from '@/app/(builds)/_components/filters/parse-search-params';
-import { RelicFilter } from '@/app/(builds)/_components/filters/relic-filter';
-import { RingFilter } from '@/app/(builds)/_components/filters/ring-filter';
+} from '@/app/(builds)/_features/filters/build-tag-filter';
+import { HandGunFilter } from '@/app/(builds)/_features/filters/hand-gun-filter';
+import { LongGunFilter } from '@/app/(builds)/_features/filters/long-gun-filter';
+import { MeleeFilter } from '@/app/(builds)/_features/filters/melee-filter';
+import { parseSearchParams } from '@/app/(builds)/_features/filters/parse-search-params';
+import { RelicFilter } from '@/app/(builds)/_features/filters/relic-filter';
+import { RingFilter } from '@/app/(builds)/_features/filters/ring-filter';
 import {
   BUILD_FILTER_KEYS,
   type BuildListFilters,
   MAX_RINGS,
-} from '@/app/(builds)/_components/filters/types';
-import { QualityBuildDialog } from '@/app/(builds)/_components/quality-build-dialog';
+} from '@/app/(builds)/_features/filters/types';
 
 function NonQualityBuildsBox({
   isWithQuality,

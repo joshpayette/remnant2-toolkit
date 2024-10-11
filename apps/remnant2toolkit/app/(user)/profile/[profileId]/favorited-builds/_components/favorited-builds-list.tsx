@@ -8,12 +8,12 @@ import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_constants/pagination';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';
-import { DEFAULT_BUILD_FILTERS } from '@/app/(builds)/_components/filters/build-filters';
-import { parseSearchParams } from '@/app/(builds)/_components/filters/parse-search-params';
-import { BuildSecondaryFilters } from '@/app/(builds)/_components/filters/secondary-filters';
-import { useOrderByFilter } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
-import { useTimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
-import { type BuildListFilters } from '@/app/(builds)/_components/filters/types';
+import { DEFAULT_BUILD_FILTERS } from '@/app/(builds)/_features/filters/build-filters';
+import { parseSearchParams } from '@/app/(builds)/_features/filters/parse-search-params';
+import { BuildSecondaryFilters } from '@/app/(builds)/_features/filters/secondary-filters';
+import { useOrderByFilter } from '@/app/(builds)/_features/filters/secondary-filters/order-by-filter/use-order-by-filter';
+import { useTimeRangeFilter } from '@/app/(builds)/_features/filters/secondary-filters/time-range-filter/use-time-range-filter';
+import { type BuildListFilters } from '@/app/(builds)/_features/filters/types';
 import { useBuildListState } from '@/app/(builds)/_hooks/use-build-list-state';
 import { getFavoritedBuilds } from '@/app/(user)/profile/[profileId]/favorited-builds/_actions/get-favorited-builds';
 

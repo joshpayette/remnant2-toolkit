@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 
 import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_constants/pagination';
-import { BuildFilters } from '@/app/(builds)/_components/filters/build-filters';
+import { BuildFilters } from '@/app/(builds)/_features/filters/build-filters';
 import { BaseGameBuildsList } from '@/app/(builds)/base-game-builds/_components/base-game-builds-list';
 
 export function BaseGameBuilds() {

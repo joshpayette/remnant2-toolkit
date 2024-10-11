@@ -10,10 +10,10 @@ import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_constants/pagination';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';
-import { parseSearchParams } from '@/app/(builds)/_components/filters/parse-search-params';
-import { BuildSecondaryFilters } from '@/app/(builds)/_components/filters/secondary-filters';
-import { useOrderByFilter } from '@/app/(builds)/_components/filters/secondary-filters/order-by-filter/use-order-by-filter';
-import { useTimeRangeFilter } from '@/app/(builds)/_components/filters/secondary-filters/time-range-filter/use-time-range-filter';
+import { parseSearchParams } from '@/app/(builds)/_features/filters/parse-search-params';
+import { BuildSecondaryFilters } from '@/app/(builds)/_features/filters/secondary-filters';
+import { useOrderByFilter } from '@/app/(builds)/_features/filters/secondary-filters/order-by-filter/use-order-by-filter';
+import { useTimeRangeFilter } from '@/app/(builds)/_features/filters/secondary-filters/time-range-filter/use-time-range-filter';
 import { useBuildListState } from '@/app/(builds)/_hooks/use-build-list-state';
 import { getGimmickBuilds } from '@/app/(builds)/gimmick-builds/_actions/get-gimmick-builds';
 

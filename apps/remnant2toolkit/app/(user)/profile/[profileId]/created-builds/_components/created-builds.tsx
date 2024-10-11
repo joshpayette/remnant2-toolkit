@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 
-import { BuildFilters } from '@/app/(builds)/_components/filters/build-filters';
+import { BuildFilters } from '@/app/(builds)/_features/filters/build-filters';
 import { CreatedBuildsList } from '@/app/(user)/profile/[profileId]/created-builds/_components/created-builds-list';
 
 const buildFiltersOverrides = {

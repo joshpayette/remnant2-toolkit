@@ -7,7 +7,7 @@ import {
 } from '@repo/ui';
 import { useState } from 'react';
 
-import { ItemTagSelect } from '@/app/(builds)/_components/filters/item-tag-select';
+import { ItemTagSelect } from '@/app/(builds)/_features/filters/item-tag-select';
 import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
 import { getConcoctionSlotCount } from '@/app/(builds)/_libs/get-concoction-slot-count';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
