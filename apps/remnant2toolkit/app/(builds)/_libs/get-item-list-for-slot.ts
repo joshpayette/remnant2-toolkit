@@ -162,6 +162,9 @@ export function getItemListForSlot(
       (item) => item?.index !== selectedItem.index,
     );
 
+    // If 4 fusions are equipped, no more can be equipped
+    if (equippedFusions.length === 4) return [];
+
     return (
       allItems
         .filter((item) => FusionItem.isFusionItem(item))
