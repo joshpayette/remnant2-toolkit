@@ -412,7 +412,7 @@ export const weaponItems: WeaponItem[] = [
     tags: ['Charged Shot'],
     description: `N'Erudian tool with low energy reserves that generates energy bolts. Charging turbines generates additional projectiles. Max 5.`,
     wikiLinks: [`https://remnant.wiki/Genesis`],
-    location: { world: `N'Erud`, dungeon: 'World Drop' },
+    location: { world: `N'Erud`, dungeon: ['Withered Necropolis'] },
     damage: 50,
     rps: 5,
     ammo: 20,
@@ -543,7 +543,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'dlc3',
     description: `A mysterious relic that fires super-dense penetrating rails. Can be charged to unleash violent levels of energy. Warning: Overcharging may have catastrophic results.`,
     wikiLinks: [`https://remnant.wiki/Monorail`],
-    location: { world: 'Ward 13', dungeon: 'Vendor' },
+    location: { world: 'Ward 13', dungeon: 'Quest' },
     linkedItems: {
       mod: {
         name: 'Recoil Dampener',
@@ -2285,7 +2285,7 @@ export const weaponItems: WeaponItem[] = [
     externalTokens: [],
     description: `Fires a stream of nanomachines, dealing damage to enemies or healing allies for 3% of their Max Health per second. The nano-tech also restores N'Erudian Energy to Turrets and Drones.`,
     wikiLinks: [`https://remnant.wiki/Repair_Tool`],
-    location: { world: 'Ward 13', dungeon: 'Vendor' },
+    location: { world: `N'Erud`, dungeon: [`Agronomy Sector`] },
     damage: 10,
     rps: 11,
     magazine: 150,

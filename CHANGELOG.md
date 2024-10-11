@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-10-11
+
+### Fixed
+
+- Updated item locations for several items (thanks, Split!)
+  - Crisis Core "Any-World drop" -> N'Erud - world drop
+  - Quantum Memory "N'Erud - Detritus Foundry" -> N'Erud - Crop Lab injectable
+  - Short Circuit "N'Erud - Mucid Terrarium" -> N'Erud - Power Hub injectable
+  - Repercussion "N'Erud -" -> Crop Lab aberration
+  - Gossamer Heart "N'Erud - Detritus Foundry" -> N'Erud - Crop Lab injectable
+  - Bypass Primer "stealth maze injectable" -> Security Drone Maze injectable
+  - Combat Shield Generator "N'Erud - Mucid Terrarium" -> N'Erud - Power Hub injectable
+  - Shield Alternator "N'Erud - World drop" -> N'Erud - Prototype aberration
+  - Genesis "N'Erud - world drop" -> N'Erud - Withered Necropolis
+  - Monorail "Ward 13 - Vendor" -> N'Erud - Quest
+  - Repair Tool " Ward 13 - Vendor" -> N'Erud - Agronomy Sector
+
 ## 2024-10-10
 
 ### Changed

@@ -640,7 +640,7 @@ export const ringItems: RingItem[] = [
     location: {
       world: `N'Erud`,
       biome: `N'Erud Wasteland`,
-      injectable: `Stealth Maze`,
+      injectable: `Security Drone Maze`,
     },
   },
   {
@@ -717,7 +717,11 @@ export const ringItems: RingItem[] = [
     description: `While in combat, Crouching or Combat Slide generates a stationary 3m x 1.5m Energy Shield with 700 Health which blocks enemy projectiles. Lasts 10s or until broken by damage.\n\nCan only happen once every 10s after expiring.`,
     wikiLinks: [`https://remnant.wiki/Combat_Shield_Generator`],
     dlc: 'dlc3',
-    location: { world: `N'Erud`, dungeon: ['Mucid Terrarium'] },
+    location: {
+      world: `N'Erud`,
+      biome: `N'Erud Underworld`,
+      injectable: `Power Hub`,
+    },
   },
   {
     category: 'ring',
@@ -2419,7 +2423,7 @@ export const ringItems: RingItem[] = [
       'Activating a Mod that costs 100 Mod Power or greater, generates a SHIELD for 20% of Max Health. Lasts 15s. Cannot stack with itself.',
     wikiLinks: [`https://remnant.wiki/Shield_Alternator`],
     dlc: 'dlc3',
-    location: { world: `N'Erud`, dungeon: 'World Drop' },
+    location: { world: `N'Erud`, dungeon: 'Aberration' },
   },
   {
     category: 'ring',
