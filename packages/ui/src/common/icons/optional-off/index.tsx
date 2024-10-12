@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faToggleOff } from '@fortawesome/free-solid-svg-icons/faToggleOff';
+import { faCircleDot } from '@fortawesome/free-regular-svg-icons/faCircleDot';
 
 export function OptionalOffIcon({ className }: { className?: string }) {
-  return <FontAwesomeIcon className={className} icon={faToggleOff} />;
+  return <FontAwesomeIcon className={className} icon={faCircleDot} />;
 }

@@ -231,9 +231,9 @@ export function ItemButton({
             aria-label="Toggle item as optional"
           >
             {item.optional ? (
-              <OptionalOnIcon className="text-accent1-500 h-5 w-5" />
+              <OptionalOffIcon className="text-accent1-500 h-4 w-4" />
             ) : (
-              <OptionalOffIcon className="text-accent1-500 h-5 w-5" />
+              <OptionalOnIcon className="text-accent1-500 h-4 w-4" />
             )}
           </button>
         </Tooltip>
