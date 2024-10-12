@@ -4,7 +4,8 @@ import {
   cn,
   getImageUrl,
   InfoCircleIcon,
-  OptionalIcon,
+  OptionalOffIcon,
+  OptionalOnIcon,
   OwnershipIcon,
   ZINDEXES,
 } from '@repo/ui';
@@ -229,7 +230,11 @@ export function ItemButton({
             onClick={() => onToggleOptional(item, !item.optional)}
             aria-label="Toggle item as optional"
           >
-            <OptionalIcon className="text-accent1-500 h-4 w-4" />
+            {item.optional ? (
+              <OptionalOffIcon className="text-accent1-500 h-4 w-4" />
+            ) : (
+              <OptionalOnIcon className="text-accent1-500 h-4 w-4" />
+            )}
           </button>
         </Tooltip>
       )}
