@@ -460,7 +460,7 @@ export const worldSaves = [
   },
   {
     bossName: 'Lydusa',
-    bossAffixes: [],
+    bossAffixes: ['Elemental Resist', 'Vicious'],
     release: 'dlc2',
     isCursed: true,
   },
@@ -605,12 +605,6 @@ export const worldSaves = [
   {
     bossName: `Sha'Hala: Spectral Guardian of N'Erud`,
     bossAffixes: ['Elemental Resist', 'Vicious'],
-    release: 'dlc1',
-    isCursed: undefined,
-  },
-  {
-    bossName: `Sha'Hala: Spectral Guardian of N'Erud`,
-    bossAffixes: ['Spiteful', 'Vicious'],
     release: 'dlc1',
     isCursed: undefined,
   },
