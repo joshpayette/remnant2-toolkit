@@ -1,13 +1,7 @@
 'use client';
 
 import { Combobox } from '@headlessui/react';
-import {
-  BaseInput,
-  CheckIcon,
-  ChevronUpDownIcon,
-  cn,
-  Skeleton,
-} from '@repo/ui';
+import { ArrowUpDownIcon, BaseInput, CheckIcon, cn, Skeleton } from '@repo/ui';
 import React, { useEffect, useState } from 'react';
 import { useIsClient, useMediaQuery } from 'usehooks-ts';
 
@@ -95,7 +89,7 @@ export function ItemSearchText({
           as={BaseInput}
         />
         <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
-          <ChevronUpDownIcon
+          <ArrowUpDownIcon
             className="h-5 w-5 text-gray-400"
             aria-hidden="true"
           />
