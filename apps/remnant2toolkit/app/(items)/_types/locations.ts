@@ -147,8 +147,10 @@ export const BIOMES = [
     dungeons: [
       `Gilded Chambers`,
       `Council Chamber`,
-      `Postulant's Parlor`,
       `Glistering Cloister`,
+      `Pathway of the Fallen`,
+      `Shattered Gallery`,
+      `The Great Hall`,
     ],
     injectables: [
       `As Above, So Below`,
@@ -166,6 +168,8 @@ export const BIOMES = [
       `The Expanding Glade`,
       `Forgotten Field`,
       `Imperial Gardens`,
+      `Deserted Atelier`,
+      `Goddess's Rest`,
     ],
     injectables: [`Broken Tomb`, `Tower`, `Island Jump`, `Shrine of the Doe`],
   },
@@ -245,7 +249,6 @@ export const BIOMES = [
       `Spectrum Nexus`,
       `Terminus Station`,
       `Tower of the Unseen`,
-      `Seeker's Rest`,
       `Detritus Foundry`,
       `Athenaeum Wek`,
     ],

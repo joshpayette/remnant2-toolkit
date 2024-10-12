@@ -6,9 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-10-12
 
+### Changed
+
+- Updated the icons used throughout the site to come from a single package. The larger package had more icons to choose from, but was severely crippling development load times and deployment size.
+
 ### Fixed
 
 - Updated two world saves that were incorrectly labelled.
+- Updated biomes for additional accuracy in item locations.
 
 ## 2024-10-11
 
