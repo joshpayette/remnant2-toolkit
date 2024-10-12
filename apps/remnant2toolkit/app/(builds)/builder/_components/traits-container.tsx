@@ -3,7 +3,8 @@ import {
   BaseInput,
   CloseCircleIcon,
   cn,
-  OptionalIcon,
+  OptionalOffIcon,
+  OptionalOnIcon,
   OwnershipIcon,
   ZINDEXES,
 } from '@repo/ui';
@@ -297,7 +298,11 @@ export function TraitsContainer({
                   }
                   aria-label="Toggle item as optional"
                 >
-                  <OptionalIcon className="text-accent1-500 h-5 w-5" />
+                  {traitItem.optional ? (
+                    <OptionalOnIcon className="text-accent1-500 h-5 w-5" />
+                  ) : (
+                    <OptionalOffIcon className="text-accent1-500 h-5 w-5" />
+                  )}
                 </BaseButton>
               </Tooltip>
             )}
