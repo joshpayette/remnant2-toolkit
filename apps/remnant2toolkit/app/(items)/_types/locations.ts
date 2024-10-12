@@ -157,7 +157,6 @@ export const BIOMES = [
       `Black and White`,
       `Silver and Gold`,
       `Reflection`,
-      `The Flames Event`,
     ],
   },
   {

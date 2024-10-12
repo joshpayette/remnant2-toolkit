@@ -249,7 +249,7 @@ export const ringItems: RingItem[] = [
     location: {
       world: 'Losomn',
       biome: 'Fae Palace',
-      injectable: 'The Flames Event',
+      injectable: 'Black and White',
     },
   },
   {
@@ -2907,7 +2907,7 @@ export const ringItems: RingItem[] = [
     location: {
       world: 'Losomn',
       biome: 'Fae Palace',
-      injectable: 'The Flames Event',
+      injectable: 'Black and White',
     },
   },
   {
