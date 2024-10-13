@@ -12,7 +12,7 @@ import { getArrayOfLength, stripUnicode } from '@repo/utils';
 import { useCallback, useMemo, useState } from 'react';
 
 import { Tooltip } from '@/app/_components/tooltip';
-import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/optional-item-symbol';
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
 import { useBadges } from '@/app/_hooks/use-badges';
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/_constants/default-trait-amount';
 import { MAX_BUILD_TAGS } from '@/app/(builds)/_constants/max-build-tags';

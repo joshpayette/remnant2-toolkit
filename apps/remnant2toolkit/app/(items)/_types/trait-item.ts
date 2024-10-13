@@ -1,6 +1,9 @@
 import { type BuildItems } from '@repo/db';
 
-import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/optional-item-symbol';
+import {
+  OPTIONAL_ITEM_SYMBOL,
+  VALUE_SEPARATOR_SYMBOL,
+} from '@/app/_constants/item-symbols';
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/_constants/default-trait-amount';
 import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
 import { traitItems } from '@/app/(items)/_constants/trait-items';
@@ -83,8 +86,8 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
     return items.map((i) => {
       if (!i || !i.id) return '';
       return i.optional
-        ? `${i.id}${OPTIONAL_ITEM_SYMBOL};${i.amount}`
-        : `${i.id};${i.amount}`;
+        ? `${i.id}${OPTIONAL_ITEM_SYMBOL}${VALUE_SEPARATOR_SYMBOL}${i.amount}`
+        : `${i.id}${VALUE_SEPARATOR_SYMBOL}${i.amount}`;
     });
   }
 
@@ -95,7 +98,7 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
     const items: TraitItem[] = [];
     itemIds.forEach((itemId, _index) => {
       // We need to split the trait id at the ; to get the amount
-      const [originalTraitId, amount] = itemId.split(';');
+      const [originalTraitId, amount] = itemId.split(VALUE_SEPARATOR_SYMBOL);
 
       if (!originalTraitId) return;
 
