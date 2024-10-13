@@ -23,6 +23,7 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['@repo/ui/*'],
   },
+  transpilePackages: ['@repo/ui'],
   webpack: (config, { dev, isServer }) => {
     if (dev) {
       config.watchOptions = {

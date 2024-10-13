@@ -196,7 +196,7 @@ export function ItemButton({
         >
           <button
             className={cn(
-              'absolute right-0 top-0 rounded-full border-transparent bg-black',
+              'absolute -top-1 right-1 rounded-full border-transparent',
               ZINDEXES.ITEM_BUTTON,
             )}
             onClick={() =>
@@ -206,9 +206,9 @@ export function ItemButton({
           >
             <InfoCircleIcon
               className={cn(
-                'text-accent1-500 h-4 w-4',
+                'text-accent1-500 h-3 w-3 rounded-full bg-black',
                 (variant === 'large' || variant === 'boss-tracker') &&
-                  'h-5 w-5',
+                  'h-4 w-4',
               )}
             />
           </button>
@@ -224,7 +224,7 @@ export function ItemButton({
         >
           <button
             className={cn(
-              'absolute left-0 top-0 rounded-full border-transparent bg-black',
+              'absolute left-0 top-0 rounded-full border-transparent',
               ZINDEXES.ITEM_BUTTON,
             )}
             onClick={() => onToggleOptional(item, !item.optional)}
@@ -250,14 +250,14 @@ export function ItemButton({
         >
           <button
             className={cn(
-              'absolute left-0 top-0 rounded-full border-transparent bg-black',
+              'absolute -top-1 left-1 rounded-full border-transparent',
               ZINDEXES.ITEM_BUTTON,
             )}
             aria-label={item.isOwned ? 'Item Owned' : 'Item Unowned'}
           >
             <OwnershipIcon
               className={cn(
-                'h-3 w-3',
+                'h-3 w-3 ',
                 item.isOwned ? 'text-green-500' : 'text-red-500',
               )}
             />
