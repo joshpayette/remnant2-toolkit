@@ -148,7 +148,7 @@ export const consumableItems: ConsumableItem[] = [
     dlc: 'base',
     tags: ['Damage Reduction', 'Stagger'],
     description:
-      'Reduces incoming damage by 10%, reduce Stagger by 1. Lasts 20s.',
+      'Reduces incoming damage by 10%. While using a Relic, reduce Stagger by 1. Lasts 20s.',
     wikiLinks: [`https://remnant.wiki/Confidence_Booster`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },

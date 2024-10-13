@@ -1030,7 +1030,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/items/rings/dullsteelring.png',
     id: 's76ytc',
     tags: ['Encumbrance'],
-    description: 'Improves Dodges by 1 Weight Class.',
+    description: 'Reduces Dodge Weight Threshold by 1 Level.',
     wikiLinks: [`https://remnant.wiki/Dull_Steel_Ring`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
     weightThreshold: 25,
