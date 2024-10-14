@@ -63,6 +63,8 @@ export const fusionItems: FusionItem[] = [
     id: 't2myua',
     dlc: 'base',
     description: 'Health Bonus + Stamina Bonus',
+    healthPercent: 0.15,
+    staminaPercent: 0.15,
   },
   {
     category: 'fusion',
@@ -117,6 +119,7 @@ export const fusionItems: FusionItem[] = [
     id: 'x59m5x',
     dlc: 'base',
     description: 'Shield Amount + Base Armor',
+    armor: 15,
   },
   {
     category: 'fusion',
@@ -126,6 +129,7 @@ export const fusionItems: FusionItem[] = [
     id: 'jeu7d6',
     dlc: 'base',
     description: 'Melee Speed + Base Stamina',
+    stamina: 15,
   },
   {
     category: 'fusion',
@@ -180,15 +184,17 @@ export const fusionItems: FusionItem[] = [
     id: '3b43hx',
     dlc: 'base',
     description: 'Damage Reduction + Armor Bonus',
+    armorPercent: 0.1,
   },
   {
     category: 'fusion',
     name: 'Threshold',
-    fragmentIds: ['6qz6t1', 'aci99s'],
+    fragmentIds: ['j87rzn', 'aci99s'],
     imagePath: '/items/fusions/blue-blue.png',
     id: '6p6ssk',
     dlc: 'base',
     description: 'Health Bonus + Grey Health Conversion',
+    healthPercent: 0.15,
   },
   {
     category: 'fusion',
