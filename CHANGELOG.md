@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-10-14
+
+### Fixed
+
+- Threshold fusion was using Base Health rather than Health Bonus.
+- Any fusions using armor, stamina, or health were not accruing towards those totals in the build stats. That has been fixed.
+
 ## 2024-10-12
 
 ### Changed
