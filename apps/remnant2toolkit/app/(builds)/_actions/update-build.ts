@@ -471,7 +471,7 @@ export async function updateBuild({
                   fields: [
                     {
                       name: 'Build Name',
-                      value: response.name,
+                      value: `${response.name} (${updatedVariants.length} variants)`,
                     },
                     {
                       name: 'Build Reference Link?',
