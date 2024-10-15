@@ -25,14 +25,14 @@ interface Props {
 
 export async function ProfileStats({ isEditable, profileId }: Props) {
   const {
-    buildsCreated,
+    communityBuilds,
     favoritesEarned,
     loadoutCounts,
     featuredBuilds,
     gimmickBuilds,
     beginnerBuilds,
     baseGameBuilds,
-    userProfile,
+    itemQuizScore,
     discoveredItemIds,
     totalBuildsViewCount,
   } = await getProfileStats({ profileId });
@@ -45,9 +45,9 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
   ).length;
 
   return (
-    <div className="grid grid-cols-2 bg-gray-700/10 sm:grid-cols-4 lg:grid-cols-5">
+    <div className="grid grid-cols-2 bg-gray-700/10 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
       <StatBox
-        stat={{ name: 'Community Builds', value: buildsCreated }}
+        stat={{ name: 'Community Builds', value: communityBuilds }}
         index={0}
         icon={
           <CommunityBuildsIcon className="text-primary-500 h-[36px] w-[36px]" />
@@ -79,7 +79,10 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
       <StatBox
         stat={{
           name: 'Item Quiz Score',
-          value: userProfile?.topItemQuizScore ?? 0,
+          value:
+            typeof itemQuizScore === 'number'
+              ? 0
+              : itemQuizScore?.topItemQuizScore ?? 0,
         }}
         index={4}
         icon={<QuizIcon className="text-primary-500 h-[36px] w-[36px]" />}
@@ -131,7 +134,10 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
       <StatBox
         stat={{
           name: 'Total Build Views',
-          value: totalBuildsViewCount._sum?.viewCount ?? 0,
+          value:
+            typeof totalBuildsViewCount === 'number'
+              ? 0
+              : totalBuildsViewCount._sum?.viewCount ?? 0,
         }}
         index={9}
         icon={<EyeIcon className="text-accent1-500 h-[36px] w-[36px]" />}

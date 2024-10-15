@@ -72,14 +72,20 @@ export async function generateMetadata(
   }
 
   const {
-    buildsCreated,
+    communityBuilds,
     favoritesEarned,
     featuredBuilds,
     gimmickBuilds,
     beginnerBuilds,
     baseGameBuilds,
     totalBuildsViewCount,
-  } = await getProfileStats({ profileId });
+  } = await getProfileStats({
+    profileId,
+    includeItemQuizScore: false,
+    includeDiscoveredItemIds: false,
+    includePopularBuilds1: false,
+    includePopularBuilds2: false,
+  });
 
   // const previousOGImages = (await parent).openGraph?.images || []
   // const previousTwitterImages = (await parent).twitter?.images || []
@@ -90,8 +96,10 @@ export async function generateMetadata(
   const avatar = getAvatarById(avatarId, profileId);
 
   const description = profileData.bio
-    ? `Community Builds: ${buildsCreated}, Favorites Earned: ${favoritesEarned}, Build Views: ${
-        totalBuildsViewCount._sum?.viewCount ?? 0
+    ? `Community Builds: ${communityBuilds}, Favorites Earned: ${favoritesEarned}, Build Views: ${
+        typeof totalBuildsViewCount === 'number'
+          ? 0
+          : totalBuildsViewCount._sum?.viewCount ?? 0
       }` +
       '\r\n' +
       `Featured: ${featuredBuilds}, Gimmick: ${gimmickBuilds}, Beginner: ${beginnerBuilds}, Base Game: ${baseGameBuilds}` +
