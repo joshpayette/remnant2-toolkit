@@ -6,10 +6,6 @@ import { revalidatePath } from 'next/cache';
 import { PageHeader } from '@/app/_components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { getIsLoadoutPublic } from '@/app/(builds)/_actions/get-is-loadout-public';
-import {
-  ALL_TRACKABLE_ITEMS,
-  TOTAL_TRACKABLE_ITEM_COUNT,
-} from '@/app/(items)/item-tracker/_constants/trackable-items';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { ProfileHeader } from '@/app/(user)/profile/_components/profile-header';
 import { ProfileNavbar } from '@/app/(user)/profile/_components/profile-navbar';
@@ -94,7 +90,7 @@ export async function generateMetadata(
   const avatar = getAvatarById(avatarId, profileId);
 
   const description = profileData.bio
-    ? `Community Builds: ${buildsCreated}, Favorites Earned: ${favoritesEarned}, Total Build Views: ${
+    ? `Community Builds: ${buildsCreated}, Favorites Earned: ${favoritesEarned}, Build Views: ${
         totalBuildsViewCount._sum?.viewCount ?? 0
       }` +
       '\r\n' +
