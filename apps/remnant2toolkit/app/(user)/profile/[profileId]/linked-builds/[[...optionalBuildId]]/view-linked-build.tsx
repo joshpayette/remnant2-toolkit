@@ -112,7 +112,6 @@ export function ViewLinkedBuild({
           </div>
         </div>
       )}
-      P
       <BuildList
         isLoading={isLoading}
         itemsOnThisPage={itemsOnThisPage}
