@@ -56,7 +56,12 @@ export function usePagination({ itemsPerPage = 16, itemsOnThisPage }: Props) {
   // If page number is less than 2, show 1 to 5
   // If the current page does not have enough items to fill the page, do not show the next pages
   const pageNumbers = useMemo(() => {
-    const numbers = [];
+    const numbers: number[] = [];
+
+    if (itemsOnThisPage === 0) {
+      numbers.push(1);
+      return numbers;
+    }
 
     if (currentPage < 3) {
       for (let i = 1; i <= 5; i++) {
@@ -80,7 +85,7 @@ export function usePagination({ itemsPerPage = 16, itemsOnThisPage }: Props) {
       }
     }
     return numbers;
-  }, [currentPage, isNextPageDisabled]);
+  }, [currentPage, isNextPageDisabled, itemsOnThisPage]);
 
   function handlePreviousPageClick() {
     if (currentPage <= 1) {

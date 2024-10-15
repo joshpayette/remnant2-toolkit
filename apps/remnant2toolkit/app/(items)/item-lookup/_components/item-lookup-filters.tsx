@@ -7,6 +7,7 @@ import {
   BaseFieldset,
   cn,
   FilterIcon,
+  FilterSwitch,
   TrashIcon,
 } from '@repo/ui';
 import isEqual from 'lodash.isequal';
@@ -310,6 +311,9 @@ export function ItemLookupFilters() {
               <BaseFieldset>
                 <BaseFieldGroup>
                   <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4 md:grid-cols-4">
+                    <div className="col-span-full">
+                      <FilterSwitch value="check" onChange={() => {}} />
+                    </div>
                     <div className="col-span-full sm:col-span-2">
                       <ReleasesFilter
                         values={unappliedFilters.releases}
