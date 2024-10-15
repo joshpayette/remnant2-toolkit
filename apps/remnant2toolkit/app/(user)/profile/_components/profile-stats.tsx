@@ -4,14 +4,13 @@ import { prisma } from '@repo/db';
 import {
   CheckIcon,
   CommunityBuildsIcon,
+  EyeIcon,
   FavoriteIcon,
   getImageUrl,
   LoadoutIcon,
-  MyBuildsIcon,
   QuizIcon,
 } from '@repo/ui';
 
-import { FeaturedBuildBadge } from '@/app/(builds)/builder/_components/featured-build-badge';
 import {
   ALL_TRACKABLE_ITEMS,
   TOTAL_TRACKABLE_ITEM_COUNT,
@@ -45,6 +44,7 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
     baseGameBuilds,
     userProfile,
     discoveredItemIds,
+    totalBuildsViewCount,
   ] = await Promise.all([
     prisma.build.count({
       where: {
@@ -125,6 +125,19 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
       where: { userId: profileId },
       select: { itemId: true },
     }),
+    // Agregate the Build.viewCount field for all builds by the user
+    prisma.build.aggregate({
+      where: {
+        createdById: profileId,
+        isPublic: true,
+        id: {
+          notIn: secondaryBuildIds,
+        },
+      },
+      _sum: {
+        viewCount: true,
+      },
+    }),
   ]);
 
   // const discoveredItemIdCount = Array.from(new Set(discoveredItemIds)).filter(
@@ -150,7 +163,7 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
       <StatBox
         stat={{ name: 'Favorites Earned', value: favoritesEarned }}
         index={1}
-        icon={<FavoriteIcon className="h-[36px] w-[36px] text-yellow-500" />}
+        icon={<FavoriteIcon className="text-accent1-500 h-[36px] w-[36px]" />}
       />
       <StatBox
         stat={{ name: `Users' Loadouts`, value: loadoutCounts }}
@@ -221,6 +234,14 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
             alt="Badge denoting the build is a base game build."
           />
         }
+      />
+      <StatBox
+        stat={{
+          name: 'Total Build Views',
+          value: totalBuildsViewCount._sum?.viewCount ?? 0,
+        }}
+        index={9}
+        icon={<EyeIcon className="text-accent1-500 h-[36px] w-[36px]" />}
       />
     </div>
   );
