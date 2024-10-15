@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-10-14
 
+### Changed
+
+- Updated the user profile stats to use icons. Also added additional profile stats.
+
 ### Fixed
 
 - Threshold fusion was using Base Health rather than Health Bonus.

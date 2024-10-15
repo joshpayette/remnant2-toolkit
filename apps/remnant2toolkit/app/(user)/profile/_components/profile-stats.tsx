@@ -1,6 +1,15 @@
 'use server';
 
 import { prisma } from '@repo/db';
+import {
+  CheckIcon,
+  CommunityBuildsIcon,
+  EyeIcon,
+  FavoriteIcon,
+  getImageUrl,
+  LoadoutIcon,
+  QuizIcon,
+} from '@repo/ui';
 
 import {
   ALL_TRACKABLE_ITEMS,
@@ -30,8 +39,12 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
     favoritesEarned,
     loadoutCounts,
     featuredBuilds,
+    gimmickBuilds,
+    beginnerBuilds,
+    baseGameBuilds,
     userProfile,
     discoveredItemIds,
+    totalBuildsViewCount,
   ] = await Promise.all([
     prisma.build.count({
       where: {
@@ -74,6 +87,36 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
         },
       },
     }),
+    prisma.build.count({
+      where: {
+        createdById: profileId,
+        isGimmickBuild: true,
+        isPublic: true,
+        id: {
+          notIn: secondaryBuildIds,
+        },
+      },
+    }),
+    prisma.build.count({
+      where: {
+        createdById: profileId,
+        isBeginnerBuild: true,
+        isPublic: true,
+        id: {
+          notIn: secondaryBuildIds,
+        },
+      },
+    }),
+    prisma.build.count({
+      where: {
+        createdById: profileId,
+        isBaseGameBuild: true,
+        isPublic: true,
+        id: {
+          notIn: secondaryBuildIds,
+        },
+      },
+    }),
     prisma.userProfile.findFirst({
       where: { userId: profileId },
       select: { topItemQuizScore: true },
@@ -81,6 +124,19 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
     prisma.userItems.findMany({
       where: { userId: profileId },
       select: { itemId: true },
+    }),
+    // Agregate the Build.viewCount field for all builds by the user
+    prisma.build.aggregate({
+      where: {
+        createdById: profileId,
+        isPublic: true,
+        id: {
+          notIn: secondaryBuildIds,
+        },
+      },
+      _sum: {
+        viewCount: true,
+      },
     }),
   ]);
 
@@ -96,22 +152,23 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
   ).length;
 
   return (
-    <div className="grid grid-cols-2 bg-gray-700/10 sm:grid-cols-3 lg:grid-cols-6">
+    <div className="grid grid-cols-2 bg-gray-700/10 sm:grid-cols-4 lg:grid-cols-5">
       <StatBox
-        stat={{ name: 'Builds Created', value: buildsCreated }}
+        stat={{ name: 'Community Builds', value: buildsCreated }}
         index={0}
+        icon={
+          <CommunityBuildsIcon className="text-primary-500 h-[36px] w-[36px]" />
+        }
       />
       <StatBox
         stat={{ name: 'Favorites Earned', value: favoritesEarned }}
         index={1}
+        icon={<FavoriteIcon className="text-accent1-500 h-[36px] w-[36px]" />}
       />
       <StatBox
-        stat={{ name: 'Loadout Count', value: loadoutCounts }}
+        stat={{ name: `Users' Loadouts`, value: loadoutCounts }}
         index={2}
-      />
-      <StatBox
-        stat={{ name: 'Featured Builds', value: featuredBuilds }}
-        index={3}
+        icon={<LoadoutIcon className="text-secondary-500 h-[36px] w-[36px]" />}
       />
       <DiscoveredItemsStatBox
         stat={{
@@ -122,15 +179,69 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
               : discoveredItemIdCount,
           unit: `/ ${TOTAL_TRACKABLE_ITEM_COUNT}`,
         }}
-        index={4}
+        index={3}
         isEditable={isEditable}
+        icon={<CheckIcon className="h-[36px] w-[36px] text-green-500" />}
       />
       <StatBox
         stat={{
           name: 'Item Quiz Score',
           value: userProfile?.topItemQuizScore ?? 0,
         }}
+        index={4}
+        icon={<QuizIcon className="text-primary-500 h-[36px] w-[36px]" />}
+      />
+      <StatBox
+        stat={{ name: 'Featured Builds', value: featuredBuilds }}
         index={5}
+        icon={
+          <img
+            src={getImageUrl(`/badges/featured-build-badge.png`)}
+            className="h-[36px] w-[36px]"
+            alt="Badge denoting the build is a featured build."
+          />
+        }
+      />
+      <StatBox
+        stat={{ name: 'Gimmick Builds', value: gimmickBuilds }}
+        index={6}
+        icon={
+          <img
+            src={getImageUrl(`/badges/gimmick-build-badge.png`)}
+            className="h-[36px] w-[36px]"
+            alt="Badge denoting the build is a gimmick build."
+          />
+        }
+      />
+      <StatBox
+        stat={{ name: 'Beginner Builds', value: beginnerBuilds }}
+        index={7}
+        icon={
+          <img
+            src={getImageUrl(`/badges/beginner-build-badge.png`)}
+            className="h-[36px] w-[36px]"
+            alt="Badge denoting the build is a beginner build."
+          />
+        }
+      />
+      <StatBox
+        stat={{ name: 'Base Game Builds', value: baseGameBuilds }}
+        index={8}
+        icon={
+          <img
+            src={getImageUrl(`/badges/base-game-build-badge.png`)}
+            className="h-[36px] w-[36px]"
+            alt="Badge denoting the build is a base game build."
+          />
+        }
+      />
+      <StatBox
+        stat={{
+          name: 'Total Build Views',
+          value: totalBuildsViewCount._sum?.viewCount ?? 0,
+        }}
+        index={9}
+        icon={<EyeIcon className="text-accent1-500 h-[36px] w-[36px]" />}
       />
     </div>
   );
