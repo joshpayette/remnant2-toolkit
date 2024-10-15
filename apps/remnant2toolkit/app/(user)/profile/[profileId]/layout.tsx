@@ -113,7 +113,10 @@ export async function generateMetadata(
       '\r\n' +
       `Featured: ${featuredBuilds}, Gimmick: ${gimmickBuilds}, Beginner: ${beginnerBuilds}, Base Game: ${baseGameBuilds}` +
       '\r\n' +
-      `Total Build Views: ${totalBuildsViewCount}, Items Discovered: ${itemsDiscovered}/${TOTAL_TRACKABLE_ITEM_COUNT}, Item Quiz Score: ${userProfile?.topItemQuizScore}` +
+      `Total Build Views: ${
+        totalBuildsViewCount._sum?.viewCount ?? 0
+      }, Items Discovered: ${itemsDiscovered}/${TOTAL_TRACKABLE_ITEM_COUNT}, Item Quiz Score: ${userProfile?.topItemQuizScore}` +
+      `\r\n` +
       `\r\n` +
       `${profileData.bio}`
     : `View ${userName}'s profile on ${SITE_TITLE}.`;
