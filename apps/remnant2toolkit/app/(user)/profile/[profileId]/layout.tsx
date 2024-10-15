@@ -6,12 +6,17 @@ import { revalidatePath } from 'next/cache';
 import { PageHeader } from '@/app/_components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { getIsLoadoutPublic } from '@/app/(builds)/_actions/get-is-loadout-public';
+import {
+  ALL_TRACKABLE_ITEMS,
+  TOTAL_TRACKABLE_ITEM_COUNT,
+} from '@/app/(items)/item-tracker/_constants/trackable-items';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { ProfileHeader } from '@/app/(user)/profile/_components/profile-header';
 import { ProfileNavbar } from '@/app/(user)/profile/_components/profile-navbar';
 import { ProfileStats } from '@/app/(user)/profile/_components/profile-stats';
 import { DEFAULT_DISPLAY_NAME } from '@/app/(user)/profile/_constants/default-display-name';
-import { getAvatarById } from '@/app/(user)/profile/_utils/get-avatar-by-id';
+import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
+import { getProfileStats } from '@/app/(user)/profile/_lib/get-profile-stats';
 
 export async function generateMetadata(
   { params: { profileId } }: { params: { profileId: string } },
@@ -70,22 +75,55 @@ export async function generateMetadata(
     });
   }
 
+  const {
+    buildsCreated,
+    favoritesEarned,
+    loadoutCounts,
+    featuredBuilds,
+    gimmickBuilds,
+    beginnerBuilds,
+    baseGameBuilds,
+    userProfile,
+    discoveredItemIds,
+    totalBuildsViewCount,
+  } = await getProfileStats({ profileId });
+
   // const previousOGImages = (await parent).openGraph?.images || []
   // const previousTwitterImages = (await parent).twitter?.images || []
   const userName = userData.displayName ?? userData.name;
   const title = `${userName} Profile - ${SITE_TITLE}`;
-  const description =
-    profileData.bio ?? `View ${userName}'s profile on ${SITE_TITLE}.`;
 
   const avatarId = profileData.avatarId;
   const avatar = getAvatarById(avatarId, profileId);
+
+  const uniqueItemIds = Array.from(
+    new Set(discoveredItemIds.map((item) => item.itemId)),
+  );
+  const discoveredItemIdCount = uniqueItemIds.filter((itemId) =>
+    ALL_TRACKABLE_ITEMS.some((i) => i.id === itemId),
+  ).length;
+
+  const itemsDiscovered =
+    discoveredItemIdCount > TOTAL_TRACKABLE_ITEM_COUNT
+      ? TOTAL_TRACKABLE_ITEM_COUNT
+      : discoveredItemIdCount;
+
+  const description = profileData.bio
+    ? `Community Builds: ${buildsCreated}, Favorites Earned: ${favoritesEarned}, Users' Loadouts: ${loadoutCounts}` +
+      '\r\n' +
+      `Featured: ${featuredBuilds}, Gimmick: ${gimmickBuilds}, Beginner: ${beginnerBuilds}, Base Game: ${baseGameBuilds}` +
+      '\r\n' +
+      `Total Build Views: ${totalBuildsViewCount}, Items Discovered: ${itemsDiscovered}/${TOTAL_TRACKABLE_ITEM_COUNT}, Item Quiz Score: ${userProfile?.topItemQuizScore}` +
+      `\r\n` +
+      `${profileData.bio}`
+    : `View ${userName}'s profile on ${SITE_TITLE}.`;
 
   return {
     title,
     description,
     openGraph: {
       title,
-      description: description,
+      description,
       url: `https://remnant2toolkit.com/profile/${profileId}`,
       images: [
         {
