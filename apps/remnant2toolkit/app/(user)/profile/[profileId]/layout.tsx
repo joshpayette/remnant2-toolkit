@@ -78,13 +78,10 @@ export async function generateMetadata(
   const {
     buildsCreated,
     favoritesEarned,
-    loadoutCounts,
     featuredBuilds,
     gimmickBuilds,
     beginnerBuilds,
     baseGameBuilds,
-    userProfile,
-    discoveredItemIds,
     totalBuildsViewCount,
   } = await getProfileStats({ profileId });
 
@@ -96,26 +93,12 @@ export async function generateMetadata(
   const avatarId = profileData.avatarId;
   const avatar = getAvatarById(avatarId, profileId);
 
-  const uniqueItemIds = Array.from(
-    new Set(discoveredItemIds.map((item) => item.itemId)),
-  );
-  const discoveredItemIdCount = uniqueItemIds.filter((itemId) =>
-    ALL_TRACKABLE_ITEMS.some((i) => i.id === itemId),
-  ).length;
-
-  const itemsDiscovered =
-    discoveredItemIdCount > TOTAL_TRACKABLE_ITEM_COUNT
-      ? TOTAL_TRACKABLE_ITEM_COUNT
-      : discoveredItemIdCount;
-
   const description = profileData.bio
-    ? `Community Builds: ${buildsCreated}, Favorites Earned: ${favoritesEarned}, Users' Loadouts: ${loadoutCounts}` +
+    ? `Community Builds: ${buildsCreated}, Favorites Earned: ${favoritesEarned}, Total Build Views: ${
+        totalBuildsViewCount._sum?.viewCount ?? 0
+      }` +
       '\r\n' +
       `Featured: ${featuredBuilds}, Gimmick: ${gimmickBuilds}, Beginner: ${beginnerBuilds}, Base Game: ${baseGameBuilds}` +
-      '\r\n' +
-      `Total Build Views: ${
-        totalBuildsViewCount._sum?.viewCount ?? 0
-      }, Items Discovered: ${itemsDiscovered}/${TOTAL_TRACKABLE_ITEM_COUNT}, Item Quiz Score: ${userProfile?.topItemQuizScore}` +
       `\r\n` +
       `\r\n` +
       `${profileData.bio}`
