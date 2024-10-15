@@ -4,7 +4,7 @@ import { type Metadata } from 'next';
 
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
-import { getAvatarById } from '@/app/(user)/profile/_utils/get-avatar-by-id';
+import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
 import { ViewLinkedBuild } from '@/app/(user)/profile/[profileId]/linked-builds/[[...optionalBuildId]]/view-linked-build';
 
 export async function generateMetadata({

@@ -13,7 +13,7 @@ import { toast } from 'react-toastify';
 import { saveProfile } from '@/app/(user)/profile/_actions/save-profile';
 import { AvatarBox } from '@/app/(user)/profile/_components/avatar-box';
 import { AvatarSelectDialog } from '@/app/(user)/profile/_components/avatar-select-dialog';
-import { getAvatarById } from '@/app/(user)/profile/_utils/get-avatar-by-id';
+import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
 
 interface Props {
   avatarId: string;

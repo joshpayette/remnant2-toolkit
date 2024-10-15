@@ -8,7 +8,7 @@ import { Fragment, useEffect, useState } from 'react';
 import { PlaceHolderIcon } from '@/app/_components/placeholder-icon';
 import { NAV_ITEMS } from '@/app/_types/navigation';
 import { getAvatarId } from '@/app/(user)/profile/_actions/get-avatar-id';
-import { getAvatarById } from '@/app/(user)/profile/_utils/get-avatar-by-id';
+import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
 
 function ProfileButtonComponent({
   variant,

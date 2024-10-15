@@ -1,6 +1,5 @@
 'use server';
 
-import { prisma } from '@repo/db';
 import {
   CheckIcon,
   CommunityBuildsIcon,
@@ -17,6 +16,7 @@ import {
 } from '@/app/(items)/item-tracker/_constants/trackable-items';
 import { DiscoveredItemsStatBox } from '@/app/(user)/profile/_components/discovered-items-stat-box';
 import { StatBox } from '@/app/(user)/profile/_components/stat-box';
+import { getProfileStats } from '@/app/(user)/profile/_lib/get-profile-stats';
 
 interface Props {
   isEditable: boolean;
@@ -24,17 +24,7 @@ interface Props {
 }
 
 export async function ProfileStats({ isEditable, profileId }: Props) {
-  // Fetch secondaryBuildId values first
-  const secondaryBuildIds = await prisma.buildVariant
-    .findMany({
-      select: {
-        secondaryBuildId: true,
-      },
-    })
-    .then((variants) => variants.map((variant) => variant.secondaryBuildId));
-
-  // get a count of all the builds created by the current user
-  const [
+  const {
     buildsCreated,
     favoritesEarned,
     loadoutCounts,
@@ -45,104 +35,7 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
     userProfile,
     discoveredItemIds,
     totalBuildsViewCount,
-  ] = await Promise.all([
-    prisma.build.count({
-      where: {
-        createdById: profileId,
-        isPublic: true,
-        id: {
-          notIn: secondaryBuildIds,
-        },
-      },
-    }),
-    prisma.buildVoteCounts.count({
-      where: {
-        build: {
-          createdById: profileId,
-          isPublic: true,
-          id: {
-            notIn: secondaryBuildIds,
-          },
-        },
-      },
-    }),
-    prisma.userLoadouts.count({
-      where: {
-        build: {
-          createdById: profileId,
-          isPublic: true,
-          id: {
-            notIn: secondaryBuildIds,
-          },
-        },
-      },
-    }),
-    prisma.build.count({
-      where: {
-        createdById: profileId,
-        isFeaturedBuild: true,
-        isPublic: true,
-        id: {
-          notIn: secondaryBuildIds,
-        },
-      },
-    }),
-    prisma.build.count({
-      where: {
-        createdById: profileId,
-        isGimmickBuild: true,
-        isPublic: true,
-        id: {
-          notIn: secondaryBuildIds,
-        },
-      },
-    }),
-    prisma.build.count({
-      where: {
-        createdById: profileId,
-        isBeginnerBuild: true,
-        isPublic: true,
-        id: {
-          notIn: secondaryBuildIds,
-        },
-      },
-    }),
-    prisma.build.count({
-      where: {
-        createdById: profileId,
-        isBaseGameBuild: true,
-        isPublic: true,
-        id: {
-          notIn: secondaryBuildIds,
-        },
-      },
-    }),
-    prisma.userProfile.findFirst({
-      where: { userId: profileId },
-      select: { topItemQuizScore: true },
-    }),
-    prisma.userItems.findMany({
-      where: { userId: profileId },
-      select: { itemId: true },
-    }),
-    // Agregate the Build.viewCount field for all builds by the user
-    prisma.build.aggregate({
-      where: {
-        createdById: profileId,
-        isPublic: true,
-        id: {
-          notIn: secondaryBuildIds,
-        },
-      },
-      _sum: {
-        viewCount: true,
-      },
-    }),
-  ]);
-
-  // const discoveredItemIdCount = Array.from(new Set(discoveredItemIds)).filter(
-  //   (item) => ALL_TRACKABLE_ITEMS.some((i) => i.id === item.itemId),
-  // )
+  } = await getProfileStats({ profileId });
 
   const uniqueItemIds = Array.from(
     new Set(discoveredItemIds.map((item) => item.itemId)),
