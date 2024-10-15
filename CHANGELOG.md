@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Fixed
 
-- Fixed bug preventing some user avatars from loading in the avatar at the top of the site.
+- Fixed a bug for Reddit users preventing some user avatars from loading in the avatar at the top of the site.
 
 ## 2024-10-14
 
