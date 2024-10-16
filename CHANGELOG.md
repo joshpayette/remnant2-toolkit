@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Twisted Idol was incorrectly reducing encumberance by 15 instead of 20.
+- Added `Misty Step` token to Canine Keepsake.
 
 ## 2024-10-15
 
