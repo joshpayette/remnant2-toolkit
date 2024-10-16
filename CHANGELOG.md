@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-10-15
+
+### Fixed
+
+- Fixed a bug for Reddit users preventing some user avatars from loading in the avatar at the top of the site.
+
 ## 2024-10-14
 
 ### Changed

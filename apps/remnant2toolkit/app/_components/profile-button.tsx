@@ -8,7 +8,7 @@ import { Fragment, useEffect, useState } from 'react';
 import { PlaceHolderIcon } from '@/app/_components/placeholder-icon';
 import { NAV_ITEMS } from '@/app/_types/navigation';
 import { getAvatarId } from '@/app/(user)/profile/_actions/get-avatar-id';
-import { getAvatarById } from '@/app/(user)/profile/_utils/get-avatar-by-id';
+import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
 
 function ProfileButtonComponent({
   variant,
@@ -128,7 +128,7 @@ function ProfileButtonComponent({
           </BaseLink>
         ) : (
           <div className="flex flex-row items-center justify-start gap-x-2">
-            {session?.user?.image ? (
+            {profileImage ? (
               <img
                 src={profileImage}
                 className="border-secondary-700 h-[56px] w-[56px] overflow-hidden rounded-full border p-1"
@@ -171,7 +171,7 @@ function ProfileButtonComponent({
       <Menu.Button className="bg-background focus:ring-surface-solid flex h-[56px] w-[56px] rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800">
         <span className="absolute -inset-1.5" />
         <span className="sr-only">Open user menu</span>
-        {session?.user?.image ? (
+        {profileImage ? (
           <img
             src={profileImage}
             className="border-secondary-700 h-[56px] w-[56px] overflow-hidden rounded-full border p-1"

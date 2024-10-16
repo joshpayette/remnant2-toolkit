@@ -11,7 +11,8 @@ import { ProfileHeader } from '@/app/(user)/profile/_components/profile-header';
 import { ProfileNavbar } from '@/app/(user)/profile/_components/profile-navbar';
 import { ProfileStats } from '@/app/(user)/profile/_components/profile-stats';
 import { DEFAULT_DISPLAY_NAME } from '@/app/(user)/profile/_constants/default-display-name';
-import { getAvatarById } from '@/app/(user)/profile/_utils/get-avatar-by-id';
+import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
+import { getProfileStats } from '@/app/(user)/profile/_lib/get-profile-stats';
 
 export async function generateMetadata(
   { params: { profileId } }: { params: { profileId: string } },
@@ -70,22 +71,49 @@ export async function generateMetadata(
     });
   }
 
+  const {
+    communityBuilds,
+    favoritesEarned,
+    featuredBuilds,
+    gimmickBuilds,
+    beginnerBuilds,
+    baseGameBuilds,
+    totalBuildsViewCount,
+  } = await getProfileStats({
+    profileId,
+    includeItemQuizScore: false,
+    includeDiscoveredItemIds: false,
+    includePopularBuilds1: false,
+    includePopularBuilds2: false,
+  });
+
   // const previousOGImages = (await parent).openGraph?.images || []
   // const previousTwitterImages = (await parent).twitter?.images || []
   const userName = userData.displayName ?? userData.name;
   const title = `${userName} Profile - ${SITE_TITLE}`;
-  const description =
-    profileData.bio ?? `View ${userName}'s profile on ${SITE_TITLE}.`;
 
   const avatarId = profileData.avatarId;
   const avatar = getAvatarById(avatarId, profileId);
+
+  const description = profileData.bio
+    ? `Community Builds: ${communityBuilds}, Favorites Earned: ${favoritesEarned}, Build Views: ${
+        typeof totalBuildsViewCount === 'number'
+          ? 0
+          : totalBuildsViewCount._sum?.viewCount ?? 0
+      }` +
+      '\r\n' +
+      `Featured: ${featuredBuilds}, Gimmick: ${gimmickBuilds}, Beginner: ${beginnerBuilds}, Base Game: ${baseGameBuilds}` +
+      `\r\n` +
+      `\r\n` +
+      `${profileData.bio}`
+    : `View ${userName}'s profile on ${SITE_TITLE}.`;
 
   return {
     title,
     description,
     openGraph: {
       title,
-      description: description,
+      description,
       url: `https://remnant2toolkit.com/profile/${profileId}`,
       images: [
         {

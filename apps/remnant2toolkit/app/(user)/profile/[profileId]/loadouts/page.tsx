@@ -6,7 +6,7 @@ import { OG_IMAGE_URL } from '@/app/_constants/meta';
 import { getIsLoadoutPublic } from '@/app/(builds)/_actions/get-is-loadout-public';
 import { getLoadoutList } from '@/app/(builds)/_actions/get-loadout-list';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
-import { getAvatarById } from '@/app/(user)/profile/_utils/get-avatar-by-id';
+import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
 import { ImportLoadouts } from '@/app/(user)/profile/[profileId]/loadouts/_components/import-loadouts';
 import { LoadoutGrid } from '@/app/(user)/profile/[profileId]/loadouts/_components/loadout-grid';
 import { LoadoutPublicCheckbox } from '@/app/(user)/profile/[profileId]/loadouts/_components/loadout-public-checkbox';

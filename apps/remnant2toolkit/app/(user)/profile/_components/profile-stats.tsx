@@ -1,6 +1,5 @@
 'use server';
 
-import { prisma } from '@repo/db';
 import {
   CheckIcon,
   CommunityBuildsIcon,
@@ -17,6 +16,7 @@ import {
 } from '@/app/(items)/item-tracker/_constants/trackable-items';
 import { DiscoveredItemsStatBox } from '@/app/(user)/profile/_components/discovered-items-stat-box';
 import { StatBox } from '@/app/(user)/profile/_components/stat-box';
+import { getProfileStats } from '@/app/(user)/profile/_lib/get-profile-stats';
 
 interface Props {
   isEditable: boolean;
@@ -24,125 +24,18 @@ interface Props {
 }
 
 export async function ProfileStats({ isEditable, profileId }: Props) {
-  // Fetch secondaryBuildId values first
-  const secondaryBuildIds = await prisma.buildVariant
-    .findMany({
-      select: {
-        secondaryBuildId: true,
-      },
-    })
-    .then((variants) => variants.map((variant) => variant.secondaryBuildId));
-
-  // get a count of all the builds created by the current user
-  const [
-    buildsCreated,
+  const {
+    communityBuilds,
     favoritesEarned,
     loadoutCounts,
     featuredBuilds,
     gimmickBuilds,
     beginnerBuilds,
     baseGameBuilds,
-    userProfile,
+    itemQuizScore,
     discoveredItemIds,
     totalBuildsViewCount,
-  ] = await Promise.all([
-    prisma.build.count({
-      where: {
-        createdById: profileId,
-        isPublic: true,
-        id: {
-          notIn: secondaryBuildIds,
-        },
-      },
-    }),
-    prisma.buildVoteCounts.count({
-      where: {
-        build: {
-          createdById: profileId,
-          isPublic: true,
-          id: {
-            notIn: secondaryBuildIds,
-          },
-        },
-      },
-    }),
-    prisma.userLoadouts.count({
-      where: {
-        build: {
-          createdById: profileId,
-          isPublic: true,
-          id: {
-            notIn: secondaryBuildIds,
-          },
-        },
-      },
-    }),
-    prisma.build.count({
-      where: {
-        createdById: profileId,
-        isFeaturedBuild: true,
-        isPublic: true,
-        id: {
-          notIn: secondaryBuildIds,
-        },
-      },
-    }),
-    prisma.build.count({
-      where: {
-        createdById: profileId,
-        isGimmickBuild: true,
-        isPublic: true,
-        id: {
-          notIn: secondaryBuildIds,
-        },
-      },
-    }),
-    prisma.build.count({
-      where: {
-        createdById: profileId,
-        isBeginnerBuild: true,
-        isPublic: true,
-        id: {
-          notIn: secondaryBuildIds,
-        },
-      },
-    }),
-    prisma.build.count({
-      where: {
-        createdById: profileId,
-        isBaseGameBuild: true,
-        isPublic: true,
-        id: {
-          notIn: secondaryBuildIds,
-        },
-      },
-    }),
-    prisma.userProfile.findFirst({
-      where: { userId: profileId },
-      select: { topItemQuizScore: true },
-    }),
-    prisma.userItems.findMany({
-      where: { userId: profileId },
-      select: { itemId: true },
-    }),
-    // Agregate the Build.viewCount field for all builds by the user
-    prisma.build.aggregate({
-      where: {
-        createdById: profileId,
-        isPublic: true,
-        id: {
-          notIn: secondaryBuildIds,
-        },
-      },
-      _sum: {
-        viewCount: true,
-      },
-    }),
-  ]);
-
-  // const discoveredItemIdCount = Array.from(new Set(discoveredItemIds)).filter(
-  //   (item) => ALL_TRACKABLE_ITEMS.some((i) => i.id === item.itemId),
-  // )
+  } = await getProfileStats({ profileId });
 
   const uniqueItemIds = Array.from(
     new Set(discoveredItemIds.map((item) => item.itemId)),
@@ -152,9 +45,9 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
   ).length;
 
   return (
-    <div className="grid grid-cols-2 bg-gray-700/10 sm:grid-cols-4 lg:grid-cols-5">
+    <div className="grid grid-cols-2 bg-gray-700/10 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
       <StatBox
-        stat={{ name: 'Community Builds', value: buildsCreated }}
+        stat={{ name: 'Community Builds', value: communityBuilds }}
         index={0}
         icon={
           <CommunityBuildsIcon className="text-primary-500 h-[36px] w-[36px]" />
@@ -186,7 +79,10 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
       <StatBox
         stat={{
           name: 'Item Quiz Score',
-          value: userProfile?.topItemQuizScore ?? 0,
+          value:
+            typeof itemQuizScore === 'number'
+              ? 0
+              : itemQuizScore?.topItemQuizScore ?? 0,
         }}
         index={4}
         icon={<QuizIcon className="text-primary-500 h-[36px] w-[36px]" />}
@@ -238,7 +134,10 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
       <StatBox
         stat={{
           name: 'Total Build Views',
-          value: totalBuildsViewCount._sum?.viewCount ?? 0,
+          value:
+            typeof totalBuildsViewCount === 'number'
+              ? 0
+              : totalBuildsViewCount._sum?.viewCount ?? 0,
         }}
         index={9}
         icon={<EyeIcon className="text-accent1-500 h-[36px] w-[36px]" />}

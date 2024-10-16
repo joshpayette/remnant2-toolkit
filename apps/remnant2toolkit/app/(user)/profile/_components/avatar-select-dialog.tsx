@@ -9,7 +9,6 @@ import { useSession } from 'next-auth/react';
 
 import {
   getPermittedBuilder,
-  isPermittedBuilder,
 } from '@/app/(builds)/_libs/permitted-builders';
 import { AvatarBox } from '@/app/(user)/profile/_components/avatar-box';
 import { AVATARS } from '@/app/(user)/profile/_constants/avatars';
@@ -25,9 +24,8 @@ export function AvatarSelectDialog({ open, onClose, onSelect }: Props) {
 
   const { data: sessionData } = useSession();
   if (sessionData?.user?.id) {
-    const customAvatarAllowed = isPermittedBuilder(sessionData.user.id);
-    if (customAvatarAllowed) {
-      const permittedBuilder = getPermittedBuilder(sessionData.user.id);
+    const permittedBuilder = getPermittedBuilder(sessionData.user.id);
+    if (permittedBuilder) {
       if (
         permittedBuilder &&
         permittedBuilder.avatar &&
