@@ -1266,7 +1266,7 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: [`https://remnant.wiki/Twisted_Idol`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
     armorPercent: 0.35,
-    weight: -15,
+    weight: -20,
   },
   {
     category: 'amulet',
