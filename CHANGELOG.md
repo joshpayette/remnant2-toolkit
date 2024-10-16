@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-10-16
 
+### Changed
+
+- Updated Hardcore Veteran guide to suggest Invoker as the primary archetype. It previously suggested starting Invoker, then once you get Ritualist, to make Ritualist the primary.
+
 ### Fixed
 
 - Twisted Idol was incorrectly reducing encumbrance by 15 instead of 20.
