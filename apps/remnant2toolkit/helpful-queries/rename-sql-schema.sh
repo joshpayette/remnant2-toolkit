@@ -1,3 +1,9 @@
+# First, dump the database from mysql to the current folder via:
+# pscale database dump [database] [branch]
+# Once complete, run this script.
+# When done, run the following to import it
+# cat pscale_dump_folder/*.sql | mysql dbname
+
 #!/bin/bash
 
 # Directory to check
@@ -15,6 +21,3 @@ for FILE in "$DIRECTORY"/*; do
     mv "$FILE" "$DIR/1$BASENAME"
   fi
 done
-
-# When done, run the following to import it
-# cat pscale_dump_folder/*.sql | mysql dbname
