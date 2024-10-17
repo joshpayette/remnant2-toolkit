@@ -156,7 +156,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     color: 'yellow',
     id: 'xqklut',
     dlc: 'base',
-    description: 'Increases Critical Damage by 10%.',
+    description: 'Increases Consumable Duration by 20%.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {

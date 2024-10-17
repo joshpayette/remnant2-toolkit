@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Twisted Idol was incorrectly reducing encumbrance by 15 instead of 20.
 - Added `Misty Step` token to Canine Keepsake.
+- Fixed incorrect `Consumable Duration` fragment description.
 
 ## 2024-10-15
 
