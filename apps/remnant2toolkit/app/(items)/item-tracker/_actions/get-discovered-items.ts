@@ -24,6 +24,7 @@ export async function getDiscoveredItems(): Promise<{
       where: {
         userId,
       },
+      take: 2000,
     });
 
     return {

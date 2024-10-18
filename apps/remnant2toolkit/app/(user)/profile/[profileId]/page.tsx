@@ -49,12 +49,14 @@ async function getCreatedBuilds(profileId: string) {
   for (const build of topBuildsAllTime) {
     const buildItems = await prisma.buildItems.findMany({
       where: { buildId: build.id },
+      take: 2000,
     });
     build.buildItems = buildItems;
   }
   for (const build of topBuildsCurrent) {
     const buildItems = await prisma.buildItems.findMany({
       where: { buildId: build.id },
+      take: 2000,
     });
     build.buildItems = buildItems;
   }

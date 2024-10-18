@@ -146,6 +146,7 @@ export async function getProfileStats({
       ? prisma.userItems.findMany({
           where: { userId: profileId },
           select: { itemId: true },
+          take: 2000,
         })
       : [],
     includeTotalBuildsViewCount
