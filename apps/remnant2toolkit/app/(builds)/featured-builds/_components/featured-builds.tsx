@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 
 import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_constants/pagination';
-import { BuildFilters } from '@/app/(builds)/_features/filters/build-filters';
+import { BuildFilters } from '@/app/(builds)/_features/new-filters/_components/build-filters';
 import { FeaturedBuildsList } from '@/app/(builds)/featured-builds/_components/featured-builds-list';
 
 export function FeaturedBuilds() {

@@ -17,7 +17,8 @@ export * from './base/textarea';
 
 export { AlertBanner } from './common/alert-banner';
 export { BugReportPrompt, reportBug } from './common/bug-report';
-export { FilterSwitch } from './common/filter-switch';
+export { FiltersContainer } from './common/filters/filters-container';
+export { FilterSwitch } from './common/filters/filter-switch';
 export { FooterContainer } from './common/footer-container';
 export { GlobalActionButtons } from './common/global-action-buttons';
 export { LeaderBoard, type LeaderBoardItem } from './common/leader-board';
