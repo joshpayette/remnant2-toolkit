@@ -23,7 +23,11 @@ export const relicItems: RelicItem[] = [
     description:
       "On use, heals for 35% of Max Health over 5s. Spawns 3 Healing Orbs which grant 35% of caster's Max Health over 5s. Orbs last 20s. Recasting removes previous Orbs.",
     wikiLinks: [`https://remnant.wiki/Blooming_Heart`],
-    location: { world: 'Yaesha', biome: 'Floating Forests' },
+    location: {
+      world: 'Yaesha',
+      biome: 'Floating Forests',
+      injectable: 'Tower',
+    },
   },
   {
     category: 'relic',

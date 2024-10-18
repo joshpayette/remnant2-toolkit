@@ -1514,12 +1514,8 @@ export const weaponItems: WeaponItem[] = [
     wikiLinks: [`https://remnant.wiki/Ornate_Flail`],
     location: {
       world: 'Losomn',
-      dungeon: [
-        'Council Chamber',
-        'Gilded Chambers',
-        'The Great Hall',
-        'Shattered Gallery',
-      ],
+      biome: 'Fae Palace',
+      injectable: 'As Above, So Below',
     },
     damage: 63,
     crit: 11,

@@ -360,7 +360,8 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: [`https://remnant.wiki/Effigy_Pendant`],
     location: {
       world: 'Losomn',
-      dungeon: [`Cotton's Kiln`, `Butcher's Quarter`, `Sunken Haunt`],
+      biome: 'Burning City',
+      injectable: 'Rookery',
     },
   },
   {
@@ -519,7 +520,8 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: [`https://remnant.wiki/Golden_Ribbon`],
     location: {
       world: 'Losomn',
-      dungeon: ['Gilded Chambers', 'Council Chamber'],
+      biome: 'Fae Palace',
+      injectable: 'Silver and Gold',
     },
   },
   {
@@ -1137,7 +1139,8 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: [`https://remnant.wiki/Silver_Ribbon`],
     location: {
       world: 'Losomn',
-      dungeon: ['Shattered Gallery', 'The Great Hall'],
+      biome: 'Fae Palace',
+      injectable: 'Silver and Gold',
     },
   },
   {
