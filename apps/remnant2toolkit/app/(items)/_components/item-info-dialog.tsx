@@ -21,7 +21,11 @@ import { WeaponInfo } from '@/app/(items)/_components/weapon-info';
 import { ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { ArmorItem } from '@/app/(items)/_types/armor-item';
 import { type Item } from '@/app/(items)/_types/item';
-import { BIOMES, type ItemLocation } from '@/app/(items)/_types/locations';
+import {
+  BIOMES,
+  DUNGEON_OVERRIDES,
+  type ItemLocation,
+} from '@/app/(items)/_types/locations';
 import { ModItem } from '@/app/(items)/_types/mod-item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { PerkItem } from '@/app/(items)/_types/perk-item';
@@ -30,7 +34,7 @@ import { TraitItem } from '@/app/(items)/_types/trait-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
 import { itemShareEndpoint } from '@/app/(items)/_utils/get-item-endpoint';
 
-function generateDungeonLabel(location: ItemLocation) {
+function generateDungeonLabel(location: ItemLocation, itemId: string) {
   let label = `${location.world} - `;
 
   if (location.dungeon) {
@@ -40,8 +44,14 @@ function generateDungeonLabel(location: ItemLocation) {
       label += `${location.dungeon}`;
     }
   } else if (location.biome) {
-    const biome = BIOMES.find((b) => b.name === location.biome);
-    label += `${biome?.dungeons.join(', ')}`;
+    const dungeonOverride = DUNGEON_OVERRIDES.find((o) => o.itemId === itemId);
+
+    if (dungeonOverride) {
+      label += `${dungeonOverride.dungeons.join(', ')}`;
+    } else {
+      const biome = BIOMES.find((b) => b.name === location.biome);
+      label += `${biome?.dungeons.join(', ')}`;
+    }
   }
 
   return label;
@@ -81,7 +91,7 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
           <div className="mt-2 grid grid-cols-3 gap-1">
             <div className="col-span-2 flex flex-col items-start justify-start">
               <span className="text-xs font-normal">
-                {generateDungeonLabel(item.location)}
+                {generateDungeonLabel(item.location, item.id)}
               </span>
               {!item.location.dungeon && item.location.injectable && (
                 <span className="mt-1 text-xs font-normal italic">

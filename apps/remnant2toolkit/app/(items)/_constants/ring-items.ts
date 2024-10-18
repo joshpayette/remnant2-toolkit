@@ -601,12 +601,8 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Stargazer`],
     location: {
       world: `N'Erud`,
-      dungeon: [
-        `Astropath's Respite`,
-        'Spectrum Nexus',
-        'Terminus Station',
-        'Tower of the Unseen',
-      ],
+      biome: `Towers of N'Erud`,
+      injectable: `Stargazer's Tomb`,
     },
     dlc: 'base',
   },
@@ -639,7 +635,7 @@ export const ringItems: RingItem[] = [
     dlc: 'dlc3',
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Wasteland`,
+      biome: `N'Erud Underworld`,
       injectable: `Security Drone Maze`,
     },
   },
@@ -1744,13 +1740,8 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Momentum_Driver`],
     location: {
       world: `N'Erud`,
-      dungeon: [
-        'The Putrid Domain',
-        'Vault of the Formless',
-        'Void Vessel Facility',
-        'The Hatchery',
-        'The Dark Conduit',
-      ],
+      biome: `N'Erud Underworld`,
+      injectable: 'The Claw',
     },
     dlc: 'base',
   },
@@ -2219,7 +2210,11 @@ export const ringItems: RingItem[] = [
       'Increases All Damage by 0.4% for each 1% of Grey Health. Increase Critical Chance by 5% if at least 50% of Max Health is Grey.',
     wikiLinks: [`https://remnant.wiki/Ring_of_the_Damned`],
     dlc: 'base',
-    location: { world: 'Losomn', dungeon: ['The Great Sewers'] },
+    location: {
+      world: 'Losomn',
+      biome: 'Losomn Sewers',
+      injectable: 'Fae Nest',
+    },
   },
   {
     category: 'ring',
@@ -2322,12 +2317,8 @@ export const ringItems: RingItem[] = [
     dlc: 'base',
     location: {
       world: 'Losomn',
-      dungeon: [
-        'Council Chamber',
-        'Gilded Chambers',
-        'The Great Hall',
-        'Shattered Gallery',
-      ],
+      biome: 'Fae Palace',
+      injectable: 'As Above, So Below',
     },
   },
   {
@@ -2392,12 +2383,8 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Shaed_Stone`],
     location: {
       world: 'Losomn',
-      dungeon: [
-        'Glistering Cloister',
-        `Gilded Chambers`,
-        `Pathway of the Fallen`,
-        `Shattered Gallery`,
-      ],
+      biome: 'Fae Palace',
+      injectable: 'Reflection',
     },
   },
   {
@@ -2437,12 +2424,8 @@ export const ringItems: RingItem[] = [
     dlc: 'base',
     location: {
       world: 'Losomn',
-      dungeon: [
-        `Butcher's Quarter`,
-        `Cotton's Kiln`,
-        `Derelict Lighthouse`,
-        `Sunken Haunt`,
-      ],
+      biome: 'Burning City',
+      injectable: 'Oink',
     },
   },
   {
@@ -2482,7 +2465,8 @@ export const ringItems: RingItem[] = [
     dlc: 'base',
     location: {
       world: 'Yaesha',
-      dungeon: ['The Nameless Nest', 'The Expanding Glade', 'Forgotten Field'],
+      biome: 'Floating Forests',
+      injectable: 'Tower',
     },
   },
   {
@@ -2568,7 +2552,11 @@ export const ringItems: RingItem[] = [
     description: `After picking up ammo, increases the damage of that Ammo Type by 15% for 20s.`,
     wikiLinks: [`https://remnant.wiki/Stockpile_Charger`],
     dlc: 'base',
-    location: { world: 'Losomn', dungeon: [`Tiller's Rest`] },
+    location: {
+      world: 'Losomn',
+      biome: 'Losomn Sewers',
+      injectable: 'Fae Nest',
+    },
   },
   {
     category: 'ring',

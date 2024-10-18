@@ -15,7 +15,11 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus:
       'When Ammo is returned to this weapon, it gains 10% increased Fire Rate for 3s. Duration can increase up to 10s.',
     wikiLinks: [`https://remnant.wiki/Bandit_(Mutator)`],
-    location: { world: 'Yaesha', dungeon: 'Aberration' },
+    location: {
+      world: 'Yaesha',
+      biome: 'Floating Forests',
+      injectable: 'Broken Tomb',
+    },
   },
   {
     category: 'mutator',
@@ -794,12 +798,8 @@ export const mutatorItems: MutatorItem[] = [
     wikiLinks: [`https://remnant.wiki/Steadfast`],
     location: {
       world: 'Losomn',
-      dungeon: [
-        'Council Chamber',
-        'Gilded Chambers',
-        'The Great Hall',
-        'Shattered Gallery',
-      ],
+      biome: 'Fae Palace',
+      injectable: 'As Above, So Below',
     },
   },
   {
@@ -985,12 +985,8 @@ export const mutatorItems: MutatorItem[] = [
     wikiLinks: [`https://remnant.wiki/Twisting_Wounds`],
     location: {
       world: 'Losomn',
-      dungeon: [
-        `Cotton's Kiln`,
-        `Butcher's Quarter`,
-        `Derelict Lighthouse`,
-        `Sunken Haunt`,
-      ],
+      biome: 'Burning City',
+      injectable: 'Oink',
     },
   },
   {
