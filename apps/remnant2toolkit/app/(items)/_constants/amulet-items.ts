@@ -110,6 +110,7 @@ export const amuletItems: AmuletItem[] = [
     id: 'z496hr',
     dlc: 'base',
     tags: [],
+    externalTokens: ['Misty Step'],
     description: `Increases All Damage by 2.5%, Critical Chance by 1.5%, and Critical Damage by 1.5% for every 5% of total Health present as Grey Health. Max 10 stacks.`,
     wikiLinks: ['https://remnant.wiki/Canine_Keepsake'],
     location: { world: 'Yaesha', dungeon: 'World Drop' },
@@ -1266,7 +1267,7 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: [`https://remnant.wiki/Twisted_Idol`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
     armorPercent: 0.35,
-    weight: -15,
+    weight: -20,
   },
   {
     category: 'amulet',

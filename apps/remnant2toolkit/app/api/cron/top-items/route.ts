@@ -237,6 +237,7 @@ async function runReportForCategory(
             },
           },
         },
+        take: 2000,
       }),
       prisma.buildItems.count({
         where: {
@@ -250,6 +251,7 @@ async function runReportForCategory(
             },
           },
         },
+        take: 2000,
       }),
     ]);
 
