@@ -45,6 +45,7 @@ export async function getBuildList({
     const [buildItems, buildTags, buildVariant] = await Promise.all([
       prisma.buildItems.findMany({
         where: { buildId: build.id },
+        take: 2000,
       }),
       prisma.buildTags.findMany({
         where: { buildId: build.id },
