@@ -391,7 +391,12 @@ export type ItemLocation =
  */
 export const DUNGEON_OVERRIDES: Array<{
   itemId: string;
-  dungeons: string[];
+  dungeons:
+    | LosomnDungeon[]
+    | NErudDungeon[]
+    | YaeshaDungeon[]
+    | RootEarthDungeon[]
+    | LabyrinthDungeon[];
 }> = [
   {
     itemId: 'm0l0u5', // Golden Ribbon
@@ -399,6 +404,6 @@ export const DUNGEON_OVERRIDES: Array<{
   },
   {
     itemId: 'k8j2r3', // Silver Ribbon
-    dungeons: [`Gilded Chambers`, `Council Chamber`, `Glistering Cloister`],
+    dungeons: [`Shattered Gallery`, `The Great Hall`, `Pathway of the Fallen`],
   },
 ];
