@@ -89,6 +89,11 @@ export function getItemsByKey(
       concoction?.[key] && items.push(concoction);
     });
 
+  buildState.items.fusion &&
+    buildState.items.fusion.forEach((fusion) => {
+      fusion?.[key] && items.push(fusion);
+    });
+
   buildState.items.consumable &&
     buildState.items.consumable.forEach((consumable) => {
       consumable?.[key] && items.push(consumable);
