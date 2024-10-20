@@ -1,8 +1,7 @@
-import { BaseButton, TrashIcon } from '@repo/ui';
+import { BaseButton, Tooltip, TrashIcon } from '@repo/ui';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { Tooltip } from '@/app/_components/tooltip';
 import { removeBuildFromLoadout } from '@/app/(builds)/_actions/remove-build-from-loadout';
 import { RemoveFromLoadoutAlert } from '@/app/(builds)/_components/remove-from-loadout-alert';
 

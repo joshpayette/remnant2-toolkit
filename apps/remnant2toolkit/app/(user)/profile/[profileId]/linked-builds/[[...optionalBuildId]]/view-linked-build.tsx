@@ -7,6 +7,7 @@ import {
   EyeIcon,
   ShareIcon,
   Skeleton,
+  Tooltip,
 } from '@repo/ui';
 import { urlNoCache } from '@repo/utils';
 import copy from 'clipboard-copy';
@@ -15,7 +16,6 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { Pagination } from '@/app/_components/pagination';
-import { Tooltip } from '@/app/_components/tooltip';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildList } from '@/app/(builds)/_components/build-list';
 import { type LinkedBuildState } from '@/app/(builds)/builder/(deprecated)/linked/[linkedBuildId]/types';

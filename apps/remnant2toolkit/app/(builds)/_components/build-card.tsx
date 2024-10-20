@@ -10,13 +10,13 @@ import {
   IndentIcon,
   PaperClipIcon,
   Skeleton,
+  Tooltip,
   VideoIcon,
 } from '@repo/ui';
 import { isValidYoutubeUrl } from '@repo/utils';
 import { useSession } from 'next-auth/react';
 
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
-import { Tooltip } from '@/app/_components/tooltip';
 import { useBadges } from '@/app/_hooks/use-badges';
 import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
 import { formatUpdatedAt } from '@/app/(builds)/_libs/format-updated-at';

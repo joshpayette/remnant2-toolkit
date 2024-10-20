@@ -1,12 +1,11 @@
 'use client';
 
-import { cn } from '@repo/ui';
+import { cn, Tooltip } from '@repo/ui';
 import { stripUnicode } from '@repo/utils';
 import { type ReactNode, useState } from 'react';
 import reactStringReplace from 'react-string-replace';
 import { v4 as uuidv4 } from 'uuid';
 
-import { Tooltip } from '@/app/_components/tooltip';
 import { ALL_BUILD_TAGS } from '@/app/(builds)/_constants/all-build-tags';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { allItems } from '@/app/(items)/_constants/all-items';

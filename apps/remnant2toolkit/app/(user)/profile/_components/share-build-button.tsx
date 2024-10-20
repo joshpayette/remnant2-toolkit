@@ -1,11 +1,9 @@
 'use client';
 
-import { BaseButton, ShareIcon } from '@repo/ui';
+import { BaseButton, ShareIcon, Tooltip } from '@repo/ui';
 import { urlNoCache } from '@repo/utils';
 import copy from 'clipboard-copy';
 import { toast } from 'react-toastify';
-
-import { Tooltip } from '@/app/_components/tooltip';
 
 export function ShareBuildButton({ buildId }: { buildId: string }) {
   function handleCopyBuild() {

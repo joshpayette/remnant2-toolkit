@@ -18,7 +18,10 @@ export * from './base/textarea';
 export { AlertBanner } from './common/alert-banner';
 export { BugReportPrompt, reportBug } from './common/bug-report';
 export { FiltersContainer } from './common/filters/filters-container';
-export { FilterSwitch } from './common/filters/filter-switch';
+export {
+  FilterSwitch,
+  type FilterSwitchValue,
+} from './common/filters/filter-switch';
 export { FooterContainer } from './common/footer-container';
 export { GlobalActionButtons } from './common/global-action-buttons';
 export { LeaderBoard, type LeaderBoardItem } from './common/leader-board';
@@ -28,6 +31,7 @@ export { PreloadResources } from './common/preload-resources';
 export { RootLayout } from './common/root-layout';
 export { SessionProvider } from './common/session-provider';
 export { Skeleton } from './common/skeleton';
+export { Tooltip } from './common/tooltip';
 export { ZINDEXES } from './common/z-indexes';
 
 export { ArmorGeneratorIcon } from './common/icons/armor-generator';
@@ -91,6 +95,7 @@ export { SignInIcon } from './common/icons/sign-in';
 export { SignOutIcon } from './common/icons/sign-out';
 export { SlashIcon } from './common/icons/slash';
 export { SortIcon } from './common/icons/sort';
+export { SquareIcon } from './common/icons/square';
 export { StatsIcon } from './common/icons/stats';
 export { SupportIcon } from './common/icons/support';
 export { ThemeIcon } from './common/icons/theme';

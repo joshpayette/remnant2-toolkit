@@ -6,11 +6,11 @@ import {
   OptionalOffIcon,
   OptionalOnIcon,
   OwnershipIcon,
+  Tooltip,
   ZINDEXES,
 } from '@repo/ui';
 import { useState } from 'react';
 
-import { Tooltip } from '@/app/_components/tooltip';
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/_constants/default-trait-amount';
 import { getTraitCount } from '@/app/(builds)/_libs/get-trait-count';
 import { type BuildState } from '@/app/(builds)/_types/build-state';

@@ -1,8 +1,9 @@
-import { BaseField, FiltersContainer } from '@repo/ui';
+import { BaseField, FiltersContainer, type FilterSwitchValue } from '@repo/ui';
 import isEqual from 'lodash.isequal';
 import { useMemo, useState } from 'react';
 
 import { InputWithClear } from '@/app/_components/input-with-clear';
+import { ArchetypeFilter } from '@/app/(builds)/_features/new-filters/_components/archetype-filter';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/new-filters/_constants/default-build-fields';
 import { type BuildFilterFields } from '@/app/(builds)/_features/new-filters/_types/build-filter-fields';
 
@@ -75,7 +76,15 @@ export function BuildFilters({
         </BaseField>
       }
     >
-      Filters
+      <BaseField className="col-span-full">
+        <ArchetypeFilter
+          onChange={(newValues) => {
+            console.info('newValues', newValues);
+            setUnappliedFilters({ ...unappliedFilters, archetypes: newValues });
+          }}
+          values={unappliedFilters.archetypes}
+        />
+      </BaseField>
     </FiltersContainer>
   );
 }

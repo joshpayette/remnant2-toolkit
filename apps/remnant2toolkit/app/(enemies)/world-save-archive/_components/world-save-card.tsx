@@ -1,8 +1,7 @@
-import { BaseButton, DownloadIcon, getImageUrl } from '@repo/ui';
+import { BaseButton, DownloadIcon, getImageUrl, Tooltip } from '@repo/ui';
 import Image from 'next/image';
 import { v4 as uuidv4 } from 'uuid';
 
-import { Tooltip } from '@/app/_components/tooltip';
 import { RELEASE_TO_NAME } from '@/app/_constants/releases';
 import { ALL_BOSS_AFFIXES } from '@/app/(enemies)/world-save-archive/_constants/all-boss-affixes';
 import { type FilteredWorldSave } from '@/app/(enemies)/world-save-archive/_types';

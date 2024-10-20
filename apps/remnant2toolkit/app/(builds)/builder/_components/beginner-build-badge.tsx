@@ -1,7 +1,5 @@
-import { getImageUrl } from '@repo/ui';
+import { getImageUrl, Tooltip } from '@repo/ui';
 import Image from 'next/image';
-
-import { Tooltip } from '@/app/_components/tooltip';
 
 export function BeginnerBuildBadge({
   unoptimized = false,

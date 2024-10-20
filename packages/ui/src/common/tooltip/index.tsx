@@ -13,12 +13,12 @@ export function Tooltip({
   return (
     <Tippy
       arrow={arrow}
-      interactive={interactive}
       content={content}
+      interactive={interactive}
       {...rest}
+      className="ui-w-full ui-max-w-[300px] ui-text-left"
       theme="r2tk"
       trigger={trigger}
-      className="w-full max-w-[300px] text-left"
     >
       {children}
     </Tippy>

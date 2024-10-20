@@ -1,8 +1,7 @@
-import { cn, getImageUrl, InfoCircleIcon, ZINDEXES } from '@repo/ui';
+import { cn, getImageUrl, InfoCircleIcon, Tooltip, ZINDEXES } from '@repo/ui';
 import Image from 'next/image';
 import { useState } from 'react';
 
-import { Tooltip } from '@/app/_components/tooltip';
 import { getTotalArmor } from '@/app/(builds)/_libs/get-totals/get-total-armor';
 import { getTotalHealth } from '@/app/(builds)/_libs/get-totals/get-total-health';
 import { getTotalResistances } from '@/app/(builds)/_libs/get-totals/get-total-resistances';
