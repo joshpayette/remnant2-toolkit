@@ -834,7 +834,9 @@ export function Builder({
                   key={`gun-${weaponIndex}`}
                   className={cn(
                     'flex flex-col items-start justify-center',
-                    weaponIndex === 1 && 'order-2 sm:order-none',
+                    weaponIndex === 1 &&
+                      !isScreenshotMode &&
+                      'order-2 sm:order-none',
                   )}
                 >
                   <ItemButton

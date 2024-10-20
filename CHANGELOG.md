@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-10-20
+
+### Fixed
+
+- Fixed a bug where exporting a build to image on mobile would put the melee weapon in the right most column, rather than the middle.
+
 ## 2024-10-19
 
 ### Fixed
