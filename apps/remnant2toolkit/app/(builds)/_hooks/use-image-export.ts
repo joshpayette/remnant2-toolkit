@@ -64,7 +64,7 @@ export function useImageExport() {
       });
 
       if (!response.ok) {
-        toast.error('Failed to upload image to Imgur.');
+        toast.error('Failed to upload image to image hosting service.');
         return;
       }
 

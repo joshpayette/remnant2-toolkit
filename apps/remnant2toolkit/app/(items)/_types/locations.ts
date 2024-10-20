@@ -111,7 +111,7 @@ export const YAESHA_DUNGEONS = [
   `Bloodless Throne`,
   `Glittering Grotto`,
   'Luminous Vale',
-  'Earthen Colosseum',
+  'Earthen Coliseum',
 ] as const satisfies string[];
 export type YaeshaDungeon = (typeof YAESHA_DUNGEONS)[number];
 
@@ -272,7 +272,7 @@ export const BIOMES = [
   {
     name: `Ziggurats`,
     world: 'Yaesha',
-    dungeons: [`Endaira's End`, `Proving Grounds`, `Earthen Colosseum`],
+    dungeons: [`Endaira's End`, `Proving Grounds`, `Earthen Coliseum`],
     injectables: [`Hidden Chamber`, `Wind Hollow`, `Library`, `Moon's Path`],
   },
 ] as const satisfies Array<
@@ -384,3 +384,26 @@ export type ItemLocation =
   | { world: 'Ward 13'; dungeon: 'Ward 13' | OtherLocation }
   | { world: 'The Backrooms'; dungeon: 'The Backrooms' }
   | { world: 'Any'; dungeon: OtherLocation };
+
+/**
+ * Some items are found in only some of the biome dungeons
+ * These overrides allow that logic to be implemented
+ */
+export const DUNGEON_OVERRIDES: Array<{
+  itemId: string;
+  dungeons:
+    | LosomnDungeon[]
+    | NErudDungeon[]
+    | YaeshaDungeon[]
+    | RootEarthDungeon[]
+    | LabyrinthDungeon[];
+}> = [
+  {
+    itemId: 'm0l0u5', // Golden Ribbon
+    dungeons: [`Gilded Chambers`, `Council Chamber`, `Glistering Cloister`],
+  },
+  {
+    itemId: 'k8j2r3', // Silver Ribbon
+    dungeons: [`Shattered Gallery`, `The Great Hall`, `Pathway of the Fallen`],
+  },
+];

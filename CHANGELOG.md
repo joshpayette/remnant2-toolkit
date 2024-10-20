@@ -4,6 +4,42 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-10-20
+
+### Fixed
+
+- Fixed a bug where exporting a build to image on mobile would put the melee weapon in the right most column, rather than the middle.
+
+## 2024-10-19
+
+### Fixed
+
+- Fixed bug preventing Fusions from increasing health, stamina, and armor totals in the build stats.
+
+## 2024-10-18
+
+### Fixed
+
+- Updated location acquisition info for the following items:
+  - Steadfast
+  - Ornate Flail
+  - Sapphire Dreamstone
+  - Bandit
+  - Ring of the Damned
+  - Stockpile Charger
+  - Shiny Hog Lure
+  - Twisting Wounds
+  - Shaed Stone
+  - Effigy Pendant
+  - Bypass Primer
+  - Golden Ribbon
+  - Silver Ribbon
+  - Burden of the Stargazer
+  - Momentum Driver
+  - Slayer's Crest
+  - Blooming Heart
+- "Fixed" the spelling of Earthen Colosseum to match in-game spelling of "Earthen Coliseum"
+
 ## 2024-10-16
 
 ### Changed
