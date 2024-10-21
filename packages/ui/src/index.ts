@@ -20,7 +20,7 @@ export { BugReportPrompt, reportBug } from './common/bug-report';
 export { FiltersContainer } from './common/filters/filters-container';
 export {
   FilterSwitch,
-  type FilterSwitchValue,
+  type FilterSwitchState,
 } from './common/filters/filter-switch';
 export { FooterContainer } from './common/footer-container';
 export { GlobalActionButtons } from './common/global-action-buttons';

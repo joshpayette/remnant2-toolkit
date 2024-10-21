@@ -3,7 +3,7 @@ import {
   BaseButton,
   FilterIcon,
   FilterSwitch,
-  type FilterSwitchValue,
+  type FilterSwitchState,
 } from '@repo/ui';
 
 import type { FilterField } from '@/app/(builds)/_features/new-filters/_types/build-filter-fields';
@@ -16,17 +16,17 @@ interface Props {
 
 export function ArchetypeFilter({ values, onChange }: Props) {
   const archetypes = archetypeItems.map((item) => {
-    let value: FilterSwitchValue = 'unchecked';
-    if (values.checked.includes(item.id)) {
-      value = 'checked';
+    let state: FilterSwitchState = 'default';
+    if (values.included.includes(item.id)) {
+      state = 'included';
     } else if (values.excluded.includes(item.id)) {
-      value = 'excluded';
+      state = 'excluded';
     }
 
     return {
       name: item.name,
       id: item.id,
-      value,
+      state,
     };
   });
 
@@ -50,29 +50,29 @@ export function ArchetypeFilter({ values, onChange }: Props) {
               {archetypes.map((archetype) => (
                 <FilterSwitch
                   key={archetype.id}
-                  value={archetype.value}
+                  state={archetype.state}
                   label={archetype.name}
-                  onChange={(newValue) => {
+                  onChange={(newState) => {
                     const newValues = { ...values };
-                    if (newValue === 'checked') {
-                      newValues.checked.push(archetype.id);
+                    if (newState === 'included') {
+                      newValues.included.push(archetype.id);
                       newValues.excluded = newValues.excluded.filter(
                         (id) => id !== archetype.id,
                       );
-                      newValues.unchecked = newValues.unchecked.filter(
+                      newValues.default = newValues.default.filter(
                         (id) => id !== archetype.id,
                       );
-                    } else if (newValue === 'excluded') {
+                    } else if (newState === 'excluded') {
                       newValues.excluded.push(archetype.id);
-                      newValues.checked = newValues.checked.filter(
+                      newValues.included = newValues.included.filter(
                         (id) => id !== archetype.id,
                       );
-                      newValues.unchecked = newValues.unchecked.filter(
+                      newValues.default = newValues.default.filter(
                         (id) => id !== archetype.id,
                       );
                     } else {
-                      newValues.unchecked.push(archetype.id);
-                      newValues.checked = newValues.checked.filter(
+                      newValues.default.push(archetype.id);
+                      newValues.included = newValues.included.filter(
                         (id) => id !== archetype.id,
                       );
                       newValues.excluded = newValues.excluded.filter(

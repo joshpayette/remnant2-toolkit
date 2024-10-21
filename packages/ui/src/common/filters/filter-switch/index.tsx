@@ -6,15 +6,15 @@ import { SquareIcon } from '../../icons/square';
 import { XIcon } from '../../icons/x';
 import { Tooltip } from '../../tooltip';
 
-export type FilterSwitchValue = 'checked' | 'unchecked' | 'excluded';
+export type FilterSwitchState = 'included' | 'default' | 'excluded';
 
 interface FilterSwitchProps {
   label: string;
-  value: FilterSwitchValue;
-  onChange: (newValue: FilterSwitchValue) => void;
+  state: FilterSwitchState;
+  onChange: (newState: FilterSwitchState) => void;
 }
 
-export function FilterSwitch({ label, value, onChange }: FilterSwitchProps) {
+export function FilterSwitch({ label, state, onChange }: FilterSwitchProps) {
   return (
     <div className="ui-justify-start ui-items-start flex flex-col">
       <h3 className="ui-text-sm ui-font-semibold ui-text-surface-solid mb-2">
@@ -25,11 +25,10 @@ export function FilterSwitch({ label, value, onChange }: FilterSwitchProps) {
           <button
             className={cn(
               'ui-border ui-[--btn-bg:transparent] ui-[--btn-icon:theme(colors.zinc.500)] data-[active]:ui-[--btn-icon:theme(colors.zinc.400)] data-[hover]:ui-[--btn-icon:theme(colors.zinc.400)] data-[active]:ui-bg-surface-solid/5 ui-relative ui-inline-flex ui-items-center ui-rounded-l-md ui-bg-[--btn-bg] ui-border-surface-solid/15 ui-p-2 ui-text-sm ui-font-semibold ui-text-green-500 ui-focus:z-10 focus:ui-outline-none data-[focus]:ui-outline data-[focus]:ui-outline-2 data-[focus]:ui-outline-offset-2 data-[focus]:ui-outline-blue-500',
-              value === 'checked' &&
-                'ui-bg-surface-solid/15 ui-bg-green-800 ui-text-surface-solid',
+              state === 'included' && 'ui-bg-green-800 ui-text-surface-solid',
             )}
             onClick={() => {
-              onChange('checked');
+              onChange('included');
             }}
             type="button"
           >
@@ -41,10 +40,10 @@ export function FilterSwitch({ label, value, onChange }: FilterSwitchProps) {
           <button
             className={cn(
               'ui-border ui-[--btn-bg:transparent] ui-[--btn-icon:theme(colors.zinc.500)] data-[active]:ui-[--btn-icon:theme(colors.zinc.400)] data-[hover]:ui-[--btn-icon:theme(colors.zinc.400)] data-[active]:ui-bg-surface-solid/5 ui-relative ui-inline-flex ui-items-center ui-bg-[--btn-bg] ui-border-surface-solid/15 ui-p-2 ui-text-sm ui-font-semibold ui-text-surface-solid ui-focus:z-10 focus:ui-outline-none data-[focus]:ui-outline data-[focus]:ui-outline-2 data-[focus]:ui-outline-offset-2 data-[focus]:ui-outline-blue-500',
-              value === 'unchecked' && 'ui-bg-surface-solid/15',
+              state === 'default' && 'ui-bg-surface-solid/15',
             )}
             onClick={() => {
-              onChange('unchecked');
+              onChange('default');
             }}
             type="button"
           >
@@ -56,8 +55,7 @@ export function FilterSwitch({ label, value, onChange }: FilterSwitchProps) {
           <button
             className={cn(
               'ui-border ui-[--btn-bg:transparent] ui-[--btn-icon:theme(colors.zinc.500)] data-[active]:ui-[--btn-icon:theme(colors.zinc.400)] data-[hover]:ui-[--btn-icon:theme(colors.zinc.400)] data-[active]:ui-bg-surface-solid/5 ui-relative ui-inline-flex ui-items-center ui-rounded-r-md ui-border-surface-solid/15 ui-bg-[--btn-bg] ui-p-2 ui-text-sm ui-font-semibold ui-text-red-500 ui-focus:z-10 focus:ui-outline-none data-[focus]:ui-outline data-[focus]:ui-outline-2 data-[focus]:ui-outline-offset-2 data-[focus]:ui-outline-blue-500',
-              value === 'excluded' &&
-                'ui-bg-surface-solid/15 ui-bg-red-800 ui-text-surface-solid',
+              state === 'excluded' && 'ui-bg-red-800 ui-text-surface-solid',
             )}
             onClick={() => {
               onChange('excluded');

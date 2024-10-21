@@ -1,4 +1,4 @@
-import { BaseField, FiltersContainer, type FilterSwitchValue } from '@repo/ui';
+import { BaseField, FiltersContainer } from '@repo/ui';
 import isEqual from 'lodash.isequal';
 import { useMemo, useState } from 'react';
 
@@ -76,15 +76,20 @@ export function BuildFilters({
         </BaseField>
       }
     >
-      <BaseField className="col-span-full">
-        <ArchetypeFilter
-          onChange={(newValues) => {
-            console.info('newValues', newValues);
-            setUnappliedFilters({ ...unappliedFilters, archetypes: newValues });
-          }}
-          values={unappliedFilters.archetypes}
-        />
-      </BaseField>
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
+        <BaseField className="col-span-full sm:col-span-1">
+          <ArchetypeFilter
+            onChange={(newValues) => {
+              console.info('newValues', newValues);
+              setUnappliedFilters({
+                ...unappliedFilters,
+                archetypes: newValues,
+              });
+            }}
+            values={unappliedFilters.archetypes}
+          />
+        </BaseField>
+      </div>
     </FiltersContainer>
   );
 }

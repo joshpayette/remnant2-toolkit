@@ -3,9 +3,9 @@ import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
 
 export const DEFAULT_BUILD_FIELDS: BuildFilterFields = {
   archetypes: {
-    checked: archetypeItems.map((item) => item.id),
+    included: [],
     excluded: [],
-    unchecked: [],
+    default: archetypeItems.map((item) => item.id),
   },
   searchText: '',
 };
