@@ -16,8 +16,8 @@ interface FilterSwitchProps {
 
 export function FilterSwitch({ label, state, onChange }: FilterSwitchProps) {
   return (
-    <div className="ui-justify-start ui-items-start flex flex-col">
-      <h3 className="ui-text-sm ui-font-semibold ui-text-surface-solid mb-2">
+    <div className="ui-justify-start ui-items-start ui-flex ui-flex-col ui-border ui-border-zinc-900 ui-p-2">
+      <h3 className="ui-text-xs ui-font-semibold ui-text-surface-solid mb-2">
         {label}
       </h3>
       <div className="ui-isolate ui-inline-flex ui-rounded-md ui-shadow-sm">
@@ -32,7 +32,7 @@ export function FilterSwitch({ label, state, onChange }: FilterSwitchProps) {
             }}
             type="button"
           >
-            <CheckIcon className="ui-h-3 ui-w-3" />
+            <CheckIcon className="ui-h-2 ui-w-2" />
           </button>
         </Tooltip>
 
@@ -47,7 +47,7 @@ export function FilterSwitch({ label, state, onChange }: FilterSwitchProps) {
             }}
             type="button"
           >
-            <SquareIcon className="ui-h-3 ui-w-3" />
+            <SquareIcon className="ui-h-2 ui-w-2" />
           </button>
         </Tooltip>
 
@@ -62,7 +62,7 @@ export function FilterSwitch({ label, state, onChange }: FilterSwitchProps) {
             }}
             type="button"
           >
-            <XIcon className="ui-h-3 ui-w-3" />
+            <XIcon className="ui-h-2 ui-w-2" />
           </button>
         </Tooltip>
       </div>

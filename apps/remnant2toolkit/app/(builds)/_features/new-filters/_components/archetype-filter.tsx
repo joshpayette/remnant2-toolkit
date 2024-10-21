@@ -46,7 +46,7 @@ export function ArchetypeFilter({ values, onChange }: Props) {
             </Disclosure.Button>
           </div>
           <Disclosure.Panel>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-2">
               {archetypes.map((archetype) => (
                 <FilterSwitch
                   key={archetype.id}
