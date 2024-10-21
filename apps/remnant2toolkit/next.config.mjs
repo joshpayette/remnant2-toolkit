@@ -22,6 +22,9 @@ const nextConfig = {
   },
   experimental: {
     optimizePackageImports: ['@repo/ui/*'],
+    serverActions: {
+      bodySizeLimit: '3mb',
+    },
   },
   transpilePackages: ['@repo/ui'],
   webpack: (config, { dev, isServer }) => {
