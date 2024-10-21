@@ -23,7 +23,7 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['@repo/ui/*'],
     serverActions: {
-      bodySizeLimit: '3mb',
+      bodySizeLimit: '2mb',
     },
   },
   transpilePackages: ['@repo/ui'],
