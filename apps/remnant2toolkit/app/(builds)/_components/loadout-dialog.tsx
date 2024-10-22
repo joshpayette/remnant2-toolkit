@@ -29,13 +29,14 @@ export function LoadoutDialog({ open, buildId, isEditable, onClose }: Props) {
     Array<DBBuild & { slot: number }>
   >([]);
 
+  async function fetchLoadoutList() {
+    const userLoadoutBuilds = await getLoadoutList();
+    setLoadoutList(userLoadoutBuilds);
+    setLoading(false);
+  }
+
   useEffect(() => {
-    async function getItemsAsync() {
-      const userLoadoutBuilds = await getLoadoutList();
-      setLoadoutList(userLoadoutBuilds);
-      setLoading(false);
-    }
-    getItemsAsync();
+    fetchLoadoutList();
   }, []);
 
   async function addToLoadout(slot: number) {
@@ -54,6 +55,10 @@ export function LoadoutDialog({ open, buildId, isEditable, onClose }: Props) {
       onClose();
       return;
     }
+
+    const newLoadoutList = await getLoadoutList();
+    setLoadoutList(newLoadoutList);
+
     toast.success('Build added to loadout');
     onClose();
   }
@@ -93,7 +98,7 @@ export function LoadoutDialog({ open, buildId, isEditable, onClose }: Props) {
         remove it from the loadout.
       </BaseDialogDescription>
       <BaseDialogBody>
-        <div className="my-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="my-8 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
           {getArrayOfLength(8).map((_, index) => {
             if (loading) {
               return (

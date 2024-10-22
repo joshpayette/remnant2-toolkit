@@ -99,7 +99,6 @@ export function LeaderBoard({
 }
 
 function TopScoresSkeleton({ itemCount }: { itemCount: number }) {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
   return getArrayOfLength(itemCount).map((_, index) => (
     // eslint-disable-next-line react/no-array-index-key
     <BaseTableRow key={index}>

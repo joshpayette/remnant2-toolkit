@@ -1,5 +1,6 @@
-import { BaseLink, getImageUrl, LeaderBoard } from '@repo/ui';
+import { BaseLink, getImageUrl, LeaderBoard, Skeleton } from '@repo/ui';
 import Image from 'next/image';
+import { Suspense } from 'react';
 
 import { getFavoritesLeaderboard } from '@/app/_components/get-favorites-leaderboard';
 import { LandingPageCard } from '@/app/_components/landing-page-card';
@@ -19,7 +20,13 @@ export default async function Page() {
   return (
     <div className="grid grid-cols-4 gap-x-4">
       <div className="col-span-full w-full xl:col-span-3">
-        <LandingPageContainer description={<LandingPageHeaderDescription />}>
+        <LandingPageContainer
+          description={
+            <Suspense fallback={<Skeleton className="h-[400px] w-full" />}>
+              <LandingPageHeaderDescription />
+            </Suspense>
+          }
+        >
           <div className="mt-8 hidden sm:col-span-1 sm:mt-0 md:block">
             <LandingPageCard
               {...NAV_ITEMS.featuredBuilds}
@@ -42,10 +49,14 @@ export default async function Page() {
           </div>
 
           <div id="genesis" className="col-span-full mt-8 w-full">
-            <GenesisCodeDisplay />
+            <Suspense fallback={<Skeleton className="h-[200px] w-full" />}>
+              <GenesisCodeDisplay />
+            </Suspense>
           </div>
           <div className="col-span-full mt-8 hidden w-full md:block">
-            <QualityBuildFeedContainer />
+            <Suspense fallback={<Skeleton className="h-[480px] w-full" />}>
+              <QualityBuildFeedContainer />
+            </Suspense>
           </div>
           <div className="col-span-full mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
             <div className="md:hidden">
