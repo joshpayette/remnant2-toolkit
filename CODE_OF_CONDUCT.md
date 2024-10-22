@@ -35,8 +35,9 @@ Examples of unacceptable behavior include:
   without their explicit permission
 - Other conduct which could reasonably be considered inappropriate in a
   professional setting
-- Overusing discord's @ feature
+- Overusing discord's @ feature (absolutely no pinging of Gunfire staff).
 - Gore or violence beyond the context of the game
+- Build titles or descriptions that are comprised exclusively of bad language.
 
 ## Foreign Language Policy
 
