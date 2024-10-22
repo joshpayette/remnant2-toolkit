@@ -151,8 +151,6 @@ export const badWords = [
   'dominatrics',
   'dominatrix',
   'donkeyribber',
-  'doosh',
-  'duche',
   'dupa',
   'dyke',
   'dziwka',

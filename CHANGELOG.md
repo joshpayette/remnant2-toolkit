@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-10-22
+
+### Fixed
+
+- Updated several item descriptions to match the information in Remnant.wiki.
+- Added `Skill Duration` tag to Hyperconductor.
+
+## 2024-10-21
+
+### Fixed
+
+- Fixed bug preventing builds with lengthy descriptions on each variant not saving due to a data limit on the server.
+- Fixed bug where adding a build to a loadout slot would not update the loadout slot until the page was refreshed. The loadout slow now updates immediately.
+
 ## 2024-10-20
 
 ### Fixed

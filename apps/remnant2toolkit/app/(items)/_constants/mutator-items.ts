@@ -133,7 +133,7 @@ export const mutatorItems: MutatorItem[] = [
     tags: [],
     externalTokens: ['Explosive Damage', 'AOE/Aura'],
     description:
-      "Each 10% of this weapon's magazine spent, cause an explosion for 5->10 Explosive Damage to targets within 0.5m of impact location.",
+      "Each 10% of this weapon's magazine spent, cause an explosion for 5 Explosive Damage to targets within 0.5m of impact location.",
     maxLevelBonus: `Increases this weapon's explosive damage by 20%.`,
     wikiLinks: [`https://remnant.wiki/Detonator`],
     location: { world: `N'Erud`, dungeon: ['Agronomy Sector'] },
@@ -404,7 +404,7 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'dlc3',
     tags: [],
     description:
-      "Spending 20% - 10% of this weapon's magazine grants a SHIELD for 5% of Max Health for 10s. Max 25% SHIELD.",
+      "Spending 20% of this weapon's magazine grants a SHIELD for 5% of Max Health for 10s. Max 25% SHIELD.",
     maxLevelBonus:
       'Increases Ranged Critical Chance for this weapon by 10% when SHIELD is above 10% of Max Health.',
     wikiLinks: [`https://remnant.wiki/Insulator`],
@@ -619,7 +619,7 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'dlc3',
     tags: ['Ranged Damage', 'Critical Chance'],
     description:
-      'Each enemy hit by Primary Fire grants 1 stack of REPERCUSSION, increasing Ranged Damage by 3% - 6% per stack. Max 5 stacks. Shots consume stacks.',
+      'Each enemy hit by Primary Fire grants 1 stack of REPERCUSSION, increasing Ranged Damage by 3% per stack. Max 5 stacks. Shots consume stacks.',
     maxLevelBonus: `Increases this weapon's Critical Chance by 3% per stack of REPERCUSSION.`,
     wikiLinks: [`https://remnant.wiki/Repercussion`],
     location: {
@@ -859,9 +859,9 @@ export const mutatorItems: MutatorItem[] = [
     tags: ['Heat Generation', 'Status Effect'],
     externalTokens: ['Explosive Damage', 'AOE/Aura'],
     description:
-      'When this weapon is above 25% Heat, a 7.5m Pulse deals 150 Explosive Damage once every  5s - 3s.',
+      'When this weapon is above 25% Heat, a 7.5m Pulse deals 150 Explosive Damage once every 5s.',
     maxLevelBonus:
-      'At Max Heat, a 10m Pulse deals 300 Explosive Damage which applies BURNING to all entities for 100 FIRE damage over 20s. Can only happen once every  5s - 3s.',
+      'At Max Heat, a 10m Pulse deals 300 Explosive Damage which applies BURNING to all entities for 100 FIRE damage over 20s. Can only happen once every 5s.',
     wikiLinks: [`https://remnant.wiki/Superheated`],
     location: { world: `N'Erud`, dungeon: [`Stagnant Manufactory`] },
   },
