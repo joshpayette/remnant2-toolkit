@@ -132,7 +132,7 @@ export function ViewBuild({
               onClose={() => setDetailedBuildDialogOpen(false)}
             />
             <LoadoutDialog
-              key={mainBuildState.buildId}
+              key={loadoutDialogOpen ? 'open' : 'closed'}
               buildId={mainBuildState.buildId}
               open={loadoutDialogOpen}
               onClose={() => setLoadoutDialogOpen(false)}
