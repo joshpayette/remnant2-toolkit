@@ -10,6 +10,7 @@ import {
   IndentIcon,
   PaperClipIcon,
   Skeleton,
+  UnfavoriteIcon,
   VideoIcon,
 } from '@repo/ui';
 import { isValidYoutubeUrl } from '@repo/utils';
@@ -121,7 +122,11 @@ export function BuildCard({
                       className="text-accent1-500 flex items-center justify-end text-right"
                       aria-label="Total build favorites"
                     >
-                      <FavoriteIcon className="mr-1 h-4 w-4" />{' '}
+                      {buildState.upvoted ? (
+                        <FavoriteIcon className="mr-1 h-4 w-4" />
+                      ) : (
+                        <UnfavoriteIcon className="mr-1 h-4 w-4" />
+                      )}{' '}
                       {build.totalUpvotes}
                     </button>
                   </Tooltip>
