@@ -3,6 +3,8 @@
 import { BaseButton } from '@repo/ui';
 import { capitalize } from '@repo/utils';
 import { useSession } from 'next-auth/react';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 import { useIsClient } from 'usehooks-ts';
 
 import { ItemTrackerFilters } from '@/app/(items)/_components/filters/item-tracker/item-tracker-filters';
@@ -15,6 +17,9 @@ import { useCsvFileUpload } from '@/app/(items)/item-tracker/_hooks/use-csv-file
 import { useSaveFileUpload } from '@/app/(items)/item-tracker/_hooks/use-save-file-upload';
 import { type ItemTrackerCategory } from '@/app/(items)/item-tracker/_types/item-tracker-category';
 import { getTrackerProgressLabel } from '@/app/(items)/item-tracker/_utils/get-tracker-progress-label';
+
+import { DeleteTrackedItemsDialog } from '../../_components/delete-tracked-items-dialog';
+import { deleteTrackedItems } from '../_actions/delete-tracked-items';
 
 /**
  * ----------------------------------------------
@@ -44,9 +49,14 @@ itemCategories = itemCategories.filter(
 );
 
 export const ItemTrackerContainer = () => {
-  const { status: sessionStatus } = useSession();
+  const { data: sessionData, status: sessionStatus } = useSession();
+  const userId = sessionData?.user?.id;
+
   const isClient = useIsClient();
   const { discoveredItemIds, handleSetDiscoveredItems } = useDiscoveredItems();
+
+  const [deleteTrackedItemsDialogOpen, setDeleteTrackedItemsDialogOpen] =
+    useState(false);
 
   const {
     importSaveDialogOpen,
@@ -78,6 +88,20 @@ export const ItemTrackerContainer = () => {
   // TODO Convert this to a grid of skeleton loaders
   if (sessionStatus === 'loading') return null;
 
+  async function handleDeleteTrackedItems() {
+    // Delete tracked items from the database
+    if (userId) {
+      const response = await deleteTrackedItems();
+      if (!response.success) {
+        toast.error('Failed to delete tracked items');
+      }
+    }
+    // Delete tracked items from local storage
+    handleSetDiscoveredItems([]);
+
+    toast.success(`Tracked items deleted`);
+  }
+
   return (
     <>
       <div className="text-primary-400 mb-2 flex flex-col items-center justify-center text-2xl font-bold">
@@ -100,6 +124,11 @@ export const ItemTrackerContainer = () => {
               onSubmit={handleCsvFileSubmit}
               fileInputRef={csvFileInputRef}
             />
+            <DeleteTrackedItemsDialog
+              open={deleteTrackedItemsDialogOpen}
+              onClose={() => setDeleteTrackedItemsDialogOpen(false)}
+              onConfirm={handleDeleteTrackedItems}
+            />
 
             <BaseButton
               color="cyan"
@@ -116,6 +145,14 @@ export const ItemTrackerContainer = () => {
               className="w-[250px]"
             >
               Import/Export CSV
+            </BaseButton>
+            <BaseButton
+              color="red"
+              onClick={() => setDeleteTrackedItemsDialogOpen(true)}
+              aria-label="Delete tracked items"
+              className="w-[250px]"
+            >
+              Delete Tracked Items
             </BaseButton>
           </div>
           <hr className="mt-4 w-full max-w-3xl border-gray-700" />

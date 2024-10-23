@@ -9,6 +9,12 @@ const PERMITTED_BUILDERS = [
     name: 'TK',
   },
   {
+    userId: 'clqn2t09a0001u80kd4nl6tg4',
+    avatar: undefined,
+    bypassModeration: true,
+    name: 'anarchang3l',
+  },
+  {
     userId: 'clrle2v5s0000ydtr0a15wt61',
     avatar: undefined,
     bypassModeration: true,
