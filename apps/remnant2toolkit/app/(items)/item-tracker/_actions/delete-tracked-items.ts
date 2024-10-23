@@ -12,7 +12,8 @@ export async function deleteTrackedItems(): Promise<{
   if (!session || !session.user) {
     return {
       success: false,
-      message: 'You must be logged in to track items to the database.',
+      message:
+        'You must be logged in to delete tracked items from the database.',
     };
   }
   const userId = session.user.id;
