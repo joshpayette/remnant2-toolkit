@@ -1,9 +1,12 @@
 import { Disclosure } from '@headlessui/react';
 import {
   BaseButton,
+  BaseListbox,
+  BaseListboxOption,
   FilterIcon,
-  FilterSwitch,
-  type FilterSwitchState,
+  FilterListbox,
+  type FilterListboxState,
+  type FilterOption,
 } from '@repo/ui';
 
 import type { FilterField } from '@/app/(builds)/_features/new-filters/_types/build-filter-fields';
@@ -15,17 +18,17 @@ interface Props {
 }
 
 export function ArchetypeFilter({ values, onChange }: Props) {
-  const archetypes = archetypeItems.map((item) => {
-    let state: FilterSwitchState = 'default';
-    if (values.included.includes(item.id)) {
+  const options: FilterOption[] = archetypeItems.map((item) => {
+    let state: FilterListboxState = 'default';
+    if (values.included?.includes(item.id)) {
       state = 'included';
-    } else if (values.excluded.includes(item.id)) {
+    } else if (values.excluded?.includes(item.id)) {
       state = 'excluded';
     }
 
     return {
-      name: item.name,
-      id: item.id,
+      label: item.name,
+      value: item.id,
       state,
     };
   });
@@ -46,45 +49,20 @@ export function ArchetypeFilter({ values, onChange }: Props) {
             </Disclosure.Button>
           </div>
           <Disclosure.Panel>
-            <div className="flex flex-wrap gap-2">
-              {archetypes.map((archetype) => (
-                <FilterSwitch
-                  key={archetype.id}
-                  state={archetype.state}
-                  label={archetype.name}
-                  onChange={(newState) => {
-                    const newValues = { ...values };
-                    if (newState === 'included') {
-                      newValues.included.push(archetype.id);
-                      newValues.excluded = newValues.excluded.filter(
-                        (id) => id !== archetype.id,
-                      );
-                      newValues.default = newValues.default.filter(
-                        (id) => id !== archetype.id,
-                      );
-                    } else if (newState === 'excluded') {
-                      newValues.excluded.push(archetype.id);
-                      newValues.included = newValues.included.filter(
-                        (id) => id !== archetype.id,
-                      );
-                      newValues.default = newValues.default.filter(
-                        (id) => id !== archetype.id,
-                      );
-                    } else {
-                      newValues.default.push(archetype.id);
-                      newValues.included = newValues.included.filter(
-                        (id) => id !== archetype.id,
-                      );
-                      newValues.excluded = newValues.excluded.filter(
-                        (id) => id !== archetype.id,
-                      );
-                    }
-                    onChange(newValues);
-                  }}
-                />
-              ))}
+            <div className="flex w-full flex-wrap gap-2">
+              <FilterListbox
+                options={options}
+                label="Archetypes"
+                // onChange={(newState) => {
+                //   console.info('newState', newState);
+                //   //onChange(newValues);
+                // }}
+              />
             </div>
           </Disclosure.Panel>
+          <BaseListbox>
+            <BaseListboxOption value="test">Test</BaseListboxOption>
+          </BaseListbox>
         </div>
       )}
     </Disclosure>
