@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-10-23
 
+### Added
+
+- Added ability to mass delete all your tracked items from the Item Tracker.
+
 ### Changed
 
 - Build cards will now show an empty star if you have not favorited the build, and a full star if you have favorited the build.
