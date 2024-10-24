@@ -43,7 +43,7 @@ export const NAV_ITEMS = {
   beginnerBuilds: {
     label: 'Beginner Builds',
     description:
-      'A curated list of Remnant 2 community builds intended to be usable or targetable in the earlier hours of gameplay.',
+      'A curated list of Remnant 2 community builds intended to be usable or targetable in your first 2 to 3 campaign clears.',
     href: '/beginner-builds',
     icon: BeginnerBuildsIcon,
   },
