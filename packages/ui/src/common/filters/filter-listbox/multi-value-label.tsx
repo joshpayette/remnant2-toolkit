@@ -16,7 +16,7 @@ export function MultiValueLabel(props: MultiValueGenericProps<FilterOption>) {
   return (
     <div
       className={cn(
-        'ui-bg-black ui-text-xs ui-text-surface-solid ui-flex ui-flex-row ui-justify-start ui-items-center ui-p-1',
+        'ui-bg-black ui-text-xs ui-text-surface-solid ui-flex ui-flex-row ui-justify-start ui-items-center ui-p-1 ui-mb-1',
       )}
     >
       <div className="ui-bg-black ui-flex ui-items-center ui-justify-center mr-0.5">
