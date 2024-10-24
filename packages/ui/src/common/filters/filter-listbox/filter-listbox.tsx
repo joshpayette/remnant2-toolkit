@@ -5,6 +5,7 @@ import { cn } from '../../../utils/classnames';
 import { MultiValueLabel } from './multi-value-label';
 import { MultiValueRemove } from './multi-value-remove';
 import { Option } from './option';
+import { ClearIndicator } from './clear-all-indicator';
 import type { FilterListboxState, FilterOption } from './types';
 
 interface FilterListboxProps {
@@ -32,6 +33,10 @@ export function FilterListbox({
     onChange(newOptions);
   }
 
+  function handleResetOptions() {
+    onChange(options.map((option) => ({ ...option, state: 'default' })));
+  }
+
   return (
     <Select
       className={cn(
@@ -39,14 +44,15 @@ export function FilterListbox({
       )}
       closeMenuOnSelect={false}
       components={{
+        ClearIndicator,
         Option,
         MultiValueLabel,
         MultiValueRemove,
       }}
-      isClearable={false}
       isMulti
       // @ts-expect-error Need to pass a custom prop to the option component
       onOptionChange={handleOptionChange}
+      onResetOptions={handleResetOptions}
       options={options}
       placeholder={`${label}...`}
       unstyled

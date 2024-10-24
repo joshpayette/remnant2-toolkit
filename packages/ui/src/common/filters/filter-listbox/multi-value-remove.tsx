@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { components, type MultiValueRemoveProps } from 'react-select';
 import { XIcon } from '../../icons/x';
 import type { FilterOption } from './types';
