@@ -3,7 +3,7 @@ import { cn } from '../../../utils/classnames';
 import { FilterSwitch } from './filter-switch';
 import type { FilterOption } from './types';
 
-export function Option(props: OptionProps<FilterOption>) {
+export function Option(props: OptionProps<FilterOption, false>) {
   return (
     <div
       className={cn(
@@ -13,9 +13,11 @@ export function Option(props: OptionProps<FilterOption>) {
       <div className="ui-flex ui-items-center ui-justify-center">
         <FilterSwitch
           onChange={(newState) => {
-            console.info('newState', newState);
+            // @ts-expect-error Need to pass a custom prop to the option component
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+            props.selectProps.onOptionChange(newState, props.data.value);
           }}
-          state="included"
+          state={props.data.state}
         />
       </div>
       <components.Option {...props} />

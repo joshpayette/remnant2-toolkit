@@ -5,34 +5,15 @@ import {
   BaseListboxOption,
   FilterIcon,
   FilterListbox,
-  type FilterListboxState,
   type FilterOption,
 } from '@repo/ui';
 
-import type { FilterField } from '@/app/(builds)/_features/new-filters/_types/build-filter-fields';
-import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
-
 interface Props {
-  onChange: (values: FilterField) => void;
-  values: FilterField;
+  onChange: (values: FilterOption[]) => void;
+  values: FilterOption[];
 }
 
 export function ArchetypeFilter({ values, onChange }: Props) {
-  const options: FilterOption[] = archetypeItems.map((item) => {
-    let state: FilterListboxState = 'default';
-    if (values.included?.includes(item.id)) {
-      state = 'included';
-    } else if (values.excluded?.includes(item.id)) {
-      state = 'excluded';
-    }
-
-    return {
-      label: item.name,
-      value: item.id,
-      state,
-    };
-  });
-
   return (
     <Disclosure defaultOpen>
       {({ open }) => (
@@ -51,12 +32,9 @@ export function ArchetypeFilter({ values, onChange }: Props) {
           <Disclosure.Panel>
             <div className="flex w-full flex-wrap gap-2">
               <FilterListbox
-                options={options}
+                options={values}
                 label="Archetypes"
-                // onChange={(newState) => {
-                //   console.info('newState', newState);
-                //   //onChange(newValues);
-                // }}
+                onChange={onChange}
               />
             </div>
           </Disclosure.Panel>

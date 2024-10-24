@@ -2,10 +2,10 @@ import type { BuildFilterFields } from '@/app/(builds)/_features/new-filters/_ty
 import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
 
 export const DEFAULT_BUILD_FIELDS: BuildFilterFields = {
-  archetypes: {
-    included: [],
-    excluded: [],
-    default: archetypeItems.map((item) => item.id),
-  },
+  archetypes: archetypeItems.map((item) => ({
+    label: item.name,
+    value: item.id,
+    state: 'default',
+  })),
   searchText: '',
 };

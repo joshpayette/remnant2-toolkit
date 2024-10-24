@@ -10,8 +10,8 @@ import {
   IndentIcon,
   PaperClipIcon,
   Skeleton,
-  UnfavoriteIcon,
   Tooltip,
+  UnfavoriteIcon,
   VideoIcon,
 } from '@repo/ui';
 import { isValidYoutubeUrl } from '@repo/utils';

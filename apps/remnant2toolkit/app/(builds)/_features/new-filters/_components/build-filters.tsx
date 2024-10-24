@@ -80,7 +80,6 @@ export function BuildFilters({
         <BaseField className="col-span-full sm:col-span-1">
           <ArchetypeFilter
             onChange={(newValues) => {
-              console.info('newValues', newValues);
               setUnappliedFilters({
                 ...unappliedFilters,
                 archetypes: newValues,

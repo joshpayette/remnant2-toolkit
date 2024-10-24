@@ -1,8 +1,6 @@
-import type { FilterSwitchState } from '@repo/ui';
-
-export type FilterField = Record<FilterSwitchState, string[]>;
+import type { FilterOption } from '@repo/ui';
 
 export interface BuildFilterFields {
-  archetypes: FilterField;
+  archetypes: FilterOption[];
   searchText: string;
 }

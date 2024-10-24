@@ -4,12 +4,11 @@ import { cn } from '../../../utils/classnames';
 import { CheckIcon } from '../../icons/check';
 import { SquareIcon } from '../../icons/square';
 import { XIcon } from '../../icons/x';
-
-export type FilterSwitchState = 'included' | 'default' | 'excluded';
+import type { FilterListboxState } from './types';
 
 interface FilterSwitchProps {
-  state: FilterSwitchState;
-  onChange: (newState: FilterSwitchState) => void;
+  state: FilterListboxState;
+  onChange: (newState: FilterListboxState) => void;
 }
 
 export function FilterSwitch({ state, onChange }: FilterSwitchProps) {
