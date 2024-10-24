@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-10-24
+
+### Fixed
+
+- Item Lookup search text was not including item tokens in the autocomplete suggestions.
+
 ## 2024-10-23
 
 ### Added
