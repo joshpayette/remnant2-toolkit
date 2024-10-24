@@ -3,7 +3,7 @@ import { cn } from '../../../utils/classnames';
 import { FilterSwitch } from './filter-switch';
 import type { FilterOption } from './types';
 
-export function Option(props: OptionProps<FilterOption, false>) {
+export function Option(props: OptionProps<FilterOption, true>) {
   return (
     <div
       className={cn(

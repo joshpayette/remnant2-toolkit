@@ -41,12 +41,13 @@ export function FilterListbox({
         Option,
         MultiValueLabel,
       }}
-      isOptionDisabled={() => true}
+      isMulti
       // @ts-expect-error Need to pass a custom prop to the option component
       onOptionChange={handleOptionChange}
       options={options}
       placeholder={`${label}...`}
       unstyled
+      value={options.filter((option) => option.state !== 'default')}
     />
   );
 }
