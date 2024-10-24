@@ -3,6 +3,7 @@
 import Select from 'react-select';
 import { cn } from '../../../utils/classnames';
 import { MultiValueLabel } from './multi-value-label';
+import { MultiValueRemove } from './multi-value-remove';
 import { Option } from './option';
 import type { FilterListboxState, FilterOption } from './types';
 
@@ -34,13 +35,15 @@ export function FilterListbox({
   return (
     <Select
       className={cn(
-        'ui-w-full ui-px-2 ui-text-sm ui-flex-gap-1 ui-bg-surface-solid/5 ui-text-surface-solid ui-rounded-[calc(theme(borderRadius.lg)-1px)] ui-border ui-border-surface-solid/10 focus:ui-outline-none ui-shadow',
+        'ui-w-full ui-px-2 ui-text-sm ui-bg-surface-solid/5 ui-text-surface-solid ui-rounded-[calc(theme(borderRadius.lg)-1px)] ui-border ui-border-surface-solid/10 focus:ui-outline-none ui-shadow',
       )}
       closeMenuOnSelect={false}
       components={{
         Option,
         MultiValueLabel,
+        MultiValueRemove,
       }}
+      isClearable={false}
       isMulti
       // @ts-expect-error Need to pass a custom prop to the option component
       onOptionChange={handleOptionChange}
