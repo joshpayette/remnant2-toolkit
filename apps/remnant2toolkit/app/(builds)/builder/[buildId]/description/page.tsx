@@ -27,7 +27,7 @@ export default async function Page({
 
   return (
     <div className="flex w-full flex-col items-center">
-      <div className="height-full flex w-full flex-col items-center justify-center">
+      <div className="height-full flex w-full flex-col items-center justify-center whitespace-pre-wrap">
         <DescriptionWithTokens
           description={build.description || ''}
           highlightBuildTokens={true}
