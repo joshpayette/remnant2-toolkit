@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - The max character limit for build descriptions has increased from 3k -> 5k characters.
+- Previously, Mudtooth's Snake Oil could be equipped as long as it was not the last concoction slot. It would add another concoction slot to offset the slot it took. This is not exactly how it should work. Rather, it shoudl always be equippable. Added new logic and a button allowing you to add Mudtooth's Snake Oil at any time, even if all concoction slots are full.
 
 ### Fixed
 

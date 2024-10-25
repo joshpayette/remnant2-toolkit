@@ -28,11 +28,12 @@ function buildSearchTextOptions(): Array<{ id: string; name: string }> {
 
   items = items.sort((a, b) => a.name.localeCompare(b.name));
 
-  // remove duplicates
-  items = items.filter(
-    (item, index, self) =>
-      index === self.findIndex((i) => i.name === item.name),
-  );
+  items = items
+    // remove duplicates
+    .filter(
+      (item, index, self) =>
+        index === self.findIndex((i) => i.name === item.name),
+    );
 
   return items;
 }
