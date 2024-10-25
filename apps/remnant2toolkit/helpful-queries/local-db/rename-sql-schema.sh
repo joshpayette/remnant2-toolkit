@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory to check
-DIRECTORY="C:\path\to\dbdump\pscale"
+DIRECTORY="dump/pscale"
 
 # Loop through all files in the directory
 for FILE in "$DIRECTORY"/*; do
