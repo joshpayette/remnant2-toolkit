@@ -406,4 +406,24 @@ export const DUNGEON_OVERRIDES: Array<{
     itemId: 'k8j2r3', // Silver Ribbon
     dungeons: [`Shattered Gallery`, `The Great Hall`, `Pathway of the Fallen`],
   },
+  {
+    itemId: 'ygwrpd', // Vice Gripsm Ascension Spire is both an injectable and dungeon
+    dungeons: ['Ascension Spire'],
+  },
+  {
+    itemId: '2rnl2d', // Salvaged Heart, Ascension Spire is both an injectable and dungeon
+    dungeons: ['Ascension Spire'],
+  },
+  {
+    itemId: 'rtfwr5', // Microcompressor, Ascension Spire is both an injectable and dungeon
+    dungeons: ['Ascension Spire'],
+  },
+  {
+    itemId: 'ayje99', // Meteorite Shard Ring, Ascension Spire is both an injectable and dungeon
+    dungeons: ['Ascension Spire'],
+  },
+  {
+    itemId: 'k89bxv', // Burden of the Mariner, Ascension Spire is both an injectable and dungeon
+    dungeons: ['Ascension Spire'],
+  },
 ];

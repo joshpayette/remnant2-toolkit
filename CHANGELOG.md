@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-10-25
+
+### Fixed
+
+- Fixed item location info for Ascension Spire items. Ascension Spire is both an injectable and a dungeon for location purposes.
+  - Vice Grips
+  - Salvaged Heart
+  - Microcompressor
+  - Meteorite Shard Ring
+  - Burden of the Mariner
+  - Void Idol
+
 ## 2024-10-24
 
 ### Fixed
