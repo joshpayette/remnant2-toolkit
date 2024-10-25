@@ -45,8 +45,9 @@ import { RingFilter } from '@/app/(builds)/_features/filters/ring-filter';
 import {
   BUILD_FILTER_KEYS,
   type BuildListFilters,
-  MAX_RINGS,
 } from '@/app/(builds)/_features/filters/types';
+
+import { MAX_RINGS } from '../../_constants/max-rings';
 
 function NonQualityBuildsBox({
   isWithQuality,

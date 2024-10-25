@@ -1,11 +1,14 @@
 import { BaseField, FiltersContainer } from '@repo/ui';
 import isEqual from 'lodash.isequal';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
 
 import { InputWithClear } from '@/app/_components/input-with-clear';
 import { ArchetypeFilter } from '@/app/(builds)/_features/new-filters/_components/archetype-filter';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/new-filters/_constants/default-build-fields';
 import { type BuildFilterFields } from '@/app/(builds)/_features/new-filters/_types/build-filter-fields';
+
+import { archetypeFilter } from '../_libs/archetype-filter';
 
 export function BuildFilters({
   defaultFilterOverrides,
@@ -20,6 +23,10 @@ export function BuildFilters({
       ...defaultFilterOverrides,
     };
   }, [defaultFilterOverrides]);
+
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const router = useRouter();
 
   // TODO
   const filters = DEFAULT_BUILD_FIELDS;
@@ -42,7 +49,23 @@ export function BuildFilters({
   }
 
   function applyUrlFilters(newFilters: BuildFilterFields) {
-    // TODO Create the url query string and route to the new url
+    const params = new URLSearchParams(searchParams.toString());
+
+    if (
+      !isEqual(newFilters.archetypes, defaultFilters.archetypes) &&
+      newFilters.archetypes.length !== archetypeFilter.validOptions.length
+    ) {
+      params.set(
+        archetypeFilter.buildFilterKey,
+        newFilters.archetypes.map((archetype) => archetype.value).join(','),
+      );
+    }
+
+    // Add unique timestamp to prevent caching when linking
+    params.append('t', Date.now().toString());
+
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    onFiltersChange();
   }
 
   // # Render

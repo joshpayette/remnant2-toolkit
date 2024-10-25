@@ -37,5 +37,3 @@ export const BUILD_FILTER_KEYS = {
   WITHVIDEO: 'withVideo',
   WITHREFERENCE: 'withReference',
 } as const satisfies Record<string, keyof BuildListFilters>;
-
-export const MAX_RINGS = 4;
