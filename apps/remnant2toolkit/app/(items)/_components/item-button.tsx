@@ -224,16 +224,16 @@ export function ItemButton({
         >
           <button
             className={cn(
-              'absolute left-0 top-0 rounded-full border-transparent',
+              'absolute -top-1 left-1 rounded-full border-transparent',
               ZINDEXES.ITEM_BUTTON,
             )}
             onClick={() => onToggleOptional(item, !item.optional)}
             aria-label="Toggle item as optional"
           >
             {item.optional ? (
-              <OptionalOffIcon className="text-accent1-500 h-4 w-4" />
+              <OptionalOffIcon className="text-accent1-500 h-3 w-3" />
             ) : (
-              <OptionalOnIcon className="text-accent1-500 h-4 w-4" />
+              <OptionalOnIcon className="text-accent1-500 h-3 w-3" />
             )}
           </button>
         </Tooltip>

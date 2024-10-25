@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-10-25
+
+### Changed
+
+- The max character limit for build descriptions has increased from 3k -> 5k characters.
+- Previously, Mudtooth's Snake Oil could be equipped as long as it was not the last concoction slot. It would add another concoction slot to offset the slot it took. This is not exactly how it should work. Rather, it shoudl always be equippable. Added new logic and a button allowing you to add Mudtooth's Snake Oil at any time, even if all concoction slots are full.
+
+### Fixed
+
+- Quality build feed now excludes builds with the term `(copy)` in the build name. This is to exclude duplicate builds with no changes made.
+- When duplicating a build, only the main build name was being appended with `(copy)`. All variants are now also appended with `(copy)`.
+- Updated trait item descriptions for consistency in displaying the full range of affected stats between level 1 and level 10.
+- Fixed item location info for Ascension Spire items. Ascension Spire is both an injectable and a dungeon for location purposes.
+  - Vice Grips
+  - Salvaged Heart
+  - Microcompressor
+  - Meteorite Shard Ring
+  - Burden of the Mariner
+  - Void Idol
+
 ## 2024-10-24
 
 ### Fixed

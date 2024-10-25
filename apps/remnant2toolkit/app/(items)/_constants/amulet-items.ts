@@ -1297,7 +1297,8 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: [`https://remnant.wiki/Void_Idol`],
     location: {
       world: `N'Erud`,
-      dungeon: ['Ascension Spire'],
+      biome: `N'Erud Wasteland`,
+      injectable: 'Ascension Spire',
     },
   },
   {

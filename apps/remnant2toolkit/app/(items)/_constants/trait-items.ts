@@ -12,7 +12,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'dlc1',
     tags: ['Status Effect', 'Status Duration'],
     description:
-      'Increases STATUS EFFECT duration against enemies by 10 - 100%.\n\nRITUALIST Archetype Trait',
+      'Increases STATUS EFFECT duration against enemies by 10 -> 100%.\n\nRITUALIST Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Affliction`],
     linkedItems: {
       archetype: {
@@ -32,7 +32,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     tags: ['Ammo Reserves'],
     description:
-      'Increases Ammo Reserves by 5% - 50%.\n\nGUNSLINGER Archetype Trait',
+      'Increases Ammo Reserves by 5% -> 50%.\n\nGUNSLINGER Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Ammo_Reserves`],
     location: { world: 'Any', dungeon: 'Linked Item' },
     linkedItems: {
@@ -52,7 +52,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'dlc3',
     tags: [],
     externalTokens: [],
-    description: 'Increases SHIELD amount by 1.5% - 15%.',
+    description: 'Increases SHIELD amount by 1.5% -> 15%.',
     wikiLinks: [`https://remnant.wiki/Barrier`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: `N'Erud`, dungeon: 'Linked Item' },
@@ -72,7 +72,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     tags: ['Mod Cast Speed', 'Skill Cast Speed'],
     description:
-      'Increases Mod and Skill Casting Speed by 5 - 50%.\n\nARCHON Archetype Trait.',
+      'Increases Mod and Skill Casting Speed by 5 -> 50%.\n\nARCHON Archetype Trait.',
     wikiLinks: [`https://remnant.wiki/Flash_Caster`],
     linkedItems: {
       archetype: {
@@ -92,7 +92,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     tags: ['Armor Increase', 'Damage Reduction'],
     description:
-      'Increases Armor Effectiveness by 5% - 50%.\n\nENGINEER Archetype Trait',
+      'Increases Armor Effectiveness by 5% -> 50%.\n\nENGINEER Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Fortify`],
     linkedItems: {
       archetype: {
@@ -132,7 +132,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     tags: ['Damage Reduction'],
     description:
-      'Reduces Friendly Fire Damage Dealt and Received by 8% - 80%.\n\nHANDLER Archetype Trait.',
+      'Reduces Friendly Fire Damage Dealt and Received by 8% -> 80%.\n\nHANDLER Archetype Trait.',
     wikiLinks: [`https://remnant.wiki/Kinship`],
     linkedItems: {
       archetype: {
@@ -152,7 +152,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     tags: ['Range'],
     description:
-      'Increases Weapon Ideal Range by 0.6m - 6m.\n\nHUNTER Archetype Trait',
+      'Increases Weapon Ideal Range by 0.6m -> 6m.\n\nHUNTER Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Longshot`],
     linkedItems: {
       archetype: {
@@ -172,7 +172,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     tags: ['Concoction'],
     description:
-      'Increases Consumable Duration by 10% - 100%.\n\nALCHEMIST Archetype Trait.',
+      'Increases Consumable Duration by 10% -> 100%.\n\nALCHEMIST Archetype Trait.',
     wikiLinks: [`https://remnant.wiki/Potency`],
     linkedItems: {
       archetype: {
@@ -192,7 +192,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     tags: ['Health'],
     description:
-      'Increases Health Regeneration by 0.15/s - 1.5/s.\n\nSUMMONER Archetype Trait',
+      'Increases Health Regeneration by 0.15/s -> 1.5/s.\n\nSUMMONER Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Regrowth`],
     linkedItems: {
       archetype: {
@@ -212,7 +212,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     tags: ['Movement Speed'],
     description:
-      'Increases Movement Speed by 1% - 15%.\n\nIncreases Environmental Movement Speed by 5% - 50%.\n\n(Vaulting, Ladders, Wading)\n\nEXPLORER Archetype Trait.',
+      'Increases Movement Speed by 1% -> 15%.\n\nIncreases Environmental Movement Speed by 5% - 50%.\n\n(Vaulting, Ladders, Wading)\n\nEXPLORER Archetype Trait.',
     wikiLinks: [`https://remnant.wiki/Swiftness`],
     linkedItems: {
       archetype: {
@@ -232,7 +232,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     tags: ['Neutral Dodge', 'Perfect Dodge', 'Perfect Neutral Evade'],
     description:
-      'Increases Dodge Weight Threshold by 1.5 - 15.\n\nCHALLENGER Archetype Trait',
+      'Increases Dodge Weight Threshold by 1.5 -> 15.\n\nCHALLENGER Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Strong_Back`],
     linkedItems: {
       archetype: {
@@ -252,7 +252,7 @@ export const traitItems: TraitItem[] = [
     id: 'pbak5a',
     dlc: 'base',
     tags: ['Heal', 'Healing Effectiveness'],
-    description: 'Increases Healing by 5% - 50%.\n\nMEDIC Archetype Trait',
+    description: 'Increases Healing by 5% -> 50%.\n\nMEDIC Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Triage`],
     linkedItems: {
       archetype: {
@@ -272,7 +272,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     tags: ['Neutral Dodge', 'Perfect Dodge', 'Perfect Neutral Evade'],
     description:
-      'Increases Evade Window by 3% - 30%.\n\nINVADER Archetype Trait',
+      'Increases Evade Window by 3% -> 30%.\n\nINVADER Archetype Trait',
     wikiLinks: [`https://remnant.wiki/Untouchable`],
     linkedItems: {
       archetype: {
@@ -291,7 +291,7 @@ export const traitItems: TraitItem[] = [
     id: 'o6mx2t',
     dlc: 'base',
     tags: ['Health'],
-    description: 'Increases Max Health by 3 - 30.',
+    description: 'Increases Max Health by 3 -> 30.',
     wikiLinks: [`https://remnant.wiki/Vigor`],
     healthStep: 3,
     amount: DEFAULT_TRAIT_AMOUNT,
@@ -306,7 +306,7 @@ export const traitItems: TraitItem[] = [
     id: 'p4b2v6',
     dlc: 'base',
     tags: ['Mod Power'],
-    description: 'Increases Mod Power Generation by 2% - 20%.',
+    description: 'Increases Mod Power Generation by 2% -> 20%.',
     wikiLinks: [`https://remnant.wiki/Spirit`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: 'Any', dungeon: 'Linked Item' },
@@ -320,7 +320,7 @@ export const traitItems: TraitItem[] = [
     id: 'wgzz0q',
     dlc: 'base',
     tags: ['Stamina'],
-    description: 'Increases Max Stamina by 3 - 30.',
+    description: 'Increases Max Stamina by 3 -> 30.',
     wikiLinks: [`https://remnant.wiki/Endurance`],
     amount: DEFAULT_TRAIT_AMOUNT,
     staminaStep: 3,
@@ -335,7 +335,7 @@ export const traitItems: TraitItem[] = [
     id: '6kxk5x',
     dlc: 'base',
     tags: ['Reduce Skill Cooldown'],
-    description: 'Reduces Skill Cooldowns by 2% - 20%.',
+    description: 'Reduces Skill Cooldowns by 2% -> 20%.',
     wikiLinks: [`https://remnant.wiki/Expertise`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: 'Any', dungeon: 'Linked Item' },
@@ -348,7 +348,7 @@ export const traitItems: TraitItem[] = [
     saveFileSlug: 'Trait_Scholar_C',
     id: '6j7cn1',
     dlc: 'base',
-    description: 'Increases Experience Gain by 1 - 15%.',
+    description: 'Increases Experience Gain by 1 -> 15%.',
     wikiLinks: [`https://remnant.wiki/Scholar`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: 'Root Earth', dungeon: ['Blackened Citadel'] },
@@ -361,7 +361,7 @@ export const traitItems: TraitItem[] = [
     saveFileSlug: 'Trait_Amplitude_C',
     id: 'pb5neu',
     dlc: 'base',
-    description: 'Increases AOE and AURA Size by 5 - 50%.',
+    description: 'Increases AOE and AURA Size by 5 -> 50%.',
     wikiLinks: [`https://remnant.wiki/Amplitude`],
     location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
     amount: DEFAULT_TRAIT_AMOUNT,
@@ -375,7 +375,8 @@ export const traitItems: TraitItem[] = [
     id: '6o5ckl',
     dlc: 'base',
     tags: ['Mod Power', 'Melee Damage'],
-    description: 'Increases Mod Power Generation from Melee Damage by 5 - 50%.',
+    description:
+      'Increases Mod Power Generation from Melee Damage by 5 -> 50%.',
     wikiLinks: [`https://remnant.wiki/Arcane_Strike`],
     location: { world: 'Losomn', dungeon: [`Harvester's Reach`] },
     amount: DEFAULT_TRAIT_AMOUNT,
@@ -389,7 +390,7 @@ export const traitItems: TraitItem[] = [
     id: '2vgobq',
     dlc: 'base',
     tags: ['Damage Reduction'],
-    description: 'Reduces all incoming damage by 1 - 10%.',
+    description: 'Reduces all incoming damage by 1 -> 10%.',
     wikiLinks: [`https://remnant.wiki/Barkskin`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: 'Yaesha', dungeon: ['Dappled Glade'] },
@@ -404,7 +405,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     tags: ['Summon', 'Damage Reduction'],
     description:
-      'Summoner Minions absorb 1 - 10% of damage taken by the caster.',
+      'Summoner Minions absorb 1 -> 10% of damage taken by the caster.',
     wikiLinks: [`https://remnant.wiki/Blood_Bond`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: 'Yaesha', dungeon: ['Root Nexus'] },
@@ -418,7 +419,7 @@ export const traitItems: TraitItem[] = [
     id: 'yvttbq',
     dlc: 'base',
     tags: ['Grey Health'],
-    description: 'Increases Grey Health Regeneration by 0.3/s - 3.',
+    description: 'Increases Grey Health Regeneration by 0.3/s -> 3/s.',
     wikiLinks: [`https://remnant.wiki/Bloodstream`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: 'Yaesha', dungeon: ['Dappled Glade'] },
@@ -432,7 +433,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     id: 'k8sebP',
     tags: ['Mod Duration'],
-    description: 'Increases Mod Duration by 3 - 30%.',
+    description: 'Increases Mod Duration by 3 -> 30%.',
     wikiLinks: [`https://remnant.wiki/Chakra`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: 'Root Earth', dungeon: ['Corrupted Harbor'] },
@@ -446,7 +447,7 @@ export const traitItems: TraitItem[] = [
     id: 'mjkf4t',
     dlc: 'dlc1',
     tags: ['Grey Health'],
-    description: 'Increases Grey Health Conversion Rate by 3 - 30%.',
+    description: 'Increases Grey Health Conversion Rate by 3 -> 30%.',
     wikiLinks: [`https://remnant.wiki/Dark_Pact`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
@@ -460,7 +461,7 @@ export const traitItems: TraitItem[] = [
     id: 'qcvmt0',
     dlc: 'base',
     tags: ['Neutral Dodge', 'Perfect Dodge', 'Perfect Neutral Evade'],
-    description: 'Increases Evade Distance by 3 - 30%.',
+    description: 'Increases Evade Distance by 3 -> 30%.',
     wikiLinks: [`https://remnant.wiki/Fitness`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: `N'Erud`, dungeon: ['Vault of the Formless'] },
@@ -474,7 +475,7 @@ export const traitItems: TraitItem[] = [
     id: 'ay1dkh',
     dlc: 'base',
     tags: ['Movement Speed'],
-    description: 'Increases Movement Speed while Aiming by 5 - 50%.',
+    description: 'Increases Movement Speed while Aiming by 5 -> 50%.',
     wikiLinks: [`https://remnant.wiki/Footwork`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: `N'Erud`, dungeon: [`Terminus Station`] },
@@ -489,7 +490,7 @@ export const traitItems: TraitItem[] = [
     dlc: 'base',
     tags: ['Relic Use Speed'],
     description:
-      'Increases the Use Speed of Consumables and Relics by 3.5% - 35%.',
+      'Increases the Use Speed of Consumables and Relics by 3.5% -> 35%.',
     wikiLinks: [`https://remnant.wiki/Glutton`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: 'Losomn', dungeon: ['The Great Hall'] },
@@ -503,7 +504,7 @@ export const traitItems: TraitItem[] = [
     id: '8baa52',
     dlc: 'base',
     tags: ['Spread', 'Recoil'],
-    description: 'Reduces Weapon Spread and Recoil by 3% - 30%.',
+    description: 'Reduces Weapon Spread and Recoil by 3% -> 30%.',
     wikiLinks: [`https://remnant.wiki/Handling`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: 'Root Earth', dungeon: ['Ashen Wasteland'] },
@@ -531,7 +532,7 @@ export const traitItems: TraitItem[] = [
     id: 'o6mx3t',
     dlc: 'base',
     tags: ['Lifesteal'],
-    description: 'Increases Lifesteal Efficacy by 5 - 50%.',
+    description: 'Increases Lifesteal Efficacy by 5 -> 50%.',
     wikiLinks: [`https://remnant.wiki/Leech`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: `N'Erud`, dungeon: [`Dormant N'Erudian Facility`] },
@@ -545,7 +546,7 @@ export const traitItems: TraitItem[] = [
     id: '7pxnhi',
     dlc: 'dlc3',
     tags: [],
-    description: `Increases HASTE by 0.3% and SLOW by 1%.`,
+    description: `Increases HASTE by 0.3 -> 3% and SLOW by 1 -> 10%.`,
     wikiLinks: [`https://remnant.wiki/Perception`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: `N'Erud`, dungeon: ['Stagnant Manufactory'] },
@@ -559,7 +560,7 @@ export const traitItems: TraitItem[] = [
     id: 'gq7w6z',
     dlc: 'dlc3',
     tags: [],
-    description: `Increases SHIELD Duration Received 3%.`,
+    description: `Increases SHIELD Duration Received 3 -> 30%.`,
     wikiLinks: [`https://remnant.wiki/Preservation`],
     amount: DEFAULT_TRAIT_AMOUNT,
     shieldStepPercent: 3,
@@ -577,7 +578,7 @@ export const traitItems: TraitItem[] = [
     id: '7z3ejv',
     dlc: 'base',
     tags: ['Stamina'],
-    description: 'Increases Stamina Regen by 3 - 30/s.',
+    description: 'Increases Stamina Regen by 3 -> 30/s.',
     wikiLinks: [`https://remnant.wiki/Recovery`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: 'Losomn', dungeon: [`Oracle's Refuge`] },
@@ -591,7 +592,7 @@ export const traitItems: TraitItem[] = [
     id: '7z3ejd',
     dlc: 'dlc2',
     tags: ['Stagger'],
-    description: 'Reduces Hit Reaction Time by 2.5% - 25%.',
+    description: 'Reduces Hit Reaction Time by 2.5% -> 25%.',
     wikiLinks: [`https://remnant.wiki/Resolute`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: 'Yaesha', dungeon: 'Quest' },
@@ -605,7 +606,7 @@ export const traitItems: TraitItem[] = [
     id: 'a4idgl',
     dlc: 'base',
     description:
-      'Increases the speed of Reviving and being Revived by 5 - 50%.',
+      'Increases the speed of Reviving and being Revived by 5 -> 50%.',
     wikiLinks: [`https://remnant.wiki/Revivalist`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: 'Any', dungeon: 'Quest' },
@@ -619,7 +620,7 @@ export const traitItems: TraitItem[] = [
     id: 'ykxzf1',
     dlc: 'base',
     tags: ['Summon'],
-    description: 'Increases the Health of Archetype Summons by a 10% - 100% .',
+    description: 'Increases the Health of Archetype Summons by a 10 -> 100% .',
     wikiLinks: [`https://remnant.wiki/Rugged`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: 'Yaesha', dungeon: ['Forgotten Field'] },
@@ -633,7 +634,7 @@ export const traitItems: TraitItem[] = [
     id: 'jk0ot9',
     dlc: 'base',
     tags: ['Damage Reduction'],
-    description: 'Increases Elemental Damage Resistance by 2 - 20%.',
+    description: 'Increases Elemental Damage Resistance by 2 -> 20%.',
     wikiLinks: [`https://remnant.wiki/Shadeskin`],
     // Increases by 2% per level, but since 10 fire resistance is 10%
     // we add the percentage
@@ -650,7 +651,7 @@ export const traitItems: TraitItem[] = [
     id: 'x9umnf',
     dlc: 'base',
     tags: ['Lifesteal'],
-    description: 'Grants 0.3% - 3.0% base damage as Lifesteal.',
+    description: 'Grants 0.3 -> 3.0% base damage as Lifesteal.',
     wikiLinks: [`https://remnant.wiki/Siphoner`],
     amount: DEFAULT_TRAIT_AMOUNT,
     location: { world: `N'Erud`, dungeon: [`Dormant N'Erudian Facility`] },
