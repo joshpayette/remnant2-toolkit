@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Quality build feed now excludes builds with the term `(copy)` in the build name. This is to exclude duplicate builds with no changes made.
 - When duplicating a build, only the main build name was being appended with `(copy)`. All variants are now also appended with `(copy)`.
+- Updated trait item descriptions for consistency in displaying the full range of affected stats between level 1 and level 10.
 - Fixed item location info for Ascension Spire items. Ascension Spire is both an injectable and a dungeon for location purposes.
   - Vice Grips
   - Salvaged Heart
