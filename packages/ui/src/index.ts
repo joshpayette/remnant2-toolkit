@@ -75,6 +75,7 @@ export { MagnifyPlusIcon } from './common/icons/magnify-plus';
 export { ModdingIcon } from './common/icons/modding';
 export { MoveIcon } from './common/icons/move';
 export { MyBuildsIcon } from './common/icons/my-builds';
+export { NewWindowIcon } from './common/icons/new-window';
 export { OptionalOffIcon } from './common/icons/optional-off';
 export { OptionalOnIcon } from './common/icons/optional-on';
 export { OwnershipIcon } from './common/icons/ownership';
