@@ -13,7 +13,6 @@ export const INLINE_TOKENS = [
     color: ARCHETYPE_COLORS.ALCHEMIST.text,
     description: undefined,
   },
-
   {
     type: 'Archon',
     token: 'ARCHON',
@@ -306,6 +305,12 @@ export const INLINE_TOKENS = [
     type: 'Summoner',
     token: 'SUMMONER',
     color: ARCHETYPE_COLORS.SUMMONER.text,
+    description: undefined,
+  },
+  {
+    type: 'Warden',
+    token: 'WARDEN',
+    color: ARCHETYPE_COLORS.WARDEN.text,
     description: undefined,
   },
   {
