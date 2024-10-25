@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-10-25
 
+### Changed
+
+- The max character limit for build descriptions has increased from 3k -> 5k characters.
+
 ### Fixed
 
 - Fixed item location info for Ascension Spire items. Ascension Spire is both an injectable and a dungeon for location purposes.
