@@ -1069,6 +1069,7 @@ export function Builder({
             className="mt-2 flex w-full items-start justify-center"
           >
             <MemberFeatures
+              buildId={buildState.buildId}
               buildLink={buildState.buildLink}
               buildTags={buildState.buildTags ?? []}
               description={buildState.description}

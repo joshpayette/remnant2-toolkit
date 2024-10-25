@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-10-25
 
+### Added
+
+- Added ability to pop out a build description to a separate tab. This should help read longer descriptions while also looking over build items.
+
 ### Changed
 
 - The max character limit for build descriptions has increased from 3k -> 5k characters.
