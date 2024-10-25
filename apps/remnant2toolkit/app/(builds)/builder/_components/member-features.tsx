@@ -25,6 +25,7 @@ import { DescriptionTokenDialog } from '@/app/(builds)/builder/_components/descr
 import { BuildTagsDisplay } from './build-tags-display';
 
 type Props = {
+  buildId: string | null;
   buildLink: string | null;
   buildTags: BuildTags[];
   description: string | null;
@@ -41,6 +42,7 @@ type Props = {
 };
 
 export function MemberFeatures({
+  buildId,
   buildLink,
   buildTags,
   description,
@@ -93,6 +95,12 @@ export function MemberFeatures({
                   highlightBuildTokens={true}
                   highlightExternalTokens={false}
                   highlightItems={true}
+                  showPopoutIcon={true}
+                  targetUrl={
+                    buildId
+                      ? `https://remnant2toolkit.com/builder/${buildId}/description`
+                      : ''
+                  }
                 />
               </div>
             </>
