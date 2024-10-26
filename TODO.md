@@ -1,4 +1,3 @@
 # TODO
 
-- Golden Ribbon is only a subset of the biome dungeons
-- Silver Ribbon is only a subset of the biome dungeons
+- Created builds (UZO) showing more page numbers than it should.
