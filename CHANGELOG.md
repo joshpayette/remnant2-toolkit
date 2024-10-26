@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed some inconsistencies in pagination in build lists.
+- Changed `Mod Generation` relic fragmet to `Mod Power Generation` to match in-game.
 
 ## 2024-10-25
 

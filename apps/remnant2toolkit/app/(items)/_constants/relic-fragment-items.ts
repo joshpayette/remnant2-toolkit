@@ -572,7 +572,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   },
   {
     category: 'relicfragment',
-    name: 'Mod Generation',
+    name: 'Mod Power Generation',
     imagePath: '/items/relicfragments/mod-generation-on.png',
     saveFileSlug: 'RelicFragment_ModGeneration_C',
     color: 'yellow',

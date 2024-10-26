@@ -82,7 +82,7 @@ export const fusionItems: FusionItem[] = [
     imagePath: '/items/fusions/red-yellow.png',
     id: 'm1h26g',
     dlc: 'base',
-    description: 'Mod Damage + Mod Generation',
+    description: 'Mod Damage + Mod Power Generation',
   },
   {
     category: 'fusion',
