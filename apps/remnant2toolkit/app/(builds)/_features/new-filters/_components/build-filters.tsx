@@ -4,11 +4,11 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
 
 import { InputWithClear } from '@/app/_components/input-with-clear';
+import { EXCLUDE_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
 import { ArchetypeFilter } from '@/app/(builds)/_features/new-filters/_components/archetype-filter';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/new-filters/_constants/default-build-fields';
+import { parseUrlParams } from '@/app/(builds)/_features/new-filters/_libs/parse-url-params';
 import { type BuildFilterFields } from '@/app/(builds)/_features/new-filters/_types/build-filter-fields';
-
-import { archetypeFilter } from '../_libs/archetype-filter';
 
 export function BuildFilters({
   defaultFilterOverrides,
@@ -28,18 +28,29 @@ export function BuildFilters({
   const pathname = usePathname();
   const router = useRouter();
 
-  // TODO
-  const filters = DEFAULT_BUILD_FIELDS;
-
   const [unappliedFilters, setUnappliedFilters] =
-    useState<BuildFilterFields>(filters);
+    useState<BuildFilterFields>(DEFAULT_BUILD_FIELDS);
 
+  const filters = useMemo(() => {
+    const newFilters = parseUrlParams({ searchParams, defaultFilters });
+    setUnappliedFilters(newFilters);
+    return newFilters;
+  }, [searchParams, defaultFilters]);
+
+  /** Whether any filters are active */
   const areAnyFiltersActive = useMemo(() => {
     if (isEqual(filters, defaultFilters)) return false;
     return true;
   }, [filters, defaultFilters]);
 
-  // # Handlers
+  /** Whether any filters are changed but not yet active. */
+  const areFiltersUnapplied = useMemo(() => {
+    if (isEqual(filters, unappliedFilters)) return false;
+    return true;
+  }, [filters, unappliedFilters]);
+
+  // #region Handlers
+
   function handleSearchTextChange(searchText: string) {
     const newFilters = {
       ...unappliedFilters,
@@ -51,27 +62,42 @@ export function BuildFilters({
   function applyUrlFilters(newFilters: BuildFilterFields) {
     const params = new URLSearchParams(searchParams.toString());
 
-    if (
-      !isEqual(newFilters.archetypes, defaultFilters.archetypes) &&
-      newFilters.archetypes.length !== archetypeFilter.validOptions.length
-    ) {
-      params.set(
-        archetypeFilter.buildFilterKey,
-        newFilters.archetypes.map((archetype) => archetype.value).join(','),
-      );
+    // If archetype filters are differnet from default, add them to the URL
+    if (!isEqual(newFilters.archetypes, defaultFilters.archetypes)) {
+      const paramValues = newFilters.archetypes
+        .filter((archetype) => archetype.state !== 'default')
+        .map((archetype) => {
+          return archetype.state === 'excluded'
+            ? `${EXCLUDE_ITEM_SYMBOL}${archetype.value}`
+            : archetype.value;
+        });
+      if (paramValues.length > 0) {
+        params.set('archetypes', paramValues.join(','));
+      } else {
+        params.delete('archetypes');
+      }
     }
 
     // Add unique timestamp to prevent caching when linking
-    params.append('t', Date.now().toString());
+    if (!params.has('t')) {
+      params.append('t', Date.now().toString());
+    }
 
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
     onFiltersChange();
   }
 
-  // # Render
+  // #region Render
   return (
     <FiltersContainer
       areAnyFiltersActive={areAnyFiltersActive}
+      areFiltersUnapplied={areFiltersUnapplied}
+      onApplyFilters={() => applyUrlFilters(unappliedFilters)}
+      onClearFilters={() => {
+        // Remove all filters from the url and load the page
+        setUnappliedFilters(defaultFilters);
+        router.push(pathname, { scroll: false });
+      }}
       searchInput={
         <BaseField className="col-span-full sm:col-span-2">
           <div className="w-full max-w-[600px]">

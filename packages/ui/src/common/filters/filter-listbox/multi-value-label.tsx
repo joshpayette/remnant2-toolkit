@@ -5,10 +5,10 @@ import { XIcon } from '../../icons/x';
 import type { FilterOption } from './types';
 
 export function MultiValueLabel(props: MultiValueGenericProps<FilterOption>) {
-  const { data } = props;
+  const data = props.data as FilterOption;
 
   let icon = <CheckIcon className={cn('ui-w-3 ui-h-3 text-green-500')} />;
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+
   if (data.state === 'excluded') {
     icon = <XIcon className={cn('ui-w-3 ui-h-3 text-red-500')} />;
   }

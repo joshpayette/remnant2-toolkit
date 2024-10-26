@@ -7,13 +7,19 @@ import { cn } from '../../../utils/classnames';
 interface FiltersContainerProps {
   children: React.ReactNode;
   areAnyFiltersActive: boolean;
+  areFiltersUnapplied: boolean;
   searchInput?: React.ReactNode;
+  onClearFilters: () => void;
+  onApplyFilters: () => void;
 }
 
 export function FiltersContainer({
   children,
   areAnyFiltersActive,
+  areFiltersUnapplied,
   searchInput,
+  onClearFilters,
+  onApplyFilters,
 }: FiltersContainerProps) {
   return (
     <Disclosure defaultOpen>
@@ -34,6 +40,18 @@ export function FiltersContainer({
             )}
           >
             {children}
+            <div className="flex w-full items-center justify-end gap-x-4">
+              <BaseButton color="red" onClick={onClearFilters}>
+                Clear Filters
+              </BaseButton>
+              <BaseButton
+                className={cn(areFiltersUnapplied && 'animate-pulse')}
+                color="green"
+                onClick={onApplyFilters}
+              >
+                Apply Filters
+              </BaseButton>
+            </div>
           </Disclosure.Panel>
         </div>
       )}
