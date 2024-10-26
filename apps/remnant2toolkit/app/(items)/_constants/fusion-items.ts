@@ -63,7 +63,7 @@ export const fusionItems: FusionItem[] = [
     id: 't2myua',
     dlc: 'base',
     description: 'Health Bonus + Stamina Bonus',
-    healthPercent: 0.15,
+    healthPercent: 0.1,
     staminaPercent: 0.15,
   },
   {
@@ -194,7 +194,7 @@ export const fusionItems: FusionItem[] = [
     id: '6p6ssk',
     dlc: 'base',
     description: 'Health Bonus + Grey Health Conversion',
-    healthPercent: 0.15,
+    healthPercent: 0.1,
   },
   {
     category: 'fusion',
