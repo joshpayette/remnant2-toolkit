@@ -228,7 +228,11 @@ export function ItemButton({
               ZINDEXES.ITEM_BUTTON,
             )}
             onClick={() => onToggleOptional(item, !item.optional)}
-            aria-label="Toggle item as optional"
+            aria-label={
+              item.optional
+                ? 'Toggle Item as Required'
+                : 'Toggle Item as Optional'
+            }
           >
             {item.optional ? (
               <OptionalOffIcon className="text-accent1-500 h-3 w-3" />

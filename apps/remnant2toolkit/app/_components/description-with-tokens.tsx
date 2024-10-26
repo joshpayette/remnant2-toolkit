@@ -1,6 +1,6 @@
 'use client';
 
-import { BaseLink, cn, NewWindowIcon } from '@repo/ui';
+import { cn } from '@repo/ui';
 import { stripUnicode } from '@repo/utils';
 import { type ReactNode, useState } from 'react';
 import reactStringReplace from 'react-string-replace';
@@ -173,24 +173,13 @@ type Props = {
   highlightItems: boolean;
   highlightBuildTokens: boolean;
   highlightExternalTokens: boolean;
-} & (
-  | {
-      showPopoutIcon: true;
-      targetUrl: string;
-    }
-  | {
-      showPopoutIcon?: false;
-      targetUrl?: never;
-    }
-);
+};
 
 export function DescriptionWithTokens({
   description,
   highlightItems,
   highlightBuildTokens,
   highlightExternalTokens,
-  showPopoutIcon = false,
-  targetUrl,
 }: Props) {
   const [item, setItem] = useState<Item | null>(null);
   const isItemInfoOpen = Boolean(item);
@@ -209,20 +198,6 @@ export function DescriptionWithTokens({
         open={isItemInfoOpen}
         onClose={() => setItem(null)}
       />
-      {showPopoutIcon && targetUrl && targetUrl !== '' ? (
-        <div className="mb-1 flex items-center justify-start pb-0">
-          <BaseLink
-            href={targetUrl}
-            target="_blank"
-            className="border-secondary-800 border p-0.5"
-          >
-            <NewWindowIcon className="text-secondary-500 mr-1 h-4 w-4" />
-            <span className="text-secondary-300 text-sm">
-              Open in new window
-            </span>
-          </BaseLink>
-        </div>
-      ) : null}
       <span className="sr-only">{stripUnicode(description)}</span>
       <div className="" aria-hidden="true">
         {parseStringForToken({

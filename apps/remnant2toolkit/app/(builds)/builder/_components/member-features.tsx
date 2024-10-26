@@ -7,10 +7,12 @@ import {
   BaseFieldset,
   BaseInput,
   BaseLabel,
+  BaseLink,
   BaseSwitch,
   BaseTextarea,
   cn,
   DocumentIcon,
+  NewWindowIcon,
   Skeleton,
   TokensIcon,
 } from '@repo/ui';
@@ -18,6 +20,7 @@ import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
+import { Tooltip } from '@/app/_components/tooltip';
 import { BuildDescriptionTemplateAlert } from '@/app/(builds)/_components/build-description-template-alert';
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
 import { DescriptionTokenDialog } from '@/app/(builds)/builder/_components/description-token-dialog';
@@ -81,9 +84,23 @@ export function MemberFeatures({
         <div className="flex flex-col">
           {description && description.length > 0 && (
             <>
-              <h3 className="text-md text-primary-500 mb-2 font-bold">
-                Build Description
-              </h3>
+              <div className="mb-2 flex flex-row items-center justify-start gap-2">
+                <h3 className="text-md text-primary-500 font-bold">
+                  Build Description
+                </h3>
+                {buildId && (
+                  <Tooltip content="Open description in new tab">
+                    <div className="flex items-center justify-start p-0">
+                      <BaseLink
+                        href={`https://remnant2toolkit.com/builder/${buildId}/description`}
+                        target="_blank"
+                      >
+                        <NewWindowIcon className="text-secondary-500 mr-1 h-4 w-4" />
+                      </BaseLink>
+                    </div>
+                  </Tooltip>
+                )}
+              </div>
               <div
                 className={cn(
                   'text-md overflow-x-auto overflow-y-auto whitespace-pre-wrap text-gray-200',
@@ -95,12 +112,6 @@ export function MemberFeatures({
                   highlightBuildTokens={true}
                   highlightExternalTokens={false}
                   highlightItems={true}
-                  showPopoutIcon={true}
-                  targetUrl={
-                    buildId
-                      ? `https://remnant2toolkit.com/builder/${buildId}/description`
-                      : ''
-                  }
                 />
               </div>
             </>
