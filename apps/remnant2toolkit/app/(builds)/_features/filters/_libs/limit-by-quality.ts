@@ -11,6 +11,7 @@ export function limitToQualityBuilds(limitToQualityBuilds: boolean) {
   return Prisma.sql`
   AND CHAR_LENGTH(Build.description) >= ${MINIMUM_QUALITY_DESCRIPTION_LENGTH}
   AND Build.name != 'My Build'
+  AND Build.name NOT LIKE '%(copy)%'
   AND EXISTS (SELECT 1 FROM BuildTags WHERE BuildTags.BuildId = Build.Id)
   AND (ItemCounts.archtypeCount = 2)
   AND (ItemCounts.skillCount = 2)

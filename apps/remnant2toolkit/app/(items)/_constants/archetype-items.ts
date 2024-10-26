@@ -414,7 +414,7 @@ export const archetypeItems: ArchetypeItem[] = [
     id: 'tn0x3c',
     dlc: 'dlc3',
     externalTokens: [],
-    description: 'TBD',
+    description: `The Warden is an unlockable Archetype. They make use of a powerful N'Erud drone to empower themselves and their allies.`,
     wikiLinks: [`https://remnant.wiki/Warden`],
     location: { world: `N'Erud`, dungeon: 'Quest' },
     linkedItems: {

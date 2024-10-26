@@ -20,6 +20,15 @@ export async function handleDuplicateBuild({
 
   const mainBuildState = buildVariants[0];
 
+  // Loop through each variant and add (copy) to the name
+  for (let i = 1; i < buildVariants.length; i++) {
+    const build = buildVariants[i];
+    if (!build) {
+      continue;
+    }
+    build.name = `${build.name} (copy)`;
+  }
+
   buildVariants[0].name = `${mainBuildState.name} (copy)`;
   buildVariants[0].isPublic = false;
   buildVariants[0].isMember = Boolean(mainBuildState.isMember);

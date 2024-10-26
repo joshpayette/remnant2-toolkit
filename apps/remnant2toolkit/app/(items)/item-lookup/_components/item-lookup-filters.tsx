@@ -35,6 +35,9 @@ import { ITEM_TOKENS } from '@/app/(items)/item-lookup/_constants/item-tokens';
 import { parseUrlFilters } from '@/app/(items)/item-lookup/_lib/parse-url-filters';
 import { type ItemLookupFilters } from '@/app/(items)/item-lookup/_types/item-lookup-filters';
 
+import { EXTERNAL_TOKENS } from '../_constants/external-tokens';
+import { INLINE_TOKENS } from '../_constants/inline-tokens';
+
 function buildItemSearchTextItems() {
   {
     let items = allItems
@@ -47,6 +50,16 @@ function buildItemSearchTextItems() {
     items = ITEM_TOKENS.map((tag) => ({
       id: tag as string,
       name: tag as string,
+    })).concat(items);
+
+    items = INLINE_TOKENS.map((tag) => ({
+      id: tag.token as string,
+      name: tag.token as string,
+    })).concat(items);
+
+    items = EXTERNAL_TOKENS.map((tag) => ({
+      id: tag.token as string,
+      name: tag.token as string,
     })).concat(items);
 
     items = items.sort((a, b) => a.name.localeCompare(b.name));

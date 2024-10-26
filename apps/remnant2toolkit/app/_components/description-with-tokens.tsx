@@ -167,12 +167,12 @@ function parseStringForToken({
   return replacedText;
 }
 
-interface Props {
+type Props = {
   description: string;
   highlightItems: boolean;
   highlightBuildTokens: boolean;
   highlightExternalTokens: boolean;
-}
+};
 
 export function DescriptionWithTokens({
   description,

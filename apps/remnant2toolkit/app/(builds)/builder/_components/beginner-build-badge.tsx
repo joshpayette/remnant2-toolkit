@@ -7,13 +7,13 @@ export function BeginnerBuildBadge({
   unoptimized?: boolean;
 }) {
   return (
-    <Tooltip content={`Denotes a gimmick build.`}>
-      <button aria-label="Badge denoting the build is a gimmick build.">
+    <Tooltip content={`Denotes a base game build.`}>
+      <button aria-label="Badge denoting the build is a base game build.">
         {/* <Image
           src={getImageUrl(`/badges/beginner-build-badge.png`)}
           width={52}
           height={60}
-          alt="Badge denoting the build is a gimmick build."
+          alt="Badge denoting the build is a base game build."
           loading="eager"
           unoptimized={unoptimized}
           quality={100}
@@ -22,7 +22,7 @@ export function BeginnerBuildBadge({
           src={getImageUrl(`/badges/beginner-build-badge.png`)}
           width={52}
           height={60}
-          alt="Badge denoting the build is a gimmick build."
+          alt="Badge denoting the build is a base game build."
         />
       </button>
     </Tooltip>

@@ -40,8 +40,20 @@ export function cleanUpBuildState(buildState: BuildState): BuildState {
 
   // Get the new number of allowed concoctions
   // If there are more than the allowed amount, remove the last ones
-  const totalConcoctionsAllowed = getConcoctionSlotCount(buildState) + 1;
+  let totalConcoctionsAllowed = getConcoctionSlotCount(buildState) + 1;
+  const isMudtoothSnakeOilEquipped = buildState.items.concoction.some(
+    (i) => i?.id === 'ru74g9',
+  );
+  if (isMudtoothSnakeOilEquipped) {
+    totalConcoctionsAllowed += 1;
+  }
+
   if (totalConcoctionsAllowed < buildState.items.concoction.length) {
+    console.info(
+      'slicing',
+      totalConcoctionsAllowed,
+      buildState.items.concoction.length,
+    );
     buildState.items.concoction = buildState.items.concoction.slice(
       0,
       totalConcoctionsAllowed,

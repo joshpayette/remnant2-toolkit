@@ -1,5 +1,6 @@
 import { type BuildTags } from '@repo/db';
 import {
+  BaseButton,
   BaseInput,
   BaseLink,
   cn,
@@ -40,6 +41,17 @@ import { MemberFeatures } from './member-features';
 import { Stats } from './stats';
 import { TraitsContainer } from './traits-container';
 
+function showSnakeOilButton(buildState: BuildState): boolean {
+  const hasMudtoothsSnakeOilEquipped = buildState.items.concoction.some(
+    (concoction) => concoction?.id === 'ru74g9',
+  );
+  const emptyConcoctionSlotFound =
+    buildState.items.concoction.some((concoction) => !concoction) ||
+    buildState.items.concoction.length < 1;
+
+  return !hasMudtoothsSnakeOilEquipped && !emptyConcoctionSlotFound;
+}
+
 type BuilderProps = {
   buildState: BuildState;
   isMainBuild: boolean;
@@ -78,7 +90,16 @@ export function Builder({
   showMemberFeatures = true,
   onUpdateBuildState,
 }: BuilderProps) {
-  const concoctionSlotCount = getConcoctionSlotCount(buildState);
+  let concoctionSlotCount = getConcoctionSlotCount(buildState);
+  const isMudtoothSnakeOilEquipped = buildState.items.concoction.some(
+    (concoction) => concoction?.id === 'ru74g9',
+  );
+  const isMudtoothOnlyConcoctionEquipped = buildState.items.concoction.every(
+    (concoction) => concoction?.id === 'ru74g9',
+  );
+  if (isMudtoothSnakeOilEquipped && !isMudtoothOnlyConcoctionEquipped) {
+    concoctionSlotCount += 1;
+  }
 
   const { hasAnyBadge } = useBadges({ buildState });
 
@@ -120,6 +141,8 @@ export function Builder({
       if (!selectedItemSlot.category) return;
       if (!onUpdateBuildState) return;
 
+      const selectedCategory = selectedItemSlot.category as ItemCategory;
+
       /**
        * The item index is used to determine which item in the array of items
        * for slots like rings and archetypes
@@ -133,7 +156,7 @@ export function Builder({
       // then remove the item at the specified index
       if (!selectedItem) {
         if (isIndexSpecified) {
-          const buildItems = buildState.items[selectedItemSlot.category];
+          const buildItems = buildState.items[selectedCategory];
 
           if (!Array.isArray(buildItems)) return;
 
@@ -146,13 +169,13 @@ export function Builder({
           const newItemIds = newBuildItems.map((i) => i?.id ?? '');
           onUpdateBuildState({
             buildState,
-            category: selectedItemSlot.category,
+            category: selectedCategory,
             value: newItemIds,
           });
         } else {
           onUpdateBuildState({
             buildState,
-            category: selectedItemSlot.category,
+            category: selectedCategory,
             value: '',
           });
         }
@@ -161,7 +184,7 @@ export function Builder({
         return;
       }
 
-      const categoryItemOrItems = buildState.items[selectedItemSlot.category];
+      const categoryItemOrItems = buildState.items[selectedCategory];
 
       // If the item can be multiple, such as rings,
       // then add the item at the specified index
@@ -928,6 +951,30 @@ export function Builder({
                     isScreenshotMode && 'justify-start',
                   )}
                 >
+                  {showSnakeOilButton(buildState) ? (
+                    <div className="mb-2 w-full">
+                      <BaseButton
+                        color="purple"
+                        onClick={() => {
+                          if (!onUpdateBuildState) return;
+                          const newItemIds = buildState.items.concoction.map(
+                            (i) => i?.id ?? '',
+                          );
+                          // Add snake oil to the end of the ids
+                          newItemIds.push('ru74g9');
+
+                          onUpdateBuildState({
+                            buildState,
+                            category: 'concoction',
+                            value: newItemIds,
+                          });
+                        }}
+                        className="max-w-[200px]"
+                      >
+                        + Mudtooth's Snake Oil
+                      </BaseButton>
+                    </div>
+                  ) : null}
                   <ItemButton
                     item={buildState.items.concoction[0] || null}
                     isEditable={isEditable}
@@ -1022,6 +1069,7 @@ export function Builder({
             className="mt-2 flex w-full items-start justify-center"
           >
             <MemberFeatures
+              buildId={buildState.buildId}
               buildLink={buildState.buildLink}
               buildTags={buildState.buildTags ?? []}
               description={buildState.description}
