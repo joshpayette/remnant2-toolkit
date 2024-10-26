@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory to check
-DIRECTORY="dump/pscale"
+DIRECTORY="pscale"
 
 # Loop through all files in the directory
 for FILE in "$DIRECTORY"/*; do

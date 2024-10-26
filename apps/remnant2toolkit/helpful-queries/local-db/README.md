@@ -6,6 +6,10 @@
 pscale database dump remnant2toolkit main
 ```
 
+## Rename the dump folder
+
+The folder will have a long name that is not very useful. Rename it to `pscale` for clarity.
+
 ## Run the schema sorter script
 
 Because of how imports work, the schemas must be imported before the data themselves. However, the tables are not named in this way by default. Running the below script will append the number 1 to the file name for any file that contains the word `schema`, ensuring it gets imported first.
@@ -19,7 +23,7 @@ sh rename-sql-schema.sh
 The below example assumes your local database is named `remnant2toolkit`.
 
 ```bash
-cat pscale_dump_folder/*.sql | mysql remnant2toolkit -u root -p
+cat pscale/*.sql | mysql remnant2toolkit -u root -p
 ```
 
 ## Other useful commands
