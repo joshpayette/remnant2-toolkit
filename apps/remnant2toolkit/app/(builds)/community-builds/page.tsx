@@ -4,6 +4,7 @@ import { PageHeader } from '@/app/_components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_types/navigation';
 import { getTotalBuildCount } from '@/app/(builds)/_actions/get-total-build-count';
+import { BuildFeedPageFooter } from '@/app/(builds)/_components/build-feed-page-footer';
 import { CommunityBuilds } from '@/app/(builds)/community-builds/_components/community-builds';
 
 export const maxDuration = 60;
@@ -54,6 +55,7 @@ export default async function Page() {
         />
       </div>
       <CommunityBuilds />
+      <BuildFeedPageFooter>{null}</BuildFeedPageFooter>
     </>
   );
 }
