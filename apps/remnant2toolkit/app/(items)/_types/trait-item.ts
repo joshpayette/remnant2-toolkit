@@ -231,9 +231,9 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
     }
 
     // Traits should be ordered by type:
-    // 1. Archetype
-    // 2. Core
-    // 3. Trait
+    // 1. Archetype, sorted alphabetical
+    // 2. Core, sorted Vigor, Endurance, Spirit, Expertise
+    // 3. Trait, sorted alphabetical
     return [
       ...sortedTraitItems
         .filter((i) => i.type === 'archetype')
@@ -241,13 +241,25 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
           const isOwned =
             buildItems.find((j) => j.itemId === i.id)?.isOwned || false;
           return { ...i, isOwned };
-        }),
+        })
+        .sort((a, b) => a.name.localeCompare(b.name)),
       ...sortedTraitItems
         .filter((i) => i.type === 'core')
         .map((i) => {
           const isOwned =
             buildItems.find((j) => j.itemId === i.id)?.isOwned || false;
           return { ...i, isOwned };
+        })
+        .sort((a, b) => {
+          if (a.name === 'Vigor') return -1;
+          if (b.name === 'Vigor') return 1;
+          if (a.name === 'Endurance') return -1;
+          if (b.name === 'Endurance') return 1;
+          if (a.name === 'Spirit') return -1;
+          if (b.name === 'Spirit') return 1;
+          if (a.name === 'Expertise') return -1;
+          if (b.name === 'Expertise') return 1;
+          return a.name.localeCompare(b.name);
         }),
       ...sortedTraitItems
         .filter((i) => i.type === 'trait')
@@ -255,7 +267,8 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
           const isOwned =
             buildItems.find((j) => j.itemId === i.id)?.isOwned || false;
           return { ...i, isOwned };
-        }),
+        })
+        .sort((a, b) => a.name.localeCompare(b.name)),
     ];
   }
 }

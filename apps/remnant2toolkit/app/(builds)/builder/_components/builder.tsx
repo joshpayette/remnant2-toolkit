@@ -41,7 +41,14 @@ import { MemberFeatures } from './member-features';
 import { Stats } from './stats';
 import { TraitsContainer } from './traits-container';
 
-function showSnakeOilButton(buildState: BuildState): boolean {
+function showSnakeOilButton(
+  buildState: BuildState,
+  isEditable: boolean,
+  isScreenshotMode: boolean,
+): boolean {
+  if (!isEditable) return false;
+  if (isScreenshotMode) return false;
+
   const hasMudtoothsSnakeOilEquipped = buildState.items.concoction.some(
     (concoction) => concoction?.id === 'ru74g9',
   );
@@ -951,7 +958,11 @@ export function Builder({
                     isScreenshotMode && 'justify-start',
                   )}
                 >
-                  {showSnakeOilButton(buildState) ? (
+                  {showSnakeOilButton(
+                    buildState,
+                    isEditable,
+                    isScreenshotMode,
+                  ) ? (
                     <div className="mb-2 w-full">
                       <BaseButton
                         color="purple"

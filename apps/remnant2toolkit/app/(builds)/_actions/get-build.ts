@@ -99,12 +99,14 @@ export async function getBuild(
         continue;
       }
 
-      const userItem = await prisma.userItems.findFirst({
-        where: {
-          userId: session?.user?.id,
-          itemId: buildItem.itemId,
-        },
-      });
+      const userItem = session?.user?.id
+        ? await prisma.userItems.findFirst({
+            where: {
+              userId: session?.user?.id,
+              itemId: buildItem.itemId,
+            },
+          })
+        : false;
 
       returnedBuild.buildItems = returnedBuild.buildItems.map((item) => {
         if (item.id === buildItem.id) {

@@ -63,7 +63,7 @@ export const fusionItems: FusionItem[] = [
     id: 't2myua',
     dlc: 'base',
     description: 'Health Bonus + Stamina Bonus',
-    healthPercent: 0.15,
+    healthPercent: 0.1,
     staminaPercent: 0.15,
   },
   {
@@ -82,7 +82,7 @@ export const fusionItems: FusionItem[] = [
     imagePath: '/items/fusions/red-yellow.png',
     id: 'm1h26g',
     dlc: 'base',
-    description: 'Mod Damage + Mod Generation',
+    description: 'Mod Damage + Mod Power Generation',
   },
   {
     category: 'fusion',
@@ -194,7 +194,7 @@ export const fusionItems: FusionItem[] = [
     id: '6p6ssk',
     dlc: 'base',
     description: 'Health Bonus + Grey Health Conversion',
-    healthPercent: 0.15,
+    healthPercent: 0.1,
   },
   {
     category: 'fusion',

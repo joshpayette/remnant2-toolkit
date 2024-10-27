@@ -376,7 +376,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     tags: ['Health'],
     description: 'Increases Health by 10%.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
-    healthPercent: 0.15,
+    healthPercent: 0.1,
   },
   {
     category: 'relicfragment',
@@ -572,7 +572,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   },
   {
     category: 'relicfragment',
-    name: 'Mod Generation',
+    name: 'Mod Power Generation',
     imagePath: '/items/relicfragments/mod-generation-on.png',
     saveFileSlug: 'RelicFragment_ModGeneration_C',
     color: 'yellow',

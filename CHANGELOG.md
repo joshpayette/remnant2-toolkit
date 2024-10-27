@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed some inconsistencies in pagination in build lists.
+- Changed `Mod Generation` relic fragmet to `Mod Power Generation` to match in-game.
+- Health Bonus was giving 15% instead of 10%.
+- Fixed ordering of trait items. No idea why I had them sorting the way I did.
 
 ## 2024-10-25
 

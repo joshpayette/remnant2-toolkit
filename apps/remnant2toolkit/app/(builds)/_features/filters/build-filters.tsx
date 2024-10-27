@@ -13,7 +13,6 @@ import isEqual from 'lodash.isequal';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { useMemo, useState } from 'react';
-import { useIsClient } from 'usehooks-ts';
 
 import { InputWithClear } from '@/app/_components/input-with-clear';
 import {
@@ -46,58 +45,6 @@ import {
   BUILD_FILTER_KEYS,
   type BuildListFilters,
 } from '@/app/(builds)/_features/filters/types';
-
-import { MAX_RINGS } from '../../_constants/max-rings';
-
-function NonQualityBuildsBox({
-  isWithQuality,
-  onFiltersChange,
-}: {
-  isWithQuality: boolean;
-  onFiltersChange: () => void;
-}) {
-  const router = useRouter();
-  const pathname = usePathname();
-  const isClient = useIsClient();
-
-  const [qualityBuildDialogOpen, setQualityBuildDialogOpen] = useState(false);
-
-  const params = new URLSearchParams();
-  params.append('withQuality', isWithQuality ? 'false' : 'true');
-
-  const label = isWithQuality
-    ? 'Not seeing enough builds?'
-    : 'Too many builds?';
-
-  const label2 = isWithQuality ? 'remove' : 'apply';
-
-  if (!isClient) {
-    return null;
-  }
-
-  return (
-    <div className="mt-8 flex w-full flex-col items-center justify-center sm:mt-4">
-      <QualityBuildDialog
-        open={qualityBuildDialogOpen}
-        onClose={() => setQualityBuildDialogOpen(false)}
-      />
-      <BaseButton
-        color="violet"
-        onClick={() => {
-          router.push(`${pathname}?${params.toString()}`, { scroll: false });
-          onFiltersChange();
-        }}
-        className="flex flex-col"
-      >
-        <strong>{label}</strong>
-        <span>Click to {label2} the Quality Build filter!</span>
-      </BaseButton>
-      <BaseButton plain onClick={() => setQualityBuildDialogOpen(true)}>
-        What makes a Quality Build?
-      </BaseButton>
-    </div>
-  );
-}
 
 export const DEFAULT_BUILD_FILTERS = {
   archetypes: VALID_ARCHETYPES,
@@ -281,7 +228,9 @@ export function BuildFilters({
       );
     }
 
-    params.append('t', Date.now().toString());
+    if (!params.has('t')) {
+      params.append('t', Date.now().toString());
+    }
 
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
     onFiltersChange();
@@ -638,16 +587,6 @@ export function BuildFilters({
           </div>
         )}
       </Disclosure>
-      <NonQualityBuildsBox
-        isWithQuality={unappliedFilters.withQuality}
-        onFiltersChange={() => {
-          setUnappliedFilters((prev) => ({
-            ...prev,
-            withQuality: !prev.withQuality,
-          }));
-          onFiltersChange();
-        }}
-      />
     </div>
   );
 }
