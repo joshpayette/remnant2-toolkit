@@ -4,6 +4,7 @@ import { type Metadata } from 'next';
 import { PageHeader } from '@/app/_components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_types/navigation';
+import { BuildFeedPageFooter } from '@/app/(builds)/_components/build-feed-page-footer';
 import { BaseGameBuilds } from '@/app/(builds)/base-game-builds/_components/base-game-builds';
 
 export const maxDuration = 60;
@@ -55,8 +56,8 @@ export default async function Page() {
           }
         />
       </div>
-
       <BaseGameBuilds />
+      <BuildFeedPageFooter>{null}</BuildFeedPageFooter>
     </>
   );
 }

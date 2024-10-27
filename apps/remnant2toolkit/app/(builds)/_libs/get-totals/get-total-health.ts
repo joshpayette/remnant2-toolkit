@@ -27,14 +27,6 @@ export function getTotalHealth(buildState: BuildState): {
     'healthStepPercent',
   );
 
-  console.info('equippedHealthIncreaseItems', equippedHealthIncreaseItems);
-  console.info('equippedHealthPercentItems', equippedHealthPercentItems);
-  console.info('equippedHealthStepItems', equippedHealthStepItems);
-  console.info(
-    'equippedHealthStepPercentItems',
-    equippedHealthStepPercentItems,
-  );
-
   const equippedHealthCapItems = getItemsByKey(buildState, 'healthCap');
 
   const totalHealthIncrease = equippedHealthIncreaseItems.reduce(
