@@ -49,16 +49,9 @@ export function BuildFilters({
     return true;
   }, [filters, unappliedFilters]);
 
-  // #region Handlers
-
-  function handleSearchTextChange(searchText: string) {
-    const newFilters = {
-      ...unappliedFilters,
-      searchText,
-    };
-    setUnappliedFilters(newFilters);
-  }
-
+  /**
+   * Applies the filters to the URL and triggers a re-fetch of the data.
+   */
   function applyUrlFilters(newFilters: BuildFilterFields) {
     const params = new URLSearchParams(searchParams.toString());
 
@@ -77,6 +70,12 @@ export function BuildFilters({
       } else {
         params.delete('archetypes');
       }
+    }
+
+    if (newFilters.searchText === defaultFilters.searchText) {
+      params.delete('searchText');
+    } else {
+      params.set('searchText', newFilters.searchText);
     }
 
     // Add unique timestamp to prevent caching when linking
@@ -101,7 +100,13 @@ export function BuildFilters({
         <BaseField className="col-span-full sm:col-span-2">
           <div className="w-full max-w-[600px]">
             <InputWithClear
-              onChange={(e) => handleSearchTextChange(e.target.value)}
+              onChange={(e) => {
+                const newFilters = {
+                  ...unappliedFilters,
+                  searchText: e.target.value,
+                };
+                setUnappliedFilters(newFilters);
+              }}
               onClear={() => {
                 if (!areAnyFiltersActive) return;
                 const newFilters = {
@@ -133,7 +138,7 @@ export function BuildFilters({
                 ...unappliedFilters,
                 archetypes: newValues,
               };
-              applyUrlFilters(newFilters);
+              setUnappliedFilters(newFilters);
             }}
             values={unappliedFilters.archetypes}
           />
