@@ -7,19 +7,15 @@ import { cn } from '../../../utils/classnames';
 interface FiltersContainerProps {
   children: React.ReactNode;
   areAnyFiltersActive: boolean;
-  areFiltersUnapplied: boolean;
   searchInput?: React.ReactNode;
   onClearFilters: () => void;
-  onApplyFilters: () => void;
 }
 
 export function FiltersContainer({
   children,
   areAnyFiltersActive,
-  areFiltersUnapplied,
   searchInput,
   onClearFilters,
-  onApplyFilters,
 }: FiltersContainerProps) {
   return (
     <Disclosure defaultOpen>
@@ -27,6 +23,9 @@ export function FiltersContainer({
         <div className="w-full">
           <div className="border-b-primary-500 flex w-full flex-row items-end justify-end border-b py-2">
             <div className="w-full pr-4">{searchInput}</div>
+            <BaseButton className="mr-1" color="red" onClick={onClearFilters}>
+              Clear
+            </BaseButton>
             <Disclosure.Button as={BaseButton}>
               <FilterIcon className="h-4 w-4" />
               {open ? 'Hide' : 'Show'}
@@ -40,18 +39,6 @@ export function FiltersContainer({
             )}
           >
             {children}
-            <div className="flex w-full items-center justify-end gap-x-4">
-              <BaseButton color="red" onClick={onClearFilters}>
-                Clear Filters
-              </BaseButton>
-              <BaseButton
-                className={cn(areFiltersUnapplied && 'animate-pulse')}
-                color="green"
-                onClick={onApplyFilters}
-              >
-                Apply Filters
-              </BaseButton>
-            </div>
           </Disclosure.Panel>
         </div>
       )}

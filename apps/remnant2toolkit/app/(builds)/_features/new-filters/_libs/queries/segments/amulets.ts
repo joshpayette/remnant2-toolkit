@@ -4,52 +4,49 @@ import isEqual from 'lodash.isequal';
 
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/new-filters/_constants/default-build-fields';
 
-export function limitByArchetypesSegment(archetypeFilters: FilterOption[]) {
-  // if the archetypes are the default filters, do nothing
-  if (isEqual(archetypeFilters, DEFAULT_BUILD_FIELDS.archetypes)) {
+export function limitByAmuletSegment(amuletFilters: FilterOption[]) {
+  // if the amulets are the default filters, do nothing
+  if (isEqual(amuletFilters, DEFAULT_BUILD_FIELDS.amulets)) {
     return Prisma.empty;
   }
   // If there are no filters, do nothing
-  if (archetypeFilters.length === 0) {
+  if (amuletFilters.length === 0) {
     return Prisma.empty;
   }
 
-  const allExcludedArchetypeIds = archetypeFilters
+  const allExcludedAmuletIds = amuletFilters
     .filter((option) => option.state === 'excluded')
     .map((option) => option.value);
 
-  const allIncludedArchetypeIds = archetypeFilters
+  const allIncludedAmuletIds = amuletFilters
     .filter((option) => option.state === 'included')
     .map((option) => option.value);
 
-  const allDefaultArchetypeIds = archetypeFilters
+  const allDefaultAmuletIds = amuletFilters
     .filter((option) => option.state === 'default')
     .map((option) => option.value);
 
-  if (
-    allIncludedArchetypeIds.length === 0 &&
-    allExcludedArchetypeIds.length === 0
-  ) {
+  if (allIncludedAmuletIds.length === 0 && allExcludedAmuletIds.length === 0) {
     return Prisma.empty;
   }
 
-  const excludeArchetypeIdsQuery =
-    allExcludedArchetypeIds.length === 0
+  const excludeAmuletIdsQuery =
+    allExcludedAmuletIds.length === 0
       ? Prisma.empty
       : Prisma.sql`AND BuildItems.buildId NOT IN (
           SELECT BuildItems.buildId
           FROM BuildItems
-          WHERE BuildItems.buildId = Build.id
-          AND BuildItems.itemId IN (${Prisma.join(allExcludedArchetypeIds)})
+          WHERE BuildItems.buildId = Build.id 
+          AND BuildItems.itemId IN (${Prisma.join(allExcludedAmuletIds)})
         )`;
 
-  if (allIncludedArchetypeIds.length === 0) {
+  if (allIncludedAmuletIds.length === 0) {
     return Prisma.sql`AND (
       SELECT COUNT(*)
       FROM BuildItems
       WHERE BuildItems.buildId = Build.id
-      AND BuildItems.itemId IN (${Prisma.join(allDefaultArchetypeIds)})
-      ${excludeArchetypeIdsQuery}
+      AND BuildItems.itemId IN (${Prisma.join(allDefaultAmuletIds)})
+      ${excludeAmuletIdsQuery}
     )`;
   }
 
@@ -57,7 +54,7 @@ export function limitByArchetypesSegment(archetypeFilters: FilterOption[]) {
     SELECT COUNT(*)
     FROM BuildItems
     WHERE BuildItems.buildId = Build.id
-    AND BuildItems.itemId IN (${Prisma.join(allIncludedArchetypeIds)})
-    ${excludeArchetypeIdsQuery}
+    AND BuildItems.itemId IN (${Prisma.join(allIncludedAmuletIds)})
+    ${excludeAmuletIdsQuery}
   )`;
 }

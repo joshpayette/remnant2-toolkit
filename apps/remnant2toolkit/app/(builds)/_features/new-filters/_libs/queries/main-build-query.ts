@@ -90,7 +90,7 @@ SELECT * FROM (
           COUNT(*) as ownedItems
       FROM BuildItems
       JOIN UserItems ON BuildItems.itemId = UserItems.itemId
-      WHERE BuildItems.ItemId <> ''
+      WHERE BuildItems.itemId <> ''
       AND BuildItems.category NOT IN (${Prisma.join(EXCLUDED_CATEGORIES)})
       AND UserItems.userId = ${userId ?? ''}
       GROUP BY BuildItems.buildId

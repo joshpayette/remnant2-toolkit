@@ -12,12 +12,14 @@ import type { FilterListboxState, FilterOption } from './types';
 interface FilterListboxProps {
   label: string;
   options: FilterOption[];
+  onBlur: () => void;
   onChange: (newOptions: FilterOption[]) => void;
 }
 
 export function FilterListbox({
   label,
   options,
+  onBlur,
   onChange,
 }: FilterListboxProps) {
   function handleOptionChange(newState: FilterListboxState, itemId: string) {
@@ -61,6 +63,7 @@ export function FilterListbox({
           MultiValueRemove,
         }}
         isMulti
+        onBlur={onBlur}
         // @ts-expect-error Need to pass a custom prop to the option component
         onOptionChange={handleOptionChange}
         onResetOptions={handleResetOptions}
