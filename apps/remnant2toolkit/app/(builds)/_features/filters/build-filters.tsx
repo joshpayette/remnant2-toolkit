@@ -114,11 +114,11 @@ export function BuildFilters({
   const router = useRouter();
 
   function applyUrlFilters(filtersToApply: BuildListFilters) {
-    const params = new URLSearchParams(searchParams.toString());
+    let url = `${pathname}?t=${Date.now()}&`;
 
     // Add the amulet filter
     if (filtersToApply.amulet !== defaultFilters.amulet) {
-      params.append(BUILD_FILTER_KEYS.AMULET, filtersToApply.amulet);
+      url += `${BUILD_FILTER_KEYS.AMULET}=${filtersToApply.amulet}&`;
     }
 
     // Add the archetype filter
@@ -126,10 +126,9 @@ export function BuildFilters({
       !isEqual(filtersToApply, defaultFilters.archetypes) &&
       filtersToApply.archetypes.length !== VALID_ARCHETYPES.length
     ) {
-      params.append(
-        BUILD_FILTER_KEYS.ARCHETYPES,
-        filtersToApply.archetypes.join(','),
-      );
+      url += `${BUILD_FILTER_KEYS.ARCHETYPES}=${filtersToApply.archetypes.join(
+        ',',
+      )}&`;
     }
 
     // Add the build tag filters
@@ -137,10 +136,9 @@ export function BuildFilters({
       !isEqual(filtersToApply.buildTags, defaultFilters.buildTags) &&
       filtersToApply.buildTags.length !== VALID_BUILD_TAGS.length
     ) {
-      params.append(
-        BUILD_FILTER_KEYS.BUILDTAGS,
-        filtersToApply.buildTags.join(','),
-      );
+      url += `${BUILD_FILTER_KEYS.BUILDTAGS}=${filtersToApply.buildTags.join(
+        ',',
+      )}&`;
     }
 
     // Add the long gun filters
@@ -148,7 +146,7 @@ export function BuildFilters({
       filtersToApply.longGun !== defaultFilters.longGun &&
       filtersToApply.longGun !== DEFAULT_FILTER
     ) {
-      params.append(BUILD_FILTER_KEYS.LONGGUN, filtersToApply.longGun);
+      url += `${BUILD_FILTER_KEYS.LONGGUN}=${filtersToApply.longGun}&`;
     }
 
     // Add the hand gun filters
@@ -156,7 +154,7 @@ export function BuildFilters({
       filtersToApply.handGun !== defaultFilters.handGun &&
       filtersToApply.handGun !== DEFAULT_FILTER
     ) {
-      params.append(BUILD_FILTER_KEYS.HANDGUN, filtersToApply.handGun);
+      url += `${BUILD_FILTER_KEYS.HANDGUN}=${filtersToApply.handGun}&`;
     }
 
     // Add the melee filters
@@ -164,7 +162,7 @@ export function BuildFilters({
       filtersToApply.melee !== defaultFilters.melee &&
       filtersToApply.melee !== DEFAULT_FILTER
     ) {
-      params.append(BUILD_FILTER_KEYS.MELEE, filtersToApply.melee);
+      url += `${BUILD_FILTER_KEYS.MELEE}=${filtersToApply.melee}&`;
     }
 
     // Add the releases filters
@@ -172,15 +170,14 @@ export function BuildFilters({
       !isEqual(filtersToApply.releases, defaultFilters.releases) &&
       filtersToApply.releases.length !== VALID_RELEASE_KEYS.length
     ) {
-      params.append(
-        BUILD_FILTER_KEYS.RELEASES,
-        filtersToApply.releases.join(','),
-      );
+      url += `${BUILD_FILTER_KEYS.RELEASES}=${filtersToApply.releases.join(
+        ',',
+      )}&`;
     }
 
     // Add the relic filter
     if (filtersToApply.relic !== defaultFilters.relic) {
-      params.append(BUILD_FILTER_KEYS.RELIC, filtersToApply.relic);
+      url += `${BUILD_FILTER_KEYS.RELIC}=${filtersToApply.relic}&`;
     }
 
     // Add the ring filters
@@ -188,53 +185,38 @@ export function BuildFilters({
       !isEqual(filtersToApply.rings, defaultFilters.rings) &&
       !filtersToApply.rings.includes(DEFAULT_FILTER)
     ) {
-      params.append(BUILD_FILTER_KEYS.RINGS, filtersToApply.rings.join(','));
+      url += `${BUILD_FILTER_KEYS.RINGS}=${filtersToApply.rings.join(',')}&`;
     }
 
     // Add the search text
     if (filtersToApply.searchText !== defaultFilters.searchText) {
-      params.append(BUILD_FILTER_KEYS.SEARCHTEXT, filtersToApply.searchText);
+      url += `${BUILD_FILTER_KEYS.SEARCHTEXT}=${filtersToApply.searchText}&`;
     }
 
     // Add the misc filters
     if (filtersToApply.patchAffected !== defaultFilters.patchAffected) {
-      params.append(
-        BUILD_FILTER_KEYS.PATCHAFFECTED,
-        filtersToApply.patchAffected.toString(),
-      );
+      url += `${BUILD_FILTER_KEYS.PATCHAFFECTED}=${filtersToApply.patchAffected}&`;
     }
     if (filtersToApply.withVideo !== defaultFilters.withVideo) {
-      params.append(
-        BUILD_FILTER_KEYS.WITHVIDEO,
-        filtersToApply.withVideo.toString(),
-      );
+      url += `${BUILD_FILTER_KEYS.WITHVIDEO}=${filtersToApply.withVideo}&`;
     }
     if (filtersToApply.withReference !== defaultFilters.withReference) {
-      params.append(
-        BUILD_FILTER_KEYS.WITHREFERENCE,
-        filtersToApply.withReference.toString(),
-      );
+      url += `${BUILD_FILTER_KEYS.WITHREFERENCE}=${filtersToApply.withReference}&`;
     }
     if (filtersToApply.withQuality !== defaultFilters.withQuality) {
-      params.append(
-        BUILD_FILTER_KEYS.WITHQUALITY,
-        filtersToApply.withQuality.toString(),
-      );
+      url += `${BUILD_FILTER_KEYS.WITHQUALITY}=${filtersToApply.withQuality}&`;
     }
 
     if (filtersToApply.withCollection !== defaultFilters.withCollection) {
-      params.append(
-        BUILD_FILTER_KEYS.WITHCOLLECTION,
-        filtersToApply.withCollection.toString(),
-      );
+      url += `${BUILD_FILTER_KEYS.WITHCOLLECTION}=${filtersToApply.withCollection}&`;
     }
 
-    if (!params.has('t')) {
-      params.append('t', Date.now().toString());
+    // trim the final &
+    if (url.endsWith('&')) {
+      url = url.slice(0, -1);
     }
 
-    router.push(`${pathname}?${params.toString()}`, { scroll: false });
-    onFiltersChange();
+    router.push(url, { scroll: false });
   }
 
   // #region Filter Change Handlers
