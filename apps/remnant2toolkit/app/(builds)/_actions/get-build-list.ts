@@ -2,8 +2,8 @@
 
 import { type Prisma, prisma } from '@repo/db';
 
-import { communityBuildsQuery } from '@/app/(builds)/_features/filters/_libs/community-builds';
-import { type PercentageOwned } from '@/app/(builds)/_features/filters/build-collection-filter';
+import type { PercentageOwned } from '@/app/(builds)/_features/filters/_components/build-collection-filter';
+import { mainBuildQuery } from '@/app/(builds)/_features/filters/_libs/queries/main-build-query';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
 export async function getBuildList({
@@ -29,7 +29,7 @@ export async function getBuildList({
 }> {
   const trimmedSearchText = searchText.trim();
 
-  const builds = await communityBuildsQuery({
+  const builds = await mainBuildQuery({
     includeBuildVariants,
     userId,
     itemsPerPage,

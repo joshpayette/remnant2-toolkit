@@ -4,44 +4,16 @@ import { Prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
 import { getBuildList } from '@/app/(builds)/_actions/get-build-list';
-import {
-  amuletFilterToId,
-  limitByAmuletSegment,
-} from '@/app/(builds)/_features/filters/_libs/limit-by-amulet';
-import {
-  archetypeFiltersToIds,
-  limitByArchetypesSegment,
-} from '@/app/(builds)/_features/filters/_libs/limit-by-archetypes';
-import {
-  buildTagsFilterToValues,
-  limitByBuildTagsSegment,
-} from '@/app/(builds)/_features/filters/_libs/limit-by-build-tags';
-import { limitByPatchAffected } from '@/app/(builds)/_features/filters/_libs/limit-by-patch-affected';
-import { limitToQualityBuilds } from '@/app/(builds)/_features/filters/_libs/limit-by-quality';
-import { limitByReferenceLink } from '@/app/(builds)/_features/filters/_libs/limit-by-reference-link';
-import { limitByReleasesSegment } from '@/app/(builds)/_features/filters/_libs/limit-by-release';
-import {
-  limitByRelicSegment,
-  relicFilterToId,
-} from '@/app/(builds)/_features/filters/_libs/limit-by-relic';
-import {
-  limitByRingsSegment,
-  ringsFilterToIds,
-} from '@/app/(builds)/_features/filters/_libs/limit-by-rings';
-import { limitByTimeConditionSegment } from '@/app/(builds)/_features/filters/_libs/limit-by-time-condition';
-import { limitToBuildsWithVideo } from '@/app/(builds)/_features/filters/_libs/limit-by-video';
-import {
-  limitByWeaponsSegment,
-  weaponFiltersToIds,
-} from '@/app/(builds)/_features/filters/_libs/limit-by-weapons';
+import { limitByAmuletSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/amulets';
+import { limitByArchetypesSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/archetypes';
+import { getOrderBySegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/order-by';
+import { limitByTimeConditionSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/time-condition';
 import { type BuildListRequest } from '@/app/(builds)/_types/build-list-request';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
-import { getOrderBySegment } from '../../_features/filters/_libs/get-order-by';
-
 export async function getFeaturedBuilds({
-  buildListFilters,
+  buildFilterFields,
   itemsPerPage,
   orderBy,
   pageNumber,
@@ -50,41 +22,14 @@ export async function getFeaturedBuilds({
   const session = await getSession();
   const userId = session?.user?.id;
 
-  const {
-    amulet,
-    archetypes,
-    buildTags,
-    handGun,
-    longGun,
-    melee,
-    relic,
-    rings,
-    searchText,
-    releases,
-    patchAffected,
-    withCollection,
-    withVideo,
-    withReference,
-    withQuality,
-  } = buildListFilters;
-
-  if (releases.length === 0) return { builds: [] };
+  const { amulets, archetypes, searchText } = buildFilterFields;
 
   const whereConditions = Prisma.sql`
-  WHERE Build.isPublic = true
-  AND Build.isFeaturedBuild = true
-  ${limitByAmuletSegment(amuletFilterToId({ amulet }))}
-  ${limitByArchetypesSegment(archetypeFiltersToIds({ archetypes }))}
-  ${limitByBuildTagsSegment(buildTagsFilterToValues(buildTags))}
-  ${limitByReleasesSegment(releases)}
-  ${limitByRelicSegment(relicFilterToId({ relic }))}
-  ${limitByRingsSegment(ringsFilterToIds({ rings }))}
-  ${limitByTimeConditionSegment(timeRange)}
-  ${limitByWeaponsSegment(weaponFiltersToIds({ longGun, handGun, melee }))}
-  ${limitByReferenceLink(withReference)}
-  ${limitToBuildsWithVideo(withVideo)}
-  ${limitByPatchAffected(patchAffected)}
-  ${limitToQualityBuilds(withQuality)}
+    WHERE Build.isPublic = true
+    AND Build.isFeaturedBuild = true
+    ${limitByArchetypesSegment(archetypes)}
+    ${limitByAmuletSegment(amulets)}
+    ${limitByTimeConditionSegment(timeRange)}
   `;
 
   const orderBySegment = getOrderBySegment(orderBy, true);
@@ -95,7 +40,7 @@ export async function getFeaturedBuilds({
       itemsPerPage,
       orderBy: orderBySegment,
       pageNumber,
-      percentageOwned: withCollection,
+      percentageOwned: 0, // TODO: with collection % amount
       searchText,
       userId,
       whereConditions,

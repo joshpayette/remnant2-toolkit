@@ -48,7 +48,7 @@ export function FilterListbox({
     <div className="flex flex-col">
       {label ? (
         <BaseLabel className="ui-mb-1 ui-text-sm ui-font-medium ui-text-surface-solid">
-          {label} Filter
+          {label}
         </BaseLabel>
       ) : null}
       <Select

@@ -1,6 +1,6 @@
 import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@repo/ui';
 
-import { MINIMUM_QUALITY_DESCRIPTION_LENGTH } from '@/app/(builds)/_features/filters/build-misc-filter';
+import { MINIMUM_QUALITY_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/minimum-quality-description-length';
 
 interface Props {
   open: boolean;

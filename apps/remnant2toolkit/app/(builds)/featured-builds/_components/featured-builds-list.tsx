@@ -9,12 +9,12 @@ import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_constants/pagination';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';
-import { BuildSecondaryFilters } from '@/app/(builds)/_features/filters/secondary-filters';
-import { useOrderByFilter } from '@/app/(builds)/_features/filters/secondary-filters/order-by-filter/use-order-by-filter';
-import { useTimeRangeFilter } from '@/app/(builds)/_features/filters/secondary-filters/time-range-filter/use-time-range-filter';
-import { parseUrlParams } from '@/app/(builds)/_features/new-filters/_libs/parse-url-params';
+import { BuildSecondaryFilters } from '@/app/(builds)/_features/filters/_components/build-secondary-filters';
+import { useOrderByFilter } from '@/app/(builds)/_features/filters/_hooks/use-order-by-filter';
+import { useTimeRangeFilter } from '@/app/(builds)/_features/filters/_hooks/use-time-range-filter';
+import { parseUrlParams } from '@/app/(builds)/_features/filters/_libs/parse-url-params';
 import { useBuildListState } from '@/app/(builds)/_hooks/use-build-list-state';
-import { getFeaturedBuilds } from '@/app/(builds)/featured-builds/_actions/get-featured-builds-new';
+import { getFeaturedBuilds } from '@/app/(builds)/featured-builds/_actions/get-featured-builds';
 
 interface Props {
   itemsPerPage?: number;
