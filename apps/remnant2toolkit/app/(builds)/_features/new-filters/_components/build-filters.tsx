@@ -1,11 +1,10 @@
-import { BaseField, FiltersContainer } from '@repo/ui';
+import { BaseField, FilterListbox, FiltersContainer } from '@repo/ui';
 import isEqual from 'lodash.isequal';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
 
 import { InputWithClear } from '@/app/_components/input-with-clear';
 import { EXCLUDE_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
-import { ArchetypeFilter } from '@/app/(builds)/_features/new-filters/_components/archetype-filter';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/new-filters/_constants/default-build-fields';
 import { parseUrlParams } from '@/app/(builds)/_features/new-filters/_libs/parse-url-params';
 import { type BuildFilterFields } from '@/app/(builds)/_features/new-filters/_types/build-filter-fields';
@@ -132,7 +131,9 @@ export function BuildFilters({
     >
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
         <BaseField className="col-span-full sm:col-span-1">
-          <ArchetypeFilter
+          <FilterListbox
+            options={unappliedFilters.archetypes}
+            label="Archetypes"
             onChange={(newValues) => {
               const newFilters = {
                 ...unappliedFilters,
@@ -140,7 +141,6 @@ export function BuildFilters({
               };
               setUnappliedFilters(newFilters);
             }}
-            values={unappliedFilters.archetypes}
           />
         </BaseField>
       </div>

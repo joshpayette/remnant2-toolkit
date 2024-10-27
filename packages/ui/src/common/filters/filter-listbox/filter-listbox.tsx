@@ -2,6 +2,7 @@
 
 import Select from 'react-select';
 import { cn } from '../../../utils/classnames';
+import { BaseLabel } from '../../../base/fieldset';
 import { MultiValueLabel } from './multi-value-label';
 import { MultiValueRemove } from './multi-value-remove';
 import { Option } from './option';
@@ -42,25 +43,31 @@ export function FilterListbox({
   }
 
   return (
-    <Select
-      className={cn(
-        'ui-w-full ui-px-2 ui-text-sm ui-bg-surface-solid/5 ui-text-surface-solid ui-rounded-[calc(theme(borderRadius.lg)-1px)] ui-border ui-border-surface-solid/10 focus:ui-outline-none ui-shadow',
-      )}
-      closeMenuOnSelect={false}
-      components={{
-        ClearIndicator,
-        Option,
-        MultiValueLabel,
-        MultiValueRemove,
-      }}
-      isMulti
-      // @ts-expect-error Need to pass a custom prop to the option component
-      onOptionChange={handleOptionChange}
-      onResetOptions={handleResetOptions}
-      options={options}
-      placeholder={`${label}...`}
-      unstyled
-      value={options.filter((option) => option.state !== 'default')}
-    />
+    <div className="flex flex-col">
+      {label ? (
+        <BaseLabel className="ui-mb-1 ui-text-sm ui-font-medium ui-text-surface-solid">
+          {label} Filter
+        </BaseLabel>
+      ) : null}
+      <Select
+        className={cn(
+          'ui-w-full ui-px-2 ui-text-sm ui-bg-surface-solid/5 ui-text-surface-solid ui-rounded-[calc(theme(borderRadius.lg)-1px)] ui-border ui-border-surface-solid/10 focus:ui-outline-none ui-shadow',
+        )}
+        closeMenuOnSelect={false}
+        components={{
+          ClearIndicator,
+          Option,
+          MultiValueLabel,
+          MultiValueRemove,
+        }}
+        isMulti
+        // @ts-expect-error Need to pass a custom prop to the option component
+        onOptionChange={handleOptionChange}
+        onResetOptions={handleResetOptions}
+        options={options}
+        unstyled
+        value={options.filter((option) => option.state !== 'default')}
+      />
+    </div>
   );
 }
