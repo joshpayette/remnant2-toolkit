@@ -15,12 +15,12 @@ import {
   NewWindowIcon,
   Skeleton,
   TokensIcon,
+  Tooltip,
 } from '@repo/ui';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
-import { Tooltip } from '@/app/_components/tooltip';
 import { BuildDescriptionTemplateAlert } from '@/app/(builds)/_components/build-description-template-alert';
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
 import { DescriptionTokenDialog } from '@/app/(builds)/builder/_components/description-token-dialog';

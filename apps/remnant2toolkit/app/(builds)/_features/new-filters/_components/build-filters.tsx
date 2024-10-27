@@ -62,8 +62,9 @@ export function BuildFilters({
   function applyUrlFilters(newFilters: BuildFilterFields) {
     const params = new URLSearchParams(searchParams.toString());
 
-    // If archetype filters are differnet from default, add them to the URL
-    if (!isEqual(newFilters.archetypes, defaultFilters.archetypes)) {
+    if (isEqual(newFilters.archetypes, defaultFilters.archetypes)) {
+      params.delete('archetypes');
+    } else {
       const paramValues = newFilters.archetypes
         .filter((archetype) => archetype.state !== 'default')
         .map((archetype) => {
@@ -94,9 +95,7 @@ export function BuildFilters({
       areFiltersUnapplied={areFiltersUnapplied}
       onApplyFilters={() => applyUrlFilters(unappliedFilters)}
       onClearFilters={() => {
-        // Remove all filters from the url and load the page
-        setUnappliedFilters(defaultFilters);
-        router.push(pathname, { scroll: false });
+        applyUrlFilters(defaultFilters);
       }}
       searchInput={
         <BaseField className="col-span-full sm:col-span-2">
@@ -104,6 +103,7 @@ export function BuildFilters({
             <InputWithClear
               onChange={(e) => handleSearchTextChange(e.target.value)}
               onClear={() => {
+                if (!areAnyFiltersActive) return;
                 const newFilters = {
                   ...unappliedFilters,
                   searchText: '',
@@ -129,10 +129,11 @@ export function BuildFilters({
         <BaseField className="col-span-full sm:col-span-1">
           <ArchetypeFilter
             onChange={(newValues) => {
-              setUnappliedFilters({
+              const newFilters = {
                 ...unappliedFilters,
                 archetypes: newValues,
-              });
+              };
+              applyUrlFilters(newFilters);
             }}
             values={unappliedFilters.archetypes}
           />

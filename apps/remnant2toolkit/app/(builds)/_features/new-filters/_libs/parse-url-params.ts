@@ -7,7 +7,7 @@ import type { BuildFilterFields } from '@/app/(builds)/_features/new-filters/_ty
 import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
 
 interface Props {
-  defaultFilters: BuildFilterFields;
+  defaultFilters?: BuildFilterFields;
   searchParams: ReadonlyURLSearchParams;
 }
 
@@ -21,10 +21,8 @@ export function parseUrlParams({
   const searchTextParam =
     parsedParams.get('searchText') || defaultFilters.searchText;
 
-  let archetypes: FilterOption[] = [];
-  if (!archetypesParam) {
-    archetypes = defaultFilters.archetypes;
-  } else {
+  let archetypes: FilterOption[] = [...defaultFilters.archetypes];
+  if (archetypesParam) {
     for (const archetypeId of archetypesParam) {
       const cleanArchetypeId = archetypeId.replace(EXCLUDE_ITEM_SYMBOL, '');
       const archetypeItem = archetypeItems.find(
@@ -34,16 +32,24 @@ export function parseUrlParams({
 
       // Check if the exclusion symbol is found
       if (archetypeId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
-        archetypes.push({
-          value: archetypeItem.id,
-          label: archetypeItem.name,
-          state: 'excluded',
+        archetypes = archetypes.map((archetype) => {
+          if (archetype.value === archetypeItem.id) {
+            return {
+              ...archetype,
+              state: 'excluded',
+            };
+          }
+          return archetype;
         });
       } else {
-        archetypes.push({
-          value: archetypeItem.id,
-          label: archetypeItem.name,
-          state: 'included',
+        archetypes = archetypes.map((archetype) => {
+          if (archetype.value === archetypeItem.id) {
+            return {
+              ...archetype,
+              state: 'included',
+            };
+          }
+          return archetype;
         });
       }
     }

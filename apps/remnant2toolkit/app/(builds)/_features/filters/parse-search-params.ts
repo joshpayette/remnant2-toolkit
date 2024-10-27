@@ -2,6 +2,7 @@ import isEqual from 'lodash.isequal';
 import { type ReadonlyURLSearchParams } from 'next/navigation';
 
 import { VALID_RELEASE_KEYS } from '@/app/_components/releases-filter';
+import { MAX_RINGS } from '@/app/(builds)/_constants/max-rings';
 import { VALID_ARCHETYPES } from '@/app/(builds)/_features/filters/archetype-filter';
 import { type PercentageOwned } from '@/app/(builds)/_features/filters/build-collection-filter';
 import { DEFAULT_BUILD_FILTERS } from '@/app/(builds)/_features/filters/build-filters';
@@ -9,7 +10,6 @@ import { VALID_BUILD_TAGS } from '@/app/(builds)/_features/filters/build-tag-fil
 import {
   BUILD_FILTER_KEYS,
   type BuildListFilters,
-  MAX_RINGS,
 } from '@/app/(builds)/_features/filters/types';
 import { amuletItems } from '@/app/(items)/_constants/amulet-items';
 import { relicItems } from '@/app/(items)/_constants/relic-items';

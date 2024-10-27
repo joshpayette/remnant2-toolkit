@@ -34,7 +34,11 @@ export function FilterListbox({
   }
 
   function handleResetOptions() {
-    onChange(options.map((option) => ({ ...option, state: 'default' })));
+    const newOptions: FilterOption[] = options.map((option) => ({
+      ...option,
+      state: 'default',
+    }));
+    onChange(newOptions);
   }
 
   return (
