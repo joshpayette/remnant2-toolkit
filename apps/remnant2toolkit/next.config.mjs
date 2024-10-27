@@ -10,7 +10,8 @@ const nextConfig = {
   // Configure `images` to support loading images from a remote server
   images: {
     //unoptimized: true,
-    minimumCacheTTL: 60 * 60 * 24 * 3, // 3 days
+    // minimumCacheTTL: 60 * 60 * 24 * 3, // 3 days
+    minimumCacheTTL: 31536000, // 1 year
     remotePatterns: [
       {
         protocol: 'https',
