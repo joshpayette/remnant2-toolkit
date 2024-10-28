@@ -1,4 +1,7 @@
 import { amuletFilter } from '@/app/(builds)/_features/filters/_libs/amulet-filter';
+import { handGunFilter } from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
+import { longGunFilter } from '@/app/(builds)/_features/filters/_libs/long-gun-filter';
+import { meleeFilter } from '@/app/(builds)/_features/filters/_libs/melee-filter';
 import { patchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/patch-affected-filter';
 import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
@@ -13,6 +16,9 @@ import { archetypeFilter } from '../_libs/archetype-filter';
 export const DEFAULT_BUILD_FIELDS: BuildFilterFields = {
   amulets: amuletFilter.defaultValue as BuildFilterFields['amulets'],
   archetypes: archetypeFilter.defaultValue as BuildFilterFields['archetypes'],
+  handGuns: handGunFilter.defaultValue as BuildFilterFields['handGuns'],
+  longGuns: longGunFilter.defaultValue as BuildFilterFields['longGuns'],
+  melees: meleeFilter.defaultValue as BuildFilterFields['melees'],
   patchAffected:
     patchAffectedFilter.defaultValue as BuildFilterFields['patchAffected'],
   relics: relicFilter.defaultValue as BuildFilterFields['relics'],

@@ -1,0 +1,16 @@
+import { weaponItems } from '@/app/(items)/_constants/weapon-items';
+
+import { type FilterDefinition } from '../_types/filter-definition';
+
+const longGunItems = weaponItems.filter((item) => item.type === 'long gun');
+
+export const longGunFilter: FilterDefinition = {
+  buildFilterKey: 'amulets',
+  defaultValue: longGunItems.map((item) => ({
+    label: item.name,
+    value: item.id,
+    state: 'default',
+  })),
+  label: 'Long Gun',
+  validOptions: longGunItems.map((item) => item.id),
+};

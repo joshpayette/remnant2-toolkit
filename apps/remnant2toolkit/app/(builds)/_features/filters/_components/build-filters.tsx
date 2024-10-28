@@ -1,4 +1,11 @@
-import { BaseField, FilterListbox, FiltersContainer } from '@repo/ui';
+import { Disclosure } from '@headlessui/react';
+import {
+  BaseButton,
+  BaseField,
+  FilterIcon,
+  FilterListbox,
+  FiltersContainer,
+} from '@repo/ui';
 import isEqual from 'lodash.isequal';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
@@ -8,6 +15,9 @@ import { EXCLUDE_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import { amuletFilter } from '@/app/(builds)/_features/filters/_libs/amulet-filter';
 import { archetypeFilter } from '@/app/(builds)/_features/filters/_libs/archetype-filter';
+import { handGunFilter } from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
+import { longGunFilter } from '@/app/(builds)/_features/filters/_libs/long-gun-filter';
+import { meleeFilter } from '@/app/(builds)/_features/filters/_libs/melee-filter';
 import { parseUrlParams } from '@/app/(builds)/_features/filters/_libs/parse-url-params';
 import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
@@ -84,6 +94,57 @@ export function BuildFilters({
         params.set(amuletFilter.buildFilterKey, paramValues.join(','));
       } else {
         params.delete(amuletFilter.buildFilterKey);
+      }
+    }
+
+    if (isEqual(newFilters.handGuns, defaultFilters.handGuns)) {
+      params.delete(handGunFilter.buildFilterKey);
+    } else {
+      const paramValues = newFilters.handGuns
+        .filter((handGun) => handGun.state !== 'default')
+        .map((handGun) => {
+          return handGun.state === 'excluded'
+            ? `${EXCLUDE_ITEM_SYMBOL}${handGun.value}`
+            : handGun.value;
+        });
+      if (paramValues.length > 0) {
+        params.set(handGunFilter.buildFilterKey, paramValues.join(','));
+      } else {
+        params.delete(handGunFilter.buildFilterKey);
+      }
+    }
+
+    if (isEqual(newFilters.longGuns, defaultFilters.longGuns)) {
+      params.delete(longGunFilter.buildFilterKey);
+    } else {
+      const paramValues = newFilters.longGuns
+        .filter((longGun) => longGun.state !== 'default')
+        .map((longGun) => {
+          return longGun.state === 'excluded'
+            ? `${EXCLUDE_ITEM_SYMBOL}${longGun.value}`
+            : longGun.value;
+        });
+      if (paramValues.length > 0) {
+        params.set(longGunFilter.buildFilterKey, paramValues.join(','));
+      } else {
+        params.delete(longGunFilter.buildFilterKey);
+      }
+    }
+
+    if (isEqual(newFilters.melees, defaultFilters.melees)) {
+      params.delete(meleeFilter.buildFilterKey);
+    } else {
+      const paramValues = newFilters.melees
+        .filter((melee) => melee.state !== 'default')
+        .map((melee) => {
+          return melee.state === 'excluded'
+            ? `${EXCLUDE_ITEM_SYMBOL}${melee.value}`
+            : melee.value;
+        });
+      if (paramValues.length > 0) {
+        params.set(meleeFilter.buildFilterKey, paramValues.join(','));
+      } else {
+        params.delete(meleeFilter.buildFilterKey);
       }
     }
 
@@ -177,67 +238,179 @@ export function BuildFilters({
         </BaseField>
       }
     >
-      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-        <BaseField
-          id="archetypes-filter"
-          className="col-span-full sm:col-span-1"
-        >
-          <FilterListbox
-            options={unappliedFilters.archetypes}
-            label={archetypeFilter.label}
-            onBlur={() => applyUrlFilters(unappliedFilters)}
-            onChange={(newValues) => {
-              const newFilters: BuildFilterFields = {
-                ...unappliedFilters,
-                archetypes: newValues,
-              };
-              setUnappliedFilters(newFilters);
-            }}
-          />
-        </BaseField>
-        <BaseField id="amulets-filter" className="col-span-full sm:col-span-1">
-          <FilterListbox
-            options={unappliedFilters.amulets}
-            label={amuletFilter.label}
-            onBlur={() => applyUrlFilters(unappliedFilters)}
-            onChange={(newValues) => {
-              const newFilters: BuildFilterFields = {
-                ...unappliedFilters,
-                amulets: newValues,
-              };
-              setUnappliedFilters(newFilters);
-            }}
-          />
-        </BaseField>
-        <BaseField id="rings-filter" className="col-span-full sm:col-span-1">
-          <FilterListbox
-            options={unappliedFilters.rings}
-            label={ringFilter.label}
-            onBlur={() => applyUrlFilters(unappliedFilters)}
-            onChange={(newValues) => {
-              const newFilters: BuildFilterFields = {
-                ...unappliedFilters,
-                rings: newValues,
-              };
-              setUnappliedFilters(newFilters);
-            }}
-          />
-        </BaseField>
-        <BaseField id="relic-filter" className="col-span-full sm:col-span-1">
-          <FilterListbox
-            options={unappliedFilters.relics}
-            label="Relics"
-            onBlur={() => applyUrlFilters(unappliedFilters)}
-            onChange={(newValues) => {
-              const newFilters: BuildFilterFields = {
-                ...unappliedFilters,
-                relics: newValues,
-              };
-              setUnappliedFilters(newFilters);
-            }}
-          />
-        </BaseField>
-      </div>
+      <Disclosure defaultOpen>
+        {({ open }) => (
+          <div className="w-full">
+            <div className="border-b-primary-500 mb-1 flex w-full flex-row items-end justify-end border-b py-2">
+              <div className="w-full pr-4 text-lg">Equipment</div>
+              <Disclosure.Button as={BaseButton}>
+                <FilterIcon className="h-4 w-4" />
+                {open ? 'Hide' : 'Show'}
+              </Disclosure.Button>
+            </div>
+            <Disclosure.Panel>
+              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                <BaseField
+                  id="archetypes-filter"
+                  className="col-span-full sm:col-span-1"
+                >
+                  <FilterListbox
+                    options={unappliedFilters.archetypes}
+                    label={archetypeFilter.label}
+                    onBlur={() => {
+                      if (
+                        !isEqual(
+                          unappliedFilters.archetypes,
+                          filters.archetypes,
+                        )
+                      ) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(newValues) => {
+                      const newFilters: BuildFilterFields = {
+                        ...unappliedFilters,
+                        archetypes: newValues,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  />
+                </BaseField>
+                <BaseField
+                  id="amulets-filter"
+                  className="col-span-full sm:col-span-1"
+                >
+                  <FilterListbox
+                    options={unappliedFilters.amulets}
+                    label={amuletFilter.label}
+                    onBlur={() => {
+                      if (!isEqual(unappliedFilters.amulets, filters.amulets)) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(newValues) => {
+                      const newFilters: BuildFilterFields = {
+                        ...unappliedFilters,
+                        amulets: newValues,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  />
+                </BaseField>
+                <BaseField
+                  id="rings-filter"
+                  className="col-span-full sm:col-span-1"
+                >
+                  <FilterListbox
+                    options={unappliedFilters.rings}
+                    label={ringFilter.label}
+                    onBlur={() => {
+                      if (!isEqual(unappliedFilters.rings, filters.rings)) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(newValues) => {
+                      const newFilters: BuildFilterFields = {
+                        ...unappliedFilters,
+                        rings: newValues,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  />
+                </BaseField>
+                <BaseField
+                  id="relic-filter"
+                  className="col-span-full sm:col-span-1"
+                >
+                  <FilterListbox
+                    options={unappliedFilters.relics}
+                    label={relicFilter.label}
+                    onBlur={() => {
+                      if (!isEqual(unappliedFilters.relics, filters.relics)) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(newValues) => {
+                      const newFilters: BuildFilterFields = {
+                        ...unappliedFilters,
+                        relics: newValues,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  />
+                </BaseField>
+                <BaseField
+                  id="long-guns-filter"
+                  className="col-span-full sm:col-span-1"
+                >
+                  <FilterListbox
+                    options={unappliedFilters.longGuns}
+                    label={longGunFilter.label}
+                    onBlur={() => {
+                      if (
+                        !isEqual(unappliedFilters.longGuns, filters.longGuns)
+                      ) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(newValues) => {
+                      const newFilters: BuildFilterFields = {
+                        ...unappliedFilters,
+                        longGuns: newValues,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  />
+                </BaseField>
+                <BaseField
+                  id="hand-guns-filter"
+                  className="col-span-full sm:col-span-1"
+                >
+                  <FilterListbox
+                    options={unappliedFilters.handGuns}
+                    label={handGunFilter.label}
+                    onBlur={() => {
+                      if (
+                        !isEqual(unappliedFilters.handGuns, filters.handGuns)
+                      ) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(newValues) => {
+                      const newFilters: BuildFilterFields = {
+                        ...unappliedFilters,
+                        handGuns: newValues,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  />
+                </BaseField>
+                <BaseField
+                  id="melee-filter"
+                  className="col-span-full sm:col-span-1"
+                >
+                  <FilterListbox
+                    options={unappliedFilters.melees}
+                    label={meleeFilter.label}
+                    onBlur={() => {
+                      if (!isEqual(unappliedFilters.melees, filters.melees)) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(newValues) => {
+                      const newFilters: BuildFilterFields = {
+                        ...unappliedFilters,
+                        melees: newValues,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  />
+                </BaseField>
+              </div>
+            </Disclosure.Panel>
+          </div>
+        )}
+      </Disclosure>
     </FiltersContainer>
   );
 }

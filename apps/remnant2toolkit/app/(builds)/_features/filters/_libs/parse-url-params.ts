@@ -5,6 +5,9 @@ import { EXCLUDE_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import { amuletFilter } from '@/app/(builds)/_features/filters/_libs/amulet-filter';
 import { archetypeFilter } from '@/app/(builds)/_features/filters/_libs/archetype-filter';
+import { handGunFilter } from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
+import { longGunFilter } from '@/app/(builds)/_features/filters/_libs/long-gun-filter';
+import { meleeFilter } from '@/app/(builds)/_features/filters/_libs/melee-filter';
 import { patchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/patch-affected-filter';
 import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
@@ -17,6 +20,7 @@ import { amuletItems } from '@/app/(items)/_constants/amulet-items';
 import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
 import { relicItems } from '@/app/(items)/_constants/relic-items';
 import { ringItems } from '@/app/(items)/_constants/ring-items';
+import { weaponItems } from '@/app/(items)/_constants/weapon-items';
 
 interface Props {
   defaultFilters?: BuildFilterFields;
@@ -36,6 +40,16 @@ export function parseUrlParams({
   const amuletsParam = parsedParams
     .get(amuletFilter.buildFilterKey)
     ?.split(',');
+
+  const handGunsParam = parsedParams
+    .get(handGunFilter.buildFilterKey)
+    ?.split(',');
+
+  const longGunsParam = parsedParams
+    .get(longGunFilter.buildFilterKey)
+    ?.split(',');
+
+  const meleeParam = parsedParams.get(meleeFilter.buildFilterKey)?.split(',');
 
   const relicsParam = parsedParams.get(relicFilter.buildFilterKey)?.split(',');
 
@@ -116,6 +130,109 @@ export function parseUrlParams({
             };
           }
           return amulet;
+        });
+      }
+    }
+  }
+
+  let handGuns: FilterOption[] = [...defaultFilters.handGuns];
+  if (handGunsParam) {
+    const handGunItems = weaponItems.filter((i) => i.type === 'hand gun');
+    for (const handGunId of handGunsParam) {
+      const cleanHandGunId = handGunId.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const handGunItem = handGunItems.find(
+        (item) => item.id === cleanHandGunId,
+      );
+      if (!handGunItem) continue;
+
+      // Check if the exclusion symbol is found
+      if (handGunId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+        handGuns = handGuns.map((handGun) => {
+          if (handGun.value === cleanHandGunId) {
+            return {
+              ...handGun,
+              state: 'excluded',
+            };
+          }
+          return handGun;
+        });
+      } else {
+        handGuns = handGuns.map((handGun) => {
+          if (handGun.value === cleanHandGunId) {
+            return {
+              ...handGun,
+              state: 'included',
+            };
+          }
+          return handGun;
+        });
+      }
+    }
+  }
+
+  let longGuns: FilterOption[] = [...defaultFilters.longGuns];
+  if (longGunsParam) {
+    const longGunItems = weaponItems.filter((i) => i.type === 'long gun');
+    for (const longGunId of longGunsParam) {
+      const cleanLongGunId = longGunId.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const longGunItem = longGunItems.find(
+        (item) => item.id === cleanLongGunId,
+      );
+      if (!longGunItem) continue;
+
+      // Check if the exclusion symbol is found
+      if (longGunId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+        longGuns = longGuns.map((longGun) => {
+          if (longGun.value === cleanLongGunId) {
+            return {
+              ...longGun,
+              state: 'excluded',
+            };
+          }
+          return longGun;
+        });
+      } else {
+        longGuns = longGuns.map((longGun) => {
+          if (longGun.value === cleanLongGunId) {
+            return {
+              ...longGun,
+              state: 'included',
+            };
+          }
+          return longGun;
+        });
+      }
+    }
+  }
+
+  let melees: FilterOption[] = [...defaultFilters.melees];
+  if (meleeParam) {
+    const meleeItems = weaponItems.filter((i) => i.type === 'melee');
+    for (const meleeId of meleeParam) {
+      const cleanMeleeId = meleeId.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const meleeItem = meleeItems.find((item) => item.id === cleanMeleeId);
+      if (!meleeItem) continue;
+
+      // Check if the exclusion symbol is found
+      if (meleeId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+        melees = melees.map((melee) => {
+          if (melee.value === cleanMeleeId) {
+            return {
+              ...melee,
+              state: 'excluded',
+            };
+          }
+          return melee;
+        });
+      } else {
+        melees = melees.map((melee) => {
+          if (melee.value === cleanMeleeId) {
+            return {
+              ...melee,
+              state: 'included',
+            };
+          }
+          return melee;
         });
       }
     }
@@ -210,6 +327,9 @@ export function parseUrlParams({
   return {
     archetypes,
     amulets,
+    handGuns,
+    longGuns,
+    melees,
     patchAffected,
     relics,
     rings,

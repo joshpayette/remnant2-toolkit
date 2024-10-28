@@ -6,6 +6,9 @@ import { bigIntFix } from '@repo/utils';
 import { getBuildList } from '@/app/(builds)/_actions/get-build-list';
 import { limitByAmuletSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/amulets';
 import { limitByArchetypesSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/archetypes';
+import { limitByHandGunSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/hand-guns';
+import { limitByLongGunSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/long-guns';
+import { limitByMeleeSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/melees';
 import { getOrderBySegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/order-by';
 import { limitByRelicSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/relic';
 import { limitByRingsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/rings';
@@ -24,13 +27,25 @@ export async function getFeaturedBuilds({
   const session = await getSession();
   const userId = session?.user?.id;
 
-  const { amulets, archetypes, relics, rings, searchText } = buildFilterFields;
+  const {
+    amulets,
+    archetypes,
+    handGuns,
+    longGuns,
+    melees,
+    relics,
+    rings,
+    searchText,
+  } = buildFilterFields;
 
   const whereConditions = Prisma.sql`
     WHERE Build.isPublic = true
     AND Build.isFeaturedBuild = true
     ${limitByArchetypesSegment(archetypes)}
     ${limitByAmuletSegment(amulets)}
+    ${limitByHandGunSegment(handGuns)}
+    ${limitByLongGunSegment(longGuns)}
+    ${limitByMeleeSegment(melees)}
     ${limitByRelicSegment(relics)}
     ${limitByRingsSegment(rings)}
     ${limitByTimeConditionSegment(timeRange)}
