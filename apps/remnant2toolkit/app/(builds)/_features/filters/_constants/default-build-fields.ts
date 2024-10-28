@@ -1,5 +1,6 @@
 import { amuletFilter } from '@/app/(builds)/_features/filters/_libs/amulet-filter';
 import { patchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/patch-affected-filter';
+import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
 import { withQualityFilter } from '@/app/(builds)/_features/filters/_libs/with-quality-filter';
@@ -14,6 +15,7 @@ export const DEFAULT_BUILD_FIELDS: BuildFilterFields = {
   archetypes: archetypeFilter.defaultValue as BuildFilterFields['archetypes'],
   patchAffected:
     patchAffectedFilter.defaultValue as BuildFilterFields['patchAffected'],
+  relics: relicFilter.defaultValue as BuildFilterFields['relics'],
   rings: ringFilter.defaultValue as BuildFilterFields['rings'],
   searchText: searchTextFilter.defaultValue as BuildFilterFields['searchText'],
   withQuality:

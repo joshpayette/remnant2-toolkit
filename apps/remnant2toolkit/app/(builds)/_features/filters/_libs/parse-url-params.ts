@@ -6,6 +6,7 @@ import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constant
 import { amuletFilter } from '@/app/(builds)/_features/filters/_libs/amulet-filter';
 import { archetypeFilter } from '@/app/(builds)/_features/filters/_libs/archetype-filter';
 import { patchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/patch-affected-filter';
+import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
 import { withQualityFilter } from '@/app/(builds)/_features/filters/_libs/with-quality-filter';
@@ -14,6 +15,7 @@ import { withVideoFilter } from '@/app/(builds)/_features/filters/_libs/with-vid
 import type { BuildFilterFields } from '@/app/(builds)/_features/filters/_types/build-filter-fields';
 import { amuletItems } from '@/app/(items)/_constants/amulet-items';
 import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
+import { relicItems } from '@/app/(items)/_constants/relic-items';
 import { ringItems } from '@/app/(items)/_constants/ring-items';
 
 interface Props {
@@ -35,11 +37,13 @@ export function parseUrlParams({
     .get(amuletFilter.buildFilterKey)
     ?.split(',');
 
+  const relicsParam = parsedParams.get(relicFilter.buildFilterKey)?.split(',');
+
+  const ringsParam = parsedParams.get(ringFilter.buildFilterKey)?.split(',');
+
   const patchAffectedParam = parsedParams.get(
     patchAffectedFilter.buildFilterKey,
   );
-
-  const ringsParam = parsedParams.get(ringFilter.buildFilterKey)?.split(',');
 
   const searchTextParam =
     parsedParams.get(searchTextFilter.buildFilterKey) ||
@@ -117,6 +121,38 @@ export function parseUrlParams({
     }
   }
 
+  let relics: FilterOption[] = [...defaultFilters.relics];
+  if (relicsParam) {
+    for (const relicId of relicsParam) {
+      const cleanRelicId = relicId.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const relicItem = relicItems.find((item) => item.id === cleanRelicId);
+      if (!relicItem) continue;
+
+      // Check if the exclusion symbol is found
+      if (relicId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+        relics = relics.map((relic) => {
+          if (relic.value === relicItem.id) {
+            return {
+              ...relic,
+              state: 'excluded',
+            };
+          }
+          return relic;
+        });
+      } else {
+        relics = relics.map((relic) => {
+          if (relic.value === relicItem.id) {
+            return {
+              ...relic,
+              state: 'included',
+            };
+          }
+          return relic;
+        });
+      }
+    }
+  }
+
   let rings: FilterOption[] = [...defaultFilters.rings];
   if (ringsParam) {
     for (const ringId of ringsParam) {
@@ -175,6 +211,7 @@ export function parseUrlParams({
     archetypes,
     amulets,
     patchAffected,
+    relics,
     rings,
     searchText,
     withQuality,

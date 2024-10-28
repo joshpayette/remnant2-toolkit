@@ -53,7 +53,7 @@ export function limitByAmuletSegment(amuletFilters: FilterOption[]) {
   }
 
   // If there is one or more included amulets, we want to ensure that all builds
-  // returned have the included amulets. We also want to exclude any excluded
+  // returned have the included amulets. We also want to exclude any excluded amulets
   return Prisma.sql`AND (
     SELECT COUNT(*)
     FROM BuildItems

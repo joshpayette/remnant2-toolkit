@@ -9,6 +9,7 @@ import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constant
 import { amuletFilter } from '@/app/(builds)/_features/filters/_libs/amulet-filter';
 import { archetypeFilter } from '@/app/(builds)/_features/filters/_libs/archetype-filter';
 import { parseUrlParams } from '@/app/(builds)/_features/filters/_libs/parse-url-params';
+import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
 import { type BuildFilterFields } from '@/app/(builds)/_features/filters/_types/build-filter-fields';
@@ -83,6 +84,23 @@ export function BuildFilters({
         params.set(amuletFilter.buildFilterKey, paramValues.join(','));
       } else {
         params.delete(amuletFilter.buildFilterKey);
+      }
+    }
+
+    if (isEqual(newFilters.relics, defaultFilters.relics)) {
+      params.delete(relicFilter.buildFilterKey);
+    } else {
+      const paramValues = newFilters.relics
+        .filter((relic) => relic.state !== 'default')
+        .map((relic) => {
+          return relic.state === 'excluded'
+            ? `${EXCLUDE_ITEM_SYMBOL}${relic.value}`
+            : relic.value;
+        });
+      if (paramValues.length > 0) {
+        params.set(relicFilter.buildFilterKey, paramValues.join(','));
+      } else {
+        params.delete(relicFilter.buildFilterKey);
       }
     }
 
@@ -200,6 +218,20 @@ export function BuildFilters({
               const newFilters: BuildFilterFields = {
                 ...unappliedFilters,
                 rings: newValues,
+              };
+              setUnappliedFilters(newFilters);
+            }}
+          />
+        </BaseField>
+        <BaseField id="relic-filter" className="col-span-full sm:col-span-1">
+          <FilterListbox
+            options={unappliedFilters.relics}
+            label="Relics"
+            onBlur={() => applyUrlFilters(unappliedFilters)}
+            onChange={(newValues) => {
+              const newFilters: BuildFilterFields = {
+                ...unappliedFilters,
+                relics: newValues,
               };
               setUnappliedFilters(newFilters);
             }}
