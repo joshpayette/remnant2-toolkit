@@ -9,6 +9,12 @@ const REQUEST_DELAY = 100;
 export async function GET(request: NextRequest) {
   const envVars = validateEnv();
 
+  if (envVars.NODE_ENV === 'production') {
+    return Response.json({
+      message: 'This script is only available in development',
+    });
+  }
+
   const authHeader = request.headers.get('authorization');
   if (
     authHeader !== `Bearer ${envVars.CRON_SECRET}` &&
