@@ -2,6 +2,7 @@ import { Prisma } from '@repo/db';
 import type { FilterOption } from '@repo/ui';
 import isEqual from 'lodash.isequal';
 
+import { MAX_ALLOWED_ARCHETYPES } from '@/app/(builds)/_constants/max-allowed-archetypes';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 
 export function limitByArchetypesSegment(archetypeFilters: FilterOption[]) {
@@ -43,6 +44,8 @@ export function limitByArchetypesSegment(archetypeFilters: FilterOption[]) {
           AND BuildItems.itemId IN (${Prisma.join(allExcludedArchetypeIds)})
         )`;
 
+  // If there are no included archetypes, we want to include all default archetypes
+  // and exclude any excluded archetypes
   if (allIncludedArchetypeIds.length === 0) {
     return Prisma.sql`AND (
       SELECT COUNT(*)
@@ -53,11 +56,40 @@ export function limitByArchetypesSegment(archetypeFilters: FilterOption[]) {
     )`;
   }
 
+  // If there is only one included archetype, we want to ensure that all builds
+  // returned have the included archetype. We also want to exclude any excluded
+  // archetypes.
+  if (allIncludedArchetypeIds.length === 1) {
+    return Prisma.sql`AND (
+      SELECT COUNT(*)
+      FROM BuildItems
+      WHERE BuildItems.buildId = Build.id
+      AND BuildItems.itemId IN (${Prisma.join(allIncludedArchetypeIds)})
+      ${excludeArchetypeIdsQuery}
+    )`;
+  }
+
+  // If the total included archetypes is less than the max allowed archetypes,
+  // we want to ensure the all included archetypes are included in each
+  // returned build. We also want to exclude any excluded archetypes.
+  if (allIncludedArchetypeIds.length < MAX_ALLOWED_ARCHETYPES) {
+    return Prisma.sql`AND (
+      SELECT COUNT(*)
+      FROM BuildItems
+      WHERE BuildItems.buildId = Build.id
+      AND BuildItems.itemId IN (${Prisma.join(allIncludedArchetypeIds)})) = ${
+        allIncludedArchetypeIds.length
+      }
+      ${excludeArchetypeIdsQuery}`;
+  }
+
+  // If the total included archetypes is greater than or equal to the max allowed archetypes,
+  // we want to ensure that all builds returned have all slots filled with
+  // included archetypes.
   return Prisma.sql`AND (
     SELECT COUNT(*)
     FROM BuildItems
     WHERE BuildItems.buildId = Build.id
     AND BuildItems.itemId IN (${Prisma.join(allIncludedArchetypeIds)})
-    ${excludeArchetypeIdsQuery}
-  )`;
+  ) = ${MAX_ALLOWED_ARCHETYPES}`;
 }

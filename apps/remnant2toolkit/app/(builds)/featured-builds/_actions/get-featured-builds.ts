@@ -7,6 +7,7 @@ import { getBuildList } from '@/app/(builds)/_actions/get-build-list';
 import { limitByAmuletSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/amulets';
 import { limitByArchetypesSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/archetypes';
 import { getOrderBySegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/order-by';
+import { limitByRingsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/rings';
 import { limitByTimeConditionSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/time-condition';
 import { type BuildListRequest } from '@/app/(builds)/_types/build-list-request';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
@@ -29,6 +30,7 @@ export async function getFeaturedBuilds({
     AND Build.isFeaturedBuild = true
     ${limitByArchetypesSegment(archetypes)}
     ${limitByAmuletSegment(amulets)}
+    ${limitByRingsSegment(buildFilterFields.rings)}
     ${limitByTimeConditionSegment(timeRange)}
   `;
 

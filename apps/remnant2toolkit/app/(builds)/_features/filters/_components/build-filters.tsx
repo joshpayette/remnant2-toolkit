@@ -9,6 +9,7 @@ import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constant
 import { amuletFilter } from '@/app/(builds)/_features/filters/_libs/amulet-filter';
 import { archetypeFilter } from '@/app/(builds)/_features/filters/_libs/archetype-filter';
 import { parseUrlParams } from '@/app/(builds)/_features/filters/_libs/parse-url-params';
+import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
 import { type BuildFilterFields } from '@/app/(builds)/_features/filters/_types/build-filter-fields';
 
@@ -85,6 +86,23 @@ export function BuildFilters({
       }
     }
 
+    if (isEqual(newFilters.rings, defaultFilters.rings)) {
+      params.delete(ringFilter.buildFilterKey);
+    } else {
+      const paramValues = newFilters.rings
+        .filter((ring) => ring.state !== 'default')
+        .map((ring) => {
+          return ring.state === 'excluded'
+            ? `${EXCLUDE_ITEM_SYMBOL}${ring.value}`
+            : ring.value;
+        });
+      if (paramValues.length > 0) {
+        params.set(ringFilter.buildFilterKey, paramValues.join(','));
+      } else {
+        params.delete(ringFilter.buildFilterKey);
+      }
+    }
+
     if (newFilters.searchText === defaultFilters.searchText) {
       params.delete(searchTextFilter.buildFilterKey);
     } else {
@@ -151,7 +169,7 @@ export function BuildFilters({
             label={archetypeFilter.label}
             onBlur={() => applyUrlFilters(unappliedFilters)}
             onChange={(newValues) => {
-              const newFilters = {
+              const newFilters: BuildFilterFields = {
                 ...unappliedFilters,
                 archetypes: newValues,
               };
@@ -165,7 +183,7 @@ export function BuildFilters({
             label={amuletFilter.label}
             onBlur={() => applyUrlFilters(unappliedFilters)}
             onChange={(newValues) => {
-              const newFilters = {
+              const newFilters: BuildFilterFields = {
                 ...unappliedFilters,
                 amulets: newValues,
               };
@@ -176,10 +194,10 @@ export function BuildFilters({
         <BaseField id="rings-filter" className="col-span-full sm:col-span-1">
           <FilterListbox
             options={unappliedFilters.rings}
-            label="Rings"
+            label={ringFilter.label}
             onBlur={() => applyUrlFilters(unappliedFilters)}
             onChange={(newValues) => {
-              const newFilters = {
+              const newFilters: BuildFilterFields = {
                 ...unappliedFilters,
                 rings: newValues,
               };

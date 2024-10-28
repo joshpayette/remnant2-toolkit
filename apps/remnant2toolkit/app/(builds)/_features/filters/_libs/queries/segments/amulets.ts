@@ -40,6 +40,8 @@ export function limitByAmuletSegment(amuletFilters: FilterOption[]) {
           AND BuildItems.itemId IN (${Prisma.join(allExcludedAmuletIds)})
         )`;
 
+  // If there are no included amulets, we want to include all default amulets
+  // and exclude any excluded amulets
   if (allIncludedAmuletIds.length === 0) {
     return Prisma.sql`AND (
       SELECT COUNT(*)
@@ -50,6 +52,8 @@ export function limitByAmuletSegment(amuletFilters: FilterOption[]) {
     )`;
   }
 
+  // If there is one or more included amulets, we want to ensure that all builds
+  // returned have the included amulets. We also want to exclude any excluded
   return Prisma.sql`AND (
     SELECT COUNT(*)
     FROM BuildItems

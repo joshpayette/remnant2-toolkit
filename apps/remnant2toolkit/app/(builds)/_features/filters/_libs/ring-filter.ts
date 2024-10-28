@@ -9,6 +9,6 @@ export const ringFilter: FilterDefinition = {
     value: item.id,
     state: 'default',
   })),
-  label: 'Amulets',
+  label: 'Rings',
   validOptions: ringItems.map((item) => item.id),
 };
