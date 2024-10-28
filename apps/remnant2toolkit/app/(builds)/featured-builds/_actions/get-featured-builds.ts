@@ -10,6 +10,7 @@ import { limitByHandGunSegment } from '@/app/(builds)/_features/filters/_libs/qu
 import { limitByLongGunSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/long-guns';
 import { limitByMeleeSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/melees';
 import { getOrderBySegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/order-by';
+import { limitByReleaseSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/releases';
 import { limitByRelicSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/relic';
 import { limitByRingsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/rings';
 import { limitByTimeConditionSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/time-condition';
@@ -33,6 +34,7 @@ export async function getFeaturedBuilds({
     handGuns,
     longGuns,
     melees,
+    releases,
     relics,
     rings,
     searchText,
@@ -46,6 +48,7 @@ export async function getFeaturedBuilds({
     ${limitByHandGunSegment(handGuns)}
     ${limitByLongGunSegment(longGuns)}
     ${limitByMeleeSegment(melees)}
+    ${limitByReleaseSegment(releases)}
     ${limitByRelicSegment(relics)}
     ${limitByRingsSegment(rings)}
     ${limitByTimeConditionSegment(timeRange)}

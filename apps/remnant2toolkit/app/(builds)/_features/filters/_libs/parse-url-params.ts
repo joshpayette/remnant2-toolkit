@@ -2,6 +2,7 @@ import type { FilterOption } from '@repo/ui';
 import type { ReadonlyURLSearchParams } from 'next/navigation';
 
 import { EXCLUDE_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
+import { ALL_RELEASE_KEYS } from '@/app/_constants/releases';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import { amuletFilter } from '@/app/(builds)/_features/filters/_libs/amulet-filter';
 import { archetypeFilter } from '@/app/(builds)/_features/filters/_libs/archetype-filter';
@@ -9,6 +10,7 @@ import { handGunFilter } from '@/app/(builds)/_features/filters/_libs/hand-gun-f
 import { longGunFilter } from '@/app/(builds)/_features/filters/_libs/long-gun-filter';
 import { meleeFilter } from '@/app/(builds)/_features/filters/_libs/melee-filter';
 import { patchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/patch-affected-filter';
+import { releasesFilter } from '@/app/(builds)/_features/filters/_libs/releases-filter';
 import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
@@ -50,6 +52,10 @@ export function parseUrlParams({
     ?.split(',');
 
   const meleeParam = parsedParams.get(meleeFilter.buildFilterKey)?.split(',');
+
+  const releasesParam = parsedParams
+    .get(releasesFilter.buildFilterKey)
+    ?.split(',');
 
   const relicsParam = parsedParams.get(relicFilter.buildFilterKey)?.split(',');
 
@@ -238,6 +244,40 @@ export function parseUrlParams({
     }
   }
 
+  let releases: FilterOption[] = [...defaultFilters.releases];
+  if (releasesParam) {
+    for (const releaseId of releasesParam) {
+      const cleanReleaseId = releaseId.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const releaseItem = ALL_RELEASE_KEYS.find(
+        (item) => item === cleanReleaseId,
+      );
+      if (!releaseItem) continue;
+
+      // Check if the exclusion symbol is found
+      if (releaseId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+        releases = releases.map((release) => {
+          if (release.value === releaseItem) {
+            return {
+              ...release,
+              state: 'excluded',
+            };
+          }
+          return release;
+        });
+      } else {
+        releases = releases.map((release) => {
+          if (release.value === releaseItem) {
+            return {
+              ...release,
+              state: 'included',
+            };
+          }
+          return release;
+        });
+      }
+    }
+  }
+
   let relics: FilterOption[] = [...defaultFilters.relics];
   if (relicsParam) {
     for (const relicId of relicsParam) {
@@ -331,6 +371,7 @@ export function parseUrlParams({
     longGuns,
     melees,
     patchAffected,
+    releases,
     relics,
     rings,
     searchText,

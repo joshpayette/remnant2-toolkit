@@ -7,6 +7,7 @@ export interface BuildFilterFields {
   longGuns: FilterOption[];
   melees: FilterOption[];
   patchAffected: string;
+  releases: FilterOption[];
   relics: FilterOption[];
   rings: FilterOption[];
   searchText: string;

@@ -3,6 +3,7 @@ import { handGunFilter } from '@/app/(builds)/_features/filters/_libs/hand-gun-f
 import { longGunFilter } from '@/app/(builds)/_features/filters/_libs/long-gun-filter';
 import { meleeFilter } from '@/app/(builds)/_features/filters/_libs/melee-filter';
 import { patchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/patch-affected-filter';
+import { releasesFilter } from '@/app/(builds)/_features/filters/_libs/releases-filter';
 import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
@@ -21,6 +22,7 @@ export const DEFAULT_BUILD_FIELDS: BuildFilterFields = {
   melees: meleeFilter.defaultValue as BuildFilterFields['melees'],
   patchAffected:
     patchAffectedFilter.defaultValue as BuildFilterFields['patchAffected'],
+  releases: releasesFilter.defaultValue as BuildFilterFields['releases'],
   relics: relicFilter.defaultValue as BuildFilterFields['relics'],
   rings: ringFilter.defaultValue as BuildFilterFields['rings'],
   searchText: searchTextFilter.defaultValue as BuildFilterFields['searchText'],

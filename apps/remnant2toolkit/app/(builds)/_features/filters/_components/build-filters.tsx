@@ -148,6 +148,23 @@ export function BuildFilters({
       }
     }
 
+    if (isEqual(newFilters.releases, defaultFilters.releases)) {
+      params.delete('releases');
+    } else {
+      const paramValues = newFilters.releases
+        .filter((release) => release.state !== 'default')
+        .map((release) => {
+          return release.state === 'excluded'
+            ? `${EXCLUDE_ITEM_SYMBOL}${release.value}`
+            : release.value;
+        });
+      if (paramValues.length > 0) {
+        params.set('releases', paramValues.join(','));
+      } else {
+        params.delete('releases');
+      }
+    }
+
     if (isEqual(newFilters.relics, defaultFilters.relics)) {
       params.delete(relicFilter.buildFilterKey);
     } else {
@@ -242,7 +259,7 @@ export function BuildFilters({
         {({ open }) => (
           <div className="w-full">
             <div className="border-b-primary-500 mb-1 flex w-full flex-row items-end justify-end border-b py-2">
-              <div className="w-full pr-4 text-lg">Equipment</div>
+              <div className="w-full pr-4 text-lg">Equipment Filters</div>
               <Disclosure.Button as={BaseButton}>
                 <FilterIcon className="h-4 w-4" />
                 {open ? 'Hide' : 'Show'}
@@ -401,6 +418,47 @@ export function BuildFilters({
                       const newFilters: BuildFilterFields = {
                         ...unappliedFilters,
                         melees: newValues,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  />
+                </BaseField>
+              </div>
+            </Disclosure.Panel>
+          </div>
+        )}
+      </Disclosure>
+      <Disclosure defaultOpen>
+        {({ open }) => (
+          <div className="mt-4 w-full">
+            <div className="border-b-primary-500 mb-1 flex w-full flex-row items-end justify-end border-b py-2">
+              <div className="w-full pr-4 text-lg">Other Filters</div>
+              <Disclosure.Button as={BaseButton}>
+                <FilterIcon className="h-4 w-4" />
+                {open ? 'Hide' : 'Show'}
+              </Disclosure.Button>
+            </div>
+            <Disclosure.Panel>
+              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                <BaseField
+                  id="releases-filter"
+                  className="col-span-full sm:col-span-1"
+                >
+                  <FilterListbox
+                    options={unappliedFilters.releases}
+                    disabledStates={['excluded']}
+                    label="Releases"
+                    onBlur={() => {
+                      if (
+                        !isEqual(unappliedFilters.releases, filters.releases)
+                      ) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(newValues) => {
+                      const newFilters: BuildFilterFields = {
+                        ...unappliedFilters,
+                        releases: newValues,
                       };
                       setUnappliedFilters(newFilters);
                     }}

@@ -11,6 +11,7 @@ import type { FilterListboxState, FilterOption } from './types';
 
 interface FilterListboxProps {
   label: string;
+  disabledStates?: FilterListboxState[];
   options: FilterOption[];
   onBlur: () => void;
   onChange: (newOptions: FilterOption[]) => void;
@@ -18,6 +19,7 @@ interface FilterListboxProps {
 
 export function FilterListbox({
   label,
+  disabledStates,
   options,
   onBlur,
   onChange,
@@ -62,9 +64,10 @@ export function FilterListbox({
           MultiValueLabel,
           MultiValueRemove,
         }}
+        // @ts-expect-error Need to pass a custom prop to the option component
+        disabledStates={disabledStates}
         isMulti
         onBlur={onBlur}
-        // @ts-expect-error Need to pass a custom prop to the option component
         onOptionChange={handleOptionChange}
         onResetOptions={handleResetOptions}
         options={options}

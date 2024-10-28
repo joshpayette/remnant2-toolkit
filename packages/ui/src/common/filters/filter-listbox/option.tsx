@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { components, type OptionProps } from 'react-select';
 import { cn } from '../../../utils/classnames';
 import { FilterSwitch } from './filter-switch';
@@ -14,6 +13,8 @@ export function Option(props: OptionProps<FilterOption, true>) {
     >
       <div className="ui-flex ui-items-center ui-justify-center">
         <FilterSwitch
+          // @ts-expect-error Need to pass a custom prop to the option component
+          disabledStates={props.selectProps.disabledStates}
           onChange={(newState) => {
             // @ts-expect-error Need to pass a custom prop to the option component
             props.selectProps.onOptionChange(newState, props.data.value);
