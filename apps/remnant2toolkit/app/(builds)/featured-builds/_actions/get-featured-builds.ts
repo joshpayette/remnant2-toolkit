@@ -14,6 +14,7 @@ import { limitByReleaseSegment } from '@/app/(builds)/_features/filters/_libs/qu
 import { limitByRelicSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/relic';
 import { limitByRingsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/rings';
 import { limitByTimeConditionSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/time-condition';
+import { limitByWithVideoSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-video';
 import { type BuildListRequest } from '@/app/(builds)/_types/build-list-request';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
@@ -38,6 +39,7 @@ export async function getFeaturedBuilds({
     relics,
     rings,
     searchText,
+    withVideo,
   } = buildFilterFields;
 
   const whereConditions = Prisma.sql`
@@ -52,6 +54,7 @@ export async function getFeaturedBuilds({
     ${limitByRelicSegment(relics)}
     ${limitByRingsSegment(rings)}
     ${limitByTimeConditionSegment(timeRange)}
+    ${limitByWithVideoSegment(withVideo)}
   `;
 
   const orderBySegment = getOrderBySegment(orderBy, true);

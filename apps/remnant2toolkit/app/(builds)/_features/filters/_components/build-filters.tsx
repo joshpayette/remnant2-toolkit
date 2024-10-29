@@ -2,6 +2,10 @@ import { Disclosure } from '@headlessui/react';
 import {
   BaseButton,
   BaseField,
+  BaseLabel,
+  BaseListbox,
+  BaseListboxLabel,
+  BaseListboxOption,
   FilterIcon,
   FilterListbox,
   FiltersContainer,
@@ -22,6 +26,7 @@ import { parseUrlParams } from '@/app/(builds)/_features/filters/_libs/parse-url
 import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
+import { withVideoFilter } from '@/app/(builds)/_features/filters/_libs/with-video-filter';
 import { type BuildFilterFields } from '@/app/(builds)/_features/filters/_types/build-filter-fields';
 
 export function BuildFilters({
@@ -203,6 +208,12 @@ export function BuildFilters({
       params.delete(searchTextFilter.buildFilterKey);
     } else {
       params.set(searchTextFilter.buildFilterKey, newFilters.searchText);
+    }
+
+    if (newFilters.withVideo === defaultFilters.withVideo) {
+      params.delete(withVideoFilter.buildFilterKey);
+    } else {
+      params.set(withVideoFilter.buildFilterKey, newFilters.withVideo);
     }
 
     // Add unique timestamp to prevent caching when linking
@@ -463,6 +474,33 @@ export function BuildFilters({
                       setUnappliedFilters(newFilters);
                     }}
                   />
+                </BaseField>
+                <BaseField className="col-span-full sm:col-span-1">
+                  <BaseLabel className="text-surface-solid h-[40px] text-sm font-medium">
+                    {withVideoFilter.label}
+                  </BaseLabel>
+                  <BaseListbox
+                    className="mt-1"
+                    value={unappliedFilters.withVideo}
+                    onBlur={() => {
+                      if (unappliedFilters.withVideo !== filters.withVideo) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(value) => {
+                      const newFilters = {
+                        ...unappliedFilters,
+                        withVideo: value,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  >
+                    {withVideoFilter.validOptions?.map((value) => (
+                      <BaseListboxOption key={value} value={value}>
+                        <BaseListboxLabel>{value}</BaseListboxLabel>
+                      </BaseListboxOption>
+                    ))}
+                  </BaseListbox>
                 </BaseField>
               </div>
             </Disclosure.Panel>
