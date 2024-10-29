@@ -4,4 +4,5 @@ export const searchTextFilter: FilterDefinition = {
   buildFilterKey: 'searchText',
   defaultValue: '',
   label: 'Search Text',
+  options: undefined,
 };

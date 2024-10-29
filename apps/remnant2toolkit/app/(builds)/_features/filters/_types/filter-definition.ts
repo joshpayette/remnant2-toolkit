@@ -1,8 +1,37 @@
 import { type FilterOption } from '@repo/ui';
 
-export interface FilterDefinition {
+export type FilterDefinition = {
   buildFilterKey: string;
-  defaultValue: FilterOption[] | string;
   label: string;
-  validOptions?: string[] | number[];
-}
+} & (
+  | {
+      defaultValue: FilterOption[];
+      options: Array<{
+        label: string;
+        value: string;
+      }>;
+    }
+  | {
+      defaultValue: boolean;
+      options: Array<{
+        label: string;
+        value: boolean;
+      }>;
+    }
+  | {
+      defaultValue: number;
+      options: Array<{
+        label: string;
+        value: number;
+      }>;
+    }
+  | {
+      defaultValue: string;
+      options:
+        | undefined
+        | Array<{
+            label: string;
+            value: string;
+          }>;
+    }
+);

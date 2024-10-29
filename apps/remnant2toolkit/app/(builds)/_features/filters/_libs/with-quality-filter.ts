@@ -2,7 +2,16 @@ import { type FilterDefinition } from '../_types/filter-definition';
 
 export const withQualityFilter: FilterDefinition = {
   buildFilterKey: 'withQuality',
-  defaultValue: 'true',
+  defaultValue: true,
   label: 'Only Quality Builds?',
-  validOptions: ['true', 'false'],
+  options: [
+    {
+      label: 'Yes',
+      value: true,
+    },
+    {
+      label: 'No',
+      value: false,
+    },
+  ],
 };

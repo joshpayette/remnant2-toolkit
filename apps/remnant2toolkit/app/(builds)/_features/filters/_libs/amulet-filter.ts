@@ -10,5 +10,8 @@ export const amuletFilter: FilterDefinition = {
     state: 'default',
   })),
   label: 'Amulets',
-  validOptions: amuletItems.map((item) => item.id),
+  options: amuletItems.map((item) => ({
+    label: item.name,
+    value: item.id,
+  })),
 };

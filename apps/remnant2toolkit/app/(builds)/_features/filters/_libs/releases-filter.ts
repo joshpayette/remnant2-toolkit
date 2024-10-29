@@ -10,5 +10,8 @@ export const releasesFilter: FilterDefinition = {
     state: 'default',
   })),
   label: 'Releases',
-  validOptions: ALL_RELEASE_KEYS,
+  options: ALL_RELEASE_KEYS.map((release) => ({
+    label: RELEASE_TO_NAME[release],
+    value: release,
+  })),
 };

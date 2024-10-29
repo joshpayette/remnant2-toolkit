@@ -2,14 +2,32 @@ import { type FilterDefinition } from '../_types/filter-definition';
 
 export const withCollectionFilter: FilterDefinition = {
   buildFilterKey: 'withCollection',
-  defaultValue: 'All',
+  defaultValue: 0,
   label: '% Owned',
-  validOptions: [
-    'All',
-    '100% Owned',
-    '>= 95% Owned',
-    '>= 90% Owned',
-    '>= 75% Owned',
-    '>= 50% Owned',
+  options: [
+    {
+      label: 'All',
+      value: 0,
+    },
+    {
+      label: '100% Owned',
+      value: 100,
+    },
+    {
+      label: '>= 95% Owned',
+      value: 95,
+    },
+    {
+      label: '>= 90% Owned',
+      value: 90,
+    },
+    {
+      label: '>= 75% Owned',
+      value: 75,
+    },
+    {
+      label: '>= 50% Owned',
+      value: 50,
+    },
   ],
 };

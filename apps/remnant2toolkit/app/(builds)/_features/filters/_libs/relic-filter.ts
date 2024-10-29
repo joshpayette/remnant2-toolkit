@@ -10,5 +10,8 @@ export const relicFilter: FilterDefinition = {
     state: 'default',
   })),
   label: 'Relic',
-  validOptions: relicItems.map((item) => item.id),
+  options: relicItems.map((item) => ({
+    label: item.name,
+    value: item.id,
+  })),
 };

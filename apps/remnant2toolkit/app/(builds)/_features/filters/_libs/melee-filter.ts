@@ -12,5 +12,8 @@ export const meleeFilter: FilterDefinition = {
     state: 'default',
   })),
   label: 'Melee',
-  validOptions: meleeItems.map((item) => item.id),
+  options: meleeItems.map((item) => ({
+    label: item.name,
+    value: item.id,
+  })),
 };

@@ -12,5 +12,8 @@ export const handGunFilter: FilterDefinition = {
     state: 'default',
   })),
   label: 'Hand Gun',
-  validOptions: handGunItems.map((item) => item.id),
+  options: handGunItems.map((item) => ({
+    label: item.name,
+    value: item.id,
+  })),
 };

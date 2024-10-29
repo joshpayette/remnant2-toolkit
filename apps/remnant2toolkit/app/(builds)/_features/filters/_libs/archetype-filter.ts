@@ -10,5 +10,8 @@ export const archetypeFilter: FilterDefinition = {
     state: 'default',
   })),
   label: 'Archetypes',
-  validOptions: archetypeItems.map((item) => item.id),
+  options: archetypeItems.map((item) => ({
+    label: item.name,
+    value: item.id,
+  })),
 };

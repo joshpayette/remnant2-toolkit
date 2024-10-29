@@ -12,5 +12,8 @@ export const longGunFilter: FilterDefinition = {
     state: 'default',
   })),
   label: 'Long Gun',
-  validOptions: longGunItems.map((item) => item.id),
+  options: longGunItems.map((item) => ({
+    label: item.name,
+    value: item.id,
+  })),
 };
