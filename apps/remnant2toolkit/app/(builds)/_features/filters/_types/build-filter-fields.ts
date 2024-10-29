@@ -10,6 +10,7 @@ export interface BuildFilterFields {
   relics: FilterOption[];
   rings: FilterOption[];
   searchText: string;
+  withCollection: string;
   withPatchAffected: string;
   withQuality: string;
   withVideo: string;

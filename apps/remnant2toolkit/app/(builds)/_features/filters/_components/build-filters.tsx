@@ -27,6 +27,7 @@ import { patchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/patc
 import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
+import { withCollectionFilter } from '@/app/(builds)/_features/filters/_libs/with-collection';
 import { withReferenceFilter } from '@/app/(builds)/_features/filters/_libs/with-reference-filter';
 import { withVideoFilter } from '@/app/(builds)/_features/filters/_libs/with-video-filter';
 import { type BuildFilterFields } from '@/app/(builds)/_features/filters/_types/build-filter-fields';
@@ -210,6 +211,15 @@ export function BuildFilters({
       params.delete(searchTextFilter.buildFilterKey);
     } else {
       params.set(searchTextFilter.buildFilterKey, newFilters.searchText);
+    }
+
+    if (newFilters.withCollection === defaultFilters.withCollection) {
+      params.delete(withCollectionFilter.buildFilterKey);
+    } else {
+      params.set(
+        withCollectionFilter.buildFilterKey,
+        newFilters.withCollection,
+      );
     }
 
     if (newFilters.withVideo === defaultFilters.withVideo) {
@@ -458,9 +468,9 @@ export function BuildFilters({
       </Disclosure>
       <Disclosure defaultOpen>
         {({ open }) => (
-          <div className="mt-4 w-full">
+          <div className="w-full">
             <div className="border-b-primary-500 mb-1 flex w-full flex-row items-end justify-end border-b py-2">
-              <div className="w-full pr-4 text-lg">Other Filters</div>
+              <div className="w-full pr-4 text-lg">Build Filters</div>
               <Disclosure.Button as={BaseButton}>
                 <FilterIcon className="h-4 w-4" />
                 {open ? 'Hide' : 'Show'}
@@ -492,6 +502,57 @@ export function BuildFilters({
                     }}
                   />
                 </BaseField>
+                <BaseField
+                  id="with-collection-filter"
+                  className="col-span-full sm:col-span-1"
+                >
+                  <BaseLabel className="text-surface-solid h-[40px] text-sm font-medium">
+                    {withCollectionFilter.label}
+                  </BaseLabel>
+                  <BaseListbox
+                    className="mt-1"
+                    value={unappliedFilters.withCollection}
+                    onBlur={() => {
+                      if (
+                        unappliedFilters.withCollection !==
+                        filters.withCollection
+                      ) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(value) => {
+                      const newFilters = {
+                        ...unappliedFilters,
+                        withCollection: value,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  >
+                    {withCollectionFilter.validOptions?.map((value) => (
+                      <BaseListboxOption key={value} value={value}>
+                        <BaseListboxLabel>{value}</BaseListboxLabel>
+                      </BaseListboxOption>
+                    ))}
+                  </BaseListbox>
+                </BaseField>
+              </div>
+            </Disclosure.Panel>
+          </div>
+        )}
+      </Disclosure>
+
+      <Disclosure defaultOpen>
+        {({ open }) => (
+          <div className="mt-4 w-full">
+            <div className="border-b-primary-500 mb-1 flex w-full flex-row items-end justify-end border-b py-2">
+              <div className="w-full pr-4 text-lg">Misc Filters</div>
+              <Disclosure.Button as={BaseButton}>
+                <FilterIcon className="h-4 w-4" />
+                {open ? 'Hide' : 'Show'}
+              </Disclosure.Button>
+            </div>
+            <Disclosure.Panel>
+              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                 <BaseField className="col-span-full sm:col-span-1">
                   <BaseLabel className="text-surface-solid h-[40px] text-sm font-medium">
                     {withVideoFilter.label}

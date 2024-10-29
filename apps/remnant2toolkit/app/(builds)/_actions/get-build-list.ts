@@ -11,23 +11,48 @@ export async function getBuildList({
   itemsPerPage,
   orderBy,
   pageNumber,
-  percentageOwned,
   searchText,
   userId,
   whereConditions,
+  withCollection,
 }: {
   includeBuildVariants: boolean;
   itemsPerPage: number;
   orderBy: Prisma.Sql;
   pageNumber: number;
-  percentageOwned: PercentageOwned;
   searchText: string;
   userId: string | undefined;
   whereConditions: Prisma.Sql;
+  withCollection: string;
 }): Promise<{
   builds: DBBuild[];
 }> {
   const trimmedSearchText = searchText.trim();
+
+  let percentageOwned: PercentageOwned = 0;
+  switch (withCollection) {
+    case 'All':
+      percentageOwned = 0;
+      break;
+    case '100% Owned':
+      percentageOwned = 100;
+      break;
+    case '>= 95% Owned':
+      percentageOwned = 95;
+      break;
+    case '>= 90% Owned':
+      percentageOwned = 90;
+      break;
+    case '>= 75% Owned':
+      percentageOwned = 75;
+      break;
+    case '>= 50% Owned':
+      percentageOwned = 50;
+      break;
+    default:
+      percentageOwned = 0;
+      break;
+  }
 
   const builds = await mainBuildQuery({
     includeBuildVariants,

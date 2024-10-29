@@ -4,5 +4,5 @@ export interface FilterDefinition {
   buildFilterKey: string;
   defaultValue: FilterOption[] | string;
   label: string;
-  validOptions?: string[];
+  validOptions?: string[] | number[];
 }

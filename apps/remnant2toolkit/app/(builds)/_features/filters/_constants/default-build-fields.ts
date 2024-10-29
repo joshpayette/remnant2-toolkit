@@ -7,6 +7,7 @@ import { releasesFilter } from '@/app/(builds)/_features/filters/_libs/releases-
 import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
+import { withCollectionFilter } from '@/app/(builds)/_features/filters/_libs/with-collection';
 import { withQualityFilter } from '@/app/(builds)/_features/filters/_libs/with-quality-filter';
 import { withReferenceFilter } from '@/app/(builds)/_features/filters/_libs/with-reference-filter';
 import { withVideoFilter } from '@/app/(builds)/_features/filters/_libs/with-video-filter';
@@ -24,6 +25,8 @@ export const DEFAULT_BUILD_FIELDS: BuildFilterFields = {
   relics: relicFilter.defaultValue as BuildFilterFields['relics'],
   rings: ringFilter.defaultValue as BuildFilterFields['rings'],
   searchText: searchTextFilter.defaultValue as BuildFilterFields['searchText'],
+  withCollection:
+    withCollectionFilter.defaultValue as BuildFilterFields['withCollection'],
   withPatchAffected:
     patchAffectedFilter.defaultValue as BuildFilterFields['withPatchAffected'],
   withQuality:

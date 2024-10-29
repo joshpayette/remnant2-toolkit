@@ -44,6 +44,7 @@ export async function getFeaturedBuilds({
     withReference,
     withVideo,
     withPatchAffected,
+    withCollection,
   } = buildFilterFields;
 
   const whereConditions = Prisma.sql`
@@ -71,10 +72,10 @@ export async function getFeaturedBuilds({
       itemsPerPage,
       orderBy: orderBySegment,
       pageNumber,
-      percentageOwned: 0, // TODO: with collection % amount
       searchText,
       userId,
       whereConditions,
+      withCollection,
     });
 
     return bigIntFix({

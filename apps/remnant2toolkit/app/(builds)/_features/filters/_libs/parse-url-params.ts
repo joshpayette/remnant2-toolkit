@@ -14,6 +14,7 @@ import { releasesFilter } from '@/app/(builds)/_features/filters/_libs/releases-
 import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
+import { withCollectionFilter } from '@/app/(builds)/_features/filters/_libs/with-collection';
 import { withQualityFilter } from '@/app/(builds)/_features/filters/_libs/with-quality-filter';
 import { withReferenceFilter } from '@/app/(builds)/_features/filters/_libs/with-reference-filter';
 import { withVideoFilter } from '@/app/(builds)/_features/filters/_libs/with-video-filter';
@@ -69,6 +70,9 @@ export function parseUrlParams({
     parsedParams.get(searchTextFilter.buildFilterKey) ||
     defaultFilters.searchText;
 
+  const withCollectionParam = parsedParams.get(
+    withCollectionFilter.buildFilterKey,
+  );
   const withQualityParam = parsedParams.get(withQualityFilter.buildFilterKey);
   const withVideoParam = parsedParams.get(withVideoFilter.buildFilterKey);
   const withReferenceParam = parsedParams.get(
@@ -342,6 +346,11 @@ export function parseUrlParams({
     }
   }
 
+  let withCollection = defaultFilters.withCollection;
+  if (withCollectionParam) {
+    withCollection = withCollectionParam;
+  }
+
   let withPatchAffected = defaultFilters.withPatchAffected;
   if (patchAffectedParam) {
     withPatchAffected = patchAffectedParam === 'true' ? 'true' : 'false';
@@ -374,9 +383,10 @@ export function parseUrlParams({
     relics,
     rings,
     searchText,
+    withCollection,
     withPatchAffected,
     withQuality,
-    withVideo,
     withReference,
+    withVideo,
   };
 }
