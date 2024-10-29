@@ -23,9 +23,11 @@ import { handGunFilter } from '@/app/(builds)/_features/filters/_libs/hand-gun-f
 import { longGunFilter } from '@/app/(builds)/_features/filters/_libs/long-gun-filter';
 import { meleeFilter } from '@/app/(builds)/_features/filters/_libs/melee-filter';
 import { parseUrlParams } from '@/app/(builds)/_features/filters/_libs/parse-url-params';
+import { patchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/patch-affected-filter';
 import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
+import { withReferenceFilter } from '@/app/(builds)/_features/filters/_libs/with-reference-filter';
 import { withVideoFilter } from '@/app/(builds)/_features/filters/_libs/with-video-filter';
 import { type BuildFilterFields } from '@/app/(builds)/_features/filters/_types/build-filter-fields';
 
@@ -214,6 +216,21 @@ export function BuildFilters({
       params.delete(withVideoFilter.buildFilterKey);
     } else {
       params.set(withVideoFilter.buildFilterKey, newFilters.withVideo);
+    }
+
+    if (newFilters.withReference === defaultFilters.withReference) {
+      params.delete(withReferenceFilter.buildFilterKey);
+    } else {
+      params.set(withReferenceFilter.buildFilterKey, newFilters.withReference);
+    }
+
+    if (newFilters.withPatchAffected === defaultFilters.withPatchAffected) {
+      params.delete(patchAffectedFilter.buildFilterKey);
+    } else {
+      params.set(
+        patchAffectedFilter.buildFilterKey,
+        newFilters.withPatchAffected,
+      );
     }
 
     // Add unique timestamp to prevent caching when linking
@@ -496,6 +513,65 @@ export function BuildFilters({
                     }}
                   >
                     {withVideoFilter.validOptions?.map((value) => (
+                      <BaseListboxOption key={value} value={value}>
+                        <BaseListboxLabel>{value}</BaseListboxLabel>
+                      </BaseListboxOption>
+                    ))}
+                  </BaseListbox>
+                </BaseField>
+                <BaseField className="col-span-full sm:col-span-1">
+                  <BaseLabel className="text-surface-solid h-[40px] text-sm font-medium">
+                    {withReferenceFilter.label}
+                  </BaseLabel>
+                  <BaseListbox
+                    className="mt-1"
+                    value={unappliedFilters.withReference}
+                    onBlur={() => {
+                      if (
+                        unappliedFilters.withReference !== filters.withReference
+                      ) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(value) => {
+                      const newFilters = {
+                        ...unappliedFilters,
+                        withReference: value,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  >
+                    {withReferenceFilter.validOptions?.map((value) => (
+                      <BaseListboxOption key={value} value={value}>
+                        <BaseListboxLabel>{value}</BaseListboxLabel>
+                      </BaseListboxOption>
+                    ))}
+                  </BaseListbox>
+                </BaseField>
+                <BaseField className="col-span-full sm:col-span-1">
+                  <BaseLabel className="text-surface-solid h-[40px] text-sm font-medium">
+                    {patchAffectedFilter.label}
+                  </BaseLabel>
+                  <BaseListbox
+                    className="mt-1"
+                    value={unappliedFilters.withPatchAffected}
+                    onBlur={() => {
+                      if (
+                        unappliedFilters.withPatchAffected !==
+                        filters.withPatchAffected
+                      ) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(value) => {
+                      const newFilters = {
+                        ...unappliedFilters,
+                        withPatchAffected: value,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  >
+                    {patchAffectedFilter.validOptions?.map((value) => (
                       <BaseListboxOption key={value} value={value}>
                         <BaseListboxLabel>{value}</BaseListboxLabel>
                       </BaseListboxOption>

@@ -14,6 +14,8 @@ import { limitByReleaseSegment } from '@/app/(builds)/_features/filters/_libs/qu
 import { limitByRelicSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/relic';
 import { limitByRingsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/rings';
 import { limitByTimeConditionSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/time-condition';
+import { limitByPatchAffectedSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-patch-affected';
+import { limitByReferenceSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-reference';
 import { limitByWithVideoSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-video';
 import { type BuildListRequest } from '@/app/(builds)/_types/build-list-request';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
@@ -39,7 +41,9 @@ export async function getFeaturedBuilds({
     relics,
     rings,
     searchText,
+    withReference,
     withVideo,
+    withPatchAffected,
   } = buildFilterFields;
 
   const whereConditions = Prisma.sql`
@@ -50,6 +54,8 @@ export async function getFeaturedBuilds({
     ${limitByHandGunSegment(handGuns)}
     ${limitByLongGunSegment(longGuns)}
     ${limitByMeleeSegment(melees)}
+    ${limitByPatchAffectedSegment(withPatchAffected)}
+    ${limitByReferenceSegment(withReference)}
     ${limitByReleaseSegment(releases)}
     ${limitByRelicSegment(relics)}
     ${limitByRingsSegment(rings)}

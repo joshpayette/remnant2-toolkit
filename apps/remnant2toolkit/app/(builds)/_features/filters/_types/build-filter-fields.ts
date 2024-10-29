@@ -6,11 +6,11 @@ export interface BuildFilterFields {
   handGuns: FilterOption[];
   longGuns: FilterOption[];
   melees: FilterOption[];
-  patchAffected: string;
   releases: FilterOption[];
   relics: FilterOption[];
   rings: FilterOption[];
   searchText: string;
+  withPatchAffected: string;
   withQuality: string;
   withVideo: string;
   withReference: string;

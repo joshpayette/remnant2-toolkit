@@ -342,9 +342,9 @@ export function parseUrlParams({
     }
   }
 
-  let patchAffected = defaultFilters.patchAffected;
+  let withPatchAffected = defaultFilters.withPatchAffected;
   if (patchAffectedParam) {
-    patchAffected = patchAffectedParam === 'true' ? 'true' : 'false';
+    withPatchAffected = patchAffectedParam === 'true' ? 'true' : 'false';
   }
 
   let withQuality = defaultFilters.withQuality;
@@ -370,11 +370,11 @@ export function parseUrlParams({
     handGuns,
     longGuns,
     melees,
-    patchAffected,
     releases,
     relics,
     rings,
     searchText,
+    withPatchAffected,
     withQuality,
     withVideo,
     withReference,

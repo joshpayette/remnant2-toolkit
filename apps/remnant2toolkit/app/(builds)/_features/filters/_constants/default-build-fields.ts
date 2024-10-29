@@ -20,12 +20,12 @@ export const DEFAULT_BUILD_FIELDS: BuildFilterFields = {
   handGuns: handGunFilter.defaultValue as BuildFilterFields['handGuns'],
   longGuns: longGunFilter.defaultValue as BuildFilterFields['longGuns'],
   melees: meleeFilter.defaultValue as BuildFilterFields['melees'],
-  patchAffected:
-    patchAffectedFilter.defaultValue as BuildFilterFields['patchAffected'],
   releases: releasesFilter.defaultValue as BuildFilterFields['releases'],
   relics: relicFilter.defaultValue as BuildFilterFields['relics'],
   rings: ringFilter.defaultValue as BuildFilterFields['rings'],
   searchText: searchTextFilter.defaultValue as BuildFilterFields['searchText'],
+  withPatchAffected:
+    patchAffectedFilter.defaultValue as BuildFilterFields['withPatchAffected'],
   withQuality:
     withQualityFilter.defaultValue as BuildFilterFields['withQuality'],
   withVideo: withVideoFilter.defaultValue as BuildFilterFields['withVideo'],
