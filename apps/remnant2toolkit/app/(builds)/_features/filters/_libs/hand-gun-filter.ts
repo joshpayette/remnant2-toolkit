@@ -4,7 +4,7 @@ import { type FilterDefinition } from '../_types/filter-definition';
 
 const handGunItems = weaponItems.filter((item) => item.type === 'hand gun');
 
-export const handGunFilter: FilterDefinition = {
+export const handGunFilter = {
   buildFilterKey: 'handGuns',
   defaultValue: handGunItems.map((item) => ({
     label: item.name,
@@ -16,4 +16,4 @@ export const handGunFilter: FilterDefinition = {
     label: item.name,
     value: item.id,
   })),
-};
+} as const satisfies FilterDefinition;

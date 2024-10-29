@@ -2,7 +2,7 @@ import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
 
 import { type FilterDefinition } from '../_types/filter-definition';
 
-export const archetypeFilter: FilterDefinition = {
+export const archetypeFilter = {
   buildFilterKey: 'archetypes',
   defaultValue: archetypeItems.map((item) => ({
     label: item.name,
@@ -14,4 +14,4 @@ export const archetypeFilter: FilterDefinition = {
     label: item.name,
     value: item.id,
   })),
-};
+} as const satisfies FilterDefinition;

@@ -1,6 +1,6 @@
 import { type FilterDefinition } from '../_types/filter-definition';
 
-export const withReferenceFilter: FilterDefinition = {
+export const withReferenceFilter = {
   buildFilterKey: 'withReference',
   defaultValue: false,
   label: 'Only Builds w/ Reference Link?',
@@ -14,4 +14,4 @@ export const withReferenceFilter: FilterDefinition = {
       value: false,
     },
   ],
-};
+} as const satisfies FilterDefinition;

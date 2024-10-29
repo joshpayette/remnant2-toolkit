@@ -1,6 +1,6 @@
 import { type FilterDefinition } from '../_types/filter-definition';
 
-export const withCollectionFilter: FilterDefinition = {
+export const withCollectionFilter = {
   buildFilterKey: 'withCollection',
   defaultValue: 0,
   label: '% Owned',
@@ -30,4 +30,4 @@ export const withCollectionFilter: FilterDefinition = {
       value: 50,
     },
   ],
-};
+} as const satisfies FilterDefinition;

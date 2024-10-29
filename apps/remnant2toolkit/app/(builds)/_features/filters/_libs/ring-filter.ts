@@ -2,7 +2,7 @@ import { ringItems } from '@/app/(items)/_constants/ring-items';
 
 import { type FilterDefinition } from '../_types/filter-definition';
 
-export const ringFilter: FilterDefinition = {
+export const ringFilter = {
   buildFilterKey: 'rings',
   defaultValue: ringItems.map((item) => ({
     label: item.name,
@@ -14,4 +14,4 @@ export const ringFilter: FilterDefinition = {
     label: item.name,
     value: item.id,
   })),
-};
+} as const satisfies FilterDefinition;

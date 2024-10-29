@@ -4,7 +4,7 @@ import { type FilterDefinition } from '../_types/filter-definition';
 
 const meleeItems = weaponItems.filter((item) => item.type === 'melee');
 
-export const meleeFilter: FilterDefinition = {
+export const meleeFilter = {
   buildFilterKey: 'melees',
   defaultValue: meleeItems.map((item) => ({
     label: item.name,
@@ -16,4 +16,4 @@ export const meleeFilter: FilterDefinition = {
     label: item.name,
     value: item.id,
   })),
-};
+} as const satisfies FilterDefinition;

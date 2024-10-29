@@ -4,7 +4,7 @@ import { type FilterDefinition } from '../_types/filter-definition';
 
 const longGunItems = weaponItems.filter((item) => item.type === 'long gun');
 
-export const longGunFilter: FilterDefinition = {
+export const longGunFilter = {
   buildFilterKey: 'amulets',
   defaultValue: longGunItems.map((item) => ({
     label: item.name,
@@ -16,4 +16,4 @@ export const longGunFilter: FilterDefinition = {
     label: item.name,
     value: item.id,
   })),
-};
+} as const satisfies FilterDefinition;

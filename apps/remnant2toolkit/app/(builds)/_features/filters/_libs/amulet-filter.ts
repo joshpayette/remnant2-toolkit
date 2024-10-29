@@ -2,7 +2,7 @@ import { amuletItems } from '@/app/(items)/_constants/amulet-items';
 
 import { type FilterDefinition } from '../_types/filter-definition';
 
-export const amuletFilter: FilterDefinition = {
+export const amuletFilter = {
   buildFilterKey: 'amulets',
   defaultValue: amuletItems.map((item) => ({
     label: item.name,
@@ -14,4 +14,4 @@ export const amuletFilter: FilterDefinition = {
     label: item.name,
     value: item.id,
   })),
-};
+} as const satisfies FilterDefinition;

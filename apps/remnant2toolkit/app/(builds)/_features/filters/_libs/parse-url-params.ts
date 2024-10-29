@@ -9,7 +9,7 @@ import { archetypeFilter } from '@/app/(builds)/_features/filters/_libs/archetyp
 import { handGunFilter } from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
 import { longGunFilter } from '@/app/(builds)/_features/filters/_libs/long-gun-filter';
 import { meleeFilter } from '@/app/(builds)/_features/filters/_libs/melee-filter';
-import { patchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/patch-affected-filter';
+import { patchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/with-patch-affected-filter';
 import { releasesFilter } from '@/app/(builds)/_features/filters/_libs/releases-filter';
 import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';

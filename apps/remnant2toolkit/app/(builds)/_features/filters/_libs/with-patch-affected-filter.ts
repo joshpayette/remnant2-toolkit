@@ -1,6 +1,6 @@
 import { type FilterDefinition } from '../_types/filter-definition';
 
-export const patchAffectedFilter: FilterDefinition = {
+export const withPatchAffectedFilter = {
   buildFilterKey: 'withPatchAffected',
   defaultValue: false,
   label: 'Include Patch Affected Builds?',
@@ -8,4 +8,4 @@ export const patchAffectedFilter: FilterDefinition = {
     { label: 'Yes', value: true },
     { label: 'No', value: false },
   ],
-};
+} as const satisfies FilterDefinition;

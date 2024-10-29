@@ -1,6 +1,6 @@
 import { type FilterDefinition } from '../_types/filter-definition';
 
-export const withVideoFilter: FilterDefinition = {
+export const withVideoFilter = {
   buildFilterKey: 'withVideo',
   defaultValue: false,
   label: 'Only Builds w/ Video?',
@@ -14,4 +14,4 @@ export const withVideoFilter: FilterDefinition = {
       value: false,
     },
   ],
-};
+} as const satisfies FilterDefinition;
