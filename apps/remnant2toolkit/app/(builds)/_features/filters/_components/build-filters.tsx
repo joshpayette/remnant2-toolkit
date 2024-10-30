@@ -9,6 +9,7 @@ import {
   FilterIcon,
   FilterListbox,
   FiltersContainer,
+  InfoCircleIcon,
 } from '@repo/ui';
 import isEqual from 'lodash.isequal';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
@@ -16,6 +17,7 @@ import { useMemo, useState } from 'react';
 
 import { InputWithClear } from '@/app/_components/input-with-clear';
 import { EXCLUDE_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
+import { QualityBuildDialog } from '@/app/(builds)/_components/quality-build-dialog';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import { amuletFilter } from '@/app/(builds)/_features/filters/_libs/amulet-filter';
 import { archetypeFilter } from '@/app/(builds)/_features/filters/_libs/archetype-filter';
@@ -36,6 +38,7 @@ import { skillFilter } from '@/app/(builds)/_features/filters/_libs/skill-filter
 import { traitFilter } from '@/app/(builds)/_features/filters/_libs/trait-filter';
 import { withCollectionFilter } from '@/app/(builds)/_features/filters/_libs/with-collection';
 import { withPatchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/with-patch-affected-filter';
+import { withQualityFilter } from '@/app/(builds)/_features/filters/_libs/with-quality-filter';
 import { withReferenceFilter } from '@/app/(builds)/_features/filters/_libs/with-reference-filter';
 import { withVideoFilter } from '@/app/(builds)/_features/filters/_libs/with-video-filter';
 import { type BuildFilterFields } from '@/app/(builds)/_features/filters/_types/build-filter-fields';
@@ -60,6 +63,9 @@ export function BuildFilters({
 
   const [unappliedFilters, setUnappliedFilters] =
     useState<BuildFilterFields>(DEFAULT_BUILD_FIELDS);
+
+  const [isQualityDescriptionOpen, setIsQualityDescriptionOpen] =
+    useState(false);
 
   const filters = useMemo(() => {
     const newFilters = parseUrlParams({ searchParams, defaultFilters });
@@ -372,12 +378,21 @@ export function BuildFilters({
       );
     }
 
-    if (newFilters.withVideo === defaultFilters.withVideo) {
-      params.delete(withVideoFilter.buildFilterKey);
+    if (newFilters.withPatchAffected === defaultFilters.withPatchAffected) {
+      params.delete(withPatchAffectedFilter.buildFilterKey);
     } else {
       params.set(
-        withVideoFilter.buildFilterKey,
-        newFilters.withVideo.toString(),
+        withPatchAffectedFilter.buildFilterKey,
+        newFilters.withPatchAffected.toString(),
+      );
+    }
+
+    if (newFilters.withQuality === defaultFilters.withQuality) {
+      params.delete(withQualityFilter.buildFilterKey);
+    } else {
+      params.set(
+        withQualityFilter.buildFilterKey,
+        newFilters.withQuality.toString(),
       );
     }
 
@@ -390,12 +405,12 @@ export function BuildFilters({
       );
     }
 
-    if (newFilters.withPatchAffected === defaultFilters.withPatchAffected) {
-      params.delete(withPatchAffectedFilter.buildFilterKey);
+    if (newFilters.withVideo === defaultFilters.withVideo) {
+      params.delete(withVideoFilter.buildFilterKey);
     } else {
       params.set(
-        withPatchAffectedFilter.buildFilterKey,
-        newFilters.withPatchAffected.toString(),
+        withVideoFilter.buildFilterKey,
+        newFilters.withVideo.toString(),
       );
     }
 
@@ -449,6 +464,10 @@ export function BuildFilters({
         </BaseField>
       }
     >
+      <QualityBuildDialog
+        open={isQualityDescriptionOpen}
+        onClose={() => setIsQualityDescriptionOpen(false)}
+      />
       <Disclosure defaultOpen>
         {({ open }) => (
           <div className="w-full">
@@ -888,7 +907,48 @@ export function BuildFilters({
             </div>
             <Disclosure.Panel>
               <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-                <BaseField className="col-span-full sm:col-span-1">
+                <BaseField
+                  id="with-quality-filter"
+                  className="col-span-full sm:col-span-1"
+                >
+                  <BaseLabel className="text-surface-solid h-[40px] text-sm font-medium">
+                    {withQualityFilter.label}
+                  </BaseLabel>
+                  <BaseListbox
+                    className="mt-1"
+                    value={unappliedFilters.withQuality}
+                    onBlur={() => {
+                      if (
+                        unappliedFilters.withQuality !== filters.withQuality
+                      ) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(value) => {
+                      const newFilters = {
+                        ...unappliedFilters,
+                        withQuality: value,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  >
+                    {withQualityFilter.options.map(({ label, value }) => (
+                      <BaseListboxOption key={label} value={value}>
+                        <BaseListboxLabel>{label}</BaseListboxLabel>
+                      </BaseListboxOption>
+                    ))}
+                  </BaseListbox>
+                  <BaseButton
+                    plain
+                    onClick={() => setIsQualityDescriptionOpen(true)}
+                  >
+                    <InfoCircleIcon /> What is a quality build?
+                  </BaseButton>
+                </BaseField>
+                <BaseField
+                  id="with-video-filter"
+                  className="col-span-full sm:col-span-1"
+                >
                   <BaseLabel className="text-surface-solid h-[40px] text-sm font-medium">
                     {withVideoFilter.label}
                   </BaseLabel>
@@ -915,7 +975,10 @@ export function BuildFilters({
                     ))}
                   </BaseListbox>
                 </BaseField>
-                <BaseField className="col-span-full sm:col-span-1">
+                <BaseField
+                  id="with-reference-filter"
+                  className="col-span-full sm:col-span-1"
+                >
                   <BaseLabel className="text-surface-solid h-[40px] text-sm font-medium">
                     {withReferenceFilter.label}
                   </BaseLabel>
@@ -944,7 +1007,10 @@ export function BuildFilters({
                     ))}
                   </BaseListbox>
                 </BaseField>
-                <BaseField className="col-span-full sm:col-span-1">
+                <BaseField
+                  id="with-patch-affected-filter"
+                  className="col-span-full sm:col-span-1"
+                >
                   <BaseLabel className="text-surface-solid h-[40px] text-sm font-medium">
                     {withPatchAffectedFilter.label}
                   </BaseLabel>

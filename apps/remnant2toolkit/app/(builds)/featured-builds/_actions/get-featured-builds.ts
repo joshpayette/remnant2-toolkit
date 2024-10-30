@@ -22,8 +22,9 @@ import { limitByRingsSegment } from '@/app/(builds)/_features/filters/_libs/quer
 import { limitBySkillsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/skills';
 import { limitByTimeConditionSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/time-condition';
 import { limitByTraitsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/traits';
-import { limitByPatchAffectedSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-patch-affected';
-import { limitByReferenceSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-reference';
+import { limitByWithPatchAffectedSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-patch-affected';
+import { limitByWithQualityBuildsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-quality';
+import { limitByWithReferenceSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-reference';
 import { limitByWithVideoSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-video';
 import { type BuildListRequest } from '@/app/(builds)/_types/build-list-request';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
@@ -57,10 +58,11 @@ export async function getFeaturedBuilds({
     searchText,
     skills,
     traits,
+    withCollection,
+    withPatchAffected,
+    withQuality,
     withReference,
     withVideo,
-    withPatchAffected,
-    withCollection,
   } = buildFilterFields;
 
   const whereConditions = Prisma.sql`
@@ -76,8 +78,6 @@ export async function getFeaturedBuilds({
     ${limitByMeleeSegment(melees)}
     ${limitByModsSegment(mods)}
     ${limitByMutatorsSegment(mutators)}
-    ${limitByPatchAffectedSegment(withPatchAffected)}
-    ${limitByReferenceSegment(withReference)}
     ${limitByReleaseSegment(releases)}
     ${limitByRelicSegment(relics)}
     ${limitByRelicFragmentsSegment(relicFragments)}
@@ -85,6 +85,9 @@ export async function getFeaturedBuilds({
     ${limitBySkillsSegment(skills)}
     ${limitByTimeConditionSegment(timeRange)}
     ${limitByTraitsSegment(traits)}
+    ${limitByWithPatchAffectedSegment(withPatchAffected)}
+    ${limitByWithQualityBuildsSegment(withQuality)}
+    ${limitByWithReferenceSegment(withReference)}
     ${limitByWithVideoSegment(withVideo)}
   `;
 

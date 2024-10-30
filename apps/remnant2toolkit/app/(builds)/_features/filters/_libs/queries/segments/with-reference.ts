@@ -2,7 +2,7 @@ import { Prisma } from '@repo/db';
 
 import type { WithReferenceFilterValue } from '@/app/(builds)/_features/filters/_libs/with-reference-filter';
 
-export function limitByReferenceSegment(
+export function limitByWithReferenceSegment(
   withReference: WithReferenceFilterValue,
 ): Prisma.Sql {
   if (!withReference) return Prisma.empty;
