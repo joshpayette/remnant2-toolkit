@@ -1,34 +1,34 @@
-import { type releasesFilter } from '@/app/(builds)/_features/filters/_libs/releases-filter';
+import type { HandGunFilterValue } from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
+import type { LongGunFilterValue } from '@/app/(builds)/_features/filters/_libs/long-gun-filter';
+import type { MeleeFilterValue } from '@/app/(builds)/_features/filters/_libs/melee-filter';
+import type { ReleasesFilterValue } from '@/app/(builds)/_features/filters/_libs/releases-filter';
+import type { RelicFilterValue } from '@/app/(builds)/_features/filters/_libs/relic-filter';
+import type { RingFilterValue } from '@/app/(builds)/_features/filters/_libs/ring-filter';
+import type { SearchTextFilterValue } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
+import type { WithCollectionFilterValue } from '@/app/(builds)/_features/filters/_libs/with-collection';
+import type { WithPatchAffectedFilterValue } from '@/app/(builds)/_features/filters/_libs/with-patch-affected-filter';
+import type { WithQualityFilterValue } from '@/app/(builds)/_features/filters/_libs/with-quality-filter';
+import type { WithReferenceFilterValue } from '@/app/(builds)/_features/filters/_libs/with-reference-filter';
+import type { WithVideoFilterValue } from '@/app/(builds)/_features/filters/_libs/with-video-filter';
 
-import { type amuletFilter } from '../_libs/amulet-filter';
-import { type archetypeFilter } from '../_libs/archetype-filter';
-import { type handGunFilter } from '../_libs/hand-gun-filter';
-import { type longGunFilter } from '../_libs/long-gun-filter';
-import { type meleeFilter } from '../_libs/melee-filter';
-import { type relicFilter } from '../_libs/relic-filter';
-import { type ringFilter } from '../_libs/ring-filter';
-import { type searchTextFilter } from '../_libs/search-text-filter';
-import { type withCollectionFilter } from '../_libs/with-collection';
-import { type withPatchAffectedFilter } from '../_libs/with-patch-affected-filter';
-import { type withQualityFilter } from '../_libs/with-quality-filter';
-import { type withReferenceFilter } from '../_libs/with-reference-filter';
-import { type withVideoFilter } from '../_libs/with-video-filter';
+import { type AmuletFilterValue } from '../_libs/amulet-filter';
+import { type ArchetypeFilterValue } from '../_libs/archetype-filter';
 
 export interface BuildFilterFields {
-  amulets: typeof amuletFilter.defaultValue;
-  archetypes: typeof archetypeFilter.defaultValue;
-  handGuns: typeof handGunFilter.defaultValue;
-  longGuns: typeof longGunFilter.defaultValue;
-  melees: typeof meleeFilter.defaultValue;
-  releases: typeof releasesFilter.defaultValue;
-  relics: typeof relicFilter.defaultValue;
-  rings: typeof ringFilter.defaultValue;
-  searchText: typeof searchTextFilter.defaultValue;
-  withCollection: typeof withCollectionFilter.defaultValue;
-  withPatchAffected: typeof withPatchAffectedFilter.defaultValue;
-  withQuality: typeof withQualityFilter.defaultValue;
-  withVideo: typeof withVideoFilter.defaultValue;
-  withReference: typeof withReferenceFilter.defaultValue;
+  amulets: AmuletFilterValue;
+  archetypes: ArchetypeFilterValue;
+  handGuns: HandGunFilterValue;
+  longGuns: LongGunFilterValue;
+  melees: MeleeFilterValue;
+  releases: ReleasesFilterValue;
+  relics: RelicFilterValue;
+  rings: RingFilterValue;
+  searchText: SearchTextFilterValue;
+  withCollection: WithCollectionFilterValue;
+  withPatchAffected: WithPatchAffectedFilterValue;
+  withQuality: WithQualityFilterValue;
+  withVideo: WithVideoFilterValue;
+  withReference: WithReferenceFilterValue;
 }
 
 export type BuildFilterFieldKey = keyof BuildFilterFields;

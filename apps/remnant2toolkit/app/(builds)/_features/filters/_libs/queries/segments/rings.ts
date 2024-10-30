@@ -1,11 +1,11 @@
 import { Prisma } from '@repo/db';
-import type { FilterOption } from '@repo/ui';
 import isEqual from 'lodash.isequal';
 
 import { MAX_ALLOWED_RINGS } from '@/app/(builds)/_constants/max-allowed-rings';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
+import type { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 
-export function limitByRingsSegment(ringFilters: FilterOption[]) {
+export function limitByRingsSegment(ringFilters: RingFilterValue): Prisma.Sql {
   // if the rings are the default filters, do nothing
   if (isEqual(ringFilters, DEFAULT_BUILD_FIELDS.rings)) {
     return Prisma.empty;

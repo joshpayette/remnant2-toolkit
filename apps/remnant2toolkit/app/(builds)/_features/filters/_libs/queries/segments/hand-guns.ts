@@ -1,10 +1,12 @@
 import { Prisma } from '@repo/db';
-import type { FilterOption } from '@repo/ui';
 import isEqual from 'lodash.isequal';
 
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
+import type { handGunFilter } from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
 
-export function limitByHandGunSegment(handGunFilters: FilterOption[]) {
+export function limitByHandGunSegment(
+  handGunFilters: HandGunFilterValue,
+): Prisma.Sql {
   // if the handGuns are the default filters, do nothing
   if (isEqual(handGunFilters, DEFAULT_BUILD_FIELDS.handGuns)) {
     return Prisma.empty;

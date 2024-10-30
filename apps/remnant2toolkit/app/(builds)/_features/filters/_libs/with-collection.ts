@@ -1,8 +1,10 @@
+import type { PercentageOwned } from '@/app/(builds)/_features/filters/_components/build-collection-filter';
+
 import { type FilterDefinition } from '../_types/filter-definition';
 
 export const withCollectionFilter = {
   buildFilterKey: 'withCollection',
-  defaultValue: 0,
+  defaultValue: 0 as number,
   label: '% Owned',
   options: [
     {
@@ -29,5 +31,8 @@ export const withCollectionFilter = {
       label: '>= 50% Owned',
       value: 50,
     },
-  ],
+  ] as Array<{ label: string; value: PercentageOwned }>,
 } as const satisfies FilterDefinition;
+
+export type WithCollectionFilterValue =
+  typeof withCollectionFilter.defaultValue;

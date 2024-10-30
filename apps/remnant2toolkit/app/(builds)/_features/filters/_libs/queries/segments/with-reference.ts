@@ -1,6 +1,10 @@
 import { Prisma } from '@repo/db';
 
-export function limitByReferenceSegment(withReference: string) {
-  if (!withReference || withReference !== 'true') return Prisma.empty;
+import type { withReferenceFilter } from '@/app/(builds)/_features/filters/_libs/with-reference-filter';
+
+export function limitByReferenceSegment(
+  withReference: WithReferenceFilterValue,
+): Prisma.Sql {
+  if (!withReference) return Prisma.empty;
   return Prisma.sql`AND Build.buildLink IS NOT NULL AND Build.buildLink != ''`;
 }

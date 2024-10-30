@@ -4,6 +4,7 @@ import { type Prisma, prisma } from '@repo/db';
 
 import type { PercentageOwned } from '@/app/(builds)/_features/filters/_components/build-collection-filter';
 import { mainBuildQuery } from '@/app/(builds)/_features/filters/_libs/queries/main-build-query';
+import type { WithCollectionFilterValue } from '@/app/(builds)/_features/filters/_libs/with-collection';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
 export async function getBuildList({
@@ -23,36 +24,11 @@ export async function getBuildList({
   searchText: string;
   userId: string | undefined;
   whereConditions: Prisma.Sql;
-  withCollection: string;
+  withCollection: WithCollectionFilterValue;
 }): Promise<{
   builds: DBBuild[];
 }> {
   const trimmedSearchText = searchText.trim();
-
-  let percentageOwned: PercentageOwned = 0;
-  switch (withCollection) {
-    case 'All':
-      percentageOwned = 0;
-      break;
-    case '100% Owned':
-      percentageOwned = 100;
-      break;
-    case '>= 95% Owned':
-      percentageOwned = 95;
-      break;
-    case '>= 90% Owned':
-      percentageOwned = 90;
-      break;
-    case '>= 75% Owned':
-      percentageOwned = 75;
-      break;
-    case '>= 50% Owned':
-      percentageOwned = 50;
-      break;
-    default:
-      percentageOwned = 0;
-      break;
-  }
 
   const builds = await mainBuildQuery({
     includeBuildVariants,
@@ -62,7 +38,7 @@ export async function getBuildList({
     orderBySegment: orderBy,
     whereConditions,
     searchText: trimmedSearchText,
-    percentageOwned,
+    percentageOwned: withCollection as PercentageOwned,
   });
 
   // Fetch associated build data

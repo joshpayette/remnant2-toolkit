@@ -1,10 +1,12 @@
 import { Prisma } from '@repo/db';
-import type { FilterOption } from '@repo/ui';
 import isEqual from 'lodash.isequal';
 
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
+import type { amuletFilter } from '@/app/(builds)/_features/filters/_libs/amulet-filter';
 
-export function limitByAmuletSegment(amuletFilters: FilterOption[]) {
+export function limitByAmuletSegment(
+  amuletFilters: AmuletFilterValue,
+): Prisma.Sql {
   // if the amulets are the default filters, do nothing
   if (isEqual(amuletFilters, DEFAULT_BUILD_FIELDS.amulets)) {
     return Prisma.empty;

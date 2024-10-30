@@ -2,12 +2,12 @@ import { amuletFilter } from '@/app/(builds)/_features/filters/_libs/amulet-filt
 import { handGunFilter } from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
 import { longGunFilter } from '@/app/(builds)/_features/filters/_libs/long-gun-filter';
 import { meleeFilter } from '@/app/(builds)/_features/filters/_libs/melee-filter';
-import { patchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/with-patch-affected-filter';
 import { releasesFilter } from '@/app/(builds)/_features/filters/_libs/releases-filter';
 import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
 import { withCollectionFilter } from '@/app/(builds)/_features/filters/_libs/with-collection';
+import { withPatchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/with-patch-affected-filter';
 import { withQualityFilter } from '@/app/(builds)/_features/filters/_libs/with-quality-filter';
 import { withReferenceFilter } from '@/app/(builds)/_features/filters/_libs/with-reference-filter';
 import { withVideoFilter } from '@/app/(builds)/_features/filters/_libs/with-video-filter';
@@ -28,7 +28,7 @@ export const DEFAULT_BUILD_FIELDS: BuildFilterFields = {
   withCollection:
     withCollectionFilter.defaultValue as BuildFilterFields['withCollection'],
   withPatchAffected:
-    patchAffectedFilter.defaultValue as BuildFilterFields['withPatchAffected'],
+    withPatchAffectedFilter.defaultValue as BuildFilterFields['withPatchAffected'],
   withQuality:
     withQualityFilter.defaultValue as BuildFilterFields['withQuality'],
   withVideo: withVideoFilter.defaultValue as BuildFilterFields['withVideo'],

@@ -9,12 +9,12 @@ import { archetypeFilter } from '@/app/(builds)/_features/filters/_libs/archetyp
 import { handGunFilter } from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
 import { longGunFilter } from '@/app/(builds)/_features/filters/_libs/long-gun-filter';
 import { meleeFilter } from '@/app/(builds)/_features/filters/_libs/melee-filter';
-import { patchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/with-patch-affected-filter';
 import { releasesFilter } from '@/app/(builds)/_features/filters/_libs/releases-filter';
 import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
 import { withCollectionFilter } from '@/app/(builds)/_features/filters/_libs/with-collection';
+import { withPatchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/with-patch-affected-filter';
 import { withQualityFilter } from '@/app/(builds)/_features/filters/_libs/with-quality-filter';
 import { withReferenceFilter } from '@/app/(builds)/_features/filters/_libs/with-reference-filter';
 import { withVideoFilter } from '@/app/(builds)/_features/filters/_libs/with-video-filter';
@@ -62,16 +62,15 @@ export function parseUrlParams({
 
   const ringsParam = parsedParams.get(ringFilter.buildFilterKey)?.split(',');
 
-  const patchAffectedParam = parsedParams.get(
-    patchAffectedFilter.buildFilterKey,
-  );
-
   const searchTextParam =
     parsedParams.get(searchTextFilter.buildFilterKey) ||
     defaultFilters.searchText;
 
   const withCollectionParam = parsedParams.get(
     withCollectionFilter.buildFilterKey,
+  );
+  const withPatchAffectedParam = parsedParams.get(
+    withPatchAffectedFilter.buildFilterKey,
   );
   const withQualityParam = parsedParams.get(withQualityFilter.buildFilterKey);
   const withVideoParam = parsedParams.get(withVideoFilter.buildFilterKey);
@@ -346,36 +345,59 @@ export function parseUrlParams({
     }
   }
 
-  let withCollection = defaultFilters.withCollection;
+  let withCollection: number = defaultFilters.withCollection;
   if (withCollectionParam) {
-    withCollection = withCollectionParam;
+    withCollection = Number(withCollectionParam);
+    if (
+      withCollectionFilter.options.find(
+        (option) => option.value === withCollection,
+      ) === undefined
+    ) {
+      withCollection = defaultFilters.withCollection;
+    }
   }
 
   let withPatchAffected = defaultFilters.withPatchAffected;
-  if (patchAffectedParam) {
-    withPatchAffected = patchAffectedParam === 'true' ? 'true' : 'false';
+  if (withPatchAffectedParam) {
+    if (withPatchAffectedParam === 'true') {
+      withPatchAffected = true;
+    } else if (withPatchAffectedParam === 'false') {
+      withPatchAffected = false;
+    }
   }
 
   let withQuality = defaultFilters.withQuality;
   if (withQualityParam) {
-    withQuality = withQualityParam === 'true' ? 'true' : 'false';
+    if (withQualityParam === 'true') {
+      withQuality = true;
+    } else if (withQualityParam === 'false') {
+      withQuality = false;
+    }
   }
 
   let withVideo = defaultFilters.withVideo;
   if (withVideoParam) {
-    withVideo = withVideoParam === 'true' ? 'true' : 'false';
+    if (withVideoParam === 'true') {
+      withVideo = true;
+    } else if (withVideoParam === 'false') {
+      withVideo = false;
+    }
   }
 
   let withReference = defaultFilters.withReference;
   if (withReferenceParam) {
-    withReference = withReferenceParam === 'true' ? 'true' : 'false';
+    if (withReferenceParam === 'true') {
+      withReference = true;
+    } else if (withReferenceParam === 'false') {
+      withReference = false;
+    }
   }
 
   const searchText = searchTextParam;
 
   return {
-    archetypes,
     amulets,
+    archetypes,
     handGuns,
     longGuns,
     melees,

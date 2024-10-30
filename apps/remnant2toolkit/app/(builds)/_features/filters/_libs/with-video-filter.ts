@@ -2,7 +2,7 @@ import { type FilterDefinition } from '../_types/filter-definition';
 
 export const withVideoFilter = {
   buildFilterKey: 'withVideo',
-  defaultValue: false,
+  defaultValue: false as boolean,
   label: 'Only Builds w/ Video?',
   options: [
     {
@@ -15,3 +15,5 @@ export const withVideoFilter = {
     },
   ],
 } as const satisfies FilterDefinition;
+
+export type WithVideoFilterValue = typeof withVideoFilter.defaultValue;

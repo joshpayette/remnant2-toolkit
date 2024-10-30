@@ -23,11 +23,11 @@ import { handGunFilter } from '@/app/(builds)/_features/filters/_libs/hand-gun-f
 import { longGunFilter } from '@/app/(builds)/_features/filters/_libs/long-gun-filter';
 import { meleeFilter } from '@/app/(builds)/_features/filters/_libs/melee-filter';
 import { parseUrlParams } from '@/app/(builds)/_features/filters/_libs/parse-url-params';
-import { patchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/with-patch-affected-filter';
 import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
 import { withCollectionFilter } from '@/app/(builds)/_features/filters/_libs/with-collection';
+import { withPatchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/with-patch-affected-filter';
 import { withReferenceFilter } from '@/app/(builds)/_features/filters/_libs/with-reference-filter';
 import { withVideoFilter } from '@/app/(builds)/_features/filters/_libs/with-video-filter';
 import { type BuildFilterFields } from '@/app/(builds)/_features/filters/_types/build-filter-fields';
@@ -218,28 +218,34 @@ export function BuildFilters({
     } else {
       params.set(
         withCollectionFilter.buildFilterKey,
-        newFilters.withCollection,
+        newFilters.withCollection.toString(),
       );
     }
 
     if (newFilters.withVideo === defaultFilters.withVideo) {
       params.delete(withVideoFilter.buildFilterKey);
     } else {
-      params.set(withVideoFilter.buildFilterKey, newFilters.withVideo);
+      params.set(
+        withVideoFilter.buildFilterKey,
+        newFilters.withVideo.toString(),
+      );
     }
 
     if (newFilters.withReference === defaultFilters.withReference) {
       params.delete(withReferenceFilter.buildFilterKey);
     } else {
-      params.set(withReferenceFilter.buildFilterKey, newFilters.withReference);
+      params.set(
+        withReferenceFilter.buildFilterKey,
+        newFilters.withReference.toString(),
+      );
     }
 
     if (newFilters.withPatchAffected === defaultFilters.withPatchAffected) {
-      params.delete(patchAffectedFilter.buildFilterKey);
+      params.delete(withPatchAffectedFilter.buildFilterKey);
     } else {
       params.set(
-        patchAffectedFilter.buildFilterKey,
-        newFilters.withPatchAffected,
+        withPatchAffectedFilter.buildFilterKey,
+        newFilters.withPatchAffected.toString(),
       );
     }
 
@@ -528,9 +534,9 @@ export function BuildFilters({
                       setUnappliedFilters(newFilters);
                     }}
                   >
-                    {withCollectionFilter.validOptions?.map((value) => (
+                    {withCollectionFilter.options.map(({ label, value }) => (
                       <BaseListboxOption key={value} value={value}>
-                        <BaseListboxLabel>{value}</BaseListboxLabel>
+                        <BaseListboxLabel>{label}</BaseListboxLabel>
                       </BaseListboxOption>
                     ))}
                   </BaseListbox>
@@ -573,9 +579,9 @@ export function BuildFilters({
                       setUnappliedFilters(newFilters);
                     }}
                   >
-                    {withVideoFilter.validOptions?.map((value) => (
-                      <BaseListboxOption key={value} value={value}>
-                        <BaseListboxLabel>{value}</BaseListboxLabel>
+                    {withVideoFilter.options.map(({ label, value }) => (
+                      <BaseListboxOption key={label} value={value}>
+                        <BaseListboxLabel>{label}</BaseListboxLabel>
                       </BaseListboxOption>
                     ))}
                   </BaseListbox>
@@ -602,16 +608,16 @@ export function BuildFilters({
                       setUnappliedFilters(newFilters);
                     }}
                   >
-                    {withReferenceFilter.validOptions?.map((value) => (
-                      <BaseListboxOption key={value} value={value}>
-                        <BaseListboxLabel>{value}</BaseListboxLabel>
+                    {withReferenceFilter.options.map(({ label, value }) => (
+                      <BaseListboxOption key={label} value={value}>
+                        <BaseListboxLabel>{label}</BaseListboxLabel>
                       </BaseListboxOption>
                     ))}
                   </BaseListbox>
                 </BaseField>
                 <BaseField className="col-span-full sm:col-span-1">
                   <BaseLabel className="text-surface-solid h-[40px] text-sm font-medium">
-                    {patchAffectedFilter.label}
+                    {withPatchAffectedFilter.label}
                   </BaseLabel>
                   <BaseListbox
                     className="mt-1"
@@ -632,9 +638,9 @@ export function BuildFilters({
                       setUnappliedFilters(newFilters);
                     }}
                   >
-                    {patchAffectedFilter.validOptions?.map((value) => (
-                      <BaseListboxOption key={value} value={value}>
-                        <BaseListboxLabel>{value}</BaseListboxLabel>
+                    {withPatchAffectedFilter.options.map(({ label, value }) => (
+                      <BaseListboxOption key={label} value={value}>
+                        <BaseListboxLabel>{label}</BaseListboxLabel>
                       </BaseListboxOption>
                     ))}
                   </BaseListbox>

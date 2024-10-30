@@ -1,10 +1,12 @@
 import { Prisma } from '@repo/db';
-import type { FilterOption } from '@repo/ui';
 import isEqual from 'lodash.isequal';
 
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
+import type { meleeFilter } from '@/app/(builds)/_features/filters/_libs/melee-filter';
 
-export function limitByMeleeSegment(meleeFilters: FilterOption[]) {
+export function limitByMeleeSegment(
+  meleeFilters: MeleeFilterValue,
+): Prisma.Sql {
   // if the melees are the default filters, do nothing
   if (isEqual(meleeFilters, DEFAULT_BUILD_FIELDS.melees)) {
     return Prisma.empty;

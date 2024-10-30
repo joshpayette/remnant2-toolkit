@@ -1,12 +1,14 @@
 import { Prisma } from '@repo/db';
-import type { FilterOption } from '@repo/ui';
 import isEqual from 'lodash.isequal';
 
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
+import type { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 
-export function limitByRelicSegment(relicFilters: FilterOption[]) {
+export function limitByRelicSegment(
+  relicFilters: RelicFilterValue,
+): Prisma.Sql {
   // if the relics are the default filters, do nothing
-  if (isEqual(relicFilters, DEFAULT_BUILD_FIELDS.relic)) {
+  if (isEqual(relicFilters, DEFAULT_BUILD_FIELDS.relics)) {
     return Prisma.empty;
   }
   // If there are no filters, do nothing

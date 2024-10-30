@@ -1,10 +1,12 @@
 import { Prisma } from '@repo/db';
-import type { FilterOption } from '@repo/ui';
 import isEqual from 'lodash.isequal';
 
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
+import type { longGunFilter } from '@/app/(builds)/_features/filters/_libs/long-gun-filter';
 
-export function limitByLongGunSegment(longFunFilters: FilterOption[]) {
+export function limitByLongGunSegment(
+  longFunFilters: LongGunFilterValue,
+): Prisma.Sql {
   // if the longGuns are the default filters, do nothing
   if (isEqual(longFunFilters, DEFAULT_BUILD_FIELDS.longGuns)) {
     return Prisma.empty;
