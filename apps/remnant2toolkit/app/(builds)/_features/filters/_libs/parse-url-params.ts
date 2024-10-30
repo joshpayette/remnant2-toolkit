@@ -16,10 +16,12 @@ import {
   buildTagFilter,
   type BuildTagFilterValue,
 } from '@/app/(builds)/_features/filters/_libs/build-tag-filter';
+import { fusionFilter } from '@/app/(builds)/_features/filters/_libs/fusion-filter';
 import {
   handGunFilter,
   type HandGunFilterValue,
 } from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
+import { legendaryFragmentFilter } from '@/app/(builds)/_features/filters/_libs/legendary-fragment-filter';
 import {
   longGunFilter,
   type LongGunFilterValue,
@@ -29,6 +31,11 @@ import {
   type MeleeFilterValue,
 } from '@/app/(builds)/_features/filters/_libs/melee-filter';
 import {
+  modFilter,
+  type ModFilterValue,
+} from '@/app/(builds)/_features/filters/_libs/mod-filter';
+import { mutatorFilter } from '@/app/(builds)/_features/filters/_libs/mutator-filter';
+import {
   releasesFilter,
   type ReleasesFilterValue,
 } from '@/app/(builds)/_features/filters/_libs/releases-filter';
@@ -36,6 +43,7 @@ import {
   relicFilter,
   type RelicFilterValue,
 } from '@/app/(builds)/_features/filters/_libs/relic-filter';
+import { relicFragmentFilter } from '@/app/(builds)/_features/filters/_libs/relic-fragment-filter';
 import {
   ringFilter,
   type RingFilterValue,
@@ -45,6 +53,7 @@ import {
   skillFilter,
   type SkillFilterValue,
 } from '@/app/(builds)/_features/filters/_libs/skill-filter';
+import { traitFilter } from '@/app/(builds)/_features/filters/_libs/trait-filter';
 import {
   withCollectionFilter,
   type WithCollectionFilterValue,
@@ -68,9 +77,14 @@ import {
 import type { BuildFilterFields } from '@/app/(builds)/_features/filters/_types/build-filter-fields';
 import { amuletItems } from '@/app/(items)/_constants/amulet-items';
 import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
+import { fusionItems } from '@/app/(items)/_constants/fusion-items';
+import { modItems } from '@/app/(items)/_constants/mod-items';
+import { mutatorItems } from '@/app/(items)/_constants/mutator-items';
+import { relicFragmentItems } from '@/app/(items)/_constants/relic-fragment-items';
 import { relicItems } from '@/app/(items)/_constants/relic-items';
 import { ringItems } from '@/app/(items)/_constants/ring-items';
 import { skillItems } from '@/app/(items)/_constants/skill-items';
+import { traitItems } from '@/app/(items)/_constants/trait-items';
 import { weaponItems } from '@/app/(items)/_constants/weapon-items';
 
 interface Props {
@@ -82,6 +96,7 @@ export function parseUrlParams({
   defaultFilters = DEFAULT_BUILD_FIELDS,
   searchParams,
 }: Props): BuildFilterFields {
+  // #region Params
   const parsedParams = new URLSearchParams(searchParams);
 
   const archetypesParam = parsedParams
@@ -96,8 +111,16 @@ export function parseUrlParams({
     .get(buildTagFilter.buildFilterKey)
     ?.split(',');
 
+  const fusionsParam = parsedParams
+    .get(fusionFilter.buildFilterKey)
+    ?.split(',');
+
   const handGunsParam = parsedParams
     .get(handGunFilter.buildFilterKey)
+    ?.split(',');
+
+  const legendaryFragmentsParam = parsedParams
+    .get(legendaryFragmentFilter.buildFilterKey)
     ?.split(',');
 
   const longGunsParam = parsedParams
@@ -106,11 +129,21 @@ export function parseUrlParams({
 
   const meleeParam = parsedParams.get(meleeFilter.buildFilterKey)?.split(',');
 
+  const modParam = parsedParams.get(modFilter.buildFilterKey)?.split(',');
+
+  const mutatorParam = parsedParams
+    .get(mutatorFilter.buildFilterKey)
+    ?.split(',');
+
   const releasesParam = parsedParams
     .get(releasesFilter.buildFilterKey)
     ?.split(',');
 
   const relicsParam = parsedParams.get(relicFilter.buildFilterKey)?.split(',');
+
+  const relicFragmentsParam = parsedParams
+    .get(relicFragmentFilter.buildFilterKey)
+    ?.split(',');
 
   const ringsParam = parsedParams.get(ringFilter.buildFilterKey)?.split(',');
 
@@ -119,6 +152,8 @@ export function parseUrlParams({
     defaultFilters.searchText;
 
   const skillParam = parsedParams.get(skillFilter.buildFilterKey)?.split(',');
+
+  const traitsParam = parsedParams.get(traitFilter.buildFilterKey)?.split(',');
 
   const withCollectionParam = parsedParams.get(
     withCollectionFilter.buildFilterKey,
@@ -132,6 +167,7 @@ export function parseUrlParams({
     withReferenceFilter.buildFilterKey,
   );
 
+  // #region Archetype parser
   let archetypes: ArchetypeFilterValue = [...defaultFilters.archetypes];
   if (archetypesParam) {
     for (const archetypeId of archetypesParam) {
@@ -166,6 +202,7 @@ export function parseUrlParams({
     }
   }
 
+  // #region Amulet parser
   let amulets: AmuletFilterValue = [...defaultFilters.amulets];
   if (amuletsParam) {
     for (const amuletId of amuletsParam) {
@@ -198,6 +235,7 @@ export function parseUrlParams({
     }
   }
 
+  // #region Build Tags parser
   let buildTags: BuildTagFilterValue = [...defaultFilters.buildTags];
   if (buildTagsParam) {
     for (const buildTagId of buildTagsParam) {
@@ -232,6 +270,40 @@ export function parseUrlParams({
     }
   }
 
+  // #region Fusion parser
+  let fusions = [...defaultFilters.fusions];
+  if (fusionsParam) {
+    for (const fusionId of fusionsParam) {
+      const cleanFusionId = fusionId.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const fusionItem = fusionItems.find((item) => item.id === cleanFusionId);
+      if (!fusionItem) continue;
+
+      // Check if the exclusion symbol is found
+      if (fusionId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+        fusions = fusions.map((fusion) => {
+          if (fusion.value === fusionItem.id) {
+            return {
+              ...fusion,
+              state: 'excluded',
+            };
+          }
+          return fusion;
+        });
+      } else {
+        fusions = fusions.map((fusion) => {
+          if (fusion.value === fusionItem.id) {
+            return {
+              ...fusion,
+              state: 'included',
+            };
+          }
+          return fusion;
+        });
+      }
+    }
+  }
+
+  // #region Hand Guns parser
   let handGuns: HandGunFilterValue = [...defaultFilters.handGuns];
   if (handGunsParam) {
     const handGunItems = weaponItems.filter((i) => i.type === 'hand gun');
@@ -267,6 +339,45 @@ export function parseUrlParams({
     }
   }
 
+  let legendaryFragments = [...defaultFilters.legendaryFragments];
+  if (legendaryFragmentsParam) {
+    for (const legendaryFragmentId of legendaryFragmentsParam) {
+      const cleanLegendaryFragmentId = legendaryFragmentId.replace(
+        EXCLUDE_ITEM_SYMBOL,
+        '',
+      );
+      const legendaryFragmentItem = relicFragmentItems.find(
+        (item) =>
+          item.id === cleanLegendaryFragmentId && item.color === 'legendary',
+      );
+      if (!legendaryFragmentItem) continue;
+
+      // Check if the exclusion symbol is found
+      if (legendaryFragmentId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+        legendaryFragments = legendaryFragments.map((legendaryFragment) => {
+          if (legendaryFragment.value === legendaryFragmentItem.id) {
+            return {
+              ...legendaryFragment,
+              state: 'excluded',
+            };
+          }
+          return legendaryFragment;
+        });
+      } else {
+        legendaryFragments = legendaryFragments.map((legendaryFragment) => {
+          if (legendaryFragment.value === legendaryFragmentItem.id) {
+            return {
+              ...legendaryFragment,
+              state: 'included',
+            };
+          }
+          return legendaryFragment;
+        });
+      }
+    }
+  }
+
+  // #region Long Guns parser
   let longGuns: LongGunFilterValue = [...defaultFilters.longGuns];
   if (longGunsParam) {
     const longGunItems = weaponItems.filter((i) => i.type === 'long gun');
@@ -302,6 +413,7 @@ export function parseUrlParams({
     }
   }
 
+  // #region Melee parser
   let melees: MeleeFilterValue = [...defaultFilters.melees];
   if (meleeParam) {
     const meleeItems = weaponItems.filter((i) => i.type === 'melee');
@@ -335,6 +447,75 @@ export function parseUrlParams({
     }
   }
 
+  // #region Mod parser
+  let mods: ModFilterValue = [...defaultFilters.mods];
+  if (modParam) {
+    for (const modId of modParam) {
+      const cleanModId = modId.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const modItem = modItems.find((item) => item.id === cleanModId);
+      if (!modItem) continue;
+
+      // Check if the exclusion symbol is found
+      if (modId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+        mods = mods.map((mod) => {
+          if (mod.value === modItem.id) {
+            return {
+              ...mod,
+              state: 'excluded',
+            };
+          }
+          return mod;
+        });
+      } else {
+        mods = mods.map((mod) => {
+          if (mod.value === modItem.id) {
+            return {
+              ...mod,
+              state: 'included',
+            };
+          }
+          return mod;
+        });
+      }
+    }
+  }
+
+  // #region Mutator parser
+  let mutators = [...defaultFilters.mutators];
+  if (mutatorParam) {
+    for (const mutatorId of mutatorParam) {
+      const cleanMutatorId = mutatorId.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const mutatorItem = mutatorItems.find(
+        (item) => item.id === cleanMutatorId,
+      );
+      if (!mutatorItem) continue;
+
+      // Check if the exclusion symbol is found
+      if (mutatorId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+        mutators = mutators.map((mutator) => {
+          if (mutator.value === mutatorItem.id) {
+            return {
+              ...mutator,
+              state: 'excluded',
+            };
+          }
+          return mutator;
+        });
+      } else {
+        mutators = mutators.map((mutator) => {
+          if (mutator.value === mutatorItem.id) {
+            return {
+              ...mutator,
+              state: 'included',
+            };
+          }
+          return mutator;
+        });
+      }
+    }
+  }
+
+  // #region Release parser
   let releases: ReleasesFilterValue = [...defaultFilters.releases];
   if (releasesParam) {
     for (const releaseId of releasesParam) {
@@ -369,6 +550,7 @@ export function parseUrlParams({
     }
   }
 
+  // #region Relic parser
   let relics: RelicFilterValue = [...defaultFilters.relics];
   if (relicsParam) {
     for (const relicId of relicsParam) {
@@ -401,6 +583,46 @@ export function parseUrlParams({
     }
   }
 
+  // #region Relic fragment parser
+  let relicFragments = [...defaultFilters.relicFragments];
+  if (relicFragmentsParam) {
+    for (const relicFragmentId of relicFragmentsParam) {
+      const cleanRelicFragmentId = relicFragmentId.replace(
+        EXCLUDE_ITEM_SYMBOL,
+        '',
+      );
+      const relicFragmentItem = relicFragmentItems.find(
+        (item) =>
+          item.id === cleanRelicFragmentId && item.color !== 'legendary',
+      );
+      if (!relicFragmentItem) continue;
+
+      // Check if the exclusion symbol is found
+      if (relicFragmentId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+        relicFragments = relicFragments.map((relicFragment) => {
+          if (relicFragment.value === relicFragmentItem.id) {
+            return {
+              ...relicFragment,
+              state: 'excluded',
+            };
+          }
+          return relicFragment;
+        });
+      } else {
+        relicFragments = relicFragments.map((relicFragment) => {
+          if (relicFragment.value === relicFragmentItem.id) {
+            return {
+              ...relicFragment,
+              state: 'included',
+            };
+          }
+          return relicFragment;
+        });
+      }
+    }
+  }
+
+  // #region Ring parser
   let rings: RingFilterValue = [...defaultFilters.rings];
   if (ringsParam) {
     for (const ringId of ringsParam) {
@@ -433,6 +655,7 @@ export function parseUrlParams({
     }
   }
 
+  // #region Skill parser
   let skills: SkillFilterValue = defaultFilters.skills;
   if (skillParam) {
     for (const skillId of skillParam) {
@@ -464,6 +687,39 @@ export function parseUrlParams({
     }
   }
 
+  // #region Trait parser
+  let traits = defaultFilters.traits;
+  if (traitsParam) {
+    for (const traitId of traitsParam) {
+      const cleanTraitId = traitId.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const traitItem = traitItems.find((item) => item.id === cleanTraitId);
+      if (!traitItem) continue;
+
+      if (traitId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+        traits = traits.map((trait) => {
+          if (trait.value === traitItem.id) {
+            return {
+              ...trait,
+              state: 'excluded',
+            };
+          }
+          return trait;
+        });
+      } else {
+        traits = traits.map((trait) => {
+          if (trait.value === traitItem.id) {
+            return {
+              ...trait,
+              state: 'included',
+            };
+          }
+          return trait;
+        });
+      }
+    }
+  }
+
+  // #region Misc filters
   let withCollection: WithCollectionFilterValue = defaultFilters.withCollection;
   if (withCollectionParam) {
     withCollection = Number(withCollectionParam);
@@ -519,14 +775,20 @@ export function parseUrlParams({
     amulets,
     archetypes,
     buildTags,
+    fusions,
     handGuns,
+    legendaryFragments,
     longGuns,
     melees,
+    mods,
+    mutators,
     releases,
     relics,
+    relicFragments,
     rings,
     searchText,
     skills,
+    traits,
     withCollection,
     withPatchAffected,
     withQuality,

@@ -20,14 +20,20 @@ import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constant
 import { amuletFilter } from '@/app/(builds)/_features/filters/_libs/amulet-filter';
 import { archetypeFilter } from '@/app/(builds)/_features/filters/_libs/archetype-filter';
 import { buildTagFilter } from '@/app/(builds)/_features/filters/_libs/build-tag-filter';
+import { fusionFilter } from '@/app/(builds)/_features/filters/_libs/fusion-filter';
 import { handGunFilter } from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
+import { legendaryFragmentFilter } from '@/app/(builds)/_features/filters/_libs/legendary-fragment-filter';
 import { longGunFilter } from '@/app/(builds)/_features/filters/_libs/long-gun-filter';
 import { meleeFilter } from '@/app/(builds)/_features/filters/_libs/melee-filter';
+import { modFilter } from '@/app/(builds)/_features/filters/_libs/mod-filter';
+import { mutatorFilter } from '@/app/(builds)/_features/filters/_libs/mutator-filter';
 import { parseUrlParams } from '@/app/(builds)/_features/filters/_libs/parse-url-params';
 import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
+import { relicFragmentFilter } from '@/app/(builds)/_features/filters/_libs/relic-fragment-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
 import { skillFilter } from '@/app/(builds)/_features/filters/_libs/skill-filter';
+import { traitFilter } from '@/app/(builds)/_features/filters/_libs/trait-filter';
 import { withCollectionFilter } from '@/app/(builds)/_features/filters/_libs/with-collection';
 import { withPatchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/with-patch-affected-filter';
 import { withReferenceFilter } from '@/app/(builds)/_features/filters/_libs/with-reference-filter';
@@ -67,6 +73,7 @@ export function BuildFilters({
     return true;
   }, [filters, defaultFilters]);
 
+  // #region URL Filters
   /**
    * Applies the filters to the URL and triggers a re-fetch of the data.
    */
@@ -124,6 +131,23 @@ export function BuildFilters({
       }
     }
 
+    if (isEqual(newFilters.fusions, defaultFilters.fusions)) {
+      params.delete(fusionFilter.buildFilterKey);
+    } else {
+      const paramValues = newFilters.fusions
+        .filter((fusion) => fusion.state !== 'default')
+        .map((fusion) => {
+          return fusion.state === 'excluded'
+            ? `${EXCLUDE_ITEM_SYMBOL}${fusion.value}`
+            : fusion.value;
+        });
+      if (paramValues.length > 0) {
+        params.set(fusionFilter.buildFilterKey, paramValues.join(','));
+      } else {
+        params.delete(fusionFilter.buildFilterKey);
+      }
+    }
+
     if (isEqual(newFilters.handGuns, defaultFilters.handGuns)) {
       params.delete(handGunFilter.buildFilterKey);
     } else {
@@ -138,6 +162,28 @@ export function BuildFilters({
         params.set(handGunFilter.buildFilterKey, paramValues.join(','));
       } else {
         params.delete(handGunFilter.buildFilterKey);
+      }
+    }
+
+    if (
+      isEqual(newFilters.legendaryFragments, defaultFilters.legendaryFragments)
+    ) {
+      params.delete(legendaryFragmentFilter.buildFilterKey);
+    } else {
+      const paramValues = newFilters.legendaryFragments
+        .filter((legendaryFragment) => legendaryFragment.state !== 'default')
+        .map((legendaryFragment) => {
+          return legendaryFragment.state === 'excluded'
+            ? `${EXCLUDE_ITEM_SYMBOL}${legendaryFragment.value}`
+            : legendaryFragment.value;
+        });
+      if (paramValues.length > 0) {
+        params.set(
+          legendaryFragmentFilter.buildFilterKey,
+          paramValues.join(','),
+        );
+      } else {
+        params.delete(legendaryFragmentFilter.buildFilterKey);
       }
     }
 
@@ -175,6 +221,40 @@ export function BuildFilters({
       }
     }
 
+    if (isEqual(newFilters.mods, defaultFilters.mods)) {
+      params.delete(modFilter.buildFilterKey);
+    } else {
+      const paramValues = newFilters.mods
+        .filter((mod) => mod.state !== 'default')
+        .map((mod) => {
+          return mod.state === 'excluded'
+            ? `${EXCLUDE_ITEM_SYMBOL}${mod.value}`
+            : mod.value;
+        });
+      if (paramValues.length > 0) {
+        params.set(modFilter.buildFilterKey, paramValues.join(','));
+      } else {
+        params.delete(modFilter.buildFilterKey);
+      }
+    }
+
+    if (isEqual(newFilters.mutators, defaultFilters.mutators)) {
+      params.delete(mutatorFilter.buildFilterKey);
+    } else {
+      const paramValues = newFilters.mutators
+        .filter((mutator) => mutator.state !== 'default')
+        .map((mutator) => {
+          return mutator.state === 'excluded'
+            ? `${EXCLUDE_ITEM_SYMBOL}${mutator.value}`
+            : mutator.value;
+        });
+      if (paramValues.length > 0) {
+        params.set(mutatorFilter.buildFilterKey, paramValues.join(','));
+      } else {
+        params.delete(mutatorFilter.buildFilterKey);
+      }
+    }
+
     if (isEqual(newFilters.releases, defaultFilters.releases)) {
       params.delete('releases');
     } else {
@@ -206,6 +286,23 @@ export function BuildFilters({
         params.set(relicFilter.buildFilterKey, paramValues.join(','));
       } else {
         params.delete(relicFilter.buildFilterKey);
+      }
+    }
+
+    if (isEqual(newFilters.relicFragments, defaultFilters.relicFragments)) {
+      params.delete(relicFragmentFilter.buildFilterKey);
+    } else {
+      const paramValues = newFilters.relicFragments
+        .filter((relicFragment) => relicFragment.state !== 'default')
+        .map((relicFragment) => {
+          return relicFragment.state === 'excluded'
+            ? `${EXCLUDE_ITEM_SYMBOL}${relicFragment.value}`
+            : relicFragment.value;
+        });
+      if (paramValues.length > 0) {
+        params.set(relicFragmentFilter.buildFilterKey, paramValues.join(','));
+      } else {
+        params.delete(relicFragmentFilter.buildFilterKey);
       }
     }
 
@@ -246,6 +343,23 @@ export function BuildFilters({
         params.set(skillFilter.buildFilterKey, paramValues.join(','));
       } else {
         params.delete(skillFilter.buildFilterKey);
+      }
+    }
+
+    if (isEqual(newFilters.traits, defaultFilters.traits)) {
+      params.delete(traitFilter.buildFilterKey);
+    } else {
+      const paramValues = newFilters.traits
+        .filter((trait) => trait.state !== 'default')
+        .map((trait) => {
+          return trait.state === 'excluded'
+            ? `${EXCLUDE_ITEM_SYMBOL}${trait.value}`
+            : trait.value;
+        });
+      if (paramValues.length > 0) {
+        params.set(traitFilter.buildFilterKey, paramValues.join(','));
+      } else {
+        params.delete(traitFilter.buildFilterKey);
       }
     }
 
@@ -458,6 +572,79 @@ export function BuildFilters({
                   />
                 </BaseField>
                 <BaseField
+                  id="relic-fragment-filter"
+                  className="col-span-full sm:col-span-1"
+                >
+                  <FilterListbox
+                    options={unappliedFilters.relicFragments}
+                    label={relicFragmentFilter.label}
+                    onBlur={() => {
+                      if (
+                        !isEqual(
+                          unappliedFilters.relicFragments,
+                          filters.relicFragments,
+                        )
+                      ) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(newValues) => {
+                      const newFilters: BuildFilterFields = {
+                        ...unappliedFilters,
+                        relicFragments: newValues,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  />
+                </BaseField>
+                <BaseField
+                  id="fusion-filter"
+                  className="col-span-full sm:col-span-1"
+                >
+                  <FilterListbox
+                    options={unappliedFilters.fusions}
+                    label={fusionFilter.label}
+                    onBlur={() => {
+                      if (!isEqual(unappliedFilters.fusions, filters.fusions)) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(newValues) => {
+                      const newFilters: BuildFilterFields = {
+                        ...unappliedFilters,
+                        fusions: newValues,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  />
+                </BaseField>
+                <BaseField
+                  id="legendary-fragment-filter"
+                  className="col-span-full sm:col-span-1"
+                >
+                  <FilterListbox
+                    options={unappliedFilters.legendaryFragments}
+                    label={legendaryFragmentFilter.label}
+                    onBlur={() => {
+                      if (
+                        !isEqual(
+                          unappliedFilters.legendaryFragments,
+                          filters.legendaryFragments,
+                        )
+                      ) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(newValues) => {
+                      const newFilters: BuildFilterFields = {
+                        ...unappliedFilters,
+                        legendaryFragments: newValues,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  />
+                </BaseField>
+                <BaseField
                   id="long-guns-filter"
                   className="col-span-full sm:col-span-1"
                 >
@@ -519,6 +706,71 @@ export function BuildFilters({
                       const newFilters: BuildFilterFields = {
                         ...unappliedFilters,
                         melees: newValues,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  />
+                </BaseField>
+                <BaseField
+                  id="mod-filter"
+                  className="col-span-full sm:col-span-1"
+                >
+                  <FilterListbox
+                    options={unappliedFilters.mods}
+                    label="Mods"
+                    onBlur={() => {
+                      if (!isEqual(unappliedFilters.mods, filters.mods)) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(newValues) => {
+                      const newFilters: BuildFilterFields = {
+                        ...unappliedFilters,
+                        mods: newValues,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  />
+                </BaseField>
+                <BaseField
+                  id="mutator-filter"
+                  className="col-span-full sm:col-span-1"
+                >
+                  <FilterListbox
+                    options={unappliedFilters.mutators}
+                    label="Mutators"
+                    onBlur={() => {
+                      if (
+                        !isEqual(unappliedFilters.mutators, filters.mutators)
+                      ) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(newValues) => {
+                      const newFilters: BuildFilterFields = {
+                        ...unappliedFilters,
+                        mutators: newValues,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  />
+                </BaseField>
+                <BaseField
+                  id="trait-filter"
+                  className="col-span-full sm:col-span-1"
+                >
+                  <FilterListbox
+                    options={unappliedFilters.traits}
+                    label={traitFilter.label}
+                    onBlur={() => {
+                      if (!isEqual(unappliedFilters.traits, filters.traits)) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(newValues) => {
+                      const newFilters: BuildFilterFields = {
+                        ...unappliedFilters,
+                        traits: newValues,
                       };
                       setUnappliedFilters(newFilters);
                     }}

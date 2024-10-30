@@ -2,7 +2,7 @@ import { type BuildTag } from '@/app/(builds)/_types/build-tag';
 
 export const ALL_BUILD_TAGS: BuildTag[] = [
   {
-    label: 'Easy to Play',
+    label: 'Easy to play',
     value: 'EasyToPlay',
     category: 'Tag',
     // TODO
