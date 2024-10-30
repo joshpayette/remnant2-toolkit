@@ -2,8 +2,6 @@ import { DescriptionWithTokens } from '@/app/_components/description-with-tokens
 import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
 import { incrementViewCount } from '@/app/(builds)/_actions/increment-view-count';
-import { dbBuildToBuildVariants } from '@/app/(builds)/_libs/db-build-to-build-variants';
-import { ViewBuildContainer } from '@/app/(builds)/builder/[buildId]/_components/view-build-container';
 
 export default async function Page({
   params: { buildId },

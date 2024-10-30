@@ -7,7 +7,7 @@ import type { BuildFilterFields } from '@/app/(builds)/_features/filters/_types/
 import { FavoritedBuildsList } from '@/app/(user)/profile/[profileId]/favorited-builds/_components/favorited-builds-list';
 
 const buildFiltersOverrides: Partial<BuildFilterFields> = {
-  patchAffected: 'true',
+  withPatchAffected: true,
 };
 
 export function FavoritedBuilds() {

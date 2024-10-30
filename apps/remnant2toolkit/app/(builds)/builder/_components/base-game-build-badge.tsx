@@ -1,11 +1,6 @@
 import { getImageUrl, Tooltip } from '@repo/ui';
-import Image from 'next/image';
 
-export function BaseGameBuildBadge({
-  unoptimized = false,
-}: {
-  unoptimized?: boolean;
-}) {
+export function BaseGameBuildBadge() {
   return (
     <Tooltip content={`Denotes a base game build.`}>
       <button aria-label="Badge denoting the build is a base game build.">

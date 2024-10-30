@@ -2,9 +2,9 @@
 
 import { type Prisma, prisma } from '@repo/db';
 
-import type { PercentageOwned } from '@/app/(builds)/_features/filters/_components/build-collection-filter';
 import { mainBuildQuery } from '@/app/(builds)/_features/filters/_libs/queries/main-build-query';
 import type { WithCollectionFilterValue } from '@/app/(builds)/_features/filters/_libs/with-collection';
+import type { PercentageOwned } from '@/app/(builds)/_features/filters/_types/percentage-owned';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
 export async function getBuildList({

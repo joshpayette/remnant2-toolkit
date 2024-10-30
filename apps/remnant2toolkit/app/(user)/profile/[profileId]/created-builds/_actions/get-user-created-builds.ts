@@ -4,38 +4,29 @@ import { Prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
 import { getBuildList } from '@/app/(builds)/_actions/get-build-list';
-import { getOrderBySegment } from '@/app/(builds)/_features/filters/_libs/get-order-by';
-import {
-  amuletFilterToId,
-  limitByAmuletSegment,
-} from '@/app/(builds)/_features/filters/_libs/limit-by-amulet';
-import {
-  archetypeFiltersToIds,
-  limitByArchetypesSegment,
-} from '@/app/(builds)/_features/filters/_libs/limit-by-archetypes';
-import {
-  buildTagsFilterToValues,
-  limitByBuildTagsSegment,
-} from '@/app/(builds)/_features/filters/_libs/limit-by-build-tags';
-import { limitByFeatured } from '@/app/(builds)/_features/filters/_libs/limit-by-featured';
-import { limitByPatchAffected } from '@/app/(builds)/_features/filters/_libs/limit-by-patch-affected';
-import { limitToQualityBuilds } from '@/app/(builds)/_features/filters/_libs/limit-by-quality';
-import { limitByReferenceLink } from '@/app/(builds)/_features/filters/_libs/limit-by-reference-link';
-import { limitByReleasesSegment } from '@/app/(builds)/_features/filters/_libs/limit-by-release';
-import {
-  limitByRelicSegment,
-  relicFilterToId,
-} from '@/app/(builds)/_features/filters/_libs/limit-by-relic';
-import {
-  limitByRingsSegment,
-  ringsFilterToIds,
-} from '@/app/(builds)/_features/filters/_libs/limit-by-rings';
-import { limitByTimeConditionSegment } from '@/app/(builds)/_features/filters/_libs/limit-by-time-condition';
-import { limitToBuildsWithVideo } from '@/app/(builds)/_features/filters/_libs/limit-by-video';
-import {
-  limitByWeaponsSegment,
-  weaponFiltersToIds,
-} from '@/app/(builds)/_features/filters/_libs/limit-by-weapons';
+import { limitByAmuletSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/amulets';
+import { limitByArchetypesSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/archetypes';
+import { limitByBuildTagsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/build-tags';
+import { limitByFeatured } from '@/app/(builds)/_features/filters/_libs/queries/segments/featured';
+import { limitByFusionsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/fusions';
+import { limitByHandGunSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/hand-guns';
+import { limitByLegendaryFragmentsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/legendary-fragments';
+import { limitByLongGunSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/long-guns';
+import { limitByMeleeSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/melees';
+import { limitByModsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/mods';
+import { limitByMutatorsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/mutators';
+import { getOrderBySegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/order-by';
+import { limitByReleaseSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/releases';
+import { limitByRelicSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/relic';
+import { limitByRelicFragmentsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/relic-fragments';
+import { limitByRingsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/rings';
+import { limitBySkillsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/skills';
+import { limitByTimeConditionSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/time-condition';
+import { limitByTraitsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/traits';
+import { limitByWithPatchAffectedSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-patch-affected';
+import { limitByWithQualityBuildsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-quality';
+import { limitByWithReferenceSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-reference';
+import { limitByWithVideoSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-video';
 import { type ProfileBuildListRequest } from '@/app/(builds)/_types/build-list-request';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
@@ -43,7 +34,7 @@ import { getSession } from '@/app/(user)/_auth/services/sessionService';
 export type UserCreatedBuildsFilter = 'date created' | 'upvotes';
 
 export async function getUserCreatedBuilds({
-  buildListFilters,
+  buildFilterFields,
   buildVisibility = 'public',
   featuredBuildsOnly,
   itemsPerPage,
@@ -55,24 +46,29 @@ export async function getUserCreatedBuilds({
   const session = await getSession();
 
   const {
-    amulet,
+    amulets,
     archetypes,
     buildTags,
-    handGun,
-    longGun,
-    melee,
-    relic,
+    fusions,
+    handGuns,
+    legendaryFragments,
+    longGuns,
+    melees,
+    mutators,
+    mods,
+    releases,
+    relics,
+    relicFragments,
     rings,
     searchText,
-    releases,
-    patchAffected,
+    skills,
+    traits,
     withCollection,
-    withVideo,
-    withReference,
+    withPatchAffected,
     withQuality,
-  } = buildListFilters;
-
-  if (releases.length === 0) return { builds: [] };
+    withReference,
+    withVideo,
+  } = buildFilterFields;
 
   // If the user is not the owner of the profile, only show public builds
   // If the user is the owner of the profile, show all builds based on buildVisibility filter
@@ -92,27 +88,30 @@ export async function getUserCreatedBuilds({
   }
 
   const whereConditions = Prisma.sql`
-  WHERE Build.createdById = ${profileId}
-  ${isPublicSegment}
-  ${limitByAmuletSegment(amuletFilterToId({ amulet }))}
-  ${limitByArchetypesSegment(archetypeFiltersToIds({ archetypes }))}
-  ${limitByBuildTagsSegment(buildTagsFilterToValues(buildTags))}
-  ${limitByReleasesSegment(releases)}
-  ${limitByRelicSegment(relicFilterToId({ relic }))}
-  ${limitByRingsSegment(ringsFilterToIds({ rings }))}
-  ${limitByTimeConditionSegment(timeRange)}
-  ${limitByWeaponsSegment(
-    weaponFiltersToIds({
-      longGun,
-      handGun,
-      melee,
-    }),
-  )}
-  ${limitByReferenceLink(withReference)}
-  ${limitToBuildsWithVideo(withVideo)}
-  ${limitByPatchAffected(patchAffected)}
-  ${limitToQualityBuilds(withQuality)}
-  ${limitByFeatured(featuredBuildsOnly)}
+    WHERE Build.createdById = ${profileId}
+    ${isPublicSegment}
+    ${limitByFeatured(featuredBuildsOnly)}
+    ${limitByArchetypesSegment(archetypes)}
+    ${limitByAmuletSegment(amulets)}
+    ${limitByBuildTagsSegment(buildTags)}
+    ${limitByFusionsSegment(fusions)}
+    ${limitByHandGunSegment(handGuns)}
+    ${limitByLegendaryFragmentsSegment(legendaryFragments)}
+    ${limitByLongGunSegment(longGuns)}
+    ${limitByMeleeSegment(melees)}
+    ${limitByModsSegment(mods)}
+    ${limitByMutatorsSegment(mutators)}
+    ${limitByReleaseSegment(releases)}
+    ${limitByRelicSegment(relics)}
+    ${limitByRelicFragmentsSegment(relicFragments)}
+    ${limitByRingsSegment(rings)}
+    ${limitBySkillsSegment(skills)}
+    ${limitByTimeConditionSegment(timeRange)}
+    ${limitByTraitsSegment(traits)}
+    ${limitByWithPatchAffectedSegment(withPatchAffected)}
+    ${limitByWithQualityBuildsSegment(withQuality)}
+    ${limitByWithReferenceSegment(withReference)}
+    ${limitByWithVideoSegment(withVideo)}
   `;
 
   const orderBySegment = getOrderBySegment(orderBy);
@@ -123,10 +122,10 @@ export async function getUserCreatedBuilds({
       itemsPerPage,
       orderBy: orderBySegment,
       pageNumber,
-      percentageOwned: withCollection,
       searchText,
       userId: profileId,
       whereConditions,
+      withCollection,
     });
 
     return bigIntFix({

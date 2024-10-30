@@ -2,6 +2,7 @@ import { type ReadonlyURLSearchParams } from 'next/navigation';
 
 import { VALID_RELEASE_KEYS } from '@/app/_components/releases-filter';
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
+import type { ReleaseKey } from '@/app/_types/releases';
 import { ALL_BOSSES } from '@/app/(enemies)/world-save-archive/_constants/all-bosses';
 import { WORLD_SAVE_FILTER_KEYS } from '@/app/(enemies)/world-save-archive/_constants/world-save-filter-keys';
 import { type WorldSaveFilters } from '@/app/(enemies)/world-save-archive/_types';
@@ -44,7 +45,7 @@ export function parseUrlFilters(
     releases = VALID_RELEASE_KEYS;
   } else {
     releases = releases.filter((release) =>
-      VALID_RELEASE_KEYS.includes(release),
+      VALID_RELEASE_KEYS.includes(release as ReleaseKey),
     );
     // If no releases, set to default
     if (releases.length === 0) {

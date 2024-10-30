@@ -1,6 +1,6 @@
 import { Prisma, prisma } from '@repo/db';
 
-import { type PercentageOwned } from '@/app/(builds)/_features/filters/build-collection-filter';
+import type { PercentageOwned } from '@/app/(builds)/_features/filters/_types/percentage-owned';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
 const EXCLUDED_CATEGORIES = [

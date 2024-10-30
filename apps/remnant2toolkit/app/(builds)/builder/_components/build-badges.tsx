@@ -10,10 +10,9 @@ import { BeginnerBuildBadge } from './beginner-build-badge';
 
 interface Props {
   buildState: BuildState;
-  isScreenshotMode?: boolean;
 }
 
-export function BuildBadges({ buildState, isScreenshotMode = false }: Props) {
+export function BuildBadges({ buildState }: Props) {
   const {
     hasBaseGameBadge,
     hasNewBadge,
@@ -26,25 +25,12 @@ export function BuildBadges({ buildState, isScreenshotMode = false }: Props) {
 
   return (
     <>
-      {hasNewBadge ? <NewBuildBadge unoptimized={isScreenshotMode} /> : null}
-      {hasPopularBadge ? (
-        <PopularBuildBadge
-          level={popularLevel}
-          unoptimized={isScreenshotMode}
-        />
-      ) : null}
-      {hasFeaturedBadge ? (
-        <FeaturedBuildBadge unoptimized={isScreenshotMode} />
-      ) : null}
-      {hasGimmickBadge ? (
-        <GimmickBuildBadge unoptimized={isScreenshotMode} />
-      ) : null}
-      {hasBeginnerBadge ? (
-        <BeginnerBuildBadge unoptimized={isScreenshotMode} />
-      ) : null}
-      {hasBaseGameBadge ? (
-        <BaseGameBuildBadge unoptimized={isScreenshotMode} />
-      ) : null}
+      {hasNewBadge ? <NewBuildBadge /> : null}
+      {hasPopularBadge ? <PopularBuildBadge level={popularLevel} /> : null}
+      {hasFeaturedBadge ? <FeaturedBuildBadge /> : null}
+      {hasGimmickBadge ? <GimmickBuildBadge /> : null}
+      {hasBeginnerBadge ? <BeginnerBuildBadge /> : null}
+      {hasBaseGameBadge ? <BaseGameBuildBadge /> : null}
     </>
   );
 }

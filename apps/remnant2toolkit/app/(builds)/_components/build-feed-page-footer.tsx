@@ -16,7 +16,7 @@ export function BuildFeedPageFooter({ children }: Props) {
 
   const isWithQualityParam =
     searchParams.get(withQualityFilter.buildFilterKey) || true;
-  let isWithQuality: boolean = withQualityFilter.defaultValue === 'true';
+  let isWithQuality: boolean = withQualityFilter.defaultValue === true;
   if (typeof isWithQualityParam === 'string') {
     isWithQuality = isWithQualityParam === 'true';
   }

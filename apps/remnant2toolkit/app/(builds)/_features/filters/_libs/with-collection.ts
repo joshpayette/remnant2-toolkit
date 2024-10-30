@@ -1,4 +1,4 @@
-import type { PercentageOwned } from '@/app/(builds)/_features/filters/_components/build-collection-filter';
+import type { PercentageOwned } from '@/app/(builds)/_features/filters/_types/percentage-owned';
 
 import { type FilterDefinition } from '../_types/filter-definition';
 

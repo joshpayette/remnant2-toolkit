@@ -658,10 +658,7 @@ export function Builder({
           )}
           {hasAnyBadge && (
             <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 translate-y-1/2 transform items-center justify-center gap-x-2">
-              <BuildBadges
-                buildState={buildState}
-                isScreenshotMode={isScreenshotMode}
-              />
+              <BuildBadges buildState={buildState} />
             </div>
           )}
         </div>

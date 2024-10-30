@@ -2,7 +2,7 @@ import { Prisma, prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
 import { BuildCard } from '@/app/(builds)/_components/build-card';
-import { communityBuildsQuery } from '@/app/(builds)/_features/filters/_libs/community-builds';
+import { mainBuildQuery } from '@/app/(builds)/_features/filters/_libs/queries/main-build-query';
 
 export const maxDuration = 60;
 
@@ -23,7 +23,7 @@ async function getCreatedBuilds(profileId: string) {
   const orderBySegment = Prisma.sql`ORDER BY totalUpvotes DESC`;
 
   const [topBuildsAllTime, topBuildsCurrent] = await Promise.all([
-    communityBuildsQuery({
+    mainBuildQuery({
       includeBuildVariants: false,
       userId: profileId,
       itemsPerPage: itemsToFetch,
@@ -33,7 +33,7 @@ async function getCreatedBuilds(profileId: string) {
       searchText: '',
       percentageOwned: 0,
     }),
-    communityBuildsQuery({
+    mainBuildQuery({
       includeBuildVariants: false,
       userId: profileId,
       itemsPerPage: itemsToFetch,
