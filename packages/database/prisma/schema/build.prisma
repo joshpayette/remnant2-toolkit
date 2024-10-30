@@ -98,21 +98,32 @@ model BuildValidatedViews {
 }
 
 enum BUILD_TAG {
+  EasyToPlay
   Melee
-  Ranged
   Mods
+  Ranged
   Skills
   StatusEffects
-  Tank
   Support
+  Tank
+  BaseGame
+  Beginner
+  BossRush
+  Gimmick
+}
+
+enum BUILD_TAG_CATEGORY {
+  Type
+  Tag
 }
 
 // TODO Make this non-plural
 model BuildTags {
-  id        String    @id @default(cuid())
-  createdAt DateTime  @default(now())
-  updatedAt DateTime? @updatedAt
-  build     Build     @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  id        String             @id @default(cuid())
+  createdAt DateTime           @default(now())
+  updatedAt DateTime?          @updatedAt
+  category  BUILD_TAG_CATEGORY @default(Tag)
+  build     Build              @relation(fields: [buildId], references: [id], onDelete: Cascade)
   buildId   String
   tag       BUILD_TAG
 

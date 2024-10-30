@@ -7,8 +7,8 @@ import type { BuildFilterFields } from '@/app/(builds)/_features/filters/_types/
 import { FeaturedBuildsList } from '@/app/(user)/profile/[profileId]/featured-builds/_components/featured-builds-list';
 
 const defaultFiltersOverrides: Partial<BuildFilterFields> = {
-  patchAffected: 'true',
-  withQuality: 'false',
+  withPatchAffected: true,
+  withQuality: false,
 };
 
 interface Props {

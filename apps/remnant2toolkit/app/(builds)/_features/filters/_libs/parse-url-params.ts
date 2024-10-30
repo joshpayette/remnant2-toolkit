@@ -1,23 +1,66 @@
-import type { FilterOption } from '@repo/ui';
 import type { ReadonlyURLSearchParams } from 'next/navigation';
 
 import { EXCLUDE_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
 import { ALL_RELEASE_KEYS } from '@/app/_constants/releases';
+import { ALL_BUILD_TAGS } from '@/app/(builds)/_constants/all-build-tags';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
-import { amuletFilter } from '@/app/(builds)/_features/filters/_libs/amulet-filter';
-import { archetypeFilter } from '@/app/(builds)/_features/filters/_libs/archetype-filter';
-import { handGunFilter } from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
-import { longGunFilter } from '@/app/(builds)/_features/filters/_libs/long-gun-filter';
-import { meleeFilter } from '@/app/(builds)/_features/filters/_libs/melee-filter';
-import { releasesFilter } from '@/app/(builds)/_features/filters/_libs/releases-filter';
-import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
-import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
+import {
+  amuletFilter,
+  type AmuletFilterValue,
+} from '@/app/(builds)/_features/filters/_libs/amulet-filter';
+import {
+  archetypeFilter,
+  type ArchetypeFilterValue,
+} from '@/app/(builds)/_features/filters/_libs/archetype-filter';
+import {
+  buildTagFilter,
+  type BuildTagFilterValue,
+} from '@/app/(builds)/_features/filters/_libs/build-tag-filter';
+import {
+  handGunFilter,
+  type HandGunFilterValue,
+} from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
+import {
+  longGunFilter,
+  type LongGunFilterValue,
+} from '@/app/(builds)/_features/filters/_libs/long-gun-filter';
+import {
+  meleeFilter,
+  type MeleeFilterValue,
+} from '@/app/(builds)/_features/filters/_libs/melee-filter';
+import {
+  releasesFilter,
+  type ReleasesFilterValue,
+} from '@/app/(builds)/_features/filters/_libs/releases-filter';
+import {
+  relicFilter,
+  type RelicFilterValue,
+} from '@/app/(builds)/_features/filters/_libs/relic-filter';
+import {
+  ringFilter,
+  type RingFilterValue,
+} from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
-import { withCollectionFilter } from '@/app/(builds)/_features/filters/_libs/with-collection';
-import { withPatchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/with-patch-affected-filter';
-import { withQualityFilter } from '@/app/(builds)/_features/filters/_libs/with-quality-filter';
-import { withReferenceFilter } from '@/app/(builds)/_features/filters/_libs/with-reference-filter';
-import { withVideoFilter } from '@/app/(builds)/_features/filters/_libs/with-video-filter';
+import {
+  withCollectionFilter,
+  type WithCollectionFilterValue,
+} from '@/app/(builds)/_features/filters/_libs/with-collection';
+import {
+  withPatchAffectedFilter,
+  type WithPatchAffectedFilterValue,
+} from '@/app/(builds)/_features/filters/_libs/with-patch-affected-filter';
+import {
+  withQualityFilter,
+  type WithQualityFilterValue,
+} from '@/app/(builds)/_features/filters/_libs/with-quality-filter';
+import {
+  withReferenceFilter,
+  type WithReferenceFilterValue,
+} from '@/app/(builds)/_features/filters/_libs/with-reference-filter';
+import {
+  withVideoFilter,
+  type WithVideoFilterValue,
+} from '@/app/(builds)/_features/filters/_libs/with-video-filter';
 import type { BuildFilterFields } from '@/app/(builds)/_features/filters/_types/build-filter-fields';
 import { amuletItems } from '@/app/(items)/_constants/amulet-items';
 import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
@@ -42,6 +85,10 @@ export function parseUrlParams({
 
   const amuletsParam = parsedParams
     .get(amuletFilter.buildFilterKey)
+    ?.split(',');
+
+  const buildTagsParam = parsedParams
+    .get(buildTagFilter.buildFilterKey)
     ?.split(',');
 
   const handGunsParam = parsedParams
@@ -78,7 +125,7 @@ export function parseUrlParams({
     withReferenceFilter.buildFilterKey,
   );
 
-  let archetypes: FilterOption[] = [...defaultFilters.archetypes];
+  let archetypes: ArchetypeFilterValue = [...defaultFilters.archetypes];
   if (archetypesParam) {
     for (const archetypeId of archetypesParam) {
       const cleanArchetypeId = archetypeId.replace(EXCLUDE_ITEM_SYMBOL, '');
@@ -112,7 +159,7 @@ export function parseUrlParams({
     }
   }
 
-  let amulets: FilterOption[] = [...defaultFilters.amulets];
+  let amulets: AmuletFilterValue = [...defaultFilters.amulets];
   if (amuletsParam) {
     for (const amuletId of amuletsParam) {
       const cleanAmuletId = amuletId.replace(EXCLUDE_ITEM_SYMBOL, '');
@@ -144,7 +191,41 @@ export function parseUrlParams({
     }
   }
 
-  let handGuns: FilterOption[] = [...defaultFilters.handGuns];
+  let buildTags: BuildTagFilterValue = [...defaultFilters.buildTags];
+  if (buildTagsParam) {
+    for (const buildTagId of buildTagsParam) {
+      const cleanBuildTagId = buildTagId.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const buildTagItem = ALL_BUILD_TAGS.find(
+        (item) => item.value === cleanBuildTagId,
+      );
+      if (!buildTagItem) continue;
+
+      // Check if the exclusion symbol is found
+      if (buildTagId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+        buildTags = buildTags.map((buildTag) => {
+          if (buildTag.value === buildTagItem.value) {
+            return {
+              ...buildTag,
+              state: 'excluded',
+            };
+          }
+          return buildTag;
+        });
+      } else {
+        buildTags = buildTags.map((buildTag) => {
+          if (buildTag.value === buildTagItem.value) {
+            return {
+              ...buildTag,
+              state: 'included',
+            };
+          }
+          return buildTag;
+        });
+      }
+    }
+  }
+
+  let handGuns: HandGunFilterValue = [...defaultFilters.handGuns];
   if (handGunsParam) {
     const handGunItems = weaponItems.filter((i) => i.type === 'hand gun');
     for (const handGunId of handGunsParam) {
@@ -179,7 +260,7 @@ export function parseUrlParams({
     }
   }
 
-  let longGuns: FilterOption[] = [...defaultFilters.longGuns];
+  let longGuns: LongGunFilterValue = [...defaultFilters.longGuns];
   if (longGunsParam) {
     const longGunItems = weaponItems.filter((i) => i.type === 'long gun');
     for (const longGunId of longGunsParam) {
@@ -214,7 +295,7 @@ export function parseUrlParams({
     }
   }
 
-  let melees: FilterOption[] = [...defaultFilters.melees];
+  let melees: MeleeFilterValue = [...defaultFilters.melees];
   if (meleeParam) {
     const meleeItems = weaponItems.filter((i) => i.type === 'melee');
     for (const meleeId of meleeParam) {
@@ -247,7 +328,7 @@ export function parseUrlParams({
     }
   }
 
-  let releases: FilterOption[] = [...defaultFilters.releases];
+  let releases: ReleasesFilterValue = [...defaultFilters.releases];
   if (releasesParam) {
     for (const releaseId of releasesParam) {
       const cleanReleaseId = releaseId.replace(EXCLUDE_ITEM_SYMBOL, '');
@@ -281,7 +362,7 @@ export function parseUrlParams({
     }
   }
 
-  let relics: FilterOption[] = [...defaultFilters.relics];
+  let relics: RelicFilterValue = [...defaultFilters.relics];
   if (relicsParam) {
     for (const relicId of relicsParam) {
       const cleanRelicId = relicId.replace(EXCLUDE_ITEM_SYMBOL, '');
@@ -313,7 +394,7 @@ export function parseUrlParams({
     }
   }
 
-  let rings: FilterOption[] = [...defaultFilters.rings];
+  let rings: RingFilterValue = [...defaultFilters.rings];
   if (ringsParam) {
     for (const ringId of ringsParam) {
       const cleanRingId = ringId.replace(EXCLUDE_ITEM_SYMBOL, '');
@@ -345,7 +426,7 @@ export function parseUrlParams({
     }
   }
 
-  let withCollection: number = defaultFilters.withCollection;
+  let withCollection: WithCollectionFilterValue = defaultFilters.withCollection;
   if (withCollectionParam) {
     withCollection = Number(withCollectionParam);
     if (
@@ -357,7 +438,8 @@ export function parseUrlParams({
     }
   }
 
-  let withPatchAffected = defaultFilters.withPatchAffected;
+  let withPatchAffected: WithPatchAffectedFilterValue =
+    defaultFilters.withPatchAffected;
   if (withPatchAffectedParam) {
     if (withPatchAffectedParam === 'true') {
       withPatchAffected = true;
@@ -366,7 +448,7 @@ export function parseUrlParams({
     }
   }
 
-  let withQuality = defaultFilters.withQuality;
+  let withQuality: WithQualityFilterValue = defaultFilters.withQuality;
   if (withQualityParam) {
     if (withQualityParam === 'true') {
       withQuality = true;
@@ -375,7 +457,7 @@ export function parseUrlParams({
     }
   }
 
-  let withVideo = defaultFilters.withVideo;
+  let withVideo: WithVideoFilterValue = defaultFilters.withVideo;
   if (withVideoParam) {
     if (withVideoParam === 'true') {
       withVideo = true;
@@ -384,7 +466,7 @@ export function parseUrlParams({
     }
   }
 
-  let withReference = defaultFilters.withReference;
+  let withReference: WithReferenceFilterValue = defaultFilters.withReference;
   if (withReferenceParam) {
     if (withReferenceParam === 'true') {
       withReference = true;
@@ -398,6 +480,7 @@ export function parseUrlParams({
   return {
     amulets,
     archetypes,
+    buildTags,
     handGuns,
     longGuns,
     melees,

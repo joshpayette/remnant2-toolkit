@@ -1,6 +1,6 @@
 import { Prisma } from '@repo/db';
 
-import type { withReferenceFilter } from '@/app/(builds)/_features/filters/_libs/with-reference-filter';
+import type { WithReferenceFilterValue } from '@/app/(builds)/_features/filters/_libs/with-reference-filter';
 
 export function limitByReferenceSegment(
   withReference: WithReferenceFilterValue,

@@ -1,3 +1,4 @@
+import type { BuildTagFilterValue } from '@/app/(builds)/_features/filters/_libs/build-tag-filter';
 import type { HandGunFilterValue } from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
 import type { LongGunFilterValue } from '@/app/(builds)/_features/filters/_libs/long-gun-filter';
 import type { MeleeFilterValue } from '@/app/(builds)/_features/filters/_libs/melee-filter';
@@ -17,6 +18,7 @@ import { type ArchetypeFilterValue } from '../_libs/archetype-filter';
 export interface BuildFilterFields {
   amulets: AmuletFilterValue;
   archetypes: ArchetypeFilterValue;
+  buildTags: BuildTagFilterValue;
   handGuns: HandGunFilterValue;
   longGuns: LongGunFilterValue;
   melees: MeleeFilterValue;

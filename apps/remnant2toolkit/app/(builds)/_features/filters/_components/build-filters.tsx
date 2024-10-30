@@ -19,6 +19,7 @@ import { EXCLUDE_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import { amuletFilter } from '@/app/(builds)/_features/filters/_libs/amulet-filter';
 import { archetypeFilter } from '@/app/(builds)/_features/filters/_libs/archetype-filter';
+import { buildTagFilter } from '@/app/(builds)/_features/filters/_libs/build-tag-filter';
 import { handGunFilter } from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
 import { longGunFilter } from '@/app/(builds)/_features/filters/_libs/long-gun-filter';
 import { meleeFilter } from '@/app/(builds)/_features/filters/_libs/melee-filter';
@@ -102,6 +103,23 @@ export function BuildFilters({
         params.set(amuletFilter.buildFilterKey, paramValues.join(','));
       } else {
         params.delete(amuletFilter.buildFilterKey);
+      }
+    }
+
+    if (isEqual(newFilters.buildTags, defaultFilters.buildTags)) {
+      params.delete(buildTagFilter.buildFilterKey);
+    } else {
+      const paramValues = newFilters.buildTags
+        .filter((buildTag) => buildTag.state !== 'default')
+        .map((buildTag) => {
+          return buildTag.state === 'excluded'
+            ? `${EXCLUDE_ITEM_SYMBOL}${buildTag.value}`
+            : buildTag.value;
+        });
+      if (paramValues.length > 0) {
+        params.set(buildTagFilter.buildFilterKey, paramValues.join(','));
+      } else {
+        params.delete(buildTagFilter.buildFilterKey);
       }
     }
 
@@ -540,6 +558,26 @@ export function BuildFilters({
                       </BaseListboxOption>
                     ))}
                   </BaseListbox>
+                </BaseField>
+                <BaseField className="col-span-full sm:col-span-1">
+                  <FilterListbox
+                    options={unappliedFilters.buildTags}
+                    label={buildTagFilter.label}
+                    onBlur={() => {
+                      if (
+                        !isEqual(unappliedFilters.buildTags, filters.buildTags)
+                      ) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(newValues) => {
+                      const newFilters: BuildFilterFields = {
+                        ...unappliedFilters,
+                        buildTags: newValues,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  />
                 </BaseField>
               </div>
             </Disclosure.Panel>

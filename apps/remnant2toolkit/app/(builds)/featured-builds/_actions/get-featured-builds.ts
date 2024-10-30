@@ -6,6 +6,7 @@ import { bigIntFix } from '@repo/utils';
 import { getBuildList } from '@/app/(builds)/_actions/get-build-list';
 import { limitByAmuletSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/amulets';
 import { limitByArchetypesSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/archetypes';
+import { limitByBuildTagsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/build-tags';
 import { limitByHandGunSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/hand-guns';
 import { limitByLongGunSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/long-guns';
 import { limitByMeleeSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/melees';
@@ -34,6 +35,7 @@ export async function getFeaturedBuilds({
   const {
     amulets,
     archetypes,
+    buildTags,
     handGuns,
     longGuns,
     melees,
@@ -52,6 +54,7 @@ export async function getFeaturedBuilds({
     AND Build.isFeaturedBuild = true
     ${limitByArchetypesSegment(archetypes)}
     ${limitByAmuletSegment(amulets)}
+    ${limitByBuildTagsSegment(buildTags)}
     ${limitByHandGunSegment(handGuns)}
     ${limitByLongGunSegment(longGuns)}
     ${limitByMeleeSegment(melees)}

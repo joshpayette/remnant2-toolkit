@@ -1,6 +1,6 @@
 import { Prisma } from '@repo/db';
 
-import type { withVideoFilter } from '@/app/(builds)/_features/filters/_libs/with-video-filter';
+import type { WithVideoFilterValue } from '@/app/(builds)/_features/filters/_libs/with-video-filter';
 
 export function limitByWithVideoSegment(
   withVideo: WithVideoFilterValue,
