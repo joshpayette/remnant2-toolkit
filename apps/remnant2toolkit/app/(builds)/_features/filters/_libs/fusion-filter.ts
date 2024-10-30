@@ -7,7 +7,8 @@ import { type FilterDefinition } from '../_types/filter-definition';
 export const fusionFilter = {
   buildFilterKey: 'fusions',
   defaultValue: fusionItems.map((item) => ({
-    label: `${item.name} (${item.description})`,
+    label: item.name,
+    subLabel: item.description,
     value: item.id,
     state: 'default',
   })) as FilterOption[],

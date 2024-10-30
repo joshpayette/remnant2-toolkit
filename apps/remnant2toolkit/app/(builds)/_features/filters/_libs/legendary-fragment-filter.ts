@@ -10,6 +10,7 @@ export const legendaryFragmentFilter = {
   buildFilterKey: 'legendaryFragments',
   defaultValue: items.map((item) => ({
     label: item.name,
+    subLabel: item.description,
     value: item.id,
     state: 'default',
   })) as FilterOption[],

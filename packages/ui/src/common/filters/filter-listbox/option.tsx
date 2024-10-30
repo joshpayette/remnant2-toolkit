@@ -22,7 +22,14 @@ export function Option(props: OptionProps<FilterOption, true>) {
           state={props.data.state}
         />
       </div>
-      <components.Option {...props} />
+      <div className="ui-flex ui-flex-col">
+        <components.Option {...props} />
+        {props.data.subLabel ? (
+          <span className="ui-text-xs ui-text-gray-400">
+            {props.data.subLabel}
+          </span>
+        ) : null}
+      </div>
     </div>
   );
 }

@@ -10,6 +10,7 @@ export const handGunFilter = {
   buildFilterKey: 'handGuns',
   defaultValue: handGunItems.map((item) => ({
     label: item.name,
+    subLabel: item.linkedItems?.mod?.name ?? undefined,
     value: item.id,
     state: 'default',
   })) as FilterOption[],

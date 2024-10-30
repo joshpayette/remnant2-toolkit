@@ -7,6 +7,7 @@ export const modFilter = {
   buildFilterKey: 'mods',
   defaultValue: modItems.map((item) => ({
     label: item.name,
+    subLabel: item.linkedItems?.weapon?.name ?? undefined,
     value: item.id,
     state: 'default',
   })) as FilterOption[],
