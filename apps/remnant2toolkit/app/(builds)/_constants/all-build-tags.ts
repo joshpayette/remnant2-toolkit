@@ -83,7 +83,7 @@ export const ALL_BUILD_TAGS: BuildTag[] = [
     },
   },
   {
-    label: 'BaseGame',
+    label: 'Base Game',
     value: 'BaseGame',
     category: 'Type',
     // TODO

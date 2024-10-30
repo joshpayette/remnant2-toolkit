@@ -232,7 +232,7 @@ export function parseUrlParams({
       const cleanHandGunId = handGunId.replace(EXCLUDE_ITEM_SYMBOL, '');
       const handGunItem = handGunItems.find(
         (item) => item.id === cleanHandGunId,
-      );
+      ); 
       if (!handGunItem) continue;
 
       // Check if the exclusion symbol is found
