@@ -42,6 +42,10 @@ import {
 } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
 import {
+  skillFilter,
+  type SkillFilterValue,
+} from '@/app/(builds)/_features/filters/_libs/skill-filter';
+import {
   withCollectionFilter,
   type WithCollectionFilterValue,
 } from '@/app/(builds)/_features/filters/_libs/with-collection';
@@ -66,6 +70,7 @@ import { amuletItems } from '@/app/(items)/_constants/amulet-items';
 import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
 import { relicItems } from '@/app/(items)/_constants/relic-items';
 import { ringItems } from '@/app/(items)/_constants/ring-items';
+import { skillItems } from '@/app/(items)/_constants/skill-items';
 import { weaponItems } from '@/app/(items)/_constants/weapon-items';
 
 interface Props {
@@ -112,6 +117,8 @@ export function parseUrlParams({
   const searchTextParam =
     parsedParams.get(searchTextFilter.buildFilterKey) ||
     defaultFilters.searchText;
+
+  const skillParam = parsedParams.get(skillFilter.buildFilterKey)?.split(',');
 
   const withCollectionParam = parsedParams.get(
     withCollectionFilter.buildFilterKey,
@@ -232,7 +239,7 @@ export function parseUrlParams({
       const cleanHandGunId = handGunId.replace(EXCLUDE_ITEM_SYMBOL, '');
       const handGunItem = handGunItems.find(
         (item) => item.id === cleanHandGunId,
-      ); 
+      );
       if (!handGunItem) continue;
 
       // Check if the exclusion symbol is found
@@ -426,6 +433,37 @@ export function parseUrlParams({
     }
   }
 
+  let skills: SkillFilterValue = defaultFilters.skills;
+  if (skillParam) {
+    for (const skillId of skillParam) {
+      const cleanSkillId = skillId.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const skillItem = skillItems.find((item) => item.id === cleanSkillId);
+      if (!skillItem) continue;
+
+      if (skillId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+        skills = skills.map((skill) => {
+          if (skill.value === skillItem.id) {
+            return {
+              ...skill,
+              state: 'excluded',
+            };
+          }
+          return skill;
+        });
+      } else {
+        skills = skills.map((skill) => {
+          if (skill.value === skillItem.id) {
+            return {
+              ...skill,
+              state: 'included',
+            };
+          }
+          return skill;
+        });
+      }
+    }
+  }
+
   let withCollection: WithCollectionFilterValue = defaultFilters.withCollection;
   if (withCollectionParam) {
     withCollection = Number(withCollectionParam);
@@ -488,6 +526,7 @@ export function parseUrlParams({
     relics,
     rings,
     searchText,
+    skills,
     withCollection,
     withPatchAffected,
     withQuality,

@@ -27,6 +27,7 @@ import { parseUrlParams } from '@/app/(builds)/_features/filters/_libs/parse-url
 import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
+import { skillFilter } from '@/app/(builds)/_features/filters/_libs/skill-filter';
 import { withCollectionFilter } from '@/app/(builds)/_features/filters/_libs/with-collection';
 import { withPatchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/with-patch-affected-filter';
 import { withReferenceFilter } from '@/app/(builds)/_features/filters/_libs/with-reference-filter';
@@ -231,6 +232,23 @@ export function BuildFilters({
       params.set(searchTextFilter.buildFilterKey, newFilters.searchText);
     }
 
+    if (newFilters.skills === defaultFilters.skills) {
+      params.delete(skillFilter.buildFilterKey);
+    } else {
+      const paramValues = newFilters.skills
+        .filter((skill) => skill.state !== 'default')
+        .map((skill) => {
+          return skill.state === 'excluded'
+            ? `${EXCLUDE_ITEM_SYMBOL}${skill.value}`
+            : skill.value;
+        });
+      if (paramValues.length > 0) {
+        params.set(skillFilter.buildFilterKey, paramValues.join(','));
+      } else {
+        params.delete(skillFilter.buildFilterKey);
+      }
+    }
+
     if (newFilters.withCollection === defaultFilters.withCollection) {
       params.delete(withCollectionFilter.buildFilterKey);
     } else {
@@ -350,6 +368,27 @@ export function BuildFilters({
                       const newFilters: BuildFilterFields = {
                         ...unappliedFilters,
                         archetypes: newValues,
+                      };
+                      setUnappliedFilters(newFilters);
+                    }}
+                  />
+                </BaseField>
+                <BaseField
+                  id="skills-filter"
+                  className="col-span-full sm:col-span-1"
+                >
+                  <FilterListbox
+                    options={unappliedFilters.skills}
+                    label={skillFilter.label}
+                    onBlur={() => {
+                      if (!isEqual(unappliedFilters.skills, filters.skills)) {
+                        applyUrlFilters(unappliedFilters);
+                      }
+                    }}
+                    onChange={(newValues) => {
+                      const newFilters: BuildFilterFields = {
+                        ...unappliedFilters,
+                        skills: newValues,
                       };
                       setUnappliedFilters(newFilters);
                     }}

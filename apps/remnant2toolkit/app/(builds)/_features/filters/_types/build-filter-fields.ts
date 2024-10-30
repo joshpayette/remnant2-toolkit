@@ -6,6 +6,7 @@ import type { ReleasesFilterValue } from '@/app/(builds)/_features/filters/_libs
 import type { RelicFilterValue } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import type { RingFilterValue } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import type { SearchTextFilterValue } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
+import type { SkillFilterValue } from '@/app/(builds)/_features/filters/_libs/skill-filter';
 import type { WithCollectionFilterValue } from '@/app/(builds)/_features/filters/_libs/with-collection';
 import type { WithPatchAffectedFilterValue } from '@/app/(builds)/_features/filters/_libs/with-patch-affected-filter';
 import type { WithQualityFilterValue } from '@/app/(builds)/_features/filters/_libs/with-quality-filter';
@@ -26,6 +27,7 @@ export interface BuildFilterFields {
   relics: RelicFilterValue;
   rings: RingFilterValue;
   searchText: SearchTextFilterValue;
+  skills: SkillFilterValue;
   withCollection: WithCollectionFilterValue;
   withPatchAffected: WithPatchAffectedFilterValue;
   withQuality: WithQualityFilterValue;

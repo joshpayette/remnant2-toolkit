@@ -14,6 +14,7 @@ import { getOrderBySegment } from '@/app/(builds)/_features/filters/_libs/querie
 import { limitByReleaseSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/releases';
 import { limitByRelicSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/relic';
 import { limitByRingsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/rings';
+import { limitBySkillsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/skills';
 import { limitByTimeConditionSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/time-condition';
 import { limitByPatchAffectedSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-patch-affected';
 import { limitByReferenceSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-reference';
@@ -43,6 +44,7 @@ export async function getFeaturedBuilds({
     relics,
     rings,
     searchText,
+    skills,
     withReference,
     withVideo,
     withPatchAffected,
@@ -63,6 +65,7 @@ export async function getFeaturedBuilds({
     ${limitByReleaseSegment(releases)}
     ${limitByRelicSegment(relics)}
     ${limitByRingsSegment(rings)}
+    ${limitBySkillsSegment(skills)}
     ${limitByTimeConditionSegment(timeRange)}
     ${limitByWithVideoSegment(withVideo)}
   `;

@@ -7,6 +7,7 @@ import { releasesFilter } from '@/app/(builds)/_features/filters/_libs/releases-
 import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
 import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
 import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
+import { skillFilter } from '@/app/(builds)/_features/filters/_libs/skill-filter';
 import { withCollectionFilter } from '@/app/(builds)/_features/filters/_libs/with-collection';
 import { withPatchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/with-patch-affected-filter';
 import { withQualityFilter } from '@/app/(builds)/_features/filters/_libs/with-quality-filter';
@@ -27,6 +28,7 @@ export const DEFAULT_BUILD_FIELDS: BuildFilterFields = {
   relics: relicFilter.defaultValue as BuildFilterFields['relics'],
   rings: ringFilter.defaultValue as BuildFilterFields['rings'],
   searchText: searchTextFilter.defaultValue as BuildFilterFields['searchText'],
+  skills: skillFilter.defaultValue as BuildFilterFields['skills'],
   withCollection:
     withCollectionFilter.defaultValue as BuildFilterFields['withCollection'],
   withPatchAffected:
