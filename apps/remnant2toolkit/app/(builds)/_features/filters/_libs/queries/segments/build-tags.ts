@@ -29,6 +29,8 @@ export function limitByBuildTagsSegment(
     .filter((option) => option.state === 'default')
     .map((option) => option.value);
 
+  console.info('allIncludedBuildTagIds', allIncludedBuildTagIds);
+
   if (
     allIncludedBuildTagIds.length === 0 &&
     allExcludedBuildTagIds.length === 0
@@ -66,7 +68,7 @@ export function limitByBuildTagsSegment(
       SELECT COUNT(*)
       FROM BuildTags
       WHERE BuildTags.buildId = Build.id
-      AND BuildTags.tag = ${allIncludedBuildTagIds[0]}
+      AND BuildTags.tag IN (${Prisma.join(allIncludedBuildTagIds)})
       ${excludeBuildTagIdsQuery}
     )`;
   }
@@ -79,9 +81,11 @@ export function limitByBuildTagsSegment(
       SELECT COUNT(*)
       FROM BuildTags
       WHERE BuildTags.buildId = Build.id
-      AND BuildTags.tag IN (${Prisma.join(allIncludedBuildTagIds)})
-      ${excludeBuildTagIdsQuery}
-    )`;
+      AND BuildTags.tag IN (${Prisma.join(allIncludedBuildTagIds)})) = ${
+        allIncludedBuildTagIds.length
+      }
+     ${excludeBuildTagIdsQuery}
+      `;
   }
 
   // If the total included build tags is greater than or equal to the max allowed build tags
@@ -91,5 +95,5 @@ export function limitByBuildTagsSegment(
     FROM BuildTags
     WHERE BuildTags.buildId = Build.id
     AND BuildTags.tag IN (${Prisma.join(allIncludedBuildTagIds)})
-  ) = ${allIncludedBuildTagIds.length}`;
+  ) = ${MAX_BUILD_TAGS}`;
 }

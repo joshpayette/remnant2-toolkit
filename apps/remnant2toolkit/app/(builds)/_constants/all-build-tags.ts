@@ -2,6 +2,50 @@ import { type BuildTag } from '@/app/(builds)/_types/build-tag';
 
 export const ALL_BUILD_TAGS: BuildTag[] = [
   {
+    label: 'Base Game',
+    value: 'BaseGame',
+    category: 'Type',
+    // TODO
+    colors: {
+      bg: 'bg-blue-400/10',
+      hover: 'hover:bg-blue-400/20',
+      text: 'text-blue-600 dark:text-blue-500',
+    },
+  },
+  {
+    label: 'Beginner',
+    value: 'Beginner',
+    category: 'Type',
+    // TODO
+    colors: {
+      bg: 'bg-green-400/10',
+      hover: 'hover:bg-green-400/20',
+      text: 'text-green-700 dark:text-green-500',
+    },
+  },
+  {
+    label: 'Boss Rush',
+    value: 'BossRush',
+    category: 'Type',
+    // TODO
+    colors: {
+      bg: 'bg-red-400/10',
+      hover: 'hover:bg-red-400/20',
+      text: 'text-red-700 dark:text-red-500',
+    },
+  },
+  {
+    label: 'Gimmick',
+    value: 'Gimmick',
+    category: 'Type',
+    // TODO
+    colors: {
+      bg: 'bg-yellow-400/10',
+      hover: 'hover:bg-yellow-400/20',
+      text: 'text-yellow-700 dark:text-yellow-500',
+    },
+  },
+  {
     label: 'Easy to play',
     value: 'EasyToPlay',
     category: 'Tag',
@@ -80,50 +124,6 @@ export const ALL_BUILD_TAGS: BuildTag[] = [
       bg: 'bg-red-400/10',
       hover: 'hover:bg-red-400/20',
       text: 'text-red-700 dark:text-red-500',
-    },
-  },
-  {
-    label: 'Base Game',
-    value: 'BaseGame',
-    category: 'Type',
-    // TODO
-    colors: {
-      bg: 'bg-blue-400/10',
-      hover: 'hover:bg-blue-400/20',
-      text: 'text-blue-600 dark:text-blue-500',
-    },
-  },
-  {
-    label: 'Beginner',
-    value: 'Beginner',
-    category: 'Type',
-    // TODO
-    colors: {
-      bg: 'bg-green-400/10',
-      hover: 'hover:bg-green-400/20',
-      text: 'text-green-700 dark:text-green-500',
-    },
-  },
-  {
-    label: 'Boss Rush',
-    value: 'BossRush',
-    category: 'Type',
-    // TODO
-    colors: {
-      bg: 'bg-red-400/10',
-      hover: 'hover:bg-red-400/20',
-      text: 'text-red-700 dark:text-red-500',
-    },
-  },
-  {
-    label: 'Gimmick',
-    value: 'Gimmick',
-    category: 'Type',
-    // TODO
-    colors: {
-      bg: 'bg-yellow-400/10',
-      hover: 'hover:bg-yellow-400/20',
-      text: 'text-yellow-700 dark:text-yellow-500',
     },
   },
 ];

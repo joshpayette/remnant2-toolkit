@@ -45,22 +45,19 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
   ).length;
 
   return (
-    <div className="grid grid-cols-2 bg-gray-700/10 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
+    <div className="grid grid-cols-2 bg-gray-700/10 sm:grid-cols-3 md:grid-cols-5">
       <StatBox
         stat={{ name: 'Community Builds', value: communityBuilds }}
-        index={0}
         icon={
           <CommunityBuildsIcon className="text-primary-500 h-[36px] w-[36px]" />
         }
       />
       <StatBox
         stat={{ name: 'Favorites Earned', value: favoritesEarned }}
-        index={1}
         icon={<FavoriteIcon className="text-accent1-500 h-[36px] w-[36px]" />}
       />
       <StatBox
         stat={{ name: `Users' Loadouts`, value: loadoutCounts }}
-        index={2}
         icon={<LoadoutIcon className="text-secondary-500 h-[36px] w-[36px]" />}
       />
       <DiscoveredItemsStatBox
@@ -72,7 +69,6 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
               : discoveredItemIdCount,
           unit: `/ ${TOTAL_TRACKABLE_ITEM_COUNT}`,
         }}
-        index={3}
         isEditable={isEditable}
         icon={<CheckIcon className="h-[36px] w-[36px] text-green-500" />}
       />
@@ -84,12 +80,10 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
               ? 0
               : itemQuizScore?.topItemQuizScore ?? 0,
         }}
-        index={4}
         icon={<QuizIcon className="text-primary-500 h-[36px] w-[36px]" />}
       />
       <StatBox
         stat={{ name: 'Featured Builds', value: featuredBuilds }}
-        index={5}
         icon={
           <img
             src={getImageUrl(`/badges/featured-build-badge.png`)}
@@ -100,7 +94,6 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
       />
       <StatBox
         stat={{ name: 'Gimmick Builds', value: gimmickBuilds }}
-        index={6}
         icon={
           <img
             src={getImageUrl(`/badges/gimmick-build-badge.png`)}
@@ -111,7 +104,6 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
       />
       <StatBox
         stat={{ name: 'Beginner Builds', value: beginnerBuilds }}
-        index={7}
         icon={
           <img
             src={getImageUrl(`/badges/beginner-build-badge.png`)}
@@ -122,7 +114,6 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
       />
       <StatBox
         stat={{ name: 'Base Game Builds', value: baseGameBuilds }}
-        index={8}
         icon={
           <img
             src={getImageUrl(`/badges/base-game-build-badge.png`)}
@@ -139,7 +130,6 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
               ? 0
               : totalBuildsViewCount._sum?.viewCount ?? 0,
         }}
-        index={9}
         icon={<EyeIcon className="text-accent1-500 h-[36px] w-[36px]" />}
       />
     </div>

@@ -82,7 +82,8 @@ export function limitByArchetypesSegment(
       AND BuildItems.itemId IN (${Prisma.join(allIncludedArchetypeIds)})) = ${
         allIncludedArchetypeIds.length
       }
-      ${excludeArchetypeIdsQuery}`;
+      ${excludeArchetypeIdsQuery}
+    `;
   }
 
   // If the total included archetypes is greater than or equal to the max allowed archetypes,
