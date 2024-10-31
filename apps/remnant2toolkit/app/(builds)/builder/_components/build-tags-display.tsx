@@ -61,7 +61,7 @@ export function BuildTagsDisplay({
       )}
       <div
         className={cn(
-          'justify-left mb-4 flex w-full flex-wrap items-center gap-2 sm:justify-start',
+          'justify-left mb-4 flex w-full flex-wrap items-center sm:justify-start',
           !showLabel && 'sm:justify-left justify-center',
         )}
       >
