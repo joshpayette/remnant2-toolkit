@@ -79,6 +79,11 @@ export function BuildFilters({
     return true;
   }, [filters, defaultFilters]);
 
+  const areFiltersApplied = useMemo(() => {
+    if (isEqual(filters, unappliedFilters)) return true;
+    return false;
+  }, [filters, unappliedFilters]);
+
   // #region URL Filters
   /**
    * Applies the filters to the URL and triggers a re-fetch of the data.
@@ -426,7 +431,11 @@ export function BuildFilters({
   // #region Render
   return (
     <FiltersContainer
+      areFiltersApplied={areFiltersApplied}
       areAnyFiltersActive={areAnyFiltersActive}
+      onApplyFilters={() => {
+        applyUrlFilters(unappliedFilters);
+      }}
       onClearFilters={() => {
         applyUrlFilters(defaultFilters);
       }}

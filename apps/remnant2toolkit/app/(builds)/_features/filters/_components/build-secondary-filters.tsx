@@ -19,7 +19,7 @@ export function BuildSecondaryFilters({
   onTimeRangeChange,
 }: Props) {
   return (
-    <div className="flex w-full flex-col items-end justify-end gap-x-2 gap-y-1 sm:flex-row sm:gap-y-0">
+    <div className="mt-8 flex w-full flex-col items-end justify-end gap-x-2 gap-y-1 sm:flex-row sm:gap-y-0">
       <div className="w-full max-w-[250px]">
         <TimeRangeFilter
           value={timeRange}
