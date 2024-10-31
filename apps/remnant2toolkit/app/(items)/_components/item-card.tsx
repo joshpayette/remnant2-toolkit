@@ -7,6 +7,7 @@ import {
   MagnifyMinusIcon,
   MagnifyPlusIcon,
   StatsIcon,
+  Tooltip,
 } from '@repo/ui';
 import { capitalize } from '@repo/utils';
 import copy from 'clipboard-copy';
@@ -16,7 +17,6 @@ import { toast } from 'react-toastify';
 import { useLocalStorage } from 'usehooks-ts';
 
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
-import { Tooltip } from '@/app/_components/tooltip';
 import {
   DEFAULT_ITEM_COMPARE_LIST,
   LOCALSTORAGE_KEY,

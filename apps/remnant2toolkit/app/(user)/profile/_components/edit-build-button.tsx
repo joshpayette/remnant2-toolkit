@@ -1,9 +1,7 @@
 'use client';
 
-import { BaseButton, EditIcon } from '@repo/ui';
+import { BaseButton, EditIcon, Tooltip } from '@repo/ui';
 import { useRouter } from 'next/navigation';
-
-import { Tooltip } from '@/app/_components/tooltip';
 
 export function EditBuildButton({ buildId }: { buildId: string }) {
   const router = useRouter();

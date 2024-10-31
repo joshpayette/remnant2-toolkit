@@ -3,21 +3,15 @@ import { cn } from '@repo/ui';
 interface Props {
   stat: { name: string; value: number; unit?: string };
   icon?: React.ReactNode;
-  index: number;
   footer?: React.ReactNode;
 }
 
-export function StatBox({ stat, icon, index, footer }: Props) {
+export function StatBox({ stat, icon, footer }: Props) {
   return (
     <div
       key={stat.name}
       className={cn(
-        index % 2 === 1
-          ? 'sm:border-l'
-          : index === 2 || index === 4
-            ? 'sm:border-l'
-            : '',
-        'border-surface-solid/5 flex flex-col items-center justify-between border-t px-4 py-6 sm:px-6',
+        'border-surface-solid/5 flex flex-col items-center justify-between border px-4 py-6 sm:px-6',
       )}
     >
       <div className="">{icon ?? null}</div>

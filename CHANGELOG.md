@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-10-31
+
+### Changed
+
+- Reworked the build filters to be more expansive. You can now filter on more categories of items, as well as choose which items to include/exclude. This was a big update, so there may be bugs. Please report them if you see them and I'll address!
+
 ## 2024-10-27
 
 ### Fixed

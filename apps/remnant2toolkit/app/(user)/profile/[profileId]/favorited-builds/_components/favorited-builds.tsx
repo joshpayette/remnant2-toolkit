@@ -2,11 +2,12 @@
 
 import { useRef } from 'react';
 
-import { BuildFilters } from '@/app/(builds)/_features/filters/build-filters';
+import { BuildFilters } from '@/app/(builds)/_features/filters/_components/build-filters';
+import type { BuildFilterFields } from '@/app/(builds)/_features/filters/_types/build-filter-fields';
 import { FavoritedBuildsList } from '@/app/(user)/profile/[profileId]/favorited-builds/_components/favorited-builds-list';
 
-const buildFiltersOverrides = {
-  patchAffected: true,
+const buildFiltersOverrides: Partial<BuildFilterFields> = {
+  withPatchAffected: true,
 };
 
 export function FavoritedBuilds() {
@@ -25,7 +26,7 @@ export function FavoritedBuilds() {
       <div className="flex w-full flex-col items-center justify-center sm:mb-6">
         <BuildFilters
           key="user-favorited-builds-filters"
-          buildFiltersOverrides={buildFiltersOverrides}
+          defaultFilterOverrides={buildFiltersOverrides}
           onFiltersChange={onFiltersChange}
         />
       </div>

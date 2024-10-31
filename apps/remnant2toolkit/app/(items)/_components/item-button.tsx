@@ -7,11 +7,11 @@ import {
   OptionalOffIcon,
   OptionalOnIcon,
   OwnershipIcon,
+  Tooltip,
   ZINDEXES,
 } from '@repo/ui';
 import Image from 'next/image';
 
-import { Tooltip } from '@/app/_components/tooltip';
 import { type Enemy, isEnemy } from '@/app/(enemies)/_types';
 import { ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { type Item } from '@/app/(items)/_types/item';

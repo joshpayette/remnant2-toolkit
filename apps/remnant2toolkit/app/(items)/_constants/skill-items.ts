@@ -1,6 +1,149 @@
 import { type SkillItem } from '@/app/(items)/_types/skill-item';
 
 export const skillItems: SkillItem[] = [
+  // #region Alchemist
+  {
+    category: 'skill',
+    name: 'Vial: Stone Mist',
+    saveFileSlug: 'Skill_AlchemistVial_StoneMist_C',
+    imagePath: '/items/skills/alchemist_stonemist.png',
+    id: 'y7ia9t',
+    dlc: 'base',
+    description:
+      'Creates a mysterious vapor cloud which lasts 10s and applies STONESKIN.\n' +
+      '\n' +
+      'STONESKIN reduces incoming damage by 25%, reduces Stagger by 1, greatly increases Blight Buildup Decay Rate, and makes the target immune to STATUS Effects. Lasts 15s.\n' +
+      '\n' +
+      "PRESS: Slam Vial on the ground, creating the effect at the Alchemist's feet.\n" +
+      '\n' +
+      'HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.',
+    cooldown: 75,
+    externalTokens: [`AOE/Aura`],
+    wikiLinks: [`https://remnant.wiki/Vial:_Stone_Mist`],
+    linkedItems: {
+      archetype: {
+        name: 'Alchemist',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Vial: Frenzy Dust',
+    saveFileSlug: 'Skill_AlchemistVial_FrenzyDust_C',
+    imagePath: '/items/skills/alchemist_frenzydust.png',
+    id: 'xsniv3',
+    dlc: 'base',
+    description:
+      'Creates a mysterious vapor cloud which lasts 10s and applies FRENZIED.\n' +
+      '\n' +
+      'FRENZIED increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.\n' +
+      '\n' +
+      "PRESS: Slam Vial on the ground, creating the effect at the Alchemist's feet.\n" +
+      '\n' +
+      'HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.',
+    cooldown: 75,
+    externalTokens: [`AOE/Aura`],
+    wikiLinks: [`https://remnant.wiki/Vial:_Frenzy_Dust`],
+    linkedItems: {
+      archetype: {
+        name: 'Alchemist',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Vial: Elixir of Life',
+    saveFileSlug: 'Skill_AlchemistVial_ElixirOfLife_C',
+    imagePath: '/items/skills/alchemist_elixiroflife.png',
+    id: '76554i',
+    dlc: 'base',
+    description:
+      'Creates a mysterious vapor cloud which lasts 10s and applies LIVING WILL.\n' +
+      '\n' +
+      'LIVING WILL grants 5 Health Regeneration per second, and protects against fatal damage. Can revive downed players. Lasts 20s.\n' +
+      '\n' +
+      'Revived allies cannot be affected by Living Will for 180s. Resets at Worldstone or on death.\n' +
+      '\n' +
+      "PRESS: Slam Vial on the ground, creating the effect at the Alchemist's feet.\n" +
+      '\n' +
+      'HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.',
+    cooldown: 90,
+    externalTokens: [`AOE/Aura`],
+    wikiLinks: [`https://remnant.wiki/Vial:_Elixir_of_Life`],
+    linkedItems: {
+      archetype: {
+        name: 'Alchemist',
+      },
+    },
+  },
+  // #region Archon
+  {
+    category: 'skill',
+    name: 'Reality Rune',
+    saveFileSlug: 'Skill_RealityRune_C',
+    imagePath: '/items/skills/archon_realityrune.png',
+    id: 'i3ddi7',
+    dlc: 'base',
+    tags: ['Status Effect', 'Damage Reduction'],
+    description: `Conjures a 7m protective dome which applies SLOW to any enemy or enemy projectile. Allies inside gain 25% Damage Reduction and automatically generate 50 Mod Power per second. Lasts 15s.`,
+    cooldown: 75,
+    externalTokens: [`AOE/Aura`],
+    wikiLinks: [`https://remnant.wiki/Reality_Rune`],
+    linkedItems: {
+      archetype: {
+        name: 'Archon',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Chaos Gate',
+    saveFileSlug: 'Skill_ChaosGate_C',
+    imagePath: '/items/skills/archon_chaosgate.png',
+    id: '9w7c5j',
+    dlc: 'base',
+    description:
+      'Conjures a 7m unstable zone which grants stacks of UNBRIDLED CHAOS. Lasts 20s.\n' +
+      '\n' +
+      'UNBRIDLED CHAOS: Allies gain 0.7% to All Damage dealt and receive 0.3% damage taken. Stacks up to 50 times. Lasts 10s.\n' +
+      '\n' +
+      'Having any stacks grants 10% Mod Generation.',
+    cooldown: 85,
+    externalTokens: [`AOE/Aura`],
+    wikiLinks: [`https://remnant.wiki/Chaos_Gate`],
+    linkedItems: {
+      archetype: {
+        name: 'Archon',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Havoc Form',
+    saveFileSlug: 'Skill_HavocForm_C',
+    imagePath: '/items/skills/archon_havocform.png',
+    id: 'y72au6',
+    dlc: 'base',
+    description:
+      'Unleashes the power of the Labyrinth to empower the caster with new abilities. Lasts 30s.\n' +
+      '\n' +
+      'Duration is reduced when Havoc Form special abilities are used.\n' +
+      '\n' +
+      "FIRE: Blasts Lightning Tendrils from the Archon's hand, dealing 48 SHOCK Damage every 0.35s second to targets within 15m.\n" +
+      '\n' +
+      'AIM: Raises a 3m Energy Shield which reduces incoming damage to all allies by 50%.\n' +
+      '\n' +
+      'DODGE: Performs a Blink Evade that deals 150 SHOCK damage to enemies within 5m.',
+    cooldown: 90,
+    externalTokens: [`AOE/Aura`],
+    wikiLinks: [`https://remnant.wiki/Havoc_Form`],
+    linkedItems: {
+      archetype: {
+        name: 'Archon',
+      },
+    },
+  },
+  // #region Challenger
   {
     category: 'skill',
     name: 'War Stomp',
@@ -53,6 +196,192 @@ export const skillItems: SkillItem[] = [
       },
     },
   },
+  // #region Engineer
+  {
+    category: 'skill',
+    name: 'Heavy Weapon: Vulcan',
+    saveFileSlug: 'Skill_Deployable_Gatling_C',
+    imagePath: '/items/skills/engineer_gatling.png',
+    id: 'pgmn4v',
+    dlc: 'base',
+    description:
+      'PRESS: Deploys a Vulcan Cannon Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritize targets that the player Aims at. Press SKILL again to enable autonomous targeting.\n' +
+      '\n' +
+      'HOLD: Deploys to Heavy Carry Mode. If Engineer Prime is available, will Overclock the weapon if already in hand or on the battlefield.\n' +
+      '\n' +
+      'DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining Ammo.\n' +
+      '\n' +
+      'Heavy Weapon Ammo is regenerated by 1.02% every second, and Heavy Weapons can only be deployed if at least 25% Ammo is available.',
+    wikiLinks: [`https://remnant.wiki/Heavy_Weapon:_Vulcan`],
+    linkedItems: {
+      archetype: {
+        name: 'Engineer',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Heavy Weapon: Flamethrower',
+    saveFileSlug: 'Skill_Deployable_FlameThrower_C',
+    imagePath: '/items/skills/engineer_flamethrower.png',
+    id: '6fk8ea',
+    dlc: 'base',
+    description:
+      'PRESS: Deploys a Flamethrower Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritize targets that the player Aims at. Press SKILL again to enable autonomous targeting.\n' +
+      '\n' +
+      'HOLD: Deploys to Heavy Carry Mode. If Engineer Prime is available, will Overclock the weapon if already in hand or on the battlefield.\n' +
+      '\n' +
+      'DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining Ammo.\n' +
+      '\n' +
+      'Heavy Weapon Ammo is regenerated by 1.02% every second, and Heavy Weapons can only be deployed if at least 25% Ammo is available.',
+    externalTokens: [`AOE/Aura`],
+    wikiLinks: [`https://remnant.wiki/Heavy_Weapon:_Flamethrower`],
+    linkedItems: {
+      archetype: {
+        name: 'Engineer',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Heavy Weapon: Impact Cannon',
+    saveFileSlug: 'Skill_Deployable_ImpactCannon_C',
+    imagePath: '/items/skills/engineer_impactcannon.png',
+    id: 'ki92op',
+    dlc: 'base',
+    description:
+      'PRESS: Deploys a Impact Cannon Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritize targets that the player Aims at. Press SKILL again to enable autonomous targeting.\n' +
+      '\n' +
+      'HOLD: Deploys to Heavy Carry Mode. If Engineer Prime is available, will Overclock the weapon if already in hand or on the battlefield.\n' +
+      '\n' +
+      'DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining Ammo.\n' +
+      '\n' +
+      'Heavy Weapon Ammo is regenerated by 1.02% every second, and Heavy Weapons can only be deployed if at least 25% Ammo is available.',
+    externalTokens: [`AOE/Aura`],
+    wikiLinks: [`https://remnant.wiki/Heavy_Weapon:_Impact_Cannon`],
+    linkedItems: {
+      archetype: {
+        name: 'Engineer',
+      },
+    },
+  },
+  // #region Explorer
+  {
+    category: 'skill',
+    name: 'Plainswalker',
+    saveFileSlug: 'Skill_Plainswalker_C',
+    imagePath: '/items/skills/explorer_plainswalker.png',
+    id: 'a585sp',
+    dlc: 'base',
+    description:
+      'Increases Movement Speed by 20% and reduces Stamina Cost by 80% for all allies. Lasts 30s.',
+    cooldown: 60,
+    wikiLinks: [`https://remnant.wiki/Plainswalker`],
+    linkedItems: {
+      archetype: {
+        name: 'Explorer',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Gold Digger',
+    saveFileSlug: 'Skill_GoldDigger_C',
+    imagePath: '/items/skills/explorer_golddigger.png',
+    id: 'a2cik2',
+    dlc: 'base',
+    description:
+      'Dig into the ground to spring a fountain which grants a random buff. Fountains last 45s and their buff lasts 20s.\n' +
+      '\n' +
+      'Fountains can grant either: 10% increased All Damage dealt, 15% Damage Reduction, 2 Health Regeneration per second, or HASTE.',
+    cooldown: 45,
+    externalTokens: [`AOE/Aura`],
+    wikiLinks: [`https://remnant.wiki/Gold_Digger`],
+    linkedItems: {
+      archetype: {
+        name: 'Explorer',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Fortune Hunter',
+    saveFileSlug: 'Skill_FortuneHunter_C',
+    imagePath: '/items/skills/explorer_fortunehunter.png',
+    id: 'dajt58',
+    dlc: 'base',
+    description:
+      "Increases the Explorer's Treasure Sense to reveal special items within 40m for all allies. Lasts 60s.",
+    cooldown: 90,
+    wikiLinks: [`https://remnant.wiki/Fortune_Hunter`],
+    linkedItems: {
+      archetype: {
+        name: 'Explorer',
+      },
+    },
+  },
+  // #region Gunslinger
+  {
+    category: 'skill',
+    name: 'Quick Draw',
+    saveFileSlug: 'Skill_Aimable_QuickDraw_C',
+    imagePath: '/items/skills/gunslinger_quickdraw.png',
+    id: 'qdxjt7',
+    dlc: 'base',
+    description:
+      'Pull out your trusty side piece and upload up to 6 Critical Shots from the hip. Each shot deals 52 base damage and double stagger value.\n' +
+      '\n' +
+      'PRESS: Instantly fires towards all enemies in view within 25m. Upon release, rounds will be divided evenly among all targets.\n' +
+      '\n' +
+      'HOLD & RELEASE: Allows manual Aim and fires one single powerful shot upon release.',
+    cooldown: 40,
+    wikiLinks: [`https://remnant.wiki/Quick_Draw`],
+    linkedItems: {
+      archetype: {
+        name: 'Gunslinger',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Sidewinder',
+    saveFileSlug: 'Skill_Sidewinder_C',
+    imagePath: '/items/skills/gunslinger_sidewinder.png',
+    id: 'jn34u8',
+    dlc: 'base',
+    description:
+      'Calls upon the power of the Desert Sidewinder snake to increase ADS Movement Speed by 50% and Draw/Swap Speed by 35%. Cycling weapons will automatically reload incoming Firearms. When a Weapon Swap provides Ammo to an incoming weapon, Duration is reduced by 6s. Lasts 60s.',
+    cooldown: 50,
+    wikiLinks: [`https://remnant.wiki/Sidewinder`],
+    linkedItems: {
+      archetype: {
+        name: 'Gunslinger',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Bulletstorm',
+    saveFileSlug: 'Skill_Bulletstorm_C',
+    imagePath: '/items/skills/gunslinger_bulletstorm.png',
+    id: 'xpqq62',
+    dlc: 'base',
+    tags: ['Fire Rate', 'Reload Speed', 'Critical Chance', 'Projectile Speed'],
+    description:
+      'Unleashes the full power and speed of the Gunslinger. Increases Fire Rate 20% and Reload Speed 50% of all ranged weapons. Lasts 20s.\n' +
+      '\n' +
+      'Single Shot Weapons become fully-automatic. Kills instantly reload the current weapon.\n' +
+      '\n' +
+      'Instead of becoming fully-automatic, Bows and Crossbows gain 15% Critical Chance and 50% increased Projectile Speed.',
+    cooldown: 60,
+    wikiLinks: [`https://remnant.wiki/Bulletstorm`],
+    linkedItems: {
+      archetype: {
+        name: 'Gunslinger',
+      },
+    },
+  },
+  // #region Handler
   {
     category: 'skill',
     name: 'Guard Dog',
@@ -125,62 +454,7 @@ export const skillItems: SkillItem[] = [
       },
     },
   },
-  {
-    category: 'skill',
-    name: 'Wellspring',
-    saveFileSlug: 'Skill_Wellspring_C',
-    imagePath: '/items/skills/medic_wellspring.png',
-    id: '7vtxrx',
-    dlc: 'base',
-    description:
-      'The Medic channels healing energy into their fist, punching a hole into the ground to create a 3m Healing Spring AOE which restores 10 Health per second and greatly increases Blight Decay Rate. Lasts 15s.',
-    cooldown: 60,
-    externalTokens: [`AOE/Aura`, `Explosive Damage`],
-    wikiLinks: [`https://remnant.wiki/Wellspring`],
-    linkedItems: {
-      archetype: {
-        name: 'Medic',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Healing Shield',
-    saveFileSlug: 'Skill_HealingSurge_C',
-    imagePath: '/items/skills/medic_healingshield.png',
-    id: '8pu6y2',
-    dlc: 'base',
-    description:
-      'The Medic quickly expels healing energy to SHIELD all allies within 25m for 100% of their Max Health for 10s. While shielded, allies regenerate 20% of their Max Health over the duration.',
-    cooldown: 100,
-    externalTokens: [`AOE/Aura`],
-    wikiLinks: [`https://remnant.wiki/Healing_Shield`],
-    linkedItems: {
-      archetype: {
-        name: 'Medic',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Redemption',
-    saveFileSlug: 'Skill_Redemption_C',
-    imagePath: '/items/skills/medic_redemption.png',
-    id: 'zs77cb',
-    dlc: 'base',
-    description:
-      'The Medic unleashes a 30m shockwave that revives downed allies and restores 50% Max Health over 10s. For each additional 1s holding the SKILL button, the heal gains an additional 50% (up to 200% max).\n' +
-      '\n' +
-      'Revived allies will only receive 50% of the healing amount. If revived, allies cannot be revived again by Redemption for another 180s. Resets at Worldstone or on death.',
-    cooldown: 120,
-    externalTokens: [`AOE/Aura`],
-    wikiLinks: [`https://remnant.wiki/Redemption`],
-    linkedItems: {
-      archetype: {
-        name: 'Medic',
-      },
-    },
-  },
+  // #region Hunter
   {
     category: 'skill',
     name: `Hunter's Mark`,
@@ -262,328 +536,7 @@ export const skillItems: SkillItem[] = [
       },
     },
   },
-  {
-    category: 'skill',
-    name: 'Vial: Stone Mist',
-    saveFileSlug: 'Skill_AlchemistVial_StoneMist_C',
-    imagePath: '/items/skills/alchemist_stonemist.png',
-    id: 'y7ia9t',
-    dlc: 'base',
-    description:
-      'Creates a mysterious vapor cloud which lasts 10s and applies STONESKIN.\n' +
-      '\n' +
-      'STONESKIN reduces incoming damage by 25%, reduces Stagger by 1, greatly increases Blight Buildup Decay Rate, and makes the target immune to STATUS Effects. Lasts 15s.\n' +
-      '\n' +
-      "PRESS: Slam Vial on the ground, creating the effect at the Alchemist's feet.\n" +
-      '\n' +
-      'HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.',
-    cooldown: 75,
-    externalTokens: [`AOE/Aura`],
-    wikiLinks: [`https://remnant.wiki/Vial:_Stone_Mist`],
-    linkedItems: {
-      archetype: {
-        name: 'Alchemist',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Vial: Frenzy Dust',
-    saveFileSlug: 'Skill_AlchemistVial_FrenzyDust_C',
-    imagePath: '/items/skills/alchemist_frenzydust.png',
-    id: 'xsniv3',
-    dlc: 'base',
-    description:
-      'Creates a mysterious vapor cloud which lasts 10s and applies FRENZIED.\n' +
-      '\n' +
-      'FRENZIED increases Fire Rate, Reload Speed, and Melee Speed by 20%, and Movement Speed by 15%. Lasts 15s.\n' +
-      '\n' +
-      "PRESS: Slam Vial on the ground, creating the effect at the Alchemist's feet.\n" +
-      '\n' +
-      'HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.',
-    cooldown: 75,
-    externalTokens: [`AOE/Aura`],
-    wikiLinks: [`https://remnant.wiki/Vial:_Frenzy_Dust`],
-    linkedItems: {
-      archetype: {
-        name: 'Alchemist',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Vial: Elixir of Life',
-    saveFileSlug: 'Skill_AlchemistVial_ElixirOfLife_C',
-    imagePath: '/items/skills/alchemist_elixiroflife.png',
-    id: '76554i',
-    dlc: 'base',
-    description:
-      'Creates a mysterious vapor cloud which lasts 10s and applies LIVING WILL.\n' +
-      '\n' +
-      'LIVING WILL grants 5 Health Regeneration per second, and protects against fatal damage. Can revive downed players. Lasts 20s.\n' +
-      '\n' +
-      'Revived allies cannot be affected by Living Will for 180s. Resets at Worldstone or on death.\n' +
-      '\n' +
-      "PRESS: Slam Vial on the ground, creating the effect at the Alchemist's feet.\n" +
-      '\n' +
-      'HOLD & RELEASE: Aim and throw the Vial causing the same effect where it lands.',
-    cooldown: 90,
-    externalTokens: [`AOE/Aura`],
-    wikiLinks: [`https://remnant.wiki/Vial:_Elixir_of_Life`],
-    linkedItems: {
-      archetype: {
-        name: 'Alchemist',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Reality Rune',
-    saveFileSlug: 'Skill_RealityRune_C',
-    imagePath: '/items/skills/archon_realityrune.png',
-    id: 'i3ddi7',
-    dlc: 'base',
-    tags: ['Status Effect', 'Damage Reduction'],
-    description: `Conjures a 7m protective dome which applies SLOW to any enemy or enemy projectile. Allies inside gain 25% Damage Reduction and automatically generate 50 Mod Power per second. Lasts 15s.`,
-    cooldown: 75,
-    externalTokens: [`AOE/Aura`],
-    wikiLinks: [`https://remnant.wiki/Reality_Rune`],
-    linkedItems: {
-      archetype: {
-        name: 'Archon',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Chaos Gate',
-    saveFileSlug: 'Skill_ChaosGate_C',
-    imagePath: '/items/skills/archon_chaosgate.png',
-    id: '9w7c5j',
-    dlc: 'base',
-    description:
-      'Conjures a 7m unstable zone which grants stacks of UNBRIDLED CHAOS. Lasts 20s.\n' +
-      '\n' +
-      'UNBRIDLED CHAOS: Allies gain 0.7% to All Damage dealt and receive 0.3% damage taken. Stacks up to 50 times. Lasts 10s.\n' +
-      '\n' +
-      'Having any stacks grants 10% Mod Generation.',
-    cooldown: 85,
-    externalTokens: [`AOE/Aura`],
-    wikiLinks: [`https://remnant.wiki/Chaos_Gate`],
-    linkedItems: {
-      archetype: {
-        name: 'Archon',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Havoc Form',
-    saveFileSlug: 'Skill_HavocForm_C',
-    imagePath: '/items/skills/archon_havocform.png',
-    id: 'y72au6',
-    dlc: 'base',
-    description:
-      'Unleashes the power of the Labyrinth to empower the caster with new abilities. Lasts 30s.\n' +
-      '\n' +
-      'Duration is reduced when Havoc Form special abilities are used.\n' +
-      '\n' +
-      "FIRE: Blasts Lightning Tendrils from the Archon's hand, dealing 48 SHOCK Damage every 0.35s second to targets within 15m.\n" +
-      '\n' +
-      'AIM: Raises a 3m Energy Shield which reduces incoming damage to all allies by 50%.\n' +
-      '\n' +
-      'DODGE: Performs a Blink Evade that deals 150 SHOCK damage to enemies within 5m.',
-    cooldown: 90,
-    externalTokens: [`AOE/Aura`],
-    wikiLinks: [`https://remnant.wiki/Havoc_Form`],
-    linkedItems: {
-      archetype: {
-        name: 'Archon',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Heavy Weapon: Vulcan',
-    saveFileSlug: 'Skill_Deployable_Gatling_C',
-    imagePath: '/items/skills/engineer_gatling.png',
-    id: 'pgmn4v',
-    dlc: 'base',
-    description:
-      'PRESS: Deploys a Vulcan Cannon Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritize targets that the player Aims at. Press SKILL again to enable autonomous targeting.\n' +
-      '\n' +
-      'HOLD: Deploys to Heavy Carry Mode. If Engineer Prime is available, will Overclock the weapon if already in hand or on the battlefield.\n' +
-      '\n' +
-      'DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining Ammo.\n' +
-      '\n' +
-      'Heavy Weapon Ammo is regenerated by 1.02% every second, and Heavy Weapons can only be deployed if at least 25% Ammo is available.',
-    wikiLinks: [`https://remnant.wiki/Heavy_Weapon:_Vulcan`],
-    linkedItems: {
-      archetype: {
-        name: 'Engineer',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Heavy Weapon: Flamethrower',
-    saveFileSlug: 'Skill_Deployable_FlameThrower_C',
-    imagePath: '/items/skills/engineer_flamethrower.png',
-    id: '6fk8ea',
-    dlc: 'base',
-    description:
-      'PRESS: Deploys a Flamethrower Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritize targets that the player Aims at. Press SKILL again to enable autonomous targeting.\n' +
-      '\n' +
-      'HOLD: Deploys to Heavy Carry Mode. If Engineer Prime is available, will Overclock the weapon if already in hand or on the battlefield.\n' +
-      '\n' +
-      'DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining Ammo.\n' +
-      '\n' +
-      'Heavy Weapon Ammo is regenerated by 1.02% every second, and Heavy Weapons can only be deployed if at least 25% Ammo is available.',
-    externalTokens: [`AOE/Aura`],
-    wikiLinks: [`https://remnant.wiki/Heavy_Weapon:_Flamethrower`],
-    linkedItems: {
-      archetype: {
-        name: 'Engineer',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Heavy Weapon: Impact Cannon',
-    saveFileSlug: 'Skill_Deployable_ImpactCannon_C',
-    imagePath: '/items/skills/engineer_impactcannon.png',
-    id: 'ki92op',
-    dlc: 'base',
-    description:
-      'PRESS: Deploys a Impact Cannon Turret which lasts until its Ammo is exhausted. Turrets that can aim will prioritize targets that the player Aims at. Press SKILL again to enable autonomous targeting.\n' +
-      '\n' +
-      'HOLD: Deploys to Heavy Carry Mode. If Engineer Prime is available, will Overclock the weapon if already in hand or on the battlefield.\n' +
-      '\n' +
-      'DOUBLE PRESS: The weapon is reclaimed, returning 75% of its remaining Ammo.\n' +
-      '\n' +
-      'Heavy Weapon Ammo is regenerated by 1.02% every second, and Heavy Weapons can only be deployed if at least 25% Ammo is available.',
-    externalTokens: [`AOE/Aura`],
-    wikiLinks: [`https://remnant.wiki/Heavy_Weapon:_Impact_Cannon`],
-    linkedItems: {
-      archetype: {
-        name: 'Engineer',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Plainswalker',
-    saveFileSlug: 'Skill_Plainswalker_C',
-    imagePath: '/items/skills/explorer_plainswalker.png',
-    id: 'a585sp',
-    dlc: 'base',
-    description:
-      'Increases Movement Speed by 20% and reduces Stamina Cost by 80% for all allies. Lasts 30s.',
-    cooldown: 60,
-    wikiLinks: [`https://remnant.wiki/Plainswalker`],
-    linkedItems: {
-      archetype: {
-        name: 'Explorer',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Gold Digger',
-    saveFileSlug: 'Skill_GoldDigger_C',
-    imagePath: '/items/skills/explorer_golddigger.png',
-    id: 'a2cik2',
-    dlc: 'base',
-    description:
-      'Dig into the ground to spring a fountain which grants a random buff. Fountains last 45s and their buff lasts 20s.\n' +
-      '\n' +
-      'Fountains can grant either: 10% increased All Damage dealt, 15% Damage Reduction, 2 Health Regeneration per second, or HASTE.',
-    cooldown: 45,
-    externalTokens: [`AOE/Aura`],
-    wikiLinks: [`https://remnant.wiki/Gold_Digger`],
-    linkedItems: {
-      archetype: {
-        name: 'Explorer',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Fortune Hunter',
-    saveFileSlug: 'Skill_FortuneHunter_C',
-    imagePath: '/items/skills/explorer_fortunehunter.png',
-    id: 'dajt58',
-    dlc: 'base',
-    description:
-      "Increases the Explorer's Treasure Sense to reveal special items within 40m for all allies. Lasts 60s.",
-    cooldown: 90,
-    wikiLinks: [`https://remnant.wiki/Fortune_Hunter`],
-    linkedItems: {
-      archetype: {
-        name: 'Explorer',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Quick Draw',
-    saveFileSlug: 'Skill_Aimable_QuickDraw_C',
-    imagePath: '/items/skills/gunslinger_quickdraw.png',
-    id: 'qdxjt7',
-    dlc: 'base',
-    description:
-      'Pull out your trusty side piece and upload up to 6 Critical Shots from the hip. Each shot deals 52 base damage and double stagger value.\n' +
-      '\n' +
-      'PRESS: Instantly fires towards all enemies in view within 25m. Upon release, rounds will be divided evenly among all targets.\n' +
-      '\n' +
-      'HOLD & RELEASE: Allows manual Aim and fires one single powerful shot upon release.',
-    cooldown: 40,
-    wikiLinks: [`https://remnant.wiki/Quick_Draw`],
-    linkedItems: {
-      archetype: {
-        name: 'Gunslinger',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Sidewinder',
-    saveFileSlug: 'Skill_Sidewinder_C',
-    imagePath: '/items/skills/gunslinger_sidewinder.png',
-    id: 'jn34u8',
-    dlc: 'base',
-    description:
-      'Calls upon the power of the Desert Sidewinder snake to increase ADS Movement Speed by 50% and Draw/Swap Speed by 35%. Cycling weapons will automatically reload incoming Firearms. When a Weapon Swap provides Ammo to an incoming weapon, Duration is reduced by 6s. Lasts 60s.',
-    cooldown: 50,
-    wikiLinks: [`https://remnant.wiki/Sidewinder`],
-    linkedItems: {
-      archetype: {
-        name: 'Gunslinger',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Bulletstorm',
-    saveFileSlug: 'Skill_Bulletstorm_C',
-    imagePath: '/items/skills/gunslinger_bulletstorm.png',
-    id: 'xpqq62',
-    dlc: 'base',
-    tags: ['Fire Rate', 'Reload Speed', 'Critical Chance', 'Projectile Speed'],
-    description:
-      'Unleashes the full power and speed of the Gunslinger. Increases Fire Rate 20% and Reload Speed 50% of all ranged weapons. Lasts 20s.\n' +
-      '\n' +
-      'Single Shot Weapons become fully-automatic. Kills instantly reload the current weapon.\n' +
-      '\n' +
-      'Instead of becoming fully-automatic, Bows and Crossbows gain 15% Critical Chance and 50% increased Projectile Speed.',
-    cooldown: 60,
-    wikiLinks: [`https://remnant.wiki/Bulletstorm`],
-    linkedItems: {
-      archetype: {
-        name: 'Gunslinger',
-      },
-    },
-  },
+  // #region Invader
   {
     category: 'skill',
     name: 'Void Cloak',
@@ -647,126 +600,7 @@ export const skillItems: SkillItem[] = [
       },
     },
   },
-  {
-    category: 'skill',
-    name: 'Minion: Hollow',
-    saveFileSlug: 'Skill_SummonHollowMinion_C',
-    imagePath: '/items/skills/summoner_hollow.png',
-    id: 'kk4yre',
-    dlc: 'base',
-    description:
-      'PRESS: Summons a Root Hollow Minion to fight by your side. Costs 15% of Max Health to summon, but will not kill Summoner. Max (2).\n' +
-      '\n' +
-      'HOLD: SACRIFICE Root Hollow Minions to explode, dealing 150 damage within 5m. Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.',
-    cooldown: 30,
-    externalTokens: [`AOE/Aura`, `Explosive Damage`],
-    wikiLinks: [`https://remnant.wiki/Minion:_Hollow`],
-    tags: ['Reduce Skill Cooldown', 'Summon'],
-    linkedItems: {
-      archetype: {
-        name: 'Summoner',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Minion: Flyer',
-    saveFileSlug: 'Skill_SummonFlyerMinion_C',
-    imagePath: '/items/skills/summoner_flyer.png',
-    id: 'o7pvqx',
-    dlc: 'base',
-    description:
-      'Summons a Root Flyer Minion to fight by your side. Costs 10% of Max Health to summon, but will not kill Summoner. Max (2).\n' +
-      '\n' +
-      'HOLD: SACRIFICE Root Flyer Minions, dealing 50 Damage within 3m and spawning 3 homing projectiles which explode on contact for 150 damage each.\n' +
-      '\n' +
-      'Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.',
-    cooldown: 45,
-    externalTokens: [`AOE/Aura`, `Explosive Damage`],
-    wikiLinks: [`https://remnant.wiki/Minion:_Flyer`],
-    linkedItems: {
-      archetype: {
-        name: 'Summoner',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Minion: Reaver',
-    saveFileSlug: 'Skill_SummonBruteMinion_C',
-    imagePath: '/items/skills/summoner_reaver.png',
-    id: 'gs8zdv',
-    dlc: 'base',
-    description:
-      'PRESS: Summons a Root Reaver Minion to fight by your side. Costs 35% of Max Health to summon, but will not kill Summoner. Max (1).\n' +
-      '\n' +
-      'HOLD: SACRIFICE Root Reaver Minion, dealing 200 Damage within 6m and spawning Spore Bombs which bounce and explode on contact for 200 damage each.\n' +
-      '\n' +
-      'Reduces Skill Cooldown by up to 50% based on remaining Health of Minion.',
-    cooldown: 120,
-    externalTokens: [`AOE/Aura`, `Explosive Damage`],
-    tags: ['Reduce Skill Cooldown', 'Summon'],
-    wikiLinks: [`https://remnant.wiki/Minion:_Reaver`],
-    linkedItems: {
-      archetype: {
-        name: 'Summoner',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Eruption',
-    saveFileSlug: 'Skill_Eruption_C',
-    imagePath: '/items/skills/ritualist_eruption.png',
-    id: 'amqa83',
-    dlc: 'base',
-    tags: ['Status Effect'],
-    description:
-      'Creates 1m explosion for 50 damage on all enemies within 15m. Explosion Radius and Damage increases 100% for each unique Status Effect on the target. Refreshes all current Status Effects on the target.',
-    cooldown: 40,
-    externalTokens: [`AOE/Aura`, `Explosive Damage`],
-    wikiLinks: [`https://remnant.wiki/Eruption`],
-    linkedItems: {
-      archetype: {
-        name: 'Ritualist',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Miasma',
-    saveFileSlug: 'Skill_Miasma_C',
-    imagePath: '/items/skills/ritualist_miasma.png',
-    id: '3er3og',
-    dlc: 'base',
-    tags: ['Status Effect'],
-    description: `Casts an AOE burst that applies BLEEDING, BURNING, OVERLOADED, and CORRODED to all enemies within 15m, and dealing a total 300 base damage. Lasts 10s.`,
-    cooldown: 45,
-    externalTokens: [`AOE/Aura`],
-    wikiLinks: [`https://remnant.wiki/Miasma`],
-    linkedItems: {
-      archetype: {
-        name: 'Ritualist',
-      },
-    },
-  },
-  {
-    category: 'skill',
-    name: 'Deathwish',
-    saveFileSlug: 'Skill_Deathwish_C',
-    imagePath: '/items/skills/ritualist_deathwish.png',
-    id: 'ux5f9v',
-    dlc: 'base',
-    tags: ['All Damage', 'Lifesteal'],
-    description: `Negates all healing to self. Drain 300% Health over 20s. Increases all Damage by 50% and grants 10% Base Damage dealt as Lifesteal.`,
-    cooldown: 90,
-    wikiLinks: [`https://remnant.wiki/Deathwish`],
-    linkedItems: {
-      archetype: {
-        name: 'Ritualist',
-      },
-    },
-  },
+  // #region Invoker
   {
     category: 'skill',
     name: 'Way of Kaeula',
@@ -833,6 +667,186 @@ export const skillItems: SkillItem[] = [
       },
     },
   },
+  // #region Medic
+  {
+    category: 'skill',
+    name: 'Wellspring',
+    saveFileSlug: 'Skill_Wellspring_C',
+    imagePath: '/items/skills/medic_wellspring.png',
+    id: '7vtxrx',
+    dlc: 'base',
+    description:
+      'The Medic channels healing energy into their fist, punching a hole into the ground to create a 3m Healing Spring AOE which restores 10 Health per second and greatly increases Blight Decay Rate. Lasts 15s.',
+    cooldown: 60,
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
+    wikiLinks: [`https://remnant.wiki/Wellspring`],
+    linkedItems: {
+      archetype: {
+        name: 'Medic',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Healing Shield',
+    saveFileSlug: 'Skill_HealingSurge_C',
+    imagePath: '/items/skills/medic_healingshield.png',
+    id: '8pu6y2',
+    dlc: 'base',
+    description:
+      'The Medic quickly expels healing energy to SHIELD all allies within 25m for 100% of their Max Health for 10s. While shielded, allies regenerate 20% of their Max Health over the duration.',
+    cooldown: 100,
+    externalTokens: [`AOE/Aura`],
+    wikiLinks: [`https://remnant.wiki/Healing_Shield`],
+    linkedItems: {
+      archetype: {
+        name: 'Medic',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Redemption',
+    saveFileSlug: 'Skill_Redemption_C',
+    imagePath: '/items/skills/medic_redemption.png',
+    id: 'zs77cb',
+    dlc: 'base',
+    description:
+      'The Medic unleashes a 30m shockwave that revives downed allies and restores 50% Max Health over 10s. For each additional 1s holding the SKILL button, the heal gains an additional 50% (up to 200% max).\n' +
+      '\n' +
+      'Revived allies will only receive 50% of the healing amount. If revived, allies cannot be revived again by Redemption for another 180s. Resets at Worldstone or on death.',
+    cooldown: 120,
+    externalTokens: [`AOE/Aura`],
+    wikiLinks: [`https://remnant.wiki/Redemption`],
+    linkedItems: {
+      archetype: {
+        name: 'Medic',
+      },
+    },
+  },
+  // #region Ritualist
+  {
+    category: 'skill',
+    name: 'Eruption',
+    saveFileSlug: 'Skill_Eruption_C',
+    imagePath: '/items/skills/ritualist_eruption.png',
+    id: 'amqa83',
+    dlc: 'base',
+    tags: ['Status Effect'],
+    description:
+      'Creates 1m explosion for 50 damage on all enemies within 15m. Explosion Radius and Damage increases 100% for each unique Status Effect on the target. Refreshes all current Status Effects on the target.',
+    cooldown: 40,
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
+    wikiLinks: [`https://remnant.wiki/Eruption`],
+    linkedItems: {
+      archetype: {
+        name: 'Ritualist',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Miasma',
+    saveFileSlug: 'Skill_Miasma_C',
+    imagePath: '/items/skills/ritualist_miasma.png',
+    id: '3er3og',
+    dlc: 'base',
+    tags: ['Status Effect'],
+    description: `Casts an AOE burst that applies BLEEDING, BURNING, OVERLOADED, and CORRODED to all enemies within 15m, and dealing a total 300 base damage. Lasts 10s.`,
+    cooldown: 45,
+    externalTokens: [`AOE/Aura`],
+    wikiLinks: [`https://remnant.wiki/Miasma`],
+    linkedItems: {
+      archetype: {
+        name: 'Ritualist',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Deathwish',
+    saveFileSlug: 'Skill_Deathwish_C',
+    imagePath: '/items/skills/ritualist_deathwish.png',
+    id: 'ux5f9v',
+    dlc: 'base',
+    tags: ['All Damage', 'Lifesteal'],
+    description: `Negates all healing to self. Drain 300% Health over 20s. Increases all Damage by 50% and grants 10% Base Damage dealt as Lifesteal.`,
+    cooldown: 90,
+    wikiLinks: [`https://remnant.wiki/Deathwish`],
+    linkedItems: {
+      archetype: {
+        name: 'Ritualist',
+      },
+    },
+  },
+  // #region Summoner
+  {
+    category: 'skill',
+    name: 'Minion: Hollow',
+    saveFileSlug: 'Skill_SummonHollowMinion_C',
+    imagePath: '/items/skills/summoner_hollow.png',
+    id: 'kk4yre',
+    dlc: 'base',
+    description:
+      'PRESS: Summons a Root Hollow Minion to fight by your side. Costs 15% of Max Health to summon, but will not kill Summoner. Max (2).\n' +
+      '\n' +
+      'HOLD: SACRIFICE Root Hollow Minions to explode, dealing 150 damage within 5m. Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.',
+    cooldown: 30,
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
+    wikiLinks: [`https://remnant.wiki/Minion:_Hollow`],
+    tags: ['Reduce Skill Cooldown', 'Summon'],
+    linkedItems: {
+      archetype: {
+        name: 'Summoner',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Minion: Flyer',
+    saveFileSlug: 'Skill_SummonFlyerMinion_C',
+    imagePath: '/items/skills/summoner_flyer.png',
+    id: 'o7pvqx',
+    dlc: 'base',
+    description:
+      'Summons a Root Flyer Minion to fight by your side. Costs 10% of Max Health to summon, but will not kill Summoner. Max (2).\n' +
+      '\n' +
+      'HOLD: SACRIFICE Root Flyer Minions, dealing 50 Damage within 3m and spawning 3 homing projectiles which explode on contact for 150 damage each.\n' +
+      '\n' +
+      'Reduces Skill Cooldown by up to 50% based on remaining Health of each Minion Sacrificed.',
+    cooldown: 45,
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
+    wikiLinks: [`https://remnant.wiki/Minion:_Flyer`],
+    linkedItems: {
+      archetype: {
+        name: 'Summoner',
+      },
+    },
+  },
+  {
+    category: 'skill',
+    name: 'Minion: Reaver',
+    saveFileSlug: 'Skill_SummonBruteMinion_C',
+    imagePath: '/items/skills/summoner_reaver.png',
+    id: 'gs8zdv',
+    dlc: 'base',
+    description:
+      'PRESS: Summons a Root Reaver Minion to fight by your side. Costs 35% of Max Health to summon, but will not kill Summoner. Max (1).\n' +
+      '\n' +
+      'HOLD: SACRIFICE Root Reaver Minion, dealing 200 Damage within 6m and spawning Spore Bombs which bounce and explode on contact for 200 damage each.\n' +
+      '\n' +
+      'Reduces Skill Cooldown by up to 50% based on remaining Health of Minion.',
+    cooldown: 120,
+    externalTokens: [`AOE/Aura`, `Explosive Damage`],
+    tags: ['Reduce Skill Cooldown', 'Summon'],
+    wikiLinks: [`https://remnant.wiki/Minion:_Reaver`],
+    linkedItems: {
+      archetype: {
+        name: 'Summoner',
+      },
+    },
+  },
+  // #region Warden
   {
     category: 'skill',
     name: 'Drone: Shield',

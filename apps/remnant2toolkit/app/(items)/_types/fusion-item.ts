@@ -1,6 +1,6 @@
 import { type BuildItems } from '@repo/db';
 
-import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/optional-item-symbol';
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
 import { fusionItems } from '@/app/(items)/_constants/fusion-items';
 import { relicFragmentItems } from '@/app/(items)/_constants/relic-fragment-items';
 import { BaseItem } from '@/app/(items)/_types/base-item';

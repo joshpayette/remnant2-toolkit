@@ -1,13 +1,6 @@
-import { getImageUrl } from '@repo/ui';
-import Image from 'next/image';
+import { getImageUrl, Tooltip } from '@repo/ui';
 
-import { Tooltip } from '@/app/_components/tooltip';
-
-export function FeaturedBuildBadge({
-  unoptimized = false,
-}: {
-  unoptimized?: boolean;
-}) {
+export function FeaturedBuildBadge() {
   return (
     <Tooltip content={`Denotes a featured build.`}>
       <button aria-label="Badge denoting the build is a featured build.">

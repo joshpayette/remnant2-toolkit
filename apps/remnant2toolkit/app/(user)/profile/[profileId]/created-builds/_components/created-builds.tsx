@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 
-import { BuildFilters } from '@/app/(builds)/_features/filters/build-filters';
+import { BuildFilters } from '@/app/(builds)/_features/filters/_components/build-filters';
 import { CreatedBuildsList } from '@/app/(user)/profile/[profileId]/created-builds/_components/created-builds-list';
 
 const buildFiltersOverrides = {
@@ -31,7 +31,7 @@ export function CreatedBuilds({ isEditable, profileId }: Props) {
       <div className="flex w-full flex-col items-center justify-center sm:mb-6">
         <BuildFilters
           key="user-created-builds-filters"
-          buildFiltersOverrides={buildFiltersOverrides}
+          defaultFilterOverrides={buildFiltersOverrides}
           onFiltersChange={onFiltersChange}
         />
       </div>

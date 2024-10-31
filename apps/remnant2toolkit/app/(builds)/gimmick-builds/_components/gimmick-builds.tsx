@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 
 import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_constants/pagination';
-import { BuildFilters } from '@/app/(builds)/_features/filters/build-filters';
+import { BuildFilters } from '@/app/(builds)/_features/filters/_components/build-filters';
 import { GimmickBuildsList } from '@/app/(builds)/gimmick-builds/_components/gimmick-builds-list';
 
 export function GimmickBuilds() {

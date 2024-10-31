@@ -1,6 +1,6 @@
 import { type BuildItems } from '@repo/db';
 
-import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/optional-item-symbol';
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
 import { prismItems } from '@/app/(items)/_constants/prism-items';
 import { type Item } from '@/app/(items)/_types/item';
 

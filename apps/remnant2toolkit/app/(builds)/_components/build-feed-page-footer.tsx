@@ -1,32 +1,35 @@
 'use client';
 
 import { BaseButton } from '@repo/ui';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { useIsClient } from 'usehooks-ts';
 
-import { DEFAULT_BUILD_FILTERS } from '@/app/(builds)/_features/filters/build-filters';
-import { BUILD_FILTER_KEYS } from '@/app/(builds)/_features/filters/types';
+import { withQualityFilter } from '@/app/(builds)/_features/filters/_libs/with-quality-filter';
 
 interface Props {
   children: React.ReactNode;
 }
 
 export function BuildFeedPageFooter({ children }: Props) {
-  const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const isClient = useIsClient();
 
   const isWithQualityParam =
-    searchParams.get(BUILD_FILTER_KEYS.WITHQUALITY) || true;
-  let isWithQuality: boolean = DEFAULT_BUILD_FILTERS.withQuality;
+    searchParams.get(withQualityFilter.buildFilterKey) || true;
+  let isWithQuality: boolean = withQualityFilter.defaultValue === true;
   if (typeof isWithQualityParam === 'string') {
     isWithQuality = isWithQualityParam === 'true';
   }
 
   const nonQualityUrl = new URLSearchParams(searchParams);
-  nonQualityUrl.delete(BUILD_FILTER_KEYS.WITHQUALITY);
-  nonQualityUrl.append(BUILD_FILTER_KEYS.WITHQUALITY, 'false');
+  nonQualityUrl.delete(withQualityFilter.buildFilterKey);
+  nonQualityUrl.append(withQualityFilter.buildFilterKey, 'false');
 
   if (children === null && !isWithQuality) {
+    return null;
+  }
+  if (!isClient) {
     return null;
   }
 
@@ -40,8 +43,7 @@ export function BuildFeedPageFooter({ children }: Props) {
           <BaseButton
             outline
             onClick={() => {
-              router.push(`${pathname}?${nonQualityUrl.toString()}`);
-              router.refresh();
+              window.location.href = `${pathname}?${nonQualityUrl.toString()}`;
             }}
           >
             Try removing the Quality Build filter

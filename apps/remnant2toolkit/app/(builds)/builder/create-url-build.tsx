@@ -7,7 +7,7 @@ import { useSession } from 'next-auth/react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { ToCsvButton } from '@/app/_components/to-csv-button';
-import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/optional-item-symbol';
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
 import { LongUrlAlert } from '@/app/(builds)/_components/long-url-alert';
 import { INITIAL_BUILD_STATE } from '@/app/(builds)/_constants/initial-build-state';
 import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
@@ -39,6 +39,7 @@ import { SkillItem } from '@/app/(items)/_types/skill-item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
 import { itemCategories } from '@/app/(items)/_utils/get-item-categories';
+
 /**
  * Parses the build values from the query string
  */

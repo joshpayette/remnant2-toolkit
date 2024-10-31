@@ -53,15 +53,6 @@ export function ProfileNavbar({
       current: pathname === `/profile/${profileId}/featured-builds`,
     },
     {
-      name: 'Linked Builds (Deprecated)',
-      href: {
-        pathname: `/profile/${profileId}/linked-builds`,
-        query: { t: Date.now() },
-      },
-      current: pathname === `/profile/${profileId}/linked-builds`,
-      private: false,
-    },
-    {
       name: NAV_ITEMS.favoritedBuilds.label,
       href: {
         pathname: `/profile/${profileId}/favorited-builds`,
@@ -80,6 +71,15 @@ export function ProfileNavbar({
       },
       current: pathname === `/profile/${profileId}/loadouts`,
       private: !isLoadoutPublic,
+    },
+    {
+      name: 'Linked Builds (Deprecated)',
+      href: {
+        pathname: `/profile/${profileId}/linked-builds`,
+        query: { t: Date.now() },
+      },
+      current: pathname === `/profile/${profileId}/linked-builds`,
+      private: false,
     },
   ];
 

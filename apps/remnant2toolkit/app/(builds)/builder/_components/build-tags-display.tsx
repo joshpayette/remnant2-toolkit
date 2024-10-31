@@ -41,6 +41,7 @@ export function BuildTagsDisplay({
         ...buildTags,
         {
           id: '',
+          category: tag.category,
           tag: tag.value,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -51,7 +52,7 @@ export function BuildTagsDisplay({
   }
 
   return (
-    <BaseFieldset className="flex w-full max-w-full flex-col items-center justify-start gap-y-2">
+    <BaseFieldset className="flex w-full max-w-full flex-col items-center justify-start">
       {showLabel && (
         <BaseLabel className="mb-2 w-full">
           Build Tags{' '}
@@ -60,38 +61,76 @@ export function BuildTagsDisplay({
       )}
       <div
         className={cn(
-          'justify-left flex w-full flex-wrap items-center gap-2 sm:justify-start',
+          'justify-left mb-4 flex w-full flex-wrap items-center gap-2 sm:justify-start',
           !showLabel && 'sm:justify-left justify-center',
         )}
       >
-        {ALL_BUILD_TAGS.map((tag, index) => {
-          const isActive = buildTags.some((t) => t.tag === tag.value);
+        {ALL_BUILD_TAGS.filter((tag) => tag.category === 'Type').map(
+          (tag, index) => {
+            const isActive = buildTags.some((t) => t.tag === tag.value);
+            if (!isEditable && !isActive) return null;
 
-          if (!isEditable && !isActive) return null;
-
-          return isEditable ? (
-            <BaseButton
-              plain
-              key={index}
-              onClick={() => handleTagClick({ tag, isActive })}
-            >
+            return isEditable ? (
+              <BaseButton
+                plain
+                key={index}
+                onClick={() => handleTagClick({ tag, isActive })}
+              >
+                <BuildTagItem
+                  isActive={isActive}
+                  isEditable={isEditable}
+                  isScreenshotMode={isScreenshotMode}
+                  tag={tag}
+                />
+              </BaseButton>
+            ) : (
               <BuildTagItem
+                key={index}
                 isActive={isActive}
                 isEditable={isEditable}
                 isScreenshotMode={isScreenshotMode}
                 tag={tag}
               />
-            </BaseButton>
-          ) : (
-            <BuildTagItem
-              key={index}
-              isActive={isActive}
-              isEditable={isEditable}
-              isScreenshotMode={isScreenshotMode}
-              tag={tag}
-            />
-          );
-        })}
+            );
+          },
+        )}
+      </div>
+      <div
+        className={cn(
+          'justify-left flex w-full flex-wrap items-center gap-2 sm:justify-start',
+          !showLabel && 'sm:justify-left justify-center',
+        )}
+      >
+        {ALL_BUILD_TAGS.filter((tag) => tag.category === 'Tag').map(
+          (tag, index) => {
+            const isActive = buildTags.some((t) => t.tag === tag.value);
+
+            if (!isEditable && !isActive) return null;
+
+            return isEditable ? (
+              <BaseButton
+                plain
+                key={index}
+                onClick={() => handleTagClick({ tag, isActive })}
+              >
+                <BuildTagItem
+                  isActive={isActive}
+                  isEditable={isEditable}
+                  isScreenshotMode={isScreenshotMode}
+                  tag={tag}
+                />
+              </BaseButton>
+            ) : (
+              <BuildTagItem
+                key={index}
+                isActive={isActive}
+                isEditable={isEditable}
+                isScreenshotMode={isScreenshotMode}
+                tag={tag}
+              />
+            );
+          },
+        )}
       </div>
     </BaseFieldset>
   );
