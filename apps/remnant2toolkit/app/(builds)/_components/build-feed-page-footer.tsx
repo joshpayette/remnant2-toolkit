@@ -1,7 +1,8 @@
 'use client';
 
 import { BaseButton } from '@repo/ui';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { useIsClient } from 'usehooks-ts';
 
 import { withQualityFilter } from '@/app/(builds)/_features/filters/_libs/with-quality-filter';
 
@@ -10,9 +11,9 @@ interface Props {
 }
 
 export function BuildFeedPageFooter({ children }: Props) {
-  const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const isClient = useIsClient();
 
   const isWithQualityParam =
     searchParams.get(withQualityFilter.buildFilterKey) || true;
@@ -28,6 +29,9 @@ export function BuildFeedPageFooter({ children }: Props) {
   if (children === null && !isWithQuality) {
     return null;
   }
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <div className="mt-4 w-full">
@@ -39,8 +43,7 @@ export function BuildFeedPageFooter({ children }: Props) {
           <BaseButton
             outline
             onClick={() => {
-              router.push(`${pathname}?${nonQualityUrl.toString()}`);
-              router.refresh();
+              window.location.href = `${pathname}?${nonQualityUrl.toString()}`;
             }}
           >
             Try removing the Quality Build filter
