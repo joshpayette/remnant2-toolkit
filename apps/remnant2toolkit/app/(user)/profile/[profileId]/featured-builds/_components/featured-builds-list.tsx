@@ -9,37 +9,37 @@ import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';
 import { CreateBuildCard } from '@/app/(builds)/_components/create-build-card';
-import { DEFAULT_BUILD_FILTERS } from '@/app/(builds)/_features/filters/build-filters';
-import { parseSearchParams } from '@/app/(builds)/_features/filters/parse-search-params';
-import { BuildSecondaryFilters } from '@/app/(builds)/_features/filters/secondary-filters';
-import { useOrderByFilter } from '@/app/(builds)/_features/filters/secondary-filters/order-by-filter/use-order-by-filter';
-import { useTimeRangeFilter } from '@/app/(builds)/_features/filters/secondary-filters/time-range-filter/use-time-range-filter';
-import { type BuildListFilters } from '@/app/(builds)/_features/filters/types';
+import { BuildSecondaryFilters } from '@/app/(builds)/_features/filters/_components/build-secondary-filters';
+import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
+import { useOrderByFilter } from '@/app/(builds)/_features/filters/_hooks/use-order-by-filter';
+import { useTimeRangeFilter } from '@/app/(builds)/_features/filters/_hooks/use-time-range-filter';
+import { parseUrlParams } from '@/app/(builds)/_features/filters/_libs/parse-url-params';
+import type { BuildFilterFields } from '@/app/(builds)/_features/filters/_types/build-filter-fields';
 import { useBuildListState } from '@/app/(builds)/_hooks/use-build-list-state';
 import { CreatedBuildCardActions } from '@/app/(user)/profile/_components/created-build-card-actions';
 import { getUserCreatedBuilds } from '@/app/(user)/profile/[profileId]/created-builds/_actions/get-user-created-builds';
 
 interface Props {
-  buildFiltersOverrides?: Partial<BuildListFilters>;
+  defaultFiltersOverrides?: Partial<BuildFilterFields>;
   isEditable: boolean;
   profileId: string;
   onFiltersChange: () => void;
 }
 
 export function FeaturedBuildsList({
-  buildFiltersOverrides,
+  defaultFiltersOverrides,
   isEditable,
   profileId,
   onFiltersChange,
 }: Props) {
   const defaultFilters = useMemo(() => {
-    return buildFiltersOverrides
-      ? { ...DEFAULT_BUILD_FILTERS, ...buildFiltersOverrides }
-      : DEFAULT_BUILD_FILTERS;
-  }, [buildFiltersOverrides]);
+    return defaultFiltersOverrides
+      ? { ...DEFAULT_BUILD_FIELDS, ...defaultFiltersOverrides }
+      : DEFAULT_BUILD_FIELDS;
+  }, [defaultFiltersOverrides]);
 
   const searchParams = useSearchParams();
-  const buildListFilters = parseSearchParams(searchParams, defaultFilters);
+  const buildFilterFields = parseUrlParams({ searchParams, defaultFilters });
 
   const { buildListState, setBuildListState } = useBuildListState();
   const { builds, isLoading } = buildListState;
@@ -68,7 +68,7 @@ export function FeaturedBuildsList({
   useEffect(() => {
     const getItemsAsync = async () => {
       const response = await getUserCreatedBuilds({
-        buildListFilters,
+        buildFilterFields,
         featuredBuildsOnly: true,
         itemsPerPage,
         orderBy,

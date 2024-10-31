@@ -3,11 +3,11 @@
 import { Prisma } from '@repo/db';
 import { bigIntFix } from '@repo/utils';
 
-import { limitToQualityBuilds } from '@/app/(builds)/_features/filters/_libs/limit-by-quality';
+import { getOrderBySegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/order-by';
+import { limitByWithQualityBuildsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-quality';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
-import { getOrderBySegment } from '../_features/filters/_libs/get-order-by';
 import { getBuildList } from './get-build-list';
 
 export async function getQualityBuildFeed(): Promise<{
@@ -23,14 +23,14 @@ export async function getQualityBuildFeed(): Promise<{
     itemsPerPage: 4,
     orderBy: orderBySegment,
     pageNumber: 1,
-    percentageOwned: 0,
     searchText: '',
     userId,
     whereConditions: Prisma.sql`
 WHERE Build.isPublic = true
 AND Build.isPatchAffected = false
-${limitToQualityBuilds(true)}
+${limitByWithQualityBuildsSegment(true)}
     `,
+    withCollection: 0,
   });
 
   return bigIntFix({ builds });

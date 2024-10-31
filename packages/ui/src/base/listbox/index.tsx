@@ -12,6 +12,7 @@ export function BaseListbox<T>({
   multiple = false,
   'aria-label': ariaLabel,
   children: options,
+  onBlur,
   ...props
 }: {
   className?: string;
@@ -19,9 +20,9 @@ export function BaseListbox<T>({
   autoFocus?: boolean;
   'aria-label'?: string;
   children?: React.ReactNode;
-} & Headless.ListboxProps<typeof Fragment, T>) {
+} & Headless.ListboxProps<typeof Fragment, T> & { onBlur?: () => void }) {
   return (
-    <div className="ui-p-2">
+    <div className="">
       <Headless.Listbox {...props} multiple={multiple}>
         <Headless.ListboxButton
           aria-label={ariaLabel}
@@ -54,7 +55,7 @@ export function BaseListbox<T>({
             as="span"
             className={cn([
               // Basic layout
-              'ui-relative ui-block ui-w-full ui-appearance-none ui-rounded-lg ui-py-[calc(theme(spacing[2.5])-1px)] sm:ui-py-[calc(theme(spacing[1.5])-1px)]',
+              'ui-relative ui-block ui-w-full ui-px-2 ui-appearance-none ui-rounded-lg ui-h-[38px] ui-py-[calc(theme(spacing[2.5])-1px)] sm:ui-py-[calc(theme(spacing[1.5])-1px)]',
 
               // Set minimum height for when no value is selected
               'ui-min-h-11 sm:ui-min-h-9',
@@ -135,6 +136,7 @@ export function BaseListbox<T>({
               // Transitions
               'ui-transition-opacity ui-duration-100 ui-ease-in data-[transition]:ui-pointer-events-none data-[closed]:data-[leave]:ui-opacity-0',
             )}
+            onBlur={onBlur}
             transition
           >
             {options}

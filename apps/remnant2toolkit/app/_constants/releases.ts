@@ -5,4 +5,6 @@ export const RELEASE_TO_NAME = {
   dlc3: 'The Dark Horizon',
 } as const;
 
-export const ALL_RELEASE_KEYS = Object.keys(RELEASE_TO_NAME);
+export const ALL_RELEASE_KEYS = Object.keys(
+  RELEASE_TO_NAME,
+) as (keyof typeof RELEASE_TO_NAME)[];

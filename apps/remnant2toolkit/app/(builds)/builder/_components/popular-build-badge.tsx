@@ -1,19 +1,11 @@
-import { getImageUrl } from '@repo/ui';
-import Image from 'next/image';
+import { getImageUrl, Tooltip } from '@repo/ui';
 
-import { Tooltip } from '@/app/_components/tooltip';
 import {
   POPULAR_VOTE_THRESHOLD1,
   POPULAR_VOTE_THRESHOLD2,
 } from '@/app/(builds)/_constants/popular-vote-thresholds';
 
-export function PopularBuildBadge({
-  level,
-  unoptimized = false,
-}: {
-  level: 1 | 2;
-  unoptimized?: boolean;
-}) {
+export function PopularBuildBadge({ level }: { level: 1 | 2 }) {
   let src = '';
   let voteThreshold = 0;
   switch (level) {

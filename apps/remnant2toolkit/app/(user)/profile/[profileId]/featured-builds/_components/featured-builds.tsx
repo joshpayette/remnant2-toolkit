@@ -2,11 +2,12 @@
 
 import { useRef } from 'react';
 
-import { BuildFilters } from '@/app/(builds)/_features/filters/build-filters';
+import { BuildFilters } from '@/app/(builds)/_features/filters/_components/build-filters';
+import type { BuildFilterFields } from '@/app/(builds)/_features/filters/_types/build-filter-fields';
 import { FeaturedBuildsList } from '@/app/(user)/profile/[profileId]/featured-builds/_components/featured-builds-list';
 
-const buildFiltersOverrides = {
-  patchAffected: true,
+const defaultFiltersOverrides: Partial<BuildFilterFields> = {
+  withPatchAffected: true,
   withQuality: false,
 };
 
@@ -31,7 +32,7 @@ export function FeaturedBuilds({ isEditable, profileId }: Props) {
       <div className="mb-8 flex w-full flex-col items-center justify-center">
         <BuildFilters
           key="user-featured-builds-filters"
-          buildFiltersOverrides={buildFiltersOverrides}
+          defaultFilterOverrides={defaultFiltersOverrides}
           onFiltersChange={onFiltersChange}
         />
       </div>
@@ -40,7 +41,7 @@ export function FeaturedBuilds({ isEditable, profileId }: Props) {
           key={buildListKey.current}
           isEditable={isEditable}
           profileId={profileId}
-          buildFiltersOverrides={buildFiltersOverrides}
+          defaultFiltersOverrides={defaultFiltersOverrides}
           onFiltersChange={onFiltersChange}
         />
       </div>

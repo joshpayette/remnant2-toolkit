@@ -7,12 +7,12 @@ import {
 } from '@repo/ui';
 import { useState } from 'react';
 
-import { ItemTagSelect } from '@/app/(builds)/_features/filters/item-tag-select';
 import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
 import { getConcoctionSlotCount } from '@/app/(builds)/_libs/get-concoction-slot-count';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { ItemButton } from '@/app/(items)/_components/item-button';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
+import { ItemTagSelect } from '@/app/(items)/_components/item-tag-select';
 import { allItems } from '@/app/(items)/_constants/all-items';
 import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
 import { ConcoctionItem } from '@/app/(items)/_types/concotion-item';

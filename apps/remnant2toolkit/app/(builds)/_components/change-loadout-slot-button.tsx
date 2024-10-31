@@ -1,10 +1,9 @@
 'use client';
 
-import { BaseButton, MoveIcon } from '@repo/ui';
+import { BaseButton, MoveIcon, Tooltip } from '@repo/ui';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { Tooltip } from '@/app/_components/tooltip';
 import { changeLoadoutSlot } from '@/app/(builds)/_actions/change-loadout-slot';
 import { ChangeLoadoutSlotPrompt } from '@/app/(builds)/_components/change-loadout-slot-prompt';
 

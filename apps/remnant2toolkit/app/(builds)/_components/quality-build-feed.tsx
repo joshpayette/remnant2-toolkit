@@ -1,9 +1,8 @@
 'use client';
 
-import { BaseLink, EyeIcon } from '@repo/ui';
+import { BaseLink, EyeIcon, Tooltip } from '@repo/ui';
 import { useState } from 'react';
 
-import { Tooltip } from '@/app/_components/tooltip';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { QualityBuildDialog } from '@/app/(builds)/_components/quality-build-dialog';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';

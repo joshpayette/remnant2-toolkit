@@ -1,6 +1,6 @@
 import { type BuildItems } from '@repo/db';
 
-import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/optional-item-symbol';
+import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
 import { consumableItems } from '@/app/(items)/_constants/consumable-items';
 import { BaseItem } from '@/app/(items)/_types/base-item';
 import { type Item } from '@/app/(items)/_types/item';

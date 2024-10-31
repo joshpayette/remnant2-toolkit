@@ -17,6 +17,8 @@ export * from './base/textarea';
 
 export { AlertBanner } from './common/alert-banner';
 export { BugReportPrompt, reportBug } from './common/bug-report';
+export { FiltersContainer } from './common/filters/filters-container';
+export * from './common/filters/filter-listbox/index';
 export { FooterContainer } from './common/footer-container';
 export { GlobalActionButtons } from './common/global-action-buttons';
 export { LeaderBoard, type LeaderBoardItem } from './common/leader-board';
@@ -26,6 +28,7 @@ export { PreloadResources } from './common/preload-resources';
 export { RootLayout } from './common/root-layout';
 export { SessionProvider } from './common/session-provider';
 export { Skeleton } from './common/skeleton';
+export { Tooltip } from './common/tooltip';
 export { ZINDEXES } from './common/z-indexes';
 
 export { ArmorGeneratorIcon } from './common/icons/armor-generator';
@@ -88,7 +91,9 @@ export { SettingsIcon } from './common/icons/settings';
 export { ShareIcon } from './common/icons/share';
 export { SignInIcon } from './common/icons/sign-in';
 export { SignOutIcon } from './common/icons/sign-out';
+export { SlashIcon } from './common/icons/slash';
 export { SortIcon } from './common/icons/sort';
+export { SquareIcon } from './common/icons/square';
 export { StatsIcon } from './common/icons/stats';
 export { SupportIcon } from './common/icons/support';
 export { ThemeIcon } from './common/icons/theme';
@@ -97,6 +102,7 @@ export { TrashIcon } from './common/icons/trash';
 export { UnfavoriteIcon } from './common/icons/unfavorite';
 export { VideoIcon } from './common/icons/video';
 export { WorldSaveIcon } from './common/icons/world-save';
+export { XIcon } from './common/icons/x';
 
 export { cn } from './utils/classnames';
 export { getImageUrl } from './utils/get-image-url';

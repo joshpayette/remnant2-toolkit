@@ -1,9 +1,8 @@
 'use client';
 
-import { BaseButton, TrashIcon } from '@repo/ui';
+import { BaseButton, Tooltip, TrashIcon } from '@repo/ui';
 import { useState } from 'react';
 
-import { Tooltip } from '@/app/_components/tooltip';
 import { DeleteBuildAlert } from '@/app/(builds)/_components/delete-build-alert';
 import { handleDeleteBuild } from '@/app/(builds)/_libs/handlers/handle-delete-build';
 
