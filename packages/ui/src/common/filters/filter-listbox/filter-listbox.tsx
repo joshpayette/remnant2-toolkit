@@ -21,7 +21,6 @@ export function FilterListbox({
   label,
   disabledStates,
   options,
-  onBlur,
   onChange,
 }: FilterListboxProps) {
   function handleOptionChange(newState: FilterListboxState, itemId: string) {
@@ -67,7 +66,6 @@ export function FilterListbox({
         // @ts-expect-error Need to pass a custom prop to the option component
         disabledStates={disabledStates}
         isMulti
-        onBlur={onBlur}
         onOptionChange={handleOptionChange}
         onResetOptions={handleResetOptions}
         options={options}
