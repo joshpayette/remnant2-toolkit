@@ -43,7 +43,7 @@ export function ItemListGrid({
           <h3 className="text-primary-500 mb-4 text-2xl font-bold">{label}</h3>
         )}
 
-        <div className="mt-12 grid w-full grid-cols-1 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+        <div className="mt-4 grid w-full grid-cols-1 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
           {items.map((item, index) => (
             <ItemCard
               key={index}

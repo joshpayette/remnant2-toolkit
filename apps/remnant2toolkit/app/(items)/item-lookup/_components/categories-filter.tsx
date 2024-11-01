@@ -33,6 +33,7 @@ export const VALID_ITEM_CATEGORIES = [
   'Mutator (Melee)',
   'Concoction',
   'Consumable',
+  'Pylon',
 ];
 
 interface Props {
@@ -266,6 +267,15 @@ export function CategoriesFilter({
               onChange={(checked) => onChange('Consumable', checked)}
             />
             <BaseLabel>Consumable</BaseLabel>
+          </BaseCheckboxField>
+          <BaseCheckboxField key="Pylon">
+            <BaseCheckbox
+              name="pylon"
+              value="Pylon"
+              checked={values.includes('Pylon')}
+              onChange={(checked) => onChange('Pylon', checked)}
+            />
+            <BaseLabel>Boss Rush Pylon</BaseLabel>
           </BaseCheckboxField>
         </BaseCheckboxGroup>
       </BaseCheckboxGroup>

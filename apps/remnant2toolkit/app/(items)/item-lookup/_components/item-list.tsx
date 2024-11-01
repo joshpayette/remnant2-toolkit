@@ -251,11 +251,13 @@ export function ItemList() {
           </BaseButton>
         </div>
       ) : (
-        <ItemListGrid
-          label={`Items (${filteredItems.length} Total)`}
-          items={filteredItems}
-          allowItemCompare={true}
-        />
+        <div className="mt-8 w-full">
+          <ItemListGrid
+            label={`Items (${filteredItems.length} Total)`}
+            items={filteredItems}
+            allowItemCompare={true}
+          />
+        </div>
       )}
     </div>
   );
