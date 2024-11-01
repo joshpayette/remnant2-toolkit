@@ -123,7 +123,7 @@ export function ItemCard({
                   <div className="flex flex-col items-center justify-start">
                     {itemBuildStats.featured.usedIn > 0 ? (
                       <BaseTextLink
-                        href={`/featured-builds?searchText=${item.name}`}
+                        href={`/featured-builds?${itemBuildStats.buildsPath}`}
                         className="underline"
                       >
                         Featured
@@ -140,7 +140,7 @@ export function ItemCard({
                   <div className="flex flex-col items-center justify-start">
                     {itemBuildStats.community.usedIn > 0 ? (
                       <BaseTextLink
-                        href={`/community-builds?searchText=${item.name}`}
+                        href={`/community-builds?${itemBuildStats.buildsPath}`}
                         className="underline"
                       >
                         Community
@@ -165,6 +165,7 @@ export function ItemCard({
                         toast.error('Failed to get build stats');
                         return;
                       }
+
                       setItemBuildStats(response.stats);
                     }}
                   >

@@ -43,6 +43,7 @@ export async function getGimmickBuilds({
   const {
     amulets,
     archetypes,
+    archetypeSlot,
     buildTags,
     fusions,
     handGuns,
@@ -68,7 +69,7 @@ export async function getGimmickBuilds({
   const whereConditions = Prisma.sql`
     WHERE Build.isPublic = true
     AND Build.isGimmickBuild = true
-    ${limitByArchetypesSegment(archetypes)}
+    ${limitByArchetypesSegment(archetypes, archetypeSlot)}
     ${limitByAmuletSegment(amulets)}
     ${limitByBuildTagsSegment(buildTags)}
     ${limitByFusionsSegment(fusions)}

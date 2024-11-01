@@ -4,11 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-11-01
+
+### Added
+
+- In build filters, when filtering by a single archetype, you can now specify which equip slot you want that archetype to be in.
+
 ## 2024-10-31
 
 ### Changed
 
 - Reworked the build filters to be more expansive. You can now filter on more categories of items, as well as choose which items to include/exclude. This was a big update, so there may be bugs. Please report them if you see them and I'll address!
+- Item Cards now link directly to builds that contain the items. This feature existed previously, but is now improved with the new URL params introduced in the build filters.
 
 ## 2024-10-27
 

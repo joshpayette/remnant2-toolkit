@@ -43,6 +43,7 @@ export async function getBeginnerBuilds({
   const {
     amulets,
     archetypes,
+    archetypeSlot,
     buildTags,
     fusions,
     handGuns,
@@ -68,7 +69,7 @@ export async function getBeginnerBuilds({
   const whereConditions = Prisma.sql`
     WHERE Build.isPublic = true
     AND Build.isBeginnerBuild = true
-    ${limitByArchetypesSegment(archetypes)}
+    ${limitByArchetypesSegment(archetypes, archetypeSlot)}
     ${limitByAmuletSegment(amulets)}
     ${limitByBuildTagsSegment(buildTags)}
     ${limitByFusionsSegment(fusions)}

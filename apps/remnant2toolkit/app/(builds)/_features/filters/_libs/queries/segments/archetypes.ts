@@ -7,6 +7,7 @@ import type { ArchetypeFilterValue } from '@/app/(builds)/_features/filters/_lib
 
 export function limitByArchetypesSegment(
   archetypeFilters: ArchetypeFilterValue,
+  archetypeSlot: number,
 ): Prisma.Sql {
   // if the archetypes are the default filters, do nothing
   if (isEqual(archetypeFilters, DEFAULT_BUILD_FIELDS.archetypes)) {
@@ -46,6 +47,11 @@ export function limitByArchetypesSegment(
           AND BuildItems.itemId IN (${Prisma.join(allExcludedArchetypeIds)})
         )`;
 
+  let equippedArchetypeSlotQuery = Prisma.empty;
+  if (archetypeSlot === 0 || archetypeSlot === 1) {
+    equippedArchetypeSlotQuery = Prisma.sql`AND BuildItems.index = ${archetypeSlot}`;
+  }
+
   // If there are no included archetypes, we want to include all default archetypes
   // and exclude any excluded archetypes
   if (allIncludedArchetypeIds.length === 0) {
@@ -67,6 +73,7 @@ export function limitByArchetypesSegment(
       FROM BuildItems
       WHERE BuildItems.buildId = Build.id
       AND BuildItems.itemId IN (${Prisma.join(allIncludedArchetypeIds)})
+      ${equippedArchetypeSlotQuery}
       ${excludeArchetypeIdsQuery}
     )`;
   }

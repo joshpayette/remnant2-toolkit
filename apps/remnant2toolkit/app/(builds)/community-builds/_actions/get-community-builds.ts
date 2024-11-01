@@ -43,6 +43,7 @@ export async function getCommunityBuilds({
   const {
     amulets,
     archetypes,
+    archetypeSlot,
     buildTags,
     fusions,
     handGuns,
@@ -67,7 +68,7 @@ export async function getCommunityBuilds({
 
   const whereConditions = Prisma.sql`
     WHERE Build.isPublic = true
-    ${limitByArchetypesSegment(archetypes)}
+    ${limitByArchetypesSegment(archetypes, archetypeSlot)}
     ${limitByAmuletSegment(amulets)}
     ${limitByBuildTagsSegment(buildTags)}
     ${limitByFusionsSegment(fusions)}

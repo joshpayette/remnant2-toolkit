@@ -48,6 +48,7 @@ export async function getUserCreatedBuilds({
   const {
     amulets,
     archetypes,
+    archetypeSlot,
     buildTags,
     fusions,
     handGuns,
@@ -91,7 +92,7 @@ export async function getUserCreatedBuilds({
     WHERE Build.createdById = ${profileId}
     ${isPublicSegment}
     ${limitByFeatured(featuredBuildsOnly)}
-    ${limitByArchetypesSegment(archetypes)}
+    ${limitByArchetypesSegment(archetypes, archetypeSlot)}
     ${limitByAmuletSegment(amulets)}
     ${limitByBuildTagsSegment(buildTags)}
     ${limitByFusionsSegment(fusions)}

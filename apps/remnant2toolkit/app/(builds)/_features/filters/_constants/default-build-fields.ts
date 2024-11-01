@@ -1,4 +1,5 @@
 import { amuletFilter } from '@/app/(builds)/_features/filters/_libs/amulet-filter';
+import { archetypeSlotFilter } from '@/app/(builds)/_features/filters/_libs/archetype-slot-filter';
 import { buildTagFilter } from '@/app/(builds)/_features/filters/_libs/build-tag-filter';
 import { fusionFilter } from '@/app/(builds)/_features/filters/_libs/fusion-filter';
 import { handGunFilter } from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
@@ -26,6 +27,8 @@ import { archetypeFilter } from '../_libs/archetype-filter';
 export const DEFAULT_BUILD_FIELDS: BuildFilterFields = {
   amulets: amuletFilter.defaultValue as BuildFilterFields['amulets'],
   archetypes: archetypeFilter.defaultValue as BuildFilterFields['archetypes'],
+  archetypeSlot:
+    archetypeSlotFilter.defaultValue as BuildFilterFields['archetypeSlot'],
   buildTags: buildTagFilter.defaultValue as BuildFilterFields['buildTags'],
   fusions: fusionFilter.defaultValue as BuildFilterFields['fusions'],
   handGuns: handGunFilter.defaultValue as BuildFilterFields['handGuns'],

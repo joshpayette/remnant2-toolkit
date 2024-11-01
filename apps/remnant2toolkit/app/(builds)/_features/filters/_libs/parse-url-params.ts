@@ -13,6 +13,10 @@ import {
   type ArchetypeFilterValue,
 } from '@/app/(builds)/_features/filters/_libs/archetype-filter';
 import {
+  archetypeSlotFilter,
+  type ArchetypeSlotFilterValue,
+} from '@/app/(builds)/_features/filters/_libs/archetype-slot-filter';
+import {
   buildTagFilter,
   type BuildTagFilterValue,
 } from '@/app/(builds)/_features/filters/_libs/build-tag-filter';
@@ -102,6 +106,10 @@ export function parseUrlParams({
   const archetypesParam = parsedParams
     .get(archetypeFilter.buildFilterKey)
     ?.split(',');
+
+  const archetypeSlotParam = parsedParams.get(
+    archetypeSlotFilter.buildFilterKey,
+  );
 
   const amuletsParam = parsedParams
     .get(amuletFilter.buildFilterKey)
@@ -199,6 +207,19 @@ export function parseUrlParams({
           return archetype;
         });
       }
+    }
+  }
+
+  let archetypeSlot: ArchetypeSlotFilterValue =
+    archetypeSlotFilter.defaultValue;
+  if (archetypeSlotParam) {
+    archetypeSlot = Number(archetypeSlotParam);
+    if (
+      archetypeSlotFilter.options.find(
+        (option) => option.value === archetypeSlot,
+      ) === undefined
+    ) {
+      archetypeSlot = archetypeSlotFilter.defaultValue;
     }
   }
 
@@ -718,7 +739,6 @@ export function parseUrlParams({
       }
     }
   }
-  
 
   // #region Misc filters
   let withCollection: WithCollectionFilterValue = defaultFilters.withCollection;
@@ -775,6 +795,7 @@ export function parseUrlParams({
   return {
     amulets,
     archetypes,
+    archetypeSlot,
     buildTags,
     fusions,
     handGuns,

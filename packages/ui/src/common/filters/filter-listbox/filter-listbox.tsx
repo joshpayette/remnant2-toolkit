@@ -13,7 +13,6 @@ interface FilterListboxProps {
   label: string;
   disabledStates?: FilterListboxState[];
   options: FilterOption[];
-  onBlur: () => void;
   onChange: (newOptions: FilterOption[]) => void;
 }
 
