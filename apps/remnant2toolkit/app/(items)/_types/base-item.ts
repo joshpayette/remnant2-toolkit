@@ -23,7 +23,8 @@ type ItemCategory =
   | 'skill'
   | 'trait'
   | 'perk'
-  | 'prism';
+  | 'prism'
+  | 'pylon';
 
 export interface BaseItemProps {
   id: string;
