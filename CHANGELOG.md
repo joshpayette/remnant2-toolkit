@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - In build filters, when filtering by a single archetype, you can now specify which equip slot you want that archetype to be in.
 
+### Fixed
+
+- Fixed Vash import/export functionality. To be clear, I broke this. I am the problem. It's me.
+
 ## 2024-10-31
 
 ### Changed

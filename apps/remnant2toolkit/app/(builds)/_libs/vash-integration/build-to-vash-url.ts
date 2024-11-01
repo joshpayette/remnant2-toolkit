@@ -5,14 +5,14 @@ import { type BuildState } from '@/app/(builds)/_types/build-state';
 export function buildToVashUrl(buildState: BuildState) {
   const { items } = buildState;
 
-  const params = new URLSearchParams();
+  let vashUrl = 'https://cowaii.io/Remnant2/Calculator?';
 
   // traits
   const traitParams = items.trait.map(
     (trait) => `${trait.name.replaceAll(' ', '+')}${trait.amount}`,
   );
   const traitString = traitParams.join(',');
-  params.append('trait', traitString);
+  vashUrl += `trait=${traitString}&`;
 
   // archetypes and skills
   const archetypeParams = items.archetype.map(
@@ -23,7 +23,7 @@ export function buildToVashUrl(buildState: BuildState) {
   );
   const archetypeString = archetypeParams.join(',');
   const skillString = skillParams.join(',');
-  params.append('archetype', `${archetypeString},${skillString}`);
+  vashUrl += `archetype=${archetypeString},${skillString}&`;
 
   // armor
   const armorParams = [
@@ -33,7 +33,7 @@ export function buildToVashUrl(buildState: BuildState) {
     items.gloves?.name.replaceAll(' ', '+') ?? '',
   ];
   const armorString = armorParams.join(',');
-  params.append('armor', armorString);
+  vashUrl += `armor=${armorString}&`;
 
   // main weapon
   const mainWeaponParams = [
@@ -42,7 +42,7 @@ export function buildToVashUrl(buildState: BuildState) {
     items.mod[0]?.name.replaceAll(' ', '+') ?? '',
   ];
   const mainWeaponString = mainWeaponParams.join(',');
-  params.append('primary', mainWeaponString);
+  vashUrl += `primary=${mainWeaponString}&`;
 
   // melee weapon
   const meleeWeaponParams = [
@@ -51,7 +51,7 @@ export function buildToVashUrl(buildState: BuildState) {
     items.mod[1]?.name.replaceAll(' ', '+') ?? '',
   ];
   const meleeWeaponString = meleeWeaponParams.join(',');
-  params.append('melee', meleeWeaponString);
+  vashUrl += `melee=${meleeWeaponString}&`;
 
   // pistol weapon
   const pistolWeaponParams = [
@@ -60,7 +60,7 @@ export function buildToVashUrl(buildState: BuildState) {
     items.mod[2]?.name.replaceAll(' ', '+') ?? '',
   ];
   const pistolWeaponString = pistolWeaponParams.join(',');
-  params.append('secondary', pistolWeaponString);
+  vashUrl += `secondary=${pistolWeaponString}&`;
 
   // consumable
   const concoctionParams = getArrayOfLength(7).map(
@@ -72,7 +72,7 @@ export function buildToVashUrl(buildState: BuildState) {
 
   const concoctionString = concoctionParams.join(',');
   const consumableString = consumableParams.join(',');
-  params.append('consumable', `${concoctionString},${consumableString}`);
+  vashUrl += `consumable=${concoctionString},${consumableString}&`;
 
   // accessories
   const accessoryParams = [
@@ -83,13 +83,18 @@ export function buildToVashUrl(buildState: BuildState) {
     items.ring[3]?.name.replaceAll(' ', '+') ?? '',
   ];
   const accessoryString = accessoryParams.join(',');
-  params.append('accessory', accessoryString);
+  vashUrl += `accessory=${accessoryString}&`;
 
   // relic
-  const relicParams = [items.relic?.name.replaceAll(' ', '+') ?? ''];
+  const relicParams = [
+    items.relic?.name.replaceAll(' ', '+') ?? '',
+    // items.relicfragment[0]?.name.replaceAll(' ', '+') ?? '',
+    // items.relicfragment[1]?.name.replaceAll(' ', '+') ?? '',
+    // items.relicfragment[2]?.name.replaceAll(' ', '+') ?? '',
+  ];
 
   const relicString = relicParams.join(',');
-  params.append('relic', relicString);
+  vashUrl += `relic=${relicString}&`;
 
   // prism
   const relicFragmentParams = [
@@ -122,7 +127,12 @@ export function buildToVashUrl(buildState: BuildState) {
     ...bonusFragmentParams,
     ...legendaryFragmentParams,
   ].join(',');
-  params.append('prism', prismString);
+  vashUrl += `prism=${prismString}&`;
 
-  return `https://cowaii.io/Remnant2/Calculator?${params.toString()}`;
+  // Remove the last & from the string
+  vashUrl = vashUrl.slice(0, -1);
+
+  console.info('vashUrl', vashUrl);
+
+  return vashUrl;
 }
