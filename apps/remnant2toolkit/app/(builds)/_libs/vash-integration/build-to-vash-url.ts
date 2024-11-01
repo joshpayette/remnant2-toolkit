@@ -9,17 +9,17 @@ export function buildToVashUrl(buildState: BuildState) {
 
   // traits
   const traitParams = items.trait.map(
-    (trait) => `${trait.name.replace(' ', '+')}${trait.amount}`,
+    (trait) => `${trait.name.replaceAll(' ', '+')}${trait.amount}`,
   );
   const traitString = traitParams.join(',');
   params.append('trait', traitString);
 
   // archetypes and skills
   const archetypeParams = items.archetype.map(
-    (archetype) => archetype?.name.replace(' ', '+') ?? '',
+    (archetype) => archetype?.name.replaceAll(' ', '+') ?? '',
   );
   const skillParams = items.skill.map(
-    (skill) => skill?.name.replace(' ', '+') ?? '',
+    (skill) => skill?.name.replaceAll(' ', '+') ?? '',
   );
   const archetypeString = archetypeParams.join(',');
   const skillString = skillParams.join(',');
@@ -27,47 +27,47 @@ export function buildToVashUrl(buildState: BuildState) {
 
   // armor
   const armorParams = [
-    items.helm?.name.replace(' ', '+') ?? '',
-    items.torso?.name.replace(' ', '+') ?? '',
-    items.legs?.name.replace(' ', '+') ?? '',
-    items.gloves?.name.replace(' ', '+') ?? '',
+    items.helm?.name.replaceAll(' ', '+') ?? '',
+    items.torso?.name.replaceAll(' ', '+') ?? '',
+    items.legs?.name.replaceAll(' ', '+') ?? '',
+    items.gloves?.name.replaceAll(' ', '+') ?? '',
   ];
   const armorString = armorParams.join(',');
   params.append('armor', armorString);
 
   // main weapon
   const mainWeaponParams = [
-    items.weapon[0]?.name.replace(' ', '+') ?? '',
-    items.mutator[0]?.name.replace(' ', '+') ?? '',
-    items.mod[0]?.name.replace(' ', '+') ?? '',
+    items.weapon[0]?.name.replaceAll(' ', '+') ?? '',
+    items.mutator[0]?.name.replaceAll(' ', '+') ?? '',
+    items.mod[0]?.name.replaceAll(' ', '+') ?? '',
   ];
   const mainWeaponString = mainWeaponParams.join(',');
   params.append('primary', mainWeaponString);
 
   // melee weapon
   const meleeWeaponParams = [
-    items.weapon[1]?.name.replace(' ', '+') ?? '',
-    items.mutator[1]?.name.replace(' ', '+') ?? '',
-    items.mod[1]?.name.replace(' ', '+') ?? '',
+    items.weapon[1]?.name.replaceAll(' ', '+') ?? '',
+    items.mutator[1]?.name.replaceAll(' ', '+') ?? '',
+    items.mod[1]?.name.replaceAll(' ', '+') ?? '',
   ];
   const meleeWeaponString = meleeWeaponParams.join(',');
   params.append('melee', meleeWeaponString);
 
   // pistol weapon
   const pistolWeaponParams = [
-    items.weapon[2]?.name.replace(' ', '+') ?? '',
-    items.mutator[2]?.name.replace(' ', '+') ?? '',
-    items.mod[2]?.name.replace(' ', '+') ?? '',
+    items.weapon[2]?.name.replaceAll(' ', '+') ?? '',
+    items.mutator[2]?.name.replaceAll(' ', '+') ?? '',
+    items.mod[2]?.name.replaceAll(' ', '+') ?? '',
   ];
   const pistolWeaponString = pistolWeaponParams.join(',');
   params.append('secondary', pistolWeaponString);
 
   // consumable
   const concoctionParams = getArrayOfLength(7).map(
-    (_, i) => items.concoction[i]?.name.replace(' ', '+') ?? '',
+    (_, i) => items.concoction[i]?.name.replaceAll(' ', '+') ?? '',
   );
   const consumableParams = getArrayOfLength(4).map(
-    (_, i) => items.consumable[i]?.name.replace(' ', '+') ?? '',
+    (_, i) => items.consumable[i]?.name.replaceAll(' ', '+') ?? '',
   );
 
   const concoctionString = concoctionParams.join(',');
@@ -76,46 +76,46 @@ export function buildToVashUrl(buildState: BuildState) {
 
   // accessories
   const accessoryParams = [
-    items.amulet?.name.replace(' ', '+') ?? '',
-    items.ring[0]?.name.replace(' ', '+') ?? '',
-    items.ring[1]?.name.replace(' ', '+') ?? '',
-    items.ring[2]?.name.replace(' ', '+') ?? '',
-    items.ring[3]?.name.replace(' ', '+') ?? '',
+    items.amulet?.name.replaceAll(' ', '+') ?? '',
+    items.ring[0]?.name.replaceAll(' ', '+') ?? '',
+    items.ring[1]?.name.replaceAll(' ', '+') ?? '',
+    items.ring[2]?.name.replaceAll(' ', '+') ?? '',
+    items.ring[3]?.name.replaceAll(' ', '+') ?? '',
   ];
   const accessoryString = accessoryParams.join(',');
   params.append('accessory', accessoryString);
 
   // relic
-  const relicParams = [items.relic?.name.replace(' ', '+') ?? ''];
+  const relicParams = [items.relic?.name.replaceAll(' ', '+') ?? ''];
 
   const relicString = relicParams.join(',');
   params.append('relic', relicString);
 
   // prism
   const relicFragmentParams = [
-    items.relicfragment[0]?.name.replace(' ', '+') ?? '',
-    items.relicfragment[1]?.name.replace(' ', '+') ?? '',
-    items.relicfragment[2]?.name.replace(' ', '+') ?? '',
+    items.relicfragment[0]?.name.replaceAll(' ', '+') ?? '',
+    items.relicfragment[1]?.name.replaceAll(' ', '+') ?? '',
+    items.relicfragment[2]?.name.replaceAll(' ', '+') ?? '',
   ];
   const bonusFragmentParams = [
-    items.relicfragment[3]?.name.replace(' ', '+') ??
-      items.fusion[3]?.name.replace(' ', '+') ??
+    items.relicfragment[3]?.name.replaceAll(' ', '+') ??
+      items.fusion[3]?.name.replaceAll(' ', '+') ??
       '',
-    items.relicfragment[4]?.name.replace(' ', '+') ??
-      items.fusion[4]?.name.replace(' ', '+') ??
+    items.relicfragment[4]?.name.replaceAll(' ', '+') ??
+      items.fusion[4]?.name.replaceAll(' ', '+') ??
       '',
-    items.relicfragment[5]?.name.replace(' ', '+') ??
-      items.fusion[5]?.name.replace(' ', '+') ??
+    items.relicfragment[5]?.name.replaceAll(' ', '+') ??
+      items.fusion[5]?.name.replaceAll(' ', '+') ??
       '',
-    items.relicfragment[6]?.name.replace(' ', '+') ??
-      items.fusion[6]?.name.replace(' ', '+') ??
+    items.relicfragment[6]?.name.replaceAll(' ', '+') ??
+      items.fusion[6]?.name.replaceAll(' ', '+') ??
       '',
-    items.relicfragment[7]?.name.replace(' ', '+') ??
-      items.fusion[7]?.name.replace(' ', '+') ??
+    items.relicfragment[7]?.name.replaceAll(' ', '+') ??
+      items.fusion[7]?.name.replaceAll(' ', '+') ??
       '',
   ];
   const legendaryFragmentParams = [
-    items.relicfragment[8]?.name.replace(' ', '+') ?? '',
+    items.relicfragment[8]?.name.replaceAll(' ', '+') ?? '',
   ];
   const prismString = [
     ...relicFragmentParams,
