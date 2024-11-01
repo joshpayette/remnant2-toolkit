@@ -1,3 +1,4 @@
+import type { ArchetypeSlotFilterValue } from '@/app/(builds)/_features/filters/_libs/archetype-slot-filter';
 import type { BuildTagFilterValue } from '@/app/(builds)/_features/filters/_libs/build-tag-filter';
 import type { FusionFilterValue } from '@/app/(builds)/_features/filters/_libs/fusion-filter';
 import type { HandGunFilterValue } from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
@@ -25,6 +26,7 @@ import { type ArchetypeFilterValue } from '../_libs/archetype-filter';
 export interface BuildFilterFields {
   amulets: AmuletFilterValue;
   archetypes: ArchetypeFilterValue;
+  archetypeSlot: ArchetypeSlotFilterValue;
   buildTags: BuildTagFilterValue;
   fusions: FusionFilterValue;
   handGuns: HandGunFilterValue;

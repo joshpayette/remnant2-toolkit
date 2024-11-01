@@ -21,6 +21,7 @@ import { QualityBuildDialog } from '@/app/(builds)/_components/quality-build-dia
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import { amuletFilter } from '@/app/(builds)/_features/filters/_libs/amulet-filter';
 import { archetypeFilter } from '@/app/(builds)/_features/filters/_libs/archetype-filter';
+import { archetypeSlotFilter } from '@/app/(builds)/_features/filters/_libs/archetype-slot-filter';
 import { buildTagFilter } from '@/app/(builds)/_features/filters/_libs/build-tag-filter';
 import { fusionFilter } from '@/app/(builds)/_features/filters/_libs/fusion-filter';
 import { handGunFilter } from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
@@ -106,6 +107,18 @@ export function BuildFilters({
       } else {
         params.delete(archetypeFilter.buildFilterKey);
       }
+    }
+
+    if (isEqual(newFilters.archetypeSlot, defaultFilters.archetypeSlot)) {
+      params.delete(archetypeSlotFilter.buildFilterKey);
+    } else {
+      if (params.has(archetypeSlotFilter.buildFilterKey)) {
+        params.delete(archetypeSlotFilter.buildFilterKey);
+      }
+      params.append(
+        archetypeSlotFilter.buildFilterKey,
+        newFilters.archetypeSlot.toString(),
+      );
     }
 
     if (isEqual(newFilters.amulets, defaultFilters.amulets)) {
@@ -489,32 +502,50 @@ export function BuildFilters({
             </div>
             <Disclosure.Panel>
               <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-                <BaseField
-                  id="archetypes-filter"
-                  className="col-span-full sm:col-span-1"
-                >
-                  <FilterListbox
-                    options={unappliedFilters.archetypes}
-                    label={archetypeFilter.label}
-                    onBlur={() => {
-                      if (
-                        !isEqual(
-                          unappliedFilters.archetypes,
-                          filters.archetypes,
-                        )
-                      ) {
-                        applyUrlFilters(unappliedFilters);
-                      }
-                    }}
-                    onChange={(newValues) => {
-                      const newFilters: BuildFilterFields = {
-                        ...unappliedFilters,
-                        archetypes: newValues,
-                      };
-                      setUnappliedFilters(newFilters);
-                    }}
-                  />
-                </BaseField>
+                <div className="">
+                  <BaseField
+                    id="archetypes-filter"
+                    className="col-span-full sm:col-span-1"
+                  >
+                    <FilterListbox
+                      options={unappliedFilters.archetypes}
+                      label={archetypeFilter.label}
+                      onChange={(newValues) => {
+                        const newFilters: BuildFilterFields = {
+                          ...unappliedFilters,
+                          archetypes: newValues,
+                        };
+                        setUnappliedFilters(newFilters);
+                      }}
+                    />
+                  </BaseField>
+                  {unappliedFilters.archetypes.filter(
+                    (a) => a.state === 'included',
+                  ).length === 1 ? (
+                    <BaseField
+                      id="archetype-slot"
+                      className="col-span-full sm:col-span-1"
+                    >
+                      <BaseListbox
+                        className="mt-1"
+                        value={unappliedFilters.archetypeSlot}
+                        onChange={(value) => {
+                          const newFilters = {
+                            ...unappliedFilters,
+                            archetypeSlot: value,
+                          };
+                          setUnappliedFilters(newFilters);
+                        }}
+                      >
+                        {archetypeSlotFilter.options.map(({ label, value }) => (
+                          <BaseListboxOption key={value} value={value}>
+                            <BaseListboxLabel>{label}</BaseListboxLabel>
+                          </BaseListboxOption>
+                        ))}
+                      </BaseListbox>
+                    </BaseField>
+                  ) : null}
+                </div>
                 <BaseField
                   id="skills-filter"
                   className="col-span-full sm:col-span-1"
@@ -522,11 +553,6 @@ export function BuildFilters({
                   <FilterListbox
                     options={unappliedFilters.skills}
                     label={skillFilter.label}
-                    onBlur={() => {
-                      if (!isEqual(unappliedFilters.skills, filters.skills)) {
-                        applyUrlFilters(unappliedFilters);
-                      }
-                    }}
                     onChange={(newValues) => {
                       const newFilters: BuildFilterFields = {
                         ...unappliedFilters,
@@ -543,11 +569,6 @@ export function BuildFilters({
                   <FilterListbox
                     options={unappliedFilters.amulets}
                     label={amuletFilter.label}
-                    onBlur={() => {
-                      if (!isEqual(unappliedFilters.amulets, filters.amulets)) {
-                        applyUrlFilters(unappliedFilters);
-                      }
-                    }}
                     onChange={(newValues) => {
                       const newFilters: BuildFilterFields = {
                         ...unappliedFilters,
@@ -564,11 +585,6 @@ export function BuildFilters({
                   <FilterListbox
                     options={unappliedFilters.rings}
                     label={ringFilter.label}
-                    onBlur={() => {
-                      if (!isEqual(unappliedFilters.rings, filters.rings)) {
-                        applyUrlFilters(unappliedFilters);
-                      }
-                    }}
                     onChange={(newValues) => {
                       const newFilters: BuildFilterFields = {
                         ...unappliedFilters,
@@ -585,11 +601,6 @@ export function BuildFilters({
                   <FilterListbox
                     options={unappliedFilters.relics}
                     label={relicFilter.label}
-                    onBlur={() => {
-                      if (!isEqual(unappliedFilters.relics, filters.relics)) {
-                        applyUrlFilters(unappliedFilters);
-                      }
-                    }}
                     onChange={(newValues) => {
                       const newFilters: BuildFilterFields = {
                         ...unappliedFilters,
@@ -606,16 +617,6 @@ export function BuildFilters({
                   <FilterListbox
                     options={unappliedFilters.relicFragments}
                     label={relicFragmentFilter.label}
-                    onBlur={() => {
-                      if (
-                        !isEqual(
-                          unappliedFilters.relicFragments,
-                          filters.relicFragments,
-                        )
-                      ) {
-                        applyUrlFilters(unappliedFilters);
-                      }
-                    }}
                     onChange={(newValues) => {
                       const newFilters: BuildFilterFields = {
                         ...unappliedFilters,
@@ -632,11 +633,6 @@ export function BuildFilters({
                   <FilterListbox
                     options={unappliedFilters.fusions}
                     label={fusionFilter.label}
-                    onBlur={() => {
-                      if (!isEqual(unappliedFilters.fusions, filters.fusions)) {
-                        applyUrlFilters(unappliedFilters);
-                      }
-                    }}
                     onChange={(newValues) => {
                       const newFilters: BuildFilterFields = {
                         ...unappliedFilters,
@@ -653,16 +649,6 @@ export function BuildFilters({
                   <FilterListbox
                     options={unappliedFilters.legendaryFragments}
                     label={legendaryFragmentFilter.label}
-                    onBlur={() => {
-                      if (
-                        !isEqual(
-                          unappliedFilters.legendaryFragments,
-                          filters.legendaryFragments,
-                        )
-                      ) {
-                        applyUrlFilters(unappliedFilters);
-                      }
-                    }}
                     onChange={(newValues) => {
                       const newFilters: BuildFilterFields = {
                         ...unappliedFilters,
@@ -679,13 +665,6 @@ export function BuildFilters({
                   <FilterListbox
                     options={unappliedFilters.longGuns}
                     label={longGunFilter.label}
-                    onBlur={() => {
-                      if (
-                        !isEqual(unappliedFilters.longGuns, filters.longGuns)
-                      ) {
-                        applyUrlFilters(unappliedFilters);
-                      }
-                    }}
                     onChange={(newValues) => {
                       const newFilters: BuildFilterFields = {
                         ...unappliedFilters,
@@ -702,13 +681,6 @@ export function BuildFilters({
                   <FilterListbox
                     options={unappliedFilters.handGuns}
                     label={handGunFilter.label}
-                    onBlur={() => {
-                      if (
-                        !isEqual(unappliedFilters.handGuns, filters.handGuns)
-                      ) {
-                        applyUrlFilters(unappliedFilters);
-                      }
-                    }}
                     onChange={(newValues) => {
                       const newFilters: BuildFilterFields = {
                         ...unappliedFilters,
@@ -725,11 +697,6 @@ export function BuildFilters({
                   <FilterListbox
                     options={unappliedFilters.melees}
                     label={meleeFilter.label}
-                    onBlur={() => {
-                      if (!isEqual(unappliedFilters.melees, filters.melees)) {
-                        applyUrlFilters(unappliedFilters);
-                      }
-                    }}
                     onChange={(newValues) => {
                       const newFilters: BuildFilterFields = {
                         ...unappliedFilters,
@@ -746,11 +713,6 @@ export function BuildFilters({
                   <FilterListbox
                     options={unappliedFilters.mods}
                     label="Mods"
-                    onBlur={() => {
-                      if (!isEqual(unappliedFilters.mods, filters.mods)) {
-                        applyUrlFilters(unappliedFilters);
-                      }
-                    }}
                     onChange={(newValues) => {
                       const newFilters: BuildFilterFields = {
                         ...unappliedFilters,
@@ -767,13 +729,6 @@ export function BuildFilters({
                   <FilterListbox
                     options={unappliedFilters.mutators}
                     label="Mutators"
-                    onBlur={() => {
-                      if (
-                        !isEqual(unappliedFilters.mutators, filters.mutators)
-                      ) {
-                        applyUrlFilters(unappliedFilters);
-                      }
-                    }}
                     onChange={(newValues) => {
                       const newFilters: BuildFilterFields = {
                         ...unappliedFilters,
@@ -790,11 +745,6 @@ export function BuildFilters({
                   <FilterListbox
                     options={unappliedFilters.traits}
                     label={traitFilter.label}
-                    onBlur={() => {
-                      if (!isEqual(unappliedFilters.traits, filters.traits)) {
-                        applyUrlFilters(unappliedFilters);
-                      }
-                    }}
                     onChange={(newValues) => {
                       const newFilters: BuildFilterFields = {
                         ...unappliedFilters,
@@ -829,13 +779,6 @@ export function BuildFilters({
                     options={unappliedFilters.releases}
                     disabledStates={['excluded']}
                     label="Releases"
-                    onBlur={() => {
-                      if (
-                        !isEqual(unappliedFilters.releases, filters.releases)
-                      ) {
-                        applyUrlFilters(unappliedFilters);
-                      }
-                    }}
                     onChange={(newValues) => {
                       const newFilters: BuildFilterFields = {
                         ...unappliedFilters,
@@ -882,13 +825,6 @@ export function BuildFilters({
                   <FilterListbox
                     options={unappliedFilters.buildTags}
                     label={buildTagFilter.label}
-                    onBlur={() => {
-                      if (
-                        !isEqual(unappliedFilters.buildTags, filters.buildTags)
-                      ) {
-                        applyUrlFilters(unappliedFilters);
-                      }
-                    }}
                     onChange={(newValues) => {
                       const newFilters: BuildFilterFields = {
                         ...unappliedFilters,

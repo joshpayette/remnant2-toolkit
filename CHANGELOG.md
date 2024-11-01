@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-11-01
+
+### Added
+
+- In build filters, when filtering by a single archetype, you can now specify which equip slot you want that archetype to be in.
+
 ## 2024-10-31
 
 ### Changed

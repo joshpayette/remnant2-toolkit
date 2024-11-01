@@ -44,6 +44,7 @@ export async function getFavoritedBuilds({
   const {
     amulets,
     archetypes,
+    archetypeSlot,
     buildTags,
     fusions,
     handGuns,
@@ -69,7 +70,7 @@ export async function getFavoritedBuilds({
   const whereConditions = Prisma.sql`
     WHERE Build.isPublic = true
     AND Build.createdById != ${userId}
-    ${limitByArchetypesSegment(archetypes)}
+    ${limitByArchetypesSegment(archetypes, archetypeSlot)}
     ${limitByAmuletSegment(amulets)}
     ${limitByBuildTagsSegment(buildTags)}
     ${limitByFusionsSegment(fusions)}
