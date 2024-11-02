@@ -52,9 +52,9 @@ export function BuildTagsDisplay({
   }
 
   return (
-    <BaseFieldset className="flex w-full max-w-full flex-col items-center justify-center">
+    <BaseFieldset className="my-2 flex w-full max-w-full flex-col items-center justify-center">
       {showLabel && isEditable && (
-        <BaseLabel className="my-2 flex w-full items-center justify-center">
+        <BaseLabel className="mb-2 flex w-full items-center justify-center">
           Build Tags{' '}
           {!isScreenshotMode && isEditable && `(Limit ${MAX_BUILD_TAGS})`}
         </BaseLabel>

@@ -17,7 +17,7 @@ import { useMemo, useState } from 'react';
 
 import { InputWithClear } from '@/app/_components/input-with-clear';
 import { EXCLUDE_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
-import { QualityBuildDialog } from '@/app/(builds)/_components/quality-build-dialog';
+import { QualityBuildInfoDialog } from '@/app/(builds)/_components/quality-build-info-dialog';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import { amuletFilter } from '@/app/(builds)/_features/filters/_libs/filters/amulet-filter';
 import { archetypeFilter } from '@/app/(builds)/_features/filters/_libs/filters/archetype-filter';
@@ -496,7 +496,7 @@ export function BuildFilters({
         </BaseField>
       }
     >
-      <QualityBuildDialog
+      <QualityBuildInfoDialog
         open={isQualityDescriptionOpen}
         onClose={() => setIsQualityDescriptionOpen(false)}
       />
@@ -511,7 +511,7 @@ export function BuildFilters({
               </Disclosure.Button>
             </div>
             <Disclosure.Panel>
-              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                 <div className="">
                   <BaseField
                     id="archetypes-filter"
@@ -780,7 +780,7 @@ export function BuildFilters({
               </Disclosure.Button>
             </div>
             <Disclosure.Panel>
-              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                 <BaseField
                   id="releases-filter"
                   className="col-span-full sm:col-span-1"
@@ -853,7 +853,7 @@ export function BuildFilters({
               </Disclosure.Button>
             </div>
             <Disclosure.Panel>
-              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                 <BaseField
                   id="with-quality-filter"
                   className="col-span-full sm:col-span-1"

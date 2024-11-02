@@ -9,6 +9,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - New build filter to only show builds with optional or empty legendary gems. If a build or any variant has an empty or optional legendary gem, it will show in the results if this filter is set to Yes.
+- When saving a new or editing an existing build, a dialog will now appear if the build is not considered a "quality build". The dialog will tell you what needs to be fixed to make the build a quality build, or you can save the build anyway.
+
+### Change
+
+- Added a bit more spacing between select menus on the build filters.
+
+### Fixed
+
+- When creating or editing a build, the label for the `Relic` slot mistakenly read `Prism`.
 
 ## 2024-11-01
 

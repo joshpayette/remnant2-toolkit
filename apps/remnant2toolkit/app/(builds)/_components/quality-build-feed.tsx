@@ -4,7 +4,7 @@ import { BaseLink, EyeIcon, Tooltip } from '@repo/ui';
 import { useState } from 'react';
 
 import { BuildCard } from '@/app/(builds)/_components/build-card';
-import { QualityBuildDialog } from '@/app/(builds)/_components/quality-build-dialog';
+import { QualityBuildInfoDialog } from '@/app/(builds)/_components/quality-build-info-dialog';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
 interface Props {
@@ -16,7 +16,7 @@ export function QualityBuildFeed({ builds }: Props) {
 
   return (
     <>
-      <QualityBuildDialog
+      <QualityBuildInfoDialog
         open={qualityBuildDialogOpen}
         onClose={() => setQualityBuildDialogOpen(false)}
       />

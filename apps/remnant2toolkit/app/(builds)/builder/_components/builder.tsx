@@ -863,7 +863,7 @@ export function Builder({
                 <div>
                   {isEditable && !isScreenshotMode ? (
                     <div className="w-full text-left md:text-center">
-                      <span className="text-xs">Prism</span>
+                      <span className="text-xs">Relic</span>
                     </div>
                   ) : null}
                   <ItemButton
