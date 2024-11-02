@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - When creating or editing a build, the label for the `Relic` slot mistakenly read `Prism`.
+- Mistakenly only added "Only Builds w/ Optional Leg. Gem" filter to a single build feed.
 
 ## 2024-11-01
 
