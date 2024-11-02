@@ -1,6 +1,5 @@
 'use client';
 
-import { type BuildTags } from '@repo/db';
 import {
   BaseButton,
   BaseField,
@@ -25,12 +24,9 @@ import { BuildDescriptionTemplateAlert } from '@/app/(builds)/_components/build-
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
 import { DescriptionTokenDialog } from '@/app/(builds)/builder/_components/description-token-dialog';
 
-import { BuildTagsDisplay } from './build-tags-display';
-
 type Props = {
   buildId: string | null;
   buildLink: string | null;
-  buildTags: BuildTags[];
   description: string | null;
   isEditable: boolean;
   isMainBuild: boolean;
@@ -38,7 +34,6 @@ type Props = {
   isPublic: boolean | null;
   isScreenshotMode: boolean;
   onChangeBuildLink: (buildLink: string) => void;
-  onChangeBuildTags: (tags: BuildTags[]) => void;
   onChangeDescription: (description: string) => void;
   onChangeIsPublic: (isPublic: boolean) => void;
   onChangeIsPatchAffected: (isPatchAffected: boolean) => void;
@@ -47,7 +42,6 @@ type Props = {
 export function MemberFeatures({
   buildId,
   buildLink,
-  buildTags,
   description,
   isEditable,
   isMainBuild,
@@ -55,7 +49,6 @@ export function MemberFeatures({
   isPublic,
   isScreenshotMode,
   onChangeBuildLink,
-  onChangeBuildTags,
   onChangeDescription,
   onChangeIsPublic,
   onChangeIsPatchAffected,
@@ -69,17 +62,7 @@ export function MemberFeatures({
   if (status === 'loading') return <Loading />;
 
   return (
-    <div className="relative w-full max-w-[700px] pt-4">
-      <div className="mb-4 flex w-full flex-col items-start justify-start">
-        <BuildTagsDisplay
-          buildTags={buildTags ?? []}
-          isEditable={isEditable && isMainBuild}
-          isScreenshotMode={isScreenshotMode}
-          onChange={onChangeBuildTags}
-          showLabel={isEditable || buildTags.length > 0}
-        />
-      </div>
-
+    <div className="relative w-full max-w-[730px] pt-4">
       {!isEditable || isScreenshotMode ? (
         <div className="flex flex-col">
           {description && description.length > 0 && (
@@ -152,10 +135,7 @@ This build is designed for [insert game difficulty here] and is a [insert build 
 
 If you don't have the [insert item name here], you can use [insert alternative item name here] instead. If you don't have the [insert item name here], you can use [insert alternative item name here] instead.
 
-For a non-boss version of this build, see [insert link here].
-For an easier to obtain loot version of this build, see [insert link here].
-
-Watch the build in action: [insert Youtube link here]
+The playstyle of this build relies on [insert playstyle here].
 `.trim(),
                 );
               }}

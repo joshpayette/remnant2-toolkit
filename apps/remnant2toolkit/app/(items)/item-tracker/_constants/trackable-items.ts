@@ -8,6 +8,7 @@ export const SKIPPED_ITEM_TRACKER_CATEGORIES: Array<ItemCategory> = [
   'skill',
   'perk',
   'fusion',
+  'pylon',
 ];
 
 /** All items that are trackable. */

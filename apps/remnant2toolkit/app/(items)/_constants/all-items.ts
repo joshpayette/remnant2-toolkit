@@ -1,3 +1,5 @@
+import { pylonItems } from '@/app/(items)/_constants/pylon-items';
+
 import { type Item } from '../_types/item';
 import { amuletItems } from './amulet-items';
 import { archetypeItems } from './archetype-items';
@@ -27,6 +29,7 @@ export const allItems = [
   ...mutatorItems,
   ...perkItems,
   ...prismItems,
+  ...pylonItems,
   ...relicFragmentItems,
   ...relicItems,
   ...ringItems,

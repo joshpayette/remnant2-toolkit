@@ -63,7 +63,7 @@ export function PrismDisplay({
       <BaseFieldset className="flex max-w-full flex-col items-start justify-start gap-y-2 border border-transparent p-1">
         {isEditable && !isScreenshotMode ? (
           <BaseLabel className="w-full text-left md:text-center">
-            <span className="text-sm">Prism</span>
+            <span className="text-xs">Prism</span>
           </BaseLabel>
         ) : null}
         <ItemButton
@@ -80,38 +80,35 @@ export function PrismDisplay({
         />
       </BaseFieldset>
       <BaseFieldset className="flex max-w-full flex-col items-start justify-start gap-y-2 border border-transparent p-1">
-        {isEditable && !isScreenshotMode ? (
-          <BaseLabel className="w-full text-left md:text-center">
-            <span className="text-sm">Fragments</span>
-          </BaseLabel>
-        ) : null}
         <div className="flex w-full flex-wrap items-start justify-start gap-x-2 md:gap-x-1">
           {getArrayOfLength(MAX_RELIC_FRAGMENT_COUNT).map((fragmentIndex) => (
-            <ItemButton
-              key={
-                buildState.items.relicfragment[fragmentIndex]?.id ||
-                fragmentIndex
-              }
-              item={buildState.items.relicfragment[fragmentIndex] || null}
-              isEditable={isEditable}
-              isScreenshotMode={isScreenshotMode}
-              manualWordBreaks={true}
-              onClick={() => onItemSlotClick('relicfragment', fragmentIndex)}
-              onItemInfoClick={onShowInfo}
-              onToggleOptional={onToggleOptional}
-              showOwnership={itemOwnershipPreference}
-              tooltipDisabled={itemInfoOpen}
-              unoptimized={isScreenshotMode}
-            />
+            <div>
+              {isEditable && !isScreenshotMode ? (
+                <BaseLabel className="mb-2 w-full text-left md:text-center">
+                  <span className="text-xs">Fragment</span>
+                </BaseLabel>
+              ) : null}
+              <ItemButton
+                key={
+                  buildState.items.relicfragment[fragmentIndex]?.id ||
+                  fragmentIndex
+                }
+                item={buildState.items.relicfragment[fragmentIndex] || null}
+                isEditable={isEditable}
+                isScreenshotMode={isScreenshotMode}
+                manualWordBreaks={true}
+                onClick={() => onItemSlotClick('relicfragment', fragmentIndex)}
+                onItemInfoClick={onShowInfo}
+                onToggleOptional={onToggleOptional}
+                showOwnership={itemOwnershipPreference}
+                tooltipDisabled={itemInfoOpen}
+                unoptimized={isScreenshotMode}
+              />
+            </div>
           ))}
         </div>
       </BaseFieldset>
       <BaseFieldset className="flex max-w-full flex-col items-start justify-start gap-y-2 border border-transparent p-1">
-        {isEditable && !isScreenshotMode ? (
-          <BaseLabel className="w-full text-left md:text-center">
-            <span className="text-sm">Bonuses</span>
-          </BaseLabel>
-        ) : null}
         <div className="flex w-full flex-wrap items-start justify-start gap-x-2 md:gap-x-1">
           {getArrayOfLength(MAX_BONUS_RELIC_FRAGMENT_COUNT).map((index) => {
             // Account for the first 3 slots being the main fragments
@@ -124,33 +121,40 @@ export function PrismDisplay({
             const itemToDisplay = fusionInSlot || fragmentInSlot;
 
             return (
-              <ItemButton
-                key={itemToDisplay?.id ?? index}
-                item={itemToDisplay || null}
-                isEditable={isEditable}
-                isScreenshotMode={isScreenshotMode}
-                manualWordBreaks={true}
-                onClick={() => {
-                  if (!isEditable) {
-                    return setWhichSlotClicked(null);
-                  }
-                  if (!fusionInSlot && !fragmentInSlot) {
-                    setWhichSlotClicked(index + slotOffset);
-                    return;
-                  }
-                  if (fragmentInSlot) {
-                    onItemSlotClick('relicfragment', index + slotOffset);
-                  }
-                  if (fusionInSlot) {
-                    onItemSlotClick('fusion', index + slotOffset);
-                  }
-                }}
-                onItemInfoClick={onShowInfo}
-                onToggleOptional={onToggleOptional}
-                showOwnership={itemOwnershipPreference}
-                tooltipDisabled={itemInfoOpen}
-                unoptimized={isScreenshotMode}
-              />
+              <div>
+                {isEditable && !isScreenshotMode ? (
+                  <BaseLabel className="mb-2 w-full text-left md:text-center">
+                    <span className="text-xs">Bonus</span>
+                  </BaseLabel>
+                ) : null}
+                <ItemButton
+                  key={itemToDisplay?.id ?? index}
+                  item={itemToDisplay || null}
+                  isEditable={isEditable}
+                  isScreenshotMode={isScreenshotMode}
+                  manualWordBreaks={true}
+                  onClick={() => {
+                    if (!isEditable) {
+                      return setWhichSlotClicked(null);
+                    }
+                    if (!fusionInSlot && !fragmentInSlot) {
+                      setWhichSlotClicked(index + slotOffset);
+                      return;
+                    }
+                    if (fragmentInSlot) {
+                      onItemSlotClick('relicfragment', index + slotOffset);
+                    }
+                    if (fusionInSlot) {
+                      onItemSlotClick('fusion', index + slotOffset);
+                    }
+                  }}
+                  onItemInfoClick={onShowInfo}
+                  onToggleOptional={onToggleOptional}
+                  showOwnership={itemOwnershipPreference}
+                  tooltipDisabled={itemInfoOpen}
+                  unoptimized={isScreenshotMode}
+                />
+              </div>
             );
           })}
         </div>
@@ -158,7 +162,7 @@ export function PrismDisplay({
       <BaseFieldset className="flex max-w-full flex-col items-start justify-start gap-y-2 border border-transparent p-1">
         {isEditable && !isScreenshotMode ? (
           <BaseLabel className="w-full text-center">
-            <span className="text-sm">Legendary</span>
+            <span className="text-xs">Legendary</span>
           </BaseLabel>
         ) : null}
         <ItemButton

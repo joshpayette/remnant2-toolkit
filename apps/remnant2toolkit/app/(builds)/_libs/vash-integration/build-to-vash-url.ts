@@ -132,7 +132,5 @@ export function buildToVashUrl(buildState: BuildState) {
   // Remove the last & from the string
   vashUrl = vashUrl.slice(0, -1);
 
-  console.info('vashUrl', vashUrl);
-
   return vashUrl;
 }

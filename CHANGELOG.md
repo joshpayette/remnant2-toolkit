@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - In build filters, when filtering by a single archetype, you can now specify which equip slot you want that archetype to be in.
+- You can now equip boss rush pylons in the builder as long as the Boss Rush build tag is also applied.
 
 ### Fixed
 

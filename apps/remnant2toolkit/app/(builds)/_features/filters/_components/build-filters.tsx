@@ -792,7 +792,7 @@ export function BuildFilters({
                   id="with-collection-filter"
                   className="col-span-full sm:col-span-1"
                 >
-                  <BaseLabel className="text-surface-solid h-[40px] text-sm font-medium">
+                  <BaseLabel className="text-surface-solid h-[40px] !text-sm font-medium">
                     {withCollectionFilter.label}
                   </BaseLabel>
                   <BaseListbox
@@ -856,7 +856,7 @@ export function BuildFilters({
                   id="with-quality-filter"
                   className="col-span-full sm:col-span-1"
                 >
-                  <BaseLabel className="text-surface-solid h-[40px] text-sm font-medium">
+                  <BaseLabel className="text-surface-solid h-[40px] !text-sm font-medium">
                     {withQualityFilter.label}
                   </BaseLabel>
                   <BaseListbox
@@ -894,7 +894,7 @@ export function BuildFilters({
                   id="with-video-filter"
                   className="col-span-full sm:col-span-1"
                 >
-                  <BaseLabel className="text-surface-solid h-[40px] text-sm font-medium">
+                  <BaseLabel className="text-surface-solid h-[40px] !text-sm font-medium">
                     {withVideoFilter.label}
                   </BaseLabel>
                   <BaseListbox
@@ -924,7 +924,7 @@ export function BuildFilters({
                   id="with-reference-filter"
                   className="col-span-full sm:col-span-1"
                 >
-                  <BaseLabel className="text-surface-solid h-[40px] text-sm font-medium">
+                  <BaseLabel className="text-surface-solid h-[40px] !text-sm font-medium">
                     {withReferenceFilter.label}
                   </BaseLabel>
                   <BaseListbox
@@ -956,7 +956,7 @@ export function BuildFilters({
                   id="with-patch-affected-filter"
                   className="col-span-full sm:col-span-1"
                 >
-                  <BaseLabel className="text-surface-solid h-[40px] text-sm font-medium">
+                  <BaseLabel className="text-surface-solid h-[40px] !text-sm font-medium">
                     {withPatchAffectedFilter.label}
                   </BaseLabel>
                   <BaseListbox
