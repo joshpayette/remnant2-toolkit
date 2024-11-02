@@ -14,6 +14,7 @@ const EXCLUDED_CATEGORIES = [
   'skill',
   'prism',
   'fusion',
+  'pylon',
   'helm',
   'torso',
   'legs',

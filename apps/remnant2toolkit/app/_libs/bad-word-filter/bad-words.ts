@@ -677,7 +677,6 @@ export const badWords = [
   'whoar',
   'whore',
   'wichser',
-  'wop*',
   'xrated',
   'xxx',
   'yed',

@@ -10,6 +10,7 @@ import { type ModItem } from '@/app/(items)/_types/mod-item';
 import { type MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { type PerkItem } from '@/app/(items)/_types/perk-item';
 import { type PrismItem } from '@/app/(items)/_types/prism-item';
+import type { PylonItem } from '@/app/(items)/_types/pylon-item';
 import { type RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 import { type RelicItem } from '@/app/(items)/_types/relic-item';
 import { type RingItem } from '@/app/(items)/_types/ring-item';
@@ -58,6 +59,7 @@ export interface BuildState {
     trait: Array<TraitItem & { isOwned?: boolean }>;
     perk: Array<(PerkItem & { isOwned?: boolean }) | null>;
     prism: (PrismItem & { isOwned?: boolean }) | null;
+    pylon: Array<(PylonItem & { isOwned?: boolean }) | null>;
   };
   name: string;
   percentageOwned: number;

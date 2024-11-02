@@ -52,17 +52,17 @@ export function BuildTagsDisplay({
   }
 
   return (
-    <BaseFieldset className="flex w-full max-w-full flex-col items-center justify-start">
-      {showLabel && (
-        <BaseLabel className="mb-2 w-full">
+    <BaseFieldset className="flex w-full max-w-full flex-col items-center justify-center">
+      {showLabel && isEditable && (
+        <BaseLabel className="my-2 flex w-full items-center justify-center">
           Build Tags{' '}
           {!isScreenshotMode && isEditable && `(Limit ${MAX_BUILD_TAGS})`}
         </BaseLabel>
       )}
       <div
         className={cn(
-          'justify-left mb-4 flex w-full flex-wrap items-center sm:justify-start',
-          !showLabel && 'sm:justify-left justify-center',
+          'mb-2 flex w-full flex-wrap items-center justify-center',
+          !showLabel && 'justify-center',
         )}
       >
         {ALL_BUILD_TAGS.filter((tag) => tag.category === 'Type').map(
@@ -97,8 +97,7 @@ export function BuildTagsDisplay({
       </div>
       <div
         className={cn(
-          'justify-left flex w-full flex-wrap items-center gap-2 sm:justify-start',
-          !showLabel && 'sm:justify-left justify-center',
+          'flex w-full flex-wrap items-center justify-center gap-2',
         )}
       >
         {ALL_BUILD_TAGS.filter((tag) => tag.category === 'Tag').map(

@@ -14,6 +14,7 @@ import { type Item } from '@/app/(items)/_types/item';
 import { ModItem } from '@/app/(items)/_types/mod-item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { PrismItem } from '@/app/(items)/_types/prism-item';
+import { PylonItem } from '@/app/(items)/_types/pylon-item';
 import { RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 import { RelicItem } from '@/app/(items)/_types/relic-item';
 import { RingItem } from '@/app/(items)/_types/ring-item';
@@ -221,6 +222,9 @@ export function updateBuildState({
       break;
     case 'fusion':
       itemOrItems = FusionItem.fromParams(params);
+      break;
+    case 'pylon':
+      itemOrItems = PylonItem.fromParams(params);
       break;
     default:
       console.error(`Unknown category ${category}`);

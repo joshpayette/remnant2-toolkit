@@ -140,6 +140,9 @@ export default async function getItemBuildStats(itemId: string): Promise<{
           }
           break;
         }
+        case 'pylon':
+          buildsPath = undefined;
+          break;
         default:
           buildsPath = `${searchTextFilter.buildFilterKey}=${item.category}`;
           break;

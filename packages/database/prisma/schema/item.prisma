@@ -17,6 +17,7 @@ enum ITEM_CATEGORY {
   trait
   prism
   fusion
+  pylon
 }
 
 enum ITEM_DLC {

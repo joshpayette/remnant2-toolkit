@@ -211,6 +211,21 @@ export function buildStateToBuildItems(buildState: BuildState): Array<{
             optional: false,
           },
         ]),
+    ...(items.pylon
+      ? items.pylon.map((pylon, index) => ({
+          itemId: pylon?.id ?? '',
+          category: 'pylon' as ItemCategory,
+          optional: pylon?.optional ?? false,
+          index,
+        }))
+      : [
+          {
+            itemId: '',
+            category: 'pylon' as ItemCategory,
+            index: 0,
+            optional: false,
+          },
+        ]),
   ];
   return buildItems;
 }
