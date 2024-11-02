@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - When creating or editing a build, the label for the `Relic` slot mistakenly read `Prism`.
 - Mistakenly only added "Only Builds w/ Optional Leg. Gem" filter to a single build feed.
 - Fixed coloring on new build filter select boxes for light mode users.
+- Fixed bug where item ownership percentages were including legendary fragments in the total count, leading to builds showing as 97% rather than 100%.
 
 ## 2024-11-01
 

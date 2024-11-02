@@ -70,7 +70,7 @@ SELECT * FROM (
           BuildItems.buildId,
           COUNT(CASE WHEN BuildItems.category NOT IN (${Prisma.join(
             EXCLUDED_CATEGORIES_FOR_OWNERSHIP,
-          )}) THEN 1 ELSE NULL END) as totalItems,
+          )}) AND NOT (BuildItems.category = 'relicfragment' AND BuildItems.index = 8) THEN 1 ELSE NULL END) as totalItems,
           SUM(CASE WHEN BuildItems.category = 'archtype' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as archtypeCount,
           SUM(CASE WHEN BuildItems.category = 'skill' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as skillCount,
           SUM(CASE WHEN BuildItems.category = 'relic' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as relicCount,
