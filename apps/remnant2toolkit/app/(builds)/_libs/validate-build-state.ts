@@ -150,6 +150,7 @@ export function validateBuildState(buildState: unknown) {
       trait: z.array(z.any()),
       perk: z.array(z.any()),
       prism: prismItemSchema.nullable(),
+      pylon: z.array(z.any()),
     }),
   });
   return buildStateSchema.safeParse(buildState);

@@ -14,7 +14,7 @@ export class PylonItem extends BaseItem implements BasePylonItem {
     super(props);
   }
 
-  public static isRingItem = (item?: Item): item is PylonItem => {
+  public static isPylonItem = (item?: Item): item is PylonItem => {
     if (!item) return false;
     return item.category === 'pylon';
   };
@@ -50,21 +50,21 @@ export class PylonItem extends BaseItem implements BasePylonItem {
   ): Array<(PylonItem & { isOwned?: boolean }) | null> {
     if (!buildItems) return [];
 
-    const ringValues: Array<(PylonItem & { isOwned?: boolean }) | null> = [];
+    const pylonValues: Array<(PylonItem & { isOwned?: boolean }) | null> = [];
     for (const buildItem of buildItems) {
       const item = pylonItems.find((i) => i.id === buildItem.itemId);
       if (!item) continue;
       buildItem.index
-        ? (ringValues[buildItem.index] = {
+        ? (pylonValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,
           })
-        : ringValues.push({
+        : pylonValues.push({
             ...item,
             optional: buildItem.optional,
           });
     }
 
-    return ringValues;
+    return pylonValues;
   }
 }

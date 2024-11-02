@@ -113,6 +113,7 @@ export function importedLoadoutToBuildState({
       trait: [],
       perk: [],
       prism: null,
+      pylon: [],
     },
   };
 

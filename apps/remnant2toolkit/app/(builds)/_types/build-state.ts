@@ -59,7 +59,7 @@ export interface BuildState {
     trait: Array<TraitItem & { isOwned?: boolean }>;
     perk: Array<(PerkItem & { isOwned?: boolean }) | null>;
     prism: (PrismItem & { isOwned?: boolean }) | null;
-    pylon: (PylonItem & { isOwned?: boolean }) | null;
+    pylon: Array<(PylonItem & { isOwned?: boolean }) | null>;
   };
   name: string;
   percentageOwned: number;

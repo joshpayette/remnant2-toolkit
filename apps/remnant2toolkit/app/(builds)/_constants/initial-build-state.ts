@@ -55,5 +55,6 @@ export const INITIAL_BUILD_STATE: BuildState = {
     trait: [],
     perk: [],
     prism: null,
+    pylon: [],
   },
 };
