@@ -1,4 +1,4 @@
-import { type FilterDefinition } from '../_types/filter-definition';
+import type { FilterDefinition } from '@/app/(builds)/_features/filters/_types/filter-definition';
 
 export const searchTextFilter = {
   buildFilterKey: 'searchText',

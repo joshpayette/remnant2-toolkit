@@ -2,7 +2,7 @@ import { Prisma } from '@repo/db';
 import isEqual from 'lodash.isequal';
 
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
-import type { TraitFilterValue } from '@/app/(builds)/_features/filters/_libs/trait-filter';
+import type { TraitFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/trait-filter';
 
 export function limitByTraitsSegment(
   traitFilters: TraitFilterValue,

@@ -1,6 +1,6 @@
 import { Prisma } from '@repo/db';
 
-import type { WithPatchAffectedFilterValue } from '@/app/(builds)/_features/filters/_libs/with-patch-affected-filter';
+import type { WithPatchAffectedFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/with-patch-affected-filter';
 
 export function limitByWithPatchAffectedSegment(
   withPatchAffected: WithPatchAffectedFilterValue,

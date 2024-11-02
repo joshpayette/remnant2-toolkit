@@ -3,7 +3,7 @@ import isEqual from 'lodash.isequal';
 
 import { MAX_BUILD_TAGS } from '@/app/(builds)/_constants/max-build-tags';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
-import type { BuildTagFilterValue } from '@/app/(builds)/_features/filters/_libs/build-tag-filter';
+import type { BuildTagFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/build-tag-filter';
 
 export function limitByBuildTagsSegment(
   buildTagFilters: BuildTagFilterValue,

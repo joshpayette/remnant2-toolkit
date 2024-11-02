@@ -3,7 +3,7 @@ import isEqual from 'lodash.isequal';
 
 import { MAX_ALLOWED_MUTATORS } from '@/app/(builds)/_constants/max-allowed-mutators';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
-import type { MutatorFilterValue } from '@/app/(builds)/_features/filters/_libs/mutator-filter';
+import type { MutatorFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/mutator-filter';
 
 export function limitByMutatorsSegment(
   mutatorFilters: MutatorFilterValue,

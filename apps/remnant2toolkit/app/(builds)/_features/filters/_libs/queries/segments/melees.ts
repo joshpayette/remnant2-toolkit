@@ -2,7 +2,7 @@ import { Prisma } from '@repo/db';
 import isEqual from 'lodash.isequal';
 
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
-import type { MeleeFilterValue } from '@/app/(builds)/_features/filters/_libs/melee-filter';
+import type { MeleeFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/melee-filter';
 
 export function limitByMeleeSegment(
   meleeFilters: MeleeFilterValue,

@@ -2,7 +2,7 @@ import { Prisma } from '@repo/db';
 import isEqual from 'lodash.isequal';
 
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
-import type { RelicFilterValue } from '@/app/(builds)/_features/filters/_libs/relic-filter';
+import type { RelicFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/relic-filter';
 
 export function limitByRelicSegment(
   relicFilters: RelicFilterValue,

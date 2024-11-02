@@ -1,28 +1,28 @@
-import { amuletFilter } from '@/app/(builds)/_features/filters/_libs/amulet-filter';
-import { archetypeSlotFilter } from '@/app/(builds)/_features/filters/_libs/archetype-slot-filter';
-import { buildTagFilter } from '@/app/(builds)/_features/filters/_libs/build-tag-filter';
-import { fusionFilter } from '@/app/(builds)/_features/filters/_libs/fusion-filter';
-import { handGunFilter } from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
-import { legendaryFragmentFilter } from '@/app/(builds)/_features/filters/_libs/legendary-fragment-filter';
-import { longGunFilter } from '@/app/(builds)/_features/filters/_libs/long-gun-filter';
-import { meleeFilter } from '@/app/(builds)/_features/filters/_libs/melee-filter';
-import { modFilter } from '@/app/(builds)/_features/filters/_libs/mod-filter';
-import { mutatorFilter } from '@/app/(builds)/_features/filters/_libs/mutator-filter';
-import { releasesFilter } from '@/app/(builds)/_features/filters/_libs/releases-filter';
-import { relicFilter } from '@/app/(builds)/_features/filters/_libs/relic-filter';
-import { relicFragmentFilter } from '@/app/(builds)/_features/filters/_libs/relic-fragment-filter';
-import { ringFilter } from '@/app/(builds)/_features/filters/_libs/ring-filter';
-import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
-import { skillFilter } from '@/app/(builds)/_features/filters/_libs/skill-filter';
-import { traitFilter } from '@/app/(builds)/_features/filters/_libs/trait-filter';
-import { withCollectionFilter } from '@/app/(builds)/_features/filters/_libs/with-collection';
-import { withPatchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/with-patch-affected-filter';
-import { withQualityFilter } from '@/app/(builds)/_features/filters/_libs/with-quality-filter';
-import { withReferenceFilter } from '@/app/(builds)/_features/filters/_libs/with-reference-filter';
-import { withVideoFilter } from '@/app/(builds)/_features/filters/_libs/with-video-filter';
+import { amuletFilter } from '@/app/(builds)/_features/filters/_libs/filters/amulet-filter';
+import { archetypeFilter } from '@/app/(builds)/_features/filters/_libs/filters/archetype-filter';
+import { archetypeSlotFilter } from '@/app/(builds)/_features/filters/_libs/filters/archetype-slot-filter';
+import { buildTagFilter } from '@/app/(builds)/_features/filters/_libs/filters/build-tag-filter';
+import { fusionFilter } from '@/app/(builds)/_features/filters/_libs/filters/fusion-filter';
+import { handGunFilter } from '@/app/(builds)/_features/filters/_libs/filters/hand-gun-filter';
+import { legendaryFragmentFilter } from '@/app/(builds)/_features/filters/_libs/filters/legendary-fragment-filter';
+import { longGunFilter } from '@/app/(builds)/_features/filters/_libs/filters/long-gun-filter';
+import { meleeFilter } from '@/app/(builds)/_features/filters/_libs/filters/melee-filter';
+import { modFilter } from '@/app/(builds)/_features/filters/_libs/filters/mod-filter';
+import { mutatorFilter } from '@/app/(builds)/_features/filters/_libs/filters/mutator-filter';
+import { releasesFilter } from '@/app/(builds)/_features/filters/_libs/filters/releases-filter';
+import { relicFilter } from '@/app/(builds)/_features/filters/_libs/filters/relic-filter';
+import { relicFragmentFilter } from '@/app/(builds)/_features/filters/_libs/filters/relic-fragment-filter';
+import { ringFilter } from '@/app/(builds)/_features/filters/_libs/filters/ring-filter';
+import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/filters/search-text-filter';
+import { skillFilter } from '@/app/(builds)/_features/filters/_libs/filters/skill-filter';
+import { traitFilter } from '@/app/(builds)/_features/filters/_libs/filters/trait-filter';
+import { withCollectionFilter } from '@/app/(builds)/_features/filters/_libs/filters/with-collection';
+import { withOptionalPrismFilter } from '@/app/(builds)/_features/filters/_libs/filters/with-optional-prism';
+import { withPatchAffectedFilter } from '@/app/(builds)/_features/filters/_libs/filters/with-patch-affected-filter';
+import { withQualityFilter } from '@/app/(builds)/_features/filters/_libs/filters/with-quality-filter';
+import { withReferenceFilter } from '@/app/(builds)/_features/filters/_libs/filters/with-reference-filter';
+import { withVideoFilter } from '@/app/(builds)/_features/filters/_libs/filters/with-video-filter';
 import type { BuildFilterFields } from '@/app/(builds)/_features/filters/_types/build-filter-fields';
-
-import { archetypeFilter } from '../_libs/archetype-filter';
 
 export const DEFAULT_BUILD_FIELDS: BuildFilterFields = {
   amulets: amuletFilter.defaultValue as BuildFilterFields['amulets'],
@@ -48,6 +48,8 @@ export const DEFAULT_BUILD_FIELDS: BuildFilterFields = {
   traits: traitFilter.defaultValue as BuildFilterFields['traits'],
   withCollection:
     withCollectionFilter.defaultValue as BuildFilterFields['withCollection'],
+  withOptionalPrism:
+    withOptionalPrismFilter.defaultValue as BuildFilterFields['withOptionalPrism'],
   withPatchAffected:
     withPatchAffectedFilter.defaultValue as BuildFilterFields['withPatchAffected'],
   withQuality:
