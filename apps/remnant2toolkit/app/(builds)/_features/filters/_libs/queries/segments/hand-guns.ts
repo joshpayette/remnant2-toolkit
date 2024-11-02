@@ -2,7 +2,7 @@ import { Prisma } from '@repo/db';
 import isEqual from 'lodash.isequal';
 
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
-import type { HandGunFilterValue } from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
+import type { HandGunFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/hand-gun-filter';
 
 export function limitByHandGunSegment(
   handGunFilters: HandGunFilterValue,

@@ -4,7 +4,7 @@ import { BaseButton } from '@repo/ui';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useIsClient } from 'usehooks-ts';
 
-import { withQualityFilter } from '@/app/(builds)/_features/filters/_libs/with-quality-filter';
+import { withQualityFilter } from '@/app/(builds)/_features/filters/_libs/filters/with-quality-filter';
 
 interface Props {
   children: React.ReactNode;

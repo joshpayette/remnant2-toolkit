@@ -7,77 +7,84 @@ import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constant
 import {
   amuletFilter,
   type AmuletFilterValue,
-} from '@/app/(builds)/_features/filters/_libs/amulet-filter';
+} from '@/app/(builds)/_features/filters/_libs/filters/amulet-filter';
 import {
   archetypeFilter,
   type ArchetypeFilterValue,
-} from '@/app/(builds)/_features/filters/_libs/archetype-filter';
+} from '@/app/(builds)/_features/filters/_libs/filters/archetype-filter';
 import {
   archetypeSlotFilter,
   type ArchetypeSlotFilterValue,
-} from '@/app/(builds)/_features/filters/_libs/archetype-slot-filter';
+} from '@/app/(builds)/_features/filters/_libs/filters/archetype-slot-filter';
 import {
   buildTagFilter,
   type BuildTagFilterValue,
-} from '@/app/(builds)/_features/filters/_libs/build-tag-filter';
-import { fusionFilter } from '@/app/(builds)/_features/filters/_libs/fusion-filter';
+} from '@/app/(builds)/_features/filters/_libs/filters/build-tag-filter';
+import { fusionFilter } from '@/app/(builds)/_features/filters/_libs/filters/fusion-filter';
 import {
   handGunFilter,
   type HandGunFilterValue,
-} from '@/app/(builds)/_features/filters/_libs/hand-gun-filter';
-import { legendaryFragmentFilter } from '@/app/(builds)/_features/filters/_libs/legendary-fragment-filter';
+} from '@/app/(builds)/_features/filters/_libs/filters/hand-gun-filter';
+import { legendaryFragmentFilter } from '@/app/(builds)/_features/filters/_libs/filters/legendary-fragment-filter';
 import {
   longGunFilter,
   type LongGunFilterValue,
-} from '@/app/(builds)/_features/filters/_libs/long-gun-filter';
+} from '@/app/(builds)/_features/filters/_libs/filters/long-gun-filter';
 import {
   meleeFilter,
   type MeleeFilterValue,
-} from '@/app/(builds)/_features/filters/_libs/melee-filter';
+} from '@/app/(builds)/_features/filters/_libs/filters/melee-filter';
 import {
   modFilter,
   type ModFilterValue,
-} from '@/app/(builds)/_features/filters/_libs/mod-filter';
-import { mutatorFilter } from '@/app/(builds)/_features/filters/_libs/mutator-filter';
+} from '@/app/(builds)/_features/filters/_libs/filters/mod-filter';
+import { mutatorFilter } from '@/app/(builds)/_features/filters/_libs/filters/mutator-filter';
 import {
   releasesFilter,
   type ReleasesFilterValue,
-} from '@/app/(builds)/_features/filters/_libs/releases-filter';
+} from '@/app/(builds)/_features/filters/_libs/filters/releases-filter';
 import {
   relicFilter,
   type RelicFilterValue,
-} from '@/app/(builds)/_features/filters/_libs/relic-filter';
-import { relicFragmentFilter } from '@/app/(builds)/_features/filters/_libs/relic-fragment-filter';
+} from '@/app/(builds)/_features/filters/_libs/filters/relic-filter';
+import { relicFragmentFilter } from '@/app/(builds)/_features/filters/_libs/filters/relic-fragment-filter';
 import {
   ringFilter,
   type RingFilterValue,
-} from '@/app/(builds)/_features/filters/_libs/ring-filter';
-import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/search-text-filter';
+} from '@/app/(builds)/_features/filters/_libs/filters/ring-filter';
+import { searchTextFilter } from '@/app/(builds)/_features/filters/_libs/filters/search-text-filter';
 import {
   skillFilter,
   type SkillFilterValue,
-} from '@/app/(builds)/_features/filters/_libs/skill-filter';
-import { traitFilter } from '@/app/(builds)/_features/filters/_libs/trait-filter';
+} from '@/app/(builds)/_features/filters/_libs/filters/skill-filter';
+import {
+  traitFilter,
+  type TraitFilterValue,
+} from '@/app/(builds)/_features/filters/_libs/filters/trait-filter';
 import {
   withCollectionFilter,
   type WithCollectionFilterValue,
-} from '@/app/(builds)/_features/filters/_libs/with-collection';
+} from '@/app/(builds)/_features/filters/_libs/filters/with-collection';
+import {
+  withOptionalPrismFilter,
+  type WithOptionalPrismValue,
+} from '@/app/(builds)/_features/filters/_libs/filters/with-optional-prism';
 import {
   withPatchAffectedFilter,
   type WithPatchAffectedFilterValue,
-} from '@/app/(builds)/_features/filters/_libs/with-patch-affected-filter';
+} from '@/app/(builds)/_features/filters/_libs/filters/with-patch-affected-filter';
 import {
   withQualityFilter,
   type WithQualityFilterValue,
-} from '@/app/(builds)/_features/filters/_libs/with-quality-filter';
+} from '@/app/(builds)/_features/filters/_libs/filters/with-quality-filter';
 import {
   withReferenceFilter,
   type WithReferenceFilterValue,
-} from '@/app/(builds)/_features/filters/_libs/with-reference-filter';
+} from '@/app/(builds)/_features/filters/_libs/filters/with-reference-filter';
 import {
   withVideoFilter,
   type WithVideoFilterValue,
-} from '@/app/(builds)/_features/filters/_libs/with-video-filter';
+} from '@/app/(builds)/_features/filters/_libs/filters/with-video-filter';
 import type { BuildFilterFields } from '@/app/(builds)/_features/filters/_types/build-filter-fields';
 import { amuletItems } from '@/app/(items)/_constants/amulet-items';
 import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
@@ -165,6 +172,9 @@ export function parseUrlParams({
 
   const withCollectionParam = parsedParams.get(
     withCollectionFilter.buildFilterKey,
+  );
+  const withOptionalPrismParam = parsedParams.get(
+    withOptionalPrismFilter.buildFilterKey,
   );
   const withPatchAffectedParam = parsedParams.get(
     withPatchAffectedFilter.buildFilterKey,
@@ -709,7 +719,7 @@ export function parseUrlParams({
   }
 
   // #region Trait parser
-  let traits = defaultFilters.traits;
+  let traits: TraitFilterValue = defaultFilters.traits;
   if (traitsParam) {
     for (const traitId of traitsParam) {
       const cleanTraitId = traitId.replace(EXCLUDE_ITEM_SYMBOL, '');
@@ -750,6 +760,16 @@ export function parseUrlParams({
       ) === undefined
     ) {
       withCollection = defaultFilters.withCollection;
+    }
+  }
+
+  let withOptionalPrism: WithOptionalPrismValue =
+    defaultFilters.withOptionalPrism;
+  if (withOptionalPrismParam) {
+    if (withOptionalPrismParam === 'true') {
+      withOptionalPrism = true;
+    } else if (withOptionalPrismParam === 'false') {
+      withOptionalPrism = false;
     }
   }
 
@@ -812,6 +832,7 @@ export function parseUrlParams({
     skills,
     traits,
     withCollection,
+    withOptionalPrism,
     withPatchAffected,
     withQuality,
     withReference,

@@ -3,7 +3,7 @@ import isEqual from 'lodash.isequal';
 
 import { MAX_ALLOWED_MODS } from '@/app/(builds)/_constants/max-allowed-mods';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
-import type { ModFilterValue } from '@/app/(builds)/_features/filters/_libs/mod-filter';
+import type { ModFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/mod-filter';
 
 export function limitByModsSegment(modFilters: ModFilterValue): Prisma.Sql {
   // if the mods are the default filters, do nothing

@@ -1,8 +1,7 @@
 import type { FilterOption } from '@repo/ui';
 
 import { ALL_RELEASE_KEYS, RELEASE_TO_NAME } from '@/app/_constants/releases';
-
-import { type FilterDefinition } from '../_types/filter-definition';
+import type { FilterDefinition } from '@/app/(builds)/_features/filters/_types/filter-definition';
 
 export const releasesFilter = {
   buildFilterKey: 'releases',

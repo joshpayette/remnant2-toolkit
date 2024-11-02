@@ -3,7 +3,7 @@ import isEqual from 'lodash.isequal';
 
 import { MAX_ALLOWED_SKILLS } from '@/app/(builds)/_constants/max-allowed-skills';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
-import type { SkillFilterValue } from '@/app/(builds)/_features/filters/_libs/skill-filter';
+import type { SkillFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/skill-filter';
 
 export function limitBySkillsSegment(
   skillFilters: SkillFilterValue,

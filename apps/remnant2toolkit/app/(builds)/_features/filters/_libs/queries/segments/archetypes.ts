@@ -3,7 +3,7 @@ import isEqual from 'lodash.isequal';
 
 import { MAX_ALLOWED_ARCHETYPES } from '@/app/(builds)/_constants/max-allowed-archetypes';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
-import type { ArchetypeFilterValue } from '@/app/(builds)/_features/filters/_libs/archetype-filter';
+import type { ArchetypeFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/archetype-filter';
 
 export function limitByArchetypesSegment(
   archetypeFilters: ArchetypeFilterValue,

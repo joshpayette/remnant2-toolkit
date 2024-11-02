@@ -1,6 +1,6 @@
 import type { PercentageOwned } from '@/app/(builds)/_features/filters/_types/percentage-owned';
 
-import { type FilterDefinition } from '../_types/filter-definition';
+import { type FilterDefinition } from '../../_types/filter-definition';
 
 export const withCollectionFilter = {
   buildFilterKey: 'withCollection',

@@ -1,8 +1,7 @@
 import type { FilterOption } from '@repo/ui';
 
+import type { FilterDefinition } from '@/app/(builds)/_features/filters/_types/filter-definition';
 import { skillItems } from '@/app/(items)/_constants/skill-items';
-
-import { type FilterDefinition } from '../_types/filter-definition';
 
 export const skillFilter = {
   buildFilterKey: 'skills',

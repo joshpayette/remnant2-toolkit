@@ -1,8 +1,7 @@
 import type { FilterOption } from '@repo/ui';
 
+import type { FilterDefinition } from '@/app/(builds)/_features/filters/_types/filter-definition';
 import { relicFragmentItems } from '@/app/(items)/_constants/relic-fragment-items';
-
-import { type FilterDefinition } from '../_types/filter-definition';
 
 const items = relicFragmentItems.filter((item) => item.color === 'legendary');
 
