@@ -18,6 +18,7 @@ import { linkWeaponsToMods } from './link-weapons-to-mods';
  *   - Cleans up excess concotions that may still be equipped
  *   - Ensures the minimum required trait points are equipped
  *   - Ensures that the prime archetype trait has 10 points
+ *   - If Boss Rush build tag is not equipped, remove all pylons from build
  */
 export function cleanUpBuildState(buildState: BuildState): BuildState {
   // Look at each mod and if it is linked to the wrong weapon, remove it
@@ -49,11 +50,6 @@ export function cleanUpBuildState(buildState: BuildState): BuildState {
   }
 
   if (totalConcoctionsAllowed < buildState.items.concoction.length) {
-    console.info(
-      'slicing',
-      totalConcoctionsAllowed,
-      buildState.items.concoction.length,
-    );
     buildState.items.concoction = buildState.items.concoction.slice(
       0,
       totalConcoctionsAllowed,
@@ -94,6 +90,14 @@ export function cleanUpBuildState(buildState: BuildState): BuildState {
         });
       }
     }
+  }
+
+  // if Boss Rush build tag is not equipped, remove all pylons from build
+  const isBossRushEquipped = buildState.buildTags?.some(
+    (buildTag) => buildTag.tag === 'BossRush',
+  );
+  if (!isBossRushEquipped) {
+    buildState.items.pylon = [];
   }
 
   // link weapons to mods

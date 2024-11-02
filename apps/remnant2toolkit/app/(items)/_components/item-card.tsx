@@ -1,6 +1,7 @@
 import {
   BaseButton,
   BaseLink,
+  BaseText,
   BaseTextLink,
   cn,
   getImageUrl,
@@ -122,12 +123,18 @@ export function ItemCard({
                 <div className="flex items-center gap-1 text-[11px] text-gray-200">
                   <div className="flex flex-col items-center justify-start">
                     {itemBuildStats.featured.usedIn > 0 ? (
-                      <BaseTextLink
-                        href={`/featured-builds?${itemBuildStats.buildsPath}`}
-                        className="underline"
-                      >
-                        Featured
-                      </BaseTextLink>
+                      itemBuildStats.buildsPath ? (
+                        <BaseTextLink
+                          href={`/featured-builds?${itemBuildStats.buildsPath}`}
+                          className="underline"
+                        >
+                          Featured
+                        </BaseTextLink>
+                      ) : (
+                        <BaseText className="!text-[11px] underline">
+                          Featured
+                        </BaseText>
+                      )
                     ) : (
                       <span className="underline">Featured</span>
                     )}
@@ -139,12 +146,18 @@ export function ItemCard({
                   </div>
                   <div className="flex flex-col items-center justify-start">
                     {itemBuildStats.community.usedIn > 0 ? (
-                      <BaseTextLink
-                        href={`/community-builds?${itemBuildStats.buildsPath}`}
-                        className="underline"
-                      >
-                        Community
-                      </BaseTextLink>
+                      itemBuildStats.buildsPath ? (
+                        <BaseTextLink
+                          href={`/community-builds?${itemBuildStats.buildsPath}`}
+                          className="underline"
+                        >
+                          Community
+                        </BaseTextLink>
+                      ) : (
+                        <BaseText className="!text-[11px] underline">
+                          Community
+                        </BaseText>
+                      )
                     ) : (
                       <span className="underline">Community</span>
                     )}

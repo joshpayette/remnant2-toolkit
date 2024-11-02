@@ -16,6 +16,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
 import { useBadges } from '@/app/_hooks/use-badges';
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/_constants/default-trait-amount';
+import { MAX_ALLOWED_PYLONS } from '@/app/(builds)/_constants/max-allowed-pylons';
 import { MAX_BUILD_TAGS } from '@/app/(builds)/_constants/max-build-tags';
 import { formatUpdatedAt } from '@/app/(builds)/_libs/format-updated-at';
 import {
@@ -28,6 +29,7 @@ import { type UpdateBuildCategory } from '@/app/(builds)/_libs/update-build-stat
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { BuildBadges } from '@/app/(builds)/builder/_components/build-badges';
+import { BuildTagsDisplay } from '@/app/(builds)/builder/_components/build-tags-display';
 import { PrismDisplay } from '@/app/(builds)/builder/_components/prism-display';
 import { ItemButton } from '@/app/(items)/_components/item-button';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
@@ -481,6 +483,10 @@ export function Builder({
     buildState.items.archetype[0]?.linkedItems?.perks?.[0]?.name;
   const primePerk = perkItems.find((i) => i.name === primePerkName);
 
+  const hasBossRushBuildTag = buildState.buildTags?.some(
+    (buildTag) => buildTag.tag === 'BossRush',
+  );
+
   // #region Render
 
   return (
@@ -637,6 +643,18 @@ export function Builder({
               </p>
             </div>
           )}
+          <div className="mt-2 flex w-full flex-col items-center justify-center">
+            <BuildTagsDisplay
+              buildTags={buildState.buildTags ?? []}
+              isEditable={isEditable && isMainBuild}
+              isScreenshotMode={isScreenshotMode}
+              onChange={handleChangeBuildTags}
+              showLabel={
+                isEditable ||
+                Boolean(buildState.buildTags && buildState.buildTags.length > 0)
+              }
+            />
+          </div>
           {itemOwnershipPreference && buildState.percentageOwned ? (
             <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
               <p className="text-left text-xs text-gray-400">
@@ -689,50 +707,73 @@ export function Builder({
                     isScreenshotMode && archetypeIndex === 1 && 'order-3',
                   )}
                 >
-                  <ItemButton
-                    item={buildState.items.archetype[archetypeIndex] || null}
-                    isEditable={isEditable}
-                    isScreenshotMode={isScreenshotMode}
-                    manualWordBreaks={true}
-                    onClick={() =>
-                      handleItemSlotClick('archetype', archetypeIndex)
-                    }
-                    onItemInfoClick={handleShowInfo}
-                    onToggleOptional={handleToggleOptional}
-                    showOwnership={itemOwnershipPreference}
-                    tooltipDisabled={itemInfoOpen}
-                    unoptimized={isScreenshotMode}
-                  />
-                  <ItemButton
-                    item={buildState.items.skill[archetypeIndex] || null}
-                    isEditable={isEditable}
-                    isScreenshotMode={isScreenshotMode}
-                    manualWordBreaks={true}
-                    onClick={() => handleItemSlotClick('skill', archetypeIndex)}
-                    onItemInfoClick={handleShowInfo}
-                    onToggleOptional={handleToggleOptional}
-                    showOwnership={itemOwnershipPreference}
-                    tooltipDisabled={itemInfoOpen}
-                    unoptimized={isScreenshotMode}
-                  />
+                  <div>
+                    {isEditable && !isScreenshotMode ? (
+                      <div className="w-full text-left md:text-center">
+                        <span className="text-xs">Archetype</span>
+                      </div>
+                    ) : null}
+                    <ItemButton
+                      item={buildState.items.archetype[archetypeIndex] || null}
+                      isEditable={isEditable}
+                      isScreenshotMode={isScreenshotMode}
+                      manualWordBreaks={true}
+                      onClick={() =>
+                        handleItemSlotClick('archetype', archetypeIndex)
+                      }
+                      onItemInfoClick={handleShowInfo}
+                      onToggleOptional={handleToggleOptional}
+                      showOwnership={itemOwnershipPreference}
+                      tooltipDisabled={itemInfoOpen}
+                      unoptimized={isScreenshotMode}
+                    />
+                  </div>
+                  <div>
+                    {isEditable && !isScreenshotMode ? (
+                      <div className="w-full text-left md:text-center">
+                        <span className="text-xs">Skill</span>
+                      </div>
+                    ) : null}
+                    <ItemButton
+                      item={buildState.items.skill[archetypeIndex] || null}
+                      isEditable={isEditable}
+                      isScreenshotMode={isScreenshotMode}
+                      manualWordBreaks={true}
+                      onClick={() =>
+                        handleItemSlotClick('skill', archetypeIndex)
+                      }
+                      onItemInfoClick={handleShowInfo}
+                      onToggleOptional={handleToggleOptional}
+                      showOwnership={itemOwnershipPreference}
+                      tooltipDisabled={itemInfoOpen}
+                      unoptimized={isScreenshotMode}
+                    />
+                  </div>
                 </div>
               ))}
               {primePerk && (
                 <div
                   className={cn('sm:order-2', isScreenshotMode && 'order-2')}
                 >
-                  <ItemButton
-                    item={primePerk}
-                    isEditable={isEditable}
-                    isScreenshotMode={isScreenshotMode}
-                    manualWordBreaks={true}
-                    onClick={undefined}
-                    onItemInfoClick={handleShowInfo}
-                    onToggleOptional={handleToggleOptional}
-                    showOwnership={itemOwnershipPreference}
-                    tooltipDisabled={itemInfoOpen}
-                    unoptimized={isScreenshotMode}
-                  />
+                  <div>
+                    {isEditable && !isScreenshotMode ? (
+                      <div className="w-full text-left md:text-center">
+                        <span className="text-xs">Prime</span>
+                      </div>
+                    ) : null}
+                    <ItemButton
+                      item={primePerk}
+                      isEditable={isEditable}
+                      isScreenshotMode={isScreenshotMode}
+                      manualWordBreaks={true}
+                      onClick={undefined}
+                      onItemInfoClick={handleShowInfo}
+                      onToggleOptional={handleToggleOptional}
+                      showOwnership={itemOwnershipPreference}
+                      tooltipDisabled={itemInfoOpen}
+                      unoptimized={isScreenshotMode}
+                    />
+                  </div>
                 </div>
               )}
             </div>
@@ -743,66 +784,101 @@ export function Builder({
               )}
             >
               <div id="left-column" className={cn('flex-none')}>
-                <ItemButton
-                  item={buildState.items.helm}
-                  isEditable={isEditable}
-                  isScreenshotMode={isScreenshotMode}
-                  manualWordBreaks={true}
-                  onClick={() => handleItemSlotClick('helm')}
-                  onItemInfoClick={handleShowInfo}
-                  onToggleOptional={handleToggleOptional}
-                  showOwnership={itemOwnershipPreference}
-                  tooltipDisabled={itemInfoOpen}
-                  unoptimized={isScreenshotMode}
-                />
-                <ItemButton
-                  item={buildState.items.torso}
-                  isEditable={isEditable}
-                  isScreenshotMode={isScreenshotMode}
-                  manualWordBreaks={true}
-                  onClick={() => handleItemSlotClick('torso')}
-                  onItemInfoClick={handleShowInfo}
-                  onToggleOptional={handleToggleOptional}
-                  showOwnership={itemOwnershipPreference}
-                  tooltipDisabled={itemInfoOpen}
-                  unoptimized={isScreenshotMode}
-                />
-                <ItemButton
-                  item={buildState.items.legs}
-                  isEditable={isEditable}
-                  isScreenshotMode={isScreenshotMode}
-                  manualWordBreaks={true}
-                  onClick={() => handleItemSlotClick('legs')}
-                  onItemInfoClick={handleShowInfo}
-                  onToggleOptional={handleToggleOptional}
-                  showOwnership={itemOwnershipPreference}
-                  tooltipDisabled={itemInfoOpen}
-                  unoptimized={isScreenshotMode}
-                />
-                <ItemButton
-                  item={buildState.items.gloves}
-                  isEditable={isEditable}
-                  isScreenshotMode={isScreenshotMode}
-                  manualWordBreaks={true}
-                  onClick={() => handleItemSlotClick('gloves')}
-                  onItemInfoClick={handleShowInfo}
-                  onToggleOptional={handleToggleOptional}
-                  showOwnership={itemOwnershipPreference}
-                  tooltipDisabled={itemInfoOpen}
-                  unoptimized={isScreenshotMode}
-                />
-                <ItemButton
-                  item={buildState.items.relic}
-                  isEditable={isEditable}
-                  isScreenshotMode={isScreenshotMode}
-                  manualWordBreaks={true}
-                  onClick={() => handleItemSlotClick('relic')}
-                  onItemInfoClick={handleShowInfo}
-                  onToggleOptional={handleToggleOptional}
-                  showOwnership={itemOwnershipPreference}
-                  tooltipDisabled={itemInfoOpen}
-                  unoptimized={isScreenshotMode}
-                />
+                <div>
+                  {isEditable && !isScreenshotMode ? (
+                    <div className="w-full text-left md:text-center">
+                      <span className="text-xs">Helm</span>
+                    </div>
+                  ) : null}
+                  <ItemButton
+                    item={buildState.items.helm}
+                    isEditable={isEditable}
+                    isScreenshotMode={isScreenshotMode}
+                    manualWordBreaks={true}
+                    onClick={() => handleItemSlotClick('helm')}
+                    onItemInfoClick={handleShowInfo}
+                    onToggleOptional={handleToggleOptional}
+                    showOwnership={itemOwnershipPreference}
+                    tooltipDisabled={itemInfoOpen}
+                    unoptimized={isScreenshotMode}
+                  />
+                </div>
+                <div>
+                  {isEditable && !isScreenshotMode ? (
+                    <div className="w-full text-left md:text-center">
+                      <span className="text-xs">Torso</span>
+                    </div>
+                  ) : null}
+                  <ItemButton
+                    item={buildState.items.torso}
+                    isEditable={isEditable}
+                    isScreenshotMode={isScreenshotMode}
+                    manualWordBreaks={true}
+                    onClick={() => handleItemSlotClick('torso')}
+                    onItemInfoClick={handleShowInfo}
+                    onToggleOptional={handleToggleOptional}
+                    showOwnership={itemOwnershipPreference}
+                    tooltipDisabled={itemInfoOpen}
+                    unoptimized={isScreenshotMode}
+                  />
+                </div>
+                <div>
+                  {isEditable && !isScreenshotMode ? (
+                    <div className="w-full text-left md:text-center">
+                      <span className="text-xs">Legs</span>
+                    </div>
+                  ) : null}
+                  <ItemButton
+                    item={buildState.items.legs}
+                    isEditable={isEditable}
+                    isScreenshotMode={isScreenshotMode}
+                    manualWordBreaks={true}
+                    onClick={() => handleItemSlotClick('legs')}
+                    onItemInfoClick={handleShowInfo}
+                    onToggleOptional={handleToggleOptional}
+                    showOwnership={itemOwnershipPreference}
+                    tooltipDisabled={itemInfoOpen}
+                    unoptimized={isScreenshotMode}
+                  />
+                </div>
+                <div>
+                  {isEditable && !isScreenshotMode ? (
+                    <div className="w-full text-left md:text-center">
+                      <span className="text-xs">Gloves</span>
+                    </div>
+                  ) : null}
+                  <ItemButton
+                    item={buildState.items.gloves}
+                    isEditable={isEditable}
+                    isScreenshotMode={isScreenshotMode}
+                    manualWordBreaks={true}
+                    onClick={() => handleItemSlotClick('gloves')}
+                    onItemInfoClick={handleShowInfo}
+                    onToggleOptional={handleToggleOptional}
+                    showOwnership={itemOwnershipPreference}
+                    tooltipDisabled={itemInfoOpen}
+                    unoptimized={isScreenshotMode}
+                  />
+                </div>
+                <div>
+                  {isEditable && !isScreenshotMode ? (
+                    <div className="w-full text-left md:text-center">
+                      <span className="text-xs">Prism</span>
+                    </div>
+                  ) : null}
+                  <ItemButton
+                    item={buildState.items.relic}
+                    isEditable={isEditable}
+                    isScreenshotMode={isScreenshotMode}
+                    manualWordBreaks={true}
+                    onClick={() => handleItemSlotClick('relic')}
+                    onItemInfoClick={handleShowInfo}
+                    onToggleOptional={handleToggleOptional}
+                    showOwnership={itemOwnershipPreference}
+                    tooltipDisabled={itemInfoOpen}
+                    unoptimized={isScreenshotMode}
+                  />
+                </div>
               </div>
               <div
                 id="center-column"
@@ -814,32 +890,45 @@ export function Builder({
                 />
               </div>
               <div id="right-column" className={cn('flex-none')}>
-                <ItemButton
-                  item={buildState.items.amulet}
-                  isEditable={isEditable}
-                  isScreenshotMode={isScreenshotMode}
-                  manualWordBreaks={true}
-                  onClick={() => handleItemSlotClick('amulet')}
-                  onItemInfoClick={handleShowInfo}
-                  onToggleOptional={handleToggleOptional}
-                  showOwnership={itemOwnershipPreference}
-                  tooltipDisabled={itemInfoOpen}
-                  unoptimized={isScreenshotMode}
-                />
-                {getArrayOfLength(4).map((ringIndex) => (
+                <div>
+                  {isEditable && !isScreenshotMode ? (
+                    <div className="w-full text-left md:text-center">
+                      <span className="text-xs">Amulet</span>
+                    </div>
+                  ) : null}
                   <ItemButton
-                    key={`ring-${ringIndex}`}
-                    item={buildState.items.ring[ringIndex] || null}
+                    item={buildState.items.amulet}
                     isEditable={isEditable}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
-                    onClick={() => handleItemSlotClick('ring', ringIndex)}
+                    onClick={() => handleItemSlotClick('amulet')}
                     onItemInfoClick={handleShowInfo}
                     onToggleOptional={handleToggleOptional}
                     showOwnership={itemOwnershipPreference}
                     tooltipDisabled={itemInfoOpen}
                     unoptimized={isScreenshotMode}
                   />
+                </div>
+                {getArrayOfLength(4).map((ringIndex) => (
+                  <div key={`ring-${ringIndex}`}>
+                    {isEditable && !isScreenshotMode ? (
+                      <div className="w-full text-left md:text-center">
+                        <span className="text-xs">Ring</span>
+                      </div>
+                    ) : null}
+                    <ItemButton
+                      item={buildState.items.ring[ringIndex] || null}
+                      isEditable={isEditable}
+                      isScreenshotMode={isScreenshotMode}
+                      manualWordBreaks={true}
+                      onClick={() => handleItemSlotClick('ring', ringIndex)}
+                      onItemInfoClick={handleShowInfo}
+                      onToggleOptional={handleToggleOptional}
+                      showOwnership={itemOwnershipPreference}
+                      tooltipDisabled={itemInfoOpen}
+                      unoptimized={isScreenshotMode}
+                    />
+                  </div>
                 ))}
               </div>
             </div>
@@ -866,40 +955,76 @@ export function Builder({
                       'order-2 sm:order-none',
                   )}
                 >
-                  <ItemButton
-                    item={buildState.items.weapon[weaponIndex] || null}
-                    isEditable={isEditable}
-                    isScreenshotMode={isScreenshotMode}
-                    manualWordBreaks={true}
-                    onClick={() => handleItemSlotClick('weapon', weaponIndex)}
-                    onItemInfoClick={handleShowInfo}
-                    onToggleOptional={handleToggleOptional}
-                    showOwnership={itemOwnershipPreference}
-                    tooltipDisabled={itemInfoOpen}
-                    unoptimized={isScreenshotMode}
-                    variant="weapon"
-                  />
+                  <div>
+                    {isEditable && !isScreenshotMode ? (
+                      <div className="w-full text-left md:text-center">
+                        <span className="text-xs">Weapon</span>
+                      </div>
+                    ) : null}
+                    <ItemButton
+                      item={buildState.items.weapon[weaponIndex] || null}
+                      isEditable={isEditable}
+                      isScreenshotMode={isScreenshotMode}
+                      manualWordBreaks={true}
+                      onClick={() => handleItemSlotClick('weapon', weaponIndex)}
+                      onItemInfoClick={handleShowInfo}
+                      onToggleOptional={handleToggleOptional}
+                      showOwnership={itemOwnershipPreference}
+                      tooltipDisabled={itemInfoOpen}
+                      unoptimized={isScreenshotMode}
+                      variant="weapon"
+                    />
+                  </div>
                   <div className="flex w-full grow items-start justify-around gap-4">
                     {(weaponIndex === 1 &&
                       !buildState.items.mod[weaponIndex]) ||
                     buildState.items.weapon[weaponIndex]?.isRusty ? (
                       <div className="h-[66px] w-[66px]" />
                     ) : (
+                      <div>
+                        {isEditable && !isScreenshotMode ? (
+                          <div className="w-full text-left md:text-center">
+                            <span className="text-xs">Mod</span>
+                          </div>
+                        ) : null}
+                        <ItemButton
+                          item={buildState.items.mod[weaponIndex] || null}
+                          isEditable={isEditable}
+                          isScreenshotMode={isScreenshotMode}
+                          manualWordBreaks={true}
+                          onClick={
+                            // if mod is linked to the weapon, don't allow editing
+                            (buildState.items.weapon[weaponIndex]?.linkedItems
+                              ?.mod?.name &&
+                              buildState.items.weapon[weaponIndex]?.linkedItems
+                                ?.mod?.name ===
+                                buildState.items.mod[weaponIndex]?.name) ||
+                            weaponIndex === 1
+                              ? undefined
+                              : () => handleItemSlotClick('mod', weaponIndex)
+                          }
+                          onItemInfoClick={handleShowInfo}
+                          onToggleOptional={handleToggleOptional}
+                          showOwnership={itemOwnershipPreference}
+                          tooltipDisabled={itemInfoOpen}
+                          unoptimized={isScreenshotMode}
+                        />
+                      </div>
+                    )}
+
+                    <div>
+                      {isEditable && !isScreenshotMode ? (
+                        <div className="w-full text-left md:text-center">
+                          <span className="text-xs">Mutator</span>
+                        </div>
+                      ) : null}
                       <ItemButton
-                        item={buildState.items.mod[weaponIndex] || null}
+                        item={buildState.items.mutator[weaponIndex] || null}
                         isEditable={isEditable}
                         isScreenshotMode={isScreenshotMode}
                         manualWordBreaks={true}
-                        onClick={
-                          // if mod is linked to the weapon, don't allow editing
-                          (buildState.items.weapon[weaponIndex]?.linkedItems
-                            ?.mod?.name &&
-                            buildState.items.weapon[weaponIndex]?.linkedItems
-                              ?.mod?.name ===
-                              buildState.items.mod[weaponIndex]?.name) ||
-                          weaponIndex === 1
-                            ? undefined
-                            : () => handleItemSlotClick('mod', weaponIndex)
+                        onClick={() =>
+                          handleItemSlotClick('mutator', weaponIndex)
                         }
                         onItemInfoClick={handleShowInfo}
                         onToggleOptional={handleToggleOptional}
@@ -907,22 +1032,7 @@ export function Builder({
                         tooltipDisabled={itemInfoOpen}
                         unoptimized={isScreenshotMode}
                       />
-                    )}
-
-                    <ItemButton
-                      item={buildState.items.mutator[weaponIndex] || null}
-                      isEditable={isEditable}
-                      isScreenshotMode={isScreenshotMode}
-                      manualWordBreaks={true}
-                      onClick={() =>
-                        handleItemSlotClick('mutator', weaponIndex)
-                      }
-                      onItemInfoClick={handleShowInfo}
-                      onToggleOptional={handleToggleOptional}
-                      showOwnership={itemOwnershipPreference}
-                      tooltipDisabled={itemInfoOpen}
-                      unoptimized={isScreenshotMode}
-                    />
+                    </div>
                   </div>
                 </div>
               ))}
@@ -962,7 +1072,7 @@ export function Builder({
                   ) ? (
                     <div className="mb-2 w-full">
                       <BaseButton
-                        color="purple"
+                        outline
                         onClick={() => {
                           if (!onUpdateBuildState) return;
                           const newItemIds = buildState.items.concoction.map(
@@ -983,39 +1093,53 @@ export function Builder({
                       </BaseButton>
                     </div>
                   ) : null}
-                  <ItemButton
-                    item={buildState.items.concoction[0] || null}
-                    isEditable={isEditable}
-                    isScreenshotMode={isScreenshotMode}
-                    manualWordBreaks={true}
-                    onClick={() => handleItemSlotClick('concoction', 0)}
-                    onItemInfoClick={handleShowInfo}
-                    onToggleOptional={handleToggleOptional}
-                    showOwnership={itemOwnershipPreference}
-                    tooltipDisabled={itemInfoOpen}
-                    unoptimized={isScreenshotMode}
-                  />
+                  <div>
+                    {isEditable && !isScreenshotMode ? (
+                      <div className="w-full text-left md:text-center">
+                        <span className="text-xs">Concoction</span>
+                      </div>
+                    ) : null}
+                    <ItemButton
+                      item={buildState.items.concoction[0] || null}
+                      isEditable={isEditable}
+                      isScreenshotMode={isScreenshotMode}
+                      manualWordBreaks={true}
+                      onClick={() => handleItemSlotClick('concoction', 0)}
+                      onItemInfoClick={handleShowInfo}
+                      onToggleOptional={handleToggleOptional}
+                      showOwnership={itemOwnershipPreference}
+                      tooltipDisabled={itemInfoOpen}
+                      unoptimized={isScreenshotMode}
+                    />
+                  </div>
                   {getArrayOfLength(concoctionSlotCount).map((index) => {
                     // Add 1 to the index because we already rendered the first slot
                     const concoctionIndex = index + 1;
                     return (
-                      <ItemButton
-                        key={`concoction-${concoctionIndex}`}
-                        item={
-                          buildState.items.concoction[concoctionIndex] || null
-                        }
-                        isEditable={isEditable}
-                        isScreenshotMode={isScreenshotMode}
-                        manualWordBreaks={true}
-                        onClick={() =>
-                          handleItemSlotClick('concoction', concoctionIndex)
-                        }
-                        onItemInfoClick={handleShowInfo}
-                        onToggleOptional={handleToggleOptional}
-                        showOwnership={itemOwnershipPreference}
-                        tooltipDisabled={itemInfoOpen}
-                        unoptimized={isScreenshotMode}
-                      />
+                      <div>
+                        {isEditable && !isScreenshotMode ? (
+                          <div className="w-full text-left md:text-center">
+                            <span className="text-xs">Concoction</span>
+                          </div>
+                        ) : null}
+                        <ItemButton
+                          key={`concoction-${concoctionIndex}`}
+                          item={
+                            buildState.items.concoction[concoctionIndex] || null
+                          }
+                          isEditable={isEditable}
+                          isScreenshotMode={isScreenshotMode}
+                          manualWordBreaks={true}
+                          onClick={() =>
+                            handleItemSlotClick('concoction', concoctionIndex)
+                          }
+                          onItemInfoClick={handleShowInfo}
+                          onToggleOptional={handleToggleOptional}
+                          showOwnership={itemOwnershipPreference}
+                          tooltipDisabled={itemInfoOpen}
+                          unoptimized={isScreenshotMode}
+                        />
+                      </div>
                     );
                   })}
                 </div>
@@ -1031,23 +1155,30 @@ export function Builder({
                   )}
                 >
                   {getArrayOfLength(4).map((consumableIndex) => (
-                    <ItemButton
-                      key={`consumable-${consumableIndex}`}
-                      item={
-                        buildState.items.consumable[consumableIndex] || null
-                      }
-                      isEditable={isEditable}
-                      isScreenshotMode={isScreenshotMode}
-                      manualWordBreaks={true}
-                      onClick={() =>
-                        handleItemSlotClick('consumable', consumableIndex)
-                      }
-                      onItemInfoClick={handleShowInfo}
-                      onToggleOptional={handleToggleOptional}
-                      showOwnership={itemOwnershipPreference}
-                      tooltipDisabled={itemInfoOpen}
-                      unoptimized={isScreenshotMode}
-                    />
+                    <div>
+                      {isEditable && !isScreenshotMode ? (
+                        <div className="w-full text-left md:text-center">
+                          <span className="text-xs">Consumable</span>
+                        </div>
+                      ) : null}
+                      <ItemButton
+                        key={`consumable-${consumableIndex}`}
+                        item={
+                          buildState.items.consumable[consumableIndex] || null
+                        }
+                        isEditable={isEditable}
+                        isScreenshotMode={isScreenshotMode}
+                        manualWordBreaks={true}
+                        onClick={() =>
+                          handleItemSlotClick('consumable', consumableIndex)
+                        }
+                        onItemInfoClick={handleShowInfo}
+                        onToggleOptional={handleToggleOptional}
+                        showOwnership={itemOwnershipPreference}
+                        tooltipDisabled={itemInfoOpen}
+                        unoptimized={isScreenshotMode}
+                      />
+                    </div>
                   ))}
                 </div>
               )}
@@ -1071,6 +1202,38 @@ export function Builder({
           />
         </div>
 
+        {hasBossRushBuildTag ? (
+          <div
+            id="pylon-row"
+            className="mb-4 flex w-full items-center justify-center"
+          >
+            <div className="flex flex-row flex-wrap items-start justify-between gap-x-2 gap-y-0 sm:justify-start">
+              {getArrayOfLength(MAX_ALLOWED_PYLONS).map((pylonIndex) => (
+                <div>
+                  {isEditable && !isScreenshotMode ? (
+                    <div className="w-full text-left md:text-center">
+                      <span className="text-xs">Pylon</span>
+                    </div>
+                  ) : null}
+                  <ItemButton
+                    key={`pylon-${pylonIndex}`}
+                    item={buildState.items.pylon[pylonIndex] || null}
+                    isEditable={isEditable}
+                    isScreenshotMode={isScreenshotMode}
+                    manualWordBreaks={true}
+                    onClick={() => handleItemSlotClick('pylon', pylonIndex)}
+                    onItemInfoClick={handleShowInfo}
+                    onToggleOptional={handleToggleOptional}
+                    showOwnership={itemOwnershipPreference}
+                    tooltipDisabled={itemInfoOpen}
+                    unoptimized={isScreenshotMode}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
         {showMemberFeatures ? (
           <div
             id="member-features-row"
@@ -1079,7 +1242,6 @@ export function Builder({
             <MemberFeatures
               buildId={buildState.buildId}
               buildLink={buildState.buildLink}
-              buildTags={buildState.buildTags ?? []}
               description={buildState.description}
               isEditable={isEditable}
               isMainBuild={isMainBuild}
@@ -1087,7 +1249,6 @@ export function Builder({
               isPublic={buildState.isPublic}
               isScreenshotMode={isScreenshotMode}
               onChangeBuildLink={handleChangeBuildLink}
-              onChangeBuildTags={handleChangeBuildTags}
               onChangeDescription={handleChangeDescription}
               onChangeIsPublic={handleToggleIsPublic}
               onChangeIsPatchAffected={handleToggleIsPatchAffected}

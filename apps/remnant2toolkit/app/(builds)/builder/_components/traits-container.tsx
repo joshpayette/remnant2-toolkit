@@ -347,13 +347,11 @@ export function TraitsContainer({
         ))}
       </div>
       {showControls && isEditable && (
-        <button
-          onClick={onAddTrait}
-          aria-label="Add Trait"
-          className="border-secondary-700 text-surface-solid hover:border-secondary-400 hover:bg-secondary-500 mx-auto mt-4 flex max-w-[250px] items-center justify-center rounded border px-4 py-2 text-xs font-bold"
-        >
-          Add Trait
-        </button>
+        <div className="mt-4 flex w-full items-center justify-center">
+          <BaseButton onClick={onAddTrait} color="purple">
+            Add Trait
+          </BaseButton>
+        </div>
       )}
     </>
   );
