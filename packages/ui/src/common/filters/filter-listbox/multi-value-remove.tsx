@@ -24,7 +24,7 @@ export function MultiValueRemove(props: MultiValueRemoveProps<FilterOption>) {
         },
       }}
     >
-      <div className="ui-bg-red-900 ui-w-3 ui-h-6 ui-flex ui-items-center ui-justify-center ui-mr-2 ui-p-1 ui-mb-1">
+      <div className="ui-bg-red-600 dark:ui-bg-red-900 ui-w-3 ui-h-6 ui-flex ui-items-center ui-justify-center ui-mr-2 ui-p-1 ui-mb-1">
         <XIcon className="ui-w-2 ui-h-2 ui-text-surface-solid" />
       </div>
     </components.MultiValueRemove>
