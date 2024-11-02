@@ -3,7 +3,7 @@ import { cn, FooterContainer, getImageUrl } from '@repo/ui';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { NAV_ITEMS } from '@/app/_types/navigation';
+import { NAV_ITEMS } from '@/app/_constants/nav-items';
 
 const aClass = 'text-gray-300 hover:text-primary-400 underline';
 

@@ -3,7 +3,7 @@
 import { BaseButton } from '@repo/ui';
 import { usePathname, useRouter } from 'next/navigation';
 
-import { NAV_ITEMS } from '@/app/_types/navigation';
+import { NAV_ITEMS } from '@/app/_constants/nav-items';
 
 export function RandomBuildButton() {
   const router = useRouter();

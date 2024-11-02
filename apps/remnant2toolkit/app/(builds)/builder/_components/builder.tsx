@@ -863,7 +863,7 @@ export function Builder({
                 <div>
                   {isEditable && !isScreenshotMode ? (
                     <div className="w-full text-left md:text-center">
-                      <span className="text-xs">Prism</span>
+                      <span className="text-xs">Relic</span>
                     </div>
                   ) : null}
                   <ItemButton
@@ -1202,11 +1202,16 @@ export function Builder({
           />
         </div>
 
-        {hasBossRushBuildTag ? (
+        {buildState.items.pylon.every((i) => !i) && !isEditable ? null : (
           <div
             id="pylon-row"
-            className="mb-4 flex w-full items-center justify-center"
+            className="mb-4 flex w-full flex-col items-center justify-center"
           >
+            {!hasBossRushBuildTag && !isScreenshotMode && isEditable && (
+              <span className="mb-1 text-sm text-red-500">
+                Add the Boss Rush tag to add pylons to this build.
+              </span>
+            )}
             <div className="flex flex-row flex-wrap items-start justify-between gap-x-2 gap-y-0 sm:justify-start">
               {getArrayOfLength(MAX_ALLOWED_PYLONS).map((pylonIndex) => (
                 <div>
@@ -1221,7 +1226,11 @@ export function Builder({
                     isEditable={isEditable}
                     isScreenshotMode={isScreenshotMode}
                     manualWordBreaks={true}
-                    onClick={() => handleItemSlotClick('pylon', pylonIndex)}
+                    onClick={
+                      hasBossRushBuildTag
+                        ? () => handleItemSlotClick('pylon', pylonIndex)
+                        : undefined
+                    }
                     onItemInfoClick={handleShowInfo}
                     onToggleOptional={handleToggleOptional}
                     showOwnership={itemOwnershipPreference}
@@ -1232,7 +1241,7 @@ export function Builder({
               ))}
             </div>
           </div>
-        ) : null}
+        )}
 
         {showMemberFeatures ? (
           <div

@@ -17,7 +17,7 @@ import { useMemo, useState } from 'react';
 
 import { InputWithClear } from '@/app/_components/input-with-clear';
 import { EXCLUDE_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
-import { QualityBuildDialog } from '@/app/(builds)/_components/quality-build-dialog';
+import { QualityBuildInfoDialog } from '@/app/(builds)/_components/quality-build-info-dialog';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import { amuletFilter } from '@/app/(builds)/_features/filters/_libs/filters/amulet-filter';
 import { archetypeFilter } from '@/app/(builds)/_features/filters/_libs/filters/archetype-filter';
@@ -463,7 +463,7 @@ export function BuildFilters({
         applyUrlFilters(defaultFilters);
       }}
       searchInput={
-        <BaseField className="col-span-full sm:col-span-2">
+        <BaseField className="col-span-full p-1 sm:col-span-2">
           <div className="w-full max-w-[600px]">
             <InputWithClear
               onChange={(e) => {
@@ -496,7 +496,7 @@ export function BuildFilters({
         </BaseField>
       }
     >
-      <QualityBuildDialog
+      <QualityBuildInfoDialog
         open={isQualityDescriptionOpen}
         onClose={() => setIsQualityDescriptionOpen(false)}
       />
@@ -511,11 +511,11 @@ export function BuildFilters({
               </Disclosure.Button>
             </div>
             <Disclosure.Panel>
-              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                 <div className="">
                   <BaseField
                     id="archetypes-filter"
-                    className="col-span-full sm:col-span-1"
+                    className="col-span-full p-1 sm:col-span-1"
                   >
                     <FilterListbox
                       options={unappliedFilters.archetypes}
@@ -534,7 +534,7 @@ export function BuildFilters({
                   ).length === 1 ? (
                     <BaseField
                       id="archetype-slot"
-                      className="col-span-full sm:col-span-1"
+                      className="col-span-full p-1 sm:col-span-1"
                     >
                       <BaseListbox
                         className="mt-1"
@@ -558,7 +558,7 @@ export function BuildFilters({
                 </div>
                 <BaseField
                   id="skills-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full p-1 sm:col-span-1"
                 >
                   <FilterListbox
                     options={unappliedFilters.skills}
@@ -574,7 +574,7 @@ export function BuildFilters({
                 </BaseField>
                 <BaseField
                   id="amulets-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full p-1 sm:col-span-1"
                 >
                   <FilterListbox
                     options={unappliedFilters.amulets}
@@ -590,7 +590,7 @@ export function BuildFilters({
                 </BaseField>
                 <BaseField
                   id="rings-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full p-1 sm:col-span-1"
                 >
                   <FilterListbox
                     options={unappliedFilters.rings}
@@ -606,7 +606,7 @@ export function BuildFilters({
                 </BaseField>
                 <BaseField
                   id="relic-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full p-1 sm:col-span-1"
                 >
                   <FilterListbox
                     options={unappliedFilters.relics}
@@ -622,7 +622,7 @@ export function BuildFilters({
                 </BaseField>
                 <BaseField
                   id="relic-fragment-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full p-1 sm:col-span-1"
                 >
                   <FilterListbox
                     options={unappliedFilters.relicFragments}
@@ -638,7 +638,7 @@ export function BuildFilters({
                 </BaseField>
                 <BaseField
                   id="fusion-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full p-1 sm:col-span-1"
                 >
                   <FilterListbox
                     options={unappliedFilters.fusions}
@@ -654,7 +654,7 @@ export function BuildFilters({
                 </BaseField>
                 <BaseField
                   id="legendary-fragment-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full p-1 sm:col-span-1"
                 >
                   <FilterListbox
                     options={unappliedFilters.legendaryFragments}
@@ -670,7 +670,7 @@ export function BuildFilters({
                 </BaseField>
                 <BaseField
                   id="long-guns-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full p-1 sm:col-span-1"
                 >
                   <FilterListbox
                     options={unappliedFilters.longGuns}
@@ -686,7 +686,7 @@ export function BuildFilters({
                 </BaseField>
                 <BaseField
                   id="hand-guns-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full p-1 sm:col-span-1"
                 >
                   <FilterListbox
                     options={unappliedFilters.handGuns}
@@ -702,7 +702,7 @@ export function BuildFilters({
                 </BaseField>
                 <BaseField
                   id="melee-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full p-1 sm:col-span-1"
                 >
                   <FilterListbox
                     options={unappliedFilters.melees}
@@ -718,7 +718,7 @@ export function BuildFilters({
                 </BaseField>
                 <BaseField
                   id="mod-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full p-1 sm:col-span-1"
                 >
                   <FilterListbox
                     options={unappliedFilters.mods}
@@ -734,7 +734,7 @@ export function BuildFilters({
                 </BaseField>
                 <BaseField
                   id="mutator-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full p-1 sm:col-span-1"
                 >
                   <FilterListbox
                     options={unappliedFilters.mutators}
@@ -750,7 +750,7 @@ export function BuildFilters({
                 </BaseField>
                 <BaseField
                   id="trait-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full p-1 sm:col-span-1"
                 >
                   <FilterListbox
                     options={unappliedFilters.traits}
@@ -780,10 +780,10 @@ export function BuildFilters({
               </Disclosure.Button>
             </div>
             <Disclosure.Panel>
-              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                 <BaseField
                   id="releases-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full p-1 sm:col-span-1"
                 >
                   <FilterListbox
                     options={unappliedFilters.releases}
@@ -800,7 +800,7 @@ export function BuildFilters({
                 </BaseField>
                 <BaseField
                   id="with-collection-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full p-1 sm:col-span-1"
                 >
                   <BaseLabel className="text-surface-solid h-[40px] !text-sm font-medium">
                     {withCollectionFilter.label}
@@ -823,7 +823,7 @@ export function BuildFilters({
                     ))}
                   </BaseListbox>
                 </BaseField>
-                <BaseField className="col-span-full sm:col-span-1">
+                <BaseField className="col-span-full p-1 sm:col-span-1">
                   <FilterListbox
                     options={unappliedFilters.buildTags}
                     label={buildTagFilter.label}
@@ -853,10 +853,10 @@ export function BuildFilters({
               </Disclosure.Button>
             </div>
             <Disclosure.Panel>
-              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                 <BaseField
                   id="with-quality-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full bg-slate-300 p-1 dark:bg-slate-700 sm:col-span-1"
                 >
                   <BaseLabel className="text-surface-solid h-[40px] !text-sm font-medium">
                     {withQualityFilter.label}
@@ -887,7 +887,7 @@ export function BuildFilters({
                 </BaseField>
                 <BaseField
                   id="with-optional-prism-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full bg-slate-300 p-1 dark:bg-slate-700 sm:col-span-1"
                 >
                   <BaseLabel className="text-surface-solid h-[40px] !text-sm font-medium">
                     {withOptionalPrismFilter.label}
@@ -912,7 +912,7 @@ export function BuildFilters({
                 </BaseField>
                 <BaseField
                   id="with-video-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full p-1 sm:col-span-1"
                 >
                   <BaseLabel className="text-surface-solid h-[40px] !text-sm font-medium">
                     {withVideoFilter.label}
@@ -937,7 +937,7 @@ export function BuildFilters({
                 </BaseField>
                 <BaseField
                   id="with-reference-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full p-1 sm:col-span-1"
                 >
                   <BaseLabel className="text-surface-solid h-[40px] !text-sm font-medium">
                     {withReferenceFilter.label}
@@ -962,7 +962,7 @@ export function BuildFilters({
                 </BaseField>
                 <BaseField
                   id="with-patch-affected-filter"
-                  className="col-span-full sm:col-span-1"
+                  className="col-span-full p-1 sm:col-span-1"
                 >
                   <BaseLabel className="text-surface-solid h-[40px] !text-sm font-medium">
                     {withPatchAffectedFilter.label}

@@ -3,7 +3,7 @@ import React from 'react';
 
 import { PageHeader } from '@/app/_components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
-import { NAV_ITEMS } from '@/app/_types/navigation';
+import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { getRandomBuild } from '@/app/(builds)/_libs/get-random-build';
 import { CreateBuild } from '@/app/(builds)/builder/create/create-build';
 import { allItems } from '@/app/(items)/_constants/all-items';

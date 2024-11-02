@@ -4,7 +4,7 @@ import React from 'react';
 
 import { PageHeader } from '@/app/_components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
-import { NAV_ITEMS } from '@/app/_types/navigation';
+import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { CreateBuild } from '@/app/(builds)/builder/create/create-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 

@@ -1,7 +1,7 @@
 import { type Metadata } from 'next';
 
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
-import { NAV_ITEMS } from '@/app/_types/navigation';
+import { NAV_ITEMS } from '@/app/_constants/nav-items';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `${NAV_ITEMS.worldSaveArchive.label} - ${SITE_TITLE}`;

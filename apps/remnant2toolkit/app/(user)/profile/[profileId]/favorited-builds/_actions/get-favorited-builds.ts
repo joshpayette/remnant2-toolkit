@@ -23,6 +23,7 @@ import { limitByRingsSegment } from '@/app/(builds)/_features/filters/_libs/quer
 import { limitBySkillsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/skills';
 import { limitByTimeConditionSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/time-condition';
 import { limitByTraitsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/traits';
+import { limitByWithOptionalPrismFragment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-optional-prism';
 import { limitByWithPatchAffectedSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-patch-affected';
 import { limitByWithQualityBuildsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-quality';
 import { limitByWithReferenceSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-reference';
@@ -61,6 +62,7 @@ export async function getFavoritedBuilds({
     skills,
     traits,
     withCollection,
+    withOptionalPrism,
     withPatchAffected,
     withQuality,
     withReference,
@@ -87,6 +89,7 @@ export async function getFavoritedBuilds({
     ${limitBySkillsSegment(skills)}
     ${limitByTimeConditionSegment(timeRange)}
     ${limitByTraitsSegment(traits)}
+    ${limitByWithOptionalPrismFragment(withOptionalPrism)}
     ${limitByWithPatchAffectedSegment(withPatchAffected)}
     ${limitByWithQualityBuildsSegment(withQuality)}
     ${limitByWithReferenceSegment(withReference)}
