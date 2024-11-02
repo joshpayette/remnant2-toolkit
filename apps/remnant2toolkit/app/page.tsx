@@ -6,7 +6,7 @@ import { getFavoritesLeaderboard } from '@/app/_components/get-favorites-leaderb
 import { LandingPageCard } from '@/app/_components/landing-page-card';
 import { LandingPageCardDisabled } from '@/app/_components/landing-page-card-disabled';
 import { LandingPageContainer } from '@/app/_components/landing-page-container';
-import { NAV_ITEMS } from '@/app/_types/navigation';
+import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { getLeaderBoard as getItemQuizLeaderBoard } from '@/app/(items)/item-quiz/_actions/get-leader-board';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 

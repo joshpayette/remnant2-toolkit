@@ -13,7 +13,7 @@ import { useSession } from 'next-auth/react';
 import { Fragment } from 'react';
 
 import { ProfileButton } from '@/app/_components/profile-button';
-import { NAV_ITEMS } from '@/app/_types/navigation';
+import { NAV_ITEMS } from '@/app/_constants/nav-items';
 
 export function Navbar({ showNotifications }: { showNotifications: boolean }) {
   const { status } = useSession();

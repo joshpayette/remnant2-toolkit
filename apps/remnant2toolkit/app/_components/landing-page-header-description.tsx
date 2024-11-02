@@ -2,7 +2,7 @@
 
 import { BaseLink } from '@repo/ui';
 
-import { NAV_ITEMS } from '../_types/navigation';
+import { NAV_ITEMS } from '../_constants/nav-items';
 import { getTotalBuildCount } from '../(builds)/_actions/get-total-build-count';
 import { getSession } from '../(user)/_auth/services/sessionService';
 

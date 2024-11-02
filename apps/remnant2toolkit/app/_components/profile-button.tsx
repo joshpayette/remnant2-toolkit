@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react';
 import { Fragment, useEffect, useState } from 'react';
 
 import { PlaceHolderIcon } from '@/app/_components/placeholder-icon';
-import { NAV_ITEMS } from '@/app/_types/navigation';
+import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { getAvatarId } from '@/app/(user)/profile/_actions/get-avatar-id';
 import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
 
