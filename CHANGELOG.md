@@ -15,11 +15,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added a bit more spacing between select menus on the build filters.
 - Added purple background color to the "Quality Build" and "Optional Legendary Gem" filter to make it stand out more.
+- Updated boss rush pylon logic on builds. Boxes will now always be visible when editing a build, but you can only click them if the Boss Rush tag is applied. If the Boss Rush tag is not applied, a red text will appear stating that is why the buttons are disabled.
 
 ### Fixed
 
 - When creating or editing a build, the label for the `Relic` slot mistakenly read `Prism`.
 - Mistakenly only added "Only Builds w/ Optional Leg. Gem" filter to a single build feed.
+- Fixed coloring on new build filter select boxes for light mode users.
 
 ## 2024-11-01
 
