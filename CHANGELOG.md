@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Change
 
 - Added a bit more spacing between select menus on the build filters.
+- Added purple background color to the "Quality Build" and "Optional Legendary Gem" filter to make it stand out more.
 
 ### Fixed
 
