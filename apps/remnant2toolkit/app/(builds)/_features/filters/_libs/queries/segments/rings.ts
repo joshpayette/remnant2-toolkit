@@ -3,7 +3,7 @@ import isEqual from 'lodash.isequal';
 
 import { MAX_ALLOWED_RINGS } from '@/app/(builds)/_constants/max-allowed-rings';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
-import type { RingFilterValue } from '@/app/(builds)/_features/filters/_libs/ring-filter';
+import type { RingFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/ring-filter';
 
 export function limitByRingsSegment(ringFilters: RingFilterValue): Prisma.Sql {
   // if the rings are the default filters, do nothing

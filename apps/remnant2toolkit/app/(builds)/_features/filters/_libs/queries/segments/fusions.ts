@@ -3,7 +3,7 @@ import isEqual from 'lodash.isequal';
 
 import { MAX_ALLOWED_FUSIONS } from '@/app/(builds)/_constants/max-allowed-fusions';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
-import type { FusionFilterValue } from '@/app/(builds)/_features/filters/_libs/fusion-filter';
+import type { FusionFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/fusion-filter';
 
 export function limitByFusionsSegment(
   fusionFilters: FusionFilterValue,

@@ -2,7 +2,7 @@ import { Prisma } from '@repo/db';
 import isEqual from 'lodash.isequal';
 
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
-import type { ReleasesFilterValue } from '@/app/(builds)/_features/filters/_libs/releases-filter';
+import type { ReleasesFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/releases-filter';
 
 export function limitByReleaseSegment(
   releaseFilters: ReleasesFilterValue,

@@ -3,7 +3,7 @@ import { Prisma, prisma } from '@repo/db';
 import type { PercentageOwned } from '@/app/(builds)/_features/filters/_types/percentage-owned';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
-const EXCLUDED_CATEGORIES = [
+const EXCLUDED_CATEGORIES_FOR_OWNERSHIP = [
   'skill',
   'prism',
   'fusion',
@@ -69,7 +69,7 @@ SELECT * FROM (
       SELECT 
           BuildItems.buildId,
           COUNT(CASE WHEN BuildItems.category NOT IN (${Prisma.join(
-            EXCLUDED_CATEGORIES,
+            EXCLUDED_CATEGORIES_FOR_OWNERSHIP,
           )}) THEN 1 ELSE NULL END) as totalItems,
           SUM(CASE WHEN BuildItems.category = 'archtype' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as archtypeCount,
           SUM(CASE WHEN BuildItems.category = 'skill' AND BuildItems.itemId <> '' THEN 1 ELSE 0 END) as skillCount,
@@ -92,7 +92,9 @@ SELECT * FROM (
       FROM BuildItems
       JOIN UserItems ON BuildItems.itemId = UserItems.itemId
       WHERE BuildItems.itemId <> ''
-      AND BuildItems.category NOT IN (${Prisma.join(EXCLUDED_CATEGORIES)})
+      AND BuildItems.category NOT IN (${Prisma.join(
+        EXCLUDED_CATEGORIES_FOR_OWNERSHIP,
+      )})
       AND UserItems.userId = ${userId ?? ''}
       GROUP BY BuildItems.buildId
     ) as UserItemCounts ON Build.id = UserItemCounts.buildId
@@ -114,9 +116,8 @@ SELECT * FROM (
       OR Build.name LIKE ${'%' + searchText + '%'} 
       OR Build.description LIKE ${'%' + searchText + '%'}
     )`
-        : Prisma.sql``
+        : Prisma.empty
     }
-
     GROUP BY Build.id, User.id, ItemCounts.totalItems, UserItemCounts.ownedItems
     ${orderBySegment}
 ) as SubQuery

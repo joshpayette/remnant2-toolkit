@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-11-02
+
+### Added
+
+- New build filter to only show builds with optional or empty legendary gems. If a build or any variant has an empty or optional legendary gem, it will show in the results if this filter is set to Yes.
+
 ## 2024-11-01
 
 ### Added

@@ -1,8 +1,7 @@
 import type { FilterOption } from '@repo/ui';
 
+import type { FilterDefinition } from '@/app/(builds)/_features/filters/_types/filter-definition';
 import { weaponItems } from '@/app/(items)/_constants/weapon-items';
-
-import { type FilterDefinition } from '../_types/filter-definition';
 
 const handGunItems = weaponItems.filter((item) => item.type === 'hand gun');
 

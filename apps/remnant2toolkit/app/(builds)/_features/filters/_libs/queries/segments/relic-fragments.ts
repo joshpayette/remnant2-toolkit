@@ -3,7 +3,7 @@ import isEqual from 'lodash.isequal';
 
 import { MAX_ALLOWED_RELIC_FRAGMENTS } from '@/app/(builds)/_constants/max-allowed-relic-fragments';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
-import type { RelicFragmentFilterValue } from '@/app/(builds)/_features/filters/_libs/relic-fragment-filter';
+import type { RelicFragmentFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/relic-fragment-filter';
 
 export function limitByRelicFragmentsSegment(
   relicFragmentFilters: RelicFragmentFilterValue,
