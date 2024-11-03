@@ -82,7 +82,7 @@ export function PrismDisplay({
       <BaseFieldset className="flex max-w-full flex-col items-start justify-start gap-y-2 border border-transparent p-1">
         <div className="flex w-full flex-wrap items-start justify-start gap-x-2 md:gap-x-1">
           {getArrayOfLength(MAX_RELIC_FRAGMENT_COUNT).map((fragmentIndex) => (
-            <div>
+            <div key={fragmentIndex}>
               {isEditable && !isScreenshotMode ? (
                 <BaseLabel className="mb-2 w-full text-left md:text-center">
                   <span className="text-xs">Fragment</span>
@@ -121,7 +121,7 @@ export function PrismDisplay({
             const itemToDisplay = fusionInSlot || fragmentInSlot;
 
             return (
-              <div>
+              <div key={index}>
                 {isEditable && !isScreenshotMode ? (
                   <BaseLabel className="mb-2 w-full text-left md:text-center">
                     <span className="text-xs">Bonus</span>
