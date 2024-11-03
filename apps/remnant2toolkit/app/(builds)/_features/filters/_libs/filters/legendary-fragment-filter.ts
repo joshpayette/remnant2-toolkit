@@ -10,13 +10,13 @@ export const legendaryFragmentFilter = {
   defaultValue: items.map((item) => ({
     label: item.name,
     subLabel: item.description,
-    value: item.id,
+    value: item.name,
     state: 'default',
   })) as FilterOption[],
   label: 'Legendary Fragments',
   options: items.map((item) => ({
     label: item.name,
-    value: item.id,
+    value: item.name,
   })),
 } as const satisfies FilterDefinition;
 

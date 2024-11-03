@@ -3,6 +3,11 @@ import isEqual from 'lodash.isequal';
 
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { LegendaryFragmentFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/legendary-fragment-filter';
+import { relicFragmentItems } from '@/app/(items)/_constants/relic-fragment-items';
+
+const legendaryFragmentItems = relicFragmentItems.filter(
+  (item) => item.color === 'legendary',
+);
 
 export function limitByLegendaryFragmentsSegment(
   legendaryFragmentFilters: LegendaryFragmentFilterValue,
@@ -18,17 +23,26 @@ export function limitByLegendaryFragmentsSegment(
     return Prisma.empty;
   }
 
-  const allExcludedLegendaryFragmentIds = legendaryFragmentFilters
+  const allExcludedLegendaryFragmentNames = legendaryFragmentFilters
     .filter((option) => option.state === 'excluded')
     .map((option) => option.value);
+  const allExcludedLegendaryFragmentIds = legendaryFragmentItems
+    .filter((item) => allExcludedLegendaryFragmentNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allIncludedLegendaryFragmentIds = legendaryFragmentFilters
+  const allIncludedLegendaryFragmentNames = legendaryFragmentFilters
     .filter((option) => option.state === 'included')
     .map((option) => option.value);
+  const allIncludedLegendaryFragmentIds = legendaryFragmentItems
+    .filter((item) => allIncludedLegendaryFragmentNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allDefaultLegendaryFragmentIds = legendaryFragmentFilters
+  const allDefaultLegendaryFragmentNames = legendaryFragmentFilters
     .filter((option) => option.state === 'default')
     .map((option) => option.value);
+  const allDefaultLegendaryFragmentIds = legendaryFragmentItems
+    .filter((item) => allDefaultLegendaryFragmentNames.includes(item.name))
+    .map((item) => item.id);
 
   if (
     allIncludedLegendaryFragmentIds.length === 0 &&

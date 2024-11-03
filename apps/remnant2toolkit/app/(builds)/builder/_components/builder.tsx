@@ -1116,14 +1116,13 @@ export function Builder({
                     // Add 1 to the index because we already rendered the first slot
                     const concoctionIndex = index + 1;
                     return (
-                      <div>
+                      <div key={`concoction-${concoctionIndex}`}>
                         {isEditable && !isScreenshotMode ? (
                           <div className="w-full text-left md:text-center">
                             <span className="text-xs">Concoction</span>
                           </div>
                         ) : null}
                         <ItemButton
-                          key={`concoction-${concoctionIndex}`}
                           item={
                             buildState.items.concoction[concoctionIndex] || null
                           }
@@ -1155,14 +1154,13 @@ export function Builder({
                   )}
                 >
                   {getArrayOfLength(4).map((consumableIndex) => (
-                    <div>
+                    <div key={`consumable-${consumableIndex}`}>
                       {isEditable && !isScreenshotMode ? (
                         <div className="w-full text-left md:text-center">
                           <span className="text-xs">Consumable</span>
                         </div>
                       ) : null}
                       <ItemButton
-                        key={`consumable-${consumableIndex}`}
                         item={
                           buildState.items.consumable[consumableIndex] || null
                         }
@@ -1214,18 +1212,17 @@ export function Builder({
             )}
             <div className="flex flex-row flex-wrap items-start justify-between gap-x-2 gap-y-0 sm:justify-start">
               {getArrayOfLength(MAX_ALLOWED_PYLONS).map((pylonIndex) => (
-                <div>
+                <div key={`pylon-${pylonIndex}`}>
                   {isEditable && !isScreenshotMode ? (
                     <div className="w-full text-left md:text-center">
                       <span className="text-xs">Pylon</span>
                     </div>
                   ) : null}
                   <ItemButton
-                    key={`pylon-${pylonIndex}`}
                     item={buildState.items.pylon[pylonIndex] || null}
                     isEditable={isEditable}
                     isScreenshotMode={isScreenshotMode}
-                    manualWordBreaks={true}
+                  manualWordBreaks={true}
                     onClick={
                       hasBossRushBuildTag
                         ? () => handleItemSlotClick('pylon', pylonIndex)

@@ -7,13 +7,13 @@ export const relicFilter = {
   buildFilterKey: 'relics',
   defaultValue: relicItems.map((item) => ({
     label: item.name,
-    value: item.id,
+    value: item.name,
     state: 'default',
   })) as FilterOption[],
   label: 'Relic',
   options: relicItems.map((item) => ({
     label: item.name,
-    value: item.id,
+    value: item.name,
   })),
 } as const satisfies FilterDefinition;
 

@@ -7,13 +7,13 @@ export const mutatorFilter = {
   buildFilterKey: 'mutators',
   defaultValue: mutatorItems.map((item) => ({
     label: item.name,
-    value: item.id,
+    value: item.name,
     state: 'default',
   })) as FilterOption[],
   label: 'Mutator',
   options: mutatorItems.map((item) => ({
     label: item.name,
-    value: item.id,
+    value: item.name,
   })),
 } as const satisfies FilterDefinition;
 

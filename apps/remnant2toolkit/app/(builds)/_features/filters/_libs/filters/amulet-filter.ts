@@ -7,13 +7,13 @@ export const amuletFilter = {
   buildFilterKey: 'amulets',
   defaultValue: amuletItems.map((item) => ({
     label: item.name,
-    value: item.id,
+    value: item.name,
     state: 'default',
   })) as FilterOption[],
   label: 'Amulets',
   options: amuletItems.map((item) => ({
     label: item.name,
-    value: item.id,
+    value: item.name,
   })),
 } as const satisfies FilterDefinition;
 

@@ -16,11 +16,11 @@ export function limitByReleaseSegment(
     return Prisma.empty;
   }
 
-  const allIncludedReleaseIds = releaseFilters
+  const allIncludedReleaseKeys = releaseFilters
     .filter((option) => option.state === 'included')
     .map((option) => option.value);
 
-  if (allIncludedReleaseIds.length === 0) {
+  if (allIncludedReleaseKeys.length === 0) {
     return Prisma.empty;
   }
 
@@ -32,7 +32,7 @@ export function limitByReleaseSegment(
     LEFT JOIN Item ON BuildItems.itemId = Item.itemId 
     WHERE BuildItems.buildId = Build.id
     AND (Item.dlc NOT IN (${Prisma.join(
-      allIncludedReleaseIds,
+      allIncludedReleaseKeys,
     )}) AND BuildItems.itemId != '')
   )
 `;

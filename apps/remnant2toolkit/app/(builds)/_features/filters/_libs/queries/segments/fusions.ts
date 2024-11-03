@@ -4,6 +4,7 @@ import isEqual from 'lodash.isequal';
 import { MAX_ALLOWED_FUSIONS } from '@/app/(builds)/_constants/max-allowed-fusions';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { FusionFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/fusion-filter';
+import { fusionItems } from '@/app/(items)/_constants/fusion-items';
 
 export function limitByFusionsSegment(
   fusionFilters: FusionFilterValue,
@@ -17,17 +18,26 @@ export function limitByFusionsSegment(
     return Prisma.empty;
   }
 
-  const allExcludedFusionIds = fusionFilters
+  const allExcludedFusionNames = fusionFilters
     .filter((option) => option.state === 'excluded')
     .map((option) => option.value);
+  const allExcludedFusionIds = fusionItems
+    .filter((item) => allExcludedFusionNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allIncludedFusionIds = fusionFilters
+  const allIncludedFusionNames = fusionFilters
     .filter((option) => option.state === 'included')
     .map((option) => option.value);
+  const allIncludedFusionIds = fusionItems
+    .filter((item) => allIncludedFusionNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allDefaultFusionIds = fusionFilters
+  const allDefaultFusionNames = fusionFilters
     .filter((option) => option.state === 'default')
     .map((option) => option.value);
+  const allDefaultFusionIds = fusionItems
+    .filter((item) => allDefaultFusionNames.includes(item.name))
+    .map((item) => item.id);
 
   if (allIncludedFusionIds.length === 0 && allExcludedFusionIds.length === 0) {
     return Prisma.empty;

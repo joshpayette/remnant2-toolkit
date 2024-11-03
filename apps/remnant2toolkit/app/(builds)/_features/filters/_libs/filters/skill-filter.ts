@@ -8,13 +8,13 @@ export const skillFilter = {
   defaultValue: skillItems.map((item) => ({
     label: item.name,
     subLabel: item.linkedItems?.archetype?.name ?? undefined,
-    value: item.id,
+    value: item.name,
     state: 'default',
   })) as FilterOption[],
   label: 'Skills',
   options: skillItems.map((item) => ({
     label: `${item.name} (${item.linkedItems?.archetype?.name})`,
-    value: item.id,
+    value: item.name,
   })),
 } as const satisfies FilterDefinition;
 

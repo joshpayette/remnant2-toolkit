@@ -3,6 +3,9 @@ import isEqual from 'lodash.isequal';
 
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { HandGunFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/hand-gun-filter';
+import { weaponItems } from '@/app/(items)/_constants/weapon-items';
+
+const handGunItems = weaponItems.filter((item) => item.type === 'hand gun');
 
 export function limitByHandGunSegment(
   handGunFilters: HandGunFilterValue,
@@ -16,17 +19,26 @@ export function limitByHandGunSegment(
     return Prisma.empty;
   }
 
-  const allExcludedHandGunIds = handGunFilters
+  const allExcludedHandGunNames = handGunFilters
     .filter((option) => option.state === 'excluded')
     .map((option) => option.value);
+  const allExcludedHandGunIds = handGunItems
+    .filter((item) => allExcludedHandGunNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allIncludedHandGunIds = handGunFilters
+  const allIncludedHandGunNames = handGunFilters
     .filter((option) => option.state === 'included')
     .map((option) => option.value);
+  const allIncludedHandGunIds = handGunItems
+    .filter((item) => allIncludedHandGunNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allDefaultHandGunIds = handGunFilters
+  const allDefaultHandGunNames = handGunFilters
     .filter((option) => option.state === 'default')
     .map((option) => option.value);
+  const allDefaultHandGunIds = handGunItems
+    .filter((item) => allDefaultHandGunNames.includes(item.name))
+    .map((item) => item.id);
 
   if (
     allIncludedHandGunIds.length === 0 &&

@@ -8,13 +8,13 @@ export const modFilter = {
   defaultValue: modItems.map((item) => ({
     label: item.name,
     subLabel: item.linkedItems?.weapon?.name ?? undefined,
-    value: item.id,
+    value: item.name,
     state: 'default',
   })) as FilterOption[],
   label: 'Mod',
   options: modItems.map((item) => ({
     label: item.name,
-    value: item.id,
+    value: item.name,
   })),
 } as const satisfies FilterDefinition;
 
