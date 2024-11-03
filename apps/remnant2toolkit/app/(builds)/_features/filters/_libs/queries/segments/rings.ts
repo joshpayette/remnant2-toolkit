@@ -4,6 +4,7 @@ import isEqual from 'lodash.isequal';
 import { MAX_ALLOWED_RINGS } from '@/app/(builds)/_constants/max-allowed-rings';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { RingFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/ring-filter';
+import { ringItems } from '@/app/(items)/_constants/ring-items';
 
 export function limitByRingsSegment(ringFilters: RingFilterValue): Prisma.Sql {
   // if the rings are the default filters, do nothing
@@ -15,17 +16,26 @@ export function limitByRingsSegment(ringFilters: RingFilterValue): Prisma.Sql {
     return Prisma.empty;
   }
 
-  const allExcludedRingIds = ringFilters
+  const allExcludedRingNames = ringFilters
     .filter((option) => option.state === 'excluded')
     .map((option) => option.value);
+  const allExcludedRingIds = ringItems
+    .filter((item) => allExcludedRingNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allIncludedRingIds = ringFilters
+  const allIncludedRingNames = ringFilters
     .filter((option) => option.state === 'included')
     .map((option) => option.value);
+  const allIncludedRingIds = ringItems
+    .filter((item) => allIncludedRingNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allDefaultRingIds = ringFilters
+  const allDefaultRingNames = ringFilters
     .filter((option) => option.state === 'default')
     .map((option) => option.value);
+  const allDefaultRingIds = ringItems
+    .filter((item) => allDefaultRingNames.includes(item.name))
+    .map((item) => item.id);
 
   if (allIncludedRingIds.length === 0 && allExcludedRingIds.length === 0) {
     return Prisma.empty;

@@ -7,13 +7,13 @@ export const ringFilter = {
   buildFilterKey: 'rings',
   defaultValue: ringItems.map((item) => ({
     label: item.name,
-    value: item.id,
+    value: item.name,
     state: 'default',
   })) as FilterOption[],
   label: 'Rings',
   options: ringItems.map((item) => ({
     label: item.name,
-    value: item.id,
+    value: item.name,
   })),
 } as const satisfies FilterDefinition;
 

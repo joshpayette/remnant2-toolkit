@@ -4,6 +4,7 @@ import isEqual from 'lodash.isequal';
 import { MAX_ALLOWED_MODS } from '@/app/(builds)/_constants/max-allowed-mods';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { ModFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/mod-filter';
+import { modItems } from '@/app/(items)/_constants/mod-items';
 
 export function limitByModsSegment(modFilters: ModFilterValue): Prisma.Sql {
   // if the mods are the default filters, do nothing
@@ -15,17 +16,26 @@ export function limitByModsSegment(modFilters: ModFilterValue): Prisma.Sql {
     return Prisma.empty;
   }
 
-  const allExcludedModIds = modFilters
+  const allExcludedModNames = modFilters
     .filter((option) => option.state === 'excluded')
     .map((option) => option.value);
+  const allExcludedModIds = modItems
+    .filter((item) => allExcludedModNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allIncludedModIds = modFilters
+  const allIncludedModNames = modFilters
     .filter((option) => option.state === 'included')
     .map((option) => option.value);
+  const allIncludedModIds = modItems
+    .filter((item) => allIncludedModNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allDefaultModIds = modFilters
+  const allDefaultModNames = modFilters
     .filter((option) => option.state === 'default')
     .map((option) => option.value);
+  const allDefaultModIds = modItems
+    .filter((item) => allDefaultModNames.includes(item.name))
+    .map((item) => item.id);
 
   if (allIncludedModIds.length === 0 && allExcludedModIds.length === 0) {
     return Prisma.empty;

@@ -4,6 +4,7 @@ import isEqual from 'lodash.isequal';
 import { MAX_ALLOWED_ARCHETYPES } from '@/app/(builds)/_constants/max-allowed-archetypes';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { ArchetypeFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/archetype-filter';
+import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
 
 export function limitByArchetypesSegment(
   archetypeFilters: ArchetypeFilterValue,
@@ -18,17 +19,26 @@ export function limitByArchetypesSegment(
     return Prisma.empty;
   }
 
-  const allExcludedArchetypeIds = archetypeFilters
+  const allExcludedArchetypeNames = archetypeFilters
     .filter((option) => option.state === 'excluded')
     .map((option) => option.value);
+  const allExcludedArchetypeIds = archetypeItems
+    .filter((item) => allExcludedArchetypeNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allIncludedArchetypeIds = archetypeFilters
+  const allIncludedArchetypeNames = archetypeFilters
     .filter((option) => option.state === 'included')
     .map((option) => option.value);
+  const allIncludedArchetypeIds = archetypeItems
+    .filter((item) => allIncludedArchetypeNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allDefaultArchetypeIds = archetypeFilters
+  const allDefaultArchetypeNames = archetypeFilters
     .filter((option) => option.state === 'default')
     .map((option) => option.value);
+  const allDefaultArchetypeIds = archetypeItems
+    .filter((item) => allDefaultArchetypeNames.includes(item.name))
+    .map((item) => item.id);
 
   if (
     allIncludedArchetypeIds.length === 0 &&

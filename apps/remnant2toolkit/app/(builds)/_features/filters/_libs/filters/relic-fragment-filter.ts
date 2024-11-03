@@ -10,13 +10,13 @@ export const relicFragmentFilter = {
   defaultValue: items.map((item) => ({
     label: item.name,
     subLabel: item.description,
-    value: item.id,
+    value: item.name,
     state: 'default',
   })) as FilterOption[],
   label: 'Relic Fragments',
   options: items.map((item) => ({
     label: item.name,
-    value: item.id,
+    value: item.name,
   })),
 } as const satisfies FilterDefinition;
 

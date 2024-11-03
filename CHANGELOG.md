@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-11-03
+
+### Fixed
+
+- Build filters in the URL were using item ids instead of item names. This was an oversight, and has been corrected.
+
 ## 2024-11-02
 
 ### Added

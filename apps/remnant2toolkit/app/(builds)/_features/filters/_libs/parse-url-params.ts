@@ -188,17 +188,17 @@ export function parseUrlParams({
   // #region Archetype parser
   let archetypes: ArchetypeFilterValue = [...defaultFilters.archetypes];
   if (archetypesParam) {
-    for (const archetypeId of archetypesParam) {
-      const cleanArchetypeId = archetypeId.replace(EXCLUDE_ITEM_SYMBOL, '');
+    for (const archetypeName of archetypesParam) {
+      const cleanArchetypeName = archetypeName.replace(EXCLUDE_ITEM_SYMBOL, '');
       const archetypeItem = archetypeItems.find(
-        (item) => item.id === cleanArchetypeId,
+        (item) => item.name === cleanArchetypeName,
       );
       if (!archetypeItem) continue;
 
       // Check if the exclusion symbol is found
-      if (archetypeId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+      if (archetypeName.startsWith(EXCLUDE_ITEM_SYMBOL)) {
         archetypes = archetypes.map((archetype) => {
-          if (archetype.value === archetypeItem.id) {
+          if (archetype.value === archetypeItem.name) {
             return {
               ...archetype,
               state: 'excluded',
@@ -208,7 +208,7 @@ export function parseUrlParams({
         });
       } else {
         archetypes = archetypes.map((archetype) => {
-          if (archetype.value === archetypeItem.id) {
+          if (archetype.value === archetypeItem.name) {
             return {
               ...archetype,
               state: 'included',
@@ -236,15 +236,17 @@ export function parseUrlParams({
   // #region Amulet parser
   let amulets: AmuletFilterValue = [...defaultFilters.amulets];
   if (amuletsParam) {
-    for (const amuletId of amuletsParam) {
-      const cleanAmuletId = amuletId.replace(EXCLUDE_ITEM_SYMBOL, '');
-      const amuletItem = amuletItems.find((item) => item.id === cleanAmuletId);
+    for (const amuletName of amuletsParam) {
+      const cleanAmuletName = amuletName.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const amuletItem = amuletItems.find(
+        (item) => item.name === cleanAmuletName,
+      );
       if (!amuletItem) continue;
 
       // Check if the exclusion symbol is found
-      if (amuletId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+      if (amuletName.startsWith(EXCLUDE_ITEM_SYMBOL)) {
         amulets = amulets.map((amulet) => {
-          if (amulet.value === amuletItem.id) {
+          if (amulet.value === amuletItem.name) {
             return {
               ...amulet,
               state: 'excluded',
@@ -254,7 +256,7 @@ export function parseUrlParams({
         });
       } else {
         amulets = amulets.map((amulet) => {
-          if (amulet.value === amuletItem.id) {
+          if (amulet.value === amuletItem.name) {
             return {
               ...amulet,
               state: 'included',
@@ -269,15 +271,15 @@ export function parseUrlParams({
   // #region Build Tags parser
   let buildTags: BuildTagFilterValue = [...defaultFilters.buildTags];
   if (buildTagsParam) {
-    for (const buildTagId of buildTagsParam) {
-      const cleanBuildTagId = buildTagId.replace(EXCLUDE_ITEM_SYMBOL, '');
+    for (const buildTagName of buildTagsParam) {
+      const cleanBuildTagName = buildTagName.replace(EXCLUDE_ITEM_SYMBOL, '');
       const buildTagItem = ALL_BUILD_TAGS.find(
-        (item) => item.value === cleanBuildTagId,
+        (item) => item.value === cleanBuildTagName,
       );
       if (!buildTagItem) continue;
 
       // Check if the exclusion symbol is found
-      if (buildTagId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+      if (buildTagName.startsWith(EXCLUDE_ITEM_SYMBOL)) {
         buildTags = buildTags.map((buildTag) => {
           if (buildTag.value === buildTagItem.value) {
             return {
@@ -304,15 +306,17 @@ export function parseUrlParams({
   // #region Fusion parser
   let fusions = [...defaultFilters.fusions];
   if (fusionsParam) {
-    for (const fusionId of fusionsParam) {
-      const cleanFusionId = fusionId.replace(EXCLUDE_ITEM_SYMBOL, '');
-      const fusionItem = fusionItems.find((item) => item.id === cleanFusionId);
+    for (const fusionName of fusionsParam) {
+      const cleanFusionName = fusionName.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const fusionItem = fusionItems.find(
+        (item) => item.name === cleanFusionName,
+      );
       if (!fusionItem) continue;
 
       // Check if the exclusion symbol is found
-      if (fusionId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+      if (fusionName.startsWith(EXCLUDE_ITEM_SYMBOL)) {
         fusions = fusions.map((fusion) => {
-          if (fusion.value === fusionItem.id) {
+          if (fusion.value === fusionItem.name) {
             return {
               ...fusion,
               state: 'excluded',
@@ -322,7 +326,7 @@ export function parseUrlParams({
         });
       } else {
         fusions = fusions.map((fusion) => {
-          if (fusion.value === fusionItem.id) {
+          if (fusion.value === fusionItem.name) {
             return {
               ...fusion,
               state: 'included',
@@ -338,17 +342,17 @@ export function parseUrlParams({
   let handGuns: HandGunFilterValue = [...defaultFilters.handGuns];
   if (handGunsParam) {
     const handGunItems = weaponItems.filter((i) => i.type === 'hand gun');
-    for (const handGunId of handGunsParam) {
-      const cleanHandGunId = handGunId.replace(EXCLUDE_ITEM_SYMBOL, '');
+    for (const handGunName of handGunsParam) {
+      const cleanHandGunName = handGunName.replace(EXCLUDE_ITEM_SYMBOL, '');
       const handGunItem = handGunItems.find(
-        (item) => item.id === cleanHandGunId,
+        (item) => item.name === cleanHandGunName,
       );
       if (!handGunItem) continue;
 
       // Check if the exclusion symbol is found
-      if (handGunId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+      if (handGunName.startsWith(EXCLUDE_ITEM_SYMBOL)) {
         handGuns = handGuns.map((handGun) => {
-          if (handGun.value === cleanHandGunId) {
+          if (handGun.value === cleanHandGunName) {
             return {
               ...handGun,
               state: 'excluded',
@@ -358,7 +362,7 @@ export function parseUrlParams({
         });
       } else {
         handGuns = handGuns.map((handGun) => {
-          if (handGun.value === cleanHandGunId) {
+          if (handGun.value === cleanHandGunName) {
             return {
               ...handGun,
               state: 'included',
@@ -372,21 +376,22 @@ export function parseUrlParams({
 
   let legendaryFragments = [...defaultFilters.legendaryFragments];
   if (legendaryFragmentsParam) {
-    for (const legendaryFragmentId of legendaryFragmentsParam) {
-      const cleanLegendaryFragmentId = legendaryFragmentId.replace(
+    for (const legendaryFragmentName of legendaryFragmentsParam) {
+      const cleanLegendaryFragmentName = legendaryFragmentName.replace(
         EXCLUDE_ITEM_SYMBOL,
         '',
       );
       const legendaryFragmentItem = relicFragmentItems.find(
         (item) =>
-          item.id === cleanLegendaryFragmentId && item.color === 'legendary',
+          item.name === cleanLegendaryFragmentName &&
+          item.color === 'legendary',
       );
       if (!legendaryFragmentItem) continue;
 
       // Check if the exclusion symbol is found
-      if (legendaryFragmentId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+      if (legendaryFragmentName.startsWith(EXCLUDE_ITEM_SYMBOL)) {
         legendaryFragments = legendaryFragments.map((legendaryFragment) => {
-          if (legendaryFragment.value === legendaryFragmentItem.id) {
+          if (legendaryFragment.value === legendaryFragmentItem.name) {
             return {
               ...legendaryFragment,
               state: 'excluded',
@@ -396,7 +401,7 @@ export function parseUrlParams({
         });
       } else {
         legendaryFragments = legendaryFragments.map((legendaryFragment) => {
-          if (legendaryFragment.value === legendaryFragmentItem.id) {
+          if (legendaryFragment.value === legendaryFragmentItem.name) {
             return {
               ...legendaryFragment,
               state: 'included',
@@ -412,17 +417,17 @@ export function parseUrlParams({
   let longGuns: LongGunFilterValue = [...defaultFilters.longGuns];
   if (longGunsParam) {
     const longGunItems = weaponItems.filter((i) => i.type === 'long gun');
-    for (const longGunId of longGunsParam) {
-      const cleanLongGunId = longGunId.replace(EXCLUDE_ITEM_SYMBOL, '');
+    for (const longGunName of longGunsParam) {
+      const cleanLongGunName = longGunName.replace(EXCLUDE_ITEM_SYMBOL, '');
       const longGunItem = longGunItems.find(
-        (item) => item.id === cleanLongGunId,
+        (item) => item.name === cleanLongGunName,
       );
       if (!longGunItem) continue;
 
       // Check if the exclusion symbol is found
-      if (longGunId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+      if (longGunName.startsWith(EXCLUDE_ITEM_SYMBOL)) {
         longGuns = longGuns.map((longGun) => {
-          if (longGun.value === cleanLongGunId) {
+          if (longGun.value === cleanLongGunName) {
             return {
               ...longGun,
               state: 'excluded',
@@ -432,7 +437,7 @@ export function parseUrlParams({
         });
       } else {
         longGuns = longGuns.map((longGun) => {
-          if (longGun.value === cleanLongGunId) {
+          if (longGun.value === cleanLongGunName) {
             return {
               ...longGun,
               state: 'included',
@@ -448,15 +453,15 @@ export function parseUrlParams({
   let melees: MeleeFilterValue = [...defaultFilters.melees];
   if (meleeParam) {
     const meleeItems = weaponItems.filter((i) => i.type === 'melee');
-    for (const meleeId of meleeParam) {
-      const cleanMeleeId = meleeId.replace(EXCLUDE_ITEM_SYMBOL, '');
-      const meleeItem = meleeItems.find((item) => item.id === cleanMeleeId);
+    for (const meleeName of meleeParam) {
+      const cleanMeleeName = meleeName.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const meleeItem = meleeItems.find((item) => item.name === cleanMeleeName);
       if (!meleeItem) continue;
 
       // Check if the exclusion symbol is found
-      if (meleeId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+      if (meleeName.startsWith(EXCLUDE_ITEM_SYMBOL)) {
         melees = melees.map((melee) => {
-          if (melee.value === cleanMeleeId) {
+          if (melee.value === cleanMeleeName) {
             return {
               ...melee,
               state: 'excluded',
@@ -466,7 +471,7 @@ export function parseUrlParams({
         });
       } else {
         melees = melees.map((melee) => {
-          if (melee.value === cleanMeleeId) {
+          if (melee.value === cleanMeleeName) {
             return {
               ...melee,
               state: 'included',
@@ -481,15 +486,15 @@ export function parseUrlParams({
   // #region Mod parser
   let mods: ModFilterValue = [...defaultFilters.mods];
   if (modParam) {
-    for (const modId of modParam) {
-      const cleanModId = modId.replace(EXCLUDE_ITEM_SYMBOL, '');
-      const modItem = modItems.find((item) => item.id === cleanModId);
+    for (const modName of modParam) {
+      const cleanModName = modName.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const modItem = modItems.find((item) => item.name === cleanModName);
       if (!modItem) continue;
 
       // Check if the exclusion symbol is found
-      if (modId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+      if (modName.startsWith(EXCLUDE_ITEM_SYMBOL)) {
         mods = mods.map((mod) => {
-          if (mod.value === modItem.id) {
+          if (mod.value === modItem.name) {
             return {
               ...mod,
               state: 'excluded',
@@ -499,7 +504,7 @@ export function parseUrlParams({
         });
       } else {
         mods = mods.map((mod) => {
-          if (mod.value === modItem.id) {
+          if (mod.value === modItem.name) {
             return {
               ...mod,
               state: 'included',
@@ -514,17 +519,17 @@ export function parseUrlParams({
   // #region Mutator parser
   let mutators = [...defaultFilters.mutators];
   if (mutatorParam) {
-    for (const mutatorId of mutatorParam) {
-      const cleanMutatorId = mutatorId.replace(EXCLUDE_ITEM_SYMBOL, '');
+    for (const mutatorName of mutatorParam) {
+      const cleanMutatorName = mutatorName.replace(EXCLUDE_ITEM_SYMBOL, '');
       const mutatorItem = mutatorItems.find(
-        (item) => item.id === cleanMutatorId,
+        (item) => item.name === cleanMutatorName,
       );
       if (!mutatorItem) continue;
 
       // Check if the exclusion symbol is found
-      if (mutatorId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+      if (mutatorName.startsWith(EXCLUDE_ITEM_SYMBOL)) {
         mutators = mutators.map((mutator) => {
-          if (mutator.value === mutatorItem.id) {
+          if (mutator.value === mutatorItem.name) {
             return {
               ...mutator,
               state: 'excluded',
@@ -534,7 +539,7 @@ export function parseUrlParams({
         });
       } else {
         mutators = mutators.map((mutator) => {
-          if (mutator.value === mutatorItem.id) {
+          if (mutator.value === mutatorItem.name) {
             return {
               ...mutator,
               state: 'included',
@@ -549,17 +554,17 @@ export function parseUrlParams({
   // #region Release parser
   let releases: ReleasesFilterValue = [...defaultFilters.releases];
   if (releasesParam) {
-    for (const releaseId of releasesParam) {
-      const cleanReleaseId = releaseId.replace(EXCLUDE_ITEM_SYMBOL, '');
-      const releaseItem = ALL_RELEASE_KEYS.find(
-        (item) => item === cleanReleaseId,
+    for (const releaseKey of releasesParam) {
+      const cleanReleaseKey = releaseKey.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const releaseName = ALL_RELEASE_KEYS.find(
+        (item) => item === cleanReleaseKey,
       );
-      if (!releaseItem) continue;
+      if (!releaseName) continue;
 
       // Check if the exclusion symbol is found
-      if (releaseId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+      if (releaseKey.startsWith(EXCLUDE_ITEM_SYMBOL)) {
         releases = releases.map((release) => {
-          if (release.value === releaseItem) {
+          if (release.value === releaseName) {
             return {
               ...release,
               state: 'excluded',
@@ -569,7 +574,7 @@ export function parseUrlParams({
         });
       } else {
         releases = releases.map((release) => {
-          if (release.value === releaseItem) {
+          if (release.value === releaseName) {
             return {
               ...release,
               state: 'included',
@@ -584,15 +589,15 @@ export function parseUrlParams({
   // #region Relic parser
   let relics: RelicFilterValue = [...defaultFilters.relics];
   if (relicsParam) {
-    for (const relicId of relicsParam) {
-      const cleanRelicId = relicId.replace(EXCLUDE_ITEM_SYMBOL, '');
-      const relicItem = relicItems.find((item) => item.id === cleanRelicId);
+    for (const relicName of relicsParam) {
+      const cleanRelicName = relicName.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const relicItem = relicItems.find((item) => item.name === cleanRelicName);
       if (!relicItem) continue;
 
       // Check if the exclusion symbol is found
-      if (relicId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+      if (relicName.startsWith(EXCLUDE_ITEM_SYMBOL)) {
         relics = relics.map((relic) => {
-          if (relic.value === relicItem.id) {
+          if (relic.value === relicItem.name) {
             return {
               ...relic,
               state: 'excluded',
@@ -602,7 +607,7 @@ export function parseUrlParams({
         });
       } else {
         relics = relics.map((relic) => {
-          if (relic.value === relicItem.id) {
+          if (relic.value === relicItem.name) {
             return {
               ...relic,
               state: 'included',
@@ -617,21 +622,21 @@ export function parseUrlParams({
   // #region Relic fragment parser
   let relicFragments = [...defaultFilters.relicFragments];
   if (relicFragmentsParam) {
-    for (const relicFragmentId of relicFragmentsParam) {
-      const cleanRelicFragmentId = relicFragmentId.replace(
+    for (const relicFragmentName of relicFragmentsParam) {
+      const cleanRelicFragmentName = relicFragmentName.replace(
         EXCLUDE_ITEM_SYMBOL,
         '',
       );
       const relicFragmentItem = relicFragmentItems.find(
         (item) =>
-          item.id === cleanRelicFragmentId && item.color !== 'legendary',
+          item.name === cleanRelicFragmentName && item.color !== 'legendary',
       );
       if (!relicFragmentItem) continue;
 
       // Check if the exclusion symbol is found
-      if (relicFragmentId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+      if (relicFragmentName.startsWith(EXCLUDE_ITEM_SYMBOL)) {
         relicFragments = relicFragments.map((relicFragment) => {
-          if (relicFragment.value === relicFragmentItem.id) {
+          if (relicFragment.value === relicFragmentItem.name) {
             return {
               ...relicFragment,
               state: 'excluded',
@@ -641,7 +646,7 @@ export function parseUrlParams({
         });
       } else {
         relicFragments = relicFragments.map((relicFragment) => {
-          if (relicFragment.value === relicFragmentItem.id) {
+          if (relicFragment.value === relicFragmentItem.name) {
             return {
               ...relicFragment,
               state: 'included',
@@ -656,15 +661,15 @@ export function parseUrlParams({
   // #region Ring parser
   let rings: RingFilterValue = [...defaultFilters.rings];
   if (ringsParam) {
-    for (const ringId of ringsParam) {
-      const cleanRingId = ringId.replace(EXCLUDE_ITEM_SYMBOL, '');
-      const ringItem = ringItems.find((item) => item.id === cleanRingId);
+    for (const ringName of ringsParam) {
+      const cleanRingName = ringName.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const ringItem = ringItems.find((item) => item.name === cleanRingName);
       if (!ringItem) continue;
 
       // Check if the exclusion symbol is found
-      if (ringId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+      if (ringName.startsWith(EXCLUDE_ITEM_SYMBOL)) {
         rings = rings.map((ring) => {
-          if (ring.value === ringItem.id) {
+          if (ring.value === ringItem.name) {
             return {
               ...ring,
               state: 'excluded',
@@ -674,7 +679,7 @@ export function parseUrlParams({
         });
       } else {
         rings = rings.map((ring) => {
-          if (ring.value === ringItem.id) {
+          if (ring.value === ringItem.name) {
             return {
               ...ring,
               state: 'included',
@@ -689,14 +694,14 @@ export function parseUrlParams({
   // #region Skill parser
   let skills: SkillFilterValue = defaultFilters.skills;
   if (skillParam) {
-    for (const skillId of skillParam) {
-      const cleanSkillId = skillId.replace(EXCLUDE_ITEM_SYMBOL, '');
-      const skillItem = skillItems.find((item) => item.id === cleanSkillId);
+    for (const skillName of skillParam) {
+      const cleanSkillName = skillName.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const skillItem = skillItems.find((item) => item.name === cleanSkillName);
       if (!skillItem) continue;
 
-      if (skillId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+      if (skillName.startsWith(EXCLUDE_ITEM_SYMBOL)) {
         skills = skills.map((skill) => {
-          if (skill.value === skillItem.id) {
+          if (skill.value === skillItem.name) {
             return {
               ...skill,
               state: 'excluded',
@@ -706,7 +711,7 @@ export function parseUrlParams({
         });
       } else {
         skills = skills.map((skill) => {
-          if (skill.value === skillItem.id) {
+          if (skill.value === skillItem.name) {
             return {
               ...skill,
               state: 'included',
@@ -721,14 +726,14 @@ export function parseUrlParams({
   // #region Trait parser
   let traits: TraitFilterValue = defaultFilters.traits;
   if (traitsParam) {
-    for (const traitId of traitsParam) {
-      const cleanTraitId = traitId.replace(EXCLUDE_ITEM_SYMBOL, '');
-      const traitItem = traitItems.find((item) => item.id === cleanTraitId);
+    for (const traitName of traitsParam) {
+      const cleanTraitName = traitName.replace(EXCLUDE_ITEM_SYMBOL, '');
+      const traitItem = traitItems.find((item) => item.name === cleanTraitName);
       if (!traitItem) continue;
 
-      if (traitId.startsWith(EXCLUDE_ITEM_SYMBOL)) {
+      if (traitName.startsWith(EXCLUDE_ITEM_SYMBOL)) {
         traits = traits.map((trait) => {
-          if (trait.value === traitItem.id) {
+          if (trait.value === traitItem.name) {
             return {
               ...trait,
               state: 'excluded',
@@ -738,7 +743,7 @@ export function parseUrlParams({
         });
       } else {
         traits = traits.map((trait) => {
-          if (trait.value === traitItem.id) {
+          if (trait.value === traitItem.name) {
             return {
               ...trait,
               state: 'included',

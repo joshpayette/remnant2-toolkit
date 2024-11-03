@@ -7,13 +7,13 @@ export const archetypeFilter = {
   buildFilterKey: 'archetypes',
   defaultValue: archetypeItems.map((item) => ({
     label: item.name,
-    value: item.id,
+    value: item.name,
     state: 'default',
   })) as FilterOption[],
   label: 'Archetypes',
   options: archetypeItems.map((item) => ({
     label: item.name,
-    value: item.id,
+    value: item.name,
   })),
 } as const satisfies FilterDefinition;
 

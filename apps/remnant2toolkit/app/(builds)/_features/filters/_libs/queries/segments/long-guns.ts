@@ -3,6 +3,9 @@ import isEqual from 'lodash.isequal';
 
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { LongGunFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/long-gun-filter';
+import { weaponItems } from '@/app/(items)/_constants/weapon-items';
+
+const longGunItems = weaponItems.filter((item) => item.type === 'long gun');
 
 export function limitByLongGunSegment(
   longFunFilters: LongGunFilterValue,
@@ -16,17 +19,26 @@ export function limitByLongGunSegment(
     return Prisma.empty;
   }
 
-  const allExcludedLongGunIds = longFunFilters
+  const allExcludedLongGunNames = longFunFilters
     .filter((option) => option.state === 'excluded')
     .map((option) => option.value);
+  const allExcludedLongGunIds = longGunItems
+    .filter((item) => allExcludedLongGunNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allIncludedLongGunIds = longFunFilters
+  const allIncludedLongGunNames = longFunFilters
     .filter((option) => option.state === 'included')
     .map((option) => option.value);
+  const allIncludedLongGunIds = longGunItems
+    .filter((item) => allIncludedLongGunNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allDefaultLongGunIds = longFunFilters
+  const allDefaultLongGunNames = longFunFilters
     .filter((option) => option.state === 'default')
     .map((option) => option.value);
+  const allDefaultLongGunIds = longGunItems
+    .filter((item) => allDefaultLongGunNames.includes(item.name))
+    .map((item) => item.id);
 
   if (
     allIncludedLongGunIds.length === 0 &&

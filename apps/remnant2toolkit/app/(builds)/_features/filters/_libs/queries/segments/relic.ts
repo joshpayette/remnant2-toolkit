@@ -3,6 +3,7 @@ import isEqual from 'lodash.isequal';
 
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { RelicFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/relic-filter';
+import { relicItems } from '@/app/(items)/_constants/relic-items';
 
 export function limitByRelicSegment(
   relicFilters: RelicFilterValue,
@@ -16,17 +17,26 @@ export function limitByRelicSegment(
     return Prisma.empty;
   }
 
-  const allExcludedRelicIds = relicFilters
+  const allExcludedRelicNames = relicFilters
     .filter((option) => option.state === 'excluded')
     .map((option) => option.value);
+  const allExcludedRelicIds = relicItems
+    .filter((item) => allExcludedRelicNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allIncludedRelicIds = relicFilters
+  const allIncludedRelicNames = relicFilters
     .filter((option) => option.state === 'included')
     .map((option) => option.value);
+  const allIncludedRelicIds = relicItems
+    .filter((item) => allIncludedRelicNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allDefaultRelicIds = relicFilters
+  const allDefaultRelicNames = relicFilters
     .filter((option) => option.state === 'default')
     .map((option) => option.value);
+  const allDefaultRelicIds = relicItems
+    .filter((item) => allDefaultRelicNames.includes(item.name))
+    .map((item) => item.id);
 
   if (allIncludedRelicIds.length === 0 && allExcludedRelicIds.length === 0) {
     return Prisma.empty;

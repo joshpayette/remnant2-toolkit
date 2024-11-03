@@ -10,13 +10,13 @@ export const meleeFilter = {
   defaultValue: meleeItems.map((item) => ({
     label: item.name,
     subLabel: item.linkedItems?.mod?.name ?? undefined,
-    value: item.id,
+    value: item.name,
     state: 'default',
   })) as FilterOption[],
   label: 'Melee',
   options: meleeItems.map((item) => ({
     label: item.name,
-    value: item.id,
+    value: item.name,
   })),
 } as const satisfies FilterDefinition;
 

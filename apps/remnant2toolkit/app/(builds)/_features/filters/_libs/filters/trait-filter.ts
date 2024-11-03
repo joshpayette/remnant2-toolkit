@@ -12,13 +12,13 @@ export const traitFilter = {
   defaultValue: sortedTraitItems.map((item) => ({
     label: item.name,
     subLabel: item.description,
-    value: item.id,
+    value: item.name,
     state: 'default',
   })) as FilterOption[],
   label: 'Traits',
   options: sortedTraitItems.map((item) => ({
     label: item.name,
-    value: item.id,
+    value: item.name,
   })),
 } as const satisfies FilterDefinition;
 

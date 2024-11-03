@@ -4,6 +4,7 @@ import isEqual from 'lodash.isequal';
 import { MAX_ALLOWED_SKILLS } from '@/app/(builds)/_constants/max-allowed-skills';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { SkillFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/skill-filter';
+import { skillItems } from '@/app/(items)/_constants/skill-items';
 
 export function limitBySkillsSegment(
   skillFilters: SkillFilterValue,
@@ -17,17 +18,26 @@ export function limitBySkillsSegment(
     return Prisma.empty;
   }
 
-  const allExcludedSkillIds = skillFilters
+  const allExcludedSkillNames = skillFilters
     .filter((option) => option.state === 'excluded')
     .map((option) => option.value);
+  const allExcludedSkillIds = skillItems
+    .filter((item) => allExcludedSkillNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allIncludedSkillIds = skillFilters
+  const allIncludedSkillNames = skillFilters
     .filter((option) => option.state === 'included')
     .map((option) => option.value);
+  const allIncludedSkillIds = skillItems
+    .filter((item) => allIncludedSkillNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allDefaultSkillIds = skillFilters
+  const allDefaultSkillNames = skillFilters
     .filter((option) => option.state === 'default')
     .map((option) => option.value);
+  const allDefaultSkillIds = skillItems
+    .filter((item) => allDefaultSkillNames.includes(item.name))
+    .map((item) => item.id);
 
   if (allIncludedSkillIds.length === 0 && allExcludedSkillIds.length === 0) {
     return Prisma.empty;

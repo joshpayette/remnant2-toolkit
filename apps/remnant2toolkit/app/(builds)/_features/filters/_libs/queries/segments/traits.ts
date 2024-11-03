@@ -3,6 +3,7 @@ import isEqual from 'lodash.isequal';
 
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { TraitFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/trait-filter';
+import { traitItems } from '@/app/(items)/_constants/trait-items';
 
 export function limitByTraitsSegment(
   traitFilters: TraitFilterValue,
@@ -16,17 +17,26 @@ export function limitByTraitsSegment(
     return Prisma.empty;
   }
 
-  const allExcludedTraitIds = traitFilters
+  const allExcludedTraitNames = traitFilters
     .filter((option) => option.state === 'excluded')
     .map((option) => option.value);
+  const allExcludedTraitIds = traitItems
+    .filter((item) => allExcludedTraitNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allIncludedTraitIds = traitFilters
+  const allIncludedTraitNames = traitFilters
     .filter((option) => option.state === 'included')
     .map((option) => option.value);
+  const allIncludedTraitIds = traitItems
+    .filter((item) => allIncludedTraitNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allDefaultTraitIds = traitFilters
+  const allDefaultTraitNames = traitFilters
     .filter((option) => option.state === 'default')
     .map((option) => option.value);
+  const allDefaultTraitIds = traitItems
+    .filter((item) => allDefaultTraitNames.includes(item.name))
+    .map((item) => item.id);
 
   if (allIncludedTraitIds.length === 0 && allExcludedTraitIds.length === 0) {
     return Prisma.empty;

@@ -3,6 +3,9 @@ import isEqual from 'lodash.isequal';
 
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { MeleeFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/melee-filter';
+import { weaponItems } from '@/app/(items)/_constants/weapon-items';
+
+const meleeItems = weaponItems.filter((item) => item.type === 'melee');
 
 export function limitByMeleeSegment(
   meleeFilters: MeleeFilterValue,
@@ -16,17 +19,26 @@ export function limitByMeleeSegment(
     return Prisma.empty;
   }
 
-  const allExcludedMeleeIds = meleeFilters
+  const allExcludedMeleeNames = meleeFilters
     .filter((option) => option.state === 'excluded')
     .map((option) => option.value);
+  const allExcludedMeleeIds = meleeItems
+    .filter((item) => allExcludedMeleeNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allIncludedMeleeIds = meleeFilters
+  const allIncludedMeleeNames = meleeFilters
     .filter((option) => option.state === 'included')
     .map((option) => option.value);
+  const allIncludedMeleeIds = meleeItems
+    .filter((item) => allIncludedMeleeNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allDefaultMeleeIds = meleeFilters
+  const allDefaultMeleeNames = meleeFilters
     .filter((option) => option.state === 'default')
     .map((option) => option.value);
+  const allDefaultMeleeIds = meleeItems
+    .filter((item) => allDefaultMeleeNames.includes(item.name))
+    .map((item) => item.id);
 
   if (allIncludedMeleeIds.length === 0 && allExcludedMeleeIds.length === 0) {
     return Prisma.empty;

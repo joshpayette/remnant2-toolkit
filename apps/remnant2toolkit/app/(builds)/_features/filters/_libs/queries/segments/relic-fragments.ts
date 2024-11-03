@@ -4,6 +4,7 @@ import isEqual from 'lodash.isequal';
 import { MAX_ALLOWED_RELIC_FRAGMENTS } from '@/app/(builds)/_constants/max-allowed-relic-fragments';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { RelicFragmentFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/relic-fragment-filter';
+import { relicFragmentItems } from '@/app/(items)/_constants/relic-fragment-items';
 
 export function limitByRelicFragmentsSegment(
   relicFragmentFilters: RelicFragmentFilterValue,
@@ -17,17 +18,26 @@ export function limitByRelicFragmentsSegment(
     return Prisma.empty;
   }
 
-  const allExcludedRelicFragmentIds = relicFragmentFilters
+  const allExcludedRelicFragmentames = relicFragmentFilters
     .filter((option) => option.state === 'excluded')
     .map((option) => option.value);
+  const allExcludedRelicFragmentIds = relicFragmentItems
+    .filter((item) => allExcludedRelicFragmentames.includes(item.name))
+    .map((item) => item.id);
 
-  const allIncludedRelicFragmentIds = relicFragmentFilters
+  const allIncludedRelicFragmentames = relicFragmentFilters
     .filter((option) => option.state === 'included')
     .map((option) => option.value);
+  const allIncludedRelicFragmentIds = relicFragmentItems
+    .filter((item) => allIncludedRelicFragmentames.includes(item.name))
+    .map((item) => item.id);
 
-  const allDefaultRelicFragmentIds = relicFragmentFilters
+  const allDefaultRelicFragmentames = relicFragmentFilters
     .filter((option) => option.state === 'default')
     .map((option) => option.value);
+  const allDefaultRelicFragmentIds = relicFragmentItems
+    .filter((item) => allDefaultRelicFragmentames.includes(item.name))
+    .map((item) => item.id);
 
   if (
     allIncludedRelicFragmentIds.length === 0 &&

@@ -8,13 +8,13 @@ export const fusionFilter = {
   defaultValue: fusionItems.map((item) => ({
     label: item.name,
     subLabel: item.description,
-    value: item.id,
+    value: item.name,
     state: 'default',
   })) as FilterOption[],
   label: 'Fusions',
   options: fusionItems.map((item) => ({
     label: `${item.name} (${item.description})`,
-    value: item.id,
+    value: item.name,
   })),
 } as const satisfies FilterDefinition;
 

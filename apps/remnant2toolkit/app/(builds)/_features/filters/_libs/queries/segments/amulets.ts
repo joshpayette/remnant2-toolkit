@@ -3,6 +3,7 @@ import isEqual from 'lodash.isequal';
 
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { AmuletFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/amulet-filter';
+import { amuletItems } from '@/app/(items)/_constants/amulet-items';
 
 export function limitByAmuletSegment(
   amuletFilters: AmuletFilterValue,
@@ -16,17 +17,26 @@ export function limitByAmuletSegment(
     return Prisma.empty;
   }
 
-  const allExcludedAmuletIds = amuletFilters
+  const allExcludedAmuletNames = amuletFilters
     .filter((option) => option.state === 'excluded')
     .map((option) => option.value);
+  const allExcludedAmuletIds = amuletItems
+    .filter((item) => allExcludedAmuletNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allIncludedAmuletIds = amuletFilters
+  const allIncludedAmuletNames = amuletFilters
     .filter((option) => option.state === 'included')
     .map((option) => option.value);
+  const allIncludedAmuletIds = amuletItems
+    .filter((item) => allIncludedAmuletNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allDefaultAmuletIds = amuletFilters
+  const allDefaultAmuletNames = amuletFilters
     .filter((option) => option.state === 'default')
     .map((option) => option.value);
+  const allDefaultAmuletIds = amuletItems
+    .filter((item) => allDefaultAmuletNames.includes(item.name))
+    .map((item) => item.id);
 
   if (allIncludedAmuletIds.length === 0 && allExcludedAmuletIds.length === 0) {
     return Prisma.empty;

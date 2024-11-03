@@ -17,45 +17,43 @@ export function limitByBuildTagsSegment(
     return Prisma.empty;
   }
 
-  const allExcludedBuildTagIds = buildTagFilters
+  const allExcludedBuildTagNames = buildTagFilters
     .filter((option) => option.state === 'excluded')
     .map((option) => option.value);
 
-  const allIncludedBuildTagIds = buildTagFilters
+  const allIncludedBuildTagNames = buildTagFilters
     .filter((option) => option.state === 'included')
     .map((option) => option.value);
 
-  const allDefaultBuildTagIds = buildTagFilters
+  const allDefaultBuildTagNames = buildTagFilters
     .filter((option) => option.state === 'default')
     .map((option) => option.value);
 
-  console.info('allIncludedBuildTagIds', allIncludedBuildTagIds);
-
   if (
-    allIncludedBuildTagIds.length === 0 &&
-    allExcludedBuildTagIds.length === 0
+    allIncludedBuildTagNames.length === 0 &&
+    allExcludedBuildTagNames.length === 0
   ) {
     return Prisma.empty;
   }
 
   const excludeBuildTagIdsQuery =
-    allExcludedBuildTagIds.length === 0
+    allExcludedBuildTagNames.length === 0
       ? Prisma.empty
       : Prisma.sql`AND BuildTags.buildId NOT IN (
           SELECT BuildTags.buildId
           FROM BuildTags
           WHERE BuildTags.buildId = Build.id
-          AND BuildTags.tag IN (${Prisma.join(allExcludedBuildTagIds)})
+          AND BuildTags.tag IN (${Prisma.join(allExcludedBuildTagNames)})
         )`;
 
   // If there are no included build tags, we want to include all default build tags
   // and exclude any excluded build tags
-  if (allIncludedBuildTagIds.length === 0) {
+  if (allIncludedBuildTagNames.length === 0) {
     return Prisma.sql`AND (
       SELECT COUNT(*)
       FROM BuildTags
       WHERE BuildTags.buildId = Build.id
-      AND BuildTags.tag IN (${Prisma.join(allDefaultBuildTagIds)})
+      AND BuildTags.tag IN (${Prisma.join(allDefaultBuildTagNames)})
       ${excludeBuildTagIdsQuery}
     )`;
   }
@@ -63,12 +61,12 @@ export function limitByBuildTagsSegment(
   // If there is only one included build tag, we want to ensure that all builds
   // returned have the included build tag. We also want to exclude any excluded
   // build tags
-  if (allIncludedBuildTagIds.length === 1) {
+  if (allIncludedBuildTagNames.length === 1) {
     return Prisma.sql`AND (
       SELECT COUNT(*)
       FROM BuildTags
       WHERE BuildTags.buildId = Build.id
-      AND BuildTags.tag IN (${Prisma.join(allIncludedBuildTagIds)})
+      AND BuildTags.tag IN (${Prisma.join(allIncludedBuildTagNames)})
       ${excludeBuildTagIdsQuery}
     )`;
   }
@@ -76,13 +74,13 @@ export function limitByBuildTagsSegment(
   // If the total included build tags is less than the max build tags, we want to
   // ensure that all included build tags are included in each returned build. We also
   // want to exclude any excluded build tags
-  if (allIncludedBuildTagIds.length < MAX_BUILD_TAGS) {
+  if (allIncludedBuildTagNames.length < MAX_BUILD_TAGS) {
     return Prisma.sql`AND (
       SELECT COUNT(*)
       FROM BuildTags
       WHERE BuildTags.buildId = Build.id
-      AND BuildTags.tag IN (${Prisma.join(allIncludedBuildTagIds)})) = ${
-        allIncludedBuildTagIds.length
+      AND BuildTags.tag IN (${Prisma.join(allIncludedBuildTagNames)})) = ${
+        allIncludedBuildTagNames.length
       }
      ${excludeBuildTagIdsQuery}
       `;
@@ -94,6 +92,6 @@ export function limitByBuildTagsSegment(
     SELECT COUNT(*)
     FROM BuildTags
     WHERE BuildTags.buildId = Build.id
-    AND BuildTags.tag IN (${Prisma.join(allIncludedBuildTagIds)})
+    AND BuildTags.tag IN (${Prisma.join(allIncludedBuildTagNames)})
   ) = ${MAX_BUILD_TAGS}`;
 }

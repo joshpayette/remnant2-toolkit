@@ -4,6 +4,7 @@ import isEqual from 'lodash.isequal';
 import { MAX_ALLOWED_MUTATORS } from '@/app/(builds)/_constants/max-allowed-mutators';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { MutatorFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/mutator-filter';
+import { mutatorItems } from '@/app/(items)/_constants/mutator-items';
 
 export function limitByMutatorsSegment(
   mutatorFilters: MutatorFilterValue,
@@ -17,17 +18,26 @@ export function limitByMutatorsSegment(
     return Prisma.empty;
   }
 
-  const allExcludedMutatorIds = mutatorFilters
+  const allExcludedMutatorNames = mutatorFilters
     .filter((option) => option.state === 'excluded')
     .map((option) => option.value);
+  const allExcludedMutatorIds = mutatorItems
+    .filter((item) => allExcludedMutatorNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allIncludedMutatorIds = mutatorFilters
+  const allIncludedMutatorNames = mutatorFilters
     .filter((option) => option.state === 'included')
     .map((option) => option.value);
+  const allIncludedMutatorIds = mutatorItems
+    .filter((item) => allIncludedMutatorNames.includes(item.name))
+    .map((item) => item.id);
 
-  const allDefaultMutatorIds = mutatorFilters
+  const allDefaultMutatorNames = mutatorFilters
     .filter((option) => option.state === 'default')
     .map((option) => option.value);
+  const allDefaultMutatorIds = mutatorItems
+    .filter((item) => allDefaultMutatorNames.includes(item.name))
+    .map((item) => item.id);
 
   if (
     allIncludedMutatorIds.length === 0 &&
