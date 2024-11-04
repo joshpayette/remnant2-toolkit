@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-11-04
+
+### Fixed
+
+- Fixed issue where user's created builds on their profile were not including patch affected builds by default.
+
 ## 2024-11-03
 
 ### Fixed
