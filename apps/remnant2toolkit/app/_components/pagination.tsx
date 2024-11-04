@@ -7,6 +7,7 @@ interface Props {
   lastVisibleItemNumber: number;
   isNextPageDisabled: boolean;
   pageNumbers: number[];
+  totalItems: number;
   onPreviousPage: () => void;
   onNextPage: () => void;
   onSpecificPage: (pageNumber: number) => void;
@@ -19,6 +20,7 @@ export function Pagination({
   lastVisibleItemNumber,
   isNextPageDisabled,
   pageNumbers,
+  totalItems,
   onPreviousPage,
   onNextPage,
   onSpecificPage,
@@ -37,14 +39,11 @@ export function Pagination({
 
         <div className="w-full text-center">
           <p className="text-xs text-gray-200">
-            Showing{' '}
-            <span id="start_page_count" className="font-medium">
-              {firstVisibleItemNumber}
-            </span>{' '}
-            to{' '}
-            <span id="end_page_count" className="font-medium">
-              {lastVisibleItemNumber}
-            </span>
+            Showing {firstVisibleItemNumber}
+            {` `}
+            to {lastVisibleItemNumber}
+            {` `}
+            of {totalItems}
           </p>
         </div>
 
@@ -64,14 +63,11 @@ export function Pagination({
         ) : (
           <div>
             <p className="text-sm text-gray-200">
-              Showing{' '}
-              <span id="start_page_count" className="font-medium">
-                {firstVisibleItemNumber}
-              </span>{' '}
-              to{' '}
-              <span id="end_page_count" className="font-medium">
-                {lastVisibleItemNumber}
-              </span>
+              Showing {firstVisibleItemNumber}
+              {` `}
+              to {lastVisibleItemNumber}
+              {` `}
+              of {totalItems}
             </p>
           </div>
         )}

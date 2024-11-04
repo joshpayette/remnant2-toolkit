@@ -38,6 +38,7 @@ export function ViewLinkedBuild({
   const router = useRouter();
 
   const [linkedBuilds, setLinkedBuilds] = useState<LinkedBuildState[]>([]);
+  const [totalItems, setTotalItems] = useState(0);
 
   const [requestedBuildName, setRequestedBuildName] = useState<
     string | undefined
@@ -57,7 +58,7 @@ export function ViewLinkedBuild({
     handleSpecificPageClick,
   } = usePagination({
     itemsPerPage,
-    itemsOnThisPage,
+    totalItems,
   });
 
   // Fetch data
@@ -72,6 +73,7 @@ export function ViewLinkedBuild({
       });
       setIsLoading(false);
       setLinkedBuilds(response.linkedBuilds);
+      setTotalItems(response.totalCount);
       setRequestedBuildName(response.requestedBuildName);
     };
     getItemsAsync();
@@ -123,6 +125,7 @@ export function ViewLinkedBuild({
             lastVisibleItemNumber={lastVisibleItemNumber}
             isNextPageDisabled={isNextPageDisabled}
             pageNumbers={pageNumbers}
+            totalItems={totalItems}
             onPreviousPage={handlePreviousPageClick}
             onNextPage={handleNextPageClick}
             onSpecificPage={handleSpecificPageClick}

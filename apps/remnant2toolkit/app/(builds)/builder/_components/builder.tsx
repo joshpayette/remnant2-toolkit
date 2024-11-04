@@ -1122,22 +1122,26 @@ export function Builder({
                             <span className="text-xs">Concoction</span>
                           </div>
                         ) : null}
-                        <ItemButton
-                          item={
-                            buildState.items.concoction[concoctionIndex] || null
-                          }
-                          isEditable={isEditable}
-                          isScreenshotMode={isScreenshotMode}
-                          manualWordBreaks={true}
-                          onClick={() =>
-                            handleItemSlotClick('concoction', concoctionIndex)
-                          }
-                          onItemInfoClick={handleShowInfo}
-                          onToggleOptional={handleToggleOptional}
-                          showOwnership={itemOwnershipPreference}
-                          tooltipDisabled={itemInfoOpen}
-                          unoptimized={isScreenshotMode}
-                        />
+                        {isEditable ||
+                        buildState.items.concoction[concoctionIndex] ? (
+                          <ItemButton
+                            item={
+                              buildState.items.concoction[concoctionIndex] ||
+                              null
+                            }
+                            isEditable={isEditable}
+                            isScreenshotMode={isScreenshotMode}
+                            manualWordBreaks={true}
+                            onClick={() =>
+                              handleItemSlotClick('concoction', concoctionIndex)
+                            }
+                            onItemInfoClick={handleShowInfo}
+                            onToggleOptional={handleToggleOptional}
+                            showOwnership={itemOwnershipPreference}
+                            tooltipDisabled={itemInfoOpen}
+                            unoptimized={isScreenshotMode}
+                          />
+                        ) : null}
                       </div>
                     );
                   })}
@@ -1160,22 +1164,25 @@ export function Builder({
                           <span className="text-xs">Consumable</span>
                         </div>
                       ) : null}
-                      <ItemButton
-                        item={
-                          buildState.items.consumable[consumableIndex] || null
-                        }
-                        isEditable={isEditable}
-                        isScreenshotMode={isScreenshotMode}
-                        manualWordBreaks={true}
-                        onClick={() =>
-                          handleItemSlotClick('consumable', consumableIndex)
-                        }
-                        onItemInfoClick={handleShowInfo}
-                        onToggleOptional={handleToggleOptional}
-                        showOwnership={itemOwnershipPreference}
-                        tooltipDisabled={itemInfoOpen}
-                        unoptimized={isScreenshotMode}
-                      />
+                      {isEditable ||
+                      buildState.items.consumable[consumableIndex] ? (
+                        <ItemButton
+                          item={
+                            buildState.items.consumable[consumableIndex] || null
+                          }
+                          isEditable={isEditable}
+                          isScreenshotMode={isScreenshotMode}
+                          manualWordBreaks={true}
+                          onClick={() =>
+                            handleItemSlotClick('consumable', consumableIndex)
+                          }
+                          onItemInfoClick={handleShowInfo}
+                          onToggleOptional={handleToggleOptional}
+                          showOwnership={itemOwnershipPreference}
+                          tooltipDisabled={itemInfoOpen}
+                          unoptimized={isScreenshotMode}
+                        />
+                      ) : null}
                     </div>
                   ))}
                 </div>
@@ -1184,21 +1191,25 @@ export function Builder({
           </div>
         </div>
 
-        <div
-          id="prism-row"
-          className="mb-4 flex w-full items-center justify-center"
-        >
-          <PrismDisplay
-            buildState={buildState}
-            isEditable={isEditable}
-            isScreenshotMode={isScreenshotMode}
-            itemInfoOpen={itemInfoOpen}
-            itemOwnershipPreference={itemOwnershipPreference}
-            onItemSlotClick={handleItemSlotClick}
-            onShowInfo={handleShowInfo}
-            onToggleOptional={handleToggleOptional}
-          />
-        </div>
+        {buildState.items.prism === null &&
+        buildState.items.relicfragment.every((i) => !i) &&
+        !isEditable ? null : (
+          <div
+            id="prism-row"
+            className="mb-4 flex w-full items-center justify-center"
+          >
+            <PrismDisplay
+              buildState={buildState}
+              isEditable={isEditable}
+              isScreenshotMode={isScreenshotMode}
+              itemInfoOpen={itemInfoOpen}
+              itemOwnershipPreference={itemOwnershipPreference}
+              onItemSlotClick={handleItemSlotClick}
+              onShowInfo={handleShowInfo}
+              onToggleOptional={handleToggleOptional}
+            />
+          </div>
+        )}
 
         {buildState.items.pylon.every((i) => !i) && !isEditable ? null : (
           <div
@@ -1218,22 +1229,24 @@ export function Builder({
                       <span className="text-xs">Pylon</span>
                     </div>
                   ) : null}
-                  <ItemButton
-                    item={buildState.items.pylon[pylonIndex] || null}
-                    isEditable={isEditable}
-                    isScreenshotMode={isScreenshotMode}
-                  manualWordBreaks={true}
-                    onClick={
-                      hasBossRushBuildTag
-                        ? () => handleItemSlotClick('pylon', pylonIndex)
-                        : undefined
-                    }
-                    onItemInfoClick={handleShowInfo}
-                    onToggleOptional={handleToggleOptional}
-                    showOwnership={itemOwnershipPreference}
-                    tooltipDisabled={itemInfoOpen}
-                    unoptimized={isScreenshotMode}
-                  />
+                  {isEditable || buildState.items.pylon[pylonIndex] ? (
+                    <ItemButton
+                      item={buildState.items.pylon[pylonIndex] || null}
+                      isEditable={isEditable}
+                      isScreenshotMode={isScreenshotMode}
+                      manualWordBreaks={true}
+                      onClick={
+                        hasBossRushBuildTag
+                          ? () => handleItemSlotClick('pylon', pylonIndex)
+                          : undefined
+                      }
+                      onItemInfoClick={handleShowInfo}
+                      onToggleOptional={handleToggleOptional}
+                      showOwnership={itemOwnershipPreference}
+                      tooltipDisabled={itemInfoOpen}
+                      unoptimized={isScreenshotMode}
+                    />
+                  ) : null}
                 </div>
               ))}
             </div>
