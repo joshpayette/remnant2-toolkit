@@ -43,7 +43,10 @@ export async function getUserCreatedBuilds({
   pageNumber,
   profileId,
   timeRange,
-}: ProfileBuildListRequest): Promise<{ builds: DBBuild[] }> {
+}: ProfileBuildListRequest): Promise<{
+  builds: DBBuild[];
+  totalCount: number;
+}> {
   const session = await getSession();
 
   const {
@@ -121,7 +124,7 @@ export async function getUserCreatedBuilds({
   const orderBySegment = getOrderBySegment(orderBy);
 
   try {
-    const { builds } = await getBuildList({
+    const { builds, totalCount } = await getBuildList({
       includeBuildVariants: false,
       itemsPerPage,
       orderBy: orderBySegment,
@@ -134,6 +137,7 @@ export async function getUserCreatedBuilds({
 
     return bigIntFix({
       builds,
+      totalCount,
     });
   } catch (e) {
     if (e) {

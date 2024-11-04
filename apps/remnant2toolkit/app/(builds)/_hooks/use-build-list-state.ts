@@ -9,6 +9,7 @@ import { type DBBuild } from '@/app/(builds)/_types/db-build';
 interface State {
   builds: DBBuild[];
   isLoading: boolean;
+  totalItems: number;
 }
 
 const DEFAULT_STATE: State = {
@@ -49,20 +50,14 @@ const DEFAULT_STATE: State = {
     percentageOwned: 0,
   })),
   isLoading: false,
+  totalItems: 0,
 };
 
 export function useBuildListState() {
-  const { orderBy, handleOrderByChange } = useOrderByFilter('newest');
-  const { timeRange, handleTimeRangeChange } = useTimeRangeFilter('all-time');
-
   const [buildListState, setBuildListState] = useState<State>(DEFAULT_STATE);
 
   return {
     buildListState,
     setBuildListState,
-    orderBy,
-    handleOrderByChange,
-    timeRange,
-    handleTimeRangeChange,
   };
 }

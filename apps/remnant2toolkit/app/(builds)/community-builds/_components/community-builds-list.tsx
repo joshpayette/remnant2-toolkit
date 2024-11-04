@@ -29,7 +29,7 @@ export function CommunityBuildsList({
   const buildFilterFields = parseUrlParams({ searchParams });
 
   const { buildListState, setBuildListState } = useBuildListState();
-  const { builds, isLoading } = buildListState;
+  const { builds, isLoading, totalItems } = buildListState;
 
   const itemsOnThisPage = builds.length;
 
@@ -47,7 +47,7 @@ export function CommunityBuildsList({
     handleSpecificPageClick,
   } = usePagination({
     itemsPerPage,
-    itemsOnThisPage,
+    totalItems,
   });
 
   useEffect(() => {
@@ -63,6 +63,7 @@ export function CommunityBuildsList({
         ...prevState,
         isLoading: false,
         builds: response.builds,
+        totalItems: response.totalCount,
       }));
     };
     getItemsAsync();
@@ -82,6 +83,7 @@ export function CommunityBuildsList({
             lastVisibleItemNumber={lastVisibleItemNumber}
             isNextPageDisabled={isNextPageDisabled}
             pageNumbers={pageNumbers}
+            totalItems={totalItems}
             onPreviousPage={() => {
               handlePreviousPageClick();
               onFiltersChange();

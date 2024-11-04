@@ -29,7 +29,7 @@ export function GimmickBuildsList({
   const buildFilterFields = parseUrlParams({ searchParams });
 
   const { buildListState, setBuildListState } = useBuildListState();
-  const { builds, isLoading } = buildListState;
+  const { builds, isLoading, totalItems } = buildListState;
 
   const itemsOnThisPage = builds.length;
 
@@ -47,7 +47,7 @@ export function GimmickBuildsList({
     handleSpecificPageClick,
   } = usePagination({
     itemsPerPage,
-    itemsOnThisPage,
+    totalItems,
   });
 
   // Whenever loading is set to true, we should update the build items
@@ -64,6 +64,7 @@ export function GimmickBuildsList({
         ...prevState,
         isLoading: false,
         builds: response.builds,
+        totalItems: response.totalCount,
       }));
     };
     getItemsAsync();
@@ -83,6 +84,7 @@ export function GimmickBuildsList({
             lastVisibleItemNumber={lastVisibleItemNumber}
             isNextPageDisabled={isNextPageDisabled}
             pageNumbers={pageNumbers}
+            totalItems={totalItems}
             onPreviousPage={() => {
               handlePreviousPageClick();
               onFiltersChange();

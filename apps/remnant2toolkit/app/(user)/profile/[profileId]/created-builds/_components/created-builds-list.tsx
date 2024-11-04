@@ -47,7 +47,7 @@ export function CreatedBuildsList({
   });
 
   const { buildListState, setBuildListState } = useBuildListState();
-  const { builds, isLoading } = buildListState;
+  const { builds, isLoading, totalItems } = buildListState;
 
   const itemsOnThisPage = builds.length;
   const itemsPerPage = isEditable ? 15 : 16;
@@ -68,7 +68,7 @@ export function CreatedBuildsList({
     handleSpecificPageClick,
   } = usePagination({
     itemsPerPage,
-    itemsOnThisPage,
+    totalItems,
   });
 
   useEffect(() => {
@@ -87,6 +87,7 @@ export function CreatedBuildsList({
         ...prevState,
         isLoading: false,
         builds: response.builds,
+        totalItems: response.totalCount,
       }));
     };
     getItemsAsync();
@@ -107,6 +108,7 @@ export function CreatedBuildsList({
             lastVisibleItemNumber={lastVisibleItemNumber}
             isNextPageDisabled={isNextPageDisabled}
             pageNumbers={pageNumbers}
+            totalItems={totalItems}
             onPreviousPage={() => {
               handlePreviousPageClick();
               onFiltersChange();

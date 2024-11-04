@@ -37,7 +37,7 @@ export async function getBaseGameBuilds({
   orderBy,
   pageNumber,
   timeRange,
-}: BuildListRequest): Promise<{ builds: DBBuild[] }> {
+}: BuildListRequest): Promise<{ builds: DBBuild[]; totalCount: number }> {
   const session = await getSession();
   const userId = session?.user?.id;
 
@@ -98,7 +98,7 @@ export async function getBaseGameBuilds({
   const orderBySegment = getOrderBySegment(orderBy);
 
   try {
-    const { builds } = await getBuildList({
+    const { builds, totalCount } = await getBuildList({
       includeBuildVariants: false,
       itemsPerPage,
       orderBy: orderBySegment,
@@ -111,6 +111,7 @@ export async function getBaseGameBuilds({
 
     return bigIntFix({
       builds,
+      totalCount,
     });
   } catch (e) {
     if (e) {
