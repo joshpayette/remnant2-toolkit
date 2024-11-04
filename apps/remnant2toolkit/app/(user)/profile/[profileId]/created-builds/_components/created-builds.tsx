@@ -3,10 +3,11 @@
 import { useRef } from 'react';
 
 import { BuildFilters } from '@/app/(builds)/_features/filters/_components/build-filters';
+import { type BuildFilterFields } from '@/app/(builds)/_features/filters/_types/build-filter-fields';
 import { CreatedBuildsList } from '@/app/(user)/profile/[profileId]/created-builds/_components/created-builds-list';
 
-const buildFiltersOverrides = {
-  patchAffected: true,
+const buildFiltersOverrides: Partial<BuildFilterFields> = {
+  withPatchAffected: true,
   withQuality: false,
 };
 

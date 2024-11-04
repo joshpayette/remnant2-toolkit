@@ -41,7 +41,10 @@ export function CreatedBuildsList({
   }, [buildFiltersOverrides]);
 
   const searchParams = useSearchParams();
-  const buildFilterFields = parseUrlParams({ searchParams, defaultFilters });
+  const buildFilterFields = parseUrlParams({
+    searchParams,
+    defaultFilters,
+  });
 
   const { buildListState, setBuildListState } = useBuildListState();
   const { builds, isLoading } = buildListState;
