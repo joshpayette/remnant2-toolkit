@@ -86,6 +86,8 @@ export function ArmorSuggestionDialog({
     [],
   );
 
+  const totalItems = armorSuggestions.length;
+
   const itemsOnThisPage = armorSuggestions.length;
 
   const {
@@ -99,7 +101,7 @@ export function ArmorSuggestionDialog({
     handleSpecificPageClick,
   } = usePagination({
     itemsPerPage: ITEMS_PER_PAGE,
-    itemsOnThisPage,
+    totalItems: armorSuggestions.length,
   });
 
   useEffect(() => {
@@ -222,6 +224,7 @@ export function ArmorSuggestionDialog({
               lastVisibleItemNumber={lastVisibleItemNumber}
               isNextPageDisabled={isNextPageDisabled}
               pageNumbers={pageNumbers}
+              totalItems={totalItems}
               onPreviousPage={handlePreviousPageClick}
               onNextPage={handleNextPageClick}
               onSpecificPage={handleSpecificPageClick}
@@ -272,6 +275,7 @@ export function ArmorSuggestionDialog({
               lastVisibleItemNumber={lastVisibleItemNumber}
               isNextPageDisabled={isNextPageDisabled}
               pageNumbers={pageNumbers}
+              totalItems={totalItems}
               onPreviousPage={handlePreviousPageClick}
               onNextPage={handleNextPageClick}
               onSpecificPage={handleSpecificPageClick}

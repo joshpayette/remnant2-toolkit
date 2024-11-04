@@ -42,7 +42,7 @@ export function FeaturedBuildsList({
   const buildFilterFields = parseUrlParams({ searchParams, defaultFilters });
 
   const { buildListState, setBuildListState } = useBuildListState();
-  const { builds, isLoading } = buildListState;
+  const { builds, isLoading, totalItems } = buildListState;
 
   const itemsPerPage = isEditable
     ? DEFAULT_ITEMS_PER_PAGE - 1
@@ -62,7 +62,7 @@ export function FeaturedBuildsList({
     handleSpecificPageClick,
   } = usePagination({
     itemsPerPage,
-    itemsOnThisPage: builds.length,
+    totalItems,
   });
 
   useEffect(() => {
@@ -81,6 +81,7 @@ export function FeaturedBuildsList({
         ...prevState,
         isLoading: false,
         builds: response.builds,
+        totalItems: response.totalCount,
       }));
     };
     getItemsAsync();
@@ -101,6 +102,7 @@ export function FeaturedBuildsList({
             lastVisibleItemNumber={lastVisibleItemNumber}
             isNextPageDisabled={isNextPageDisabled}
             pageNumbers={pageNumbers}
+            totalItems={totalItems}
             onPreviousPage={() => {
               handlePreviousPageClick();
               onFiltersChange();

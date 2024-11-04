@@ -36,7 +36,7 @@ export function mainBuildQuery({
   searchText,
   userId,
   whereConditions,
-}: Props): Prisma.PrismaPromise<DBBuild[]> {
+}: Props): Prisma.PrismaPromise<Array<DBBuild & { totalCount: number }>> {
   if (!userId) {
     percentageOwned = 0;
   }
@@ -44,7 +44,8 @@ export function mainBuildQuery({
   const query = Prisma.sql`
 SELECT * FROM (
   SELECT 
-      Build.*, 
+      Build.*,
+      COUNT(*) OVER() as totalCount,
       User.name as createdByName, 
       User.displayName as createdByDisplayName,
       (SELECT COUNT(*) FROM BuildVoteCounts WHERE BuildVoteCounts.buildId = Build.id) as totalUpvotes,
@@ -132,5 +133,5 @@ LIMIT ${itemsPerPage}
 OFFSET ${(pageNumber - 1) * itemsPerPage}
 `;
 
-  return prisma.$queryRaw<DBBuild[]>(query);
+  return prisma.$queryRaw<Array<DBBuild & { totalCount: number }>>(query);
 }
