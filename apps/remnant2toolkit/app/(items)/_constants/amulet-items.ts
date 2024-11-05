@@ -290,7 +290,7 @@ export const amuletItems: AmuletItem[] = [
     id: '3zi80a',
     dlc: 'base',
     description:
-      'Increases Explosion damage by 25%. Explosions apply 165-465 BURNING damage over 5s.',
+      'Increases Explosion damage by 25%. Explosions apply 165 → 495 BURNING damage over 5s.',
     wikiLinks: [`https://remnant.wiki/Detonation_Trigger`],
     location: {
       world: `N'Erud`,
@@ -947,7 +947,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'dlc2',
     tags: ['Summon', 'Damage Reduction', 'Movement Speed'],
     description:
-      'Increases Summon Damage by 30% and Summon Movement Speed by 15. Reduces total Damage Reduction by 10% per active Summon.',
+      'Increases Summon Damage by 30% and Summon Movement Speed by 15%. Reduces total Damage Reduction by 10% per active Summon.',
     wikiLinks: [`https://remnant.wiki/Profane_Soul_Stone`],
     location: { world: 'Yaesha', dungeon: ['Infested Abyss'] },
   },
