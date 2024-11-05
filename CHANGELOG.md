@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Updated weapon stats based on the latest patch notes.
 - Builds with Star Shot + Power Trip item combination have been marked as Patch Affected.
+- Added Explosive Damage tag to Concussive Shot.
 
 ## 2024-11-04
 
