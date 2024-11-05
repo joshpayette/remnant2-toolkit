@@ -790,7 +790,7 @@ export const mutatorItems: MutatorItem[] = [
     saveFileSlug: 'MetaGem_Steadfast_C',
     id: 'yibeww',
     dlc: 'base',
-    tags: ['Charged Melee', 'Damage Reduction', 'Grey Health'],
+    tags: ['Charged Melee', 'Damage Reduction', 'Grey Health', 'Stagger'],
     description:
       'Charged Melee Attacks cannot be interrupted and gain 5% - 10% Damage Reduction from all sources.',
     maxLevelBonus:
