@@ -33,7 +33,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: '4d6v1v',
     dlc: 'base',
     tags: [],
-    description: `Lifesteal applies 30% of Stolen Health to Allies. `,
+    description: `Lifesteal applies 50% of Stolen Health to Allies. `,
   },
   {
     category: 'relicfragment',
@@ -180,7 +180,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'p66eoa',
     dlc: 'base',
     tags: [],
-    description: 'Grants 25% All Critical Chance within LIGHT Weight Class.',
+    description: 'Grants 35% All Critical Chance within LIGHT Weight Class.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -447,7 +447,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: '1mb66f',
     dlc: 'base',
     tags: [],
-    description: 'Reduces All Incoming Damage by 20%.',
+    description: 'Reduces All Incoming Damage by 30%.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -471,7 +471,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'tfmy98',
     dlc: 'base',
     tags: [],
-    description: 'Increases All Damage by 45%.',
+    description: 'Increases All Damage by 40%.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -495,7 +495,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'b3jspj',
     dlc: 'base',
     tags: [],
-    description: 'Multiplies Weakspot Damage by 1.25x.',
+    description: 'Multiplies Weakspot Damage by 1.35x.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -773,7 +773,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description:
-      'Status Effect Damage has a 25% chance to deal 1.5x more damage per tick.',
+      'Status Effect Damage has a 50% chance to deal 2x more damage per tick.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -785,7 +785,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: '7mw049',
     dlc: 'base',
     tags: [],
-    description: 'Increases Ranged Damage by 75%.',
+    description: 'Increases Ranged Damage by 60%.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
@@ -941,9 +941,9 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: 'nqq5t5',
     dlc: 'base',
     tags: [],
-    description: 'Increases Armor by 100.',
+    description: 'Increases Armor by 150.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
-    armor: 100,
+    armor: 150,
   },
   {
     category: 'relicfragment',

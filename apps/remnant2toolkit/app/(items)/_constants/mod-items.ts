@@ -910,7 +910,8 @@ export const modItems: ModItem[] = [
     imagePath: '/items/mods/kilonova.png',
     id: '4hu8s0',
     dlc: 'dlc3',
-    description: `Charged Melee empowers the Gauntlets for 15s, increasing Standard Melee Damage by 25% and causing Charged Melee Attacks to release 8m penetrating blasts. Each blast reduces the duration.\n\nWhile empowered, performing a Charged Melee Attack during a Neutral Backdash gathers power for up to 5s, then fires a DARKNESS BEAM that deals 125 → 375 Melee Damage every 0.5s. The beam duration equals its time charged, then ends Kilonova after firing.`,
+    description:
+      'Charged Melee empowers the Gauntlets for 15s, increasing Standard Melee Damage by 25% and causing Charged Melee Attacks to release 8m penetrating blasts. Each blast reduces the duration.\n\nWhile empowered, performing a Charged Melee Attack during a Neutral Backdash gathers power for up to 5s, then fires a DARKNESS BEAM that deals 100 → 300 Melee Damage every 0.5s. The beam duration equals its time charged, then ends Kilonova after firing.',
     wikiLinks: [`https://remnant.wiki/Dark_Matter_Gauntlets`],
     linkedItems: {
       weapon: {
