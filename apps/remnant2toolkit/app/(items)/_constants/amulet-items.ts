@@ -584,7 +584,7 @@ export const amuletItems: AmuletItem[] = [
     saveFileSlug: 'Amulet_Hyperconductor_C',
     id: 'c0z3fy',
     dlc: 'base',
-    tags: ['Mod Power', 'Skill Duration'],
+    tags: ['Skill Duration'],
     description:
       'Doubles Base Skill Charges but increases all Skill Cooldowns by 25%.\n\nFor Heavy Weapons, doubles Heavy Weapon Base Ammo instead.',
     wikiLinks: [`https://remnant.wiki/Hyperconductor`],
