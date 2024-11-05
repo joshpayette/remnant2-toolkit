@@ -296,7 +296,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     description:
       'Fires a focused blast of air through all targets within 8m, dealing 155 - 465 damage and 4x impact.',
-    externalTokens: [`AOE/Aura`],
+    externalTokens: [`AOE/Aura`, 'Explosive Damage'],
     wikiLinks: [`https://remnant.wiki/Concussive_Shot`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
