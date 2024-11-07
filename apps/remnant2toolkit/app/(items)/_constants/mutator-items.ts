@@ -60,7 +60,8 @@ export const mutatorItems: MutatorItem[] = [
     id: '8lg493',
     dlc: 'base',
     tags: ['Fire Rate', 'Reload Speed'],
-    description: `Grants 7% Fire Rate. Increases 1% - 2% for every 10% of Magazine missing.`,
+    description:
+      'rants 7% Fire Rate. Increases 1% - 2% for every 10% of Magazine missing.',
     maxLevelBonus: `Reload Speed is increased by 1.5% per 10% Magazine missing.`,
     wikiLinks: [`https://remnant.wiki/Bottom_Heavy`],
     location: { world: 'Any', dungeon: 'Aberration' },
@@ -89,8 +90,10 @@ export const mutatorItems: MutatorItem[] = [
     id: '77hc49',
     dlc: 'dlc3',
     tags: [],
-    description: `Increases this weapon's Fire Rate and Reload Speed by 2.5% → 5% per OVERLOADED entity within 15m. Max 5 stacks.`,
-    maxLevelBonus: `This weapon's Ranged Weakspot and Ranged Critical Hits apply OVERLOADED, dealing 75 → 225 SHOCK damage over 10s.`,
+    description:
+      "Increases this weapon's Fire Rate and Reload Speed by 2.5% - 5% per OVERLOADED entity within 15m. Max 5 stacks.",
+    maxLevelBonus:
+      "This weapon's Ranged Weakspot and Ranged Critical Hits apply OVERLOADED, dealing 75 - 225 SHOCK damage over 10s.",
     wikiLinks: [`https://remnant.wiki/Charged_Wounds`],
     location: { world: `N'Erud`, dungeon: 'Quest' },
   },
@@ -133,7 +136,7 @@ export const mutatorItems: MutatorItem[] = [
     tags: [],
     externalTokens: ['Explosive Damage', 'AOE/Aura'],
     description:
-      "Each 10% of this weapon's magazine spent, cause an explosion for 5->10 Explosive Damage to targets within 0.5m of impact location.",
+      "Each 10% of this weapon's magazine spent, cause an explosion for 5 - 10 Explosive Damage to targets within 0.5m of impact location.",
     maxLevelBonus: `Increases this weapon's explosive damage by 20%.`,
     wikiLinks: [`https://remnant.wiki/Detonator`],
     location: { world: `N'Erud`, dungeon: ['Agronomy Sector'] },
@@ -374,7 +377,7 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'dlc3',
     tags: [],
     description:
-      'Increases Charged Melee Stamina Cost by 65%. Increases Charged Melee Damage by 25% → 50%.',
+      'Increases Charged Melee Stamina Cost by 65%. Increases Charged Melee Damage by 25% - 50%.',
     maxLevelBonus:
       'Charged Melee Hits increase Stamina Recovery Rate by 100% for 3s.',
     wikiLinks: [`https://remnant.wiki/Hyper_Charger`],
@@ -419,7 +422,7 @@ export const mutatorItems: MutatorItem[] = [
     id: 'rzfptj',
     dlc: 'base',
     description:
-      'Switching to this weapon creates an Explosive Burst which deals 50 - 250 Damage to all enemies within 7m.\n\nCan only happen once every 10s.',
+      'Switching to this weapon creates an Explosive Burst which deals 50 - 250 Damage to all enemies within 7m.\n\n\nCan only happen once every 10s.',
     maxLevelBonus:
       "This weapon's kills with any Explosive Damage reduce Kill Switch cooldown by 1s.",
     externalTokens: [`AOE/Aura`, `Explosive Damage`],
@@ -683,9 +686,9 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'base',
     tags: ['Charged Melee', 'Melee Damage'],
     description:
-      'Melee Attacks grant a Shield for 5% - 10% of Max Health. Max 25% - 30%. Lasts 5s.',
+      'Melee Attacks grant a SHIELD for 3% - 6% of Max Health for 5s. Max 30% SHIELD.',
     maxLevelBonus:
-      'Charged Melee Attacks deal 25% additional Melee Damage based on current Shield amount.',
+      'Charged Melee Attacks deal 25% additional Melee Damage based on current SHIELD accumulation.',
     wikiLinks: [`https://remnant.wiki/Shielded_Strike`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
@@ -700,7 +703,7 @@ export const mutatorItems: MutatorItem[] = [
     tags: ['Charged Melee'],
     description: `Empowers weapon after 3 hits. While empowered. the next Charged Melee Hit strikes all enemies within 7m with 50 - 100 SHOCK Damage.`,
     maxLevelBonus:
-      'The SHOCK  Damage now applies OVERLOADED dealing 125 damage every 5s over 25s.',
+      'The SHOCK  Damage now applies OVERLOADED dealing 125 - 375 SHOCK damage every 5s for 5s.',
     externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Shocker`],
     location: { world: 'Any', dungeon: 'Aberration' },
@@ -715,7 +718,7 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'base',
     tags: ['Ranged Damage', 'Reload Speed'],
     description:
-      "Reloading increases this damage of this weapon's next shot by 10% - 25%. Lasts 3s.",
+      "Reloading increases the damage of this weapon's next shot by 10% - 25%. Lasts 3s.",
     maxLevelBonus: `Increases Reload Speed by 15%.`,
     wikiLinks: [`https://remnant.wiki/Slayer`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
