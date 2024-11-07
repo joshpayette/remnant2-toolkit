@@ -514,7 +514,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'dlc2',
     id: 'WjE2nZ',
     description:
-      'Fires concentrated sand. Sustained primary fire and Sandstorm hits apply EXPOSED for 1s. Max 15s.\n\nEXPOSED: Target receives 15% additional damage from all sources.',
+      'Fires concentrated sand. Sustained primary fire and Sandstorm hits apply EXPOSED for 3s. Max 15s.\n\nEXPOSED: Target receives 15% additional damage from all sources.',
     wikiLinks: [`https://remnant.wiki/Monolith`],
     location: { world: 'Yaesha', dungeon: ['Bloodless Throne'] },
     linkedItems: {
@@ -2251,7 +2251,7 @@ export const weaponItems: WeaponItem[] = [
     id: 'p7tsxr',
     dlc: 'base',
     description:
-      'Fires a stream of superhot ACID gas which applies CORRODED effect, dealing 300 - 900 CORROSIVE Damage over 15s. Killing targets CORRODED by Nebula spawns a gas cloud which applies its on-hit effect. Gas clouds lasts 2s and can be refreshed.',
+      'Fires a stream of superhot ACID gas which applies CORRODED effect, dealing 300 - 900 CORROSIVE Damage over 10s. Killing targets CORRODED by Nebula spawns a gas cloud which applies its on-hit effect. Gas clouds lasts 2s and can be refreshed.',
     wikiLinks: [`https://remnant.wiki/Nebula`],
     location: { world: `N'Erud`, dungeon: [`Forgotten Prison`] },
     linkedItems: {

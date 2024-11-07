@@ -68,7 +68,7 @@ export const modItems: ModItem[] = [
     id: 'mqta6g',
     dlc: 'base',
     description:
-      'Fires a short range burst of 7 star fragments which deal 35 - 105 damage each. Fragments bounce off walls up to 3 times, dealing 35% additional damage per bounce. Weakspot hits deal reduced damage.',
+      'Fires a short range burst of 7 star fragments which deal 70 - 210 damage each. Fragments bounce off walls up to 3 times, dealing 10% additional damage per bounce. Weakspot hits deal reduced damage.',
     wikiLinks: [`https://remnant.wiki/Astral_Burst`],
     location: { world: 'Yaesha', dungeon: ['Cathedral of Omens'] },
   },
@@ -352,7 +352,7 @@ export const modItems: ModItem[] = [
     id: '1bfanq',
     dlc: 'base',
     description:
-      'Generates a Cube Shield with absorbs up to 500 → 1500 damage from incoming enemy projectiles. Lasts 15s.\n\nReactivating fires the Cube Shield with damages enemies as it travels. Damage is increased if the Cube Shield has absorbed enemy projectile damage before firing.',
+      'Generates a Cube Shield which absorbs up to 500 → 1500 damage from incoming enemy projectiles. Lasts 15s.\n\nReactivating fires the Cube Shield which damages enemies as it travels. Damage is increased if the Cube Shield has absorbed enemy projectile damage before firing.',
     wikiLinks: [`https://remnant.wiki/Cube_Gun`],
     linkedItems: {
       weapon: {
@@ -587,7 +587,7 @@ export const modItems: ModItem[] = [
     id: 'sccdmt',
     dlc: 'base',
     description:
-      'Summons Fearie Familiar to aid in combat. The Familiar selects a random enemy within 10m and slashes through them for 25 damage each attack. Familiar will select a new target when the previous one dies. Lasts 15s.',
+      'Summons Fearie Familiar to aid in combat. The Familiar selects a random enemy within 10m and slashes through them for 25 damage each attack. Familiar will select a new target when the previous one dies. Lasts 20s.',
     externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Familiar`],
     location: { world: 'Losomn', dungeon: [`Briella's Garden`] },
@@ -723,7 +723,7 @@ export const modItems: ModItem[] = [
     id: 'kep3kb',
     dlc: 'base',
     description:
-      'Fires a highly compressed sphere which creates a large Gravity Well on contact, pulling in enemies for 4s.\n\nWhen the Gravity Well expires, it deals 375 → 1125 damage within 10m. Adds 250 → 750 damage per enemy and divides total damage among all enemies.',
+      'Fires a highly compressed sphere which creates a large Gravity Well on contact, pulling in enemies for 4s.\n\nWhen the Gravity Well expires, it deals 750 → 2250 damage within 10m. Adds 500 → 1500 damage per enemy and divides total damage among all enemies.',
     externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Starkiller`],
     linkedItems: {
@@ -928,7 +928,7 @@ export const modItems: ModItem[] = [
     dlc: 'dlc1',
     id: 'e4n1w4',
     description:
-      'Summons Knight Guard to aid in combat. The Guards hurl penetrating slashes at a random enemy dealing 15 damage. The Guards will melee enemies if close enough for 15 damage. Lasts 20s.',
+      'Summons Knight Guard to aid in combat. The Guards hurl penetrating slashes at a random enemy dealing 65 damage. The Guards will melee enemies if close enough for 65 damage. Lasts 30s.',
     wikiLinks: [`https://remnant.wiki/Knight_Guard`],
     location: { world: 'Losomn', dungeon: ['Walk of Rememberance'] },
   },
@@ -975,7 +975,7 @@ export const modItems: ModItem[] = [
     dlc: 'dlc1',
     id: 'aobtw7',
     description:
-      'Rapidly fires volatile needles that explode after 1.5s dealing 30 → 90 explosive damage. Deals additional damage to targets with lower health. Lasts 10s.',
+      'Rapidly fires volatile needles that explode after 1.5s dealing 30 → 90 explosive damage. Deals additional damage to targets with lower health. Lasts 15s.',
     wikiLinks: [`https://remnant.wiki/Anguish`],
     linkedItems: {
       weapon: {
@@ -1062,7 +1062,7 @@ export const modItems: ModItem[] = [
     id: '8ko9zz',
     dlc: 'base',
     description:
-      'Unleash a swarm of Nanomachines that seek after enemies within 20 meters and repeatedly attack dealing 6 → 18 ACID damage per hit and applying CORRODED dealing 100 → 300 ACID damage over 10s. Lasts 15 seconds.',
+      'Unleash a swarm of Nanomachines that seek after enemies within 20 meters and repeatedly attack dealing 3 → 9 ACID damage per hit and applying CORRODED dealing 50 → 150 ACID damage over 5s. Lasts 10 seconds.',
     wikiLinks: [`https://remnant.wiki/Nebula`],
     linkedItems: {
       weapon: {
@@ -1146,7 +1146,7 @@ export const modItems: ModItem[] = [
     id: 'vtcg3o',
     dlc: 'base',
     description:
-      'Fires a superheated beam which deals 25 Mod Damage per second. Sustaining the beam on a target causes an explosion which deals 150 Mod damage in a 3m AOE',
+      'Fires a superheated beam which deals 125 Mod Damage per second. Sustaining the beam on a target causes an explosion which deals 300 Mod damage in a 3m AOE.',
     externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Prismatic_Driver`],
     location: { world: `N'Erud`, dungeon: [`Spectrum Nexus`] },
@@ -1217,7 +1217,7 @@ export const modItems: ModItem[] = [
     id: 'vgin4w',
     dlc: 'base',
     description:
-      'Fires a rotten arrow that deals 75 - 225 Base Damage with a 125% bonus Weakspot modifier. Detonates for another 100 - 300 damage within 1.5m.',
+      'Fires a rotten arrow that deals 110 - 330 Base Damage with a 150% bonus Weakspot modifier. Detonates for another 100 - 300 damage within 4m.',
     externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Rotted_Arrow`],
     location: { world: 'Yaesha', dungeon: ['The Expanding Glade'] },
@@ -1336,7 +1336,7 @@ export const modItems: ModItem[] = [
     id: 'imk8xh',
     dlc: 'base',
     description:
-      'Applies Soul Brand to all enemies within 25m which lasts 25s. Enemies killed while bearing the Soul Brand leave behind an Echo which lasts 10s before returning to the Nightmare Realm.\n\nEchoes are drawn to any survivor who walks within 3m, granting 20% of Max Health on contact.',
+      'Applies Soul Brand to all enemies within 25m which lasts 25s. Enemies killed while bearing the Soul Brand leave behind an Echo which lasts 15s before returning to the Nightmare Realm.\n\nEchoes are drawn to any survivor who walks within 3m, granting 25% of Max Health on contact.',
     externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Rune_Pistol`],
     linkedItems: {
@@ -1488,7 +1488,7 @@ export const modItems: ModItem[] = [
     dlc: 'base',
     tags: ['Status Effect'],
     description:
-      'Launches a slow-moving orb that pulses every 0.5s, striking enemies within 3m for 20 → 60 SHOCK damage and applying OVERLOADED, dealing 25 → 75 SHOCK damage every 5s for 15s. The orb lasts 20s.\n\nRepeatedly damaging the orb overcharges it, increasing its radius. Overcharged orb deals 50% increased pulse damage.',
+      'Launches a slow-moving orb that pulses every 0.5s, striking enemies within 6 for 20 → 60 SHOCK damage and applying OVERLOADED, dealing 25 → 75 SHOCK damage every 5s for 15s. The orb lasts 20s.\n\nRepeatedly damaging the orb overcharges it, increasing its radius. Overcharged orb deals 50% increased pulse damage.',
     externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Voltaic_Rondure`],
     location: { world: 'Losomn', dungeon: ['The Great Sewers'] },
