@@ -22,7 +22,7 @@ export function QualityBuildCheckDialog({
 }: Props) {
   return (
     <BaseDialog open={open} onClose={() => onClose('edit')} size="md">
-      <BaseDialogTitle>Quality Build</BaseDialogTitle>
+      <BaseDialogTitle>Quality Build Check</BaseDialogTitle>
       <BaseDialogBody>
         <BaseText>
           Your build does not meet the quality build conditions. This means that

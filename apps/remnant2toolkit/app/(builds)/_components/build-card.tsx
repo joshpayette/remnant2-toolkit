@@ -184,7 +184,7 @@ export function BuildCard({
               buildState.buildTags.length > 0 ? (
                 <div className="mt-2 w-full max-w-full">
                   <BuildTagsDisplay
-                    buildTags={buildState.buildTags}
+                    buildState={buildState}
                     isEditable={false}
                     isScreenshotMode={false}
                     showLabel={false}

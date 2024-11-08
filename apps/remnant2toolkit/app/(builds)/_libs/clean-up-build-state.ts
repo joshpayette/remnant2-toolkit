@@ -1,4 +1,5 @@
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/_constants/default-trait-amount';
+import { isBuildBaseGameBuild } from '@/app/(builds)/_libs/is-build-base-game-build';
 import { linkArchetypesToPerks } from '@/app/(builds)/_libs/link-archetypes-to-perks';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { traitItems } from '@/app/(items)/_constants/trait-items';
@@ -19,6 +20,7 @@ import { linkWeaponsToMods } from './link-weapons-to-mods';
  *   - Ensures the minimum required trait points are equipped
  *   - Ensures that the prime archetype trait has 10 points
  *   - If Boss Rush build tag is not equipped, remove all pylons from build
+ *   - If Base Game build tag is equipped, ensure all items are from the base game
  */
 export function cleanUpBuildState(buildState: BuildState): BuildState {
   // Look at each mod and if it is linked to the wrong weapon, remove it
@@ -98,6 +100,14 @@ export function cleanUpBuildState(buildState: BuildState): BuildState {
   );
   if (!isBossRushEquipped) {
     buildState.items.pylon = [];
+  }
+
+  // if Base Game build tag is equipped, ensure all items are from the base game
+  const baseGameBuildCheck = isBuildBaseGameBuild(buildState);
+  if (!baseGameBuildCheck.isBaseGameBuild && buildState.buildTags) {
+    buildState.buildTags = buildState.buildTags?.filter(
+      (tag) => tag.tag !== 'BaseGame',
+    );
   }
 
   // link weapons to mods
