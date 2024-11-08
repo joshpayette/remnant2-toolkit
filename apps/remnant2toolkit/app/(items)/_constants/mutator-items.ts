@@ -56,13 +56,14 @@ export const mutatorItems: MutatorItem[] = [
     name: 'Bottom Heavy',
     type: 'gun',
     imagePath: '/items/mutators/bottom_heavy.png',
-    saveFileSlug: 'MetaGem_Bottomheavy_C',
+    saveFileSlug: 'MetaGem_BottomHeavy_C',
     id: '8lg493',
     dlc: 'base',
     tags: ['Fire Rate', 'Reload Speed'],
     description:
-      'rants 7% Fire Rate. Increases 1% - 2% for every 10% of Magazine missing.',
-    maxLevelBonus: `Reload Speed is increased by 1.5% per 10% Magazine missing.`,
+      'Grants 7% Fire Rate. Increases 1% - 2% for every 10% of Magazine missing.',
+    maxLevelBonus:
+      'Reload Speed is increased by 1.5% for every 10% Magazine missing.',
     wikiLinks: [`https://remnant.wiki/Bottom_Heavy`],
     location: { world: 'Any', dungeon: 'Aberration' },
   },
@@ -245,7 +246,7 @@ export const mutatorItems: MutatorItem[] = [
     name: 'Far-Sighted',
     type: 'gun',
     imagePath: '/items/mutators/far-sighted.png',
-    saveFileSlug: 'MetaGem_Farsighted.MetaGem_Farsighted_C',
+    saveFileSlug: 'MetaGem_FarSighted_C',
     id: 'QJdhx2',
     dlc: 'dlc2',
     tags: ['Ranged Damage'],
@@ -312,7 +313,7 @@ export const mutatorItems: MutatorItem[] = [
     name: 'Gladiator',
     type: 'melee',
     imagePath: '/items/mutators/gladiator.png',
-    saveFileSlug: 'MetaGem_Gladiator.MetaGem_Gladiator_C',
+    saveFileSlug: 'MetaGem_Gladiator_C',
     id: 'N4LpPR',
     dlc: 'dlc2',
     tags: [], // TODO Add tags
@@ -418,7 +419,7 @@ export const mutatorItems: MutatorItem[] = [
     name: 'Kill Switch',
     type: 'gun',
     imagePath: '/items/mutators/kill_switch.png',
-    saveFileSlug: 'MetaGem_Killswitch_C',
+    saveFileSlug: 'MetaGem_KillSwitch_C',
     id: 'rzfptj',
     dlc: 'base',
     description:
@@ -511,7 +512,7 @@ export const mutatorItems: MutatorItem[] = [
     type: 'gun',
     dlc: 'dlc2',
     imagePath: '/items/mutators/near-sighted.png',
-    saveFileSlug: 'MetaGem_nearsighted.MetaGem_nearsighted_C',
+    saveFileSlug: 'MetaGem_NearSighted_C',
     id: '7Y9hfZ',
     tags: ['Ranged Damage', 'Critical Chance'],
     description:
@@ -556,7 +557,7 @@ export const mutatorItems: MutatorItem[] = [
     name: 'Pressure Point',
     type: 'gun',
     imagePath: '/items/mutators/pressure_point.png',
-    saveFileSlug: 'MetaGem_PressurePoint.MetaGem_PressurePoint_C',
+    saveFileSlug: 'MetaGem_PressurePoint_C',
     id: 'EV4ULr',
     dlc: 'dlc2',
     tags: ['Mod Damage', 'Ranged Damage', 'Stagger'],
@@ -650,7 +651,7 @@ export const mutatorItems: MutatorItem[] = [
     name: 'Searing Wounds',
     type: 'gun',
     imagePath: '/items/mutators/searing_wounds.png',
-    saveFileSlug: 'MetaGem_SearingWounds.MetaGem_SearingWounds_C',
+    saveFileSlug: 'MetaGem_SearingWounds_C',
     dlc: 'dlc2',
     id: '9htako',
     tags: ['Ranged Damage', 'Critical Hit', 'Status Effect'],
@@ -744,7 +745,7 @@ export const mutatorItems: MutatorItem[] = [
     name: 'Spellweaver',
     type: 'gun',
     imagePath: '/items/mutators/spellweaver.png',
-    saveFileSlug: 'MetaGem_Spellweaver.MetaGem_Spellweaver_C',
+    saveFileSlug: 'MetaGem_Spellweaver_C',
     dlc: 'base',
     id: '5Brz87',
     tags: ['Mod Damage', 'Mod Power', 'Reduce Skill Cooldown'],
@@ -765,8 +766,9 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'base',
     tags: [], // TODO Check tags
     description:
-      'Reloading this weapon increases the damage of the Attached Mod by 10% - 25%. Lasts 5s.',
-    maxLevelBonus: `Casting Attached Mod increases Reload Speed by 30%. Lasts 7s.`,
+      'Reloading this weapon increases the damage of the Attached Mod by 10% - 30%. Lasts 7s.',
+    maxLevelBonus:
+      'Casting Attached Mod increases Reload Speed by 25%. Lasts 7s.',
     wikiLinks: [`https://remnant.wiki/Spirit_Feeder`],
     location: { world: 'Any', dungeon: 'Aberration' },
   },
@@ -856,7 +858,7 @@ export const mutatorItems: MutatorItem[] = [
     name: 'Superheated',
     type: 'gun',
     imagePath: '/items/mutators/superheated.png',
-    saveFileSlug: 'MetaGem_Superheated_C', // TODO Check this
+    saveFileSlug: 'MetaGem_SuperHeated_C',
     id: '97fccn',
     dlc: 'dlc3',
     tags: ['Heat Generation', 'Status Effect'],
@@ -889,7 +891,7 @@ export const mutatorItems: MutatorItem[] = [
     name: 'Thousand Cuts',
     type: 'gun',
     imagePath: '/items/mutators/thousand_cuts.png',
-    saveFileSlug: 'MetaGem_ThousandCuts.MetaGem_ThousandCuts_C',
+    saveFileSlug: 'MetaGem_ThousandCuts_C',
     id: 'r8jxFF',
     dlc: 'dlc2',
     tags: ['Critical Chance', 'Critical Damage', 'Reload Speed'],
@@ -928,7 +930,7 @@ export const mutatorItems: MutatorItem[] = [
     name: 'Top Heavy',
     type: 'gun',
     imagePath: '/items/mutators/top_heavy.png',
-    saveFileSlug: 'MetaGem_Topheavy_C',
+    saveFileSlug: 'MetaGem_TopHeavy_C',
     id: 'fknx4t',
     dlc: 'base',
     tags: ['Ranged Damage', 'Weakspot Damage'],
@@ -984,7 +986,7 @@ export const mutatorItems: MutatorItem[] = [
     description:
       'Increases Ranged damage of this weapon by 1% - 10% to BLEEDING targets.',
     maxLevelBonus:
-      "This weapon's Ranged Weakspot and Ranged Critical Hits apply BLEEDING, dealing 150 BLEED damage over 20s.",
+      "This weapon's Ranged Weakspot and Ranged Critical Hits apply BLEEDING, dealing 150 - 450 BLEED damage over 20s.",
     wikiLinks: [`https://remnant.wiki/Twisting_Wounds`],
     location: {
       world: 'Losomn',
@@ -1018,7 +1020,8 @@ export const mutatorItems: MutatorItem[] = [
     dlc: 'dlc3',
     tags: ['Melee Damage', 'Movement Speed'],
     externalTokens: ['AOE/Aura', 'Explosive Damage'],
-    description: `Dealing Melee Damage creates a 3m blast which deals 50 → 150 Explosive Damage. Can only happen once every 1s.`,
+    description:
+      'Dealing Melee Damage creates a 3m blast which deals 50 - 150 Explosive Damage. Can only happen once every 1s.',
     maxLevelBonus: `When Volatile Strike triggers a blast, increases Movement Speed by 20% for 5s.`,
     wikiLinks: [`https://remnant.wiki/Volatile_Strike`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
