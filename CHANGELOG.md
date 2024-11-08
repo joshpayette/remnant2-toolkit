@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 
 - You can now set separate build tags for each individual build variant. Not sure why it wasn't already like this.
+- When trying to apply the Base Game build tag on a build, a check now occurs if the build contains any DLC items. If it does, the tag will not be applied. Instead, a dialog will display with what items need to be changed.
 
 ### Fixed
 

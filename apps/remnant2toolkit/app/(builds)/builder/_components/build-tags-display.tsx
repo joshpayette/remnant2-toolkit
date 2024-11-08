@@ -1,14 +1,20 @@
+'use client';
+
 import { type BuildTags } from '@repo/db';
 import { BaseButton, BaseFieldset, BaseLabel, cn } from '@repo/ui';
+import { useState } from 'react';
 
 import { ALL_BUILD_TAGS } from '@/app/(builds)/_constants/all-build-tags';
 import { MAX_BUILD_TAGS } from '@/app/(builds)/_constants/max-build-tags';
+import { isBuildBaseGameBuild } from '@/app/(builds)/_libs/is-build-base-game-build';
+import type { BuildState } from '@/app/(builds)/_types/build-state';
 import { type BuildTag } from '@/app/(builds)/_types/build-tag';
+import { BaseGameBuildCheckDialog } from '@/app/(builds)/builder/_components/base-game-build-check-dialog';
 
 import { BuildTagItem } from './build-tag-item';
 
 interface Props {
-  buildTags: BuildTags[] | null;
+  buildState: BuildState;
   isEditable: boolean;
   isScreenshotMode: boolean;
   showLabel?: boolean;
@@ -16,13 +22,17 @@ interface Props {
 }
 
 export function BuildTagsDisplay({
-  buildTags,
+  buildState,
   isEditable,
   isScreenshotMode,
   showLabel = true,
   onChange,
 }: Props) {
-  if (!buildTags) return null;
+  const [isBaseGameDialogOpen, setIsBaseGameDialogOpen] = useState(false);
+
+  const buildTags = buildState.buildTags || [];
+
+  const baseGameBuildCheckResults = isBuildBaseGameBuild(buildState);
 
   function handleTagClick({
     tag,
@@ -37,6 +47,14 @@ export function BuildTagsDisplay({
     if (isActive) {
       onChange(buildTags.filter((t) => t.tag !== tag.value));
     } else {
+      if (
+        tag.value === 'BaseGame' &&
+        !baseGameBuildCheckResults.isBaseGameBuild
+      ) {
+        setIsBaseGameDialogOpen(true);
+        return;
+      }
+
       onChange([
         ...buildTags,
         {
@@ -59,6 +77,11 @@ export function BuildTagsDisplay({
           {!isScreenshotMode && isEditable && `(Limit ${MAX_BUILD_TAGS})`}
         </BaseLabel>
       )}
+      <BaseGameBuildCheckDialog
+        buildState={buildState}
+        open={isBaseGameDialogOpen}
+        onClose={() => setIsBaseGameDialogOpen(false)}
+      />
       <div
         className={cn(
           'mb-2 flex w-full flex-wrap items-center justify-center gap-2',

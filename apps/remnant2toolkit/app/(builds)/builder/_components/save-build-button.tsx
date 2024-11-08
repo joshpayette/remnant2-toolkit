@@ -9,10 +9,11 @@ import { toast } from 'react-toastify';
 import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { createBuild } from '@/app/(builds)/_actions/create-build';
 import { updateBuild } from '@/app/(builds)/_actions/update-build';
-import { QualityBuildCheckDialog } from '@/app/(builds)/_components/quality-build-check-dialog';
+import { isBuildBaseGameBuild } from '@/app/(builds)/_libs/is-build-base-game-build';
 import { isBuildQualityBuild } from '@/app/(builds)/_libs/is-build-quality-build';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { LoadingButton } from '@/app/(builds)/builder/_components/loading-button';
+import { QualityBuildCheckDialog } from '@/app/(builds)/builder/_components/quality-build-check-dialog';
 
 interface Props {
   buildVariants: BuildState[];
@@ -37,6 +38,14 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
         if (anyVariantIsPrivate) {
           variant.isPublic = false;
         }
+
+        const baseGameBuildCheckResult = isBuildBaseGameBuild(variant);
+        if (!baseGameBuildCheckResult.isBaseGameBuild && variant.buildTags) {
+          variant.buildTags = variant.buildTags.filter(
+            (tag) => tag.tag !== 'BaseGame',
+          );
+        }
+
         return JSON.stringify(variant);
       }),
     });
@@ -83,6 +92,14 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
         if (isAnyVariantPrivate) {
           variant.isPublic = false;
         }
+
+        const baseGameBuildCheckResult = isBuildBaseGameBuild(variant);
+        if (!baseGameBuildCheckResult.isBaseGameBuild && variant.buildTags) {
+          variant.buildTags = variant.buildTags.filter(
+            (tag) => tag.tag !== 'BaseGame',
+          );
+        }
+
         return JSON.stringify(variant);
       }),
     });

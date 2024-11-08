@@ -645,7 +645,7 @@ export function Builder({
           )}
           <div className="mt-2 flex w-full flex-col items-center justify-center">
             <BuildTagsDisplay
-              buildTags={buildState.buildTags ?? []}
+              buildState={buildState}
               isEditable={isEditable}
               isScreenshotMode={isScreenshotMode}
               onChange={handleChangeBuildTags}
