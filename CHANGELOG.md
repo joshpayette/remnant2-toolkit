@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-11-08
 
+### Changed
+
+- Added separate metadata for each build variant. This should mean when you use the specific variant links in Discord or other social media platforms, it will use the build variant description and title rather than the information from the main build.
+
 ### Fixed
 
 - Updated Mutator item descriptions to match Remnant.wiki updates.
