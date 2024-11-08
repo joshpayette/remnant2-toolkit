@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-11-07
 
+### Changed
+
+- You can now set separate build tags for each individual build variant. Not sure why it wasn't already like this.
+
 ### Fixed
 
 - Updated a number of item descriptions to match the Remnant.wiki data.

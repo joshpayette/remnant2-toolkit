@@ -17,7 +17,6 @@ export function syncBuildVariantsToBuild({
     buildVariant.viewCount = build.viewCount;
     buildVariant.validatedViewCount = build.validatedViewCount;
     buildVariant.upvoted = build.upvoted;
-    buildVariant.buildTags = build.buildTags;
     buildVariant.isFeaturedBuild = build.isFeaturedBuild;
     buildVariant.isGimmickBuild = build.isGimmickBuild;
     buildVariant.isBaseGameBuild = build.isBaseGameBuild;
