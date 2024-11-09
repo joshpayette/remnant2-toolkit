@@ -98,6 +98,12 @@ const PERMITTED_BUILDERS = [
     bypassModeration: false,
     name: 'HolyMacGyver',
   },
+  {
+    userId: 'cm1mw8c5k000010q5fkz0ku5g',
+    avatar: '/avatars/custom/phemeto.png',
+    bypassModeration: false,
+    name: 'Phemeto',
+  },
 ] as const satisfies {
   userId: string;
   avatar: string | undefined;
