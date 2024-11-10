@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Infinity Pocket was marked as `dlc3` rather than `base`.
 - Hidden Power was marked as `dlc3` rather than `base`.
 - Volatile Strike was marked as `dlc3` rather than `base`.
+- Sweet Leaf was marked as `dlc2` rather than `base`.
 - Fixed bug in Quality Build check that was preventing builds with rusty weapons or shovel from being seen as "quality" due to the missing mod slot.
 
 ## 2024-11-09
