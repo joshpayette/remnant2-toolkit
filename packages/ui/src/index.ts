@@ -83,6 +83,7 @@ export { OptionalOffIcon } from './common/icons/optional-off';
 export { OptionalOnIcon } from './common/icons/optional-on';
 export { OwnershipIcon } from './common/icons/ownership';
 export { PaperClipIcon } from './common/icons/paper-clip';
+export { PrismIcon } from './common/icons/prism';
 export { ProfileIcon } from './common/icons/profile';
 export { QuizIcon } from './common/icons/quiz';
 export { RandomIcon } from './common/icons/random';
