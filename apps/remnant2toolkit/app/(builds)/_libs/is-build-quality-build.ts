@@ -1,3 +1,4 @@
+import { MAX_ALLOWED_MODS } from '@/app/(builds)/_constants/max-allowed-mods';
 import {
   MAX_TRAIT_AMOUNT,
   MAX_TRAIT_AMOUNT_WITH_TRAITOR,
@@ -97,8 +98,16 @@ export function isBuildQualityBuild(
     });
   }
 
+  // Rusty items do not have mods, so reduce the total for every weapon that
+  // has isRusty set to true
+  const rustyWeaponCount = buildState.items.weapon.filter(
+    (weapon) => weapon !== null && weapon!.isRusty,
+  ).length;
+  const requiredModCount = MAX_ALLOWED_MODS - rustyWeaponCount;
+
   const modsEquipped =
-    buildState.items.mod.filter((mod) => mod !== null).length === 3;
+    buildState.items.mod.filter((mod) => mod !== null).length ===
+    requiredModCount;
   if (!modsEquipped) {
     results.push({
       message: 'Build needs all mods equipped.',

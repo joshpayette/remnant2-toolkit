@@ -10,7 +10,6 @@ function itemClasses({
   tag: BuildTag;
   isActive: boolean;
   isEditable: boolean;
-  isScreenshotMode: boolean;
 }) {
   return cn(
     'inline-flex items-center rounded-md bg-gray-400/10 px-2 py-1 text-xs font-medium text-gray-400',
@@ -33,13 +32,16 @@ export function BuildTagItem({
   isScreenshotMode,
   tag,
 }: Props) {
+  if (!isActive && isScreenshotMode) {
+    return null;
+  }
+
   return (
     <div
       className={itemClasses({
         tag,
         isActive,
         isEditable,
-        isScreenshotMode,
       })}
     >
       {tag.label}
