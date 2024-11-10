@@ -360,7 +360,7 @@ export const mutatorItems: MutatorItem[] = [
     imagePath: '/items/mutators/hiddenpower.png',
     saveFileSlug: 'MetaGem_HiddenPower_C', // TODO Check
     id: '9154v1',
-    dlc: 'dlc3',
+    dlc: 'base',
     tags: ['Ranged Damage', 'Reload Speed'],
     description:
       "Increases the attached weapon's Ranged Damage by 15% → 25% after being stowed for 2s. Lasts 7s upon being brandished.",
@@ -1017,7 +1017,7 @@ export const mutatorItems: MutatorItem[] = [
     imagePath: '/items/mutators/volatilestrike.png',
     saveFileSlug: 'MetaGem_VolatileStrike_C', // TODO Check
     id: 'qej6k5',
-    dlc: 'dlc3',
+    dlc: 'base',
     tags: ['Melee Damage', 'Movement Speed'],
     externalTokens: ['AOE/Aura', 'Explosive Damage'],
     description:

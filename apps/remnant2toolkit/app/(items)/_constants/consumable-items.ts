@@ -415,7 +415,7 @@ export const consumableItems: ConsumableItem[] = [
     imagePath: '/items/consumables/sweetleaf.png',
     saveFileSlug: 'Consumable_SweetLeaf_C',
     id: 'rlpblz',
-    dlc: 'dlc2',
+    dlc: 'base',
     tags: ['Damage Reduction'],
     description: `Grants 1 stack of BULWARK. Lasts 30s.`,
     wikiLinks: [`https://remnant.wiki/Sweet_Leaf`],

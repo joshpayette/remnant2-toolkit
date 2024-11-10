@@ -1532,7 +1532,7 @@ export const ringItems: RingItem[] = [
     description: `Reloading an Empty Magazine refills 10% of the stowed weapon's Max Ammo. When stowed weapon is full, the refill amount applies to the primary weapon instead.`,
     wikiLinks: [`https://remnant.wiki/Infinity_Pocket`],
     location: { world: `N'Erud`, dungeon: 'World Drop' },
-    dlc: 'dlc3',
+    dlc: 'base',
   },
   {
     category: 'ring',
@@ -2137,7 +2137,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/items/rings/ringofphantompain.png',
     saveFileSlug: 'Ring_PhantomPain_C',
     id: 'r6xmgj',
-    dlc: 'dlc3',
+    dlc: 'base',
     tags: ['Grey Health'],
     description: `Missing Health is converted to 10 Grey Health per second. Reduces Grey Health Regeneration by 90%.`,
     wikiLinks: [`https://remnant.wiki/Ring_Of_Phantom_Pain`],
