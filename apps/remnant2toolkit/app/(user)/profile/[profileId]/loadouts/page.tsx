@@ -2,7 +2,8 @@ import { DEFAULT_BIO } from '@repo/constants';
 import { prisma } from '@repo/db';
 import { type Metadata } from 'next';
 
-import { OG_IMAGE_URL } from '@/app/_constants/meta';
+import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
+import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { getIsLoadoutPublic } from '@/app/(builds)/_actions/get-is-loadout-public';
 import { getLoadoutList } from '@/app/(builds)/_actions/get-loadout-list';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
@@ -96,7 +97,9 @@ export async function generateMetadata({
       `${build.name} by ${build.createdByDisplayName ?? build.createdByName}`,
   );
 
-  const title = `${user.displayName ?? user.name} Loadouts - Remnant2Toolkit`;
+  const title = `${user.displayName ?? user.name} ${
+    NAV_ITEMS.loadouts.label
+  } - ${SITE_TITLE}`;
 
   let description = '';
   for (let i = 0; i < loadoutNames.length; i++) {
@@ -110,7 +113,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      url: `https://remnant2toolkit.com/profile/${profileId}/loadout`,
+      url: `https://remnant2toolkit.com/profile/${profileId}/loadouts`,
       images: [
         {
           url: OG_IMAGE_URL,
@@ -147,7 +150,7 @@ export default async function Page({
       <div className="mb-4 flex w-full flex-col items-center justify-center">
         <div className="border-b-primary-500 flex w-full flex-row items-center justify-center border-b py-2">
           <h2 className="flex w-full items-center justify-start text-2xl">
-            Loadouts
+            {NAV_ITEMS.loadouts.label}
           </h2>
           {isEditable ? (
             <LoadoutPublicCheckbox isLoadoutPublic={isLoadoutPublic} />

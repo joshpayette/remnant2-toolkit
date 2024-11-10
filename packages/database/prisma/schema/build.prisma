@@ -34,12 +34,10 @@ model Build {
   UserBuildSubscriptions UserBuildSubscription[]
   PrimaryBuildVariant    BuildVariant[]          @relation(name: "primaryBuildId")
   SecondaryBuildVariant  BuildVariant[]          @relation(name: "secondaryBuildId")
-  BuildCollection        BuildCollection?        @relation(fields: [buildCollectionId], references: [id])
-  buildCollectionId      String?
+  BuildCollections       BuildCollection[]
 
   @@index([createdById])
   @@index([userProfileId])
-  @@index([buildCollectionId])
 }
 
 // TODO Make this non-plural
