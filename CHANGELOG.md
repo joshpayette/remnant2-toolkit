@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-11-10
+
+### Fixed
+
+- Ring of Phantom Pain was marked as `dlc3` rather than `base`.
+- Infinity Pocket was marked as `dlc3` rather than `base`.
+
 ## 2024-11-09
 
 ### Added
