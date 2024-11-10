@@ -1,3 +1,5 @@
+import { PrismIcon } from '@repo/ui';
+
 import { LandingPageCard } from '@/app/_components/landing-page-card';
 import { LandingPageContainer } from '@/app/_components/landing-page-container';
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
@@ -39,6 +41,19 @@ export default async function Page() {
           {...NAV_ITEMS.hardcoreVeteran}
           icon={
             <NAV_ITEMS.hardcoreVeteran.icon
+              className="text-primary-500 h-7 w-7 flex-none"
+              aria-hidden="true"
+            />
+          }
+        />
+
+        <LandingPageCard
+          label="Building the Perfect Prism"
+          description="A guide by BoltJamison to building the perfect prism for your character."
+          href="https://www.youtube.com/watch?v=xN02GVzkUXA"
+          target="_blank"
+          icon={
+            <PrismIcon
               className="text-primary-500 h-7 w-7 flex-none"
               aria-hidden="true"
             />
