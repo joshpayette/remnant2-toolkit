@@ -34,9 +34,12 @@ model Build {
   UserBuildSubscriptions UserBuildSubscription[]
   PrimaryBuildVariant    BuildVariant[]          @relation(name: "primaryBuildId")
   SecondaryBuildVariant  BuildVariant[]          @relation(name: "secondaryBuildId")
+  BuildCollection        BuildCollection?        @relation(fields: [buildCollectionId], references: [id])
+  buildCollectionId      String?
 
   @@index([createdById])
   @@index([userProfileId])
+  @@index([buildCollectionId])
 }
 
 // TODO Make this non-plural
@@ -128,4 +131,18 @@ model BuildTags {
   tag       BUILD_TAG
 
   @@index([buildId])
+}
+
+model BuildCollection {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  createdBy   User     @relation(fields: [createdById], references: [id])
+  createdById String
+  name        String
+  description String?
+  builds      Build[]
+
+  @@index([name])
+  @@index([createdById])
 }
