@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 import { useLocalStorage } from 'usehooks-ts';
 
 import { ToCsvButton } from '@/app/_components/to-csv-button';
+import { isErrorResponse } from '@/app/_libs/is-error-response';
 import {
   type ItemOwnershipPreference,
   LOCALSTORAGE_KEY,
@@ -20,6 +21,8 @@ import { buildStateToCsvData } from '@/app/(builds)/_libs/build-state-to-csv-dat
 import { handleFavoriteBuild } from '@/app/(builds)/_libs/handlers/handle-favorite-build';
 import { setLocalBuildItemOwnership } from '@/app/(builds)/_libs/set-local-build-item-ownership';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
+import { AddToCollectionButton } from '@/app/(builds)/builder/_components/add-to-collection-button';
+import { AddToCollectionDialog } from '@/app/(builds)/builder/_components/add-to-collection-dialog';
 import { BuilderContainer } from '@/app/(builds)/builder/_components/builder-container';
 import { DeleteBuildButton } from '@/app/(builds)/builder/_components/delete-build-button';
 import { DetailedBuildDialog } from '@/app/(builds)/builder/_components/detailed-build-dialog';
@@ -35,6 +38,8 @@ import { LoadoutManagementButton } from '@/app/(builds)/builder/_components/load
 import { ModeratorToolsButton } from '@/app/(builds)/builder/_components/moderator-tools-button';
 import { ShareBuildButton } from '@/app/(builds)/builder/_components/share-build-button';
 import { useDiscoveredItems } from '@/app/(items)/_hooks/use-discovered-items';
+import { editBuildCollection } from '@/app/(user)/profile/[profileId]/collections/_actions/edit-build-collection';
+import type { BuildCollectionWithBuilds } from '@/app/(user)/profile/[profileId]/collections/_types/build-collection-with-builds';
 
 interface Props {
   activeBuildState: BuildState;
@@ -74,6 +79,8 @@ export function ViewBuild({
   const [loadoutDialogOpen, setLoadoutDialogOpen] = useState(false);
   const [signInRequiredDialogOpen, setSignInRequiredDialogOpen] =
     useState(false);
+  const [addToCollectionDialogOpen, setAddToCollectionDialogOpen] =
+    useState(false);
 
   const {
     isScreenshotMode,
@@ -107,9 +114,42 @@ export function ViewBuild({
     });
   }
 
+  async function handleAddToCollection(collection: BuildCollectionWithBuilds) {
+    setAddToCollectionDialogOpen(false);
+
+    const buildAlreadyInCollection = collection.builds.some(
+      (build) => build.id === activeBuildState.buildId,
+    );
+    if (buildAlreadyInCollection) {
+      toast.error('Build is already in this collection.');
+      return;
+    }
+    if (!activeBuildState.buildId) {
+      toast.error(
+        'You must first save this build to the database before it can be added to a collection.',
+      );
+      return;
+    }
+
+    const response = await editBuildCollection({
+      collectionId: collection.id,
+      collectionName: collection.name,
+      collectionDescription: collection.description ?? '',
+      buildIds: [
+        ...collection.builds.map((build) => build.id),
+        activeBuildState.buildId,
+      ],
+    });
+
+    if (isErrorResponse(response)) {
+      toast.error(response.errors?.join(' '));
+      return;
+    }
+    toast.success(`Collection ${collection.name} created successfully!`);
+  }
+
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
   const csvBuildData = buildStateToCsvData(activeBuildState);
-
   const isMainBuild = activeBuildState.buildId === mainBuildState.buildId;
 
   // #region RENDER
@@ -145,6 +185,11 @@ export function ViewBuild({
             <FavoriteBuildDialog
               open={signInRequiredDialogOpen}
               onClose={() => setSignInRequiredDialogOpen(false)}
+            />
+            <AddToCollectionDialog
+              open={addToCollectionDialogOpen}
+              onClose={() => setAddToCollectionDialogOpen(false)}
+              onConfirm={handleAddToCollection}
             />
 
             {session && session.user?.role === 'admin' && (
@@ -196,6 +241,12 @@ export function ViewBuild({
                 toast.success('Copied Build URL to clipboard.');
               }}
             />
+
+            {session?.user?.id && (
+              <AddToCollectionButton
+                onClick={() => setAddToCollectionDialogOpen(true)}
+              />
+            )}
 
             {session?.user?.id && (
               <LoadoutManagementButton

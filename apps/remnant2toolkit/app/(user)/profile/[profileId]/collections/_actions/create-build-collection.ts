@@ -1,9 +1,10 @@
 'use server';
 
-import { type BuildCollection, prisma } from '@repo/db';
+import { prisma } from '@repo/db';
 
 import { type ErrorResponse } from '@/app/_types/error-response';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
+import type { BuildCollectionWithBuilds } from '@/app/(user)/profile/[profileId]/collections/_types/build-collection-with-builds';
 
 export async function createBuildCollection({
   collectionName,
@@ -14,7 +15,8 @@ export async function createBuildCollection({
   collectionDescription: string;
   buildIds: string[];
 }): Promise<
-  ErrorResponse | { message: string; collection: BuildCollection | undefined }
+  | ErrorResponse
+  | { message: string; collection: BuildCollectionWithBuilds | undefined }
 > {
   const session = await getSession();
   if (!session || !session.user || !session.user.id) {
@@ -33,7 +35,13 @@ export async function createBuildCollection({
       },
     });
 
-    return { message: 'Build collection created successfully.', collection };
+    return {
+      message: 'Build collection created successfully.',
+      collection: {
+        ...collection,
+        builds: buildIds.map((id) => ({ id })),
+      },
+    };
   } catch (e) {
     console.error(e);
     return {

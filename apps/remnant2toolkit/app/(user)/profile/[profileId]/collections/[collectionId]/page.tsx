@@ -1,0 +1,142 @@
+import { DEFAULT_BIO } from '@repo/constants';
+import { prisma } from '@repo/db';
+import { type Metadata } from 'next';
+
+import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
+import { NAV_ITEMS } from '@/app/_constants/nav-items';
+import { getSession } from '@/app/(user)/_auth/services/sessionService';
+import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
+
+export async function generateMetadata({
+  params: { profileId, collectionId },
+}: {
+  params: { profileId: string; collectionId: string };
+}): Promise<Metadata> {
+  const user = await prisma.user.findUnique({
+    where: {
+      id: profileId,
+    },
+  });
+
+  if (!user) {
+    return {
+      title: 'Error loading user collection',
+      description: `There was an error loading this user's collection. The user may no longer exist.`,
+      openGraph: {
+        title: 'Error loading user collection',
+        description: `There was an error loading this user's collection. The user may no longer exist.`,
+        url: `https://remnant2toolkit.com/profile/${profileId}/collection`,
+        images: [
+          {
+            url: OG_IMAGE_URL,
+            width: 150,
+            height: 150,
+          },
+        ],
+      },
+      twitter: {
+        title: 'Error loading user collection',
+        description: `There was an error loading this user's collection. The user may no longer exist.`,
+      },
+    };
+  }
+
+  let profileData = await prisma.userProfile.findFirst({
+    where: {
+      userId: profileId,
+    },
+  });
+
+  if (!profileData) {
+    profileData = await prisma.userProfile.upsert({
+      where: {
+        userId: profileId,
+      },
+      create: {
+        userId: profileId,
+        bio: DEFAULT_BIO,
+      },
+      update: {},
+    });
+  }
+
+  const avatarId = profileData?.avatarId;
+  const avatar = getAvatarById(avatarId, profileId);
+
+  const collectionResponse = await prisma.buildCollection.findUnique({
+    where: {
+      id: collectionId,
+    },
+  });
+
+  if (!collectionResponse) {
+    return {
+      title: 'Error loading user collection',
+      description: `There was an error loading this user's collection. The user may no longer exist.`,
+      openGraph: {
+        title: 'Error loading user collection',
+        description: `There was an error loading this user's collection. The user may no longer exist.`,
+        url: `https://remnant2toolkit.com/profile/${profileId}/collection`,
+        images: [
+          {
+            url: OG_IMAGE_URL,
+            width: 150,
+            height: 150,
+          },
+        ],
+      },
+      twitter: {
+        title: 'Error loading user collection',
+        description: `There was an error loading this user's collection. The user may no longer exist.`,
+      },
+    };
+  }
+
+  const title = `${collectionResponse.name} - ${SITE_TITLE}`;
+
+  const description =
+    collectionResponse.description ||
+    'A collection of builds on Remnant 2 Toolkit';
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `https://remnant2toolkit.com/profile/${profileId}/collection/${collectionId}`,
+      images: [
+        {
+          url: `https://d2sqltdcj8czo5.cloudfront.net${avatar.imagePath}`,
+          width: 150,
+          height: 150,
+        },
+      ],
+    },
+    twitter: {
+      title,
+      description,
+    },
+  };
+}
+
+export default async function Page({
+  params: { profileId },
+}: {
+  params: { profileId: string };
+}) {
+  const session = await getSession();
+  const isEditable = session?.user?.id === profileId;
+
+  return (
+    <>
+      <div className="mb-4 flex w-full flex-col items-center justify-center">
+        <div className="border-b-primary-500 flex w-full flex-row items-center justify-center border-b py-2">
+          <h2 className="flex w-full items-center justify-start text-2xl">
+            {NAV_ITEMS.collections.label}
+          </h2>
+        </div>
+      </div>
+    </>
+  );
+}
