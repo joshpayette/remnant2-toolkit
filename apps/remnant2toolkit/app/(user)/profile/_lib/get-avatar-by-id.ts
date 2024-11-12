@@ -15,6 +15,7 @@ export function getAvatarById(
           id: permittedBuilder.userId,
           name: permittedBuilder.name,
           imagePath: permittedBuilder.avatar,
+          bgColor: permittedBuilder.avatarBgColor,
         };
       }
     }
