@@ -10,6 +10,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Avatars on user profiles can now have a background color. This will help with some of the custom avatars that have transparent backgrounds, as they become less visible on light themes.
 
+### Fixed
+
+- Added new Melee tag to account for items using the term `unarmed`.
+- Added Critical Damage tag to Overdrive.
+- Added Melee Critical Damage tag to Overdrive.
+- Added Melee tag to Meteorite Shard Ring.
+- Added Melee Damage tag to Meteorite Shard Ring.
+
 ## 2024-11-11
 
 ### Changed
