@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-11-11
+
+### Changed
+
+- When adding a build to your loadouts, it will now add the specific variant you are viewing, rather than the main build. This should make it easier to remember which variant you are using.
+
 ## 2024-11-10
 
 ### Fixed

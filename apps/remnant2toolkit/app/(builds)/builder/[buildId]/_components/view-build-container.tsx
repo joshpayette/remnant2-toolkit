@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { TabbedBuildsDisplay } from '@/app/(builds)/_components/tabbed-builds-display';
@@ -15,6 +15,7 @@ interface Props {
 
 export function ViewBuildContainer({ buildVariants }: Props) {
   const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
   const variantIndex = searchParams.get('variant');
 
@@ -30,7 +31,8 @@ export function ViewBuildContainer({ buildVariants }: Props) {
     } else {
       setActiveBuildVariant(buildVariants[0]);
     }
-  }, [buildVariants, variantIndex]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
 
   if (!buildVariants[0]) {
     return null;
@@ -63,7 +65,19 @@ export function ViewBuildContainer({ buildVariants }: Props) {
         <TabbedBuildsDisplay
           activeBuild={activeBuildVariant}
           buildVariants={buildVariants}
-          onChangeActiveBuild={setActiveBuildVariant}
+          onChangeActiveBuild={(newVariant) => {
+            const activeVariantIndex = buildVariants.findIndex(
+              (variant) => variant.buildId === newVariant.buildId,
+            );
+
+            const newParams = new URLSearchParams();
+            if (newParams.get('variant') !== activeVariantIndex.toString()) {
+              newParams.set('variant', activeVariantIndex.toString());
+            }
+            router.push(`${pathname}?${newParams.toString()}`, {
+              scroll: false,
+            });
+          }}
           title="Build Variants"
         />
       )}

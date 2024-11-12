@@ -33,10 +33,12 @@ export function LoadoutCard({
           <div className="flex w-full items-center justify-center gap-6 p-2 text-sm">
             <ChangeLoadoutSlotButton
               buildId={build.id}
+              variantIndex={build.variantIndex}
               callback={onSlotChange}
             />
             <RemoveFromLoadoutButton
               buildId={build.id}
+              variantIndex={build.variantIndex}
               slot={build.slot}
               callback={onRemove}
             />
