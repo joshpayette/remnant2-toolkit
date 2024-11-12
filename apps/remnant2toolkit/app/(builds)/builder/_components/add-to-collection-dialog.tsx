@@ -23,12 +23,21 @@ import { getBuildCollections } from '@/app/(user)/profile/[profileId]/collection
 import type { BuildCollectionWithBuilds } from '@/app/(user)/profile/[profileId]/collections/_types/build-collection-with-builds';
 
 interface Props {
+  buildId: string | null;
   open: boolean;
   onClose: () => void;
-  onConfirm: (collection: BuildCollectionWithBuilds) => void;
+  onConfirm: (
+    collection: BuildCollectionWithBuilds,
+    bypassBuildExistsCheck?: boolean,
+  ) => void;
 }
 
-export function AddToCollectionDialog({ open, onClose, onConfirm }: Props) {
+export function AddToCollectionDialog({
+  buildId,
+  open,
+  onClose,
+  onConfirm,
+}: Props) {
   const { data: sessionData } = useSession();
   const userId = sessionData?.user?.id;
 
@@ -62,10 +71,15 @@ export function AddToCollectionDialog({ open, onClose, onConfirm }: Props) {
       );
       return;
     }
+    if (!buildId) {
+      toast.error('Cannot create a new collection - buildId is missing!');
+      return;
+    }
+
     const response = await createBuildCollection({
       collectionName: newCollectionName,
       collectionDescription: '',
-      buildIds: [],
+      buildIds: [buildId],
     });
 
     if (isErrorResponse(response)) {
@@ -83,7 +97,11 @@ export function AddToCollectionDialog({ open, onClose, onConfirm }: Props) {
       response.collection as BuildCollectionWithBuilds,
     ]);
 
-    onConfirm(response.collection);
+    onConfirm(response.collection, true);
+  }
+
+  if (!buildId) {
+    return null;
   }
 
   return (

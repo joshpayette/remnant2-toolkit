@@ -114,13 +114,17 @@ export function ViewBuild({
     });
   }
 
-  async function handleAddToCollection(collection: BuildCollectionWithBuilds) {
+  async function handleAddToCollection(
+    collection: BuildCollectionWithBuilds,
+    bypassBuildExistsCheck = false,
+  ) {
     setAddToCollectionDialogOpen(false);
 
     const buildAlreadyInCollection = collection.builds.some(
       (build) => build.id === activeBuildState.buildId,
     );
-    if (buildAlreadyInCollection) {
+
+    if (buildAlreadyInCollection && !bypassBuildExistsCheck) {
       toast.error('Build is already in this collection.');
       return;
     }
@@ -187,6 +191,7 @@ export function ViewBuild({
               onClose={() => setSignInRequiredDialogOpen(false)}
             />
             <AddToCollectionDialog
+              buildId={activeBuildState.buildId}
               open={addToCollectionDialogOpen}
               onClose={() => setAddToCollectionDialogOpen(false)}
               onConfirm={handleAddToCollection}
