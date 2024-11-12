@@ -262,6 +262,7 @@ export function ViewLinkedBuild({ linkedBuildState }: Props) {
               {session?.user?.id && (
                 <LoadoutManagementButton
                   buildId={buildState.buildId}
+                  variantIndex={0}
                   onClick={() => setLoadoutDialogOpen(true)}
                 />
               )}

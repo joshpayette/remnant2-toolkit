@@ -8,16 +8,24 @@ import { getSession } from '@/app/(user)/_auth/services/sessionService';
 export async function removeBuildFromLoadout(
   buildId: string,
   slot: number,
+  variantIndex: number,
 ): Promise<{ success: boolean }> {
   const session = await getSession();
   if (!session || !session.user) {
     return { success: false };
   }
 
+  const variantResponse = await prisma.buildVariant.findFirst({
+    where: {
+      primaryBuildId: buildId,
+      index: variantIndex,
+    },
+  });
+
   await prisma.userLoadouts.deleteMany({
     where: {
       userId: session.user.id,
-      buildId,
+      buildId: variantResponse ? variantResponse.secondaryBuildId : buildId,
       slot,
     },
   });

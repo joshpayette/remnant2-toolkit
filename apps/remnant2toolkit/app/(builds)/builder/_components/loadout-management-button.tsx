@@ -8,10 +8,15 @@ import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
 interface Props {
   buildId: string | null;
+  variantIndex: number;
   onClick: () => void;
 }
 
-export function LoadoutManagementButton({ buildId, onClick }: Props) {
+export function LoadoutManagementButton({
+  buildId,
+  variantIndex,
+  onClick,
+}: Props) {
   const [loading, setLoading] = useState(true);
   const [loadoutList, setLoadoutList] = useState<
     Array<DBBuild & { slot: number }>
@@ -33,7 +38,8 @@ export function LoadoutManagementButton({ buildId, onClick }: Props) {
   }
 
   const loadoutBuild = loadoutList.find(
-    (loadoutBuild) => loadoutBuild.id === buildId,
+    (loadoutBuild) =>
+      loadoutBuild.id === buildId && loadoutBuild.variantIndex === variantIndex,
   );
 
   const label = loadoutBuild
