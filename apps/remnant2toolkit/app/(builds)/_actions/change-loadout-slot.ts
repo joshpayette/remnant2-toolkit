@@ -5,16 +5,27 @@ import { revalidatePath } from 'next/cache';
 
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
-export async function changeLoadoutSlot(buildId: string, slot: number) {
+export async function changeLoadoutSlot(
+  buildId: string,
+  slot: number,
+  variantIndex: number,
+) {
   const session = await getSession();
   if (!session || !session.user) {
     return { success: false };
   }
 
+  const variantResponse = await prisma.buildVariant.findFirst({
+    where: {
+      primaryBuildId: buildId,
+      index: variantIndex,
+    },
+  });
+
   const loadoutToMove = await prisma.userLoadouts.findFirst({
     where: {
       userId: session.user.id,
-      buildId,
+      buildId: variantResponse ? variantResponse.secondaryBuildId : buildId,
     },
   });
 

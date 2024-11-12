@@ -9,9 +9,11 @@ import { ChangeLoadoutSlotPrompt } from '@/app/(builds)/_components/change-loado
 
 export function ChangeLoadoutSlotButton({
   buildId,
+  variantIndex,
   callback,
 }: {
   buildId: string;
+  variantIndex: number;
   callback?: (
     success: boolean,
     newLoadouts: {
@@ -31,7 +33,11 @@ export function ChangeLoadoutSlotButton({
       return;
     }
 
-    const response = await changeLoadoutSlot(buildId, newSlotNumber);
+    const response = await changeLoadoutSlot(
+      buildId,
+      newSlotNumber,
+      variantIndex,
+    );
     if (!response.success) {
       if (callback) callback(false, null);
       toast.error('Failed to change loadout slot');

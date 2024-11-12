@@ -50,10 +50,24 @@ export async function getLoadoutList(userId?: string) {
     ),
   );
 
-  const userLoadoutBuilds = userLoadoutBuildsResponse.map((loadout) =>
-    loadout.build.isPublic || loadout.userId === session?.user?.id
+  // Need to determine if each build is a variant
+  // if it is, we need to return the main build id, but set the variant
+  const variantBuildResponse = await Promise.all(
+    userLoadoutBuildsResponse.map((loadout) =>
+      prisma.buildVariant.findFirst({
+        where: {
+          secondaryBuildId: loadout.build.id,
+        },
+      }),
+    ),
+  );
+
+  const userLoadoutBuilds = userLoadoutBuildsResponse.map((loadout, index) => {
+    return loadout.build.isPublic || loadout.userId === session?.user?.id
       ? {
-          id: loadout.build.id,
+          id: variantBuildResponse[index]
+            ? variantBuildResponse[index].primaryBuildId
+            : loadout.build.id,
           name: loadout.build.name,
           description: loadout.build.description,
           isPublic: loadout.build.isPublic,
@@ -63,7 +77,7 @@ export async function getLoadoutList(userId?: string) {
           isBeginnerBuild: loadout.build.isBeginnerBuild,
           isBaseGameBuild: loadout.build.isBaseGameBuild,
           isGimmickBuild: loadout.build.isGimmickBuild,
-          isMember: false,
+          isMember: false, // TODO Fix this
           isModeratorApproved: loadout.build.isModeratorApproved,
           isModeratorLocked: loadout.build.isModeratorLocked,
           isVideoApproved: loadout.build.isVideoApproved,
@@ -80,7 +94,9 @@ export async function getLoadoutList(userId?: string) {
             DEFAULT_DISPLAY_NAME,
           createdAt: loadout.build.createdAt,
           updatedAt: loadout.build.updatedAt,
-          variantIndex: 0,
+          variantIndex: variantBuildResponse[index]
+            ? variantBuildResponse[index].index ?? 0
+            : 0,
           upvoted: true,
           totalUpvotes: buildVotesCounts.shift() || 0,
           viewCount: loadout.build.viewCount,
@@ -127,8 +143,8 @@ export async function getLoadoutList(userId?: string) {
           buildItems: [],
           slot: loadout.slot,
           percentageOwned: 0, // TODO Fix this
-        },
-  ) satisfies Array<DBBuild & { slot: number }>;
+        };
+  }) satisfies Array<DBBuild & { slot: number }>;
 
   return userLoadoutBuilds;
 }

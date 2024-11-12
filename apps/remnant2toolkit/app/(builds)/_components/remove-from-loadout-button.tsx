@@ -7,17 +7,19 @@ import { RemoveFromLoadoutAlert } from '@/app/(builds)/_components/remove-from-l
 
 export function RemoveFromLoadoutButton({
   buildId,
+  variantIndex,
   slot,
   callback,
 }: {
   buildId: string;
+  variantIndex: number;
   slot: number;
   callback?: (success: boolean) => void;
 }) {
   const [alertOpen, setAlertOpen] = useState(false);
 
   async function handleRemoveFromLoadout() {
-    const response = await removeBuildFromLoadout(buildId, slot);
+    const response = await removeBuildFromLoadout(buildId, slot, variantIndex);
     if (!response.success) {
       if (callback) callback(false);
       toast.error('Failed to remove build from loadout');

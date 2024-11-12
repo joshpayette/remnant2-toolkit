@@ -176,8 +176,8 @@ export function ViewBuild({
               onClose={() => setDetailedBuildDialogOpen(false)}
             />
             <LoadoutDialog
-              key={mainBuildState.buildId}
-              buildId={mainBuildState.buildId}
+              key={activeBuildState.buildId}
+              buildId={activeBuildState.buildId}
               open={loadoutDialogOpen}
               onClose={() => setLoadoutDialogOpen(false)}
               isEditable={true}
@@ -257,6 +257,7 @@ export function ViewBuild({
               <LoadoutManagementButton
                 key={loadoutDialogOpen ? 'open' : 'closed'}
                 buildId={mainBuildState.buildId}
+                variantIndex={activeVariantIndex}
                 onClick={() => setLoadoutDialogOpen(true)}
               />
             )}
