@@ -2,8 +2,6 @@ import { getArrayOfLength } from '@repo/utils';
 import { useState } from 'react';
 
 import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_constants/pagination';
-import { useOrderByFilter } from '@/app/(builds)/_features/filters/_hooks/use-order-by-filter';
-import { useTimeRangeFilter } from '@/app/(builds)/_features/filters/_hooks/use-time-range-filter';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
 interface State {
