@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-11-12
+
+### Changed
+
+- Avatars on user profiles can now have a background color. This will help with some of the custom avatars that have transparent backgrounds, as they become less visible on light themes.
+
 ## 2024-11-11
 
 ### Changed
