@@ -1701,7 +1701,7 @@ export const ringItems: RingItem[] = [
     imagePath: '/items/rings/meteoriteshardring.png',
     saveFileSlug: 'Ring_MeteoriteShardRing_C',
     id: 'ayje99',
-    tags: ['Encumbrance'],
+    tags: ['Encumbrance', 'Melee Damage', 'Melee'],
     description: `Increases Encumbrance by 50. Increases Unarmed damage by 50%.`,
     wikiLinks: [`https://remnant.wiki/Meteorite_Shard_Ring`],
     location: {

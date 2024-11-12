@@ -29,6 +29,7 @@ export const ITEM_TOKENS = [
   'Melee Critical Chance',
   'Melee Critical Damage',
   'Melee Critical Hit',
+  'Melee',
   'Melee Damage',
   'Melee Hit',
   'Melee Special Ability',
