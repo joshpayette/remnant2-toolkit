@@ -24,6 +24,16 @@ export async function editBuildCollection({
   }
 
   try {
+    // Check if all buildIds exist
+    const existingBuilds = await prisma.build.findMany({
+      where: {
+        id: { in: buildIds },
+      },
+      select: { id: true },
+    });
+
+    const existingBuildIds = existingBuilds.map((build) => build.id);
+
     const collection = await prisma.buildCollection.update({
       where: {
         id: collectionId,
@@ -31,8 +41,13 @@ export async function editBuildCollection({
       data: {
         name: collectionName,
         description: collectionDescription,
-        builds: {
-          set: buildIds.map((id) => ({ id })),
+        BuildsToBuildCollections: {
+          deleteMany: {},
+          create: existingBuildIds.map((id) => ({
+            build: {
+              connect: { id },
+            },
+          })),
         },
       },
     });

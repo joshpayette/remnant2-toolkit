@@ -18,15 +18,23 @@ export async function getBuildCollections(userId: string): Promise<
         createdById: userId,
       },
       include: {
-        builds: {
+        BuildsToBuildCollections: {
           select: {
-            id: true,
+            buildId: true,
           },
         },
       },
     });
 
-    return { message: 'Build collections fetched successfully.', collections };
+    return {
+      message: 'Build collections fetched successfully.',
+      collections: collections.map((collection) => ({
+        ...collection,
+        builds: collection.BuildsToBuildCollections.map((build) => ({
+          id: build.buildId,
+        })),
+      })),
+    };
   } catch (e) {
     console.error(e);
     return { errors: ['An error occurred while fetching build collections.'] };

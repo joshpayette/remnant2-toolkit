@@ -29,8 +29,19 @@ export async function createBuildCollection({
         name: collectionName,
         description: collectionDescription,
         createdById: session.user.id,
-        builds: {
-          connect: buildIds.map((id) => ({ id })),
+        BuildsToBuildCollections: {
+          create: buildIds.map((id) => ({
+            build: {
+              connect: { id },
+            },
+          })),
+        },
+      },
+      include: {
+        BuildsToBuildCollections: {
+          include: {
+            build: true,
+          },
         },
       },
     });

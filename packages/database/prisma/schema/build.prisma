@@ -1,40 +1,40 @@
 model Build {
-  id                     String                  @id @default(cuid())
-  createdAt              DateTime                @default(now())
-  updatedAt              DateTime?               @updatedAt
-  createdBy              User                    @relation(fields: [createdById], references: [id])
-  createdById            String
-  isFeaturedBuild        Boolean                 @default(false)
-  isBeginnerBuild        Boolean                 @default(false)
-  isBaseGameBuild        Boolean                 @default(false)
-  isGimmickBuild         Boolean                 @default(false)
-  isModeratorApproved    Boolean                 @default(false)
-  isModeratorLocked      Boolean                 @default(false)
-  isPatchAffected        Boolean                 @default(false)
-  isPublic               Boolean                 @default(true)
-  isVideoApproved        Boolean                 @default(false)
-  dateFeatured           DateTime?
-  name                   String
-  description            String?                 @db.Text
-  videoUrl               String?
-  thumbnailUrl           String?
-  buildLink              String?
-  buildLinkUpdatedAt     DateTime?
-  viewCount              Int                     @default(0)
-  duplicateCount         Int                     @default(0)
-  milestoneLogged        Boolean?                @default(false)
-  BuildVotes             BuildVoteCounts[]
-  BuildItems             BuildItems[]
-  UserProfile            UserProfile?            @relation(fields: [userProfileId], references: [id])
-  userProfileId          String?
-  UserLoadouts           UserLoadouts[]
-  BuildTags              BuildTags[]
-  LinkedBuildItems       LinkedBuildItems[]
-  BuildValidatedViews    BuildValidatedViews[]
-  UserBuildSubscriptions UserBuildSubscription[]
-  PrimaryBuildVariant    BuildVariant[]          @relation(name: "primaryBuildId")
-  SecondaryBuildVariant  BuildVariant[]          @relation(name: "secondaryBuildId")
-  BuildCollections       BuildCollection[]
+  id                       String                     @id @default(cuid())
+  createdAt                DateTime                   @default(now())
+  updatedAt                DateTime?                  @updatedAt
+  createdBy                User                       @relation(fields: [createdById], references: [id])
+  createdById              String
+  isFeaturedBuild          Boolean                    @default(false)
+  isBeginnerBuild          Boolean                    @default(false)
+  isBaseGameBuild          Boolean                    @default(false)
+  isGimmickBuild           Boolean                    @default(false)
+  isModeratorApproved      Boolean                    @default(false)
+  isModeratorLocked        Boolean                    @default(false)
+  isPatchAffected          Boolean                    @default(false)
+  isPublic                 Boolean                    @default(true)
+  isVideoApproved          Boolean                    @default(false)
+  dateFeatured             DateTime?
+  name                     String
+  description              String?                    @db.Text
+  videoUrl                 String?
+  thumbnailUrl             String?
+  buildLink                String?
+  buildLinkUpdatedAt       DateTime?
+  viewCount                Int                        @default(0)
+  duplicateCount           Int                        @default(0)
+  milestoneLogged          Boolean?                   @default(false)
+  BuildVotes               BuildVoteCounts[]
+  BuildItems               BuildItems[]
+  UserProfile              UserProfile?               @relation(fields: [userProfileId], references: [id])
+  userProfileId            String?
+  UserLoadouts             UserLoadouts[]
+  BuildTags                BuildTags[]
+  LinkedBuildItems         LinkedBuildItems[]
+  BuildValidatedViews      BuildValidatedViews[]
+  UserBuildSubscriptions   UserBuildSubscription[]
+  PrimaryBuildVariant      BuildVariant[]             @relation(name: "primaryBuildId")
+  SecondaryBuildVariant    BuildVariant[]             @relation(name: "secondaryBuildId")
+  BuildsToBuildCollections BuildsToBuildCollections[]
 
   @@index([createdById])
   @@index([userProfileId])
@@ -132,15 +132,28 @@ model BuildTags {
 }
 
 model BuildCollection {
-  id          String   @id @default(cuid())
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  createdBy   User     @relation(fields: [createdById], references: [id])
-  createdById String
-  name        String
-  description String?
-  builds      Build[]
+  id                       String                     @id @default(cuid())
+  createdAt                DateTime                   @default(now())
+  updatedAt                DateTime                   @updatedAt
+  createdBy                User                       @relation(fields: [createdById], references: [id])
+  createdById              String
+  name                     String
+  description              String?
+  BuildsToBuildCollections BuildsToBuildCollections[]
 
   @@index([name])
   @@index([createdById])
+}
+
+model BuildsToBuildCollections {
+  id                String          @id @default(cuid())
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+  build             Build           @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId           String
+  buildCollection   BuildCollection @relation(fields: [buildCollectionId], references: [id], onDelete: Cascade)
+  buildCollectionId String
+
+  @@index([buildId])
+  @@index([buildCollectionId])
 }

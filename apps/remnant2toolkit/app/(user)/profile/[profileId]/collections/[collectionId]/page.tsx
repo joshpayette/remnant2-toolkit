@@ -2,10 +2,14 @@ import { DEFAULT_BIO } from '@repo/constants';
 import { prisma } from '@repo/db';
 import { type Metadata } from 'next';
 
+import { PageHeader } from '@/app/_components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
+import { isErrorResponse } from '@/app/_libs/is-error-response';
+import { getBuildCollection } from '@/app/(user)/profile/[profileId]/collections/_actions/get-build-collection';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
+import { BuildCollectionBuildList } from '@/app/(user)/profile/[profileId]/collections/[collectionId]/_components/build-collection-build-list';
 
 export async function generateMetadata({
   params: { profileId, collectionId },
@@ -121,11 +125,24 @@ export async function generateMetadata({
 }
 
 export default async function Page({
-  params: { profileId },
+  params: { profileId, collectionId },
 }: {
-  params: { profileId: string };
+  params: { profileId: string; collectionId: string };
 }) {
   const session = await getSession();
+
+  const collectionResponse = await getBuildCollection(collectionId);
+  if (isErrorResponse(collectionResponse)) {
+    return (
+      <PageHeader
+        title="Error loading collection"
+        subtitle={collectionResponse.errors?.join(' ')}
+      />
+    );
+  }
+
+  const { builds, collection } = collectionResponse;
+
   const isEditable = session?.user?.id === profileId;
 
   return (
@@ -137,6 +154,7 @@ export default async function Page({
           </h2>
         </div>
       </div>
+      <BuildCollectionBuildList builds={builds} isEditable={isEditable} />
     </>
   );
 }

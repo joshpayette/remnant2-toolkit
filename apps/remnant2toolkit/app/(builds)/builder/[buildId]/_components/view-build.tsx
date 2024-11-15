@@ -39,6 +39,7 @@ import { ModeratorToolsButton } from '@/app/(builds)/builder/_components/moderat
 import { ShareBuildButton } from '@/app/(builds)/builder/_components/share-build-button';
 import { useDiscoveredItems } from '@/app/(items)/_hooks/use-discovered-items';
 import { editBuildCollection } from '@/app/(user)/profile/[profileId]/collections/_actions/edit-build-collection';
+import { MAX_ALLOWED_BUILDS_PER_COLLECTION } from '@/app/(user)/profile/[profileId]/collections/_constants/max-allowed-builds-per-collection';
 import type { BuildCollectionWithBuilds } from '@/app/(user)/profile/[profileId]/collections/_types/build-collection-with-builds';
 
 interface Props {
@@ -131,6 +132,12 @@ export function ViewBuild({
     if (!activeBuildState.buildId) {
       toast.error(
         'You must first save this build to the database before it can be added to a collection.',
+      );
+      return;
+    }
+    if (collection.builds.length >= MAX_ALLOWED_BUILDS_PER_COLLECTION) {
+      toast.error(
+        'This collection is full. Please remove a build before adding a new one.',
       );
       return;
     }

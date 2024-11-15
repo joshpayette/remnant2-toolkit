@@ -25,7 +25,11 @@ export async function getBuildCollection(
       },
       include: {
         createdBy: true,
-        builds: true,
+        BuildsToBuildCollections: {
+          include: {
+            build: true,
+          },
+        },
       },
     });
 
@@ -35,7 +39,9 @@ export async function getBuildCollection(
 
     const builds: DBBuild[] = [];
 
-    for await (const build of collection.builds) {
+    for await (const collectionItem of collection.BuildsToBuildCollections) {
+      const build = collectionItem.build;
+
       const buildResponse = await prisma.build.findUnique({
         where: {
           id: build.id,

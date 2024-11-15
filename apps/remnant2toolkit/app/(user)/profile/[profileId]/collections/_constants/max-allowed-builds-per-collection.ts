@@ -1,0 +1,1 @@
+export const MAX_ALLOWED_BUILDS_PER_COLLECTION = 32;

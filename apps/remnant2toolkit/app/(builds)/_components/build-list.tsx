@@ -43,10 +43,12 @@ export function BuildList({
 
   return (
     <div className={cn(isLoading ? 'min-h-[1000px]' : 'min-h-0')}>
-      <div className="border-b-primary-500 flex w-full flex-row items-end justify-center border-b py-2">
-        {label ? <div className="w-full text-xl">{label}</div> : null}
-        {headerActions}
-      </div>
+      {label || headerActions ? (
+        <div className="border-b-primary-500 flex w-full flex-row items-end justify-center border-b py-2">
+          {label ? <div className="w-full text-xl">{label}</div> : null}
+          {headerActions}
+        </div>
+      ) : null}
       {pagination}
       <ul
         role="list"

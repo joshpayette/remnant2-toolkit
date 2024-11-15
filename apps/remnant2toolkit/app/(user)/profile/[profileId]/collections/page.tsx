@@ -2,10 +2,14 @@ import { DEFAULT_BIO } from '@repo/constants';
 import { prisma } from '@repo/db';
 import { type Metadata } from 'next';
 
+import { PageHeader } from '@/app/_components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
+import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
+import { getBuildCollections } from '@/app/(user)/profile/[profileId]/collections/_actions/get-build-collections';
+import { BuildCollectionsList } from '@/app/(user)/profile/[profileId]/collections/_components/build-collections-list';
 
 export async function generateMetadata({
   params: { profileId },
@@ -97,17 +101,29 @@ export default async function Page({
   params: { profileId: string };
 }) {
   const session = await getSession();
+
+  const collectionsResponse = await getBuildCollections(profileId);
+  if (isErrorResponse(collectionsResponse)) {
+    return (
+      <PageHeader
+        title="Error loading user collections"
+        subtitle={collectionsResponse.errors?.join(' ')}
+      />
+    );
+  }
+
+  const { collections } = collectionsResponse;
+
   const isEditable = session?.user?.id === profileId;
 
   return (
-    <>
-      <div className="mb-4 flex w-full flex-col items-center justify-center">
-        <div className="border-b-primary-500 flex w-full flex-row items-center justify-center border-b py-2">
-          <h2 className="flex w-full items-center justify-start text-2xl">
-            {NAV_ITEMS.collections.label}
-          </h2>
-        </div>
+    <div className="mb-4 flex w-full flex-col items-center justify-center">
+      <div className="border-b-primary-500 flex w-full flex-row items-center justify-center border-b py-2">
+        <h2 className="flex w-full items-center justify-start text-2xl">
+          {NAV_ITEMS.collections.label}
+        </h2>
       </div>
-    </>
+      <BuildCollectionsList collections={collections} isEditable={isEditable} />
+    </div>
   );
 }
