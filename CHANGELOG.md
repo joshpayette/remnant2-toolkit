@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-11-16
+
+### Fixed
+
+- Renamed fragment `Mod Power Generation` to `Mod Generation` to match in-game text.
+
 ## 2024-11-12
 
 ### Changed
