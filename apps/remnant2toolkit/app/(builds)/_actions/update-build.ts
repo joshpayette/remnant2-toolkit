@@ -406,11 +406,13 @@ export async function updateBuild({
     const shouldSendWebhook =
       mainBuildState.isPublic && process.env.WEBHOOK_DISABLED !== 'true';
     if (shouldSendWebhook) {
-      let index = 1;
+      let index = 0;
       for await (const response of createBuildsResponse) {
+        const matchingVariant = variantsToCreate[index];
+
         const buildLink = `${urlNoCache(
           `https://remnant2toolkit.com/builder/${mainBuildState.buildId}`,
-        )}&variant=${index}`;
+        )}&variant=${matchingVariant?.variantIndex ?? index + 1}`;
 
         const shouldSendWebhook =
           mainBuildState.isPublic && process.env.WEBHOOK_DISABLED !== 'true';
@@ -448,9 +450,15 @@ export async function updateBuild({
         updateMainBuildResponse,
         ...updateBuildVariantsResponse,
       ]) {
+        const matchingVariant = variantsToUpdate[index];
+
         const buildLink = `${urlNoCache(
           `https://remnant2toolkit.com/builder/${mainBuildState.buildId}`,
-        )}${index > 0 ? `&variant=${index + 1}` : ''}`;
+        )}${
+          index > 0
+            ? `&variant=${matchingVariant?.variantIndex ?? index + 1}`
+            : ''
+        }`;
 
         const existingBuild = existingUpdatableBuilds.find(
           (build) => build.id === response.id,
