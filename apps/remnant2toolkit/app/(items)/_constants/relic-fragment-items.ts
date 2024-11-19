@@ -572,14 +572,14 @@ export const relicFragmentItems: RelicFragmentItem[] = [
   },
   {
     category: 'relicfragment',
-    name: 'Mod Power Generation',
+    name: 'Mod Generation',
     imagePath: '/items/relicfragments/mod-generation-on.png',
     saveFileSlug: 'RelicFragment_ModGeneration_C',
     color: 'yellow',
     id: 'pk57hf',
     dlc: 'base',
     tags: [],
-    description: 'Increases Mod Power Generation by 10%.',
+    description: 'Increases Mod Generation by 10%.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
