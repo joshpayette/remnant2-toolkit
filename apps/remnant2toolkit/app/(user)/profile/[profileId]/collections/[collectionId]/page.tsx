@@ -1,14 +1,14 @@
 import { DEFAULT_BIO } from '@repo/constants';
 import { prisma } from '@repo/db';
+import { BaseText } from '@repo/ui';
 import { type Metadata } from 'next';
 
 import { PageHeader } from '@/app/_components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
-import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { isErrorResponse } from '@/app/_libs/is-error-response';
-import { getBuildCollection } from '@/app/(user)/profile/[profileId]/collections/_actions/get-build-collection';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
+import { getBuildCollection } from '@/app/(user)/profile/[profileId]/collections/_actions/get-build-collection';
 import { BuildCollectionBuildList } from '@/app/(user)/profile/[profileId]/collections/[collectionId]/_components/build-collection-build-list';
 
 export async function generateMetadata({
@@ -148,13 +148,20 @@ export default async function Page({
   return (
     <>
       <div className="mb-4 flex w-full flex-col items-center justify-center">
-        <div className="border-b-primary-500 flex w-full flex-row items-center justify-center border-b py-2">
-          <h2 className="flex w-full items-center justify-start text-2xl">
-            {NAV_ITEMS.collections.label}
+        <div className="border-b-primary-500 flex w-full flex-col items-center justify-center border-b py-2">
+          <h2 className="flex w-full items-center justify-center text-2xl font-bold">
+            {collection.name}
           </h2>
+          <BaseText>
+            {collection.description || 'No build collection description set.'}
+          </BaseText>
         </div>
       </div>
-      <BuildCollectionBuildList builds={builds} isEditable={isEditable} />
+      <BuildCollectionBuildList
+        builds={builds}
+        isEditable={isEditable}
+        collection={collection}
+      />
     </>
   );
 }

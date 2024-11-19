@@ -114,8 +114,6 @@ export default async function Page({
 
   const { collections } = collectionsResponse;
 
-  const isEditable = session?.user?.id === profileId;
-
   return (
     <div className="mb-4 flex w-full flex-col items-center justify-center">
       <div className="border-b-primary-500 flex w-full flex-row items-center justify-center border-b py-2">
@@ -123,7 +121,7 @@ export default async function Page({
           {NAV_ITEMS.collections.label}
         </h2>
       </div>
-      <BuildCollectionsList collections={collections} isEditable={isEditable} />
+      <BuildCollectionsList collections={collections} />
     </div>
   );
 }
