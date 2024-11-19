@@ -1,9 +1,11 @@
 import { BaseButton, cn, EditIcon, EyeIcon, Tooltip } from '@repo/ui';
 import { usePathname, useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { deleteBuildCollection } from '@/app/(user)/profile/[profileId]/collections/_actions/delete-build-collection';
+import { DeleteBuildCollectionAlert } from '@/app/(user)/profile/[profileId]/collections/_components/delete-build-collection-alert';
 import type { BuildCollectionWithBuilds } from '@/app/(user)/profile/[profileId]/collections/_types/build-collection-with-builds';
 
 interface Props {
@@ -15,8 +17,10 @@ export function BuildCollectionCard({ collection, isEditable }: Props) {
   const router = useRouter();
   const pathname = usePathname();
 
-  // TODO Prompt for confirmation first
+  const [deleteAlertOpen, setDeleteAlertOpen] = useState(false);
+
   async function handleDeleteCollection(collectionId: string) {
+    setDeleteAlertOpen(false);
     const response = await deleteBuildCollection(collectionId);
     if (isErrorResponse(response)) {
       toast.error('Failed to delete build collection');
@@ -24,6 +28,7 @@ export function BuildCollectionCard({ collection, isEditable }: Props) {
       return;
     }
     toast.success('Build collection deleted');
+    router.refresh();
   }
 
   return (
@@ -33,9 +38,11 @@ export function BuildCollectionCard({ collection, isEditable }: Props) {
           {collection.name}
         </h3>
         <div className="mt-0 flex flex-grow flex-col justify-start text-xs">
-          <div className="text-xs text-gray-400">{collection.description}</div>
+          <div className="text-xs text-gray-400">
+            {collection.description ?? 'No collection description set.'}
+          </div>
         </div>
-        <div className="mt-4 flex flex-row justify-between">
+        <div className="mt-4 flex flex-row justify-between text-sm">
           # of Builds: {collection.builds.length}
         </div>
         <div className="mt-2 flex items-center justify-end gap-x-2 text-sm">
@@ -66,11 +73,17 @@ export function BuildCollectionCard({ collection, isEditable }: Props) {
                     </div>
                   </BaseButton>
                 </Tooltip>
+
+                <DeleteBuildCollectionAlert
+                  open={deleteAlertOpen}
+                  onClose={() => setDeleteAlertOpen(false)}
+                  onDelete={() => handleDeleteCollection(collection.id)}
+                />
                 <Tooltip content="Delete Build Collection">
                   <BaseButton
                     plain
                     aria-label="Delete Build Collection"
-                    onClick={() => handleDeleteCollection(collection.id)}
+                    onClick={() => setDeleteAlertOpen(true)}
                   >
                     <div className="flex flex-col items-center justify-center text-red-500">
                       <EyeIcon className="h-4 w-4" /> Delete
