@@ -1,8 +1,8 @@
 'use client';
 
 import type { BuildCollection } from '@repo/db';
-import { BaseButton, EyeIcon, Tooltip } from '@repo/ui';
-import { usePathname, useRouter } from 'next/navigation';
+import { BaseButton, EyeIcon, TrashIcon } from '@repo/ui';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -11,6 +11,7 @@ import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';
 import type { DBBuild } from '@/app/(builds)/_types/db-build';
 import { deleteBuildCollection } from '@/app/(user)/profile/[profileId]/collections/_actions/delete-build-collection';
+import { editBuildCollection } from '@/app/(user)/profile/[profileId]/collections/_actions/edit-build-collection';
 import { DeleteBuildCollectionAlert } from '@/app/(user)/profile/[profileId]/collections/_components/delete-build-collection-alert';
 import { MAX_ALLOWED_BUILDS_PER_COLLECTION } from '@/app/(user)/profile/[profileId]/collections/_constants/max-allowed-builds-per-collection';
 
@@ -26,7 +27,6 @@ export function BuildCollectionBuildList({
   isEditable,
 }: Props) {
   const router = useRouter();
-  const pathname = usePathname();
 
   const [deleteAlertOpen, setDeleteAlertOpen] = useState(false);
 
@@ -42,6 +42,24 @@ export function BuildCollectionBuildList({
     router.push(
       `https://remnant2toolkit.com/profile/${collection.createdById}/collections`,
     );
+  }
+
+  async function handleRemoveBuildFromCollection(buildId: string) {
+    const response = await editBuildCollection({
+      collectionId: collection.id,
+      collectionName: collection.name,
+      collectionDescription: collection.description || '',
+      buildIds: builds
+        .filter((build) => build.id !== buildId)
+        .map((build) => build.id),
+    });
+    if (isErrorResponse(response)) {
+      toast.error('Failed to remove build from collection');
+      console.error(response.errors);
+      return;
+    }
+    toast.success('Build removed from collection');
+    router.refresh();
   }
 
   return (
@@ -78,20 +96,17 @@ export function BuildCollectionBuildList({
               isLoading={false}
               showBuildVisibility={true}
               footerActions={
-                null
-                // isEditable ? (
-                //   <CreatedBuildCardActions
-                //     build={build}
-                //     onDelete={(buildId: string) => {
-                //       setBuildListState((prevState) => ({
-                //         ...prevState,
-                //         builds: prevState.builds.filter(
-                //           (b) => b.id !== buildId,
-                //         ),
-                //       }));
-                //     }}
-                //   />
-                // ) : undefined
+                isEditable ? (
+                  <div className="m-1">
+                    <BaseButton
+                      color="red"
+                      aria-label="Delete Build"
+                      onClick={() => handleRemoveBuildFromCollection(build.id)}
+                    >
+                      <TrashIcon className="h-4 w-4" />
+                    </BaseButton>
+                  </div>
+                ) : undefined
               }
             />
           </div>

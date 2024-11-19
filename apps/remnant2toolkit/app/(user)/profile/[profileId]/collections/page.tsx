@@ -6,7 +6,6 @@ import { PageHeader } from '@/app/_components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { isErrorResponse } from '@/app/_libs/is-error-response';
-import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
 import { getBuildCollections } from '@/app/(user)/profile/[profileId]/collections/_actions/get-build-collections';
 import { BuildCollectionsList } from '@/app/(user)/profile/[profileId]/collections/_components/build-collections-list';
@@ -100,8 +99,6 @@ export default async function Page({
 }: {
   params: { profileId: string };
 }) {
-  const session = await getSession();
-
   const collectionsResponse = await getBuildCollections(profileId);
   if (isErrorResponse(collectionsResponse)) {
     return (
