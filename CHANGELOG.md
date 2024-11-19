@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Item ownership icon removed from legendary prism fragment, as they cannot be tracked in the Item Tracker.
+- Fixed Archon/Summoner combo name. Was "Tempest Invoker" and it should be "Tempest Augur".
 
 ## 2024-11-16
 
