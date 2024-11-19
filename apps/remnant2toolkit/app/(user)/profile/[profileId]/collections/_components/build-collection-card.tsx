@@ -17,23 +17,23 @@ export function BuildCollectionCard({ collection }: Props) {
         <h3 className="text-md whitespace-pre-wrap font-medium">
           {collection.name}
         </h3>
-        <div className="text-surface-solid mt-1 flex flex-row justify-between text-sm">
+        <div className="mt-1 flex flex-row justify-between text-sm text-gray-400">
           # of Builds: {collection.builds.length}
         </div>
 
         <div className="mt-0 flex flex-grow flex-col justify-start text-xs">
-          <div className="mt-2 h-auto max-h-[140px] w-full flex-row items-start justify-start gap-x-2 overflow-x-auto overflow-y-auto whitespace-pre-wrap text-xs text-gray-300">
+          <div className="text-surface-solid mt-2 h-auto max-h-[140px] w-full flex-row items-start justify-start gap-x-2 overflow-x-auto overflow-y-auto whitespace-pre-wrap text-xs">
             {collection.description || 'No collection description set.'}
           </div>
         </div>
         <div className="mt-2 flex items-center justify-end gap-x-2 text-sm">
-          <div className="flex w-full items-center justify-center gap-6 p-2 text-sm">
+          <div className="flex w-full items-center justify-end gap-6 p-2 text-sm">
             <BaseButton
               plain
               aria-label="View Build Collection"
               onClick={() => router.push(`${pathname}/${collection.id}`)}
             >
-              <div className="flex flex-col items-center justify-center text-cyan-500">
+              <div className="flex flex-col items-center justify-end text-cyan-500">
                 <EyeIcon className="h-4 w-4" /> View
               </div>
             </BaseButton>

@@ -2,13 +2,13 @@
  * User IDs who are exempt from the moderation queue.
  */
 const PERMITTED_BUILDERS = [
-  {
-    userId: 'clql3zq8k0000a6m41vtnvldq',
-    avatar: '/avatars/custom/tk.png',
-    avatarBgColor: undefined,
-    bypassModeration: true,
-    name: 'TK',
-  },
+  // {
+  //   userId: 'clql3zq8k0000a6m41vtnvldq',
+  //   avatar: '/avatars/custom/tk.png',
+  //   avatarBgColor: undefined,
+  //   bypassModeration: true,
+  //   name: 'TK',
+  // },
   {
     userId: 'clqn2t09a0001u80kd4nl6tg4',
     avatar: undefined,

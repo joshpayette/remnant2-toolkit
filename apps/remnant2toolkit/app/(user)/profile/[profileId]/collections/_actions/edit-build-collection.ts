@@ -6,6 +6,7 @@ import { diffTrimmedLines } from 'diff';
 
 import { badWordFilter } from '@/app/_libs/bad-word-filter';
 import { sendWebhook } from '@/app/_libs/moderation/send-webhook';
+import { validateEnv } from '@/app/_libs/validate-env';
 import { type ErrorResponse } from '@/app/_types/error-response';
 import { MAX_COLLECTION_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
 import { isPermittedBuilder } from '@/app/(builds)/_libs/permitted-builders';
@@ -24,6 +25,8 @@ export async function editBuildCollection({
 }): Promise<
   ErrorResponse | { message: string; collection: BuildCollection | undefined }
 > {
+  const env = validateEnv();
+
   const session = await getSession();
   if (!session || !session.user || !session.user.id) {
     return { errors: ['You must be logged in.'] };
@@ -79,7 +82,7 @@ export async function editBuildCollection({
     const isCollectionNameChanged =
       existingCollection?.name !== cleanCollectionName &&
       !isPermittedBuilder(session.user.id);
-    if (isCollectionNameChanged) {
+    if (isCollectionNameChanged && !env.WEBHOOK_DISABLED) {
       await sendWebhook({
         webhook: 'modQueue',
         params: {
@@ -106,7 +109,8 @@ export async function editBuildCollection({
     const isCollectionDescriptionChanged =
       existingCollection?.description !== updatedCollection.description &&
       (updatedCollection.description || '').trim().length > 0 &&
-      !isPermittedBuilder(session.user.id);
+      !isPermittedBuilder(session.user.id) &&
+      !env.WEBHOOK_DISABLED;
     if (isCollectionDescriptionChanged) {
       const diff = diffTrimmedLines(
         existingCollection?.description || '',
@@ -137,7 +141,7 @@ export async function editBuildCollection({
                   value: content,
                 },
                 {
-                  name: 'Build Link',
+                  name: 'Build Collection Link',
                   value: buildLink,
                 },
               ],
