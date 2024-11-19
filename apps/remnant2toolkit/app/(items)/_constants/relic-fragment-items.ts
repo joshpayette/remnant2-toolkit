@@ -23,6 +23,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Cannot Kill or Be Killed by Friendly Fire Damage.',
+    wikiLinks: [`https://remnant.wiki/Allegiance`],
   },
   {
     category: 'relicfragment',
@@ -34,6 +35,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: `Lifesteal applies 50% of Stolen Health to Allies. `,
+    wikiLinks: [`https://remnant.wiki/Altruistic`],
   },
   {
     category: 'relicfragment',
@@ -59,7 +61,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     tags: [],
     description:
       'All Dodges trigger Perfect Dodge Mechanics. Cooldown of 3 seconds.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Artful_Dodger`],
   },
   {
     category: 'relicfragment',
@@ -110,7 +112,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Cannot be One-Shot while at Max Health Capacity.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Bodyguard`],
   },
   {
     category: 'relicfragment',
@@ -122,7 +124,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: `Grants Infinite N'Erudian Energy.`,
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Boundless_Energy`],
   },
   {
     category: 'relicfragment',
@@ -134,7 +136,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'All Damage Dealt and Received is increased by 100%.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Brutality`],
   },
   {
     category: 'relicfragment',
@@ -181,7 +183,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Grants 35% All Critical Chance within LIGHT Weight Class.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Critical_Situation`],
   },
   {
     category: 'relicfragment',
@@ -205,7 +207,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Dodges become Mist Step, costing Health instead of Stamina.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Dark_Omen`],
   },
   {
     category: 'relicfragment',
@@ -217,7 +219,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Increases SHIELD Maximum by 100%.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Defense_Measures`],
   },
   {
     category: 'relicfragment',
@@ -253,7 +255,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Increases Heat Decay Rate by 250%.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Exhausted`],
   },
   {
     category: 'relicfragment',
@@ -300,7 +302,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Increases Dodge Weight Threshold by 100.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Fleet_Footed`],
     weightThreshold: 100,
   },
   {
@@ -313,7 +315,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Increases Relic Charges by 100%.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Full_Hearted`],
   },
   {
     category: 'relicfragment',
@@ -325,7 +327,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Grants 50 Health and Stamina.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Gigantic`],
     health: 50,
     stamina: 50,
   },
@@ -339,7 +341,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Reduces Cheat Death Cooldowns by 50%.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/God_Tear`],
   },
   {
     category: 'relicfragment',
@@ -412,7 +414,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Increases Concoction Limit by 5.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Heavy_Drinker`],
   },
   {
     category: 'relicfragment',
@@ -424,7 +426,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: `Increases HASTE Effectiveness by 100%.`,
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Hyperactive`],
   },
   {
     category: 'relicfragment',
@@ -436,7 +438,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Cannot be Staggered while BULWARK is active.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Immovable`],
   },
   {
     category: 'relicfragment',
@@ -448,7 +450,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Reduces All Incoming Damage by 30%.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Impervious`],
   },
   {
     category: 'relicfragment',
@@ -460,7 +462,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Applying any Negative Status Effect applies EXPOSED.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Insult_to_Injury`],
   },
   {
     category: 'relicfragment',
@@ -472,7 +474,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Increases All Damage by 40%.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Jack_of_All_Trades`],
   },
   {
     category: 'relicfragment',
@@ -484,7 +486,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Gain EXTREME luck.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Luck_of_the_Devil`],
   },
   {
     category: 'relicfragment',
@@ -496,7 +498,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Multiplies Weakspot Damage by 1.35x.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Master_Killer`],
   },
   {
     category: 'relicfragment',
@@ -604,7 +606,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Reloading Reloads both Weapons.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Outlaw`],
   },
   {
     category: 'relicfragment',
@@ -616,7 +618,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Increases Mod Generation by 50%.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Overpowered`],
   },
   {
     category: 'relicfragment',
@@ -628,7 +630,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Grants Infinite Stamina.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Peak_Conditioning`],
     stamina: 99999,
   },
   {
@@ -641,7 +643,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Increases Healing Effectiveness by 100%.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Physician`],
   },
   {
     category: 'relicfragment',
@@ -654,7 +656,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     tags: [],
     description:
       'Increases Explosive Critical Chance and Critical Damage by 30%.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Power_Fantasy`],
   },
   {
     category: 'relicfragment',
@@ -666,7 +668,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Doubles Mod Charges.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Power_Trip`],
   },
   {
     category: 'relicfragment',
@@ -678,7 +680,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Enables Prime Perk for Secondary Archetype.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Prime_Time`],
   },
   {
     category: 'relicfragment',
@@ -750,7 +752,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Increases Stamina Recovery by 200 per second.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Reverberation`],
   },
   {
     category: 'relicfragment',
@@ -774,7 +776,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     tags: [],
     description:
       'Status Effect Damage has a 50% chance to deal 2x more damage per tick.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Sadistic`],
   },
   {
     category: 'relicfragment',
@@ -786,7 +788,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Increases Ranged Damage by 60%.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Sharpshooter`],
   },
   {
     category: 'relicfragment',
@@ -821,7 +823,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Doubles Magazine Size for non Single Shot Weapons.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Size_Matters`],
   },
   {
     category: 'relicfragment',
@@ -881,7 +883,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Increases Summon Limit by 1.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Soulmate`],
   },
   {
     category: 'relicfragment',
@@ -893,7 +895,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Gain Bonuses Based on Color of Fragments within the Prism.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Spectrum`],
   },
   {
     category: 'relicfragment',
@@ -905,7 +907,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Grants Maximum Movement Speed Bonuses.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Speed_Demon`],
   },
   {
     category: 'relicfragment',
@@ -942,7 +944,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Increases Armor by 150.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Steel_Plating`],
     armor: 150,
   },
   {
@@ -955,7 +957,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Maxes out Core Traits.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Traitor`],
   },
   {
     category: 'relicfragment',
@@ -967,7 +969,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: `Grey Health cannot be removed.`,
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Unbreakable`],
   },
   {
     category: 'relicfragment',
@@ -979,7 +981,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Reduces all Skill Cooldowns by Half.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Unbridled`],
   },
   {
     category: 'relicfragment',
@@ -1003,7 +1005,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Immune to Negative Status Effects.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Vaccinated`],
   },
   {
     category: 'relicfragment',
@@ -1051,6 +1053,6 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Increases Explosive Critical Chance by 100%.',
-    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
+    wikiLinks: [`https://remnant.wiki/Wrecking_Ball`],
   },
 ];
