@@ -23,6 +23,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: 'Cannot Kill or Be Killed by Friendly Fire Damage.',
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
@@ -34,6 +35,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     dlc: 'base',
     tags: [],
     description: `Lifesteal applies 50% of Stolen Health to Allies. `,
+    wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
     category: 'relicfragment',
