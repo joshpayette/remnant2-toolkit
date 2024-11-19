@@ -173,7 +173,7 @@ export function PrismDisplay({
           onClick={() => onItemSlotClick('relicfragment', 8)}
           onItemInfoClick={onShowInfo}
           onToggleOptional={onToggleOptional}
-          showOwnership={itemOwnershipPreference}
+          showOwnership={false}
           tooltipDisabled={itemInfoOpen}
           unoptimized={isScreenshotMode}
         />

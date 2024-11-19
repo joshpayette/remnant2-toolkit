@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-11-18
+
+### Fixed
+
+- Item ownership icon removed from legendary prism fragment, as they cannot be tracked in the Item Tracker.
+
 ## 2024-11-16
 
 ### Fixed
