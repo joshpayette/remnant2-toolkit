@@ -149,10 +149,10 @@ export default async function Page({
     <>
       <div className="mb-4 flex w-full flex-col items-center justify-center">
         <div className="border-b-primary-500 flex w-full flex-col items-center justify-center border-b py-2">
-          <h2 className="flex w-full items-center justify-center text-2xl font-bold">
+          <h2 className="mb-2 flex w-full items-center justify-center text-2xl font-bold">
             {collection.name}
           </h2>
-          <BaseText>
+          <BaseText className="max-w-lg whitespace-pre-wrap">
             {collection.description || 'No build collection description set.'}
           </BaseText>
         </div>
