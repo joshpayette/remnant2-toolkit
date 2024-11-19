@@ -1056,3 +1056,10 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
 ];
+
+relicFragmentItems.forEach((item) => {
+  if (item.color === 'legendary') {
+    // Replace spaces with underscores in wikiLinks
+    item.wikiLinks = [`https://remnant.wiki/${item.name.replace(/\s+/g, '_')}`];
+  }
+});
