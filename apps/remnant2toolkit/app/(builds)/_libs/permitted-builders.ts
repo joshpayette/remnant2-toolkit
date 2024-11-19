@@ -102,7 +102,7 @@ const PERMITTED_BUILDERS = [
   },
   {
     userId: 'clzslodmu0000f2scf7ratyk2',
-    avatar: undefined,
+    avatar: '/avatars/custom/koma.png',
     avatarBgColor: undefined,
     bypassModeration: true,
     name: 'komacoma',
