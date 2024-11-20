@@ -60,6 +60,7 @@ export async function editBuildCollection({
     const updatedCollection = await prisma.buildCollection.update({
       where: {
         id: collectionId,
+        createdById: session.user.id,
       },
       data: {
         name: cleanCollectionName,
