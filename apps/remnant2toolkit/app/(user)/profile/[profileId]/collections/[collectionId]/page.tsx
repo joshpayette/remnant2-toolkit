@@ -96,7 +96,7 @@ export async function generateMetadata({
     };
   }
 
-  const title = `${collectionResponse.name} - ${SITE_TITLE}`;
+  const title = `${collectionResponse.name} (Build Collection) - ${SITE_TITLE}`;
 
   const description =
     collectionResponse.description ||
@@ -111,7 +111,7 @@ export async function generateMetadata({
       url: `https://remnant2toolkit.com/profile/${profileId}/collection/${collectionId}`,
       images: [
         {
-          url: `https://d2sqltdcj8czo5.cloudfront.net${avatar.imagePath}`,
+          url: OG_IMAGE_URL,
           width: 150,
           height: 150,
         },
