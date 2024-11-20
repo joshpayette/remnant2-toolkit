@@ -68,6 +68,7 @@ model User {
   AuditLogModerator               AuditLog[]              @relation(name: "moderator")
   BuildValidatedViews             BuildValidatedViews[]
   Notifications                   Notification[]
+  BuildCollection                 BuildCollection[]
   UserBuildSubscriptions          UserBuildSubscription[]
   UserSubscriptionsAsSubscriber   UserSubscription[]      @relation(name: "subscriber")
   UserSubscriptionsAsSubscribedTo UserSubscription[]      @relation(name: "subscribedTo")

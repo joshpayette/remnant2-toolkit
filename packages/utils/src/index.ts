@@ -9,4 +9,5 @@ export {
   isValidYoutubeUrl,
   videoUrlToThumbnailUrl,
   videoUrlToWatchUrl,
+  removeAllParamsExceptV,
 } from './youtube';

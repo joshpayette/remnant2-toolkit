@@ -4,6 +4,7 @@ import { prisma } from '@repo/db';
 
 import { badWordFilter } from '@/app/_libs/bad-word-filter';
 import { sendWebhook } from '@/app/_libs/moderation/send-webhook';
+import { validateEnv } from '@/app/_libs/validate-env';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 export async function saveProfile({
@@ -17,6 +18,8 @@ export async function saveProfile({
   newBio: string;
   newAvatarId: string;
 }): Promise<{ message: string; success: boolean }> {
+  const env = validateEnv();
+
   const session = await getSession();
   if (!session || !session.user) {
     throw new Error('You must be logged in to save a profile.');
@@ -26,7 +29,7 @@ export async function saveProfile({
   }
 
   const displayNameBadWordCheck = badWordFilter.isProfane(newDisplayName);
-  if (displayNameBadWordCheck.isProfane) {
+  if (displayNameBadWordCheck.isProfane && !env.WEBHOOK_DISABLED) {
     // Send webhook to #action-log
     await sendWebhook({
       webhook: 'auditLog',
@@ -64,7 +67,7 @@ export async function saveProfile({
 
   const bioBadWordCheck = badWordFilter.isProfane(newBio);
 
-  if (bioBadWordCheck.isProfane) {
+  if (bioBadWordCheck.isProfane && !env.WEBHOOK_DISABLED) {
     // Send webhook to #action-log
     await sendWebhook({
       webhook: 'auditLog',
@@ -145,7 +148,8 @@ export async function saveProfile({
     if (
       currentUser?.displayName !== cleanDisplayName &&
       cleanDisplayName !== '' &&
-      currentUser?.displayName !== ''
+      currentUser?.displayName !== '' &&
+      !env.WEBHOOK_DISABLED
     ) {
       sendWebhook({
         webhook: 'modQueue',
@@ -173,7 +177,8 @@ export async function saveProfile({
     if (
       currentUserProfile?.bio !== cleanBio &&
       currentUserProfile?.bio !== '' &&
-      cleanBio !== ''
+      cleanBio !== '' &&
+      !env.WEBHOOK_DISABLED
     ) {
       sendWebhook({
         webhook: 'modQueue',
