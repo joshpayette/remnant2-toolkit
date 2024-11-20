@@ -2121,7 +2121,7 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
-    name: 'Ring Of Ordnance',
+    name: 'Ring of Ordnance',
     imagePath: '/items/rings/ringofordnance.png',
     saveFileSlug: 'Ring_RingOfOrdnance_C',
     id: 'RDi2ad',
