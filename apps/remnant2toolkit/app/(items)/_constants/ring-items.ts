@@ -529,7 +529,8 @@ export const ringItems: RingItem[] = [
     id: 'k89bxz',
     dlc: 'dlc2',
     tags: ['Encumbrance', 'Melee Damage', 'Damage Reduction'],
-    description: `Impairs Dodges by 1 Weight Class. Increases Melee damage by 35% of the wearer's total Damage Reduction.`,
+    description:
+      "Decreases Dodge Weight Threshold by 25. Increases Melee damage by 35% of the wearer's total Damage Reduction.",
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Mason`],
     location: { world: 'Yaesha', dungeon: ['Luminous Vale'] },
     weightThreshold: -25,

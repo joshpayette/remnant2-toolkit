@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed bug that prevented the sorting of Traits with the in-game ordering in the builder.
+- Updated numerous item descriptions to match updates to the wiki.
 
 ## 2024-11-19
 
