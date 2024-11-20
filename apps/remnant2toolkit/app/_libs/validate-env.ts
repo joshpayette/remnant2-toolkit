@@ -23,6 +23,7 @@ export function validateEnv() {
     WEBHOOK_MOD_QUEUE: z.string(),
     WEBHOOK_AUDIT_LOG: z.string(),
     WEBHOOK_CRON_LOGS: z.string(),
+    WEBHOOK_DISABLED: z.string(),
     WEBHOOK_NEW_BUILD_FEED: z.string(),
     WEBHOOK_REPORT_DATA: z.string(),
     WEBHOOK_WIKI_SCRAPER_FEED: z.string(),

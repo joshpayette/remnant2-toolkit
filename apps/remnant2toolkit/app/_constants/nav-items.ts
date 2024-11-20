@@ -5,6 +5,7 @@ import {
   BeginnerBuildsIcon,
   BossIcon,
   ChangeLogIcon,
+  CollectionIcon,
   CommunityBuildsIcon,
   CreateBuildIcon,
   DiscordIcon,
@@ -61,13 +62,13 @@ export const NAV_ITEMS = {
     href: CHANGELOG_URL,
     icon: ChangeLogIcon,
   },
-  // collectionBuilds: {
-  //   label: 'Builds by Collection',
-  //   description:
-  //     'View Remnant 2 builds that you can create based on items you have collected and logged in the Remnant 2 Item Tracker.',
-  //   href: '/community-builds?withCollection=true',
-  //   icon: BuildsByCollectionIcon,
-  // },
+  collections: {
+    label: 'Build Collections',
+    description:
+      'Group and share your favorite Remnant 2 Toolkit builds with your friends and the community.',
+    href: '/profile/collections',
+    icon: CollectionIcon,
+  },
   communityBuilds: {
     label: 'Community Builds',
     description:

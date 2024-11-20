@@ -52,6 +52,7 @@ export { ChevronsLeftIcon } from './common/icons/chevrons-left';
 export { ChevronsRightIcon } from './common/icons/chevrons-right';
 export { CloseIcon } from './common/icons/close';
 export { CloseCircleIcon } from './common/icons/close-circle';
+export { CollectionIcon } from './common/icons/collection';
 export { CommunityBuildsIcon } from './common/icons/community-builds';
 export { CreateBuildIcon } from './common/icons/create-build';
 export { DiscordIcon } from './common/icons/discord';

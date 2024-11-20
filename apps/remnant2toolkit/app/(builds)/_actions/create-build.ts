@@ -8,6 +8,7 @@ import { badWordFilter } from '@/app/_libs/bad-word-filter';
 import { sendWebhook } from '@/app/_libs/moderation/send-webhook';
 import { verifyBuildState } from '@/app/_libs/moderation/verify-build-state';
 import { verifyCreatorInfo } from '@/app/_libs/moderation/verify-creator-info';
+import { validateEnv } from '@/app/_libs/validate-env';
 import { BUILD_REVALIDATE_PATHS } from '@/app/(builds)/_constants/build-revalidate-paths';
 import { DEFAULT_BUILD_NAME } from '@/app/(builds)/_constants/default-build-name';
 import { buildStateToBuildItems } from '@/app/(builds)/_libs/build-state-to-build-items';
@@ -24,6 +25,8 @@ export async function createBuild({
 }: {
   buildVariantsStringified: string[];
 }): Promise<BuildActionResponse> {
+  const env = validateEnv();
+
   // session validation
   const session = await getSession();
   if (!session || !session.user || !session.user.id) {
@@ -98,7 +101,7 @@ export async function createBuild({
         };
       }
 
-      if (verifyBuildStateResponse.webhook) {
+      if (verifyBuildStateResponse.webhook && !env.WEBHOOK_DISABLED) {
         await sendWebhook(verifyBuildStateResponse.webhook);
         return {
           errors: [

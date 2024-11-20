@@ -64,6 +64,14 @@ export function ProfileNavbar({
       private: true,
     },
     {
+      name: NAV_ITEMS.collections.label,
+      href: {
+        pathname: `/profile/${profileId}/collections`,
+        query: { t: Date.now() },
+      },
+      current: pathname === `/profile/${profileId}/collections`,
+    },
+    {
       name: NAV_ITEMS.loadouts.label,
       href: {
         pathname: `/profile/${profileId}/loadouts`,
@@ -72,15 +80,15 @@ export function ProfileNavbar({
       current: pathname === `/profile/${profileId}/loadouts`,
       private: !isLoadoutPublic,
     },
-    {
-      name: 'Linked Builds (Deprecated)',
-      href: {
-        pathname: `/profile/${profileId}/linked-builds`,
-        query: { t: Date.now() },
-      },
-      current: pathname === `/profile/${profileId}/linked-builds`,
-      private: false,
-    },
+    // {
+    //   name: 'Linked Builds (Deprecated)',
+    //   href: {
+    //     pathname: `/profile/${profileId}/linked-builds`,
+    //     query: { t: Date.now() },
+    //   },
+    //   current: pathname === `/profile/${profileId}/linked-builds`,
+    //   private: false,
+    // },
   ];
 
   if (!showPrivateLinks) {
