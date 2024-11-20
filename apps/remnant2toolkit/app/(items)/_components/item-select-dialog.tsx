@@ -14,9 +14,10 @@ import { type SortingPreference } from '@/app/_types/localstorage';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { ItemButton } from '@/app/(items)/_components/item-button';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
-import { traitItems } from '@/app/(items)/_constants/trait-items';
-import { type Item } from '@/app/(items)/_types/item';
-import { itemMatchesSearchText } from '@/app/(items)/_utils/item-matches-search-text';
+import { itemMatchesSearchText } from '@/app/(items)/_lib/item-matches-search-text';
+import { sortTraitsItemsByPreference } from '@/app/(items)/_lib/sort-trait-items-by-preference';
+import type { Item } from '@/app/(items)/_types/item';
+import type { TraitItem } from '@/app/(items)/_types/trait-item';
 import { ItemSearchText } from '@/app/(items)/item-lookup/_components/item-search-text';
 import { ITEM_TOKENS } from '@/app/(items)/item-lookup/_constants/item-tokens';
 
@@ -38,22 +39,17 @@ function buildSearchTextOptions(): Array<{ id: string; name: string }> {
   return items;
 }
 
-function sortByPreference({
+function handleTraitPreferenceChange({
   items,
   buildSlot,
   sortingPreference,
 }: {
   items: Item[];
-  buildSlot: ItemCategory | null;
+  buildSlot: ItemCategory;
   sortingPreference: SortingPreference;
 }) {
   if (buildSlot !== 'trait') return items;
-
-  if (sortingPreference === 'alphabetical') {
-    return [...items].sort((a, b) => a.name.localeCompare(b.name));
-  } else {
-    return traitItems;
-  }
+  return sortTraitsItemsByPreference(items as TraitItem[], sortingPreference);
 }
 
 interface Props {
@@ -93,7 +89,7 @@ export function ItemSelectDialog({
 
     const sortedItems =
       buildSlot === 'trait'
-        ? sortByPreference({
+        ? handleTraitPreferenceChange({
             items: filteredItems,
             buildSlot,
             sortingPreference,

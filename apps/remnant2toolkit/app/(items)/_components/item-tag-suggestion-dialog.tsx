@@ -21,7 +21,7 @@ import { type Item } from '@/app/(items)/_types/item';
 import { ModItem } from '@/app/(items)/_types/mod-item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
-import { itemMatchesSearchText } from '@/app/(items)/_utils/item-matches-search-text';
+import { itemMatchesSearchText } from '@/app/(items)/_lib/item-matches-search-text';
 import { ITEM_TOKENS } from '@/app/(items)/item-lookup/_constants/item-tokens';
 import { type ItemToken } from '@/app/(items)/item-lookup/_types/item-token';
 

@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-11-20
+
+### Fixed
+
+- Fixed bug that prevented the sorting of Traits with the in-game ordering in the builder.
+
 ## 2024-11-19
 
 ### Added

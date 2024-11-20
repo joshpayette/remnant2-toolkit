@@ -32,7 +32,7 @@ import { PerkItem } from '@/app/(items)/_types/perk-item';
 import { SkillItem } from '@/app/(items)/_types/skill-item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
-import { itemShareEndpoint } from '@/app/(items)/_utils/get-item-endpoint';
+import { itemShareEndpoint } from '@/app/(items)/_lib/get-item-endpoint';
 
 function generateDungeonLabel(location: ItemLocation, itemId: string) {
   let label = `${location.world} - `;

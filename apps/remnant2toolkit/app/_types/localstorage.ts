@@ -23,7 +23,7 @@ export interface ItemTrackerLocalStorage {
 
 export const DEFAULT_ITEM_COMPARE_LIST = getArrayOfLength(5).map(() => '');
 
-export const SORTING_PREFERENCES = ['alphabetical', 'in-game'];
+export const SORTING_PREFERENCES = ['alphabetical', 'in-game'] as const;
 export type SortingPreference = (typeof SORTING_PREFERENCES)[number];
 
 export type ItemOwnershipPreference = boolean;

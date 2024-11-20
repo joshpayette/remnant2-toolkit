@@ -1,8 +1,8 @@
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type Item } from '@/app/(items)/_types/item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
-import { itemCategories } from '@/app/(items)/_utils/get-item-categories';
-import { itemToCsvItem } from '@/app/(items)/_utils/item-to-csv-item';
+import { itemCategories } from '@/app/(items)/_lib/get-item-categories';
+import { itemToCsvItem } from '@/app/(items)/_lib/item-to-csv-item';
 
 /**
  * Converts the build state into a CSV file

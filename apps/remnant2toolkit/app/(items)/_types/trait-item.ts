@@ -7,6 +7,7 @@ import {
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/_constants/default-trait-amount';
 import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
 import { traitItems } from '@/app/(items)/_constants/trait-items';
+import { sortTraitsItemsByPreference } from '@/app/(items)/_lib/sort-trait-items-by-preference';
 import { BaseItem } from '@/app/(items)/_types/base-item';
 import { type Item } from '@/app/(items)/_types/item';
 
@@ -230,45 +231,10 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
       sortedTraitItems.push(remainingTrait);
     }
 
-    // Traits should be ordered by type:
-    // 1. Archetype, sorted alphabetical
-    // 2. Core, sorted Vigor, Endurance, Spirit, Expertise
-    // 3. Trait, sorted alphabetical
-    return [
-      ...sortedTraitItems
-        .filter((i) => i.type === 'archetype')
-        .map((i) => {
-          const isOwned =
-            buildItems.find((j) => j.itemId === i.id)?.isOwned || false;
-          return { ...i, isOwned };
-        })
-        .sort((a, b) => a.name.localeCompare(b.name)),
-      ...sortedTraitItems
-        .filter((i) => i.type === 'core')
-        .map((i) => {
-          const isOwned =
-            buildItems.find((j) => j.itemId === i.id)?.isOwned || false;
-          return { ...i, isOwned };
-        })
-        .sort((a, b) => {
-          if (a.name === 'Vigor') return -1;
-          if (b.name === 'Vigor') return 1;
-          if (a.name === 'Endurance') return -1;
-          if (b.name === 'Endurance') return 1;
-          if (a.name === 'Spirit') return -1;
-          if (b.name === 'Spirit') return 1;
-          if (a.name === 'Expertise') return -1;
-          if (b.name === 'Expertise') return 1;
-          return a.name.localeCompare(b.name);
-        }),
-      ...sortedTraitItems
-        .filter((i) => i.type === 'trait')
-        .map((i) => {
-          const isOwned =
-            buildItems.find((j) => j.itemId === i.id)?.isOwned || false;
-          return { ...i, isOwned };
-        })
-        .sort((a, b) => a.name.localeCompare(b.name)),
-    ];
+    return sortTraitsItemsByPreference(sortedTraitItems, 'in-game').map((i) => {
+      const isOwned =
+        buildItems.find((j) => j.itemId === i.id)?.isOwned || false;
+      return { ...i, isOwned };
+    });
   }
 }
