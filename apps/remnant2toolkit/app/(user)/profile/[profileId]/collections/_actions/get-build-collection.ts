@@ -9,6 +9,7 @@ import { DEFAULT_DISPLAY_NAME } from '@/app/(user)/profile/_constants/default-di
 
 export async function getBuildCollection(
   collectionId: string,
+  profileId: string,
 ): Promise<
   | ErrorResponse
   | { message: string; collection: BuildCollection; builds: DBBuild[] }
@@ -22,6 +23,7 @@ export async function getBuildCollection(
     const collection = await prisma.buildCollection.findUnique({
       where: {
         id: collectionId,
+        createdById: profileId,
       },
       include: {
         createdBy: true,

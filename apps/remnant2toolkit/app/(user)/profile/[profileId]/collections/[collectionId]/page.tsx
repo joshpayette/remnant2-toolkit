@@ -127,7 +127,7 @@ export default async function Page({
 }) {
   const session = await getSession();
 
-  const collectionResponse = await getBuildCollection(collectionId);
+  const collectionResponse = await getBuildCollection(collectionId, profileId);
   if (isErrorResponse(collectionResponse)) {
     return (
       <PageHeader

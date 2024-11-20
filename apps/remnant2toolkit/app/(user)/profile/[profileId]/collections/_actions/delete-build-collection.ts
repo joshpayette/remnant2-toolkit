@@ -17,6 +17,7 @@ export async function deleteBuildCollection(
     const collection = await prisma.buildCollection.findUnique({
       where: {
         id: buildId,
+        createdById: session.user.id,
       },
       include: {
         createdBy: true,
@@ -37,6 +38,7 @@ export async function deleteBuildCollection(
     await prisma.buildCollection.delete({
       where: {
         id: buildId,
+        createdById: session.user.id,
       },
     });
 
