@@ -7,7 +7,6 @@ import { PageHeader } from '@/app/_components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
-import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
 import { getBuildCollection } from '@/app/(user)/profile/[profileId]/collections/_actions/get-build-collection';
 import { BuildCollectionBuildList } from '@/app/(user)/profile/[profileId]/collections/[collectionId]/_components/build-collection-build-list';
 
@@ -63,9 +62,6 @@ export async function generateMetadata({
       update: {},
     });
   }
-
-  const avatarId = profileData?.avatarId;
-  const avatar = getAvatarById(avatarId, profileId);
 
   const collectionResponse = await prisma.buildCollection.findUnique({
     where: {
