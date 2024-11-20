@@ -19,7 +19,7 @@ import { BIOMES } from '@/app/(items)/_types/locations';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
-import { itemMatchesSearchText } from '@/app/(items)/_utils/item-matches-search-text';
+import { itemMatchesSearchText } from '@/app/(items)/_lib/item-matches-search-text';
 import { DEFAULT_ITEM_LOOKUP_FILTERS } from '@/app/(items)/item-lookup/_components/item-lookup-filters';
 import { parseUrlFilters } from '@/app/(items)/item-lookup/_lib/parse-url-filters';
 import { type ItemLookupFilters } from '@/app/(items)/item-lookup/_types/item-lookup-filters';

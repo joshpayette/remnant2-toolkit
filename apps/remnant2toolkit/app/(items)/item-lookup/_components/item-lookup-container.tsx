@@ -3,7 +3,7 @@
 import { ToCsvButton } from '@/app/_components/to-csv-button';
 import { allItems } from '@/app/(items)/_constants/all-items';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
-import { itemToCsvItem } from '@/app/(items)/_utils/item-to-csv-item';
+import { itemToCsvItem } from '@/app/(items)/_lib/item-to-csv-item';
 import { ItemCompareList } from '@/app/(items)/item-lookup/_components/item-compare-list';
 import { ItemList } from '@/app/(items)/item-lookup/_components/item-list';
 import { ItemLookupFilters } from '@/app/(items)/item-lookup/_components/item-lookup-filters';
