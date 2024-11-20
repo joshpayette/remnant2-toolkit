@@ -38,7 +38,7 @@ import { RingItem } from '@/app/(items)/_types/ring-item';
 import { SkillItem } from '@/app/(items)/_types/skill-item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
-import { itemCategories } from '@/app/(items)/_utils/get-item-categories';
+import { itemCategories } from '@/app/(items)/_lib/get-item-categories';
 
 /**
  * Parses the build values from the query string

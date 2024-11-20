@@ -9,7 +9,7 @@ export const modItems: ModItem[] = [
     id: 'h9k5pd',
     dlc: 'dlc2',
     description:
-      'Imbues ammunition with BLEED and increases Lifesteal by 5% for 20s. Shots also apply BLEEDING, dealing 200 damage over 10s.',
+      'Imbues ammunition with BLEED and increases Lifesteal by 5% for 20s. Shots also apply BLEEDING, dealing 200 → 600 damage over 10s.',
     wikiLinks: [`https://remnant.wiki/Abrasive_Rounds`],
     location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
@@ -68,7 +68,7 @@ export const modItems: ModItem[] = [
     id: 'mqta6g',
     dlc: 'base',
     description:
-      'Fires a short range burst of 7 star fragments which deal 70 - 210 damage each. Fragments bounce off walls up to 3 times, dealing 10% additional damage per bounce. Weakspot hits deal reduced damage.',
+      'Fires a short range burst of 7 star fragments which deal 70 → 210 damage each. Fragments bounce off walls up to 3 times, dealing 10% additional damage per bounce. Weakspot hits deal reduced damage.',
     wikiLinks: [`https://remnant.wiki/Astral_Burst`],
     location: { world: 'Yaesha', dungeon: ['Cathedral of Omens'] },
   },
@@ -1175,7 +1175,8 @@ export const modItems: ModItem[] = [
     id: 'Rix6Sr',
     dlc: 'dlc3',
     tags: ['Charged Shot', 'Recoil', 'Critical Chance', 'Critical Damage'],
-    description: `Activation stabilizes Monorail, increasing Charge Speed by 25% and reducing Recoil and Sway by 75%. Lasts 20s.\n\nAdditional, for each 5% of the Charge Meter filled upon firing, gain 1% Critical Chance and Critical Damage. Max 20%.`,
+    description:
+      'Activation stabilizes Monorail, increasing Charge Speed by 25% and reducing Recoil and Sway by 75%. Lasts 20s.\n\nAdditionally, for each 5% of the Charge Meter filled upon firing, gain 1% Critical Chance and Critical Damage. Max 20%.',
     wikiLinks: [`https://remnant.wiki/Monorail`],
     linkedItems: {
       weapon: {

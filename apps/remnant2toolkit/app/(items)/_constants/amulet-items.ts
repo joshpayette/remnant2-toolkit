@@ -586,7 +586,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['Skill Duration'],
     description:
-      'Doubles Base Skill Charges but increases all Skill Cooldowns by 25%.\n\nFor Heavy Weapons, doubles Heavy Weapon Base Ammo instead.',
+      "Doubles Base Skill Charges but increases all Skill Cooldowns by 25%.\n\nDoubles base N'Erudian Energy Reserves for Turret and Drone.",
     wikiLinks: [`https://remnant.wiki/Hyperconductor`],
     location: { world: `N'Erud`, dungeon: ['Terminus Station'] },
   },
@@ -665,7 +665,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['All Damage'],
     description:
-      'Increases Mod and Skill Cast Speed by 35%. Casting a Skill or Mod increases all damage by 15% for 20s.',
+      'Casting a Mod or Skill increases All Damage by 15% for 20s. Increases Cast Speed by 35%.',
     wikiLinks: [`https://remnant.wiki/Jester's_Bell`],
     location: { world: 'Losomn', dungeon: ['Beatific Palace'] },
   },
@@ -706,7 +706,7 @@ export const amuletItems: AmuletItem[] = [
     id: 'hwpkls',
     dlc: 'base',
     tags: ['Mod Cost', 'Mod Duration'],
-    description: 'Increases Mod Duration by 50%. Increases Mod Cost by 10%',
+    description: 'Increases Mod Duration by 50%. Increases Mod Cost by 10%.',
     wikiLinks: [`https://remnant.wiki/Laemir_Censer`],
     location: { world: 'Yaesha', dungeon: ['Forgotten Field'] },
   },
@@ -800,7 +800,8 @@ export const amuletItems: AmuletItem[] = [
     id: 'r11n5x',
     dlc: 'base',
     tags: ['Status Effect', 'All Damage'],
-    description: `Reduces the Damage of Status Effects applied to wearer by 50%. Gain 25% increased Damage when suffering from a Status Effect or Blight.`,
+    description:
+      'Reduces the Damage of STATUS Effects applied to wearer by 50%. Gain 25% increased Damage when suffering from a STATUS or BLIGHT Effect.',
     wikiLinks: [`https://remnant.wiki/Neckbone_Necklace`],
     location: { world: 'Losomn', dungeon: ['The Great Hall'] },
   },
@@ -880,7 +881,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['Neutral Backdash', 'Critical Chance'],
     description:
-      'Neutral Backdash creates a Magic Card lasting 1s. If Card absorbs enemy damage, gain 25% Critical Chance for 5s. Neutral Backdash costs 30% additional Stamina.',
+      'Neutral Backdash creates a Magic Card lasting 1s. If Card absorbs enemy damage, gain 25% Critical Chance for 5s. Neutral Backdash costs 15% additional Stamina.',
     wikiLinks: [`https://remnant.wiki/One-Eyed_Joker_Idol`],
     location: { world: 'Losomn', dungeon: ['Malefic Palace'] },
   },
@@ -1053,7 +1054,7 @@ export const amuletItems: AmuletItem[] = [
     id: 'iq6zyc',
     dlc: 'base',
     tags: ['Health', 'Stamina', 'Encumbrance'],
-    description: 'Grants 20 Health, 20 Stamina and -15 Armor Encumbrance',
+    description: 'Grants 20 Health, 20 Stamina and -15 Armor Encumbrance.',
     wikiLinks: [`https://remnant.wiki/Rusted_Navigator's_Pendant`],
     externalTokens: [`Navigator's Set`],
     location: { world: `N'Erud`, dungeon: [`Forgotten Prison`] },
@@ -1070,7 +1071,7 @@ export const amuletItems: AmuletItem[] = [
     dlc: 'base',
     tags: ['Damage Reduction'],
     description:
-      'Direct damage taken from enemies, and any additional damage within 2s, is reduced by 60%. Once the defensive buff expires, all incoming damage to wearer is increased by 15% for 10s.',
+      'Direct Damage taken from enemies grants an additional 60% Damage Reduction for 5s. Once the defensive buff expires, all incoming damage to wearer is increased by 15% for 10s.',
     wikiLinks: [`https://remnant.wiki/Samoflange`],
     location: { world: `N'Erud`, dungeon: [`Tower of the Unseen`] },
   },
