@@ -1,5 +1,8 @@
-import { BaseButton, EyeIcon } from '@repo/ui';
+import { BaseButton, EyeIcon, ShareIcon } from '@repo/ui';
+import { urlNoCache } from '@repo/utils';
+import copy from 'clipboard-copy';
 import { usePathname, useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 import type { BuildCollectionWithBuilds } from '@/app/(user)/profile/[profileId]/collections/_types/build-collection-with-builds';
 
@@ -26,8 +29,23 @@ export function BuildCollectionCard({ collection }: Props) {
             {collection.description || 'No collection description set.'}
           </div>
         </div>
-        <div className="mt-2 flex items-center justify-end gap-x-2 text-sm">
-          <div className="flex w-full items-center justify-end gap-6 p-2 text-sm">
+        <div className="mt-2 flex items-center justify-center gap-x-2 text-sm">
+          <div className="flex w-full items-center justify-center gap-6 p-2 text-sm">
+            <BaseButton
+              plain
+              aria-label="Share Build Collection"
+              onClick={() => {
+                const url = urlNoCache(
+                  `https://remnant2toolkit.com${pathname}/${collection.id}`,
+                );
+                copy(url);
+                toast.success('Copied Build Collection URL to clipboard.');
+              }}
+            >
+              <div className="flex flex-col items-center justify-end text-purple-500">
+                <ShareIcon className="h-4 w-4" /> Share
+              </div>
+            </BaseButton>
             <BaseButton
               plain
               aria-label="View Build Collection"

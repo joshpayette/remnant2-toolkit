@@ -8,6 +8,14 @@ interface Props {
 }
 
 export function BuildCollectionsList({ collections }: Props) {
+  if (!collections.length) {
+    return (
+      <div className="mt-4 text-center">
+        <p>No collections found.</p>
+      </div>
+    );
+  }
+
   return (
     <ul
       role="list"

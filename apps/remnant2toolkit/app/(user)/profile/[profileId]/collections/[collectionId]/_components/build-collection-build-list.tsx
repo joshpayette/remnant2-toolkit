@@ -1,8 +1,10 @@
 'use client';
 
 import type { BuildCollection } from '@repo/db';
-import { BaseButton, EditIcon, TrashIcon } from '@repo/ui';
-import { useRouter } from 'next/navigation';
+import { BaseButton, EditIcon, ShareIcon, TrashIcon } from '@repo/ui';
+import { urlNoCache } from '@repo/utils';
+import copy from 'clipboard-copy';
+import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -15,6 +17,7 @@ import { editBuildCollection } from '@/app/(user)/profile/[profileId]/collection
 import { MAX_ALLOWED_BUILDS_PER_COLLECTION } from '@/app/(user)/profile/[profileId]/collections/_constants/max-allowed-builds-per-collection';
 import { DeleteBuildCollectionAlert } from '@/app/(user)/profile/[profileId]/collections/[collectionId]/_components/delete-build-collection-alert';
 import { EditBuildCollectionDialog } from '@/app/(user)/profile/[profileId]/collections/[collectionId]/_components/edit-build-collection-dialog';
+import { RemoveBuildFromCollectionAlert } from '@/app/(user)/profile/[profileId]/collections/[collectionId]/_components/remove-build-from-collection-alert';
 
 interface Props {
   builds: DBBuild[];
@@ -28,10 +31,13 @@ export function BuildCollectionBuildList({
   isEditable,
 }: Props) {
   const router = useRouter();
+  const pathname = usePathname();
 
   const [editCollectionDialogOpen, setEditCollectionDialogOpen] =
     useState(false);
   const [deleteAlertOpen, setDeleteAlertOpen] = useState(false);
+  const [buildToRemove, setBuildToRemove] = useState<string | null>(null);
+  const removeBuildAlertOpen = buildToRemove !== null;
 
   async function handleDeleteCollection() {
     setDeleteAlertOpen(false);
@@ -47,13 +53,13 @@ export function BuildCollectionBuildList({
     );
   }
 
-  async function handleRemoveBuildFromCollection(buildId: string) {
+  async function handleRemoveBuildFromCollection() {
     const response = await editBuildCollection({
       collectionId: collection.id,
       collectionName: collection.name,
       collectionDescription: collection.description || '',
       buildIds: builds
-        .filter((build) => build.id !== buildId)
+        .filter((build) => build.id !== buildToRemove)
         .map((build) => build.id),
     });
     if (isErrorResponse(response)) {
@@ -62,6 +68,7 @@ export function BuildCollectionBuildList({
       return;
     }
     toast.success('Build removed from collection');
+    setBuildToRemove(null);
     router.refresh();
   }
 
@@ -89,6 +96,18 @@ export function BuildCollectionBuildList({
     <>
       {isEditable && (
         <div className="flex gap-2">
+          <BaseButton
+            color="violet"
+            aria-label="Share build collection with others."
+            onClick={() => {
+              const url = urlNoCache(`https://remnant2toolkit.com${pathname}`);
+              copy(url);
+              toast.success('Copied Build Collection URL to clipboard.');
+            }}
+          >
+            <ShareIcon className="h-4 w-4" /> Share Collection
+          </BaseButton>
+
           <EditBuildCollectionDialog
             open={editCollectionDialogOpen}
             onClose={() => setEditCollectionDialogOpen(false)}
@@ -121,7 +140,13 @@ export function BuildCollectionBuildList({
         </div>
       )}
 
+      <RemoveBuildFromCollectionAlert
+        open={removeBuildAlertOpen}
+        onClose={() => setBuildToRemove(null)}
+        onConfirm={() => handleRemoveBuildFromCollection()}
+      />
       <BuildList
+        key={collection.id}
         isLoading={false}
         itemsOnThisPage={MAX_ALLOWED_BUILDS_PER_COLLECTION}
         pagination={null}
@@ -139,7 +164,7 @@ export function BuildCollectionBuildList({
                     <BaseButton
                       color="red"
                       aria-label="Delete Build"
-                      onClick={() => handleRemoveBuildFromCollection(build.id)}
+                      onClick={() => setBuildToRemove(build.id)}
                     >
                       <TrashIcon className="h-4 w-4" />
                     </BaseButton>

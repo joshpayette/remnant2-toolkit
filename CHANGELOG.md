@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-11-19
+
+### Added
+
+- You can now create Build Collections! This feature allows you to group up to 32 builds into a single shareable collection. You can add a name and short description to each build collection. Build Collections can be viewed on the user's profile page.
+
+### Changed
+
+- Legendary Prism Fragments now have direct links to the Remnant.wiki page for the item.
+- Linked Builds link removed from user profiles. This can still be found by manually adding /linked-builds at the end of your profile link. This feature is no longer officially supported.
+
 ## 2024-11-18
 
 ### Fixed
