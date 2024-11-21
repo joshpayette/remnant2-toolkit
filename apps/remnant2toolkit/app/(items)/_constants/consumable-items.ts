@@ -300,7 +300,7 @@ export const consumableItems: ConsumableItem[] = [
     imagePath: '/items/consumables/mysteryjerkey.png',
     saveFileSlug: 'Consumable_MysteryJerky_C',
     id: '6aasor',
-    dlc: 'base',
+    dlc: 'dlc1',
     tags: ['Grey Health'],
     description:
       'Converts  6.66 Health into Grey Health per second. Last  15s.',
