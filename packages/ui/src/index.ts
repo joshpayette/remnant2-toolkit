@@ -86,6 +86,7 @@ export { OwnershipIcon } from './common/icons/ownership';
 export { PaperClipIcon } from './common/icons/paper-clip';
 export { PrismIcon } from './common/icons/prism';
 export { ProfileIcon } from './common/icons/profile';
+export { QuestionIcon } from './common/icons/question';
 export { QuizIcon } from './common/icons/quiz';
 export { RandomIcon } from './common/icons/random';
 export { ResourcesIcon } from './common/icons/resources';

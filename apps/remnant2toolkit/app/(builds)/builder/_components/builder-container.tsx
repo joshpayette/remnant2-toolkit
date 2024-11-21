@@ -4,6 +4,7 @@ import { type ReactNode, type RefObject } from 'react';
 
 import { type UpdateBuildCategory } from '@/app/(builds)/_libs/update-build-state';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
+import { BuilderHelp } from '@/app/(builds)/builder/_components/builder-help';
 
 import { Builder } from './builder';
 
@@ -48,6 +49,9 @@ export function BuilderContainer({
 }: Props) {
   return (
     <>
+      <div className="flex w-full max-w-lg items-center justify-start sm:max-w-4xl lg:max-w-6xl">
+        <BuilderHelp />
+      </div>
       <div className="flex w-full max-w-lg flex-col-reverse items-start justify-center gap-2 sm:max-w-4xl lg:max-w-6xl lg:flex-row-reverse">
         <div
           id="actions"
