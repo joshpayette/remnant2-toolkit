@@ -240,14 +240,16 @@ export async function updateBuild({
       }),
     );
     // Add the newly created builds to the BuildVariant table
-    const _createBuildVariantsResponse = await prisma.buildVariant.createMany({
-      data: createBuildsResponse.map((build) => {
-        return {
-          primaryBuildId: mainBuildState.buildId as string,
-          secondaryBuildId: build.id,
-        };
+    const createBuildVariantsResponse = await Promise.all(
+      createBuildsResponse.map(async (build) => {
+        return prisma.buildVariant.create({
+          data: {
+            primaryBuildId: mainBuildState.buildId as string,
+            secondaryBuildId: build.id,
+          },
+        });
       }),
-    });
+    );
 
     const existingUpdatableBuildIds = await prisma.build.findMany({
       where: {
@@ -411,11 +413,13 @@ export async function updateBuild({
     if (shouldSendWebhook) {
       let index = 0;
       for await (const response of createBuildsResponse) {
-        const matchingVariant = variantsToCreate[index];
+        const matchingVariant = createBuildVariantsResponse.find(
+          (v) => v.secondaryBuildId === response.id,
+        );
 
         const buildLink = `${urlNoCache(
           `https://remnant2toolkit.com/builder/${mainBuildState.buildId}`,
-        )}&variant=${matchingVariant?.variantIndex ?? index + 1}`;
+        )}&variant=${matchingVariant?.index ?? index + 1}`;
 
         const shouldSendWebhook =
           mainBuildState.isPublic && process.env.WEBHOOK_DISABLED !== 'true';
