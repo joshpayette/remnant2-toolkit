@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-11-20
 
+### Added
+
+- There is now a Help button above the builder that will give a quick rundown of some of the features of the builder.
+
 ### Fixed
 
 - Fixed bug that prevented the sorting of Traits with the in-game ordering in the builder.
