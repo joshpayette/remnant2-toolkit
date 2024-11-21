@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Fixed bug that prevented the sorting of Traits with the in-game ordering in the builder.
 - Updated numerous item descriptions to match updates to the wiki.
+- Breach Accelerator was mistakenly marked as "base game" rather than "dlc3".
+- Meat Shake was mistakenly marked as "base game" rather than "dlc1".
+- Mystery Jerky was mistakenly marked as "base game" rather than "dlc1".
+- Mudtooth's Snake Oil was mistakenly marked as "base game" rather than "dlc3".
 
 ## 2024-11-19
 

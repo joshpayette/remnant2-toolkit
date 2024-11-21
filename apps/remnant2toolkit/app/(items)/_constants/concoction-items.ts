@@ -94,7 +94,7 @@ export const concoctionItems: ConcoctionItem[] = [
     imagePath: '/items/consumables/meatshake.png',
     saveFileSlug: 'Consumable_MeatShake_C',
     id: '4yzeco',
-    dlc: 'base',
+    dlc: 'dlc1',
     tags: ['Damage Reduction', 'Consumable'],
     description:
       'Increases Damage Reduction by 6.5%.\n\nConcoctions will stay in effect after death. Only one Concoction may be active at a time.',
@@ -120,7 +120,7 @@ export const concoctionItems: ConcoctionItem[] = [
     imagePath: '/items/consumables/mudtoothssnakeoil.png',
     saveFileSlug: 'Consumable_MudtoothsSnakeOil_C',
     id: 'ru74g9',
-    dlc: 'base',
+    dlc: 'dlc3',
     tags: ['Consumable'],
     description: `Grants 1 random Concoction effect. Ignores concoction limit.\n\nConcoctions will stay in effect after death.`,
     wikiLinks: [`https://remnant.wiki/Mudtooth's_Snake_Oil`],

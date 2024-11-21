@@ -395,7 +395,7 @@ export const ringItems: RingItem[] = [
     description: `Increases Movement Speed and Physical Damage by 5%. Bonus is doubled when HASTE is active.`,
     wikiLinks: [`https://remnant.wiki/Breach_Accelerator`],
     location: { world: `N'Erud`, dungeon: 'World Drop' },
-    dlc: 'base',
+    dlc: 'dlc3',
   },
   {
     category: 'ring',
