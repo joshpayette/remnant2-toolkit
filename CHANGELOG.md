@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-11-22
+
+### Added
+
+- Added details about showing item ownership on the Builder Help dialog.
+
 ## 2024-11-21
 
 ### Changed
@@ -15,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Adding build variants to build collections was not properly displaying the entire build when you clicked into the build.
 - Fixed issue where a build would fail the quality build check if it had a melee weapon with no mod slot and a build variant with any melee weapon.
+- Fixed issue where rusty weapons were allowed to equip mutators in the builder.
 
 ## 2024-11-20
 
