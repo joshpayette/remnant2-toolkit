@@ -10,6 +10,7 @@ import {
   BaseDivider,
   BaseLink,
   OptionalOffIcon,
+  OwnershipIcon,
   QuestionIcon,
 } from '@repo/ui';
 import { useState } from 'react';
@@ -55,6 +56,21 @@ const sections = [
         manualWordBreaks={true}
       />
     ),
+  },
+  {
+    title: 'Item Ownership',
+    description: (
+      <>
+        If you have added your collected items to the{' '}
+        <BaseLink href="/item-tracker" className="underline">
+          Item Tracker
+        </BaseLink>
+        , you can click the <strong>Toggle Collected</strong> button to add the{' '}
+        <OwnershipIcon className="h-4 w-4 text-green-500" /> icon to items you
+        own in the build.
+      </>
+    ),
+    sample: null,
   },
   {
     title: 'Armor Calculator',

@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-11-22
+
+### Added
+
+- Added details about showing item ownership on the Builder Help dialog.
+
 ## 2024-11-21
 
 ### Changed
