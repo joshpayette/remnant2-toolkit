@@ -1,4 +1,5 @@
 import { MAX_ALLOWED_MODS } from '@/app/(builds)/_constants/max-allowed-mods';
+import { MAX_ALLOWED_MUTATORS } from '@/app/(builds)/_constants/max-allowed-mutators';
 import {
   MAX_TRAIT_AMOUNT,
   MAX_TRAIT_AMOUNT_WITH_TRAITOR,
@@ -101,21 +102,25 @@ export function isBuildQualityBuild(
   // Rusty items do not have mods, so reduce the total for every weapon that
   // has isRusty set to true
   const rustyWeaponCount = buildState.items.weapon.filter(
-    (weapon) => weapon !== null && weapon!.isRusty,
+    (weapon) => weapon !== null && weapon.isRusty,
   ).length;
   const requiredModCount = MAX_ALLOWED_MODS - rustyWeaponCount;
 
   const modsEquipped =
-    buildState.items.mod.filter((mod) => mod !== null).length ===
-    requiredModCount;
+    buildState.items.mod.filter((mod) => mod !== null && mod !== undefined)
+      .length === requiredModCount;
   if (!modsEquipped) {
     results.push({
       message: 'Build needs all mods equipped.',
     });
   }
 
+  const requiredMutatorCount = MAX_ALLOWED_MUTATORS - rustyWeaponCount;
+
   const mutatorsEquipped =
-    buildState.items.mutator.filter((mutator) => mutator !== null).length === 3;
+    buildState.items.mutator.filter(
+      (mutator) => mutator !== null && mutator !== undefined,
+    ).length === requiredMutatorCount;
   if (!mutatorsEquipped) {
     results.push({
       message: 'Build needs all mutators equipped.',
