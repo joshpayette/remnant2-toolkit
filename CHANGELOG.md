@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2024-11-21
 
+### Changed
+
+- Updated quality build logic. Whether a build was quality used to be run in the SQL query. Now it is a field that is assigned when a build is created or edited. This should reduce the compute load on the db.
+  - I ran a script along with this change that should preapply the quality field for all current builds.
+
 ### Fixed
 
 - Adding build variants to build collections was not properly displaying the entire build when you clicked into the build.
