@@ -1,4 +1,4 @@
-import { BaseButton, EyeIcon, ShareIcon } from '@repo/ui';
+import { BaseButton, BaseLink, EyeIcon, ShareIcon } from '@repo/ui';
 import { urlNoCache } from '@repo/utils';
 import copy from 'clipboard-copy';
 import { usePathname, useRouter } from 'next/navigation';
@@ -18,7 +18,12 @@ export function BuildCollectionCard({ collection }: Props) {
     <div className="divide-primary-800 border-primary-500 bg-background-solid col-span-1 flex flex-col divide-y rounded-lg border text-center shadow">
       <div className="flex flex-1 flex-col p-4 text-left">
         <h3 className="text-md whitespace-pre-wrap font-medium">
-          {collection.name}
+          <BaseLink
+            href={`${pathname}/${collection.id}`}
+            className="hover:underline"
+          >
+            {collection.name}
+          </BaseLink>
         </h3>
         <div className="mt-1 flex flex-row justify-between text-sm text-gray-400">
           # of Builds: {collection.builds.length}
