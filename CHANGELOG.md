@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Adding build variants to build collections was not properly displaying the entire build when you clicked into the build.
+- Fixed issue where a build would fail the quality build check if it had a melee weapon with no mod slot and a build variant with any melee weapon.
 
 ## 2024-11-20
 
