@@ -62,8 +62,16 @@ export async function getBuildCollection(
         continue;
       }
 
+      // Need to determine if each build is a variant
+      // If it is, we need to return the main build id, but set the variant
+      const variantBuild = await prisma.buildVariant.findFirst({
+        where: {
+          secondaryBuildId: build.id,
+        },
+      });
+
       builds.push({
-        id: build.id,
+        id: variantBuild?.primaryBuildId ?? build.id,
         name: build.name,
         description: build.description ?? '',
         isMember: false,
@@ -94,7 +102,7 @@ export async function getBuildCollection(
         totalUpvotes: buildResponse.BuildVotes.length,
         viewCount: build.viewCount,
         validatedViewCount: buildResponse.BuildValidatedViews.length,
-        variantIndex: 0,
+        variantIndex: variantBuild?.index ?? 0,
         duplicateCount: build.duplicateCount,
         buildItems: buildResponse.BuildItems,
         percentageOwned: 0, // TODO: Fix
