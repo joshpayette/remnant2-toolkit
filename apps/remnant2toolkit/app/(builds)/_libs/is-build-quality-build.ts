@@ -105,9 +105,11 @@ export function isBuildQualityBuild(
   ).length;
   const requiredModCount = MAX_ALLOWED_MODS - rustyWeaponCount;
 
+  console.info('requiredModCount', requiredModCount);
+
   const modsEquipped =
-    buildState.items.mod.filter((mod) => mod !== null).length ===
-    requiredModCount;
+    buildState.items.mod.filter((mod) => mod !== null && mod !== undefined)
+      .length === requiredModCount;
   if (!modsEquipped) {
     results.push({
       message: 'Build needs all mods equipped.',

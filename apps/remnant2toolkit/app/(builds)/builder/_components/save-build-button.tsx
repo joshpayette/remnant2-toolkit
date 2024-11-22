@@ -159,6 +159,7 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
   }
 
   const mainBuild = buildVariants[0];
+
   const qualityCheckResults = mainBuild ? isBuildQualityBuild(mainBuild) : [];
   const shouldShowQualityDialog =
     qualityCheckResults.length > 0 && mainBuild && mainBuild.isPublic;
