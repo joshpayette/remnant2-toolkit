@@ -13,6 +13,7 @@ model Build {
   isPatchAffected          Boolean                    @default(false)
   isPublic                 Boolean                    @default(true)
   isVideoApproved          Boolean                    @default(false)
+  isQualityBuild           Boolean                    @default(false)
   dateFeatured             DateTime?
   name                     String
   description              String?                    @db.Text
