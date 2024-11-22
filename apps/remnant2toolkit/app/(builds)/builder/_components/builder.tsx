@@ -976,9 +976,7 @@ export function Builder({
                     />
                   </div>
                   <div className="flex w-full grow items-start justify-around gap-4">
-                    {(weaponIndex === 1 &&
-                      !buildState.items.mod[weaponIndex]) ||
-                    buildState.items.weapon[weaponIndex]?.isRusty ? (
+                    {buildState.items.weapon[weaponIndex]?.isRusty ? (
                       <div className="h-[66px] w-[66px]" />
                     ) : (
                       <div>
@@ -1012,27 +1010,31 @@ export function Builder({
                       </div>
                     )}
 
-                    <div>
-                      {isEditable && !isScreenshotMode ? (
-                        <div className="w-full text-left md:text-center">
-                          <span className="text-xs">Mutator</span>
-                        </div>
-                      ) : null}
-                      <ItemButton
-                        item={buildState.items.mutator[weaponIndex] || null}
-                        isEditable={isEditable}
-                        isScreenshotMode={isScreenshotMode}
-                        manualWordBreaks={true}
-                        onClick={() =>
-                          handleItemSlotClick('mutator', weaponIndex)
-                        }
-                        onItemInfoClick={handleShowInfo}
-                        onToggleOptional={handleToggleOptional}
-                        showOwnership={itemOwnershipPreference}
-                        tooltipDisabled={itemInfoOpen}
-                        unoptimized={isScreenshotMode}
-                      />
-                    </div>
+                    {buildState.items.weapon[weaponIndex]?.isRusty ? (
+                      <div className="h-[66px] w-[66px]" />
+                    ) : (
+                      <div>
+                        {isEditable && !isScreenshotMode ? (
+                          <div className="w-full text-left md:text-center">
+                            <span className="text-xs">Mutator</span>
+                          </div>
+                        ) : null}
+                        <ItemButton
+                          item={buildState.items.mutator[weaponIndex] || null}
+                          isEditable={isEditable}
+                          isScreenshotMode={isScreenshotMode}
+                          manualWordBreaks={true}
+                          onClick={() =>
+                            handleItemSlotClick('mutator', weaponIndex)
+                          }
+                          onItemInfoClick={handleShowInfo}
+                          onToggleOptional={handleToggleOptional}
+                          showOwnership={itemOwnershipPreference}
+                          tooltipDisabled={itemInfoOpen}
+                          unoptimized={isScreenshotMode}
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}

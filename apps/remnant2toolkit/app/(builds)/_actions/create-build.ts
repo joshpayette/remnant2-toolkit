@@ -12,6 +12,7 @@ import { validateEnv } from '@/app/_libs/validate-env';
 import { BUILD_REVALIDATE_PATHS } from '@/app/(builds)/_constants/build-revalidate-paths';
 import { DEFAULT_BUILD_NAME } from '@/app/(builds)/_constants/default-build-name';
 import { buildStateToBuildItems } from '@/app/(builds)/_libs/build-state-to-build-items';
+import { isBuildQualityBuild } from '@/app/(builds)/_libs/is-build-quality-build';
 import { isPermittedBuilder } from '@/app/(builds)/_libs/permitted-builders';
 import { type BuildActionResponse } from '@/app/(builds)/_types/build-action-response';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
@@ -129,6 +130,7 @@ export async function createBuild({
             isPublic: Boolean(variant.isPublic),
             isPatchAffected: Boolean(variant.isPatchAffected),
             isModeratorApproved: false,
+            isQualityBuild: isBuildQualityBuild(variant).length === 0,
             videoUrl: variant.videoUrl,
             buildLink: variant.buildLink,
             buildLinkUpdatedAt: variant.buildLinkUpdatedAt,

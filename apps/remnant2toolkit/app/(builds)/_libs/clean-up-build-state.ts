@@ -21,6 +21,7 @@ import { linkWeaponsToMods } from './link-weapons-to-mods';
  *   - Ensures that the prime archetype trait has 10 points
  *   - If Boss Rush build tag is not equipped, remove all pylons from build
  *   - If Base Game build tag is equipped, ensure all items are from the base game
+ *   - If item isRusty, remove equipped weapon mod and mutator for that weapon
  */
 export function cleanUpBuildState(buildState: BuildState): BuildState {
   // Look at each mod and if it is linked to the wrong weapon, remove it
@@ -39,6 +40,15 @@ export function cleanUpBuildState(buildState: BuildState): BuildState {
       }
     }
     return mod;
+  });
+
+  // If weapon isRusty, remove equipped weapon mod and mutator for that weapon
+  buildState.items.weapon = buildState.items.weapon.map((weapon, index) => {
+    if (weapon?.isRusty) {
+      buildState.items.mod[index] = null;
+      buildState.items.mutator[index] = null;
+    }
+    return weapon;
   });
 
   // Get the new number of allowed concoctions
