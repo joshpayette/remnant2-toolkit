@@ -170,7 +170,7 @@ export const relicFragmentItems: RelicFragmentItem[] = [
     id: '0qxyqo',
     dlc: 'base',
     tags: ['Critical Damage'],
-    description: 'Critical Damage',
+    description: 'Increases Critical Damage by 10%.',
     wikiLinks: [`https://remnant.wiki/Relic_Fragment`],
   },
   {
