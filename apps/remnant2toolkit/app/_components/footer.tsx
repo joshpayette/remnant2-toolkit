@@ -1,9 +1,9 @@
-import { DISCORD_INVITE_URL } from '@repo/constants';
 import { cn, FooterContainer, getImageUrl } from '@repo/ui';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
+import { CONFIG } from '@/app/config';
 
 const aClass = 'text-gray-300 hover:text-primary-400 underline';
 
@@ -37,7 +37,11 @@ export function Footer() {
       <p className="pb-4">
         Got an issue or feature request? Want to be involved in giving feedback
         on the latest features? Want your build featured on the site? Join the{' '}
-        <a href={DISCORD_INVITE_URL} target="_blank" className={cn(aClass)}>
+        <a
+          href={CONFIG.site.urls.discordInvite ?? ''}
+          target="_blank"
+          className={cn(aClass)}
+        >
           Remnant 2 Toolkit Discord
         </a>
         !

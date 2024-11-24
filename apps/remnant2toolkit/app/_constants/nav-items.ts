@@ -1,4 +1,3 @@
-import { CHANGELOG_URL, DISCORD_INVITE_URL } from '@repo/constants';
 import {
   ArmorGeneratorIcon,
   BaseGameBuildsIcon,
@@ -30,6 +29,7 @@ import {
 
 import VashIcon from '@/app/_components/vash-icon';
 import WikiIcon from '@/app/_components/wiki-icon';
+import { CONFIG } from '@/app/config';
 
 /**
  * The base pages for the site
@@ -59,7 +59,7 @@ export const NAV_ITEMS = {
     label: 'Change Log',
     description:
       'A running log of all additions, changes, and fixes to the Remnant 2 Toolkit.',
-    href: CHANGELOG_URL,
+    href: CONFIG.site.urls.changelog,
     icon: ChangeLogIcon,
   },
   collections: {
@@ -87,7 +87,7 @@ export const NAV_ITEMS = {
     label: 'Join the Toolkit Discord!',
     description:
       'Weigh in on new features, get help with builds, report bugs, or just hang out!',
-    href: DISCORD_INVITE_URL,
+    href: CONFIG.site.urls.discordInvite,
     icon: DiscordIcon,
   },
   favoritedBuilds: {

@@ -1,4 +1,3 @@
-import { DEFAULT_BIO } from '@repo/constants';
 import { prisma } from '@repo/db';
 import { type Metadata } from 'next';
 
@@ -9,6 +8,7 @@ import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
 import { getBuildCollections } from '@/app/(user)/profile/[profileId]/collections/_actions/get-build-collections';
 import { BuildCollectionsList } from '@/app/(user)/profile/[profileId]/collections/_components/build-collections-list';
+import { CONFIG } from '@/app/config';
 
 export async function generateMetadata({
   params: { profileId },
@@ -57,7 +57,7 @@ export async function generateMetadata({
       },
       create: {
         userId: profileId,
-        bio: DEFAULT_BIO,
+        bio: CONFIG.user.defaultBio,
       },
       update: {},
     });

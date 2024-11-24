@@ -1,4 +1,3 @@
-import { DISCORD_INVITE_URL } from '@repo/constants';
 import { BaseText, BaseTextLink } from '@repo/ui';
 import { type Metadata } from 'next';
 
@@ -7,6 +6,7 @@ import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { BuildFeedPageFooter } from '@/app/(builds)/_components/build-feed-page-footer';
 import { BeginnerBuilds } from '@/app/(builds)/beginner-builds/_components/beginner-builds';
+import { CONFIG } from '@/app/config';
 
 export const maxDuration = 60;
 
@@ -47,7 +47,7 @@ export default async function Page() {
           subtitle={
             <div className="flex flex-col">
               <BaseText>{NAV_ITEMS.beginnerBuilds.description}</BaseText>
-              <BaseTextLink href={DISCORD_INVITE_URL}>
+              <BaseTextLink href={CONFIG.site.urls.discordInvite ?? ''}>
                 <span className="text-primary-500">
                   Want to feature a beginner build? Join the Remnant 2 Toolkit
                   Discord!

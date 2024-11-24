@@ -1,5 +1,4 @@
 import { type Config } from 'tailwindcss';
-import defaultTheme from 'tailwindcss/defaultTheme';
 
 const config: Omit<Config, 'content'> = {
   darkMode: ['selector', '[data-theme~="dark"]'],

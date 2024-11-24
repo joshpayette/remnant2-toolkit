@@ -1,4 +1,3 @@
-import { DEFAULT_BIO } from '@repo/constants';
 import { prisma } from '@repo/db';
 import { type Metadata } from 'next';
 
@@ -11,6 +10,7 @@ import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
 import { ImportLoadouts } from '@/app/(user)/profile/[profileId]/loadouts/_components/import-loadouts';
 import { LoadoutGrid } from '@/app/(user)/profile/[profileId]/loadouts/_components/loadout-grid';
 import { LoadoutPublicCheckbox } from '@/app/(user)/profile/[profileId]/loadouts/_components/loadout-public-checkbox';
+import { CONFIG } from '@/app/config';
 
 export async function generateMetadata({
   params: { profileId },
@@ -59,7 +59,7 @@ export async function generateMetadata({
       },
       create: {
         userId: profileId,
-        bio: DEFAULT_BIO,
+        bio: CONFIG.user.defaultBio,
       },
       update: {},
     });

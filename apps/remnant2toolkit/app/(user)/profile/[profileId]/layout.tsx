@@ -1,4 +1,3 @@
-import { DEFAULT_BIO } from '@repo/constants';
 import { prisma } from '@repo/db';
 import { type Metadata, type ResolvingMetadata } from 'next';
 import { revalidatePath } from 'next/cache';
@@ -13,6 +12,7 @@ import { ProfileStats } from '@/app/(user)/profile/_components/profile-stats';
 import { DEFAULT_DISPLAY_NAME } from '@/app/(user)/profile/_constants/default-display-name';
 import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
 import { getProfileStats } from '@/app/(user)/profile/_lib/get-profile-stats';
+import { CONFIG } from '@/app/config';
 
 export async function generateMetadata(
   { params: { profileId } }: { params: { profileId: string } },
@@ -65,7 +65,7 @@ export async function generateMetadata(
       },
       create: {
         userId: profileId,
-        bio: DEFAULT_BIO,
+        bio: CONFIG.user.defaultBio,
       },
       update: {},
     });
@@ -170,7 +170,7 @@ export default async function Layout({
       },
       create: {
         userId: profileId,
-        bio: DEFAULT_BIO,
+        bio: CONFIG.user.defaultBio,
       },
       update: {},
     });

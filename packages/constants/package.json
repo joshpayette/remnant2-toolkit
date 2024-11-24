@@ -5,9 +5,9 @@
     "dev": "tsc --watch",
     "build": "tsc"
   },
-  "exports": {
-    ".": "./src/index.ts"
-  },
+  "files": [
+    "toolkit-config.ts"
+  ],
   "dependencies": {},
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",

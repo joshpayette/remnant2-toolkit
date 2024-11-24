@@ -1,4 +1,3 @@
-import { DEFAULT_BIO } from '@repo/constants';
 import { prisma } from '@repo/db';
 import { type Metadata } from 'next';
 
@@ -6,6 +5,7 @@ import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
 import { ViewLinkedBuild } from '@/app/(user)/profile/[profileId]/linked-builds/[[...optionalBuildId]]/view-linked-build';
+import { CONFIG } from '@/app/config';
 
 export async function generateMetadata({
   params: { profileId },
@@ -59,7 +59,7 @@ export async function generateMetadata({
       },
       create: {
         userId: profileId,
-        bio: DEFAULT_BIO,
+        bio: CONFIG.user.defaultBio,
       },
       update: {},
     });
