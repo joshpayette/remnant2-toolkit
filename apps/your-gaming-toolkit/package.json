@@ -1,0 +1,40 @@
+{
+  "name": "your-gaming-toolkit",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3005",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest --watchAll",
+    "test:ci": "jest --ci",
+    "app:up": "docker -f docker-compose.dev.yml compose up remnant2-toolkit",
+    "db:up": "docker -f docker-compose.dev.yml compose up db"
+  },
+  "dependencies": {
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "next": "15.0.3"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/tailwind-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@prisma/nextjs-monorepo-workaround-plugin": "5.15.0",
+    "@types/jest": "29.5.5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5",
+    "autoprefixer": "10.4.18",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.3",
+    "jest": "29.6.4",
+    "jest-environment-jsdom": "29.6.4",
+    "prettier": "3.1.0",
+    "prettier-plugin-tailwindcss": "0.5.7"
+  }
+}
