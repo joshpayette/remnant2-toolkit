@@ -75,7 +75,7 @@ export default async function updateBuild(
     });
 
     // Send to webhook
-    if (!env.WEBHOOK_DISABLED) {
+    if (env.WEBHOOK_DISABLED === 'false') {
       sendWebhook({
         webhook: 'auditLog',
         params: {

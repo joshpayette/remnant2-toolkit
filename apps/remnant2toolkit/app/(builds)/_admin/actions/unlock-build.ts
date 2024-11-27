@@ -47,7 +47,7 @@ export default async function unlockBuild(
     });
 
     // Send to webhook
-    if (!env.WEBHOOK_DISABLED) {
+    if (env.WEBHOOK_DISABLED === 'false') {
       await sendWebhook({
         webhook: 'auditLog',
         params: {
