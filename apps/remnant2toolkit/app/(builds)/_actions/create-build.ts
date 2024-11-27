@@ -102,7 +102,10 @@ export async function createBuild({
         };
       }
 
-      if (verifyBuildStateResponse.webhook && !env.WEBHOOK_DISABLED) {
+      if (
+        verifyBuildStateResponse.webhook &&
+        env.WEBHOOK_DISABLED === 'false'
+      ) {
         await sendWebhook(verifyBuildStateResponse.webhook);
         return {
           errors: [

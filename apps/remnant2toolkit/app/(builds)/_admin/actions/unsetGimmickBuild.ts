@@ -47,7 +47,7 @@ export default async function unsetGimmickBuild(
     });
 
     // Send to webhook
-    if (!env.WEBHOOK_DISABLED) {
+    if (env.WEBHOOK_DISABLED === 'false') {
       sendWebhook({
         webhook: 'auditLog',
         params: {

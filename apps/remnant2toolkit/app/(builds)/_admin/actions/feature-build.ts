@@ -46,7 +46,13 @@ export default async function featureBuild(
       },
     });
 
-    if (!env.WEBHOOK_DISABLED) {
+    console.info(
+      `env.WEBHOOK_DISABLED: ${
+        env.WEBHOOK_DISABLED
+      }, ${typeof env.WEBHOOK_DISABLED}`,
+    );
+
+    if (env.WEBHOOK_DISABLED === 'false') {
       // Send to webhook
       sendWebhook({
         webhook: 'auditLog',

@@ -117,7 +117,10 @@ export async function updateBuild({
         };
       }
 
-      if (verifyBuildStateResponse.webhook && !env.WEBHOOK_DISABLED) {
+      if (
+        verifyBuildStateResponse.webhook &&
+        env.WEBHOOK_DISABLED === 'false'
+      ) {
         await sendWebhook(verifyBuildStateResponse.webhook);
         return {
           errors: [
@@ -452,7 +455,7 @@ export async function updateBuild({
 
     // Send webhooks for updated variants
     const shouldSendUpdateWebhooks =
-      updateMainBuildResponse.isPublic && !env.WEBHOOK_DISABLED;
+      updateMainBuildResponse.isPublic && env.WEBHOOK_DISABLED === 'false';
     if (shouldSendUpdateWebhooks) {
       let index = 0;
       for await (const response of [
