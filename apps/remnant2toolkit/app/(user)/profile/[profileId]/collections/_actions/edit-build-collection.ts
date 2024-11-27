@@ -83,7 +83,7 @@ export async function editBuildCollection({
     const isCollectionNameChanged =
       existingCollection?.name !== cleanCollectionName &&
       !isPermittedBuilder(session.user.id);
-    if (isCollectionNameChanged && !env.WEBHOOK_DISABLED) {
+    if (isCollectionNameChanged && env.WEBHOOK_DISABLED === 'false') {
       await sendWebhook({
         webhook: 'modQueue',
         params: {
@@ -111,7 +111,7 @@ export async function editBuildCollection({
       existingCollection?.description !== updatedCollection.description &&
       (updatedCollection.description || '').trim().length > 0 &&
       !isPermittedBuilder(session.user.id) &&
-      !env.WEBHOOK_DISABLED;
+      env.WEBHOOK_DISABLED === 'false';
     if (isCollectionDescriptionChanged) {
       const diff = diffTrimmedLines(
         existingCollection?.description || '',

@@ -29,7 +29,7 @@ export async function saveProfile({
   }
 
   const displayNameBadWordCheck = badWordFilter.isProfane(newDisplayName);
-  if (displayNameBadWordCheck.isProfane && !env.WEBHOOK_DISABLED) {
+  if (displayNameBadWordCheck.isProfane && env.WEBHOOK_DISABLED === 'false') {
     // Send webhook to #action-log
     await sendWebhook({
       webhook: 'auditLog',
@@ -67,7 +67,7 @@ export async function saveProfile({
 
   const bioBadWordCheck = badWordFilter.isProfane(newBio);
 
-  if (bioBadWordCheck.isProfane && !env.WEBHOOK_DISABLED) {
+  if (bioBadWordCheck.isProfane && env.WEBHOOK_DISABLED === 'false') {
     // Send webhook to #action-log
     await sendWebhook({
       webhook: 'auditLog',
@@ -149,7 +149,7 @@ export async function saveProfile({
       currentUser?.displayName !== cleanDisplayName &&
       cleanDisplayName !== '' &&
       currentUser?.displayName !== '' &&
-      !env.WEBHOOK_DISABLED
+      env.WEBHOOK_DISABLED === 'false'
     ) {
       sendWebhook({
         webhook: 'modQueue',
@@ -178,7 +178,7 @@ export async function saveProfile({
       currentUserProfile?.bio !== cleanBio &&
       currentUserProfile?.bio !== '' &&
       cleanBio !== '' &&
-      !env.WEBHOOK_DISABLED
+      env.WEBHOOK_DISABLED === 'false'
     ) {
       sendWebhook({
         webhook: 'modQueue',

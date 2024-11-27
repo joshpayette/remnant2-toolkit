@@ -77,7 +77,7 @@ export default async function approveVideo(
       },
     });
 
-    if (!env.WEBHOOK_DISABLED) {
+    if (env.WEBHOOK_DISABLED === 'false') {
       // Send to webhook
       sendWebhook({
         webhook: 'auditLog',
