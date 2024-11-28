@@ -245,7 +245,7 @@ export async function updateBuild({
       }),
     );
     // Add the newly created builds to the BuildVariant table
-    const createBuildVariantsResponse = await Promise.all(
+    const _createBuildVariantsResponse = await Promise.all(
       createBuildsResponse.map(async (build) => {
         return prisma.buildVariant.create({
           data: {
@@ -373,6 +373,7 @@ export async function updateBuild({
             buildLinkUpdatedAt,
             isModeratorApproved: false,
             isVideoApproved,
+            isQualityBuild: isBuildQualityBuild(variant).length === 0,
             BuildItems: {
               deleteMany: {},
               create: buildStateToBuildItems(variant).filter(
@@ -413,13 +414,20 @@ export async function updateBuild({
       }),
     );
 
+    // Select all current build variants to compare the new batch to
+    const currentExistingVariants = await prisma.buildVariant.findMany({
+      where: {
+        primaryBuildId: mainBuildState.buildId,
+      },
+    });
+
     // Send webhooks for new variants
     const shouldSendWebhook =
       mainBuildState.isPublic && process.env.WEBHOOK_DISABLED !== 'true';
     if (shouldSendWebhook) {
       let index = 0;
       for await (const response of createBuildsResponse) {
-        const matchingVariant = createBuildVariantsResponse.find(
+        const matchingVariant = currentExistingVariants.find(
           (v) => v.secondaryBuildId === response.id,
         );
 
@@ -462,14 +470,14 @@ export async function updateBuild({
         updateMainBuildResponse,
         ...updateBuildVariantsResponse,
       ]) {
-        const matchingVariant = variantsToUpdate[index];
+        const matchingVariant = currentExistingVariants.find(
+          (v) => v.secondaryBuildId === response.id,
+        );
 
         const buildLink = `${urlNoCache(
           `https://remnant2toolkit.com/builder/${mainBuildState.buildId}`,
         )}${
-          index > 0
-            ? `&variant=${matchingVariant?.variantIndex ?? index + 1}`
-            : ''
+          index > 0 ? `&variant=${matchingVariant?.index ?? index + 1}` : ''
         }`;
 
         const existingBuild = existingUpdatableBuilds.find(
