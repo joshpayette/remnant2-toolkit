@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-11-28
+
+### Fixed
+
+- Found a bug when checking whether a build is quality or not, causing some builds to not be quality when they should have been. The bug in the logic has been fixed. Additionally, I manually ran a script to update all current builds with the correct quality value.
+
 ## 2024-11-26
 
 ### Fixed

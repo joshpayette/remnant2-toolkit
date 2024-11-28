@@ -13,7 +13,7 @@ import {
   OwnershipIcon,
   QuestionIcon,
 } from '@repo/ui';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 
 import { RandomBuildButton } from '@/app/(builds)/builder/_components/random-build-button';
 import { ItemButton } from '@/app/(items)/_components/item-button';
@@ -157,7 +157,7 @@ export function BuilderHelp() {
         <BaseDialogTitle>Builder Help</BaseDialogTitle>
 
         {sections.map((section) => (
-          <>
+          <Fragment key={section.title}>
             <BaseDialogBody className="mb-2">
               <BaseDialogTitle>{section.title}</BaseDialogTitle>
               <BaseDialogDescription className="mb-2">
@@ -166,7 +166,7 @@ export function BuilderHelp() {
               {section.sample}
             </BaseDialogBody>
             <BaseDivider />
-          </>
+          </Fragment>
         ))}
         <BaseDialogActions>
           <BaseButton onClick={() => setOpen(false)}>Close</BaseButton>
