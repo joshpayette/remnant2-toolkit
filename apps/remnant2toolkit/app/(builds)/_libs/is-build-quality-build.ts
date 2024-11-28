@@ -81,9 +81,9 @@ export function isBuildQualityBuild(
   }
 
   const relicFragmentsEquipped =
+    buildState.items.relicfragment[0] !== null &&
     buildState.items.relicfragment[1] !== null &&
-    buildState.items.relicfragment[2] !== null &&
-    buildState.items.relicfragment[3] !== null;
+    buildState.items.relicfragment[2] !== null;
   if (!relicFragmentsEquipped) {
     results.push({
       message:
