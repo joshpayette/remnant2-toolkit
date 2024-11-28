@@ -44,14 +44,15 @@ export function Logo({
     >
       <Image
         alt={variants[variant].alt}
-        className="ui-mr-2 ui-h-[36px] ui-w-[52px]"
-        height={36}
+        className="ui-mr-1 ui-h-[40px] ui-w-[82px]"
+        height={40}
         loading="eager"
         priority
         quality={90}
-        src={`https://d2sqltdcj8czo5.cloudfront.net${variants[variant].imageUrl}`}
+        // src={`https://d2sqltdcj8czo5.cloudfront.net${variants[variant].imageUrl}`}
+        src="/sample-logo.png"
         unoptimized={unoptimized}
-        width={52}
+        width={82}
       />
       <div className="ui-flex ui-flex-col ui-gap-0">
         {variants[variant].text}

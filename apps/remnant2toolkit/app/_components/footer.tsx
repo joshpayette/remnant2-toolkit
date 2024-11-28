@@ -9,7 +9,7 @@ const aClass = 'text-gray-300 hover:text-primary-400 underline';
 
 export function Footer() {
   return (
-    <FooterContainer>
+    <FooterContainer discordInviteUrl={CONFIG.site.urls.discordInvite || ''}>
       <p className="mb-4">
         Remnant 2 Toolkit is an{' '}
         <a

@@ -1,13 +1,16 @@
-import { DISCORD_INVITE_URL } from '@repo/constants';
 import Image from 'next/image';
 import React from 'react';
 import { getImageUrl } from '../../utils/get-image-url';
 
 interface FooterContainerProps {
   children: React.ReactNode;
+  discordInviteUrl: string;
 }
 
-export function FooterContainer({ children }: FooterContainerProps) {
+export function FooterContainer({
+  children,
+  discordInviteUrl,
+}: FooterContainerProps) {
   return (
     <footer className="ui-border-secondary-900 ui-bg-background-solid ui-mt-8 ui-flex ui-w-full ui-items-center ui-justify-center ui-border-t ui-p-4 ui-text-left ui-text-sm ui-text-gray-400">
       <div className="ui-max-w-2xl ui-gap-2">
@@ -40,7 +43,7 @@ export function FooterContainer({ children }: FooterContainerProps) {
               width={32}
             />
           </a>
-          <a href={DISCORD_INVITE_URL} rel="noopener" target="_blank">
+          <a href={discordInviteUrl} rel="noopener" target="_blank">
             <Image
               alt="Join the Remnant 2 Toolkit Discord"
               className="ui-h-6 ui-w-6 ui-invert dark:ui-invert-0"

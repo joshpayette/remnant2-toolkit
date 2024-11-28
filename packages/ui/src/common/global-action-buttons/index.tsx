@@ -1,6 +1,5 @@
 'use client';
 
-import { CHANGELOG_URL } from '@repo/constants';
 import { AnimatePresence, motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
@@ -29,10 +28,14 @@ const ThemeSelectButton = dynamic(
 );
 
 interface GlobalActionButtonProps {
+  changeLogUrl: string;
   username: string;
 }
 
-export function GlobalActionButtons({ username }: GlobalActionButtonProps) {
+export function GlobalActionButtons({
+  changeLogUrl,
+  username,
+}: GlobalActionButtonProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -67,7 +70,7 @@ export function GlobalActionButtons({ username }: GlobalActionButtonProps) {
             </div>
             <div>
               <span className="ui-sr-only">Change Log</span>
-              <ChangeLogButton />
+              <ChangeLogButton changeLogUrl={changeLogUrl} />
             </div>
             <div>
               <span className="ui-sr-only">Back to Top</span>
@@ -100,9 +103,9 @@ function BackToTopButton() {
   );
 }
 
-function ChangeLogButton() {
+function ChangeLogButton({ changeLogUrl }: { changeLogUrl: string }) {
   return (
-    <BaseButton color="violet" href={CHANGELOG_URL} target="_blank">
+    <BaseButton color="violet" href={changeLogUrl} target="_blank">
       <ChangeLogIcon className="ui-h-5 ui-w-5" />
     </BaseButton>
   );

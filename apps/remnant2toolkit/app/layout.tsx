@@ -8,6 +8,7 @@ import dynamic from 'next/dynamic';
 import { Footer } from '@/app/_components/footer';
 import { showNotificationsFlag } from '@/app/_constants/feature-flag';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
+import { CONFIG } from '@/app/config';
 import { Navbar } from '@/app/navbar';
 
 export const viewport: Viewport = {};
@@ -37,7 +38,10 @@ export default async function Layout({
       navbar={<Navbar showNotifications={showNotifications} />}
       trackers={<Analytics />}
     >
-      <GlobalActionButtons username={session?.user?.name || 'Unknown User'} />
+      <GlobalActionButtons
+        username={session?.user?.name || 'Unknown User'}
+        changeLogUrl={CONFIG.site.urls.changelog || ''}
+      />
       {children}
     </RootLayout>
   );
