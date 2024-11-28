@@ -1,10 +1,9 @@
-import nextMDX from '@next/mdx';
-import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
-import type { NextConfig } from 'next';
+import { PrismaPlugin } from "@prisma/nextjs-monorepo-workaround-plugin";
 
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   // Configure `pageExtensions` to include MDX files
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   // Configure `images` to support loading images from a remote server
   images: {
     //unoptimized: true,
@@ -12,20 +11,19 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 31536000, // 1 year
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'd2sqltdcj8czo5.cloudfront.net',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "d2sqltdcj8czo5.cloudfront.net",
+        port: "",
+        pathname: "/**",
       },
     ],
   },
   experimental: {
-    optimizePackageImports: ['@repo/ygt/*', '@mantine/core', '@mantime/hooks'],
+    optimizePackageImports: ["@repo/ygt-ui/*", "@mantine/core/*"],
     serverActions: {
-      bodySizeLimit: '2mb',
+      bodySizeLimit: "2mb",
     },
   },
-  transpilePackages: ['@repo/ui'],
   webpack: (config, { dev, isServer }) => {
     if (dev) {
       config.watchOptions = {
@@ -39,7 +37,7 @@ const nextConfig: NextConfig = {
 
     // silence webpack cache errors
     config.infrastructureLogging = {
-      level: 'error',
+      level: "error",
     };
 
     return config;

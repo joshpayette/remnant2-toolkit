@@ -1,25 +1,20 @@
 {
   "name": "@repo/ygt-ui",
   "version": "0.0.0",
-  "sideEffects": [
-    "**/*.css"
-  ],
-  "files": [
-    "dist"
-  ],
+  "sideEffects": false,
   "exports": {
-    ".": "./src/index.ts",
-    "./styles.css": "./dist/index.css",
-    "./alert-banner": "./src/common/alert-banner/index.tsx"
+    "./providers": {
+      "types": "./src/components/providers.tsx",
+      "import": "./dist/providers.mjs",
+      "require": "./dist/providers.js"
+    }
   },
   "license": "MIT",
   "scripts": {
-    "build": "tailwindcss -i ./src/styles.css -o ./dist/index.css",
-    "clean": "rm -rf dist",
-    "dev": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
-    "lint": "eslint src/",
-    "test": "jest",
-    "typecheck": "tsc --noEmit"
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint . --max-warnings 0",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "peerDependencies": {
     "react": "^18.2.0"
@@ -51,8 +46,7 @@
     "clsx": "2.1.1",
     "dayjs": "^1.11.13",
     "embla-carousel-react": "^7.1.0",
-    "next": "14.2.3",
-    "next-auth": "4.24.7",
+    "next": "15.0.3",
     "next-themes": "0.3.0",
     "react-dom": "18.3.1",
     "react-select": "^5.8.1",
@@ -61,9 +55,9 @@
     "usehooks-ts": "2.14.0"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
+    "@repo/ygt-eslint-config": "workspace:*",
     "@repo/jest-presets": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@repo/ygt-typescript-config": "workspace:*",
     "@types/jest": "^29.5.12",
     "@types/node": "20",
     "@types/react": "^18.2.61",
@@ -74,6 +68,8 @@
     "postcss-simple-vars": "^7.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "eslint": "^8.57.0",
+    "tsup": "^8.0.2",
     "typescript": "5.5.2"
   }
 }
