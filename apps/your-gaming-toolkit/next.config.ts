@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
     ],
   },
   experimental: {
-    optimizePackageImports: ['@repo/ui/*'],
+    optimizePackageImports: ['@repo/ygt/*', '@mantine/core', '@mantime/hooks'],
     serverActions: {
       bodySizeLimit: '2mb',
     },
