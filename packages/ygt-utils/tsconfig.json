@@ -1,0 +1,12 @@
+{
+  "extends": "@ygt/typescript-config/react-library.json",
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "Bundler",
+    "lib": ["dom", "ES2015"],
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "include": ["src"],
+  "exclude": ["dist", "node_modules"]
+}

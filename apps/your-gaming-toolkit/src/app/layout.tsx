@@ -2,7 +2,7 @@ import "@mantine/core/styles.css";
 import * as React from "react";
 import { Inter } from "next/font/google";
 import { ColorSchemeScript } from "@mantine/core";
-import { Providers } from "@repo/ygt-ui/providers";
+import { Providers } from "@ygt/ui/providers";
 import clsx from "clsx";
 
 const inter = Inter({

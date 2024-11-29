@@ -1,5 +1,5 @@
 {
-  "name": "@repo/ygt-eslint-config",
+  "name": "@ygt/eslint-config",
   "version": "0.0.0",
   "private": true,
   "files": [

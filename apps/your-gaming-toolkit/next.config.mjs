@@ -19,7 +19,7 @@ const nextConfig = {
     ],
   },
   experimental: {
-    optimizePackageImports: ["@repo/ygt-ui/*", "@mantine/core/*"],
+    optimizePackageImports: ["@ygt/ui/*", "@mantine/core/*"],
     serverActions: {
       bodySizeLimit: "2mb",
     },

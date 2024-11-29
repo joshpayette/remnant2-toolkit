@@ -41,9 +41,9 @@
   "devDependencies": {
     "@prisma/nextjs-monorepo-workaround-plugin": "5.15.0",
     "@repo/constants": "workspace:*",
-    "@repo/ygt-eslint-config": "workspace:*",
-    "@repo/ygt-typescript-config": "workspace:*",
-    "@repo/ygt-ui": "workspace:*",
+    "@ygt/eslint-config": "workspace:*",
+    "@ygt/typescript-config": "workspace:*",
+    "@ygt/ui": "workspace:*",
     "@types/jest": "29.5.5",
     "@types/node": "^20.14.9",
     "@types/react": "^18",
