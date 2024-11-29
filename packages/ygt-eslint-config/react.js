@@ -20,10 +20,10 @@ module.exports = {
   parserOptions: {
     project,
   },
-  plugins: ['only-warn'],
   globals: {
     JSX: true,
   },
+  plugins: ['only-warn'],
   settings: {
     'import/resolver': {
       typescript: {
@@ -34,6 +34,12 @@ module.exports = {
   ignorePatterns: ['node_modules/', 'dist/', '.eslintrc.js', '**/*.css'],
   // add rules configurations here
   rules: {
+    'no-console': 'off',
     'import/no-default-export': 'off',
+    'eslint-comments/require-description': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/no-unsafe-argument': 'off',
+    '@typescript-eslint/no-redundant-type-constituents': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
   },
 };
