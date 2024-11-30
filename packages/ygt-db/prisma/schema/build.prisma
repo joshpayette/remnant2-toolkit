@@ -1,0 +1,160 @@
+model Build {
+  id                       String                     @id @default(cuid())
+  createdAt                DateTime                   @default(now())
+  updatedAt                DateTime?                  @updatedAt
+  createdBy                User                       @relation(fields: [createdById], references: [id])
+  createdById              String
+  isFeaturedBuild          Boolean                    @default(false)
+  isBeginnerBuild          Boolean                    @default(false)
+  isBaseGameBuild          Boolean                    @default(false)
+  isGimmickBuild           Boolean                    @default(false)
+  isModeratorApproved      Boolean                    @default(false)
+  isModeratorLocked        Boolean                    @default(false)
+  isPatchAffected          Boolean                    @default(false)
+  isPublic                 Boolean                    @default(true)
+  isVideoApproved          Boolean                    @default(false)
+  isQualityBuild           Boolean                    @default(false)
+  dateFeatured             DateTime?
+  name                     String
+  description              String?                    @db.Text
+  videoUrl                 String?
+  thumbnailUrl             String?
+  buildLink                String?
+  buildLinkUpdatedAt       DateTime?
+  viewCount                Int                        @default(0)
+  duplicateCount           Int                        @default(0)
+  milestoneLogged          Boolean?                   @default(false)
+  BuildVotes               BuildVoteCounts[]
+  BuildItems               BuildItems[]
+  UserProfile              UserProfile?               @relation(fields: [userProfileId], references: [id])
+  userProfileId            String?
+  UserLoadouts             UserLoadouts[]
+  BuildTags                BuildTags[]
+  LinkedBuildItems         LinkedBuildItems[]
+  BuildValidatedViews      BuildValidatedViews[]
+  UserBuildSubscriptions   UserBuildSubscription[]
+  PrimaryBuildVariant      BuildVariant[]             @relation(name: "primaryBuildId")
+  SecondaryBuildVariant    BuildVariant[]             @relation(name: "secondaryBuildId")
+  BuildsToBuildCollections BuildsToBuildCollections[]
+
+  @@index([createdById])
+  @@index([userProfileId])
+}
+
+// TODO Make this non-plural
+model BuildItems {
+  id       String  @id @default(cuid())
+  build    Build   @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId  String
+  item     Item    @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  itemId   String
+  category String?
+  index    Int?
+  amount   Int?
+  optional Boolean @default(false)
+
+  @@index([buildId])
+  @@index([itemId])
+  @@index([category])
+}
+
+model BuildVariant {
+  id               String   @id @default(cuid())
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  PrimaryBuild     Build    @relation(name: "primaryBuildId", fields: [primaryBuildId], references: [id], onDelete: Cascade)
+  primaryBuildId   String
+  SecondaryBuild   Build    @relation(name: "secondaryBuildId", fields: [secondaryBuildId], references: [id], onDelete: Cascade)
+  secondaryBuildId String
+  index            Int?     @default(0)
+
+  @@index([primaryBuildId])
+  @@index([secondaryBuildId])
+}
+
+// TODO Make this non-plural
+model BuildVoteCounts {
+  id        String    @id @default(cuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+  build     Build     @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId   String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+
+  @@index([buildId])
+  @@index([userId])
+}
+
+model BuildValidatedViews {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  build     Build    @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId   String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+
+  @@index([buildId])
+  @@index([userId])
+}
+
+enum BUILD_TAG {
+  EasyToPlay
+  Melee
+  Mods
+  Ranged
+  Skills
+  StatusEffects
+  Support
+  Tank
+  BaseGame
+  Beginner
+  BossRush
+  Gimmick
+}
+
+enum BUILD_TAG_CATEGORY {
+  Type
+  Tag
+}
+
+// TODO Make this non-plural
+model BuildTags {
+  id        String             @id @default(cuid())
+  createdAt DateTime           @default(now())
+  updatedAt DateTime?          @updatedAt
+  category  BUILD_TAG_CATEGORY @default(Tag)
+  build     Build              @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId   String
+  tag       BUILD_TAG
+
+  @@index([buildId])
+}
+
+model BuildCollection {
+  id                       String                     @id @default(cuid())
+  createdAt                DateTime                   @default(now())
+  updatedAt                DateTime                   @updatedAt
+  createdBy                User                       @relation(fields: [createdById], references: [id])
+  createdById              String
+  name                     String
+  description              String?                    @db.Text
+  BuildsToBuildCollections BuildsToBuildCollections[]
+
+  @@index([name])
+  @@index([createdById])
+}
+
+model BuildsToBuildCollections {
+  id                String          @id @default(cuid())
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+  build             Build           @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId           String
+  buildCollection   BuildCollection @relation(fields: [buildCollectionId], references: [id], onDelete: Cascade)
+  buildCollectionId String
+
+  @@index([buildId])
+  @@index([buildCollectionId])
+}

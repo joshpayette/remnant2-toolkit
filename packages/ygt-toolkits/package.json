@@ -1,0 +1,12 @@
+{
+  "name": "@ygt/toolkits",
+  "version": "0.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.2.0"
+  },
+  "exports": {
+    "./configs/yourgamingtoolkit": "./src/configs/yourgamingtoolkit.ts",
+    "./configs/remnant2toolkit": "./src/configs/remnant2toolkit.ts"
+  }
+}

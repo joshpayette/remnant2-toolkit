@@ -1,0 +1,22 @@
+{
+  "name": "@ygt/db",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push --skip-generate"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "5.22.0"
+  },
+  "devDependencies": {
+    "@ygt/typescript-config": "workspace:*",
+    "@types/node": "20",
+    "prisma": "5.22.0",
+    "typescript": "5.5.2"
+  }
+}

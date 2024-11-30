@@ -1,3 +1,5 @@
+import './globals.css';
+
 import { RootLayout } from '@ygt/ui/root-layout';
 
 export default async function Layout({

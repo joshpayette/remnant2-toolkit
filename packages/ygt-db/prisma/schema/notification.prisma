@@ -1,0 +1,48 @@
+model Notification {
+  id                 String           @id @default(cuid())
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+  user               User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId             String
+  message            String
+  read               Boolean          @default(false)
+  target             String?
+  notificationType   NotificationType @relation(fields: [notificationTypeId], references: [id])
+  notificationTypeId String
+
+  @@index([userId])
+  @@index([notificationTypeId])
+}
+
+model NotificationType {
+  id           String         @id @default(cuid())
+  type         String         @unique
+  description  String?
+  Notification Notification[]
+}
+
+model UserBuildSubscription {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  build     Build    @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  buildId   String
+
+  @@index([userId])
+  @@index([buildId])
+}
+
+model UserSubscription {
+  id             String   @id @default(cuid())
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  subscriber     User     @relation(name: "subscriber", fields: [subscriberId], references: [id], onDelete: Cascade)
+  subscriberId   String
+  subscribedTo   User     @relation(name: "subscribedTo", fields: [subscribedToId], references: [id], onDelete: Cascade)
+  subscribedToId String
+
+  @@index([subscriberId])
+  @@index([subscribedToId])
+}
