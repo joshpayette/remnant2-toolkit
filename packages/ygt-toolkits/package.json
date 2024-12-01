@@ -6,7 +6,7 @@
     "react": "^18.2.0"
   },
   "exports": {
-    "./configs/yourgamingtoolkit": "./src/configs/yourgamingtoolkit.ts",
-    "./configs/remnant2toolkit": "./src/configs/remnant2toolkit.ts"
+    "./yourgamingtoolkit": "./src/yourgamingtoolkit.ts",
+    "./remnant2toolkit": "./src/remnant2toolkit.ts"
   }
 }

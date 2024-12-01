@@ -34,7 +34,6 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@headlessui/react": "2.1.2",
-    "@repo/constants": "workspace:*",
     "@repo/utils": "workspace:*",
     "@tippyjs/react": "4.2.6",
     "clsx": "2.1.1",

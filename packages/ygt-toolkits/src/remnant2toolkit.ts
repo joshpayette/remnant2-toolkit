@@ -1,4 +1,4 @@
-import type { ToolkitConfig } from '../types/toolkit-config';
+import type { ToolkitConfig } from './types/toolkit-config';
 
 export const CONFIG: ToolkitConfig = {
   NAV_ITEMS: {
