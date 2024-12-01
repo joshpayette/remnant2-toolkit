@@ -8,7 +8,7 @@ import {
   MenuItems,
 } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { CONFIG } from '@ygt/toolkits/configs/yourgamingtoolkit';
+import { CONFIG } from '@ygt/toolkits/yourgamingtoolkit';
 import { cn } from '@ygt/ui/cn';
 
 const user = {

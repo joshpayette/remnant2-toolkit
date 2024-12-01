@@ -1,33 +1,13 @@
 {
+  "exclude": ["node_modules"],
   "extends": "@ygt/typescript-config/nextjs.json",
   "compilerOptions": {
+    "outDir": "dist",
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "./*"
-      ]
-    },
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "incremental": true,
-    "resolveJsonModule": true
+    ]
   },
-  "include": [
-    "next-env.d.ts",
-    "next.config.js",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src", "next.config.js", "next-env.d.ts", ".next/types/**/*.ts"]
 }

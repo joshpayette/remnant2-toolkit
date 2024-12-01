@@ -20,7 +20,6 @@
     "@next/mdx": "14.0.4",
     "@popperjs/core": "2.11.8",
     "@reduxjs/toolkit": "2.2.2",
-    "@repo/constants": "workspace:*",
     "@repo/db": "workspace:*",
     "@repo/ui": "workspace:*",
     "@repo/utils": "workspace:*",
