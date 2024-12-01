@@ -104,7 +104,14 @@ export function isBuildQualityBuild(
   const rustyWeaponCount = buildState.items.weapon.filter(
     (weapon) => weapon !== null && weapon.isRusty,
   ).length;
-  const requiredModCount = MAX_ALLOWED_MODS - rustyWeaponCount;
+  let requiredModCount = MAX_ALLOWED_MODS - rustyWeaponCount;
+
+  // Melee weapons only have mods if they are linked, they cannot be added
+  // manually. If the melee weapon is not linked, reduce the required mod count
+  const meleeWeapon = buildState.items.weapon[1];
+  if (!meleeWeapon?.linkedItems?.mod) {
+    requiredModCount--;
+  }
 
   const modsEquipped =
     buildState.items.mod.filter((mod) => mod !== null && mod !== undefined)

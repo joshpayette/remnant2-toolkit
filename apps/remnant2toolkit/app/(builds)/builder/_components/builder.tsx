@@ -976,7 +976,9 @@ export function Builder({
                     />
                   </div>
                   <div className="flex w-full grow items-start justify-around gap-4">
-                    {buildState.items.weapon[weaponIndex]?.isRusty ? (
+                    {(weaponIndex === 1 &&
+                      !buildState.items.mod[weaponIndex]) ||
+                    buildState.items.weapon[weaponIndex]?.isRusty ? (
                       <div className="h-[66px] w-[66px]" />
                     ) : (
                       <div>
