@@ -1669,7 +1669,6 @@ export const weaponItems: WeaponItem[] = [
     name: 'Shovel',
     imagePath: '/items/weapons/shovel.png',
     saveFileSlug: 'Weapon_BasicShovel_C',
-    isRusty: true, //* It's not really rusty, but it doesn't have a mod like rusty weapons
     id: 'vpEWS5',
     dlc: 'base',
     description: `It's a shovel.`,
