@@ -9,6 +9,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fixed bug in tooltip for Beginner Builds icon.
+- Fixed bug in the Builder where you could equip mods to melee weapons that shouldn't allow it. Only melee weapons with linked mods can have mods.
+- Fixed bug preventing Shovel from allowing a mutator to be equipped.
+
+**Note**: This all came to be because I previously tried to fix a bug where equipping the shovel would not pass the quality build check. My implementation was poor. This fix should work more as expected while still addressing the original bug.
 
 ## 2024-11-28
 
