@@ -26,10 +26,9 @@ import {
   SupportIcon,
   WorldSaveIcon,
 } from '@repo/ui';
-
+import { CONFIG } from '@ygt/toolkits/remnant2toolkit';
 import VashIcon from '@/app/_components/vash-icon';
 import WikiIcon from '@/app/_components/wiki-icon';
-import { CONFIG } from '@/app/config';
 
 /**
  * The base pages for the site
@@ -59,7 +58,7 @@ export const NAV_ITEMS = {
     label: 'Change Log',
     description:
       'A running log of all additions, changes, and fixes to the Remnant 2 Toolkit.',
-    href: CONFIG.site.urls.changelog,
+    href: CONFIG.URL_CHANGELOG,
     icon: ChangeLogIcon,
   },
   collections: {
@@ -87,7 +86,7 @@ export const NAV_ITEMS = {
     label: 'Join the Toolkit Discord!',
     description:
       'Weigh in on new features, get help with builds, report bugs, or just hang out!',
-    href: CONFIG.site.urls.discordInvite,
+    href: CONFIG.URL_DISCORD_INVITE,
     icon: DiscordIcon,
   },
   favoritedBuilds: {

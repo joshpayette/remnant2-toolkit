@@ -24,7 +24,7 @@
     "react": "^18.2.0"
   },
   "jest": {
-    "preset": "@ygt/jest-presets/browser"
+    "preset": "@ygt/jest-config/browser"
   },
   "dependencies": {
     "@headlessui/react": "2.2.0",
@@ -49,7 +49,7 @@
     "@types/react": "^18.2.61",
     "@types/react-dom": "18",
     "@ygt/eslint-config": "workspace:*",
-    "@ygt/jest-presets": "workspace:*",
+    "@ygt/jest-config": "workspace:*",
     "@ygt/tailwind-config": "workspace:*",
     "@ygt/typescript-config": "workspace:*",
     "eslint": "^8.57.0",

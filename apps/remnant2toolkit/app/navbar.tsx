@@ -11,7 +11,6 @@ import {
 } from '@repo/ui';
 import { useSession } from 'next-auth/react';
 import { Fragment } from 'react';
-
 import { ProfileButton } from '@/app/_components/profile-button';
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
 
@@ -20,10 +19,6 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
 
   return (
     <NavbarContainer
-      showNotifications={showNotifications}
-      logo={<Logo variant="remnant2toolkit" />}
-      desktopProfileButton={<ProfileButton.Desktop />}
-      mobileProfileButton={<ProfileButton.Mobile />}
       desktopChildren={
         <>
           <Menu as="div" className="relative">
@@ -57,15 +52,15 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                 <Menu.Item>
                   {({ active }) => (
                     <BaseLink
+                      className={cn(
+                        active ? 'bg-gray-800' : '',
+                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
+                      )}
                       href={
                         status === 'loading' || status === 'authenticated'
                           ? NAV_ITEMS.createBuild.href
                           : '/builder'
                       }
-                      className={cn(
-                        active ? 'bg-gray-800' : '',
-                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
-                      )}
                     >
                       <div className="mr-4 w-[20px]">
                         <NAV_ITEMS.createBuild.icon className="text-primary-600 h-5 w-5" />
@@ -82,11 +77,11 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                 <Menu.Item>
                   {({ active }) => (
                     <BaseLink
-                      href={NAV_ITEMS.featuredBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
                         'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
                       )}
+                      href={NAV_ITEMS.featuredBuilds.href}
                     >
                       <div className="mr-4 w-[20px]">
                         <NAV_ITEMS.featuredBuilds.icon className="text-primary-600 h-5 w-5" />
@@ -103,11 +98,11 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                 <Menu.Item>
                   {({ active }) => (
                     <BaseLink
-                      href={NAV_ITEMS.communityBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
                         'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
                       )}
+                      href={NAV_ITEMS.communityBuilds.href}
                     >
                       <div className="mr-4 w-[20px]">
                         <NAV_ITEMS.communityBuilds.icon className="text-primary-600 h-5 w-5" />
@@ -124,11 +119,11 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                 <Menu.Item>
                   {({ active }) => (
                     <BaseLink
-                      href={NAV_ITEMS.gimmickBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
                         'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
                       )}
+                      href={NAV_ITEMS.gimmickBuilds.href}
                     >
                       <div className="mr-4 w-[20px]">
                         <NAV_ITEMS.gimmickBuilds.icon className="text-primary-600 h-5 w-5" />
@@ -145,11 +140,11 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                 <Menu.Item>
                   {({ active }) => (
                     <BaseLink
-                      href={NAV_ITEMS.baseGameBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
                         'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
                       )}
+                      href={NAV_ITEMS.baseGameBuilds.href}
                     >
                       <div className="mr-4 w-[20px]">
                         <NAV_ITEMS.baseGameBuilds.icon className="text-primary-600 h-5 w-5" />
@@ -166,11 +161,11 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                 <Menu.Item>
                   {({ active }) => (
                     <BaseLink
-                      href={NAV_ITEMS.beginnerBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
                         'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
                       )}
+                      href={NAV_ITEMS.beginnerBuilds.href}
                     >
                       <div className="mr-4 w-[20px]">
                         <NAV_ITEMS.beginnerBuilds.icon className="text-primary-600 h-5 w-5" />
@@ -187,11 +182,11 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                 <Menu.Item>
                   {({ active }) => (
                     <BaseLink
-                      href={NAV_ITEMS.randomBuild.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
                         'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
                       )}
+                      href={NAV_ITEMS.randomBuild.href}
                     >
                       <div className="mr-4 w-[20px]">
                         <NAV_ITEMS.randomBuild.icon className="text-primary-600 h-5 w-5" />
@@ -209,56 +204,58 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
             </Transition>
           </Menu>
           <BaseLink
-            href={NAV_ITEMS.itemLookup.href}
             className={cn(
               'text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start text-sm font-semibold',
             )}
+            href={NAV_ITEMS.itemLookup.href}
           >
             {NAV_ITEMS.itemLookup.label}
           </BaseLink>
           <BaseLink
-            href={NAV_ITEMS.itemTracker.href}
             className={cn(
               'text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start text-sm font-semibold',
             )}
+            href={NAV_ITEMS.itemTracker.href}
           >
             {NAV_ITEMS.itemTracker.label}
           </BaseLink>
           <BaseLink
-            href={NAV_ITEMS.itemQuiz.href}
             className={cn(
               'text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start text-sm font-semibold',
             )}
+            href={NAV_ITEMS.itemQuiz.href}
           >
             {NAV_ITEMS.itemQuiz.label}
           </BaseLink>
           <BaseLink
-            href={NAV_ITEMS.resources.href}
             className={cn(
               'text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start text-sm font-semibold',
             )}
+            href={NAV_ITEMS.resources.href}
           >
             {NAV_ITEMS.resources.label}
           </BaseLink>
           <BaseLink
-            href={NAV_ITEMS.supportR2TK.href}
             className={cn(
               'text-accent1-500 hover:text-accent1-300 flex flex-row items-center justify-start text-sm font-semibold',
             )}
+            href={NAV_ITEMS.supportR2TK.href}
           >
             {NAV_ITEMS.supportR2TK.label}
           </BaseLink>
         </>
       }
+      desktopProfileButton={<ProfileButton.Desktop />}
+      logo={<Logo variant="remnant2toolkit" />}
       mobileChildren={
         <>
           <BaseLink
-            href={NAV_ITEMS.supportR2TK.href}
             className="flex flex-row items-center justify-start"
+            href={NAV_ITEMS.supportR2TK.href}
           >
             <NAV_ITEMS.supportR2TK.icon
-              className="text-accent1-500 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
+              className="text-accent1-500 mr-2 h-7 w-5 flex-none"
             />
             <div className="text-accent1-500 flex flex-col items-start justify-start px-3 py-2">
               {NAV_ITEMS.supportR2TK.label}
@@ -272,16 +269,16 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           <hr className="border-secondary-900" />
 
           <BaseLink
+            className="flex flex-row items-center justify-start"
             href={
               status === 'loading' || status === 'authenticated'
                 ? NAV_ITEMS.createBuild.href
                 : '/builder'
             }
-            className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.createBuild.icon
-              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
               {NAV_ITEMS.createBuild.label}
@@ -293,12 +290,12 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           </BaseLink>
 
           <BaseLink
-            href={NAV_ITEMS.featuredBuilds.href}
             className="flex flex-row items-center justify-start"
+            href={NAV_ITEMS.featuredBuilds.href}
           >
             <NAV_ITEMS.featuredBuilds.icon
-              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
               {NAV_ITEMS.featuredBuilds.label}
@@ -310,12 +307,12 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           </BaseLink>
 
           <BaseLink
-            href={NAV_ITEMS.communityBuilds.href}
             className="flex flex-row items-center justify-start"
+            href={NAV_ITEMS.communityBuilds.href}
           >
             <NAV_ITEMS.communityBuilds.icon
-              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
               {NAV_ITEMS.communityBuilds.label}
@@ -327,12 +324,12 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           </BaseLink>
 
           <BaseLink
-            href={NAV_ITEMS.gimmickBuilds.href}
             className="flex flex-row items-center justify-start"
+            href={NAV_ITEMS.gimmickBuilds.href}
           >
             <NAV_ITEMS.gimmickBuilds.icon
-              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
               {NAV_ITEMS.gimmickBuilds.label}
@@ -344,12 +341,12 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           </BaseLink>
 
           <BaseLink
-            href={NAV_ITEMS.baseGameBuilds.href}
             className="flex flex-row items-center justify-start"
+            href={NAV_ITEMS.baseGameBuilds.href}
           >
             <NAV_ITEMS.baseGameBuilds.icon
-              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
               {NAV_ITEMS.baseGameBuilds.label}
@@ -361,12 +358,12 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           </BaseLink>
 
           <BaseLink
-            href={NAV_ITEMS.beginnerBuilds.href}
             className="flex flex-row items-center justify-start"
+            href={NAV_ITEMS.beginnerBuilds.href}
           >
             <NAV_ITEMS.beginnerBuilds.icon
-              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
               {NAV_ITEMS.beginnerBuilds.label}
@@ -378,12 +375,12 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           </BaseLink>
 
           <BaseLink
-            href={NAV_ITEMS.randomBuild.href}
             className="flex flex-row items-center justify-start"
+            href={NAV_ITEMS.randomBuild.href}
           >
             <NAV_ITEMS.randomBuild.icon
-              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
               {NAV_ITEMS.randomBuild.label}
@@ -397,12 +394,12 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           <hr className="border-secondary-900" />
 
           <BaseLink
-            href={NAV_ITEMS.itemLookup.href}
             className="flex flex-row items-center justify-start"
+            href={NAV_ITEMS.itemLookup.href}
           >
             <NAV_ITEMS.itemLookup.icon
-              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
               {NAV_ITEMS.itemLookup.label}
@@ -414,12 +411,12 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           </BaseLink>
 
           <BaseLink
-            href={NAV_ITEMS.itemTracker.href}
             className="flex flex-row items-center justify-start"
+            href={NAV_ITEMS.itemTracker.href}
           >
             <NAV_ITEMS.itemTracker.icon
-              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
               {NAV_ITEMS.itemTracker.label}
@@ -431,12 +428,12 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           </BaseLink>
 
           <BaseLink
-            href={NAV_ITEMS.itemQuiz.href}
             className="flex flex-row items-center justify-start"
+            href={NAV_ITEMS.itemQuiz.href}
           >
             <NAV_ITEMS.itemQuiz.icon
-              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
               {NAV_ITEMS.itemQuiz.label}
@@ -448,12 +445,12 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           </BaseLink>
 
           <BaseLink
-            href={NAV_ITEMS.resources.href}
             className="flex flex-row items-center justify-start"
+            href={NAV_ITEMS.resources.href}
           >
             <NAV_ITEMS.resources.icon
-              className="text-primary-600 mr-2 h-7 w-5 flex-none"
               aria-hidden="true"
+              className="text-primary-600 mr-2 h-7 w-5 flex-none"
             />
             <div className="flex flex-col items-start justify-start px-3 py-2">
               {NAV_ITEMS.resources.label}
@@ -465,6 +462,8 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           </BaseLink>
         </>
       }
+      mobileProfileButton={<ProfileButton.Mobile />}
+      showNotifications={showNotifications}
     />
   );
 }
