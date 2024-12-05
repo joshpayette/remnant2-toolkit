@@ -1842,7 +1842,7 @@ export const weaponItems: WeaponItem[] = [
     wikiLinks: [`https://remnant.wiki/Vice_Grips`],
     location: {
       world: `N'Erud`,
-      dungeon: ['Ascension Spire'],
+      dungeon: ['Drzyr Replicator'],
     },
     damage: 55,
     crit: 6,

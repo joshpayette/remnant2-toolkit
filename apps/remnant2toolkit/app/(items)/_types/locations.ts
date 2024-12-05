@@ -77,6 +77,7 @@ export const NERUD_DUNGEONS = [
   'Mucid Terrarium',
   'Bicentennial Man',
   'Devoid Quietus',
+  'Drzyr Replicator',
 ] as const satisfies string[];
 export type NErudDungeon = (typeof NERUD_DUNGEONS)[number];
 
