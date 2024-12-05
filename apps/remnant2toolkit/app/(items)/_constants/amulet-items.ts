@@ -376,7 +376,7 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: [`https://remnant.wiki/Effluvium_Enhancer`],
     location: {
       world: `N'Erud`,
-      dungeon: ['Drzyr Replicator'],
+      dungeon: 'Vendor',
     },
   },
   {
@@ -418,7 +418,7 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: [`https://remnant.wiki/Energy_Diverter`],
     location: {
       world: `N'Erud`,
-      dungeon: ['Drzyr Replicator'],
+      dungeon: 'Vendor',
     },
   },
   {
@@ -982,7 +982,7 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: [`https://remnant.wiki/Range_Finder`],
     location: {
       world: `N'Erud`,
-      dungeon: ['Drzyr Replicator'],
+      dungeon: 'Vendor',
     },
   },
   {
@@ -1299,7 +1299,7 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: [`https://remnant.wiki/Void_Idol`],
     location: {
       world: `N'Erud`,
-      dungeon: ['Drzyr Replicator'],
+      dungeon: 'Vendor',
     },
   },
   {
