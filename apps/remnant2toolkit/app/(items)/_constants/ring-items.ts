@@ -292,7 +292,8 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Blasting_Cap_Ring`],
     location: {
       world: `N'Erud`,
-      dungeon: ['The Eon Vault', 'Timeless Horizon'],
+      biome: `N'Erud Wasteland`,
+      injectable: `Extraction Hub`,
     },
     dlc: 'base',
   },
@@ -516,8 +517,7 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Mariner`],
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Wasteland`,
-      injectable: `Ascension Spire`,
+      dungeon: [`Ascension Spire`],
     },
     dlc: 'base',
   },
@@ -1072,8 +1072,7 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Embrace_of_Sha'Hala`],
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Wasteland`,
-      injectable: `Ascension Spire`,
+      dungeon: [`Ascension Spire`],
     },
     dlc: 'base',
   },
@@ -1454,7 +1453,8 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Hardcore_Metal_Band`],
     location: {
       world: `N'Erud`,
-      dungeon: ['The Eon Vault', 'Timeless Horizon'],
+      biome: `N'Erud Wasteland`,
+      injectable: `Titan's Reach`,
     },
     dlc: 'base',
   },
@@ -1707,8 +1707,7 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Meteorite_Shard_Ring`],
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Wasteland`,
-      injectable: 'Ascension Spire',
+      dungeon: ['Ascension Spire'],
     },
     weight: 50,
     dlc: 'base',
@@ -1725,8 +1724,7 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Microcompressor`],
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Wasteland`,
-      injectable: 'Ascension Spire',
+      dungeon: ['Ascension Spire'],
     },
     dlc: 'base',
   },
@@ -2775,7 +2773,11 @@ export const ringItems: RingItem[] = [
       'Increases the duration of all Status Effects applied by the wearer. Duration varies per Status.',
     wikiLinks: [`https://remnant.wiki/Timekeeper's_Jewel`],
     dlc: 'base',
-    location: { world: 'Losomn', dungeon: ['Hewdas Clock'] },
+    location: {
+      world: 'Losomn',
+      biome: 'Streets of Losomn',
+      injectable: 'Hewdas Clock',
+    },
   },
   {
     category: 'ring',

@@ -196,7 +196,8 @@ export const relicItems: RelicItem[] = [
     wikiLinks: [`https://remnant.wiki/Quilted_Heart`],
     location: {
       world: 'Losomn',
-      dungeon: [`Brocwithe Quarter`, `Morrow Parish`, `Forsaken Quarter`],
+      biome: 'Streets of Losomn',
+      injectable: `Oracle's Refuge`,
     },
   },
   {
@@ -259,8 +260,7 @@ export const relicItems: RelicItem[] = [
     wikiLinks: [`https://remnant.wiki/Salvaged_Heart`],
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Underworld`,
-      injectable: `Ascension Spire`,
+      dungeon: [`Ascension Spire`],
     },
   },
   {

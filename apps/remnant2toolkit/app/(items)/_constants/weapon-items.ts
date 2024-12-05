@@ -596,7 +596,11 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `An energy-based cutting tool that increases damage when focused on a target. Can overheat.`,
     wikiLinks: [`https://remnant.wiki/Plasma_Cutter`],
-    location: { world: `N'Erud`, dungeon: [`Titan's Reach`] },
+    location: {
+      world: `N'Erud`,
+      biome: `N'Erud Wasteland`,
+      injectable: `Titan's Reach`,
+    },
     linkedItems: {
       mod: {
         name: 'Heat Sink',
@@ -1360,7 +1364,11 @@ export const weaponItems: WeaponItem[] = [
     description:
       'A battle-worn spear worthy of the finest hunters. Charge Melee Attacks apply CORROSION dealing 100 ACID damage over 5s.',
     wikiLinks: [`https://remnant.wiki/Huntress_Spear`],
-    location: { world: 'Losomn', dungeon: [`Briella's Garden`] },
+    location: {
+      world: 'Losomn',
+      biome: 'Streets of Losomn',
+      injectable: `Briella's Garden`,
+    },
     linkedItems: {
       mod: {
         name: 'Javelin',
@@ -1834,8 +1842,7 @@ export const weaponItems: WeaponItem[] = [
     wikiLinks: [`https://remnant.wiki/Vice_Grips`],
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Underworld`,
-      injectable: `Ascension Spire`,
+      dungeon: ['Ascension Spire'],
     },
     damage: 55,
     crit: 6,
@@ -2469,7 +2476,11 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `The last vestiges of a fallen sister, this mystical crossbow pistol has the ability to recall its bolts to heal the wielder.`,
     wikiLinks: [`https://remnant.wiki/Sorrow`],
-    location: { world: 'Yaesha', dungeon: ['Dappled Glade'] },
+    location: {
+      world: 'Yaesha',
+      biome: 'Jungles of Yaesha',
+      injectable: 'Dappled Glave',
+    },
     linkedItems: {
       mod: {
         name: 'Eulogy',

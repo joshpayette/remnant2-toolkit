@@ -17,7 +17,11 @@ export const consumableItems: ConsumableItem[] = [
     ],
     description: `Grants a random buff or debuff. Lasts 3m.`,
     wikiLinks: [`https://remnant.wiki/All-Seeing_Eye`],
-    location: { world: 'Losomn', dungeon: ['Morrow Parish'] },
+    location: {
+      world: 'Losomn',
+      biome: 'Streets of Losomn',
+      injectable: `Oracle's Refuge`,
+    },
   },
   {
     category: 'consumable',
@@ -82,7 +86,7 @@ export const consumableItems: ConsumableItem[] = [
     wikiLinks: [`https://remnant.wiki/Binding_Orb`],
     location: {
       world: `N'Erud`,
-      dungeon: ['Ascension Spire'],
+      dungeon: 'World Drop',
     },
   },
   {
@@ -234,7 +238,11 @@ export const consumableItems: ConsumableItem[] = [
     description:
       "The sphere emits a soft breeze that smells of flower and ash. You can't explain why, but you feel like it's watching you. Waiting.",
     wikiLinks: [`https://remnant.wiki/Huntress%27s_Dream`],
-    location: { world: 'Losomn', dungeon: [`Briella's Garden`] },
+    location: {
+      world: 'Losomn',
+      biome: 'Streets of Losomn',
+      injectable: `Briella's Garden`,
+    },
   },
   {
     category: 'consumable',
@@ -246,7 +254,11 @@ export const consumableItems: ConsumableItem[] = [
     tags: ['Heal'],
     description: `Consume to restore 10% Max Health instantly.`,
     wikiLinks: [`https://remnant.wiki/Koara_Pellet`],
-    location: { world: 'Yaesha', dungeon: 'World Drop' },
+    location: {
+      world: 'Yaesha',
+      biome: 'Jungles of Yaesha',
+      injectable: 'Koara Kuri Nest',
+    },
   },
   {
     category: 'consumable',
@@ -434,7 +446,7 @@ export const consumableItems: ConsumableItem[] = [
     wikiLinks: [`https://remnant.wiki/Timeworn_Unguent`],
     location: {
       world: `N'Erud`,
-      dungeon: ['Ascension Spire'],
+      dungeon: 'World Drop',
     },
   },
   {
