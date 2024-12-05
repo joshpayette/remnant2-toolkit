@@ -223,8 +223,6 @@ export const BIOMES = [
     name: `N'Erud Wasteland`,
     world: `N'Erud`,
     dungeons: [
-      `Phantom Wasteland`,
-      `Abyssyal Rift`,
       `Timeless Horizon`,
       `The Eon Vault`,
     ],
