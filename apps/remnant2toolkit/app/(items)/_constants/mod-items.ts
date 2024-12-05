@@ -590,7 +590,7 @@ export const modItems: ModItem[] = [
       'Summons Fearie Familiar to aid in combat. The Familiar selects a random enemy within 10m and slashes through them for 25 damage each attack. Familiar will select a new target when the previous one dies. Lasts 20s.',
     externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Familiar`],
-    location: { world: 'Losomn', dungeon: [`Briella's Garden`] },
+    location: { world: 'Losomn', dungeon: [`Briella's Reverie`] },
   },
   {
     category: 'mod',
@@ -1453,7 +1453,11 @@ export const modItems: ModItem[] = [
       'Creates a 6m blast which freezes all standard enemies for 7s.\n\nDealing damage to frozen enemies immediately breaks the Time Lapse effect, applying SLOW for the remaining duration.',
     externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Time_Lapse`],
-    location: { world: 'Losomn', dungeon: ['Hewdas Clock'] },
+    location: {
+      world: 'Losomn',
+      biome: 'Streets of Losomn',
+      injectable: 'Hewdas Clock',
+    },
   },
   {
     category: 'mod',

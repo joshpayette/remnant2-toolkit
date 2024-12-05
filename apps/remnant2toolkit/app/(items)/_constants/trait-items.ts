@@ -393,7 +393,11 @@ export const traitItems: TraitItem[] = [
     description: 'Reduces all incoming damage by 1 -> 10%.',
     wikiLinks: [`https://remnant.wiki/Barkskin`],
     amount: DEFAULT_TRAIT_AMOUNT,
-    location: { world: 'Yaesha', dungeon: ['Dappled Glade'] },
+    location: {
+      world: 'Yaesha',
+      biome: 'Jungles of Yaesha',
+      injectable: 'Dappled Glave',
+    },
   },
   {
     category: 'trait',
@@ -408,7 +412,11 @@ export const traitItems: TraitItem[] = [
       'Summoner Minions absorb 1 -> 10% of damage taken by the caster.',
     wikiLinks: [`https://remnant.wiki/Blood_Bond`],
     amount: DEFAULT_TRAIT_AMOUNT,
-    location: { world: 'Yaesha', dungeon: ['Root Nexus'] },
+    location: {
+      world: 'Yaesha',
+      biome: 'Jungles of Yaesha',
+      injectable: 'Root Nexus',
+    },
   },
   {
     category: 'trait',
@@ -422,7 +430,11 @@ export const traitItems: TraitItem[] = [
     description: 'Increases Grey Health Regeneration by 0.3/s -> 3/s.',
     wikiLinks: [`https://remnant.wiki/Bloodstream`],
     amount: DEFAULT_TRAIT_AMOUNT,
-    location: { world: 'Yaesha', dungeon: ['Dappled Glade'] },
+    location: {
+      world: 'Yaesha',
+      biome: 'Jungles of Yaesha',
+      injectable: 'Dappled Glave',
+    },
   },
   {
     category: 'trait',
@@ -581,7 +593,11 @@ export const traitItems: TraitItem[] = [
     description: 'Increases Stamina Regen by 3 -> 30/s.',
     wikiLinks: [`https://remnant.wiki/Recovery`],
     amount: DEFAULT_TRAIT_AMOUNT,
-    location: { world: 'Losomn', dungeon: [`Oracle's Refuge`] },
+    location: {
+      world: 'Losomn',
+      biome: 'Streets of Losomn',
+      injectable: `Oracle's Refuge`,
+    },
   },
   {
     category: 'trait',

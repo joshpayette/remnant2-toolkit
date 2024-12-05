@@ -294,7 +294,8 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: [`https://remnant.wiki/Detonation_Trigger`],
     location: {
       world: `N'Erud`,
-      dungeon: ['The Eon Vault', 'Timeless Horizon'],
+      biome: `N'Erud Wasteland`,
+      injectable: `Extraction Hub`,
     },
   },
   {
@@ -1298,8 +1299,7 @@ export const amuletItems: AmuletItem[] = [
     wikiLinks: [`https://remnant.wiki/Void_Idol`],
     location: {
       world: `N'Erud`,
-      biome: `N'Erud Wasteland`,
-      injectable: 'Ascension Spire',
+      dungeon: ['Ascension Spire'],
     },
   },
   {

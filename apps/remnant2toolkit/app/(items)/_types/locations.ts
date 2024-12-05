@@ -29,6 +29,7 @@ export const LOSOMN_DUNGEONS = [
   `Postulant's Parlor`,
   `Tiller's Rest`,
   `Briella's Garden`,
+  `Briella's Reverie`,
   `Hewdas Clock`,
   'Lemark District',
   `Oracle's Refuge`,
@@ -227,7 +228,7 @@ export const BIOMES = [
       `Timeless Horizon`,
       `The Eon Vault`,
     ],
-    injectables: [`Ascension Spire`, `Titan's Reach`, `Extraction Hub`],
+    injectables: [`Titan's Reach`, `Extraction Hub`],
   },
   {
     name: 'Streets of Losomn',
@@ -407,7 +408,7 @@ export const DUNGEON_OVERRIDES: Array<{
     dungeons: [`Shattered Gallery`, `The Great Hall`, `Pathway of the Fallen`],
   },
   {
-    itemId: 'ygwrpd', // Vice Gripsm Ascension Spire is both an injectable and dungeon
+    itemId: 'ygwrpd', // Vice Grips, Ascension Spire is both an injectable and dungeon
     dungeons: ['Ascension Spire'],
   },
   {
