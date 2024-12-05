@@ -182,7 +182,7 @@ export const BIOMES = [
       `The Far Woods`,
       `Faithless Thicket`,
     ],
-    injectables: [`Dappled Glave`, `Koara Kuri Nest`, `Root Nexus`],
+    injectables: [`Dappled Glade`, `Koara Kuri Nest`, `Root Nexus`],
   },
   {
     name: 'Losomn Sewers',
@@ -222,12 +222,7 @@ export const BIOMES = [
   {
     name: `N'Erud Wasteland`,
     world: `N'Erud`,
-    dungeons: [
-      `Phantom Wasteland`,
-      `Abyssyal Rift`,
-      `Timeless Horizon`,
-      `The Eon Vault`,
-    ],
+    dungeons: [`Timeless Horizon`, `The Eon Vault`],
     injectables: [`Titan's Reach`, `Extraction Hub`],
   },
   {
