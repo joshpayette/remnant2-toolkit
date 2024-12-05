@@ -517,7 +517,7 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Burden_of_the_Mariner`],
     location: {
       world: `N'Erud`,
-      dungeon: [`Drzyr Replicator`],
+      dungeon: 'Vendor',
     },
     dlc: 'base',
   },
@@ -1707,7 +1707,7 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Meteorite_Shard_Ring`],
     location: {
       world: `N'Erud`,
-      dungeon: ['Drzyr Replicator'],
+      dungeon: 'Vendor',
     },
     weight: 50,
     dlc: 'base',
@@ -1724,7 +1724,7 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Microcompressor`],
     location: {
       world: `N'Erud`,
-      dungeon: ['Drzyr Replicator'],
+      dungeon: 'Vendor',
     },
     dlc: 'base',
   },
@@ -2666,7 +2666,7 @@ export const ringItems: RingItem[] = [
     description: `Prevents SUPPRESSION Blight.`,
     wikiLinks: [`https://remnant.wiki/Suppression_Ward`],
     dlc: 'base',
-    location: { world: `N'Erud`, dungeon: ['Drzyr Replicator'] },
+    location: { world: `N'Erud`, dungeon: 'Vendor' },
   },
   {
     category: 'ring',
