@@ -396,7 +396,7 @@ export const traitItems: TraitItem[] = [
     location: {
       world: 'Yaesha',
       biome: 'Jungles of Yaesha',
-      injectable: 'Dappled Glave',
+      injectable: 'Dappled Glade',
     },
   },
   {
@@ -433,7 +433,7 @@ export const traitItems: TraitItem[] = [
     location: {
       world: 'Yaesha',
       biome: 'Jungles of Yaesha',
-      injectable: 'Dappled Glave',
+      injectable: 'Dappled Glade',
     },
   },
   {
