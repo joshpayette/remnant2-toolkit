@@ -260,7 +260,7 @@ export const relicItems: RelicItem[] = [
     wikiLinks: [`https://remnant.wiki/Salvaged_Heart`],
     location: {
       world: `N'Erud`,
-      dungeon: [`Ascension Spire`],
+      dungeon: [`Drzyr Replicator`],
     },
   },
   {
