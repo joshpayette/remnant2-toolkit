@@ -106,7 +106,7 @@ export const weaponItems: WeaponItem[] = [
     saveFileSlug: 'Weapon_BlackGreatsword_C',
     imagePath: '/items/weapons/blackgreatsword.png',
     id: '71k6w5',
-    dlc: 'dlc3',
+    dlc: 'base',
     tags: ['Encumbrance', 'Charged Melee'],
     description: `A massive weapon of pure destruction. Attacks can be enhanced by Charging at the cost of Stamina over time. Increases Encumbrance by 15.`,
     wikiLinks: [`https://remnant.wiki/Black_Greatsword`],

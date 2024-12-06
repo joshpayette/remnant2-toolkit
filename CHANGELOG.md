@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-12-06
+
+### Fixed
+
+- Black Greatsword was mistakenly labeled as `dlc3` when it should have been base game.
+
 ## 2024-12-04
 
 ### Fixed
