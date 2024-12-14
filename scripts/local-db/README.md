@@ -36,7 +36,7 @@ mysql -u root -p
 
 CREATE DATABASE remnant2toolkit;
 CREATE USER 'r2tk'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON remnant2toolkit.* TO 'r2tk'@'localhost' WITH GRANT OPTIONS;
+GRANT ALL PRIVILEGES ON remnant2toolkit.* TO 'r2tk'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
