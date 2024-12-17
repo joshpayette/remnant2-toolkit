@@ -1,6 +1,6 @@
 import './globals.css';
 
-import { GlobalActionButtons, RootLayout } from '@repo/ui';
+import { BaseTextLink, GlobalActionButtons, RootLayout } from '@repo/ui';
 import { Analytics } from '@vercel/analytics/react';
 import { type Viewport } from 'next';
 import dynamic from 'next/dynamic';
@@ -28,9 +28,15 @@ export default async function Layout({
   return (
     <RootLayout
       alertBanner={
-        <AlertBanner localStorageKey="build-collections-added">
-          Build collections are now live! Click "Add to Collection" button on
-          any build to get started! Find collections on your profile!
+        <AlertBanner localStorageKey="one-year-anniversary">
+          December 17th marks our one year anniversary! Want to win a DLC of
+          choice?{' '}
+          <BaseTextLink
+            href="https://www.reddit.com/r/remnantgame/comments/1hgb5dv/remnant_2_toolkit_one_year_anniversary_giveaway/"
+            target="_blank"
+          >
+            Check out this Reddit thread for a chance to win!
+          </BaseTextLink>
         </AlertBanner>
       }
       footer={<Footer />}
