@@ -17,6 +17,8 @@ import { ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { type Item } from '@/app/(items)/_types/item';
 import { SKIPPED_ITEM_TRACKER_CATEGORIES } from '@/app/(items)/item-tracker/_constants/trackable-items';
 
+import { PylonItem } from '../_types/pylon-item';
+
 /**
  * Some words are too long to fit in the item label on the builder
  * and need to be manually broken up
@@ -280,10 +282,10 @@ export function ItemButton({
             !isEnemy(item) &&
             item.optional &&
             'border-secondary-400 border-b-0 border-dashed',
-          // If the item is an archetype item, give it a black background
+          // If the item uses an all-white foreground, force a solid black background
           item &&
             !isEnemy(item) &&
-            ArchetypeItem.isArchetypeItem(item) &&
+            (ArchetypeItem.isArchetypeItem(item) || PylonItem.isPylonItem(item)) &&
             'bg-black',
           variant === 'default' && 'h-[66px] w-[66px] rounded-t-lg',
           variant === 'large' && 'h-[99px] w-[99px] rounded-t-lg',
