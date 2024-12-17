@@ -70,7 +70,7 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
           unit: `/ ${TOTAL_TRACKABLE_ITEM_COUNT}`,
         }}
         isEditable={isEditable}
-        icon={<CheckIcon className="h-[36px] w-[36px] text-green-500" />}
+        icon={<CheckIcon className="h-[36px] w-[36px] text-accent2-500" />}
       />
       <StatBox
         stat={{

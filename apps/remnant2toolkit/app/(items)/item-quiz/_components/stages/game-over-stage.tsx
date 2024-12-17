@@ -31,7 +31,7 @@ export const GameOverStage = React.memo(
     onStartGame,
   }: Props) => (
     <div className="flex w-full flex-col items-center justify-center">
-      <h2 className="mb-2 text-2xl font-bold text-red-500">
+      <h2 className="mb-2 text-2xl font-bold text-accent3-500">
         {gameTimer <= 0 ? "Time's Up!" : 'Game Over!'}
       </h2>
       <div className="mb-8 flex flex-col items-center justify-center">

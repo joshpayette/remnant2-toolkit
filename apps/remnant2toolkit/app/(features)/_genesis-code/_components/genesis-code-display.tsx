@@ -53,7 +53,7 @@ export function GenesisCodeDisplay() {
             </div>
           </div>
         </div>
-        <p className="text-center text-sm text-red-500">
+        <p className="text-center text-sm text-accent3-500">
           Note: If your code doesn't match, restart the game
         </p>
       </div>

@@ -67,11 +67,39 @@ export const ColorThemes: ColorThemeProps[] = [
 ] as const;
 export type ColorTheme = (typeof ColorThemes)[number];
 
+export interface AccentThemeProps {
+  accentName: string;
+  accentKey: string;
+  accentTheme: string | undefined;
+}
+export const AccentThemes: AccentThemeProps[] = [
+  {
+    accentName: 'Default',
+    accentKey: 'accent-default',
+    accentTheme: undefined
+  },
+  {
+    accentName: 'Deuteranopic',
+    accentKey: 'accent-deuteranopic',
+    accentTheme: 'deuteranopic',
+  },
+] as const;
+export type AccentTheme = (typeof AccentThemes)[number];
+
 const colorThemes: Record<string, string> = {};
 
 ColorThemes.forEach(
-  ({ key, baseTheme, customThemes }) =>
-    (colorThemes[key] = [baseTheme, ...customThemes].join(' ')),
+  ({ key, baseTheme, customThemes }) => { AccentThemes.forEach(({accentKey, accentTheme}) => {
+    let mapKey = key;
+    const mapValues = [baseTheme, ...customThemes];
+
+    if (accentTheme) {
+      mapKey += `-${accentKey}`;
+      mapValues.push(accentTheme);
+    }
+
+    colorThemes[mapKey] = mapValues.join(' ');
+  }); }
 );
 
 export default function ThemeSelection({

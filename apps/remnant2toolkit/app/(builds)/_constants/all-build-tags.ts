@@ -18,9 +18,9 @@ export const ALL_BUILD_TAGS: BuildTag[] = [
     category: 'Type',
     // TODO
     colors: {
-      bg: 'bg-green-400/10',
-      hover: 'hover:bg-green-400/20',
-      text: 'text-green-700 dark:text-green-500',
+      bg: 'bg-accent2-400/10',
+      hover: 'hover:bg-accent2-400/20',
+      text: 'text-accent2-500',
     },
   },
   {
@@ -29,9 +29,9 @@ export const ALL_BUILD_TAGS: BuildTag[] = [
     category: 'Type',
     // TODO
     colors: {
-      bg: 'bg-red-400/10',
-      hover: 'hover:bg-red-400/20',
-      text: 'text-red-700 dark:text-red-500',
+      bg: 'bg-accent3-400/10',
+      hover: 'hover:bg-accent3-400/20',
+      text: 'text-accent3-500',
     },
   },
   {
@@ -51,9 +51,9 @@ export const ALL_BUILD_TAGS: BuildTag[] = [
     category: 'Tag',
     // TODO
     colors: {
-      bg: 'bg-green-400/10',
-      hover: 'hover:bg-green-400/20',
-      text: 'text-green-700 dark:text-green-500',
+      bg: 'bg-accent2-400/10',
+      hover: 'hover:bg-accent2-400/20',
+      text: 'text-accent2-500',
     },
   },
   {
@@ -81,9 +81,9 @@ export const ALL_BUILD_TAGS: BuildTag[] = [
     value: 'Ranged',
     category: 'Tag',
     colors: {
-      bg: 'bg-green-400/10',
-      hover: 'hover:bg-green-400/20',
-      text: 'text-green-700 dark:text-green-500',
+      bg: 'bg-accent2-400/10',
+      hover: 'hover:bg-accent2-400/20',
+      text: 'text-accent2-500',
     },
   },
   {
@@ -121,9 +121,9 @@ export const ALL_BUILD_TAGS: BuildTag[] = [
     value: 'Tank',
     category: 'Tag',
     colors: {
-      bg: 'bg-red-400/10',
-      hover: 'hover:bg-red-400/20',
-      text: 'text-red-700 dark:text-red-500',
+      bg: 'bg-accent3-400/10',
+      hover: 'hover:bg-accent3-400/20',
+      text: 'text-accent3-500',
     },
   },
 ];

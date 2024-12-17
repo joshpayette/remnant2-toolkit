@@ -11,6 +11,12 @@ https://tailwindcss.com/docs/customizing-colors
 For themed colors, the 500 variant of the dark mode (Tailwind) equivalent is plugged into
 https://tailtools.app/palette-generator
 Broadly speaking this results in a darker pallete, which contrasts better in light mode
+
+The accents are:
+* 1 - for "contrast" (default yellow)
+* 2 - for "confirm" or "success" (default green)
+* 3 - for "cancel" or "warning" (default red)
+
 */
 @layer base {
   :root {
@@ -128,6 +134,30 @@ Broadly speaking this results in a darker pallete, which contrasts better in lig
     --color-accent1-800: 243 213 119;
     --color-accent1-900: 249 232 181;
     --color-accent1-950: 254 251 243;
+
+    --color-accent2-50: 5 46 22;
+    --color-accent2-100: 20 83 45;
+    --color-accent2-200: 22 101 52;
+    --color-accent2-300: 21 128 61;
+    --color-accent2-400: 22 163 74;
+    --color-accent2-500: 34 197 94;
+    --color-accent2-600: 74 222 128;
+    --color-accent2-700: 134 239 172;
+    --color-accent2-800: 187 247 208;
+    --color-accent2-900: 220 252 231;
+    --color-accent2-950: 240 253 244;
+
+    --color-accent3-50: 69 10 10;
+    --color-accent3-100: 127 29 29;
+    --color-accent3-200: 153 27 27;
+    --color-accent3-300: 185 28 28;
+    --color-accent3-400: 220 38 38;
+    --color-accent3-500: 239 68 68;
+    --color-accent3-600: 248 113 113;
+    --color-accent3-700: 252 165 165;
+    --color-accent3-800: 254 202 202;
+    --color-accent3-900: 254 226 226;
+    --color-accent3-950: 254 242 242;
   }
 
   html[data-theme~='dark'] {
@@ -196,6 +226,30 @@ Broadly speaking this results in a darker pallete, which contrasts better in lig
     --color-accent1-800: 133 77 14;
     --color-accent1-900: 113 63 18;
     --color-accent1-950: 66 32 6;
+
+    --color-accent2-50: 240 253 244;
+    --color-accent2-100: 220 252 231;
+    --color-accent2-200: 187 247 208;
+    --color-accent2-300: 134 239 172;
+    --color-accent2-400: 74 222 128;
+    --color-accent2-500: 34 197 94;
+    --color-accent2-600: 22 163 74;
+    --color-accent2-700: 21 128 61;
+    --color-accent2-800: 22 101 52;
+    --color-accent2-900: 20 83 45;
+    --color-accent2-950: 5 46 22;
+
+    --color-accent3-50: 254 242 242;
+    --color-accent3-100: 254 226 226;
+    --color-accent3-200: 254 202 202;
+    --color-accent3-300: 252 165 165;
+    --color-accent3-400: 248 113 113;
+    --color-accent3-500: 239 68 68;
+    --color-accent3-600: 220 38 38;
+    --color-accent3-700: 185 28 28;
+    --color-accent3-800: 153 27 27;
+    --color-accent3-900: 127 29 29;
+    --color-accent3-950: 69 10 10;
   }
 
   /* 
@@ -375,6 +429,63 @@ Broadly speaking this results in a darker pallete, which contrasts better in lig
     --color-accent1-900: 63 48 0;
     --color-accent1-950: 42 32 0;
   }
+
+  /* Based off of Blue/Red from https://docs.google.com/document/d/1Kv2yAT6BUc6gXvCrtuIx474tTj4h318fYHR6a_kTMbk */
+  html[data-theme~='dark'][data-theme~='deuteranopic'] {
+    --color-accent2-50: 245 247 251;
+    --color-accent2-100: 193 209 232;
+    --color-accent2-200: 141 171 212;
+    --color-accent2-300: 89 133 193;
+    --color-accent2-400: 45 98 168;
+    --color-accent2-500: 39 85 147;
+    --color-accent2-600: 33 73 126;
+    --color-accent2-700: 28 61 104;
+    --color-accent2-800: 22 48 83;
+    --color-accent2-900: 16 36 62;
+    --color-accent2-950: 11 24 41;
+
+    --color-accent3-50: 252 244 244;
+    --color-accent3-100: 236 192 189;
+    --color-accent3-200: 220 139 134;
+    --color-accent3-300: 204 86 79;
+    --color-accent3-400: 181 42 33;
+    --color-accent3-500: 159 37 29;
+    --color-accent3-600: 136 31 25;
+    --color-accent3-700: 113 26 21;
+    --color-accent3-800: 90 21 16;
+    --color-accent3-900: 67 15 12;
+    --color-accent3-950: 44 10 8;
+  }
+
+  html[data-theme~='light'][data-theme~='deuteranopic'] {
+    --color-accent2-50: 11 24 41;
+    --color-accent2-100: 16 36 62;
+    --color-accent2-200: 22 48 83;
+    --color-accent2-300: 28 61 104;
+    --color-accent2-400: 33 73 126;
+    --color-accent2-500: 39 85 147;
+    --color-accent2-500: 45 98 168;
+    --color-accent2-600: 89 133 193;
+    --color-accent2-700: 141 171 212;
+    --color-accent2-800: 193 209 232;
+    --color-accent2-950: 245 247 251;
+
+    --color-accent3-50: 44 10 8;
+    --color-accent3-100: 67 15 12;
+    --color-accent3-200: 90 21 16;
+    --color-accent3-300: 113 26 21;
+    --color-accent3-400: 136 31 25;
+    --color-accent3-500: 159 37 29;
+    --color-accent3-600: 181 42 33;
+    --color-accent3-700: 204 86 79;
+    --color-accent3-800: 220 139 134;
+    --color-accent3-900: 236 192 189;
+    --color-accent3-950: 252 244 244;
+  }
+
+  /*
+  TODO - Protanopic and Tritanopic
+  */
 }
 
 html,

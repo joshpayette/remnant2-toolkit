@@ -801,7 +801,7 @@ export function ItemTagSuggestionDialog({
           </div>
           {itemSuggestions.length === 0 && (
             <div className="flex flex-col items-center justify-center">
-              <div className="text-md mt-4 text-center font-bold text-red-500">
+              <div className="text-md mt-4 text-center font-bold text-accent3-500">
                 No item suggestions found.
               </div>
             </div>

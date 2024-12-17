@@ -48,7 +48,7 @@ export function ImportLoadoutsDialog({
           from profile.sav files.
         </BaseDialogDescription>
         <BaseDialogDescription>
-          <span className="font-bold text-red-500 underline">
+          <span className="font-bold text-accent3-500 underline">
             This feature is in beta and may have bugs. Please report any issues
             you find in the Discord, or by clicking the Cog then Bug icon at the
             lower right of the site.

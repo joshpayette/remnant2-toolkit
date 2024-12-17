@@ -177,7 +177,7 @@ export function TraitsContainer({
             <span
               className={cn(
                 'text-lg font-bold',
-                totalTraitAmount > getTraitCount(buildState) && 'text-red-500',
+                totalTraitAmount > getTraitCount(buildState) && 'text-accent3-500',
               )}
             >
               {totalTraitAmount}
@@ -323,7 +323,7 @@ export function TraitsContainer({
                   <OwnershipIcon
                     className={cn(
                       'h-3 w-3',
-                      traitItem.isOwned ? 'text-green-500' : 'text-red-500',
+                      traitItem.isOwned ? 'text-accent2-500' : 'text-accent3-500',
                     )}
                   />
                 </button>
@@ -337,7 +337,7 @@ export function TraitsContainer({
                   aria-label="Remove Trait"
                 >
                   <CloseCircleIcon
-                    className="h-5 w-5 text-red-500"
+                    className="h-5 w-5 text-accent3-500"
                     aria-hidden="true"
                   />
                 </BaseButton>

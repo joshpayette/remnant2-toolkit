@@ -46,7 +46,7 @@ export default async function Page() {
       />
 
       {session?.user ? (
-        <div className="text-surface-solid my-4 max-w-lg rounded-md border border-red-500 px-2 py-1 text-left">
+        <div className="text-surface-solid my-4 max-w-lg rounded-md border border-accent3-500 px-2 py-1 text-left">
           <h3 className="text-center text-2xl font-bold">
             Features limited on this page!
           </h3>
@@ -77,7 +77,7 @@ export default async function Page() {
           </ul>
         </div>
       ) : (
-        <div className="text-surface-solid mb-2 rounded-md border border-red-500 px-2 py-1 text-left">
+        <div className="text-surface-solid mb-2 rounded-md border border-accent3-500 px-2 py-1 text-left">
           <h3 className="text-center text-lg font-bold">
             You are not signed in, so your features are limited.
           </h3>

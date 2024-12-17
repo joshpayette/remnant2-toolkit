@@ -1,5 +1,5 @@
 import { useTheme } from 'next-themes';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useReadLocalStorage } from 'usehooks-ts';
 import { BaseButton } from '../../../base/button';
 import {
@@ -14,7 +14,7 @@ import {
   BaseListboxOption,
 } from '../../../base/listbox';
 import { ThemeIcon } from '../../icons/theme';
-import { ColorThemes } from '..';
+import { AccentThemes, ColorThemes } from '..';
 
 const Modes = ['All', 'Dark', 'Light'] as const;
 type Mode = (typeof Modes)[number];
@@ -28,11 +28,22 @@ export function ThemeSelectButton() {
   const { theme, setTheme } = useTheme();
   const useBetaThemes = useReadLocalStorage<boolean>('r2tk-themes-beta');
 
+  const [accent, setAccent] = useState<string | undefined>(theme?.includes('-accent-') ? theme.split('-accent-').at(-1) : undefined);
+
   const availableThemes = ColorThemes.filter(
     ({ isLive }) => isLive || useBetaThemes,
   ).filter(
     ({ baseTheme }) => baseTheme === mode.toLowerCase() || mode === 'All',
-  );
+  ).map((baseTheme) => {return {...baseTheme, key: accent ? `${baseTheme.key}-accent-${accent}` : baseTheme.key}});
+
+  // There is surely a better way to do this...
+  useEffect(() => { 
+    let currTheme = theme?.split('-accent-')[0] ?? 'dark';
+    if (accent) {
+      currTheme += `-accent-${accent}`;
+    }
+    setTheme(currTheme);
+  }, [accent, theme, setTheme]);
 
   return (
     <>
@@ -58,6 +69,17 @@ export function ThemeSelectButton() {
               {Modes.map((selectedMode) => (
                 <BaseListboxOption key={selectedMode} value={selectedMode}>
                   <BaseListboxLabel>{selectedMode}</BaseListboxLabel>
+                </BaseListboxOption>
+              ))}
+            </BaseListbox>
+          </BaseField>
+
+          <BaseField>
+            <BaseLabel>Accents</BaseLabel>
+            <BaseListbox name="colorAccent" onChange={setAccent} value={accent}>
+              {AccentThemes.map(({accentKey, accentTheme, accentName}) => (
+                <BaseListboxOption key={accentKey} value={accentTheme}>
+                  <BaseListboxLabel>{accentName}</BaseListboxLabel>
                 </BaseListboxOption>
               ))}
             </BaseListbox>

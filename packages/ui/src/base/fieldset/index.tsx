@@ -114,7 +114,7 @@ export function BaseErrorMessage({
       {...props}
       className={cn(
         className,
-        'ui-text-base/6 ui-text-red-500 data-[disabled]:ui-opacity-50 sm:ui-text-sm/6',
+        'ui-text-base/6 ui-text-accent3-500 data-[disabled]:ui-opacity-50 sm:ui-text-sm/6',
       )}
       data-slot="error"
     />
