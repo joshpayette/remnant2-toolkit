@@ -44,7 +44,7 @@ export default async function Layout({
     >
       <PageHeader title="Item Quiz" subtitle={NAV_ITEMS.itemQuiz.description} />
       {/* {!session?.user?.id ? (
-        <p className="mb-12 w-full text-center text-red-500">
+        <p className="mb-12 w-full text-center text-accent3-500">
           If you are not signed in <span className="font-bold">BEFORE</span>{' '}
           starting the game, your results will not be saved!
         </p>

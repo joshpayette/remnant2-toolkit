@@ -23,8 +23,8 @@ export function FilterSwitch({
         {disabledStates?.includes('included') ? null : (
           <button
             className={cn(
-              'ui-border ui-[--btn-bg:transparent] ui-[--btn-icon:theme(colors.zinc.500)] data-[active]:ui-[--btn-icon:theme(colors.zinc.400)] data-[hover]:ui-[--btn-icon:theme(colors.zinc.400)] data-[active]:ui-bg-surface-solid/5 ui-relative ui-inline-flex ui-items-center ui-rounded-l-md ui-bg-[--btn-bg] ui-border-surface-solid/15 ui-p-2 ui-text-sm ui-font-semibold ui-text-green-500 ui-focus:z-10 focus:ui-outline-none data-[focus]:ui-outline data-[focus]:ui-outline-2 data-[focus]:ui-outline-offset-2 data-[focus]:ui-outline-blue-500',
-              state === 'included' && 'ui-bg-green-800 ui-text-surface-solid',
+              'ui-border ui-[--btn-bg:transparent] ui-[--btn-icon:theme(colors.zinc.500)] data-[active]:ui-[--btn-icon:theme(colors.zinc.400)] data-[hover]:ui-[--btn-icon:theme(colors.zinc.400)] data-[active]:ui-bg-surface-solid/5 ui-relative ui-inline-flex ui-items-center ui-rounded-l-md ui-bg-[--btn-bg] ui-border-surface-solid/15 ui-p-2 ui-text-sm ui-font-semibold ui-text-accent2-500 ui-focus:z-10 focus:ui-outline-none data-[focus]:ui-outline data-[focus]:ui-outline-2 data-[focus]:ui-outline-offset-2 data-[focus]:ui-outline-blue-500',
+              state === 'included' && 'ui-bg-accent2-800 ui-text-surface-solid',
             )}
             onClick={() => {
               onChange('included');
@@ -53,8 +53,8 @@ export function FilterSwitch({
         {disabledStates?.includes('excluded') ? null : (
           <button
             className={cn(
-              'ui-border ui-[--btn-bg:transparent] ui-[--btn-icon:theme(colors.zinc.500)] data-[active]:ui-[--btn-icon:theme(colors.zinc.400)] data-[hover]:ui-[--btn-icon:theme(colors.zinc.400)] data-[active]:ui-bg-surface-solid/5 ui-relative ui-inline-flex ui-items-center ui-rounded-r-md ui-border-surface-solid/15 ui-bg-[--btn-bg] ui-p-2 ui-text-sm ui-font-semibold ui-text-red-500 ui-focus:z-10 focus:ui-outline-none data-[focus]:ui-outline data-[focus]:ui-outline-2 data-[focus]:ui-outline-offset-2 data-[focus]:ui-outline-blue-500',
-              state === 'excluded' && 'ui-bg-red-800 ui-text-surface-solid',
+              'ui-border ui-[--btn-bg:transparent] ui-[--btn-icon:theme(colors.zinc.500)] data-[active]:ui-[--btn-icon:theme(colors.zinc.400)] data-[hover]:ui-[--btn-icon:theme(colors.zinc.400)] data-[active]:ui-bg-surface-solid/5 ui-relative ui-inline-flex ui-items-center ui-rounded-r-md ui-border-surface-solid/15 ui-bg-[--btn-bg] ui-p-2 ui-text-sm ui-font-semibold ui-text-accent3-500 ui-focus:z-10 focus:ui-outline-none data-[focus]:ui-outline data-[focus]:ui-outline-2 data-[focus]:ui-outline-offset-2 data-[focus]:ui-outline-blue-500',
+              state === 'excluded' && 'ui-bg-accent3-800 ui-text-surface-solid',
             )}
             onClick={() => {
               onChange('excluded');

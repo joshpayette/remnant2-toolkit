@@ -154,7 +154,7 @@ export function ArmorSuggestionDialog({
   if (allSlotsFull) {
     return (
       <ArmorInfoContainer {...armorInfoProps}>
-        <div className="text-md mt-4 text-center font-semibold text-red-500">
+        <div className="text-md mt-4 text-center font-semibold text-accent3-500">
           All armor slots are full. Clear at least one slot for suggestions.
         </div>
       </ArmorInfoContainer>
@@ -209,7 +209,7 @@ export function ArmorSuggestionDialog({
       </div>
       {armorSuggestions.length === 0 && (
         <div className="flex flex-col items-center justify-center">
-          <div className="text-md mt-4 text-center font-bold text-red-500">
+          <div className="text-md mt-4 text-center font-bold text-accent3-500">
             No armor suggestions found for the selected weight class.
           </div>
         </div>

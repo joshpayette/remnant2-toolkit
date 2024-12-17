@@ -37,7 +37,7 @@ export function ImportItemsDialog({
           <BaseCode>profile.sav</BaseCode>
         </BaseDialogDescription>
         <BaseDialogDescription>
-          <span className="text-red-500">
+          <span className="text-accent3-500">
             Note: This will overwrite any existing discovered items and then
             reimport.
           </span>

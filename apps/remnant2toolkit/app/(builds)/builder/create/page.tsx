@@ -68,7 +68,7 @@ export default async function Page() {
           />
           <div
             className={cn(
-              'absolute mb-2 flex h-full w-full flex-col items-center justify-start p-2 text-2xl font-bold text-red-500',
+              'absolute mb-2 flex h-full w-full flex-col items-center justify-start p-2 text-2xl font-bold text-accent3-500',
               ZINDEXES.BUILD_FEATURES_DISABLED,
             )}
           >

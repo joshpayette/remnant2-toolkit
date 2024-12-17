@@ -141,7 +141,7 @@ export default async function Page({
 
   if (session?.user?.id !== profileId && !isLoadoutPublic) {
     return (
-      <p className="text-red-500">You are not authorized to view this page.</p>
+      <p className="text-accent3-500">You are not authorized to view this page.</p>
     );
   }
 

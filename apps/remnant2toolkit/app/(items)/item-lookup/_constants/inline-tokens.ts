@@ -131,7 +131,7 @@ export const INLINE_TOKENS = [
   {
     type: 'Elemental Damage',
     token: 'Elemental Damage',
-    color: 'text-[#0a7552] dark:text-green-500',
+    color: 'text-[#0a7552] dark:text-accent2-500',
     description: `Acid, Corrosive, Fire, Shock, certain skills and mods.`,
   },
   {

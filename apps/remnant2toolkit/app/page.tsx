@@ -227,14 +227,14 @@ export default async function Page() {
             Latest Post
           </h3>
           <BaseLink
-            href="https://www.patreon.com/posts/hey-its-been-113641560"
+            href="https://www.patreon.com/posts/one-year-118154393?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=postshare_creator&utm_content=join_link"
             target="_blank"
           >
             <Image
-              src={getImageUrl('/patreon-posts/2024-10-08.png')}
+              src={getImageUrl('/patreon-posts/2024-12-17.png')}
               width={253}
               height={450}
-              alt="Hey, it's been a while! What some updates?"
+              alt="One-year anniversary + Giveaway!"
             />
           </BaseLink>
         </div>

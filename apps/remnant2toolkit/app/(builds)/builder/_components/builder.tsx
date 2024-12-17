@@ -507,7 +507,7 @@ export function Builder({
       />
 
       {buildState.isPublic === false && !isScreenshotMode && (
-        <div className="text-md mb-4 flex flex-col items-center justify-center gap-4 border-2 border-red-500 p-4 font-semibold text-red-500">
+        <div className="text-md mb-4 flex flex-col items-center justify-center gap-4 border-2 border-accent3-500 p-4 font-semibold text-accent3-500">
           This build is currently marked private. Other users will be unable to
           view it until you mark it public.
         </div>
@@ -667,7 +667,7 @@ export function Builder({
           ) : null}
           {buildState.isPatchAffected && (
             <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
-              <p className="border border-red-500 p-2 text-left text-xs font-bold text-red-500">
+              <p className="border border-accent3-500 p-2 text-left text-xs font-bold text-accent3-500">
                 This build might have been affected by a past update. If you
                 created this build, please update it and untoggle the
                 patch-affected setting.
@@ -1221,7 +1221,7 @@ export function Builder({
             className="mb-4 flex w-full flex-col items-center justify-center"
           >
             {!hasBossRushBuildTag && !isScreenshotMode && isEditable && (
-              <span className="mb-1 text-sm text-red-500">
+              <span className="mb-1 text-sm text-accent3-500">
                 Add the Boss Rush tag to add pylons to this build.
               </span>
             )}
