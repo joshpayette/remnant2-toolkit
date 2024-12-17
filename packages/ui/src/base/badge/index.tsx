@@ -8,7 +8,7 @@ import { BaseLink } from '../link';
 import { cn } from '../../utils/classnames';
 
 const colors = {
-  red: 'ui-bg-red-500/15 ui-text-red-700 group-data-[hover]:ui-bg-red-500/25 dark:ui-bg-red-500/10 dark:ui-text-red-400 dark:group-data-[hover]:ui-bg-red-500/20',
+  red: 'ui-bg-accent3-500/15 ui-text-accent3-700 group-data-[hover]:ui-bg-accent3-500/25 dark:ui-bg-accent3-500/10 dark:ui-text-accent3-400 dark:group-data-[hover]:ui-bg-accent3-500/20',
   orange:
     'ui-bg-orange-500/15 ui-text-orange-700 group-data-[hover]:ui-bg-orange-500/25 dark:ui-bg-orange-500/10 dark:ui-text-orange-400 dark:group-data-[hover]:ui-bg-orange-500/20',
   amber:
@@ -17,7 +17,7 @@ const colors = {
     'ui-bg-accent1-400/20 ui-text-accent1-700 group-data-[hover]:ui-bg-accent1-400/30 dark:ui-bg-accent1-400/10 dark:ui-text-accent1-300 dark:group-data-[hover]:ui-bg-accent1-400/15',
   lime: 'ui-bg-lime-400/20 ui-text-lime-700 group-data-[hover]:ui-bg-lime-400/30 dark:ui-bg-lime-400/10 dark:ui-text-lime-300 dark:group-data-[hover]:ui-bg-lime-400/15',
   green:
-    'ui-bg-green-500/15 ui-text-green-700 group-data-[hover]:ui-bg-green-500/25 dark:ui-bg-green-500/10 dark:ui-text-green-400 dark:group-data-[hover]:ui-bg-green-500/20',
+    'ui-bg-accent2-500/15 ui-text-accent2-700 group-data-[hover]:ui-bg-accent2-500/25 dark:ui-bg-accent2-500/10 dark:ui-text-accent2-400 dark:group-data-[hover]:ui-bg-accent2-500/20',
   emerald:
     'ui-bg-emerald-500/15 ui-text-emerald-700 group-data-[hover]:ui-bg-emerald-500/25 dark:ui-bg-emerald-500/10 dark:ui-text-emerald-400 dark:group-data-[hover]:ui-bg-emerald-500/20',
   teal: 'ui-bg-teal-500/15 ui-text-teal-700 group-data-[hover]:ui-bg-teal-500/25 dark:ui-bg-teal-500/10 dark:ui-text-teal-300 dark:group-data-[hover]:ui-bg-teal-500/20',

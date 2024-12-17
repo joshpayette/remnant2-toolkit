@@ -10,7 +10,7 @@ const variants = {
     text: (
       <div className="ui-font-black ui-text-lg ui-leading-5 ui-text-surface-solid ui-mb-0 ui-pb-0 ui-flex ui-gap-x-0.5">
         <p>REMNANT</p>
-        <p className="ui-text-red-500">II</p>
+        <p className="ui-text-accent3-500">II</p>
         <p>TOOLKIT</p>
       </div>
     ),

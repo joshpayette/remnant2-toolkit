@@ -264,7 +264,7 @@ export function ItemButton({
             <OwnershipIcon
               className={cn(
                 'h-3 w-3 ',
-                item.isOwned ? 'text-green-500' : 'text-red-500',
+                item.isOwned ? 'text-accent2-500' : 'text-accent3-500',
               )}
             />
           </button>

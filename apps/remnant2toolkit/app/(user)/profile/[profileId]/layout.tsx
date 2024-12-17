@@ -150,7 +150,7 @@ export default async function Layout({
     return (
       <>
         <PageHeader title="User Profile Not Found" />
-        <p className="text-lg text-red-500">
+        <p className="text-lg text-accent3-500">
           The user or user profile you are looking for could not be found.
         </p>
       </>

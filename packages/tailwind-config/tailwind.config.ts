@@ -75,6 +75,34 @@ const config: Omit<Config, 'content'> = {
           950: 'rgb(var(--color-accent1-950) / <alpha-value>)',
         },
 
+        // These accents are managed by an option separate from the base theme
+        accent2: {
+          50: 'rgb(var(--color-accent2-50) / <alpha-value>)',
+          100: 'rgb(var(--color-accent2-100) / <alpha-value>)',
+          200: 'rgb(var(--color-accent2-200) / <alpha-value>)',
+          300: 'rgb(var(--color-accent2-300) / <alpha-value>)',
+          400: 'rgb(var(--color-accent2-400) / <alpha-value>)',
+          500: 'rgb(var(--color-accent2-500) / <alpha-value>)',
+          600: 'rgb(var(--color-accent2-600) / <alpha-value>)',
+          700: 'rgb(var(--color-accent2-700) / <alpha-value>)',
+          800: 'rgb(var(--color-accent2-800) / <alpha-value>)',
+          900: 'rgb(var(--color-accent2-900) / <alpha-value>)',
+          950: 'rgb(var(--color-accent2-950) / <alpha-value>)',
+        },
+        accent3: {
+          50: 'rgb(var(--color-accent3-50) / <alpha-value>)',
+          100: 'rgb(var(--color-accent3-100) / <alpha-value>)',
+          200: 'rgb(var(--color-accent3-200) / <alpha-value>)',
+          300: 'rgb(var(--color-accent3-300) / <alpha-value>)',
+          400: 'rgb(var(--color-accent3-400) / <alpha-value>)',
+          500: 'rgb(var(--color-accent3-500) / <alpha-value>)',
+          600: 'rgb(var(--color-accent3-600) / <alpha-value>)',
+          700: 'rgb(var(--color-accent3-700) / <alpha-value>)',
+          800: 'rgb(var(--color-accent3-800) / <alpha-value>)',
+          900: 'rgb(var(--color-accent3-900) / <alpha-value>)',
+          950: 'rgb(var(--color-accent3-950) / <alpha-value>)',
+        },
+
         // These are aliases for existing tailwind colors
         // The CSS variable indirection allows them to adapt to the theme
         // If you are using a tailwind color that isn't here yet, it will NOT look great in light modes

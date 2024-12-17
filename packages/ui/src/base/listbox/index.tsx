@@ -73,7 +73,7 @@ export function BaseListbox<T>({
               'ui-bg-surface-solid/5',
 
               // Invalid state
-              'group-data-[invalid]:ui-border-red-600 group-data-[invalid]:group-data-[hover]:ui-border-red-600',
+              'group-data-[invalid]:ui-border-accent3-600 group-data-[invalid]:group-data-[hover]:ui-border-accent3-600',
 
               // Disabled state
               'group-data-[disabled]:ui-border-surface-solid/15 group-data-[disabled]:ui-bg-surface-solid/[2.5%] data-[hover]:group-data-[disabled]:ui-border-surface-solid/15 group-data-[disabled]:ui-opacity-100',

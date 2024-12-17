@@ -66,7 +66,7 @@ const sections = [
           Item Tracker
         </BaseLink>
         , you can click the <strong>Toggle Collected</strong> button to add the{' '}
-        <OwnershipIcon className="h-4 w-4 text-green-500" /> icon to items you
+        <OwnershipIcon className="h-4 w-4 text-accent2-500" /> icon to items you
         own in the build.
       </>
     ),

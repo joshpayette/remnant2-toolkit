@@ -54,7 +54,7 @@ export const BaseTextarea = forwardRef<
           'focus:ui-outline-none',
 
           // Invalid state
-          'data-[invalid]:ui-border-red-600 data-[invalid]:data-[hover]:ui-border-red-600',
+          'data-[invalid]:ui-border-accent3-600 data-[invalid]:data-[hover]:ui-border-accent3-600',
 
           // Disabled state
           'disabled:ui-border-surface-solid/15 disabled:ui-bg-surface-solid/[2.5%] data-[hover]:disabled:ui-border-surface-solid/15',

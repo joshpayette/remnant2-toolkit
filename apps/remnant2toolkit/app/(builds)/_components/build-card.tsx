@@ -157,7 +157,7 @@ export function BuildCard({
               </div>
               {buildState.isPatchAffected && (
                 <div className="mb-2 flex flex-row items-center justify-start gap-x-2">
-                  <p className="border border-red-500 p-2 text-left text-xs font-bold text-red-500">
+                  <p className="border border-accent3-500 p-2 text-left text-xs font-bold text-accent3-500">
                     This build might have been affected by a past update.
                   </p>
                 </div>

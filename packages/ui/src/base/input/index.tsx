@@ -41,7 +41,7 @@ export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
           'has-[[data-disabled]]:ui-opacity-50 before:has-[[data-disabled]]:ui-bg-zinc-950/5 before:has-[[data-disabled]]:ui-shadow-none',
 
           // Invalid state
-          'before:has-[[data-invalid]]:ui-shadow-red-500/10',
+          'before:has-[[data-invalid]]:ui-shadow-accent3-500/10',
 
           className,
         ])}
@@ -82,7 +82,7 @@ export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
             'focus:ui-outline-none',
 
             // Invalid state
-            'data-[invalid]:ui-border-red-500 data-[invalid]:data-[hover]:ui-border-red-500',
+            'data-[invalid]:ui-border-accent3-500 data-[invalid]:data-[hover]:ui-border-accent3-500',
 
             // Disabled state
             'data-[disabled]:ui-border-surface-solid/15 data-[hover]:data-[disabled]:ui-border-surface-solid/15 data-[disabled]:ui-bg-surface-solid/[2.5%]',
