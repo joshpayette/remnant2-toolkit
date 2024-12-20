@@ -68,6 +68,8 @@ export async function getCommunityBuilds({
     withVideo,
   } = buildFilterFields;
 
+  const includeBuildVariants = true;
+
   const whereConditions = Prisma.sql`
     WHERE Build.isPublic = true
     ${limitByArchetypesSegment(archetypes, archetypeSlot)}
@@ -89,7 +91,7 @@ export async function getCommunityBuilds({
     ${limitByTraitsSegment(traits)}
     ${limitByWithOptionalPrismFragment(withOptionalPrism)}
     ${limitByWithPatchAffectedSegment(withPatchAffected)}
-    ${limitByWithQualityBuildsSegment(withQuality)}
+    ${limitByWithQualityBuildsSegment(withQuality, includeBuildVariants)}
     ${limitByWithReferenceSegment(withReference)}
     ${limitByWithVideoSegment(withVideo)}
   `;
@@ -98,7 +100,7 @@ export async function getCommunityBuilds({
 
   try {
     const { builds, totalCount } = await getBuildList({
-      includeBuildVariants: true,
+      includeBuildVariants,
       itemsPerPage,
       orderBy: orderBySegment,
       pageNumber,

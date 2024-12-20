@@ -22,6 +22,7 @@ import { GenerateBuildImageButton } from '@/app/(builds)/builder/_components/gen
 import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/image-download-info-dialog';
 import { SaveBuildButton } from '@/app/(builds)/builder/_components/save-build-button';
 import { ShareBuildButton } from '@/app/(builds)/builder/_components/share-build-button';
+import { itemCategories } from '@/app/(items)/_lib/get-item-categories';
 import { AmuletItem } from '@/app/(items)/_types/amulet-item';
 import { ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { ArmorItem } from '@/app/(items)/_types/armor-item';
@@ -38,7 +39,6 @@ import { RingItem } from '@/app/(items)/_types/ring-item';
 import { SkillItem } from '@/app/(items)/_types/skill-item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
-import { itemCategories } from '@/app/(items)/_lib/get-item-categories';
 
 /**
  * Parses the build values from the query string

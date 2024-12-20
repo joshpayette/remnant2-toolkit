@@ -2,8 +2,8 @@ import { type Metadata, type ResolvingMetadata } from 'next';
 
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { allItems } from '@/app/(items)/_constants/all-items';
-import { type Item } from '@/app/(items)/_types/item';
 import { itemMatchesSearchText } from '@/app/(items)/_lib/item-matches-search-text';
+import { type Item } from '@/app/(items)/_types/item';
 import { INLINE_TOKENS } from '@/app/(items)/item-lookup/_constants/inline-tokens';
 import { ITEM_TOKENS } from '@/app/(items)/item-lookup/_constants/item-tokens';
 
