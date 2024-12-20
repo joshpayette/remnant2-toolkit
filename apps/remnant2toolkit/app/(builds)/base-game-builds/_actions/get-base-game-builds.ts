@@ -68,6 +68,8 @@ export async function getBaseGameBuilds({
     withVideo,
   } = buildFilterFields;
 
+  const includeBuildVariants = false;
+
   const whereConditions = Prisma.sql`
     WHERE Build.isPublic = true
     AND Build.isBaseGameBuild = true
@@ -90,7 +92,7 @@ export async function getBaseGameBuilds({
     ${limitByTraitsSegment(traits)}
     ${limitByWithOptionalPrismFragment(withOptionalPrism)}
     ${limitByWithPatchAffectedSegment(withPatchAffected)}
-    ${limitByWithQualityBuildsSegment(withQuality)}
+    ${limitByWithQualityBuildsSegment(withQuality, includeBuildVariants)}
     ${limitByWithReferenceSegment(withReference)}
     ${limitByWithVideoSegment(withVideo)}
   `;
@@ -99,7 +101,7 @@ export async function getBaseGameBuilds({
 
   try {
     const { builds, totalCount } = await getBuildList({
-      includeBuildVariants: false,
+      includeBuildVariants,
       itemsPerPage,
       orderBy: orderBySegment,
       pageNumber,

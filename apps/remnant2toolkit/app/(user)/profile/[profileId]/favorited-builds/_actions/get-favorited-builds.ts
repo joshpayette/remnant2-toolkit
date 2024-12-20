@@ -69,6 +69,8 @@ export async function getFavoritedBuilds({
     withVideo,
   } = buildFilterFields;
 
+  const includeBuildVariants = false;
+
   const whereConditions = Prisma.sql`
     WHERE Build.isPublic = true
     AND Build.createdById != ${userId}
@@ -91,7 +93,7 @@ export async function getFavoritedBuilds({
     ${limitByTraitsSegment(traits)}
     ${limitByWithOptionalPrismFragment(withOptionalPrism)}
     ${limitByWithPatchAffectedSegment(withPatchAffected)}
-    ${limitByWithQualityBuildsSegment(withQuality)}
+    ${limitByWithQualityBuildsSegment(withQuality, includeBuildVariants)}
     ${limitByWithReferenceSegment(withReference)}
     ${limitByWithVideoSegment(withVideo)}
     ${limitByFavorited(userId)}
@@ -101,7 +103,7 @@ export async function getFavoritedBuilds({
 
   try {
     const { builds, totalCount } = await getBuildList({
-      includeBuildVariants: false,
+      includeBuildVariants,
       itemsPerPage,
       orderBy: orderBySegment,
       pageNumber,

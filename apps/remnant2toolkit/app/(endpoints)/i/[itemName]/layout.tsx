@@ -4,10 +4,10 @@ import { type Metadata, type ResolvingMetadata } from 'next';
 
 import { SITE_TITLE } from '@/app/_constants/meta';
 import { allItems } from '@/app/(items)/_constants/all-items';
+import { itemEndpoint } from '@/app/(items)/_lib/get-item-endpoint';
 import { ArmorItem } from '@/app/(items)/_types/armor-item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
-import { itemEndpoint } from '@/app/(items)/_lib/get-item-endpoint';
 
 import ItemPage from './page';
 

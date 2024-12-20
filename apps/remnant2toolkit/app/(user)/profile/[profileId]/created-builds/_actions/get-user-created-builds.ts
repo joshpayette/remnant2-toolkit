@@ -93,6 +93,8 @@ export async function getUserCreatedBuilds({
     }
   }
 
+  const includeBuildVariants = false;
+
   const whereConditions = Prisma.sql`
     WHERE Build.createdById = ${profileId}
     ${isPublicSegment}
@@ -116,7 +118,7 @@ export async function getUserCreatedBuilds({
     ${limitByTraitsSegment(traits)}
     ${limitByWithOptionalPrismFragment(withOptionalPrism)}
     ${limitByWithPatchAffectedSegment(withPatchAffected)}
-    ${limitByWithQualityBuildsSegment(withQuality)}
+    ${limitByWithQualityBuildsSegment(withQuality, includeBuildVariants)}
     ${limitByWithReferenceSegment(withReference)}
     ${limitByWithVideoSegment(withVideo)}
   `;
@@ -125,7 +127,7 @@ export async function getUserCreatedBuilds({
 
   try {
     const { builds, totalCount } = await getBuildList({
-      includeBuildVariants: false,
+      includeBuildVariants,
       itemsPerPage,
       orderBy: orderBySegment,
       pageNumber,

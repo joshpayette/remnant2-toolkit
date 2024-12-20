@@ -27,6 +27,7 @@ import getItemBuildStats, {
 } from '@/app/(items)/_actions/get-item-build-stats';
 import { ArmorInfo } from '@/app/(items)/_components/armor-info';
 import { WeaponInfo } from '@/app/(items)/_components/weapon-info';
+import { itemShareEndpoint } from '@/app/(items)/_lib/get-item-endpoint';
 import { ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { ArmorItem } from '@/app/(items)/_types/armor-item';
 import { type Item } from '@/app/(items)/_types/item';
@@ -37,7 +38,6 @@ import { RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 import { SkillItem } from '@/app/(items)/_types/skill-item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
-import { itemShareEndpoint } from '@/app/(items)/_lib/get-item-endpoint';
 
 interface Props {
   allowItemCompare?: boolean;

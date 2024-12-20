@@ -18,6 +18,7 @@ import { DescriptionWithTokens } from '@/app/_components/description-with-tokens
 import { RELEASE_TO_NAME } from '@/app/_constants/releases';
 import { ArmorInfo } from '@/app/(items)/_components/armor-info';
 import { WeaponInfo } from '@/app/(items)/_components/weapon-info';
+import { itemShareEndpoint } from '@/app/(items)/_lib/get-item-endpoint';
 import { ArchetypeItem } from '@/app/(items)/_types/archetype-item';
 import { ArmorItem } from '@/app/(items)/_types/armor-item';
 import { type Item } from '@/app/(items)/_types/item';
@@ -32,7 +33,6 @@ import { PerkItem } from '@/app/(items)/_types/perk-item';
 import { SkillItem } from '@/app/(items)/_types/skill-item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
-import { itemShareEndpoint } from '@/app/(items)/_lib/get-item-endpoint';
 
 function generateDungeonLabel(location: ItemLocation, itemId: string) {
   let label = `${location.world} - `;

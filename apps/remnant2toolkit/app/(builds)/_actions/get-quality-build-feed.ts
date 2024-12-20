@@ -18,8 +18,10 @@ export async function getQualityBuildFeed(): Promise<{
 
   const orderBySegment = getOrderBySegment('newest');
 
+  const includeBuildVariants = false;
+
   const { builds } = await getBuildList({
-    includeBuildVariants: false,
+    includeBuildVariants,
     itemsPerPage: 4,
     orderBy: orderBySegment,
     pageNumber: 1,
@@ -28,7 +30,7 @@ export async function getQualityBuildFeed(): Promise<{
     whereConditions: Prisma.sql`
 WHERE Build.isPublic = true
 AND Build.isPatchAffected = false
-${limitByWithQualityBuildsSegment(true)}
+${limitByWithQualityBuildsSegment(true, includeBuildVariants)}
     `,
     withCollection: 0,
   });

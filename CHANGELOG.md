@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-12-19
+
+### Fixed
+
+- Adjusted the logic on whether a build is considered a quality build in the curated build feeds. In beginner builds, some builds had the first build as the Ward 13 variant, which typically is not quality. Unfortunately, this meant that it was not showing in the default curated build feed because only the main build was being checked for the quality build flag. The logic has been updated for all curated feeds to consider a curated build to be quality if any of the variants are quality. Community build logic remains unchanged.
+
 ## 2024-12-17
 
 ### Added
