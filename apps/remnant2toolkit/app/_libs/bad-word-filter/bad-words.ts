@@ -268,7 +268,6 @@ export const badWords = [
   'gangbang',
   'gangbanged',
   'gangbangs',
-  'gay',
   'gaylord',
   'gaysex',
   'goatse',
