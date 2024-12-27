@@ -80,7 +80,9 @@ export default async function Page() {
               }
             />
             <div className="col-span-full md:hidden">
-              <QualityBuildFeedContainer />
+              <Suspense fallback={<Skeleton className="h-[480px] w-full" />}>
+                <QualityBuildFeedContainer />
+              </Suspense>
             </div>
             <div className="md:hidden">
               <LandingPageCard
