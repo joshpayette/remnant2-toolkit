@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2024-12-27
+
+### Fixed
+
+- Pushed a fix attempting to resolve how long the home page was taking to load.
+
 ## 2024-12-19
 
 ### Fixed
