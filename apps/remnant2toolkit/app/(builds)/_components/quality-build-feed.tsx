@@ -1,11 +1,9 @@
 'use client';
 
 import { BaseLink, EyeIcon, Tooltip } from '@repo/ui';
-import { getArrayOfLength } from '@repo/utils';
 import { useState } from 'react';
 
 import { BuildCard } from '@/app/(builds)/_components/build-card';
-import { BuildCardSkeleton } from '@/app/(builds)/_components/build-card-skeleton';
 import { QualityBuildInfoDialog } from '@/app/(builds)/_components/quality-build-info-dialog';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
@@ -37,29 +35,24 @@ export function QualityBuildFeed({ builds }: Props) {
         role="list"
         className="my-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4"
       >
-        {builds.length === 0
-          ? getArrayOfLength(4).map((_) => <BuildCardSkeleton key={_} />)
-          : builds.map((build) => (
-              <div
-                key={`${build.id}${build.variantIndex}`}
-                className="mt-4 w-full"
-              >
-                <BuildCard
-                  build={build}
-                  isLoading={false}
-                  footerActions={
-                    <Tooltip content="View Build">
-                      <BaseLink
-                        href={`/builder/${build.id}`}
-                        className="text-primary-500 hover:text-primary-300 flex flex-col items-center gap-x-3 rounded-br-lg border border-transparent px-4 py-2 text-xs font-semibold hover:underline"
-                      >
-                        <EyeIcon className="h-4 w-4" /> View
-                      </BaseLink>
-                    </Tooltip>
-                  }
-                />
-              </div>
-            ))}
+        {builds.map((build) => (
+          <div key={`${build.id}${build.variantIndex}`} className="mt-4 w-full">
+            <BuildCard
+              build={build}
+              isLoading={false}
+              footerActions={
+                <Tooltip content="View Build">
+                  <BaseLink
+                    href={`/builder/${build.id}`}
+                    className="text-primary-500 hover:text-primary-300 flex flex-col items-center gap-x-3 rounded-br-lg border border-transparent px-4 py-2 text-xs font-semibold hover:underline"
+                  >
+                    <EyeIcon className="h-4 w-4" /> View
+                  </BaseLink>
+                </Tooltip>
+              }
+            />
+          </div>
+        ))}
       </ul>
 
       <div className="flex w-full flex-row items-end justify-end">
