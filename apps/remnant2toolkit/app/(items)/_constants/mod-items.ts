@@ -250,7 +250,7 @@ export const modItems: ModItem[] = [
     description:
       'Fires a drill projectile which bores into enemies on contact, dealing 80 damage. After fully burrowing into an enemy, creates a Weakspot which grants 65% of normal Weakspot Damage on hit. If attached to an existing Weakspot, Ranged Crit Chance is increased by 15% when attacking the drill. Lasts 10s.',
     wikiLinks: [`https://remnant.wiki/Bore`],
-    location: { world: `N'Erud`, dungeon: [`The Dark Conduit`] },
+    location: { world: `N'Erud`, dungeon: [`The Putrid Domain`] },
   },
   {
     category: 'mod',
