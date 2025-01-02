@@ -7,11 +7,11 @@ import { LandingPageCard } from '@/app/_components/landing-page-card';
 import { LandingPageCardDisabled } from '@/app/_components/landing-page-card-disabled';
 import { LandingPageContainer } from '@/app/_components/landing-page-container';
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
+import { QualityBuildFeed } from '@/app/(builds)/_components/quality-build-feed';
 import { getLeaderBoard as getItemQuizLeaderBoard } from '@/app/(items)/item-quiz/_actions/get-leader-board';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
 import { LandingPageHeaderDescription } from './_components/landing-page-header-description';
-import { QualityBuildFeedContainer } from './(builds)/_components/quality-build-feed-container';
 import { GenesisCodeDisplay } from './(features)/_genesis-code/_components/genesis-code-display';
 
 export default async function Page() {
@@ -49,14 +49,10 @@ export default async function Page() {
           </div>
 
           <div id="genesis" className="col-span-full mt-8 w-full">
-            <Suspense fallback={<Skeleton className="h-[200px] w-full" />}>
-              <GenesisCodeDisplay />
-            </Suspense>
+            <GenesisCodeDisplay />
           </div>
           <div className="col-span-full mt-8 hidden w-full md:block">
-            <Suspense fallback={<Skeleton className="h-[480px] w-full" />}>
-              <QualityBuildFeedContainer />
-            </Suspense>
+            <QualityBuildFeed />
           </div>
           <div className="col-span-full mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
             <div className="md:hidden">
@@ -80,9 +76,7 @@ export default async function Page() {
               }
             />
             <div className="col-span-full md:hidden">
-              <Suspense fallback={<Skeleton className="h-[480px] w-full" />}>
-                <QualityBuildFeedContainer />
-              </Suspense>
+              <QualityBuildFeed />
             </div>
             <div className="md:hidden">
               <LandingPageCard
