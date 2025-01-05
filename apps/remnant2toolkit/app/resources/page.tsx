@@ -17,6 +17,16 @@ export default async function Page() {
       }
     >
       <div className="col-span-full mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
+        {/* <LandingPageCard
+          {...NAV_ITEMS.faqGuide}
+          icon={
+            <NAV_ITEMS.faqGuide.icon
+              className="text-primary-500 h-7 w-7 flex-none"
+              aria-hidden="true"
+            />
+          }
+        /> */}
+
         <LandingPageCard
           {...NAV_ITEMS.worldSaveArchive}
           icon={
