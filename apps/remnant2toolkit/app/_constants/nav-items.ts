@@ -9,6 +9,7 @@ import {
   CommunityBuildsIcon,
   CreateBuildIcon,
   DiscordIcon,
+  FAQIcon,
   FavoriteIcon,
   FeaturedBuildsIcon,
   GimmickBuildsIcon,
@@ -89,6 +90,13 @@ export const NAV_ITEMS = {
       'Weigh in on new features, get help with builds, report bugs, or just hang out!',
     href: DISCORD_INVITE_URL,
     icon: DiscordIcon,
+  },
+  faqGuide: {
+    label: 'General FAQ',
+    description:
+      'A collection of frequently asked questions and answers about Remnant 2.',
+    href: '/guides/faq',
+    icon: FAQIcon,
   },
   favoritedBuilds: {
     label: 'Favorited Builds',
