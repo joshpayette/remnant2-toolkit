@@ -334,7 +334,8 @@ export async function GET(request: NextRequest) {
       await new Promise((resolve) => setTimeout(resolve, STAGGER_TIME));
     }
   }
-  runReportsWithStagger();
+
+  await runReportsWithStagger();
 
   console.info(`All items reports complete.`);
 
