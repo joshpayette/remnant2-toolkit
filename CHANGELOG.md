@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2025-01-21
+
+### Fixed
+
+- Breach Accelerator ring location corrected to `N'Erud - Agronomy Sector`.
+
 ## 2025-01-02
 
 ### Changed

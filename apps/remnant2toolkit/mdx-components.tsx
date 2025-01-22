@@ -1,16 +1,23 @@
+import { BaseLink } from '@repo/ui';
 import { type MDXComponents } from 'mdx/types';
+
+function getAnchor(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9 ]/g, '')
+    .replace(/[ ]/g, '-');
+}
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     a: ({ children, href }) => (
-      <a
+      <BaseLink
         className="text-md text-primary-500 hover:text-primary-300 hover:underline"
-        href={href}
-        target="_blank"
+        href={href as string}
         rel="noopener noreferrer"
       >
         {children}
-      </a>
+      </BaseLink>
     ),
     blockquote: ({ children }) => (
       <blockquote className="text-md border-secondary-500 mb-4 border p-4 text-left">
@@ -22,11 +29,17 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </h1>
     ),
-    h2: ({ children }) => (
-      <h2 className="text-primary-500 mx-8 mb-4 text-center text-2xl font-bold">
-        {children}
-      </h2>
-    ),
+    h2: ({ children }) => {
+      const anchor = getAnchor(children as string);
+      return (
+        <h2
+          id={anchor}
+          className="text-primary-500 mx-8 mb-4 text-center text-2xl font-bold"
+        >
+          {children}
+        </h2>
+      );
+    },
     h3: ({ children }) => (
       <h3 className="text-surface-solid mx-8 mb-4 text-lg font-bold">
         {children}

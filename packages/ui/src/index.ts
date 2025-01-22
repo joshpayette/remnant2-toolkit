@@ -62,6 +62,7 @@ export { DuplicateIcon } from './common/icons/duplicate';
 export { EditIcon } from './common/icons/edit';
 export { EyeIcon } from './common/icons/eye';
 export { EyeOffIcon } from './common/icons/eye-off';
+export { FAQIcon } from './common/icons/faq';
 export { FavoriteIcon } from './common/icons/favorite';
 export { FeaturedBuildsIcon } from './common/icons/featured-builds';
 export { FilterIcon } from './common/icons/filter';

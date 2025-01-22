@@ -31,6 +31,7 @@ export function useImageExport() {
     // We do this to trigger the effect below
     setIsScreenshotMode({ el, imageFileName });
   }
+  
   /**
    * Export the build as an image
    * We do this in a useEffect so that the UI can update,
