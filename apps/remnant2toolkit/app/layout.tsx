@@ -28,16 +28,17 @@ export default async function Layout({
   return (
     <RootLayout
       alertBanner={
-        <AlertBanner localStorageKey="one-year-anniversary">
-          December 17th marks our one year anniversary! Want to win a DLC of
-          choice?{' '}
-          <BaseTextLink
-            href="https://www.reddit.com/r/remnantgame/comments/1hgb5dv/remnant_2_toolkit_one_year_anniversary_giveaway/"
-            target="_blank"
-          >
-            Check out this Reddit thread for a chance to win!
-          </BaseTextLink>
-        </AlertBanner>
+        null
+        // <AlertBanner localStorageKey="one-year-anniversary">
+        //   December 17th marks our one year anniversary! Want to win a DLC of
+        //   choice?{' '}
+        //   <BaseTextLink
+        //     href="https://www.reddit.com/r/remnantgame/comments/1hgb5dv/remnant_2_toolkit_one_year_anniversary_giveaway/"
+        //     target="_blank"
+        //   >
+        //     Check out this Reddit thread for a chance to win!
+        //   </BaseTextLink>
+        // </AlertBanner>
       }
       footer={<Footer />}
       navbar={<Navbar showNotifications={showNotifications} />}
