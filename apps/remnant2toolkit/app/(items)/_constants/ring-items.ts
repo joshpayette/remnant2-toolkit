@@ -2020,7 +2020,7 @@ export const ringItems: RingItem[] = [
     description: `On Relic Use, increase All Damage by 10% for 15s.`,
     wikiLinks: [`https://remnant.wiki/Ring_of_Bones`],
     dlc: 'base',
-    location: { world: 'Losomn', dungeon: 'World Drop' },
+    location: { world: 'Yaesha', dungeon: 'World Drop' },
   },
   {
     category: 'ring',
