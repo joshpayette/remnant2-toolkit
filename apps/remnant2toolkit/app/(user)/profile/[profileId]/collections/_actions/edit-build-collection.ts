@@ -39,13 +39,24 @@ export async function editBuildCollection({
         id: collectionId,
         createdById: session.user.id,
       },
-      select: { name: true, description: true },
+      select: {
+        name: true,
+        description: true,
+        BuildsToBuildCollections: { select: { buildId: true } },
+      },
     });
 
     // Check if all buildIds exist
     const existingBuilds = await prisma.build.findMany({
       where: {
-        id: { in: buildIds },
+        id: {
+          in: [
+            ...(existingCollection?.BuildsToBuildCollections.map(
+              (b) => b.buildId,
+            ) || []),
+            ...buildIds,
+          ],
+        },
       },
       select: { id: true },
     });

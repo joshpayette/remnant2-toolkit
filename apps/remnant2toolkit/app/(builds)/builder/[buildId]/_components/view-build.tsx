@@ -146,10 +146,7 @@ export function ViewBuild({
       collectionId: collection.id,
       collectionName: collection.name,
       collectionDescription: collection.description ?? '',
-      buildIds: [
-        ...collection.builds.map((build) => build.id),
-        activeBuildState.buildId,
-      ],
+      buildIds: [activeBuildState.buildId],
     });
 
     if (isErrorResponse(response)) {
