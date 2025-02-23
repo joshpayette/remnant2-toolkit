@@ -769,6 +769,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `This heavy suit of armor encumbers your shoulders with weight befitting the burdens of a sovereign. It emits a faint heat, as if forged from an ever-hot metal.`,
     wikiLinks: [`https://remnant.wiki/Crimson_Guard_Plate`],
+    location: { world: 'Losomn', dungeon: 'Quest' },
   },
   {
     category: 'torso',
@@ -1304,6 +1305,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `The crimson greaves clink and clank as you walk, announcing your presence to those honored enough to know it. Each sabaton tapers to a sharp, defiant point.`,
     wikiLinks: [`https://remnant.wiki/Crimson_Guard_Sabatons`],
+    location: { world: 'Losomn', dungeon: 'Quest' },
   },
   {
     category: 'legs',
@@ -1841,6 +1843,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 0,
     description: `These gauntlets line your forearms with sharp, yet elegant edges, though they lack the sharpened claws that would make a proper bloodthirsty Fae of you.`,
     wikiLinks: [`https://remnant.wiki/Crimson_Guard_Gauntlets`],
+    location: { world: 'Losomn', dungeon: 'Quest' },
   },
   {
     category: 'gloves',

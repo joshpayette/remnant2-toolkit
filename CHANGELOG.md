@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2025-02-23
+
+### Fixed
+
+- Crimson Guard items were not showing the location of the items.
+- Ring of Bones was mistakenly labeled as a Losomn world drop rather than a Yaesha world drop.
+
 ## 2025-02-22
 
 ### Changed
