@@ -353,8 +353,6 @@ export const badWords = [
   'ma5terb8',
   'ma5terbate',
   'mamhoon',
-  'masochist',
-  'masokist',
   'massterbait',
   'masstrbait',
   'masstrbate',
