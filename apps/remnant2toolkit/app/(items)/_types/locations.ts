@@ -127,6 +127,8 @@ export type RootEarthDungeon = (typeof ROOT_EARTH_DUNGEONS)[number];
 export const LABYRINTH_DUNGEONS = [
   'Labyrinth',
   'Fractured Ingress',
+  'Entangled Gauntlet',
+  'Colosseum of Ruin',
 ] as const satisfies string[];
 export type LabyrinthDungeon = (typeof LABYRINTH_DUNGEONS)[number];
 

@@ -11,7 +11,7 @@ export const modItems: ModItem[] = [
     description:
       'Imbues ammunition with BLEED and increases Lifesteal by 5% for 20s. Shots also apply BLEEDING, dealing 200 → 600 damage over 10s.',
     wikiLinks: [`https://remnant.wiki/Abrasive_Rounds`],
-    location: { world: 'Ward 13', dungeon: 'Vendor' },
+    location: { world: 'Yaesha', dungeon: ['Earthen Coliseum'] },
   },
   {
     category: 'mod',
@@ -1327,7 +1327,7 @@ export const modItems: ModItem[] = [
       'Fires a shot infused with the binding power of the Song of Eafir. Staggers most ground enemies within 10m and deals 150 → 450 damage to Flying enemies within the same range.\n\nThe song continues for 15s, afflicting targets within 15m with SLOW reducing their damage by 10%.',
     externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Song_of_Eafir`],
-    location: { world: 'Yaesha', dungeon: 'Quest' },
+    location: { world: 'Yaesha', dungeon: ['The Forbidden Grove'] },
   },
   {
     category: 'mod',
@@ -1420,7 +1420,7 @@ export const modItems: ModItem[] = [
     description:
       'Fires a beam which deals 15 - 45 damage per second, and applies SLOW Debuff. After 2s of application to an enemy, SLOW becomes STASIS, freezing the target in place for 10s.',
     wikiLinks: [`https://remnant.wiki/Stasis_Beam`],
-    location: { world: `N'Erud`, dungeon: 'World Drop' },
+    location: { world: `N'Erud`, dungeon: ['The Eon Vault'] },
   },
   {
     category: 'mod',
@@ -1482,7 +1482,7 @@ export const modItems: ModItem[] = [
     description:
       'Launches a projectile that releases Voidlight which remains dormant for 10s. While active, aborbs other damage sources.\n\nAfter expiration, explodes and fires up to 5 protectiles which home in on enemies within 15m. Projectiles deal 250 → 750 Mod Damage split among enemies hit, dealing an additional 150 → 450 per 100 Base Damage absorbed. Max 5x.',
     wikiLinks: [`https://remnant.wiki/Voidlight`],
-    location: { world: 'Ward 13', dungeon: 'Vendor' },
+    location: { world: `N'Erud`, dungeon: ['Mucid Terrarium'] },
   },
   {
     category: 'mod',

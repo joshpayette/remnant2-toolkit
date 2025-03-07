@@ -11,7 +11,7 @@ export const archetypeItems: ArchetypeItem[] = [
     description:
       'The ALCHEMIST specializes in powerful buffing Vials and consumable potency.',
     wikiLinks: [`https://remnant.wiki/Alchemist`],
-    location: { world: 'Losomn', dungeon: 'World Drop' },
+    location: { world: 'Losomn', dungeon: ['Morrow Parish', 'Ironborough'] },
     linkedItems: {
       traits: [
         { name: 'Potency', amount: 10 },
@@ -106,7 +106,10 @@ export const archetypeItems: ArchetypeItem[] = [
     description:
       'The ENGINEER specializes in Heavy Weaponry which can be carried or placed in turret mode.',
     wikiLinks: [`https://remnant.wiki/Engineer`],
-    location: { world: `N'Erud`, dungeon: 'World Drop' },
+    location: {
+      world: `N'Erud`,
+      dungeon: ['Timeless Horizon', 'The Eon Vault'],
+    },
     linkedItems: {
       traits: [
         { name: 'Fortify', amount: 10 },
@@ -137,7 +140,7 @@ export const archetypeItems: ArchetypeItem[] = [
     description:
       'The EXPLORER specializes in finding valuable items and overall team utility.',
     wikiLinks: [`https://remnant.wiki/Explorer`],
-    location: { world: 'Any', dungeon: 'Quest' },
+    location: { world: 'Root Earth', dungeon: ['Blackened Citadel'] },
     linkedItems: {
       traits: [
         { name: 'Swiftness', amount: 10 },
@@ -264,7 +267,7 @@ export const archetypeItems: ArchetypeItem[] = [
     dlc: 'base',
     description: `The INVADER specializes elusiveness and misdirecting the enemy's focus.`,
     wikiLinks: [`https://remnant.wiki/Invader`],
-    location: { world: 'Losomn', dungeon: 'Quest' },
+    location: { world: 'Root Earth', dungeon: ['Corrupted Harbor'] },
     linkedItems: {
       traits: [
         { name: 'Untouchable', amount: 10 },
@@ -294,7 +297,7 @@ export const archetypeItems: ArchetypeItem[] = [
     dlc: 'dlc2',
     description: 'The INVOKER specializes in Skill Effectiveness and Buffs.',
     wikiLinks: ['https://remnant.wiki/Invoker'],
-    location: { world: 'Yaesha', dungeon: 'Quest' },
+    location: { world: 'Yaesha', dungeon: ['Ancient Canopy'] },
     linkedItems: {
       traits: [
         { name: 'Gifted', amount: 10 },
@@ -357,7 +360,7 @@ export const archetypeItems: ArchetypeItem[] = [
     description:
       'The RITUALIST is a powerful class focusing on status effects and AOE damage, that can make enemies infect their allies with whatever status they are suffering',
     wikiLinks: [`https://remnant.wiki/Ritualist`],
-    location: { world: 'Losomn', dungeon: 'Quest' },
+    location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
     linkedItems: {
       traits: [
         { name: 'Affliction', amount: 10 },
@@ -416,7 +419,7 @@ export const archetypeItems: ArchetypeItem[] = [
     externalTokens: [],
     description: `The Warden is an unlockable Archetype. They make use of a powerful N'Erud drone to empower themselves and their allies.`,
     wikiLinks: [`https://remnant.wiki/Warden`],
-    location: { world: `N'Erud`, dungeon: 'Quest' },
+    location: { world: `N'Erud`, dungeon: ['Withered Necropolis'] },
     linkedItems: {
       traits: [
         { name: 'Barrier', amount: 10 },

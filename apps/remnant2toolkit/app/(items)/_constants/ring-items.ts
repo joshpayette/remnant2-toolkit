@@ -208,7 +208,7 @@ export const ringItems: RingItem[] = [
     description:
       'Gain Infinite Stamina. All damage received is increased by 15%',
     wikiLinks: [`https://remnant.wiki/Bisected_Ring`],
-    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
+    location: { world: 'The Backrooms', dungeon: 'The Backrooms' },
     dlc: 'base',
   },
   {
@@ -222,7 +222,7 @@ export const ringItems: RingItem[] = [
     description:
       "Forces 1% of wearer's Max Health to remain as Grey Health. Activating a skill converts 33.5% Max Health into Grey Health. Conversion cannot kill wearer.",
     wikiLinks: [`https://remnant.wiki/Bitter_Memento`],
-    location: { world: 'Losomn', dungeon: ['Pathway of the Fallen'] },
+    location: { world: 'Losomn', dungeon: ['Tormented Asylum'] },
   },
   {
     category: 'ring',
@@ -663,7 +663,7 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Cataloger's_Jewel`],
     location: {
       world: 'Losomn',
-      dungeon: ['Malefic Palace', 'Beatific Palace'],
+      dungeon: ['Beatific Palace'],
     },
     dlc: 'base',
   },
@@ -887,7 +887,7 @@ export const ringItems: RingItem[] = [
     tags: ['Mod Power'],
     description: `Gain 200% of Health Regenerated as Mod Power.`,
     wikiLinks: [`https://remnant.wiki/Dense_Silicon_Ring`],
-    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
+    location: { world: 'Labyrinth', dungeon: ['Entangled Gauntlet'] },
     dlc: 'base',
   },
   {
@@ -901,7 +901,7 @@ export const ringItems: RingItem[] = [
     description: `On Relic Use, increases Explosive Damage by 10% for 15s and casts a 3m Explosive AOE which deals 120 Base Damage.`,
     wikiLinks: [`https://remnant.wiki/Detonating_Cord`],
     location: { world: `N'Erud`, dungeon: 'World Drop' },
-    dlc: 'dlc3',
+    dlc: 'base',
   },
   {
     category: 'ring',
@@ -1098,7 +1098,7 @@ export const ringItems: RingItem[] = [
     description:
       'Using a Mod regenerates 20% of Max Health over 10s. Can stack up to 30s.',
     wikiLinks: [`https://remnant.wiki/Encrypted_Ring`],
-    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
+    location: { world: 'Labyrinth', dungeon: ['Fractured Ingress'] },
     dlc: 'base',
   },
   {
@@ -1545,7 +1545,7 @@ export const ringItems: RingItem[] = [
     tags: ['Mod Damage'],
     description: 'On Relic Use, increase Mod Damage by 15% for 15s.',
     wikiLinks: [`https://remnant.wiki/Jewel_of_the_Beholden`],
-    location: { world: 'Losomn', dungeon: ['Chamber of the Faithless'] },
+    location: { world: 'Losomn', dungeon: ['Forlorn Coast'] },
   },
   {
     category: 'ring',
@@ -1943,7 +1943,7 @@ export const ringItems: RingItem[] = [
     description: `After an Elemental Status Effect is removed from wearer, they become immune to all Elemental Status Effects and gain 5% of base damage dealt as Lifesteal for 10s.`,
     wikiLinks: [`https://remnant.wiki/Reaping_Stone`],
     dlc: 'base',
-    location: { world: 'Root Earth', dungeon: 'World Drop' },
+    location: { world: 'Root Earth', dungeon: ['Ashen Wasteland'] },
   },
   {
     category: 'ring',
@@ -1996,7 +1996,7 @@ export const ringItems: RingItem[] = [
     wikiLinks: [`https://remnant.wiki/Restriction_Cord`],
     // healthCap: 0.5,
     dlc: 'base',
-    location: { world: 'Yaesha', dungeon: ['The Forgotten Grove'] },
+    location: { world: 'Yaesha', dungeon: ['The Forbidden Grove'] },
   },
   {
     category: 'ring',
@@ -2527,7 +2527,7 @@ export const ringItems: RingItem[] = [
     description: `Incoming SHIELD grants 150% of the SHIELD generated as Mod Power.`,
     wikiLinks: [`https://remnant.wiki/Spirit_Alternator`],
     dlc: 'dlc3',
-    location: { world: `N'Erud`, dungeon: [`Bicentennial Man`] },
+    location: { world: `N'Erud`, dungeon: 'Quest' },
   },
   {
     category: 'ring',
@@ -2934,7 +2934,7 @@ export const ringItems: RingItem[] = [
     name: 'Wood Ring',
     imagePath: '/items/rings/woodring.png',
     saveFileSlug: 'Ring_WoodRing_C',
-    dlc: 'dlc1',
+    dlc: 'base',
     id: 'uwq264',
     tags: ['Stagger'],
     description: 'Increases Stagger Damage by 15%.',

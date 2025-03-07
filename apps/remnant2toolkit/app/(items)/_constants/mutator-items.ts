@@ -306,7 +306,7 @@ export const mutatorItems: MutatorItem[] = [
       'Every 3rd consecutive Weakspot Hits deals 20% - 40% additional damage.',
     maxLevelBonus: `Increases Weakspot Critical Chance by 15%.`,
     wikiLinks: [`https://remnant.wiki/Ghost_Shell`],
-    location: { world: 'Yaesha', dungeon: 'Quest' },
+    location: { world: 'Yaesha', dungeon: [`The Widow's Court`] },
   },
   {
     category: 'mutator',
@@ -403,7 +403,7 @@ export const mutatorItems: MutatorItem[] = [
     name: 'Insulator',
     type: 'gun',
     imagePath: '/items/mutators/insulator.png',
-    saveFileSlug: 'MetaGem_Insulator_C', // TODO Check
+    saveFileSlug: 'MetaGem_Insulator_C',
     id: '9x521w',
     dlc: 'dlc3',
     tags: [],
@@ -412,7 +412,7 @@ export const mutatorItems: MutatorItem[] = [
     maxLevelBonus:
       'Increases Ranged Critical Chance for this weapon by 10% when SHIELD is above 10% of Max Health.',
     wikiLinks: [`https://remnant.wiki/Insulator`],
-    location: { world: `N'Erud`, dungeon: 'Aberration' },
+    location: { world: `N'Erud`, dungeon: ['Athenaeum Wek'] },
   },
   {
     category: 'mutator',

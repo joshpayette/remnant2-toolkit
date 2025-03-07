@@ -4,6 +4,61 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2025-03-06
+
+A **huge** thanks to Split for compiling this (final?) batch of item updates. Split has checked all of the item locations, dlc, etc. for accuracy.
+
+### Fixed
+
+- Academic's armor set has updated location info.
+- Leto Mark II armor set has updated location info.
+- Crisis Core amulet was marked as DLC3 instead of base game.
+- Updated Death's Embrace amulet has updated location info.
+- Energized Neck Coil amulet has updated location info.
+- Escalation Protocol amulet has updated location info.
+- Gift of Melancholy amulet has updated location info.
+- Insipid Talon amulet was marked as DLC1 instead of DLC2.
+- Reaction Chain amulet has updated location info.
+- Rusted Navigator's Pendant amulet has updated location info.
+- Bisected Ring has updated location info.
+- Bitter Memento ring has updated location info.
+- Cataloger's Jewel ring has updated location info.
+- Dense Silicon Ring ring has updated location info.
+- Detonating Cord ring was marked as DLC2 instead of base game.
+- Encrypted Ring has updated location info.
+- Jewel of the Beholden ring has updated location info.
+- Reaping Stone ring has updated location info.
+- Restriction Cord ring has updated location info.
+- Spirit Alternator ring has updated location info.
+- Wood Ring was marked as DLC1 rather than base game.
+- Reprocessed Heart relic has updated location info.
+- Ripened Heart relic has updated location info.
+- Runed Heart relic has updated location info.
+- Alchemist archetype has updated location info.
+- Engineer archetype has updated location info.
+- Explorer archetype has updated location info.
+- Invader archetype has updated location info.
+- Invoker archetype has updated location info.
+- Ritualist archetype has updated location info.
+- Warden archetype has updated location info.
+- Amplitude trait has updated location info.
+- Aphelion gun has updated location info.
+- Chicago Typewriter gun has updated location info.
+- Monorail gun has updated location info.
+- Rune Pistol gun has updated location info.
+- Rebellion Spear melee weapon has updated location info.
+- Abrasive Rounds mod has updated location info.
+- Song of Eafir mod has updated location info.
+- Stasis Beam mod has updated location info.
+- Void Light mod has updated location info.
+- Ghost Shell mutator has updated location info.
+- Insulator mutator has updated location info.
+- Sanguine Vapor consumable has updated location info.
+- Brightstone consumable has updated location info.
+- Light Extract consumable has updated location info.
+- Oilskin Balm consumable has updated location info.
+- Processed Koara consumable has updated location info.
+
 ## 2025-02-23
 
 ### Fixed

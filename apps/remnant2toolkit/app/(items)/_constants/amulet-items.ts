@@ -218,7 +218,7 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/items/amulets/crisiscore.png',
     saveFileSlug: 'Amulet_CrisisCore_C',
     id: 'L6noPy',
-    dlc: 'dlc3',
+    dlc: 'base',
     tags: ['Perfect Dodge', 'Damage Reduction'],
     description:
       'When a single source of Enemy Damage exceeds 15% of Max Health, automatically trigger effects that require Perfect Dodge to activate and gain 15% Damage Reduction for 3s.\n\nCan only happen once every 3 seconds.',
@@ -251,7 +251,7 @@ export const amuletItems: AmuletItem[] = [
       'Gain 15% to All Damage when Health is not completely full. When below 50% Health, gain an additional 10% bonus to All Damage and HASTE.',
     wikiLinks: [`https://remnant.wiki/Death's_Embrace`],
     externalTokens: [`Misty Step`],
-    location: { world: 'Yaesha', dungeon: ['Ancient Canopy', 'Luminous Vale'] },
+    location: { world: 'Yaesha', dungeon: ['The Forbidden Grove'] },
   },
   {
     category: 'amulet',
@@ -403,7 +403,7 @@ export const amuletItems: AmuletItem[] = [
       'Increases Status Effect damage by 20%. Directly applying a damaging Status Effect creates a 2m Explosion for 20% of its full damage.\n\nEach target can be affected once every 5s.',
     externalTokens: [`AOE/Aura`, `Explosive Damage`],
     wikiLinks: [`https://remnant.wiki/Energized_Neck_Coil`],
-    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
+    location: { world: 'Labyrinth', dungeon: ['Fractured Ingress'] },
   },
   {
     category: 'amulet',
@@ -431,7 +431,7 @@ export const amuletItems: AmuletItem[] = [
     tags: ['All Damage'],
     description: `Increases all damage dealt by 2.5% for 10s after killing an enemy. Stacks 10x. Dealing damage refreshes the timer.`,
     wikiLinks: [`https://remnant.wiki/Escalation_Protocol`],
-    location: { world: 'Root Earth', dungeon: 'World Drop' },
+    location: { world: 'Root Earth', dungeon: ['Corrupted Harbor'] },
   },
   {
     category: 'amulet',
@@ -494,7 +494,7 @@ export const amuletItems: AmuletItem[] = [
     tags: ['All Damage', 'Stamina'],
     description: `Increases All Damage dealt by 25% when Stamina is at 100% for 7s.`,
     wikiLinks: [`https://remnant.wiki/Gift_of_Melancholy`],
-    location: { world: 'Losomn', dungeon: ['Walk of Rememberance'] },
+    location: { world: 'Losomn', dungeon: ['Pathway of the Fallen'] },
   },
   {
     category: 'amulet',
@@ -635,7 +635,7 @@ export const amuletItems: AmuletItem[] = [
     imagePath: '/items/amulets/insipidtalon.png',
     saveFileSlug: 'Amulet_InsipidTalon_C',
     id: '65ygbg',
-    dlc: 'dlc1',
+    dlc: 'dlc2',
     tags: ['All Damage'],
     description: `On Perfect Dodge, increases All Damage dealt by 2% and Damage Reduction by 1% for 10s. Max 15 stacks.`,
     wikiLinks: ['https://remnant.wiki/Insipid_Talon'],
@@ -1008,7 +1008,7 @@ export const amuletItems: AmuletItem[] = [
     tags: [],
     description: `Increases Mod Damage by 20%. Activating a Mod generates 50% of Mod Power Spent to the Stowed Weapon's Mod.`,
     wikiLinks: [`https://remnant.wiki/Reaction_Chain`],
-    location: { world: 'Any', dungeon: 'World Drop' },
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
   },
   {
     category: 'amulet',
@@ -1058,7 +1058,7 @@ export const amuletItems: AmuletItem[] = [
     description: 'Grants 20 Health, 20 Stamina and -15 Armor Encumbrance.',
     wikiLinks: [`https://remnant.wiki/Rusted_Navigator's_Pendant`],
     externalTokens: [`Navigator's Set`],
-    location: { world: `N'Erud`, dungeon: [`Forgotten Prison`] },
+    location: { world: `N'Erud`, dungeon: [`Astropath's Respite`] },
     health: 20,
     stamina: 20,
     weight: -15,
