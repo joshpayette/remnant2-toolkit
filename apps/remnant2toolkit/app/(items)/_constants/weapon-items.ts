@@ -38,6 +38,7 @@ export const weaponItems: WeaponItem[] = [
     id: '3wprfw',
     dlc: 'base',
     description: `Fires a hypercharged wide-arching line that passes through targets.`,
+    location: { world: `N'Erud`, dungeon: [`Sentinel's Keep`] },
     wikiLinks: [`https://remnant.wiki/Aphelion`],
     linkedItems: {
       mod: {
@@ -132,7 +133,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A classic Tommy Gun with large ammo capacity and a slow reload. Poor initial accuracy which improves while holding down the trigger.`,
     wikiLinks: [`https://remnant.wiki/Chicago_Typewriter`],
-    location: { world: 'Labyrinth', dungeon: ['Labyrinth'] },
+    location: { world: 'Ward 13', dungeon: 'World Drop' },
     damage: 10,
     rps: 11.75,
     magazine: 80,
@@ -543,7 +544,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'dlc3',
     description: `A mysterious relic that fires super-dense penetrating rails. Can be charged to unleash violent levels of energy. Warning: Overcharging may have catastrophic results.`,
     wikiLinks: [`https://remnant.wiki/Monorail`],
-    location: { world: 'Ward 13', dungeon: 'Quest' },
+    location: { world: `N'Erud`, dungeon: 'Quest' },
     linkedItems: {
       mod: {
         name: 'Recoil Dampener',
@@ -1540,7 +1541,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A spear perfect for staying at a distance. Has excellent range, great recovery, and focused direct damage for one on one combat.`,
     wikiLinks: [`https://remnant.wiki/Rebellion_Spear`],
-    location: { world: 'Yaesha', dungeon: [`Ravager's Lair`] },
+    location: { world: 'Yaesha', dungeon: [`The Forbidden Grove`] },
     damage: 60,
     crit: 13,
     weakspot: 110,
@@ -2359,7 +2360,7 @@ export const weaponItems: WeaponItem[] = [
     dlc: 'base',
     description: `A pistol infused with mysterious Fae magic. Rapidly fires 3-round bursts of energy. Trigger can be held to continuously fire.`,
     wikiLinks: [`https://remnant.wiki/Rune_Pistol`],
-    location: { world: 'Losomn', dungeon: ['The Great Hall'] },
+    location: { world: 'Losomn', dungeon: ['Tormented Asylum'] },
     linkedItems: {
       mod: {
         name: 'Soul Brand',

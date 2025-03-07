@@ -20,7 +20,10 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 3,
     description: `A soft and durable felt hat fashioned to stylize, not necessarily protect, the most important part of your body. `,
     wikiLinks: [`https://remnant.wiki/Academic's_Hat`],
-    location: { world: 'Losomn', biome: 'Losomn Sewers' },
+    location: {
+      world: 'Losomn',
+      dungeon: [`The Great Sewers`, `Tiller's Rest`],
+    },
   },
   {
     category: 'helm',
@@ -380,7 +383,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `While this ironclad helmet is somewhat difficult to breathe in, you feel secure knowing even the heaviest weapon would have little chance of cracking into your skull. `,
     wikiLinks: [`https://remnant.wiki/Leto_Mark_II_Helmet`],
-    location: { world: 'Labyrinth', dungeon: 'World Drop' },
+    location: { world: 'Ward 13', dungeon: 'World Drop' },
   },
   {
     category: 'helm',
@@ -693,7 +696,10 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 6,
     description: `Donning this uniform makes you feel a touch smarter, and you can't help but straighten the necktie whenever it slips loose.`,
     wikiLinks: [`https://remnant.wiki/Academic's_Overcoat`],
-    location: { world: 'Losomn', biome: 'Losomn Sewers' },
+    location: {
+      world: 'Losomn',
+      dungeon: [`The Great Sewers`, `Tiller's Rest`],
+    },
   },
   {
     category: 'torso',
@@ -978,7 +984,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 3,
     description: `A masterpiece of impenetrability. Even though quick maneuvering is near impossible in this metal behemoth, you can't help but be impressed by the ingenuity of the design and the inspired craftsmanship.`,
     wikiLinks: [`https://remnant.wiki/Leto_Mark_II_Armor`],
-    location: { world: 'Labyrinth', dungeon: 'World Drop' },
+    location: { world: 'Ward 13', dungeon: 'World Drop' },
   },
   {
     category: 'torso',
@@ -1229,7 +1235,10 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 4,
     description: `Expensive-looking shoes fit for a lecture hall...that wouldn't last a week outside it.`,
     wikiLinks: [`https://remnant.wiki/Academic's_Trousers`],
-    location: { world: 'Losomn', biome: 'Losomn Sewers' },
+    location: {
+      world: 'Losomn',
+      dungeon: [`The Great Sewers`, `Tiller's Rest`],
+    },
   },
   {
     category: 'legs',
@@ -1516,7 +1525,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `Strong yet streamlined. Practical yet aesthetic. Although you can't expect to make a quick getaway in these, they're just what you need to stand strong against the looming threat of destruction. The care and attention to detail t| went into them is something to behold.`,
     wikiLinks: [`https://remnant.wiki/Leto_Mark_II_Leggings`],
-    location: { world: 'Labyrinth', dungeon: 'World Drop' },
+    location: { world: 'Ward 13', dungeon: 'World Drop' },
   },
   {
     category: 'legs',
@@ -1767,7 +1776,10 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 2,
     description: `The initials of the Dran who once owned these - and misplaced them often - are embroidered on the wool-lined inside.`,
     wikiLinks: [`https://remnant.wiki/Academic's_Gloves`],
-    location: { world: 'Losomn', biome: 'Losomn Sewers' },
+    location: {
+      world: 'Losomn',
+      dungeon: [`The Great Sewers`, `Tiller's Rest`],
+    },
   },
   {
     category: 'gloves',
@@ -2054,7 +2066,7 @@ export const armorItems: ArmorItem[] = [
     toxinResistance: 3,
     description: `These gauntlets are sturdy enough to hold up even against the Root: They're tough and intimidating while providing the bare-minimum level of dexterity for,a steady grip on your weapon of choice. Just don't plan on completing any tasks that require subtlety when wearing these.`,
     wikiLinks: [`https://remnant.wiki/Leto_Mark_II_Gloves`],
-    location: { world: 'Labyrinth', dungeon: 'World Drop' },
+    location: { world: 'Ward 13', dungeon: 'World Drop' },
   },
   {
     category: 'gloves',

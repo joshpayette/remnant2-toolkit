@@ -129,7 +129,7 @@ export const consumableItems: ConsumableItem[] = [
       'When thrown, explodes in a 6m radius dealing 50 - 150 damage and leaving a mysterious Mist which causes enemies to receive 10% additional damage. Duration lasts 10s after enemies leave the Mist. Last 15s.',
     externalTokens: [`AOE/Aura`],
     wikiLinks: [`https://remnant.wiki/Brightstone`],
-    location: { world: 'Yaesha', dungeon: ['The Forgotten Grove'] },
+    location: { world: 'Yaesha', dungeon: 'World Drop' },
   },
   {
     category: 'consumable',
@@ -270,7 +270,7 @@ export const consumableItems: ConsumableItem[] = [
     tags: [],
     description: `Grants HASTE. Lasts 60s.`,
     wikiLinks: [`https://remnant.wiki/Light_Extract`],
-    location: { world: 'Ward 13', dungeon: 'Vendor' },
+    location: { world: `N'Erud`, dungeon: 'World Drop' },
   },
   {
     category: 'consumable',
@@ -342,7 +342,7 @@ export const consumableItems: ConsumableItem[] = [
     description:
       'Cures ROOT ROT Blight and increases Blight Resistance by 25. Lasts 10m.',
     wikiLinks: [`https://remnant.wiki/Oilskin_Balm`],
-    location: { world: 'Yaesha', dungeon: ['The Forgotten Grove'] },
+    location: { world: 'Yaesha', dungeon: 'World Drop' },
   },
   {
     category: 'consumable',
@@ -394,7 +394,7 @@ export const consumableItems: ConsumableItem[] = [
     tags: ['Stamina'],
     description: `Decreases Stamina Recovery delay by 75% and Stamina Regen Penalty by 50%. Lasts 60s.`,
     wikiLinks: [`https://remnant.wiki/Processed_Koara`],
-    location: { world: 'Yaesha', dungeon: 'World Drop' },
+    location: { world: 'Ward 13', dungeon: 'Vendor' },
   },
   {
     category: 'consumable',

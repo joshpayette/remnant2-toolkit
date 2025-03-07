@@ -205,8 +205,8 @@ export const concoctionItems: ConcoctionItem[] = [
       'Grants 2% of base damage dealt as Lifesteal.\n\nConcoctions will stay in effect after death. Only one Concoction may be active at a time.',
     wikiLinks: [`https://remnant.wiki/Sanguine_Vapor`],
     location: {
-      world: `N'Erud`,
-      dungeon: ['Ascension Spire'],
+      world: `Ward 13`,
+      dungeon: 'Vendor',
     },
   },
   {
