@@ -1,6 +1,6 @@
 'use client';
 
-import { BaseButton, BaseLink, BaseText, getImageUrl } from '@repo/ui';
+import { BaseButton, BaseText, getImageUrl } from '@repo/ui';
 import Image from 'next/image';
 import { useLocalStorage } from 'usehooks-ts';
 
