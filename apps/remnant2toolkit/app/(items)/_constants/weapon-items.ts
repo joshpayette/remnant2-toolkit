@@ -625,7 +625,7 @@ export const weaponItems: WeaponItem[] = [
     imagePath: '/items/weapons/polygun.png',
     saveFileSlug: 'Weapon_Polygun_C',
     id: 'polgun',
-    dlc: 'dlc2',
+    dlc: 'base',
     description: `ERROR: Unable to load description.ERROR: Unable to load description.`,
     wikiLinks: [`https://remnant.wiki/Polygun`],
     location: {
