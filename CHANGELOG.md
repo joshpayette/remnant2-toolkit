@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2025-03-08
+
+### Fixed
+
+- Dandy Topper helm was marked as requiring DLC instead of base game.
+- True Crimson Crown helm was marked as requiring DLC instead of base game.
+- Welding Goggles helm was marked as requiring DLC instead of base game.
+- Polygun weapon was marked as requiring DLC instead of base game.
+
 ## 2025-03-06
 
 A **huge** thanks to Split for compiling this (final?) batch of item updates. Split has checked all of the item locations, dlc, etc. for accuracy and submitted numerous fixes. Thank you!
