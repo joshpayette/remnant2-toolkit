@@ -48,19 +48,6 @@ export default async function Page() {
         />
 
         <LandingPageCard
-          label="Building the Perfect Prism"
-          description="A guide by BoltJamison to building the perfect prism for your character."
-          href="https://www.youtube.com/watch?v=xN02GVzkUXA"
-          target="_blank"
-          icon={
-            <PrismIcon
-              className="text-primary-500 h-7 w-7 flex-none"
-              aria-hidden="true"
-            />
-          }
-        />
-
-        <LandingPageCard
           {...NAV_ITEMS.vashCalculator}
           icon={
             <NAV_ITEMS.vashCalculator.icon
@@ -74,6 +61,30 @@ export default async function Page() {
           {...NAV_ITEMS.wiki}
           icon={
             <NAV_ITEMS.wiki.icon
+              className="text-primary-500 h-7 w-7 flex-none"
+              aria-hidden="true"
+            />
+          }
+        />
+
+        <LandingPageCard
+          {...NAV_ITEMS.remnantOverseer}
+          icon={undefined}
+          // icon={
+          //   <NAV_ITEMS.remnantOverseer.icon
+          //     className="text-primary-500 h-7 w-7 flex-none"
+          //     aria-hidden="true"
+          //   />
+          // }
+        />
+
+        <LandingPageCard
+          label="Building the Perfect Prism"
+          description="A guide by BoltJamison to building the perfect prism for your character."
+          href="https://www.youtube.com/watch?v=xN02GVzkUXA"
+          target="_blank"
+          icon={
+            <PrismIcon
               className="text-primary-500 h-7 w-7 flex-none"
               aria-hidden="true"
             />

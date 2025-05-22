@@ -36,7 +36,7 @@ export function RemnantOverseerCTA() {
             </radialGradient>
           </defs>
         </svg>
-        <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+        <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-8 lg:text-left">
           <h2 className="text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">
             Introducing {NAV_ITEMS.remnantOverseer.label}
           </h2>
@@ -70,13 +70,13 @@ export function RemnantOverseerCTA() {
             </BaseButton>
           </div>
         </div>
-        <div className="relative mt-16 h-80 lg:mt-8">
+        <div className="relative mt-16 h-5 lg:mt-8">
           <Image
             alt="Remnant Overseer In-Game Screenshot"
             src={getImageUrl('/misc/remnant-overseer-ingame.webp')}
             width={1824}
             height={1080}
-            className="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
+            className="absolute left-0 top-0 w-[45rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
           />
         </div>
       </div>
