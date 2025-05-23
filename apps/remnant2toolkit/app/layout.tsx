@@ -46,7 +46,7 @@ export default async function Layout({
       trackers={<Analytics />}
     >
       <GlobalActionButtons username={session?.user?.name || 'Unknown User'} />
-      <RemnantOverseerCTA />
+      {/* <RemnantOverseerCTA /> */}
       {children}
     </RootLayout>
   );

@@ -26,6 +26,12 @@ The below example assumes your local database is named `remnant2toolkit`.
 cat pscale/*.sql | mysql remnant2toolkit -u root -p
 ```
 
+In Powershell with MySQL Shell, the command would look like this:
+
+```powershell
+Get-ChildItem pscale\*.sql | ForEach-Object { mysqlsh.exe --sql -u root --password=YOURPASSWORD -D remnant2toolkit --file $_.FullName }
+```
+
 ## Other useful commands
 
 ### Creating a new MYSQL database

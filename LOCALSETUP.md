@@ -79,9 +79,9 @@ If you change these values after the first-time setup, you will need to delete t
 #### Sample `.env` file
 
 ```bash
-DATABASE_URL="mysql://forlinauser:{{ PASSWORD HERE }}@localhost:3306/forlinadb"
-MYSQL_DATABASE="forlinadb"
-MYSQL_USER="forlinauser"
+DATABASE_URL="mysql://r2tk:{{ PASSWORD HERE }}@localhost:3306/remnant2toolkit"
+MYSQL_DATABASE="remnant2toolkit"
+MYSQL_USER="r2tk"
 MYSQL_PASSWORD="{{ PASSWORD HERE }}"
 MYSQL_ROOT_PASSWORD="{{ DIFFERENT PASSWORD HERE }}"
 ```
@@ -91,7 +91,7 @@ MYSQL_ROOT_PASSWORD="{{ DIFFERENT PASSWORD HERE }}"
 The `DATABASE_URL` environment variable is used by Prisma to connect to the database. There is a sample value in the `.env.example` file. You will need to replace `{{ PASSWORD HERE }}` with the value you set for `MYSQL_PASSWORD` in the previous step.
 
 ```bash
-DATABASE_URL="mysql://forlinauser:password@localhost:3306/forlinadb"
+DATABASE_URL="mysql://r2tk:password@localhost:3306/remnant2toolkit"
 ```
 
 **Use this same database URL in every other `.env` file where the `DATABASE_URL` field exists.**
@@ -177,9 +177,9 @@ docker compose -f docker-compose.dev.yml --env-file=./packages/database/.env up
 Wait about 2 minutes at this step to allow the database to spin up. In the console, you should see something like this in the logs:
 
 ```bash
-Creating database forlinadb
-Creating user forlinauser
-Giving user forlinauser access to schema forlinadb
+Creating database remnant2toolkit
+Creating user r2tk
+Giving user r2tk access to schema remnant2toolkit
 ```
 
 Once you see that in the logs, leave the process running and open a new terminal.
@@ -244,10 +244,10 @@ mysql -u root -p
 ```
 
 2. Enter the password you set for `MYSQL_ROOT_PASSWORD` in the `.env` file.
-3. Run the following command to connect to the `forlinadb` database:
+3. Run the following command to connect to the `remnant2toolkit` database:
 
 ```bash
-use forlinadb;
+use remnant2toolkit;
 ```
 
 You are now able to run SQL queries against the database. For example, view all tables:

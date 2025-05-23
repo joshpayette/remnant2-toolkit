@@ -28,7 +28,6 @@ import {
   SupportIcon,
   WorldSaveIcon,
 } from '@repo/ui';
-import Image from 'next/image';
 
 import { RemnantOverseerIcon } from '@/app/_components/remnant-overseer-icon';
 import VashIcon from '@/app/_components/vash-icon';
@@ -182,7 +181,7 @@ export const NAV_ITEMS = {
   },
   remnantOverseer: {
     label: 'Remnant Overseer',
-    description: `A companion tool for Remnant 2 that allows you to view the information about your current save. Select your character and see which items they are missing and which ones you can get in your currently rolled worlds.`,
+    description: `A companion tool for Remnant 2 that allows you to view the information about your current save, such as which items they are missing and which ones you can get in your current worlds.`,
     href: `https://www.nexusmods.com/remnant2/mods/180?tab=description`,
     icon: RemnantOverseerIcon,
   },
