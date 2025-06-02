@@ -69,13 +69,12 @@ export default async function Page() {
 
         <LandingPageCard
           {...NAV_ITEMS.remnantOverseer}
-          icon={undefined}
-          // icon={
-          //   <NAV_ITEMS.remnantOverseer.icon
-          //     className="text-primary-500 h-7 w-7 flex-none"
-          //     aria-hidden="true"
-          //   />
-          // }
+          icon={
+            <NAV_ITEMS.remnantOverseer.icon
+              className="text-primary-500 h-7 w-7 flex-none"
+              aria-hidden="true"
+            />
+          }
         />
 
         <LandingPageCard
