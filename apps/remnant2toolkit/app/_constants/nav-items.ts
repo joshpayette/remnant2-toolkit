@@ -29,7 +29,7 @@ import {
   WorldSaveIcon,
 } from '@repo/ui';
 
-import { RemnantOverseerIcon } from '@/app/_components/remnant-overseer-icon';
+import RemnantOverseerIcon from '@/app/_components/remnant-overseer-icon';
 import VashIcon from '@/app/_components/vash-icon';
 import WikiIcon from '@/app/_components/wiki-icon';
 
