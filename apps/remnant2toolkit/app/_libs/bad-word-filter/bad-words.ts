@@ -547,7 +547,6 @@ export const badWords = [
   's hit',
   's_h_i_t',
   's.o.b.',
-  'sadist',
   'scank',
   'schaffer',
   'scheiss*',
