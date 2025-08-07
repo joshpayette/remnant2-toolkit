@@ -10,7 +10,6 @@ import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { QualityBuildFeed } from '@/app/(builds)/_components/quality-build-feed';
 import { getLeaderBoard as getItemQuizLeaderBoard } from '@/app/(items)/item-quiz/_actions/get-leader-board';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
-import { RemnantOverseerCTA } from '@/app/remnant-overseer-cta';
 
 import { LandingPageHeaderDescription } from './_components/landing-page-header-description';
 import { GenesisCodeDisplay } from './(features)/_genesis-code/_components/genesis-code-display';
@@ -20,7 +19,6 @@ export default async function Page() {
 
   return (
     <>
-      <RemnantOverseerCTA />
       <div className="grid grid-cols-4 gap-x-4">
         <div className="col-span-full w-full xl:col-span-3">
           <LandingPageContainer

@@ -55,7 +55,8 @@ export function BaseListbox<T>({
             as="span"
             className={cn([
               // Basic layout
-              'ui-relative ui-block ui-w-full ui-px-2 ui-appearance-none ui-rounded-lg ui-h-[38px] ui-py-[calc(theme(spacing[2.5])-1px)] sm:ui-py-[calc(theme(spacing[1.5])-1px)]',
+              'ui-relative ui-block ui-w-full ui-px-2 ui-appearance-none ui-rounded-lg ui-py-[calc(theme(spacing[2.5])-1px)] sm:ui-py-[calc(theme(spacing[1.5])-1px)]',
+              multiple ? 'ui-h-[300px] overflow-hidden' : 'ui-h-[38px]',
 
               // Set minimum height for when no value is selected
               'ui-min-h-11 sm:ui-min-h-9',
@@ -137,6 +138,7 @@ export function BaseListbox<T>({
               'ui-transition-opacity ui-duration-100 ui-ease-in data-[transition]:ui-pointer-events-none data-[closed]:data-[leave]:ui-opacity-0',
             )}
             onBlur={onBlur}
+            static
             transition
           >
             {options}
