@@ -153,7 +153,7 @@ export function ViewBuild({
       toast.error(response.errors?.join(' '));
       return;
     }
-    toast.success(`Collection ${collection.name} created successfully!`);
+    toast.success(`Collection ${collection.name} updated successfully!`);
   }
 
   // We need to convert the build.items object into an array of items to pass to the ToCsvButton
