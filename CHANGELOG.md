@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2025-08-07
+
+### Fixed
+
+- Fixed UI bug when importing loadouts from save file.
+
+### Removed
+
+- Removed a number of words from the bad word list that should not have been there. (Thanks, Spoon!)
+
 ## 2025-06-15
 
 ### Removed
