@@ -9,7 +9,6 @@ import { Footer } from '@/app/_components/footer';
 import { showNotificationsFlag } from '@/app/_constants/feature-flag';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { Navbar } from '@/app/navbar';
-import { RemnantOverseerCTA } from '@/app/remnant-overseer-cta';
 
 export const viewport: Viewport = {};
 export { metadata } from './metadata';
