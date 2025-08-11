@@ -42,6 +42,8 @@ export function VideoThumbnail({ buildState }: Props) {
               loading="eager"
               alt={`${buildState.name} video thumbnail`}
               unoptimized={true}
+              objectFit="cover"
+              className="aspect-video object-cover"
             />
             <span className="text-surface-solid mb-4 text-sm underline">
               See build description and breakdown on YouTube
@@ -61,6 +63,8 @@ export function VideoThumbnail({ buildState }: Props) {
                 loading="eager"
                 alt={`${buildState.name} video thumbnail`}
                 unoptimized={true}
+                objectFit="cover"
+                className="aspect-video object-cover"
               />
               <span className="text-surface-solid mb-4 text-sm underline">
                 See build description and breakdown on YouTube
