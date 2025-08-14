@@ -171,7 +171,7 @@ This is used to reference the Toolkit's Cloudfront distribution for images. You 
 ## Run the database container
 
 ```bash
-docker compose -f docker-compose.dev.yml --env-file=./packages/database/.env up
+docker compose -f docker-compose.dev.yml --env-file=./packages/database/.env up -d
 ```
 
 Wait about 2 minutes at this step to allow the database to spin up. In the console, you should see something like this in the logs:
