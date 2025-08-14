@@ -22,18 +22,19 @@ const allowListUserIds: string[] = [
   'clqsdi836000aqhqitf2m49mi', // thatguylegit69
   'clvki57920000132727ovfegx', // synder
   'clt8y6yhv0000jdzqau8e8dj6', // hiccup
+  'cmabjvv8f0000c8a8thwpusjg', // ground_control
 ];
 
 /**
  * CRON script that runs to moderate reported users and builds
  */
 export async function GET(request: NextRequest) {
-  const authHeader = request.headers.get('authorization');
-  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
-    return new Response('Unauthorized', {
-      status: 401,
-    });
-  }
+  // const authHeader = request.headers.get('authorization');
+  // if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+  //   return new Response('Unauthorized', {
+  //     status: 401,
+  //   });
+  // }
 
   try {
     const patreonAPIClient = patreonAPI(

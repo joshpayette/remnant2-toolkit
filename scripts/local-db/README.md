@@ -23,7 +23,7 @@ sh rename-sql-schema.sh
 The below example assumes your local database is named `remnant2toolkit`.
 
 ```bash
-cat pscale/*.sql | mysql remnant2toolkit -u root -p
+cat pscale/*.sql | mysql -h 127.0.0.1 -P 3307 remnant2toolkit -u root -p
 ```
 
 In Powershell with MySQL Shell, the command would look like this:
