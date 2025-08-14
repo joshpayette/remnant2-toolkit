@@ -71,7 +71,7 @@ export function MemberFeatures({
                 <h3 className="text-md text-primary-500 font-bold">
                   Build Description
                 </h3>
-                {buildId && (
+                {buildId && !isScreenshotMode && (
                   <Tooltip content="Open description in new tab">
                     <div className="flex items-center justify-start p-0">
                       <BaseLink
