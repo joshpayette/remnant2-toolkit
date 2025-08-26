@@ -31,6 +31,7 @@ const allowListUserIds: string[] = [
 export async function GET(request: NextRequest) {
   const authHeader = request.headers.get('authorization');
   if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    console.error('Unauthorized request');
     return new Response('Unauthorized', {
       status: 401,
     });
@@ -104,6 +105,8 @@ export async function GET(request: NextRequest) {
 
     // Add the allowed users to the PaidUsers table
     for (const userId of allowListUserIds) {
+      console.info(`Adding allowlisted user ${userId} to PaidUsers`);
+
       const user = await prisma.user.findUnique({
         where: {
           id: userId,
@@ -154,6 +157,11 @@ export async function GET(request: NextRequest) {
           },
         });
         if (buildVoteCount) continue;
+
+        console.info(
+          `Adding build vote for build ${build.id} created by user ${paidUser.userId}`,
+        );
+
         await prisma.buildVoteCounts.create({
           data: {
             buildId: build.id,
