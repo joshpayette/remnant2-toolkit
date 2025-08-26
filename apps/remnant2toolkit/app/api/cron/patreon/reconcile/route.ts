@@ -29,12 +29,12 @@ const allowListUserIds: string[] = [
  * CRON script that runs to moderate reported users and builds
  */
 export async function GET(request: NextRequest) {
-  // const authHeader = request.headers.get('authorization');
-  // if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
-  //   return new Response('Unauthorized', {
-  //     status: 401,
-  //   });
-  // }
+  const authHeader = request.headers.get('authorization');
+  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    return new Response('Unauthorized', {
+      status: 401,
+    });
+  }
 
   try {
     const patreonAPIClient = patreonAPI(
@@ -58,7 +58,7 @@ export async function GET(request: NextRequest) {
       store.findAll('pledge').map((pledge: any) => pledge.patron.email),
     );
 
-    console.info(`Pledge emails: ${pledgeEmails}`);
+    console.info(`Patreon pledge emails: ${pledgeEmails}`);
 
     // Need to remove all users from the db table PaidUsers whose User.email is not in pledgeEmails
     const paidUsers = await prisma.paidUsers.findMany({
