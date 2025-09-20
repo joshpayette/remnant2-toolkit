@@ -21,10 +21,6 @@ export function GenesisCodeDisplay() {
       <h2 className="text-surface-solid w-full text-center text-2xl font-bold">
         Genesis Code
       </h2>
-      <div className="bold w-full text-center text-xl text-red-500">
-        Genesis code is currently not calculating correctly. We are working on a
-        fix. (2025-09-16)
-      </div>
       <div className="flex w-full flex-col items-center justify-center">
         <div
           id="code-container"
