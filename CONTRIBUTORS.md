@@ -10,6 +10,7 @@ This project exists and thrives thanks to all the people who contribute.
 - Amalie
 - Synder
 - Antipastox2
+- Mpeg
 
 ## Moderation Team
 
@@ -17,6 +18,10 @@ This project exists and thrives thanks to all the people who contribute.
 - Amalie
 - Spoon
 - Hiccup
+- Dainurian
+- DoTs Я Us
+- コマcoma
+- Antipastox2
 
 ## Testing & Datamine
 
