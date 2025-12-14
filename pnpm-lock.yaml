@@ -61,7 +61,7 @@ importers:
         version: 1.1.1
       '@vercel/speed-insights':
         specifier: 1.0.9
-        version: 1.0.9(next@14.2.34)(react@18.3.1)
+        version: 1.0.9(next@14.2.35)(react@18.3.1)
       cheerio:
         specifier: 1.0.0-rc.12
         version: 1.0.0-rc.12
@@ -96,11 +96,11 @@ importers:
         specifier: 3.7.0
         version: 3.7.0(react@18.3.1)
       next:
-        specifier: 14.2.34
-        version: 14.2.34(@babel/core@7.26.10)(react-dom@18.3.1)(react@18.3.1)
+        specifier: 14.2.35
+        version: 14.2.35(@babel/core@7.26.10)(react-dom@18.3.1)(react@18.3.1)
       next-auth:
         specifier: 4.24.7
-        version: 4.24.7(next@14.2.34)(react-dom@18.3.1)(react@18.3.1)
+        version: 4.24.7(next@14.2.35)(react-dom@18.3.1)(react@18.3.1)
       papaparse:
         specifier: 5.4.1
         version: 5.4.1
@@ -287,7 +287,7 @@ importers:
         version: 1.1.1
       '@vercel/flags':
         specifier: ^2.6.0
-        version: 2.6.3(next@14.2.34)(react-dom@18.3.1)(react@18.3.1)
+        version: 2.6.3(next@14.2.35)(react-dom@18.3.1)(react@18.3.1)
       cheerio:
         specifier: 1.0.0-rc.12
         version: 1.0.0-rc.12
@@ -322,11 +322,11 @@ importers:
         specifier: 4.5.0
         version: 4.5.0
       next:
-        specifier: 14.2.34
-        version: 14.2.34(@babel/core@7.26.10)(react-dom@18.3.1)(react@18.3.1)
+        specifier: 14.2.35
+        version: 14.2.35(@babel/core@7.26.10)(react-dom@18.3.1)(react@18.3.1)
       next-auth:
         specifier: 4.24.7
-        version: 4.24.7(next@14.2.34)(react-dom@18.3.1)(react@18.3.1)
+        version: 4.24.7(next@14.2.35)(react-dom@18.3.1)(react@18.3.1)
       papaparse:
         specifier: 5.4.1
         version: 5.4.1
@@ -516,7 +516,7 @@ importers:
         version: 1.1.1
       '@vercel/flags':
         specifier: ^2.6.0
-        version: 2.6.3(next@14.2.34)(react-dom@18.3.1)(react@18.3.1)
+        version: 2.6.3(next@14.2.35)(react-dom@18.3.1)(react@18.3.1)
       cheerio:
         specifier: 1.0.0-rc.12
         version: 1.0.0-rc.12
@@ -551,11 +551,11 @@ importers:
         specifier: 3.7.0
         version: 3.7.0(react@18.3.1)
       next:
-        specifier: 14.2.34
-        version: 14.2.34(@babel/core@7.26.10)(react-dom@18.3.1)(react@18.3.1)
+        specifier: 14.2.35
+        version: 14.2.35(@babel/core@7.26.10)(react-dom@18.3.1)(react@18.3.1)
       next-auth:
         specifier: 4.24.7
-        version: 4.24.7(next@14.2.34)(react-dom@18.3.1)(react@18.3.1)
+        version: 4.24.7(next@14.2.35)(react-dom@18.3.1)(react@18.3.1)
       papaparse:
         specifier: 5.4.1
         version: 5.4.1
@@ -817,11 +817,11 @@ importers:
         specifier: 11.3.2
         version: 11.3.2(react-dom@18.3.1)(react@18.3.1)
       next:
-        specifier: 14.2.34
-        version: 14.2.34(@babel/core@7.26.10)(react-dom@18.3.1)(react@18.3.1)
+        specifier: 14.2.35
+        version: 14.2.35(@babel/core@7.26.10)(react-dom@18.3.1)(react@18.3.1)
       next-auth:
         specifier: 4.24.7
-        version: 4.24.7(next@14.2.34)(react-dom@18.3.1)(react@18.3.1)
+        version: 4.24.7(next@14.2.35)(react-dom@18.3.1)(react@18.3.1)
       next-themes:
         specifier: 0.3.0
         version: 0.3.0(react-dom@18.3.1)(react@18.3.1)
@@ -2098,8 +2098,8 @@ packages:
     dev: true
     optional: true
 
-  /@next/env@14.2.34:
-    resolution: {integrity: sha512-iuGW/UM+EZbn2dm+aLx+avo1rVap+ASoFr7oLpTBVW2G2DqhD5l8Fme9IsLZ6TTsp0ozVSFswidiHK1NGNO+pg==}
+  /@next/env@14.2.35:
+    resolution: {integrity: sha512-DuhvCtj4t9Gwrx80dmz2F4t/zKQ4ktN8WrMwOuVzkJfBilwAwGr6v16M5eI8yCuZ63H9TTuEU09Iu2HqkzFPVQ==}
     dev: false
 
   /@next/eslint-plugin-next@14.0.2:
@@ -3305,7 +3305,7 @@ packages:
       server-only: 0.0.1
     dev: false
 
-  /@vercel/flags@2.6.3(next@14.2.34)(react-dom@18.3.1)(react@18.3.1):
+  /@vercel/flags@2.6.3(next@14.2.35)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-knLDYS8MCc/zx4FF6KRzHQzAKdo8VQ3V0PEBI5WvRlFIhcqhcEomxHoK41/xMnNEQvUzETACHw610/i/pVwYSA==}
     peerDependencies:
       '@sveltejs/kit': '*'
@@ -3323,12 +3323,12 @@ packages:
         optional: true
     dependencies:
       jose: 5.2.1
-      next: 14.2.34(@babel/core@7.26.10)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.35(@babel/core@7.26.10)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     dev: false
 
-  /@vercel/speed-insights@1.0.9(next@14.2.34)(react@18.3.1):
+  /@vercel/speed-insights@1.0.9(next@14.2.35)(react@18.3.1):
     resolution: {integrity: sha512-f+XFP0O+aZ4Olj9h+BitkB1b4NJQaxtyCb69wWuDxytJHY6Pa4QtZPdBUftHOcajUCHRVeq062fk3MKXKtjNVQ==}
     requiresBuild: true
     peerDependencies:
@@ -3352,7 +3352,7 @@ packages:
       vue-router:
         optional: true
     dependencies:
-      next: 14.2.34(@babel/core@7.26.10)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.35(@babel/core@7.26.10)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
     dev: false
 
@@ -7596,7 +7596,7 @@ packages:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: false
 
-  /next-auth@4.24.7(next@14.2.34)(react-dom@18.3.1)(react@18.3.1):
+  /next-auth@4.24.7(next@14.2.35)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-iChjE8ov/1K/z98gdKbn2Jw+2vLgJtVV39X+rCP5SGnVQuco7QOr19FRNGMIrD8d3LYhHWV9j9sKLzq1aDWWQQ==}
     peerDependencies:
       next: ^12.2.5 || ^13 || ^14
@@ -7611,7 +7611,7 @@ packages:
       '@panva/hkdf': 1.2.1
       cookie: 0.5.0
       jose: 4.15.9
-      next: 14.2.34(@babel/core@7.26.10)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.35(@babel/core@7.26.10)(react-dom@18.3.1)(react@18.3.1)
       oauth: 0.9.15
       openid-client: 5.7.1
       preact: 10.26.4
@@ -7631,8 +7631,8 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
     dev: false
 
-  /next@14.2.34(@babel/core@7.26.10)(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-s7mRraWlkEVRLjHHdu5khn0bSnmUh+U+YtigBc+t2Ge7jJHFIVBZna+W9Jcx7b04HhM7eJWrNJ2A+sQs9gJ3eg==}
+  /next@14.2.35(@babel/core@7.26.10)(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-KhYd2Hjt/O1/1aZVX3dCwGXM1QmOV4eNM2UTacK5gipDdPN/oHHK/4oVGy7X8GMfPMsUTUEmGlsy0EY1YGAkig==}
     engines: {node: '>=18.17.0'}
     hasBin: true
     peerDependencies:
@@ -7649,7 +7649,7 @@ packages:
       sass:
         optional: true
     dependencies:
-      '@next/env': 14.2.34
+      '@next/env': 14.2.35
       '@swc/helpers': 0.5.5
       busboy: 1.6.0
       caniuse-lite: 1.0.30001707
