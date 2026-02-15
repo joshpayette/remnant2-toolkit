@@ -13,7 +13,6 @@ node_modules
 # next.js
 .next/
 .swc
-.husky
 /out/
 
 # production
@@ -31,12 +30,10 @@ yarn-error.log*
 
 # local env files
 .env
+.env.local
 
 # vercel
 .vercel
-
-# Turborepo
-.turbo
 
 # typescript
 *.tsbuildinfo
@@ -45,6 +42,9 @@ yarn-error.log*
 next-env.d.ts
 .env*.local
 .env.db
+
+# prisma
+prisma/generated
 
 # custom scripts
 profile.sav

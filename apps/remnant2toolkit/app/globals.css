@@ -1,8 +1,0 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/** Fixes the misalignment when exporting builds to images */
-body > div:last-child > span + img {
-  display: inline !important;
-}

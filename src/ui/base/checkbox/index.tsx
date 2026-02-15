@@ -1,0 +1,174 @@
+'use client';
+
+import {
+  Checkbox as HeadlessCheckbox,
+  type CheckboxProps as HeadlessCheckboxProps,
+  Field as HeadlessField,
+  type FieldProps as HeadlessFieldProps,
+} from '@headlessui/react';
+import React from 'react';
+import { cn } from '../../utils/classnames';
+
+export function BaseCheckboxGroup({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<'div'>) {
+  return (
+    <div
+      data-slot="control"
+      {...props}
+      className={cn(
+        className,
+
+        // Basic groups
+        'space-y-1',
+
+        // With descriptions
+        'has-[[data-slot=description]]:space-y-6 [&_[data-slot=label]]:has-[[data-slot=description]]:font-medium'
+      )}
+    />
+  );
+}
+
+export function BaseCheckboxField({ className, ...props }: HeadlessFieldProps) {
+  return (
+    <HeadlessField
+      data-slot="field"
+      {...props}
+      className={cn(
+        className,
+
+        // Base layout
+        'grid grid-cols-[1.125rem_1fr] items-center gap-x-4 gap-y-1 sm:grid-cols-[1rem_1fr]',
+
+        // Control layout
+        '[&>[data-slot=control]]:col-start-1 [&>[data-slot=control]]:row-start-1 [&>[data-slot=control]]:justify-self-center',
+
+        // Label layout
+        '[&>[data-slot=label]]:col-start-2 [&>[data-slot=label]]:row-start-1 [&>[data-slot=label]]:justify-self-start',
+
+        // Description layout
+        '[&>[data-slot=description]]:col-start-2 [&>[data-slot=description]]:row-start-2',
+
+        // With description
+        '[&_[data-slot=label]]:has-[[data-slot=description]]:font-medium'
+      )}
+    />
+  );
+}
+
+const base = [
+  // Basic layout
+  'relative isolate flex size-[1.125rem] items-center justify-center rounded-[0.3125rem] sm:size-4',
+
+  // Background color + shadow applied to inset pseudo element, so shadow blends with border in light mode
+  'before:absolute before:inset-0 before:-z-10 before:rounded-[calc(0.3125rem-1px)] before:bg-surface-solid before:shadow',
+
+  // Background color when checked
+  'before:group-data-[checked]:bg-[--checkbox-checked-bg]',
+
+  // Background color is moved to control and shadow is removed in dark mode so hide `before` pseudo
+  'before:hidden',
+
+  // Background color applied to control in dark mode
+  'bg-surface-solid/5 group-data-[checked]:bg-[--checkbox-checked-bg]',
+
+  // Border
+  'border border-surface-solid/15 group-data-[checked]:border-surface-solid/5 group-data-[checked]:group-data-[hover]:border-surface-solid/5 group-data-[hover]:border-surface-solid/30 ',
+
+  // Inner highlight shadow
+  'after:absolute after:-inset-px after:hidden after:rounded-[0.3125rem] group-data-[checked]:after:block after:shadow-[inset_0_1px_theme(colors.surface.solid/15%)]',
+
+  // Focus ring
+  'group-data-[focus]:outline group-data-[focus]:outline-2 group-data-[focus]:outline-offset-2 group-data-[focus]:outline-blue-500',
+
+  // Disabled state
+  'group-data-[disabled]:opacity-50',
+  'group-data-[disabled]:border-surface-solid/20 group-data-[disabled]:bg-surface-solid/[2.5%] group-data-[disabled]:[--checkbox-check:colors.surface.solid/50%)] group-data-[disabled]:group-data-[checked]:after:hidden',
+
+  // Forced colors mode
+  'forced-colors:[--checkbox-check:HighlightText] forced-colors:[--checkbox-checked-bg:Highlight] forced-colors:group-data-[disabled]:[--checkbox-check:Highlight]',
+];
+
+const colors = {
+  'dark/zinc': [
+    '[--checkbox-check:theme(colors.surface.solid)] [--checkbox-checked-bg:theme(colors.zinc.600)] [--checkbox-checked-border:theme(colors.zinc.950/90%)]',
+  ],
+  'dark/white': [
+    '[--checkbox-check:colors.zinc.900)] [--checkbox-checked-bg:colors.surface.solid)] [--checkbox-checked-border:colors.zinc.950/15%)]',
+  ],
+  white:
+    '[--checkbox-check:colors.zinc.900)] [--checkbox-checked-bg:colors.surface.solid)] [--checkbox-checked-border:colors.zinc.950/15%)]',
+  dark: '[--checkbox-check:colors.surface.solid)] [--checkbox-checked-bg:colors.zinc.900)] [--checkbox-checked-border:colors.zinc.950/90%)]',
+  zinc: '[--checkbox-check:colors.surface.solid)] [--checkbox-checked-bg:colors.zinc.600)] [--checkbox-checked-border:colors.zinc.700/90%)]',
+  red: '[--checkbox-check:colors.surface.solid)] [--checkbox-checked-bg:colors.red.600)] [--checkbox-checked-border:colors.red.700/90%)]',
+  orange:
+    '[--checkbox-check:colors.surface.solid)] [--checkbox-checked-bg:colors.orange.500)] [--checkbox-checked-border:colors.orange.600/90%)]',
+  amber:
+    '[--checkbox-check:colors.amber.950)] [--checkbox-checked-bg:colors.amber.400)] [--checkbox-checked-border:colors.amber.500/80%)]',
+  yellow:
+    '[--checkbox-check:colors.yellow.950)] [--checkbox-checked-bg:colors.yellow.300)] [--checkbox-checked-border:colors.yellow.400/80%)]',
+  lime: '[--checkbox-check:colors.lime.950)] [--checkbox-checked-bg:colors.lime.300)] [--checkbox-checked-border:colors.lime.400/80%)]',
+  green:
+    '[--checkbox-check:colors.surface.solid)] [--checkbox-checked-bg:colors.green.600)] [--checkbox-checked-border:colors.green.700/90%)]',
+  emerald:
+    '[--checkbox-check:colors.surface.solid)] [--checkbox-checked-bg:colors.emerald.600)] [--checkbox-checked-border:colors.emerald.700/90%)]',
+  teal: '[--checkbox-check:colors.surface.solid)] [--checkbox-checked-bg:colors.teal.600)] [--checkbox-checked-border:colors.teal.700/90%)]',
+  cyan: '[--checkbox-check:colors.cyan.950)] [--checkbox-checked-bg:colors.cyan.300)] [--checkbox-checked-border:colors.cyan.400/80%)]',
+  sky: '[--checkbox-check:colors.surface.solid)] [--checkbox-checked-bg:colors.sky.500)] [--checkbox-checked-border:colors.sky.600/80%)]',
+  blue: '[--checkbox-check:colors.surface.solid)] [--checkbox-checked-bg:colors.blue.600)] [--checkbox-checked-border:colors.blue.700/90%)]',
+  indigo:
+    '[--checkbox-check:colors.surface.solid)] [--checkbox-checked-bg:colors.indigo.500)] [--checkbox-checked-border:colors.indigo.600/90%)]',
+  violet:
+    '[--checkbox-check:colors.surface.solid)] [--checkbox-checked-bg:colors.violet.500)] [--checkbox-checked-border:colors.violet.600/90%)]',
+  purple:
+    '[--checkbox-check:colors.surface.solid)] [--checkbox-checked-bg:colors.purple.500)] [--checkbox-checked-border:colors.purple.600/90%)]',
+  fuchsia:
+    '[--checkbox-check:colors.surface.solid)] [--checkbox-checked-bg:colors.fuchsia.500)] [--checkbox-checked-border:colors.fuchsia.600/90%)]',
+  pink: '[--checkbox-check:colors.surface.solid)] [--checkbox-checked-bg:colors.pink.500)] [--checkbox-checked-border:colors.pink.600/90%)]',
+  rose: '[--checkbox-check:colors.surface.solid)] [--checkbox-checked-bg:colors.rose.500)] [--checkbox-checked-border:colors.rose.600/90%)]',
+};
+
+type Color = keyof typeof colors;
+
+export function BaseCheckbox({
+  color = 'dark/zinc',
+  className,
+  ...props
+}: {
+  color?: Color;
+  className?: string;
+} & HeadlessCheckboxProps) {
+  return (
+    <HeadlessCheckbox
+      className={cn(className, 'group inline-flex focus:outline-none')}
+      data-slot="control"
+      {...props}
+    >
+      <span className={cn([base, colors[color]])}>
+        <svg
+          className="size-4 stroke-[--checkbox-check] opacity-0 group-data-[checked]:opacity-100 sm:h-3.5 sm:w-3.5"
+          fill="none"
+          viewBox="0 0 14 14"
+        >
+          {/* Checkmark icon */}
+          <path
+            className="opacity-100 group-data-[indeterminate]:opacity-0"
+            d="M3 8L6 11L11 3.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+          />
+          {/* Indeterminate icon */}
+          <path
+            className="opacity-0 group-data-[indeterminate]:opacity-100"
+            d="M3 7H11"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+          />
+        </svg>
+      </span>
+    </HeadlessCheckbox>
+  );
+}
