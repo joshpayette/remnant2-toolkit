@@ -46,7 +46,7 @@ next-env.d.ts
 # prisma
 prisma/generated
 
-# custom scripts
+# custom stuff
 profile.sav
 profile.txt
 UPGRADE.md
