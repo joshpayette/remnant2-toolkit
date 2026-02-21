@@ -2,7 +2,6 @@ import { type Config } from 'tailwindcss';
 
 const config: Config = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
-  darkMode: ['selector', '[data-theme~="dark"]'],
   theme: {
     extend: {
       keyframes: {
@@ -126,7 +125,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('@tailwindcss/forms')],
 };
 
 export default config;

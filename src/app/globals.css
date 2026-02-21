@@ -1,6 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../../tailwind.config.mts";
+@custom-variant dark (&:where([data-theme~="dark"], [data-theme~="dark"] *));
+@plugin "@tailwindcss/forms";
 
 /* 
 Light mode colors scale dark -> light rather than the default light -> dark 

@@ -1,4 +1,5 @@
 import { createRoot } from 'react-dom/client';
+
 import { BaseAlert } from '.';
 
 describe('BaseAlert', () => {
@@ -8,7 +9,7 @@ describe('BaseAlert', () => {
     root.render(
       <BaseAlert onClose={() => undefined} open size="md">
         Test Alert
-      </BaseAlert>,
+      </BaseAlert>
     );
     root.unmount();
   });
