@@ -28,8 +28,8 @@ dependencies:
     specifier: ^0.2.2
     version: 0.2.6(@fortawesome/fontawesome-svg-core@6.7.2)(react@19.2.4)
   '@headlessui/react':
-    specifier: 2.1.2
-    version: 2.1.2(react-dom@19.2.4)(react@19.2.4)
+    specifier: 2.2.9
+    version: 2.2.9(react-dom@19.2.4)(react@19.2.4)
   '@mdx-js/loader':
     specifier: 3.0.0
     version: 3.0.0(webpack@5.105.2)
@@ -54,9 +54,6 @@ dependencies:
   '@reduxjs/toolkit':
     specifier: 2.2.2
     version: 2.2.2(react@19.2.4)
-  '@tippyjs/react':
-    specifier: 4.2.6
-    version: 4.2.6(react-dom@19.2.4)(react@19.2.4)
   '@vercel/analytics':
     specifier: 1.1.1
     version: 1.1.1
@@ -1031,12 +1028,12 @@ packages:
       react: 19.2.4
     dev: false
 
-  /@headlessui/react@2.1.2(react-dom@19.2.4)(react@19.2.4):
-    resolution: {integrity: sha512-Kb3hgk9gRNRcTZktBrKdHhF3xFhYkca1Rk6e1/im2ENf83dgN54orMW0uSKTXFnUpZOUFZ+wcY05LlipwgZIFQ==}
+  /@headlessui/react@2.2.9(react-dom@19.2.4)(react@19.2.4):
+    resolution: {integrity: sha512-Mb+Un58gwBn0/yWZfyrCh0TJyurtT+dETj7YHleylHk5od3dv2XqETPGWMyQ5/7sYN7oWdyM1u9MvC0OC8UmzQ==}
     engines: {node: '>=10'}
     peerDependencies:
-      react: ^18
-      react-dom: ^18
+      react: ^18 || ^19 || ^19.0.0-rc
+      react-dom: ^18 || ^19 || ^19.0.0-rc
     dependencies:
       '@floating-ui/react': 0.26.28(react-dom@19.2.4)(react@19.2.4)
       '@react-aria/focus': 3.21.4(react-dom@19.2.4)(react@19.2.4)
@@ -1044,6 +1041,7 @@ packages:
       '@tanstack/react-virtual': 3.13.18(react-dom@19.2.4)(react@19.2.4)
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
+      use-sync-external-store: 1.6.0(react@19.2.4)
     dev: false
 
   /@hono/node-server@1.19.9(hono@4.11.4):
@@ -2217,17 +2215,6 @@ packages:
 
   /@tanstack/virtual-core@3.13.18:
     resolution: {integrity: sha512-Mx86Hqu1k39icq2Zusq+Ey2J6dDWTjDvEv43PJtRCoEYTLyfaPnxIQ6iy7YAOK0NV/qOEmZQ/uCufrppZxTgcg==}
-    dev: false
-
-  /@tippyjs/react@4.2.6(react-dom@19.2.4)(react@19.2.4):
-    resolution: {integrity: sha512-91RicDR+H7oDSyPycI13q3b7o4O60wa2oRbjlz2fyRLmHImc4vyDwuUP8NtZaN0VARJY5hybvDYrFzhY9+Lbyw==}
-    peerDependencies:
-      react: '>=16.8'
-      react-dom: '>=16.8'
-    dependencies:
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-      tippy.js: 6.3.7
     dev: false
 
   /@tsconfig/node10@1.0.12:
@@ -7275,12 +7262,6 @@ packages:
       fdir: 6.5.0(picomatch@4.0.3)
       picomatch: 4.0.3
     dev: true
-
-  /tippy.js@6.3.7:
-    resolution: {integrity: sha512-E1d3oP2emgJ9dRQZdf3Kkn0qJgI6ZLpyS5z6ZkY1DF3kaQaBsGZsndEpHwx+eC+tYM41HaSNvNtLx8tU57FzTQ==}
-    dependencies:
-      '@popperjs/core': 2.11.8
-    dev: false
 
   /to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}

@@ -1,28 +1,78 @@
 'use client';
 
-// import 'tippy.js/dist/tippy.css';
+import { ReactNode, useCallback, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { usePopper } from 'react-popper';
 
-import Tippy, { type TippyProps } from '@tippyjs/react';
+interface TooltipProps {
+  content: ReactNode;
+  children: ReactNode;
+  // kept for API compatibility
+  arrow?: boolean;
+  interactive?: boolean;
+  trigger?: string;
+  disabled?: boolean;
+}
 
 export function Tooltip({
-  arrow = true,
-  interactive = true,
   content,
   children,
-  trigger,
-  ...rest
-}: TippyProps) {
+  interactive = true,
+  disabled = false,
+}: TooltipProps) {
+  const [visible, setVisible] = useState(false);
+  const [referenceElement, setReferenceElement] =
+    useState<HTMLSpanElement | null>(null);
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
+    null,
+  );
+  const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    placement: 'top',
+    modifiers: [{ name: 'offset', options: { offset: [0, 6] } }],
+  });
+
+  const show = useCallback(() => {
+    if (hideTimer.current) clearTimeout(hideTimer.current);
+    setVisible(true);
+  }, []);
+
+  const scheduleHide = useCallback(() => {
+    if (!interactive) {
+      setVisible(false);
+    } else {
+      hideTimer.current = setTimeout(() => setVisible(false), 80);
+    }
+  }, [interactive]);
+
+  if (!content || disabled) return <>{children}</>;
+
   return (
-    <Tippy
-      arrow={arrow}
-      content={content}
-      interactive={interactive}
-      {...rest}
-      className="w-full max-w-[300px] text-left"
-      theme="r2tk"
-      trigger={trigger}
-    >
-      {children}
-    </Tippy>
+    <>
+      <span
+        ref={setReferenceElement}
+        onMouseEnter={show}
+        onMouseLeave={scheduleHide}
+        onFocus={show}
+        onBlur={() => setVisible(false)}
+      >
+        {children}
+      </span>
+      {visible &&
+        createPortal(
+          <div
+            ref={setPopperElement}
+            style={styles.popper}
+            {...attributes.popper}
+            className="z-[9999] max-w-[300px] rounded border border-accent1-500 bg-zinc-800 px-2 py-1 text-left text-xs leading-4 text-surface-solid shadow-lg"
+            onMouseEnter={interactive ? show : undefined}
+            onMouseLeave={interactive ? scheduleHide : undefined}
+          >
+            {content}
+          </div>,
+          document.body,
+        )}
+    </>
   );
 }
