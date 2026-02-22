@@ -6,7 +6,7 @@ import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { getIsLoadoutPublic } from '@/app/(builds)/_actions/get-is-loadout-public';
 import { getLoadoutList } from '@/app/(builds)/_actions/get-loadout-list';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
 import { ImportLoadouts } from '@/app/(user)/profile/[profileId]/loadouts/_components/import-loadouts';
 import { LoadoutGrid } from '@/app/(user)/profile/[profileId]/loadouts/_components/loadout-grid';
@@ -150,7 +150,7 @@ export default async function Page({
   return (
     <>
       <div className="mb-4 flex w-full flex-col items-center justify-center">
-        <div className="flex w-full flex-row items-center justify-center border-b border-b-primary-500 py-2">
+        <div className="border-b-primary-500 flex w-full flex-row items-center justify-center border-b py-2">
           <h2 className="flex w-full items-center justify-start text-2xl">
             {NAV_ITEMS.loadouts.label}
           </h2>

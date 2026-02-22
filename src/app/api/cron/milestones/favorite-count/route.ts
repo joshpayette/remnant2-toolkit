@@ -1,5 +1,5 @@
 import { prisma } from '@/prisma';
-import { urlNoCache } from '@/lib/utils';
+import { urlNoCache } from '@/utils';
 import { type NextRequest } from 'next/server';
 
 /** Ignore all milestones before this date. */

@@ -1,7 +1,7 @@
 'use client';
 
 import { BaseFieldset, BaseLabel, cn } from '@/ui';
-import { getArrayOfLength } from '@/lib/utils';
+import { getArrayOfLength } from '@/utils';
 import { useState } from 'react';
 
 import { type BuildState } from '@/app/(builds)/_types/build-state';
@@ -44,7 +44,7 @@ export function PrismDisplay({
     <div
       className={cn(
         'flex flex-row flex-wrap items-center justify-start gap-x-1 gap-y-0 md:justify-center',
-        isScreenshotMode && 'justify-start',
+        isScreenshotMode && 'justify-start'
       )}
     >
       <FragmentOrFusionDialog
@@ -54,7 +54,7 @@ export function PrismDisplay({
           if (whichSlotClicked !== null) {
             onItemSlotClick(
               isFragment ? 'relicfragment' : 'fusion',
-              whichSlotClicked,
+              whichSlotClicked
             );
           }
           setWhichSlotClicked(null);

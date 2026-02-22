@@ -3,7 +3,7 @@
 import { useLocalStorage } from 'usehooks-ts';
 import { BaseButton } from '../../base/button';
 import { BaseText } from '../../base/text';
-import { cn } from '../../utils/classnames';
+import { cn } from '../../../utils/classnames';
 import { CloseIcon } from '../icons/close';
 import { ZINDEXES } from '../z-indexes';
 
@@ -27,7 +27,7 @@ export function AlertBanner({
       className={cn(
         'animate-slideIn fixed w-full p-1 text-sm',
         bgColor,
-        ZINDEXES.ALERT_BANNER,
+        ZINDEXES.ALERT_BANNER
       )}
     >
       <div className="absolute right-0 top-0">

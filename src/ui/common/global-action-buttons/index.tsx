@@ -13,7 +13,7 @@ import { SettingsIcon } from '../icons/settings';
 import { ThemeIcon } from '../icons/theme';
 import { BugIcon } from '../icons/bug';
 import { ZINDEXES } from '../z-indexes';
-import { cn } from '../../utils/classnames';
+import { cn } from '../../../utils/classnames';
 
 // Lazy-load the theme toggle, since it relies on client context
 const ThemeSelectButton = dynamic(
@@ -25,7 +25,7 @@ const ThemeSelectButton = dynamic(
         <ThemeIcon className="h-5 w-5" />
       </BaseButton>
     ),
-  },
+  }
 );
 
 interface GlobalActionButtonProps {
@@ -38,8 +38,8 @@ export function GlobalActionButtons({ username }: GlobalActionButtonProps) {
   return (
     <div
       className={cn(
-        'fixed flex flex-row-reverse w-[98vw] bottom-[8px] gap-x-1',
-        ZINDEXES.GLOBAL_ACTION_BUTTONS,
+        'fixed bottom-[8px] flex w-[98vw] flex-row-reverse gap-x-1',
+        ZINDEXES.GLOBAL_ACTION_BUTTONS
       )}
     >
       <SettingsButton

@@ -2,7 +2,7 @@
 
 import { prisma } from '@/prisma';
 
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 
 export async function getAvatarId(): Promise<{
   avatarId: string | null;

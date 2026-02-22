@@ -1,4 +1,4 @@
-import { getArrayOfLength } from '@/lib/utils';
+import { getArrayOfLength } from '@/utils';
 
 import { type BossCategory } from '@/app/(enemies)/_types';
 import { type ItemTrackerCategory } from '@/app/(items)/item-tracker/_types/item-tracker-category';

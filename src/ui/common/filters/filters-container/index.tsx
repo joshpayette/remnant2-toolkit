@@ -4,7 +4,7 @@ import { Disclosure } from '@headlessui/react';
 import React from 'react';
 import { FilterIcon } from '../../icons/filter';
 import { BaseButton } from '../../../base/button';
-import { cn } from '../../../utils/classnames';
+import { cn } from '../../../../utils/classnames';
 
 interface FiltersContainerProps {
   children: React.ReactNode;
@@ -27,7 +27,7 @@ export function FiltersContainer({
     <Disclosure defaultOpen>
       {({ open }) => (
         <div className="w-full">
-          <div className="flex w-full flex-row items-end justify-end border-b border-b-primary-500 py-2">
+          <div className="border-b-primary-500 flex w-full flex-row items-end justify-end border-b py-2">
             <div className="w-full pr-4">{searchInput}</div>
             <Disclosure.Button as={BaseButton}>
               <FilterIcon className="h-4 w-4" />
@@ -36,11 +36,11 @@ export function FiltersContainer({
           </div>
           <Disclosure.Panel
             className={cn(
-              'mt-2 w-full border border-primary-500 bg-gray-950 p-4',
+              'border-primary-500 mt-2 w-full border bg-gray-950 p-4',
               areAnyFiltersActive &&
-                'border-accent1-300 shadow-xl shadow-accent1-600',
+                'border-accent1-300 shadow-accent1-600 shadow-xl',
               !areFiltersApplied &&
-                'border-secondary-300 shadow-xl shadow-secondary-600'
+                'border-secondary-300 shadow-secondary-600 shadow-xl'
             )}
           >
             {children}

@@ -1,4 +1,4 @@
-import { capitalize } from '@/lib/utils';
+import { capitalize } from '@/utils';
 
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 import { type ItemTrackerFilters } from '@/app/(items)/_components/filters/item-tracker/types';
@@ -11,7 +11,7 @@ import { ALL_TRACKABLE_ITEMS } from '@/app/(items)/item-tracker/_constants/track
 
 export function getFilteredItemList(
   filters: ItemTrackerFilters,
-  discoveredItemIds: string[],
+  discoveredItemIds: string[]
 ): Array<Item & { discovered: boolean }> {
   let filteredItems = ALL_TRACKABLE_ITEMS.map((i) => {
     return {
@@ -105,14 +105,14 @@ export function getFilteredItemList(
     filteredItems = filteredItems.filter((item) =>
       filters.releases
         .filter((release) => release !== DEFAULT_FILTER)
-        .includes(item.dlc),
+        .includes(item.dlc)
     );
   }
 
   // filter by world
   if (filters.world !== DEFAULT_FILTER) {
     filteredItems = filteredItems.filter(
-      (item) => item.location?.world === filters.world,
+      (item) => item.location?.world === filters.world
     );
   }
 
@@ -122,7 +122,7 @@ export function getFilteredItemList(
       filteredItems = filteredItems.filter(
         (item) =>
           (item.location?.dungeon === 'World Drop') !==
-          filters.dungeon.startsWith('Not'),
+          filters.dungeon.startsWith('Not')
       );
     } else {
       filteredItems = filteredItems.filter((item) => {
@@ -146,7 +146,7 @@ export function getFilteredItemList(
   // if search text is not empty, filter by search text
   if (filters.searchText.length > 0) {
     filteredItems = filteredItems.filter((i) =>
-      i.name.toLowerCase().includes(filters.searchText.toLowerCase()),
+      i.name.toLowerCase().includes(filters.searchText.toLowerCase())
     );
   }
 

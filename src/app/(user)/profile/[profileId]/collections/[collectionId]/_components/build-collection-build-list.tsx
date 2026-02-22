@@ -2,13 +2,13 @@
 
 import type { BuildCollection } from '@/prisma';
 import { BaseButton, EditIcon, ShareIcon, TrashIcon } from '@/ui';
-import { urlNoCache } from '@/lib/utils';
+import { urlNoCache } from '@/utils';
 import copy from 'clipboard-copy';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { isErrorResponse } from '@/app/_libs/is-error-response';
+import { isErrorResponse } from '@/utils/is-error-response';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';
 import type { DBBuild } from '@/app/(builds)/_types/db-build';

@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
 
-import { isErrorResponse } from '@/app/_libs/is-error-response';
+import { isErrorResponse } from '@/utils/is-error-response';
 import { createBuild } from '@/app/(builds)/_actions/create-build';
 import { incrementDuplicateCount } from '@/app/(builds)/_actions/increment-duplicate-count';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
@@ -47,7 +47,7 @@ export async function handleDuplicateBuild({
   const [createBuildsResponse, _incrementResponse] = await Promise.all([
     createBuild({
       buildVariantsStringified: buildVariants.map((variant) =>
-        JSON.stringify(variant),
+        JSON.stringify(variant)
       ),
     }),
     incrementDuplicateCount({ buildId: mainBuildState.buildId as string }),

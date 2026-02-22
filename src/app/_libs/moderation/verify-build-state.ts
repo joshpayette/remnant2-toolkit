@@ -1,9 +1,8 @@
-import { isValidYoutubeUrl } from '@/lib/utils';
-
-import { badWordFilter } from '@/app/_libs/bad-word-filter';
 import { type SendWebhookParams } from '@/app/_libs/moderation/send-webhook';
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
+import { badWordFilter } from '@/utils/bad-word-filter/bad-word-filter';
+import { isValidYoutubeUrl } from '@/utils/youtube';
 
 export function verifyBuildState({
   buildState,
@@ -54,10 +53,10 @@ function badLanguageCheck({
 }): SendWebhookParams | null {
   const nameBadWordCheck = badWordFilter.isProfane(buildState.name);
   const descriptionBadWordCheck = badWordFilter.isProfane(
-    buildState.description ?? '',
+    buildState.description ?? ''
   );
   const referenceLinkBadWordCheck = badWordFilter.isProfane(
-    buildState.buildLink ?? '',
+    buildState.buildLink ?? ''
   );
 
   if (nameBadWordCheck.isProfane) {

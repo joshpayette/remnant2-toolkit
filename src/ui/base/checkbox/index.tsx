@@ -7,7 +7,7 @@ import {
   type FieldProps as HeadlessFieldProps,
 } from '@headlessui/react';
 import React from 'react';
-import { cn } from '../../utils/classnames';
+import { cn } from '../../../utils/classnames';
 
 export function BaseCheckboxGroup({
   className,

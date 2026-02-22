@@ -1,12 +1,12 @@
 'use server';
 
 import { prisma } from '@/prisma';
-import { urlNoCache } from '@/lib/utils';
+import { urlNoCache } from '@/utils';
 
 import { badWordFilter } from '@/app/_libs/bad-word-filter';
 import { type ErrorResponse } from '@/app/_types/error-response';
 import { MAX_COLLECTION_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import type { BuildCollectionWithBuilds } from '@/app/(user)/profile/[profileId]/collections/_types/build-collection-with-builds';
 
 export async function createBuildCollection({

@@ -4,8 +4,8 @@ import { prisma } from '@/prisma';
 
 import { badWordFilter } from '@/app/_libs/bad-word-filter';
 import { sendWebhook } from '@/app/_libs/moderation/send-webhook';
-import { validateEnv } from '@/app/_libs/validate-env';
-import { auth } from '@/auth';
+import { validateEnv } from '@/utils/validate-env';
+import { auth } from '@/lib/auth';
 
 export async function saveProfile({
   userId,

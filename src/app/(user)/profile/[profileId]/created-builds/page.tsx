@@ -1,4 +1,4 @@
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { CreatedBuilds } from '@/app/(user)/profile/[profileId]/created-builds/_components/created-builds';
 
 export const maxDuration = 60;

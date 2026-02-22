@@ -1,5 +1,5 @@
 import { Skeleton } from '@/ui';
-import { getArrayOfLength } from '@/lib/utils';
+import { getArrayOfLength } from '@/utils';
 
 export function LoadoutSkeleton() {
   return getArrayOfLength(8).map((_, index) => (

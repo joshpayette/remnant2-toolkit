@@ -5,7 +5,7 @@ import { revalidatePath } from 'next/cache';
 
 import { modItems } from '@/app/(items)/_constants/mod-items';
 import { ALL_TRACKABLE_ITEMS } from '@/app/(items)/item-tracker/_constants/trackable-items';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 
 export async function setDiscoveredItems(
   discoveredItemIds: string[]

@@ -2,7 +2,7 @@ import {
   isValidYoutubeUrl,
   videoUrlToThumbnailUrl,
   videoUrlToWatchUrl,
-} from '@/lib/utils';
+} from '@/utils';
 import Image from 'next/image';
 
 import { VIDEO_APPROVAL_WINDOW } from '@/app/(builds)/_constants/video-approval-window';

@@ -1,13 +1,13 @@
 import { type Metadata, type ResolvingMetadata } from 'next';
 
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
-import { isErrorResponse } from '@/app/_libs/is-error-response';
+import { isErrorResponse } from '@/utils/is-error-response';
 import { getLinkedBuild } from '@/app/(builds)/builder/(deprecated)/linked/[linkedBuildId]/get-linked-build';
 import { ViewLinkedBuild } from '@/app/(builds)/builder/(deprecated)/linked/[linkedBuildId]/view-linked-build';
 
 export async function generateMetadata(
   { params: { linkedBuildId } }: { params: { linkedBuildId: string } },
-  _parent: ResolvingMetadata,
+  _parent: ResolvingMetadata
 ): Promise<Metadata> {
   const buildData = await getLinkedBuild(linkedBuildId);
 

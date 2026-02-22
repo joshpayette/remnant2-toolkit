@@ -4,7 +4,7 @@ import { BaseLink } from '@/ui';
 
 import { NAV_ITEMS } from '../_constants/nav-items';
 import { getTotalBuildCount } from '../(builds)/_actions/get-total-build-count';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 
 export async function LandingPageHeaderDescription() {
   const session = await auth();

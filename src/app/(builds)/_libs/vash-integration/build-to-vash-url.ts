@@ -1,4 +1,4 @@
-import { getArrayOfLength } from '@/lib/utils';
+import { getArrayOfLength } from '@/utils';
 
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 
@@ -9,17 +9,17 @@ export function buildToVashUrl(buildState: BuildState) {
 
   // traits
   const traitParams = items.trait.map(
-    (trait) => `${trait.name.replaceAll(' ', '+')}${trait.amount}`,
+    (trait) => `${trait.name.replaceAll(' ', '+')}${trait.amount}`
   );
   const traitString = traitParams.join(',');
   vashUrl += `trait=${traitString}&`;
 
   // archetypes and skills
   const archetypeParams = items.archetype.map(
-    (archetype) => archetype?.name.replaceAll(' ', '+') ?? '',
+    (archetype) => archetype?.name.replaceAll(' ', '+') ?? ''
   );
   const skillParams = items.skill.map(
-    (skill) => skill?.name.replaceAll(' ', '+') ?? '',
+    (skill) => skill?.name.replaceAll(' ', '+') ?? ''
   );
   const archetypeString = archetypeParams.join(',');
   const skillString = skillParams.join(',');
@@ -64,10 +64,10 @@ export function buildToVashUrl(buildState: BuildState) {
 
   // consumable
   const concoctionParams = getArrayOfLength(7).map(
-    (_, i) => items.concoction[i]?.name.replaceAll(' ', '+') ?? '',
+    (_, i) => items.concoction[i]?.name.replaceAll(' ', '+') ?? ''
   );
   const consumableParams = getArrayOfLength(4).map(
-    (_, i) => items.consumable[i]?.name.replaceAll(' ', '+') ?? '',
+    (_, i) => items.consumable[i]?.name.replaceAll(' ', '+') ?? ''
   );
 
   const concoctionString = concoctionParams.join(',');

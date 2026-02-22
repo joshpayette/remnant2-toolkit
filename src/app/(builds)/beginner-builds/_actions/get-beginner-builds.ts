@@ -1,7 +1,7 @@
 'use server';
 
 import { prisma } from '@/prisma';
-import { bigIntFix } from '@/lib/utils';
+import { bigIntFix } from '@/utils';
 
 import { getBuildList } from '@/app/(builds)/_actions/get-build-list';
 import { limitByAmuletSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/amulets';
@@ -29,7 +29,7 @@ import { limitByWithReferenceSegment } from '@/app/(builds)/_features/filters/_l
 import { limitByWithVideoSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-video';
 import { type BuildListRequest } from '@/app/(builds)/_types/build-list-request';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 
 export async function getBeginnerBuilds({
   buildFilterFields,

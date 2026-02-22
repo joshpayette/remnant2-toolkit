@@ -6,7 +6,7 @@ import { PageHeader } from '@/app/_components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { CreateBuild } from '@/app/(builds)/builder/create/create-build';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `${NAV_ITEMS.createBuild.label} - ${SITE_TITLE}`;
@@ -63,13 +63,13 @@ export default async function Page() {
             id="disabled-overlay"
             className={cn(
               'bg-background-solid/90 absolute inset-0 h-full',
-              ZINDEXES.BUILD_FEATURES_DISABLED,
+              ZINDEXES.BUILD_FEATURES_DISABLED
             )}
           />
           <div
             className={cn(
-              'absolute mb-2 flex h-full w-full flex-col items-center justify-start p-2 text-2xl font-bold text-accent3-500',
-              ZINDEXES.BUILD_FEATURES_DISABLED,
+              'text-accent3-500 absolute mb-2 flex h-full w-full flex-col items-center justify-start p-2 text-2xl font-bold',
+              ZINDEXES.BUILD_FEATURES_DISABLED
             )}
           >
             <p className="w-full text-center">

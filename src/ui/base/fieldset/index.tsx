@@ -13,7 +13,7 @@ import {
   type LegendProps as HeadlessLegendProps,
 } from '@headlessui/react';
 import React from 'react';
-import { cn } from '../../utils/classnames';
+import { cn } from '../../../utils/classnames';
 
 export function BaseFieldset({
   className,
@@ -36,7 +36,7 @@ export function BaseLegend({ ...props }: HeadlessLegendProps) {
       {...props}
       className={cn(
         props.className,
-        'text-base/6 font-semibold text-surface-solid data-[disabled]:opacity-50 sm:text-sm/6'
+        'text-surface-solid text-base/6 font-semibold data-[disabled]:opacity-50 sm:text-sm/6'
       )}
       data-slot="legend"
     />
@@ -82,7 +82,7 @@ export function BaseLabel({
       {...props}
       className={cn(
         className,
-        'select-none text-base/6 text-surface-solid data-[disabled]:opacity-50 sm:text-sm/6'
+        'text-surface-solid select-none text-base/6 data-[disabled]:opacity-50 sm:text-sm/6'
       )}
       data-slot="label"
     />
@@ -116,7 +116,7 @@ export function BaseErrorMessage({
       {...props}
       className={cn(
         className,
-        'text-base/6 text-accent3-500 data-[disabled]:opacity-50 sm:text-sm/6'
+        'text-accent3-500 text-base/6 data-[disabled]:opacity-50 sm:text-sm/6'
       )}
       data-slot="error"
     />

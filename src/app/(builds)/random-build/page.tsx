@@ -7,7 +7,7 @@ import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { getRandomBuild } from '@/app/(builds)/_libs/get-random-build';
 import { CreateBuild } from '@/app/(builds)/builder/create/create-build';
 import { allItems } from '@/app/(items)/_constants/all-items';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `${NAV_ITEMS.randomBuild.label} - ${SITE_TITLE}`;

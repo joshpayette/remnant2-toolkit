@@ -17,7 +17,7 @@ import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { isErrorResponse } from '@/app/_libs/is-error-response';
+import { isErrorResponse } from '@/utils/is-error-response';
 import { createBuildCollection } from '@/app/(user)/profile/[profileId]/collections/_actions/create-build-collection';
 import { getBuildCollections } from '@/app/(user)/profile/[profileId]/collections/_actions/get-build-collections';
 import type { BuildCollectionWithBuilds } from '@/app/(user)/profile/[profileId]/collections/_types/build-collection-with-builds';
@@ -28,7 +28,7 @@ interface Props {
   onClose: () => void;
   onConfirm: (
     collection: BuildCollectionWithBuilds,
-    bypassBuildExistsCheck?: boolean,
+    bypassBuildExistsCheck?: boolean
   ) => void;
 }
 
@@ -67,7 +67,7 @@ export function AddToCollectionDialog({
   async function handleCreateCollection() {
     if (!newCollectionName) {
       toast.error(
-        'Cannot create a new collection - collection name is missing!',
+        'Cannot create a new collection - collection name is missing!'
       );
       return;
     }
@@ -126,7 +126,7 @@ export function AddToCollectionDialog({
         <BaseButton
           onClick={() => {
             const selectedCollection = buildCollections.find(
-              (collection) => collection.id === collectionId,
+              (collection) => collection.id === collectionId
             );
             if (!selectedCollection) {
               toast.error('Failed to find selected collection');

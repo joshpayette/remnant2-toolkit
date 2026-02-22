@@ -2,7 +2,7 @@
 
 import { prisma } from '@/prisma';
 
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 
 export async function getTotalBuildFavorites(userId?: string) {
   const session = await auth();

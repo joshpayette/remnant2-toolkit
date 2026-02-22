@@ -1,4 +1,4 @@
-import { cn } from '../../utils/classnames';
+import { cn } from '../../../utils/classnames';
 
 export function BaseDivider({
   soft = false,
@@ -12,7 +12,7 @@ export function BaseDivider({
         className,
         'w-full border-t',
         soft && 'border-zinc-950/5 dark:border-white/5',
-        !soft && 'border-zinc-950/10 dark:border-white/10',
+        !soft && 'border-zinc-950/10 dark:border-white/10'
       )}
     />
   );

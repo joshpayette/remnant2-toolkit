@@ -3,7 +3,7 @@
 import { prisma } from '@/prisma';
 
 import type { ErrorResponse } from '@/app/_types/error-response';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 
 export async function deleteBuildCollection(
   buildId: string

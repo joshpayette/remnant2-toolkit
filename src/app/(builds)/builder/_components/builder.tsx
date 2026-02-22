@@ -10,7 +10,7 @@ import {
   Logo,
   Tooltip,
 } from '@/ui';
-import { getArrayOfLength, stripUnicode } from '@/lib/utils';
+import { getArrayOfLength, stripUnicode } from '@/utils';
 import { useCallback, useMemo, useState } from 'react';
 
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
@@ -507,7 +507,7 @@ export function Builder({
       />
 
       {buildState.isPublic === false && !isScreenshotMode && (
-        <div className="text-md mb-4 flex flex-col items-center justify-center gap-4 border-2 border-accent3-500 p-4 font-semibold text-accent3-500">
+        <div className="text-md border-accent3-500 text-accent3-500 mb-4 flex flex-col items-center justify-center gap-4 border-2 p-4 font-semibold">
           This build is currently marked private. Other users will be unable to
           view it until you mark it public.
         </div>
@@ -515,11 +515,11 @@ export function Builder({
       <div
         id="build-container"
         className={cn(
-          'relative w-full grow rounded border-2 bg-background-solid p-4',
+          'bg-background-solid relative w-full grow rounded border-2 p-4',
           !buildState.isMember && 'border-primary-500',
           buildState.isMember &&
             !isScreenshotMode &&
-            'border-accent1-300 shadow-lg shadow-accent1-600',
+            'border-accent1-300 shadow-accent1-600 shadow-lg',
           buildState.isMember && isScreenshotMode && 'border-primary-500',
           isScreenshotMode && 'pb-[70px]'
         )}
@@ -527,7 +527,7 @@ export function Builder({
         <div
           id="build-header"
           className={cn(
-            'relative mb-4 border-b border-b-primary-900',
+            'border-b-primary-900 relative mb-4 border-b',
             hasAnyBadge && 'mb-10 pb-8'
           )}
         >
@@ -547,7 +547,7 @@ export function Builder({
                 <h2
                   aria-hidden="true"
                   className={cn(
-                    'whitespace-normal text-center text-2xl font-bold text-surface-solid sm:text-4xl',
+                    'text-surface-solid whitespace-normal text-center text-2xl font-bold sm:text-4xl',
                     isScreenshotMode && 'text-4xl'
                   )}
                 >
@@ -572,7 +572,7 @@ export function Builder({
                 </span>
                 <BaseLink
                   href={`/profile/${buildState.createdById}/created-builds`}
-                  className="ml-1 text-primary-500 underline"
+                  className="text-primary-500 ml-1 underline"
                 >
                   {buildState.createdByDisplayName}
                 </BaseLink>
@@ -581,7 +581,7 @@ export function Builder({
                 <Tooltip content={`${buildState.totalUpvotes} Favorites`}>
                   <button className="flex flex-row items-center justify-center gap-x-1">
                     <FavoriteIcon
-                      className={cn('mr-0.5 h-4 w-4 text-accent1-500')}
+                      className={cn('text-accent1-500 mr-0.5 h-4 w-4')}
                     />
                     <span className={cn('text-surface-solid')}>
                       {buildState.totalUpvotes}
@@ -593,7 +593,7 @@ export function Builder({
                 >
                   <button className="flex flex-row items-center justify-center gap-x-1">
                     <EyeIcon
-                      className={cn('mr-0.5 h-4 w-4 text-accent1-500')}
+                      className={cn('text-accent1-500 mr-0.5 h-4 w-4')}
                     />
                     <span className={cn('text-surface-solid')}>
                       {buildState.validatedViewCount}
@@ -606,7 +606,7 @@ export function Builder({
                 >
                   <button className="flex flex-row items-center justify-center gap-x-1">
                     <EyeIcon
-                      className={cn('mr-0.5 h-4 w-4 text-primary-500')}
+                      className={cn('text-primary-500 mr-0.5 h-4 w-4')}
                     />
                     <span className={cn('text-surface-solid')}>
                       {buildState.viewCount}
@@ -616,7 +616,7 @@ export function Builder({
                 <Tooltip content={`${buildState.duplicateCount} Duplicates`}>
                   <button className="flex flex-row items-center justify-center gap-x-1">
                     <DuplicateIcon
-                      className={cn('mr-0.5 h-4 w-4 text-primary-500')}
+                      className={cn('text-primary-500 mr-0.5 h-4 w-4')}
                     />
                     <span className={cn('text-surface-solid')}>
                       {buildState.duplicateCount}
@@ -667,7 +667,7 @@ export function Builder({
           ) : null}
           {buildState.isPatchAffected && (
             <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
-              <p className="border border-accent3-500 p-2 text-left text-xs font-bold text-accent3-500">
+              <p className="border-accent3-500 text-accent3-500 border p-2 text-left text-xs font-bold">
                 This build might have been affected by a past update. If you
                 created this build, please update it and untoggle the
                 patch-affected setting.
@@ -1221,7 +1221,7 @@ export function Builder({
             className="mb-4 flex w-full flex-col items-center justify-center"
           >
             {!hasBossRushBuildTag && !isScreenshotMode && isEditable && (
-              <span className="mb-1 text-sm text-accent3-500">
+              <span className="text-accent3-500 mb-1 text-sm">
                 Add the Boss Rush tag to add pylons to this build.
               </span>
             )}

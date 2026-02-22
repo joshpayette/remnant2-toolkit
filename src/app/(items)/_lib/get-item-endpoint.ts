@@ -1,4 +1,4 @@
-import { cleanItemName, urlNoCache } from '@/lib/utils';
+import { cleanItemName, urlNoCache } from '@/utils';
 
 /**
  * Builds a link to the provided item's endpoint.

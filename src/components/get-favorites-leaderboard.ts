@@ -1,6 +1,6 @@
 'use server';
 
-import { bigIntFix } from '@/lib/utils';
+import { bigIntFix } from '@/utils';
 import { prisma } from '@/prisma';
 import { type LeaderBoardItem } from '@/ui';
 

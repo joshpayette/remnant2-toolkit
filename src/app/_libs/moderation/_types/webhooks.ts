@@ -1,4 +1,4 @@
-import { validateEnv } from '@/app/_libs/validate-env';
+import { validateEnv } from '@/utils/validate-env';
 
 const {
   WEBHOOK_AUDIT_LOG,

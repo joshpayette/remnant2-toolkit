@@ -5,7 +5,7 @@ import { type Metadata } from 'next';
 import { PageHeader } from '@/app/_components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
-import { isErrorResponse } from '@/app/_libs/is-error-response';
+import { isErrorResponse } from '@/utils/is-error-response';
 import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
 import { getBuildCollections } from '@/app/(user)/profile/[profileId]/collections/_actions/get-build-collections';
 import { BuildCollectionsList } from '@/app/(user)/profile/[profileId]/collections/_components/build-collections-list';
@@ -113,7 +113,7 @@ export default async function Page({
 
   return (
     <div className="mb-4 flex w-full flex-col items-center justify-center">
-      <div className="flex w-full flex-row items-center justify-center border-b border-b-primary-500 py-2">
+      <div className="border-b-primary-500 flex w-full flex-row items-center justify-center border-b py-2">
         <h2 className="flex w-full items-center justify-start text-2xl">
           {NAV_ITEMS.collections.label}
         </h2>

@@ -11,7 +11,7 @@ import {
 } from '@headlessui/react';
 import React, { Fragment } from 'react';
 import { BaseText } from '../text';
-import { cn } from '../../utils/classnames';
+import { cn } from '../../../utils/classnames';
 import { ZINDEXES } from '../../common/z-indexes';
 
 const sizes = {
@@ -72,7 +72,7 @@ export function BaseAlert({
                 className={cn(
                   className,
                   sizes[size],
-                  'row-start-2 w-full rounded-2xl bg-zinc-900 p-8 shadow-lg ring-1 ring-surface-solid/10 sm:rounded-2xl sm:p-6 forced-colors:outline'
+                  'ring-surface-solid/10 row-start-2 w-full rounded-2xl bg-zinc-900 p-8 shadow-lg ring-1 sm:rounded-2xl sm:p-6 forced-colors:outline'
                 )}
                 enter="ease-out duration-100"
                 enterFrom="scale-95"
@@ -100,7 +100,7 @@ export function BaseAlertTitle({
       {...props}
       className={cn(
         className,
-        'text-balance text-center text-base/6 font-semibold text-surface-solid sm:text-wrap sm:text-left sm:text-sm/6'
+        'text-surface-solid text-balance text-center text-base/6 font-semibold sm:text-wrap sm:text-left sm:text-sm/6'
       )}
     />
   );

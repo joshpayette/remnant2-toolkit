@@ -1,7 +1,7 @@
 import { permanentRedirect } from 'next/navigation';
 
 import { PageHeader } from '@/app/_components/page-header';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 
 export default async function Page() {
   const session = await auth();

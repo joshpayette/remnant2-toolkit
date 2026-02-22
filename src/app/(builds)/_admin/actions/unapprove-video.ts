@@ -1,13 +1,13 @@
 'use server';
 
 import { prisma } from '@/prisma';
-import { removeAllParamsExceptV } from '@/lib/utils';
+import { removeAllParamsExceptV } from '@/utils';
 import { revalidatePath } from 'next/cache';
 
 import { sendWebhook } from '@/app/_libs/moderation/send-webhook';
-import { validateEnv } from '@/app/_libs/validate-env';
+import { validateEnv } from '@/utils/validate-env';
 import { type AdminToolResponse } from '@/app/(builds)/_types/admin-tool-response';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 
 export default async function unapproveVideo(
   buildId: string | null

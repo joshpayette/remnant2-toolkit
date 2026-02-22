@@ -1,4 +1,4 @@
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { FavoritedBuilds } from '@/app/(user)/profile/[profileId]/favorited-builds/_components/favorited-builds';
 
 export const maxDuration = 60;
@@ -12,7 +12,9 @@ export default async function Page({
 
   if (session?.user?.id !== profileId) {
     return (
-      <p className="text-accent3-500">You are not authorized to view this page.</p>
+      <p className="text-accent3-500">
+        You are not authorized to view this page.
+      </p>
     );
   }
 

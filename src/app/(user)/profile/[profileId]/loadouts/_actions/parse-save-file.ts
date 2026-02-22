@@ -2,15 +2,15 @@
 
 import { revalidatePath } from 'next/cache';
 
-import { isErrorResponse } from '@/app/_libs/is-error-response';
-import { validateEnv } from '@/app/_libs/validate-env';
+import { isErrorResponse } from '@/utils/is-error-response';
+import { validateEnv } from '@/utils/validate-env';
 import { addBuildToLoadout } from '@/app/(builds)/_actions/add-build-to-loadout';
 import { createBuild } from '@/app/(builds)/_actions/create-build';
 import { importedLoadoutToBuildState } from '@/app/(builds)/_libs/imported-loadout-to-build-state';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type ParsedLoadoutItem } from '@/app/(builds)/_types/parsed-loadout-item';
 import { type SuccessResponse } from '@/app/(builds)/_types/success-response';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { MAX_PROFILE_SAV_SIZE } from '@/app/(user)/profile/_constants/max-profile-sav-size';
 
 const env = validateEnv();
@@ -22,7 +22,7 @@ type ParsedLoadoutResponse = Array<ParsedLoadoutItem>;
  */
 export async function parseSaveFile(
   _prevState: unknown,
-  formData: FormData,
+  formData: FormData
 ): Promise<{ status: 'success' | 'error'; message: string }> {
   const session = await auth();
 
@@ -102,7 +102,7 @@ export async function parseSaveFile(
       return {
         status: 'error',
         message: `No loadouts found in save file for character slot ${formData.get(
-          'characterSlot',
+          'characterSlot'
         )}`,
       };
     }
@@ -131,7 +131,7 @@ export async function parseSaveFile(
     // Save the builds to the database
     const createdBuildResponse = await Promise.all([
       ...buildsToCreate.map((build) =>
-        createBuild({ buildVariantsStringified: [JSON.stringify(build)] }),
+        createBuild({ buildVariantsStringified: [JSON.stringify(build)] })
       ),
     ]);
     const buildIds = createdBuildResponse
@@ -157,7 +157,7 @@ export async function parseSaveFile(
 
     const _updatedLoadoutsResponse = await Promise.all([
       ...loadoutsToUpdate.map((loadout) =>
-        addBuildToLoadout(loadout.buildId, loadout.slot),
+        addBuildToLoadout(loadout.buildId, loadout.slot)
       ),
     ]);
 

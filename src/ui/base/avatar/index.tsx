@@ -5,7 +5,7 @@ import {
   type ButtonProps as HeadlessButtonProps,
 } from '@headlessui/react';
 import { forwardRef } from 'react';
-import { cn } from '../../utils/classnames';
+import { cn } from '../../../utils/classnames';
 import { TouchTarget } from '../button';
 import { BaseLink } from '../link';
 
@@ -62,7 +62,7 @@ export function BaseAvatar({
       {/* Add an inset border that sits on top of the image */}
       <span
         aria-hidden="true"
-        className="ring-1 ring-inset ring-surface-solid/5 forced-colors:outline"
+        className="ring-surface-solid/5 ring-1 ring-inset forced-colors:outline"
       />
     </span>
   );

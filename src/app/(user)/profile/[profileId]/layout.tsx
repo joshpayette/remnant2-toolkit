@@ -6,7 +6,7 @@ import { revalidatePath } from 'next/cache';
 import { PageHeader } from '@/app/_components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { getIsLoadoutPublic } from '@/app/(builds)/_actions/get-is-loadout-public';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { ProfileHeader } from '@/app/(user)/profile/_components/profile-header';
 import { ProfileNavbar } from '@/app/(user)/profile/_components/profile-navbar';
 import { ProfileStats } from '@/app/(user)/profile/_components/profile-stats';
@@ -99,7 +99,7 @@ export async function generateMetadata(
     ? `Community Builds: ${communityBuilds}, Favorites Earned: ${favoritesEarned}, Build Views: ${
         typeof totalBuildsViewCount === 'number'
           ? 0
-          : totalBuildsViewCount._sum?.viewCount ?? 0
+          : (totalBuildsViewCount._sum?.viewCount ?? 0)
       }` +
       '\r\n' +
       `Featured: ${featuredBuilds}, Gimmick: ${gimmickBuilds}, Beginner: ${beginnerBuilds}, Base Game: ${baseGameBuilds}` +
@@ -150,7 +150,7 @@ export default async function Layout({
     return (
       <>
         <PageHeader title="User Profile Not Found" />
-        <p className="text-lg text-accent3-500">
+        <p className="text-accent3-500 text-lg">
           The user or user profile you are looking for could not be found.
         </p>
       </>
@@ -201,7 +201,7 @@ export default async function Layout({
 
         <ProfileStats profileId={profileId} isEditable={isEditable} />
       </header>
-      <div className="border-t border-surface-solid/10 pt-4">{children}</div>
+      <div className="border-surface-solid/10 border-t pt-4">{children}</div>
     </div>
   );
 }

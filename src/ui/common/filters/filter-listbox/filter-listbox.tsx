@@ -1,7 +1,7 @@
 'use client';
 
 import Select from 'react-select';
-import { cn } from '../../../utils/classnames';
+import { cn } from '../../../../utils/classnames';
 import { BaseLabel } from '../../../base/fieldset';
 import { MultiValueLabel } from './multi-value-label';
 import { MultiValueRemove } from './multi-value-remove';
@@ -47,13 +47,13 @@ export function FilterListbox({
   return (
     <div className="flex flex-col">
       {label ? (
-        <BaseLabel className="mb-1 text-sm font-medium text-surface-solid">
+        <BaseLabel className="text-surface-solid mb-1 text-sm font-medium">
           {label}
         </BaseLabel>
       ) : null}
       <Select
         className={cn(
-          'w-full px-2 text-sm bg-surface-solid/5 text-surface-solid rounded-[calc(theme(borderRadius.lg)-1px)] border border-surface-solid/10 focus:outline-none shadow',
+          'bg-surface-solid/5 text-surface-solid border-surface-solid/10 w-full rounded-[calc(theme(borderRadius.lg)-1px)] border px-2 text-sm shadow focus:outline-none'
         )}
         closeMenuOnSelect={false}
         components={{

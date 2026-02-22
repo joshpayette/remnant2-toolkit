@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
 
-import { isErrorResponse } from '@/app/_libs/is-error-response';
+import { isErrorResponse } from '@/utils/is-error-response';
 import { deleteBuild } from '@/app/(builds)/_actions/delete-build';
 
 export async function handleDeleteBuild({

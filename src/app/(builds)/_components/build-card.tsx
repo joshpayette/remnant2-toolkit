@@ -14,7 +14,7 @@ import {
   UnfavoriteIcon,
   VideoIcon,
 } from '@/ui';
-import { isValidYoutubeUrl } from '@/lib/utils';
+import { isValidYoutubeUrl } from '@/utils';
 import { useSession } from 'next-auth/react';
 
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
@@ -64,7 +64,7 @@ export function BuildCard({
             'border-secondary-500 bg-background-solid relative col-span-1 flex h-full flex-col rounded-lg border shadow',
             buildState.isMember &&
               memberFrameEnabled &&
-              'border-accent1-300 shadow-accent1-600 border-2 shadow-lg',
+              'border-accent1-300 shadow-accent1-600 border-2 shadow-lg'
           )}
         >
           {hasAnyBadge || buildState.isMember ? (
@@ -85,7 +85,7 @@ export function BuildCard({
                 <h3
                   className={cn(
                     'text-md whitespace-pre-wrap font-medium',
-                    hasAnyBadge && 'mt-4',
+                    hasAnyBadge && 'mt-4'
                   )}
                 >
                   {build.name}
@@ -157,7 +157,7 @@ export function BuildCard({
               </div>
               {buildState.isPatchAffected && (
                 <div className="mb-2 flex flex-row items-center justify-start gap-x-2">
-                  <p className="border border-accent3-500 p-2 text-left text-xs font-bold text-accent3-500">
+                  <p className="border-accent3-500 text-accent3-500 border p-2 text-left text-xs font-bold">
                     This build might have been affected by a past update.
                   </p>
                 </div>
@@ -226,9 +226,9 @@ export function BuildCard({
                 {buildState.percentageOwned > 0 && session?.user?.id && (
                   <Tooltip
                     content={`You own >= ${Number(
-                      buildState.percentageOwned,
+                      buildState.percentageOwned
                     ).toFixed(
-                      0,
+                      0
                     )}% of the items in this build. Excludes armor and other non-essential items.`}
                   >
                     <BaseButton outline>

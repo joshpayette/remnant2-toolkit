@@ -1,7 +1,7 @@
 import { type Metadata, type ResolvingMetadata } from 'next';
 
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
-import { isErrorResponse } from '@/app/_libs/is-error-response';
+import { isErrorResponse } from '@/utils/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
 import { incrementViewCount } from '@/app/(builds)/_actions/increment-view-count';
 import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
@@ -22,7 +22,7 @@ export async function generateMetadata(
     params: { buildId: string };
     searchParams: { [key: string]: string | string[] | undefined };
   },
-  _parent: ResolvingMetadata,
+  _parent: ResolvingMetadata
 ): Promise<Metadata> {
   // check if the `variant` search param is set
   const variantIndex =
@@ -88,8 +88,8 @@ export async function generateMetadata(
 
   const buildState = dbBuildToBuildState(build);
 
-  const archetypes = buildState.items.archetype.map(
-    (a) => a?.name.toLowerCase(),
+  const archetypes = buildState.items.archetype.map((a) =>
+    a?.name.toLowerCase()
   );
   const buildLabel = getArchetypeComboName({
     archetype1: (archetypes[0] as ArchetypeName) ?? null,

@@ -1,4 +1,4 @@
-import { getArrayOfLength } from '@/lib/utils';
+import { getArrayOfLength } from '@/utils';
 import cloneDeep from 'lodash.clonedeep';
 
 import { INITIAL_BUILD_STATE } from '@/app/(builds)/_constants/initial-build-state';
@@ -31,7 +31,7 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
     {
       category: 'helm',
     },
-    itemList?.filter((item) => item.category === 'helm'),
+    itemList?.filter((item) => item.category === 'helm')
   );
   randomBuild.items.helm = randomHelm;
   // torso
@@ -40,7 +40,7 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
     {
       category: 'torso',
     },
-    itemList?.filter((item) => item.category === 'torso'),
+    itemList?.filter((item) => item.category === 'torso')
   );
   randomBuild.items.torso = randomTorso;
   // legs
@@ -49,7 +49,7 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
     {
       category: 'legs',
     },
-    itemList?.filter((item) => item.category === 'legs'),
+    itemList?.filter((item) => item.category === 'legs')
   );
   randomBuild.items.legs = randomLegs;
   // gloves
@@ -58,7 +58,7 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
     {
       category: 'gloves',
     },
-    itemList?.filter((item) => item.category === 'gloves'),
+    itemList?.filter((item) => item.category === 'gloves')
   );
   randomBuild.items.gloves = randomGloves;
 
@@ -68,7 +68,7 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
     {
       category: 'relic',
     },
-    itemList?.filter((item) => item.category === 'relic'),
+    itemList?.filter((item) => item.category === 'relic')
   );
   randomBuild.items.relic = randomRelic;
 
@@ -93,13 +93,13 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
         (item) =>
           RelicFragmentItem.isRelicFragmentItem(item) &&
           item.color !== 'legendary' &&
-          !randomBuild.items.relicfragment.some((i) => i?.id === item.id),
-      ),
+          !randomBuild.items.relicfragment.some((i) => i?.id === item.id)
+      )
     );
     randomBuild.items.relicfragment[index] =
       randomRelicFragment as RelicFragmentItem | null;
     itemList = itemList?.filter(
-      (item) => item.name !== randomRelicFragment?.name,
+      (item) => item.name !== randomRelicFragment?.name
     );
   });
 
@@ -125,8 +125,8 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
         index,
       },
       itemList?.filter(
-        (item) => WeaponItem.isWeaponItem(item) && item.type === itemType,
-      ),
+        (item) => WeaponItem.isWeaponItem(item) && item.type === itemType
+      )
     );
     if (randomWeapon) {
       randomBuild.items.weapon[index] = randomWeapon as WeaponItem | null;
@@ -135,7 +135,7 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
     // weapon mods
     if (randomWeapon?.linkedItems?.mod) {
       const linkedMod = modItems.find(
-        (item) => item.name === randomWeapon.linkedItems?.mod?.name,
+        (item) => item.name === randomWeapon.linkedItems?.mod?.name
       );
       randomBuild.items.mod[index] = linkedMod as ModItem | null;
       itemList = itemList?.filter((item) => item.name !== linkedMod?.name);
@@ -150,8 +150,8 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
             index,
           },
           itemList?.filter(
-            (item) => ModItem.isModItem(item) && !item.linkedItems?.weapon,
-          ),
+            (item) => ModItem.isModItem(item) && !item.linkedItems?.weapon
+          )
         );
         randomBuild.items.mod[index] = randomMod;
         itemList = itemList?.filter((item) => item.name !== randomMod?.name);
@@ -165,8 +165,8 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
         index,
       },
       itemList?.filter(
-        (item) => MutatorItem.isMutatorItem(item) && item.type === mutatorType,
-      ),
+        (item) => MutatorItem.isMutatorItem(item) && item.type === mutatorType
+      )
     );
     if (randomMutator) {
       randomBuild.items.mutator[index] = randomMutator as MutatorItem | null;
@@ -182,7 +182,7 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
         category: 'archetype',
         index,
       },
-      itemList?.filter((item) => item.category === 'archetype'),
+      itemList?.filter((item) => item.category === 'archetype')
     );
     if (randomArchetype) {
       randomBuild.items.archetype[index] = randomArchetype;
@@ -199,8 +199,8 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
       itemList?.filter(
         (item) =>
           item.category === 'skill' &&
-          item.linkedItems?.archetype?.name === randomArchetype?.name,
-      ),
+          item.linkedItems?.archetype?.name === randomArchetype?.name
+      )
     );
     randomBuild.items.skill[index] = randomSkill;
     itemList = itemList?.filter((item) => item.name !== randomSkill?.name);
@@ -212,7 +212,7 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
     {
       category: 'amulet',
     },
-    itemList?.filter((item) => item.category === 'amulet'),
+    itemList?.filter((item) => item.category === 'amulet')
   );
   randomBuild.items.amulet = randomAmulet;
 
@@ -224,7 +224,7 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
         category: 'ring',
         index,
       },
-      itemList?.filter((item) => item.category === 'ring'),
+      itemList?.filter((item) => item.category === 'ring')
     );
     randomBuild.items.ring[index] = randomRing;
     itemList = itemList?.filter((item) => item.name !== randomRing?.name);
@@ -236,7 +236,7 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
   // Keep assigning traits until we have 110 total points
   let totalTraitPoints = randomBuild.items.trait.reduce(
     (acc: number, currentValue: TraitItem) => acc + currentValue.amount,
-    0,
+    0
   );
 
   while (totalTraitPoints < 110) {
@@ -253,13 +253,13 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
       // otherwise we will just increase the amount
       if (
         !randomBuild.items.trait.find(
-          (trait: TraitItem) => trait.name === randomTrait.name,
+          (trait: TraitItem) => trait.name === randomTrait.name
         )
       ) {
         randomBuild.items.trait.push(randomTrait);
       } else {
         const traitIndex = randomBuild.items.trait.findIndex(
-          (trait: TraitItem) => trait.name === randomTrait.name,
+          (trait: TraitItem) => trait.name === randomTrait.name
         );
         if (randomBuild.items.trait[traitIndex]) {
           randomBuild.items.trait[traitIndex].amount = randomTrait.amount;
@@ -271,7 +271,7 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
 
     totalTraitPoints = randomBuild.items.trait.reduce(
       (acc: number, currentValue: TraitItem) => acc + currentValue.amount,
-      0,
+      0
     );
   }
 
@@ -283,7 +283,7 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
         category: 'consumable',
         index,
       },
-      itemList?.filter((item) => item.category === 'consumable'),
+      itemList?.filter((item) => item.category === 'consumable')
     );
     randomBuild.items.consumable[index] = randomConsumable;
     itemList = itemList?.filter((item) => item.name !== randomConsumable?.name);
@@ -299,13 +299,13 @@ export function getRandomBuild(itemList?: Item[]): BuildState {
           category: 'concoction',
           index,
         },
-        itemList?.filter((item) => item.category === 'concoction'),
+        itemList?.filter((item) => item.category === 'concoction')
       );
       randomBuild.items.concoction[index] = randomConcoction;
       itemList = itemList?.filter(
-        (item) => item.name !== randomConcoction?.name,
+        (item) => item.name !== randomConcoction?.name
       );
-    },
+    }
   );
 
   return cleanUpBuildState(randomBuild);

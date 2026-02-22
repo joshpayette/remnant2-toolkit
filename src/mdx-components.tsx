@@ -1,5 +1,6 @@
-import { BaseLink } from '@/ui';
 import { type MDXComponents } from 'mdx/types';
+
+import { BaseLink } from '@/ui';
 
 function getAnchor(text: string) {
   return text

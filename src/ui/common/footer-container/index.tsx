@@ -1,7 +1,7 @@
 import { DISCORD_INVITE_URL } from '@/lib/constants';
 import Image from 'next/image';
 import React from 'react';
-import { getImageUrl } from '../../utils/get-image-url';
+import { getImageUrl } from '../../../utils/get-image-url';
 
 interface FooterContainerProps {
   children: React.ReactNode;

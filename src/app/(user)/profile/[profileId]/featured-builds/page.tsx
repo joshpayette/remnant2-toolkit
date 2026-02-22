@@ -1,4 +1,4 @@
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { FeaturedBuilds } from '@/app/(user)/profile/[profileId]/featured-builds/_components/featured-builds';
 
 export default async function Page({

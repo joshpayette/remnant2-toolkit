@@ -1,4 +1,4 @@
-import { getArrayOfLength } from '@/lib/utils';
+import { getArrayOfLength } from '@/utils';
 
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { perkItems } from '@/app/(items)/_constants/perk-items';
@@ -67,12 +67,12 @@ export function buildStateToItemList(build: BuildState): Item[] {
 
   // concoctions
   items.concoction.forEach(
-    (concoction) => concoction && itemList.push(concoction),
+    (concoction) => concoction && itemList.push(concoction)
   );
 
   // consumables
   items.consumable.forEach(
-    (consumable) => consumable && itemList.push(consumable),
+    (consumable) => consumable && itemList.push(consumable)
   );
 
   return itemList;

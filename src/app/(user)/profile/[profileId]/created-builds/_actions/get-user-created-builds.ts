@@ -27,8 +27,8 @@ import { limitByWithReferenceSegment } from '@/app/(builds)/_features/filters/_l
 import { limitByWithVideoSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-video';
 import { type ProfileBuildListRequest } from '@/app/(builds)/_types/build-list-request';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
-import { auth } from '@/auth';
-import { bigIntFix } from '@/lib/utils';
+import { auth } from '@/lib/auth';
+import { bigIntFix } from '@/utils';
 import { Prisma } from '@/prisma';
 
 export type UserCreatedBuildsFilter = 'date created' | 'upvotes';

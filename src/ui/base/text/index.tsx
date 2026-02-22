@@ -1,5 +1,5 @@
 import { BaseLink } from '../link';
-import { cn } from '../../utils/classnames';
+import { cn } from '../../../utils/classnames';
 
 export function BaseText({
   className,
@@ -8,10 +8,7 @@ export function BaseText({
   return (
     <p
       {...props}
-      className={cn(
-        className,
-        'text-surface-solid text-base/6 sm:text-sm/6',
-      )}
+      className={cn(className, 'text-surface-solid text-base/6 sm:text-sm/6')}
       data-slot="text"
     />
   );
@@ -26,7 +23,7 @@ export function BaseTextLink({
       {...props}
       className={cn(
         className,
-        'text-surface-solid decoration-surface-solid/50 data-[hover]:decoration-surface-solid underline',
+        'text-surface-solid decoration-surface-solid/50 data-[hover]:decoration-surface-solid underline'
       )}
     />
   );
@@ -53,7 +50,7 @@ export function BaseCode({
       {...props}
       className={cn(
         className,
-        'border-surface-solid/20 bg-surface-solid/5 text-surface-solid rounded border px-0.5 text-sm font-medium sm:text-[0.8125rem]',
+        'border-surface-solid/20 bg-surface-solid/5 text-surface-solid rounded border px-0.5 text-sm font-medium sm:text-[0.8125rem]'
       )}
     />
   );

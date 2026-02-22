@@ -7,7 +7,7 @@ import {
 import { forwardRef } from 'react';
 import { TouchTarget } from '../button';
 import { BaseLink } from '../link';
-import { cn } from '../../utils/classnames';
+import { cn } from '../../../utils/classnames';
 
 const colors = {
   red: 'bg-accent3-500/15 text-accent3-700 group-data-[hover]:bg-accent3-500/25 dark:bg-accent3-500/10 dark:text-accent3-400 dark:group-data-[hover]:bg-accent3-500/20',

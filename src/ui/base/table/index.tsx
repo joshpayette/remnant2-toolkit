@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState } from 'react';
 import { BaseLink } from '../link';
-import { cn } from '../../utils/classnames';
+import { cn } from '../../../utils/classnames';
 
 const TableContext = createContext<{
   bleed: boolean;
@@ -43,18 +43,16 @@ export function BaseTable({
           {...props}
           className={cn(
             className,
-            '-mx-[--gutter] overflow-x-auto whitespace-nowrap',
+            '-mx-[--gutter] overflow-x-auto whitespace-nowrap'
           )}
         >
           <div
             className={cn(
               'inline-block min-w-full align-middle',
-              !bleed && 'sm:px-[--gutter]',
+              !bleed && 'sm:px-[--gutter]'
             )}
           >
-            <table className="min-w-full text-left text-sm/6">
-              {children}
-            </table>
+            <table className="min-w-full text-left text-sm/6">{children}</table>
           </div>
         </div>
       </div>
@@ -111,7 +109,7 @@ export function BaseTableRow({
             'focus-within:bg-surface-solid/[2.5%] has-[[data-row-link][data-focus]]:outline has-[[data-row-link][data-focus]]:outline-2 has-[[data-row-link][data-focus]]:-outline-offset-2 has-[[data-row-link][data-focus]]:outline-blue-500',
           striped && 'even:bg-surface-solid/[2.5%]',
           href && striped && 'hover:bg-surface-solid/5',
-          href && !striped && 'hover:bg-surface-solid/[2.5%]',
+          href && !striped && 'hover:bg-surface-solid/[2.5%]'
         )}
       >
         {children}
@@ -133,7 +131,7 @@ export function BaseTableHeader({
         className,
         'border-b-surface-solid/10 border-b px-4 py-2 font-medium first:pl-[var(--gutter,theme(spacing.2))] last:pr-[var(--gutter,theme(spacing.2))]',
         grid && 'border-l-surface-solid/5 border-l first:border-l-0',
-        !bleed && 'sm:first:pl-2 sm:last:pr-2',
+        !bleed && 'sm:first:pl-2 sm:last:pr-2'
       )}
     />
   );
@@ -158,7 +156,7 @@ export function BaseTableCell({
         !striped && 'border-surface-solid/5 border-b',
         grid && 'border-l-surface-solid/5 border-l first:border-l-0',
         dense ? 'py-2.5' : 'py-4',
-        !bleed && 'sm:first:pl-2 sm:last:pr-2',
+        !bleed && 'sm:first:pl-2 sm:last:pr-2'
       )}
     >
       {href ? (

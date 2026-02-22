@@ -1,13 +1,13 @@
 import { type NextRequest } from 'next/server';
 
-import { validateEnv } from '@/app/_libs/validate-env';
+import { validateEnv } from '@/utils/validate-env';
 import {
   MAX_TRAIT_AMOUNT,
   MAX_TRAIT_AMOUNT_WITH_TRAITOR,
 } from '@/app/(builds)/_constants/max-trait-amount';
 import { MINIMUM_QUALITY_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/minimum-quality-description-length';
 import { weaponItems } from '@/app/(items)/_constants/weapon-items';
-import { bigIntFix } from '@/lib/utils';
+import { bigIntFix } from '@/utils';
 import { Prisma, prisma } from '@/prisma';
 
 const EXCLUDED_CATEGORIES = [

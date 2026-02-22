@@ -1,7 +1,7 @@
 'use client';
 
 import { BaseButton } from '@/ui';
-import { capitalize } from '@/lib/utils';
+import { capitalize } from '@/utils';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
@@ -45,7 +45,7 @@ itemCategories.push(...subCategories);
 // Sort alphabetically
 itemCategories = itemCategories.sort();
 itemCategories = itemCategories.filter(
-  (category) => category !== 'Weapon' && category !== 'Mutator',
+  (category) => category !== 'Weapon' && category !== 'Mutator'
 );
 
 export const ItemTrackerContainer = () => {

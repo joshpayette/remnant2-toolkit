@@ -1,5 +1,5 @@
 import { BaseButton, BaseLink, EyeIcon, ShareIcon } from '@/ui';
-import { urlNoCache } from '@/lib/utils';
+import { urlNoCache } from '@/utils';
 import copy from 'clipboard-copy';
 import { usePathname, useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
@@ -41,7 +41,7 @@ export function BuildCollectionCard({ collection }: Props) {
               aria-label="Share Build Collection"
               onClick={() => {
                 const url = urlNoCache(
-                  `https://remnant2toolkit.com${pathname}/${collection.id}`,
+                  `https://remnant2toolkit.com${pathname}/${collection.id}`
                 );
                 copy(url);
                 toast.success('Copied Build Collection URL to clipboard.');

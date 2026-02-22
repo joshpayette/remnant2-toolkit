@@ -3,7 +3,7 @@
 import { prisma } from '@/prisma';
 import { revalidatePath } from 'next/cache';
 
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 
 export async function addBuildToLoadout(
   buildId: string,

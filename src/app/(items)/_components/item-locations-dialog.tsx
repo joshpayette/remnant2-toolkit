@@ -1,5 +1,5 @@
 import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@/ui';
-import { groupBy } from '@/lib/utils';
+import { groupBy } from '@/utils';
 
 import { type Item } from '@/app/(items)/_types/item';
 import { getCategoryProgressStats } from '@/app/(items)/item-tracker/_utils/get-category-progress-stats';
@@ -19,7 +19,7 @@ export function ItemLocationsDialog({
 }: Props) {
   const categoryItemsByLocation = groupBy(
     filteredItems,
-    (item) => `${item.location?.world}`,
+    (item) => `${item.location?.world}`
   );
   const undefinedItems = categoryItemsByLocation.undefined;
   if (undefinedItems) {
@@ -43,7 +43,7 @@ export function ItemLocationsDialog({
         locationName,
         locationStats: `Missing ${progressStats.undiscoveredCount} of ${progressStats.filteredItemsCount}`,
       };
-    },
+    }
   );
   categoryStats.sort((a, b) => a.locationName.localeCompare(b.locationName));
 

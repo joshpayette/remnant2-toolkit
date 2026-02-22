@@ -1,6 +1,3 @@
-import { type BuildTags } from '@/prisma';
-
-import { isStringArray } from '@/app/_libs/is-string-array';
 import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
@@ -21,6 +18,8 @@ import { RingItem } from '@/app/(items)/_types/ring-item';
 import { SkillItem } from '@/app/(items)/_types/skill-item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
+import { type BuildTags } from '@/prisma';
+import { isStringArray } from '@/utils/is-string-array';
 
 export type UpdateBuildCategory =
   | ItemCategory

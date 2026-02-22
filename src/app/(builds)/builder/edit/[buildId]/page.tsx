@@ -1,9 +1,9 @@
 import { PageHeader } from '@/app/_components/page-header';
-import { isErrorResponse } from '@/app/_libs/is-error-response';
+import { isErrorResponse } from '@/utils/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
 import { dbBuildToBuildVariants } from '@/app/(builds)/_libs/db-build-to-build-variants';
 import { EditBuild } from '@/app/(builds)/builder/edit/[buildId]/edit-build';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 
 export default async function Page({
   params: { buildId },

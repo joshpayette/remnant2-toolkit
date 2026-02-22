@@ -2,7 +2,7 @@
 
 import * as Headless from '@headlessui/react';
 import { forwardRef } from 'react';
-import { cn } from '../../utils/classnames';
+import { cn } from '../../../utils/classnames';
 import { BaseLink } from '../link';
 
 const styles = {
@@ -153,7 +153,7 @@ export type ButtonProps = (
 
 export const BaseButton = forwardRef(function Button(
   { color, outline, plain, className, children, ...props }: ButtonProps,
-  ref: React.ForwardedRef<HTMLElement>,
+  ref: React.ForwardedRef<HTMLElement>
 ) {
   const classes = cn(
     className,
@@ -163,7 +163,7 @@ export const BaseButton = forwardRef(function Button(
       ? styles.outline
       : plain
         ? styles.plain
-        : cn(styles.solid, styles.colors[color ?? 'dark/zinc']),
+        : cn(styles.solid, styles.colors[color ?? 'dark/zinc'])
   );
 
   return 'href' in props ? (
@@ -193,7 +193,7 @@ export function TouchTarget({ children }: { children: React.ReactNode }) {
     <>
       <span
         aria-hidden="true"
-        className="size-[max(100%,2.75rem)] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 [@media(pointer:fine)]:hidden"
+        className="absolute left-1/2 top-1/2 size-[max(100%,2.75rem)] -translate-x-1/2 -translate-y-1/2 [@media(pointer:fine)]:hidden"
       />
       {children}
     </>

@@ -12,7 +12,7 @@ import {
 import React, { Fragment } from 'react';
 import { ZINDEXES } from '../../common/z-indexes';
 import { BaseText } from '../text';
-import { cn } from '../../utils/classnames';
+import { cn } from '../../../utils/classnames';
 
 const sizes = {
   xs: 'sm:max-w-xs',
@@ -79,7 +79,7 @@ export function BaseDialog({
                 className={cn(
                   className,
                   sizes[size],
-                  'row-start-2 w-full min-w-0 rounded-t-3xl bg-zinc-900 p-[--gutter] shadow-lg ring-1 ring-surface-solid/10 [--gutter:theme(spacing.8)] sm:mb-auto sm:rounded-2xl forced-colors:outline'
+                  'ring-surface-solid/10 row-start-2 w-full min-w-0 rounded-t-3xl bg-zinc-900 p-[--gutter] shadow-lg ring-1 [--gutter:theme(spacing.8)] sm:mb-auto sm:rounded-2xl forced-colors:outline'
                 )}
                 enter="ease-out duration-100"
                 enterFrom="sm:scale-95"
@@ -107,7 +107,7 @@ export function BaseDialogTitle({
       {...props}
       className={cn(
         className,
-        'text-balance text-lg/6 font-semibold text-surface-solid sm:text-base/6'
+        'text-surface-solid text-balance text-lg/6 font-semibold sm:text-base/6'
       )}
     />
   );

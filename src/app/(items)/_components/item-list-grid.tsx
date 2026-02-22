@@ -1,7 +1,7 @@
 'use client';
 
 import { Skeleton } from '@/ui';
-import { getArrayOfLength } from '@/lib/utils';
+import { getArrayOfLength } from '@/utils';
 import { useState } from 'react';
 import { useIsClient } from 'usehooks-ts';
 

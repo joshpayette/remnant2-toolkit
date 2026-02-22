@@ -6,7 +6,7 @@ import { signIn, useSession } from 'next-auth/react';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { isErrorResponse } from '@/app/_libs/is-error-response';
+import { isErrorResponse } from '@/utils/is-error-response';
 import { createBuild } from '@/app/(builds)/_actions/create-build';
 import { updateBuild } from '@/app/(builds)/_actions/update-build';
 import { isBuildBaseGameBuild } from '@/app/(builds)/_libs/is-build-base-game-build';
@@ -33,7 +33,7 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
     const createBuildResponse = await createBuild({
       buildVariantsStringified: buildVariants.map((variant) => {
         const anyVariantIsPrivate = buildVariants.some(
-          (variant) => !variant.isPublic,
+          (variant) => !variant.isPublic
         );
         if (anyVariantIsPrivate) {
           variant.isPublic = false;
@@ -42,7 +42,7 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
         const baseGameBuildCheckResult = isBuildBaseGameBuild(variant);
         if (!baseGameBuildCheckResult.isBaseGameBuild && variant.buildTags) {
           variant.buildTags = variant.buildTags.filter(
-            (tag) => tag.tag !== 'BaseGame',
+            (tag) => tag.tag !== 'BaseGame'
           );
         }
 
@@ -53,7 +53,7 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
     if (isErrorResponse(createBuildResponse)) {
       console.error(createBuildResponse.errors);
       toast.error(
-        `Error saving build. ${createBuildResponse.errors?.join(' ')}`,
+        `Error saving build. ${createBuildResponse.errors?.join(' ')}`
       );
       setSaveInProgress(false);
       return;
@@ -87,7 +87,7 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
           variant.videoUrl = '';
         }
         const isAnyVariantPrivate = buildVariants.some(
-          (variant) => !variant.isPublic,
+          (variant) => !variant.isPublic
         );
         if (isAnyVariantPrivate) {
           variant.isPublic = false;
@@ -96,7 +96,7 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
         const baseGameBuildCheckResult = isBuildBaseGameBuild(variant);
         if (!baseGameBuildCheckResult.isBaseGameBuild && variant.buildTags) {
           variant.buildTags = variant.buildTags.filter(
-            (tag) => tag.tag !== 'BaseGame',
+            (tag) => tag.tag !== 'BaseGame'
           );
         }
 
@@ -107,7 +107,7 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
     if (isErrorResponse(updateBuildResponse)) {
       console.error(updateBuildResponse.errors);
       toast.error(
-        `Error saving edits. ${updateBuildResponse.errors?.join(' ')}`,
+        `Error saving edits. ${updateBuildResponse.errors?.join(' ')}`
       );
       setSaveInProgress(false);
       return;
@@ -127,7 +127,7 @@ export function SaveBuildButton({ buildVariants, editMode }: Props) {
 
   function handleCloseQualityDialog(
     action: 'save' | 'edit',
-    buildType: 'new' | 'update',
+    buildType: 'new' | 'update'
   ) {
     if (action === 'save') {
       if (buildType === 'new') {

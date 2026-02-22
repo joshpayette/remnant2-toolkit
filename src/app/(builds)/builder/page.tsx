@@ -5,7 +5,7 @@ import { PageHeader } from '@/app/_components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { CreateUrlBuild } from '@/app/(builds)/builder/create-url-build';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `${NAV_ITEMS.createBuild.label} - ${SITE_TITLE}`;
@@ -46,7 +46,7 @@ export default async function Page() {
       />
 
       {session?.user ? (
-        <div className="text-surface-solid my-4 max-w-lg rounded-md border border-accent3-500 px-2 py-1 text-left">
+        <div className="text-surface-solid border-accent3-500 my-4 max-w-lg rounded-md border px-2 py-1 text-left">
           <h3 className="text-center text-2xl font-bold">
             Features limited on this page!
           </h3>
@@ -77,7 +77,7 @@ export default async function Page() {
           </ul>
         </div>
       ) : (
-        <div className="text-surface-solid mb-2 rounded-md border border-accent3-500 px-2 py-1 text-left">
+        <div className="text-surface-solid border-accent3-500 mb-2 rounded-md border px-2 py-1 text-left">
           <h3 className="text-center text-lg font-bold">
             You are not signed in, so your features are limited.
           </h3>

@@ -1,4 +1,4 @@
-import { isErrorResponse } from '@/app/_libs/is-error-response';
+import { isErrorResponse } from '@/utils/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
 import { getBuildVariantIds } from '@/app/(builds)/_actions/get-build-variant-ids';
 import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
@@ -8,17 +8,17 @@ import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
 export async function dbBuildToBuildVariants(
-  build: DBBuild,
+  build: DBBuild
 ): Promise<BuildState[]> {
   const { buildVariants: buildVariantsIdsResponse } = await getBuildVariantIds(
-    build.id,
+    build.id
   );
 
   // Need to loop over each id and fetch the build
   const buildVariantsBuildResponse = await Promise.all(
     buildVariantsIdsResponse.map((buildVariant) =>
-      getBuild(buildVariant.buildId),
-    ),
+      getBuild(buildVariant.buildId)
+    )
   );
 
   let buildVariants: BuildState[] = [];
@@ -26,7 +26,7 @@ export async function dbBuildToBuildVariants(
     // if there is an error, remover item from array
     if (!isErrorResponse(response)) {
       buildVariants.push(
-        cleanUpBuildState(dbBuildToBuildState(response.build)),
+        cleanUpBuildState(dbBuildToBuildState(response.build))
       );
     }
   }

@@ -9,7 +9,7 @@ import { LandingPageContainer } from '@/app/_components/landing-page-container';
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { QualityBuildFeed } from '@/app/(builds)/_components/quality-build-feed';
 import { getLeaderBoard as getItemQuizLeaderBoard } from '@/app/(items)/item-quiz/_actions/get-leader-board';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 
 import { LandingPageHeaderDescription } from './_components/landing-page-header-description';
 import { GenesisCodeDisplay } from './(features)/_genesis-code/_components/genesis-code-display';
@@ -113,8 +113,9 @@ export default async function Page() {
               {session?.user?.id ? (
                 <LandingPageCard
                   {...NAV_ITEMS.loadouts}
-                  href={`/profile/${session?.user
-                    ?.id}/loadouts?t=${Date.now()}`}
+                  href={`/profile/${
+                    session?.user?.id
+                  }/loadouts?t=${Date.now()}`}
                   icon={
                     <NAV_ITEMS.loadouts.icon
                       className="text-primary-500 h-7 w-7 flex-none"

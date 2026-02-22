@@ -9,7 +9,7 @@ import {
   BaseListboxOption,
   cn,
 } from '@/ui';
-import { urlNoCache } from '@/lib/utils';
+import { urlNoCache } from '@/utils';
 import copy from 'clipboard-copy';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
@@ -46,13 +46,13 @@ interface Props {
 export function ViewLinkedBuild({ linkedBuildState }: Props) {
   const { linkedBuildItems } = linkedBuildState;
   const [currentLinkedBuild, setCurrentLinkedBuild] = useState<LinkedBuildItem>(
-    linkedBuildItems[0] as LinkedBuildItem,
+    linkedBuildItems[0] as LinkedBuildItem
   );
 
   const isMainBuild = currentLinkedBuild.build.id === linkedBuildState.id;
 
   const buildState = cleanUpBuildState(
-    dbBuildToBuildState(currentLinkedBuild.build),
+    dbBuildToBuildState(currentLinkedBuild.build)
   );
 
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);
@@ -144,7 +144,7 @@ export function ViewLinkedBuild({ linkedBuildState }: Props) {
                 <div
                   className={cn(
                     'text-md overflow-x-auto overflow-y-auto whitespace-pre-wrap text-gray-200',
-                    isScreenshotMode && 'max-h-none',
+                    isScreenshotMode && 'max-h-none'
                   )}
                 >
                   <DescriptionWithTokens
@@ -168,7 +168,7 @@ export function ViewLinkedBuild({ linkedBuildState }: Props) {
               value={currentLinkedBuild.label}
               onChange={(value) => {
                 const linkedBuild = linkedBuildItems.find(
-                  (linkedBuildItem) => linkedBuildItem.label === value,
+                  (linkedBuildItem) => linkedBuildItem.label === value
                 );
                 if (linkedBuild) {
                   setCurrentLinkedBuild(linkedBuild);
@@ -202,7 +202,7 @@ export function ViewLinkedBuild({ linkedBuildState }: Props) {
                     tabIdx === linkedBuildItems.length - 1
                       ? 'rounded-r-lg'
                       : '',
-                    'group relative min-w-0 flex-1 overflow-hidden bg-gray-900 px-4 py-4 text-center text-sm font-medium hover:bg-gray-800 focus:z-10',
+                    'group relative min-w-0 flex-1 overflow-hidden bg-gray-900 px-4 py-4 text-center text-sm font-medium hover:bg-gray-800 focus:z-10'
                   )}
                 >
                   <span>{linkedBuildItem.label}</span>
@@ -212,7 +212,7 @@ export function ViewLinkedBuild({ linkedBuildState }: Props) {
                       linkedBuildItem.build.id === currentLinkedBuild.build.id
                         ? 'bg-purple-500'
                         : 'bg-transparent',
-                      'absolute inset-x-0 bottom-0 h-0.5',
+                      'absolute inset-x-0 bottom-0 h-0.5'
                     )}
                   />
                 </button>
@@ -244,7 +244,7 @@ export function ViewLinkedBuild({ linkedBuildState }: Props) {
                 onClick={() =>
                   handleImageExport(
                     buildContainerRef.current,
-                    `${buildState.name}`,
+                    `${buildState.name}`
                   )
                 }
               />
@@ -252,7 +252,7 @@ export function ViewLinkedBuild({ linkedBuildState }: Props) {
               <ShareBuildButton
                 onClick={() => {
                   const url = urlNoCache(
-                    `https://remnant2toolkit.com/builder/${currentLinkedBuild.build.id}`,
+                    `https://remnant2toolkit.com/builder/${currentLinkedBuild.build.id}`
                   );
                   copy(url);
                   toast.success('Copied Build URL to clipboard.');

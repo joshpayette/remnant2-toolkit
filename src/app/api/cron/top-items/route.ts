@@ -1,7 +1,7 @@
 import { prisma } from '@/prisma';
 import { type NextRequest } from 'next/server';
 
-import { validateEnv } from '@/app/_libs/validate-env';
+import { validateEnv } from '@/utils/validate-env';
 import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { allItems } from '@/app/(items)/_constants/all-items';
 import { amuletItems } from '@/app/(items)/_constants/amulet-items';

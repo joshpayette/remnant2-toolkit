@@ -1,7 +1,7 @@
 'use server';
 
 import { BaseLink, Skeleton } from '@/ui';
-import { getArrayOfLength } from '@/lib/utils';
+import { getArrayOfLength } from '@/utils';
 import { Suspense } from 'react';
 
 import { QualityBuildFeedInfoDialog } from '@/app/(builds)/_components/quality-build-feed-info-dialog';

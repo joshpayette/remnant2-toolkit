@@ -3,7 +3,7 @@ import { prisma } from '@/prisma';
 import { type Metadata } from 'next';
 
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
 import { ViewLinkedBuild } from '@/app/(user)/profile/[profileId]/linked-builds/[[...optionalBuildId]]/view-linked-build';
 

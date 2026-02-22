@@ -3,7 +3,7 @@
 import { prisma } from '@/prisma';
 
 import { type BuildActionResponse } from '@/app/(builds)/_types/build-action-response';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 
 export async function incrementViewCount({
   buildId,

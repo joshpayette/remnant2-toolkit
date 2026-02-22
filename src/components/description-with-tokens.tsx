@@ -1,7 +1,7 @@
 'use client';
 
 import { cn, Tooltip } from '@/ui';
-import { stripUnicode } from '@/lib/utils';
+import { stripUnicode } from '@/utils';
 import { type ReactNode, useState } from 'react';
 import reactStringReplace from 'react-string-replace';
 import { v4 as uuidv4 } from 'uuid';
@@ -17,7 +17,7 @@ import { INLINE_TOKENS } from '@/app/(items)/item-lookup/_constants/inline-token
 const ALL_DESCRIPTION_TOKENS: string[] = [
   ...INLINE_TOKENS.map((tag) => tag.token).sort((a, b) => b.length - a.length), // Sort in descending order of length,
   ...EXTERNAL_TOKENS.map((tag) => tag.token).sort(
-    (a, b) => b.length - a.length,
+    (a, b) => b.length - a.length
   ), // Sort in descending order of length,
 ];
 
@@ -40,7 +40,7 @@ function parseStringForToken({
 
   const allDescriptionTokensRegex = new RegExp(
     `(${ALL_DESCRIPTION_TOKENS.map((token) => escapeRegExp(token)).join('|')})`,
-    'g',
+    'g'
   );
 
   let replacedText = reactStringReplace(
@@ -90,7 +90,7 @@ function parseStringForToken({
       } else {
         return match;
       }
-    },
+    }
   );
 
   if (highlightItems) {
@@ -101,7 +101,7 @@ function parseStringForToken({
 
     const allItemNamesRegex = new RegExp(
       `\\b(${allItemNames.map((token) => escapeRegExp(token)).join('|')})`,
-      'gi',
+      'gi'
     );
 
     replacedText = reactStringReplace(
@@ -109,7 +109,7 @@ function parseStringForToken({
       allItemNamesRegex,
       (match, _i) => {
         const itemName = allItemNames.find(
-          (itemName) => itemName.toLowerCase() === match.toLowerCase(),
+          (itemName) => itemName.toLowerCase() === match.toLowerCase()
         );
         const item = allItems.find((item) => item.name === itemName);
         const itemNameButton = (
@@ -136,17 +136,17 @@ function parseStringForToken({
         ) : (
           itemNameButton
         );
-      },
+      }
     );
   }
 
   if (highlightBuildTokens) {
     const allBuildTags = ALL_BUILD_TAGS.map((tag) => tag.label).sort(
-      (a, b) => b.length - a.length,
+      (a, b) => b.length - a.length
     ); // Sort in descending order of length
     const allBuildTagsRegex = new RegExp(
       `(${allBuildTags.map((token) => escapeRegExp(token)).join('|')})`,
-      'gi',
+      'gi'
     );
 
     replacedText = reactStringReplace(
@@ -160,7 +160,7 @@ function parseStringForToken({
             {match}
           </span>
         );
-      },
+      }
     );
   }
 

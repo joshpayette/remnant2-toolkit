@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 
 import { Footer } from '@/app/_components/footer';
 import { showNotificationsFlag } from '@/app/_constants/feature-flag';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { Navbar } from '@/app/navbar';
 
 export const viewport: Viewport = {};

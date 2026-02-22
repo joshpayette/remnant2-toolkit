@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { BarsIcon } from '../icons/bars';
 import { BaseButton } from '../../base/button';
-import { cn } from '../../utils/classnames';
+import { cn } from '../../../utils/classnames';
 import { CloseIcon } from '../icons/close';
 import { ZINDEXES } from '../z-indexes';
 import { NotificationNavIcon } from '../notifications/notification-nav-icon';
@@ -42,7 +42,7 @@ export function NavbarContainer({
         aria-label="Global"
         className={cn(
           'bg-background fixed mx-auto flex max-h-[80px] w-screen max-w-[1500px] items-center justify-between px-6 py-6',
-          ZINDEXES.NAVBAR,
+          ZINDEXES.NAVBAR
         )}
       >
         <div className="mr-8">{logo}</div>
@@ -63,7 +63,7 @@ export function NavbarContainer({
         <div className="hidden items-center justify-between lg:flex lg:flex-grow lg:gap-x-12">
           {desktopChildren}
         </div>
-        <div className="hidden w-[100px] grow items-center justify-end lg:flex gap-x-4">
+        <div className="hidden w-[100px] grow items-center justify-end gap-x-4 lg:flex">
           {showNotifications ? <NotificationNavIcon /> : null}
           {desktopProfileButton}
         </div>
@@ -80,7 +80,7 @@ export function NavbarContainer({
         <Dialog.Panel
           className={cn(
             'bg-background-solid text-surface-solid sm:ring-secondary-900/10 fixed inset-y-0 right-0 w-screen overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1',
-            ZINDEXES.DIALOG,
+            ZINDEXES.DIALOG
           )}
         >
           <div className="flex items-center justify-between">

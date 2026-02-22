@@ -9,7 +9,7 @@ import {
   cn,
   getImageUrl,
 } from '@/ui';
-import { capitalize } from '@/lib/utils';
+import { capitalize } from '@/utils';
 import copy from 'clipboard-copy';
 import Image from 'next/image';
 import { toast } from 'react-toastify';
@@ -77,7 +77,7 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
       : capitalize(item.category);
   if (PerkItem.isPerkItem(item)) {
     subtitle = `${item.linkedItems?.archetype?.name} ${capitalize(
-      item.type,
+      item.type
     )} Perk`;
   }
 
@@ -143,7 +143,7 @@ export function ItemInfoDialog({ open, item, onClose }: Props) {
             alt={item.name}
             className={cn(
               'h-auto max-h-full w-full max-w-[200px]',
-              ArchetypeItem.isArchetypeItem(item) && 'bg-black',
+              ArchetypeItem.isArchetypeItem(item) && 'bg-black'
             )}
             loading="eager"
           />

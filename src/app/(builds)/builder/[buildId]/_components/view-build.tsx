@@ -1,6 +1,6 @@
 'use client';
 
-import { urlNoCache } from '@/lib/utils';
+import { urlNoCache } from '@/utils';
 import copy from 'clipboard-copy';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import { useLocalStorage } from 'usehooks-ts';
 
 import { ToCsvButton } from '@/app/_components/to-csv-button';
-import { isErrorResponse } from '@/app/_libs/is-error-response';
+import { isErrorResponse } from '@/utils/is-error-response';
 import {
   type ItemOwnershipPreference,
   LOCALSTORAGE_KEY,
@@ -73,7 +73,7 @@ export function ViewBuild({
     useLocalStorage<ItemOwnershipPreference>(
       LOCALSTORAGE_KEY.ITEM_OWNERSHIP_PREFERENCE,
       false,
-      { initializeWithValue: false },
+      { initializeWithValue: false }
     );
 
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);
@@ -117,12 +117,12 @@ export function ViewBuild({
 
   async function handleAddToCollection(
     collection: BuildCollectionWithBuilds,
-    bypassBuildExistsCheck = false,
+    bypassBuildExistsCheck = false
   ) {
     setAddToCollectionDialogOpen(false);
 
     const buildAlreadyInCollection = collection.builds.some(
-      (build) => build.id === activeBuildState.buildId,
+      (build) => build.id === activeBuildState.buildId
     );
 
     if (buildAlreadyInCollection && !bypassBuildExistsCheck) {
@@ -131,13 +131,13 @@ export function ViewBuild({
     }
     if (!activeBuildState.buildId) {
       toast.error(
-        'You must first save this build to the database before it can be added to a collection.',
+        'You must first save this build to the database before it can be added to a collection.'
       );
       return;
     }
     if (collection.builds.length >= MAX_ALLOWED_BUILDS_PER_COLLECTION) {
       toast.error(
-        'This collection is full. Please remove a build before adding a new one.',
+        'This collection is full. Please remove a build before adding a new one.'
       );
       return;
     }
@@ -228,7 +228,7 @@ export function ViewBuild({
               onClick={() =>
                 handleImageExport(
                   buildContainerRef.current,
-                  `${activeBuildState.name}`,
+                  `${activeBuildState.name}`
                 )
               }
             />
@@ -238,14 +238,14 @@ export function ViewBuild({
                 // remove params from the url
 
                 const url = urlNoCache(
-                  window.location.href.split('?')[0] ?? window.location.href,
+                  window.location.href.split('?')[0] ?? window.location.href
                 );
                 copy(
                   `${url}${
                     activeVariantIndex !== 0
                       ? `&variant=${activeVariantIndex}`
                       : ''
-                  }`,
+                  }`
                 );
                 toast.success('Copied Build URL to clipboard.');
               }}

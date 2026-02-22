@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
 
-import { isErrorResponse } from '@/app/_libs/is-error-response';
+import { isErrorResponse } from '@/utils/is-error-response';
 import { addVoteForBuild } from '@/app/(builds)/_actions/add-vote-for-build';
 import { removeVoteForBuild } from '@/app/(builds)/_actions/remove-vote-for-build';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
@@ -35,7 +35,7 @@ export async function handleFavoriteBuild({
     toast.success(
       newVote
         ? 'Successfully favorited build! You can find it in your profile.'
-        : 'Successfully removed favorite!',
+        : 'Successfully removed favorite!'
     );
     if (onFavorite) {
       onFavorite();

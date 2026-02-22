@@ -1,7 +1,7 @@
 'use client';
 
 import { BaseButton } from '@/ui';
-import { capitalize } from '@/lib/utils';
+import { capitalize } from '@/utils';
 import isEqual from 'lodash.isequal';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -31,7 +31,7 @@ const allItemsWithDiscovered = allItems.map((item) => ({
 
 function getFilteredItems(
   filters: ItemLookupFilters,
-  discoveredItemIds: string[],
+  discoveredItemIds: string[]
 ): Array<Item & { discovered: boolean }> {
   let filteredItems = allItemsWithDiscovered.map((item) => ({
     ...item,
@@ -41,8 +41,9 @@ function getFilteredItems(
   // Loop over each archetype, and if it is discovered, then mark the
   // associated skills and perks as discovered
   for (const archetypeItem of archetypeItems) {
-    const isDiscovered = filteredItems.find((i) => i.id === archetypeItem.id)
-      ?.discovered;
+    const isDiscovered = filteredItems.find(
+      (i) => i.id === archetypeItem.id
+    )?.discovered;
     if (!isDiscovered) {
       continue;
     }
@@ -58,7 +59,7 @@ function getFilteredItems(
       const skillItem = skillItems.find((i) => i.name === skill.name);
       if (skillItem) {
         filteredItems = filteredItems.map((i) =>
-          i.id === skillItem.id ? { ...i, discovered: true } : i,
+          i.id === skillItem.id ? { ...i, discovered: true } : i
         );
       }
     }
@@ -67,7 +68,7 @@ function getFilteredItems(
       const perkItem = perkItems.find((i) => i.name === perk.name);
       if (perkItem) {
         filteredItems = filteredItems.map((i) =>
-          i.id === perkItem.id ? { ...i, discovered: true } : i,
+          i.id === perkItem.id ? { ...i, discovered: true } : i
         );
       }
     }
@@ -161,14 +162,14 @@ function getFilteredItems(
     filteredItems = filteredItems.filter((item) =>
       filters.releases
         .filter((release) => release !== DEFAULT_FILTER)
-        .includes(item.dlc),
+        .includes(item.dlc)
     );
   }
 
   // filter by world
   if (filters.world !== DEFAULT_FILTER) {
     filteredItems = filteredItems.filter(
-      (item) => item.location?.world === filters.world,
+      (item) => item.location?.world === filters.world
     );
   }
 
@@ -178,7 +179,7 @@ function getFilteredItems(
       filteredItems = filteredItems.filter(
         (item) =>
           (item.location?.dungeon === 'World Drop') !==
-          filters.dungeon.startsWith('Not'),
+          filters.dungeon.startsWith('Not')
       );
     } else {
       filteredItems = filteredItems.filter((item) => {
@@ -201,7 +202,7 @@ function getFilteredItems(
 
   // Filter by search text
   filteredItems = filteredItems.filter((item) =>
-    itemMatchesSearchText({ item, searchText: filters.searchText }),
+    itemMatchesSearchText({ item, searchText: filters.searchText })
   );
 
   // Sort alphabetically by item.category and item.name
@@ -221,7 +222,7 @@ export function ItemList() {
   const [filters, setFilters] = useState(parseUrlFilters(searchParams));
 
   const [areFiltersApplied, setAreFiltersApplied] = useState(
-    !isEqual(filters, DEFAULT_ITEM_LOOKUP_FILTERS),
+    !isEqual(filters, DEFAULT_ITEM_LOOKUP_FILTERS)
   );
 
   useEffect(() => {

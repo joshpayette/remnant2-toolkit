@@ -1,6 +1,6 @@
 import { type NextRequest } from 'next/server';
 
-import { validateEnv } from '@/app/_libs/validate-env';
+import { validateEnv } from '@/utils/validate-env';
 import { allItems } from '@/app/(items)/_constants/all-items';
 import { ArmorItem } from '@/app/(items)/_types/armor-item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';
@@ -88,7 +88,7 @@ export async function GET(request: NextRequest) {
     const { Name, Description } = row;
 
     const toolkitItem = allItems.find(
-      (i) => i.name.toLowerCase() === Name.toLowerCase(),
+      (i) => i.name.toLowerCase() === Name.toLowerCase()
     );
     if (!toolkitItem) {
       if (Name) {

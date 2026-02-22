@@ -13,7 +13,7 @@ import {
   BaseListboxLabel,
   BaseListboxOption,
 } from '@/ui';
-import { getArrayOfLength } from '@/lib/utils';
+import { getArrayOfLength } from '@/utils';
 import React from 'react';
 
 import { ImportSaveSubmitButton } from '@/app/_components/import-save-submit-button';
@@ -78,7 +78,7 @@ export function ImportLoadoutsDialog({
             >
               {getArrayOfLength(8).map((_, index) => {
                 const loadout = existingLoadouts.find(
-                  (loadout) => loadout.slot === index + 1,
+                  (loadout) => loadout.slot === index + 1
                 );
 
                 return (

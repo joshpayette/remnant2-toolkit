@@ -1,5 +1,5 @@
 import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
-import { isErrorResponse } from '@/app/_libs/is-error-response';
+import { isErrorResponse } from '@/utils/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
 import { incrementViewCount } from '@/app/(builds)/_actions/increment-view-count';
 

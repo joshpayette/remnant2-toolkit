@@ -6,7 +6,7 @@ import {
   cn,
   SortIcon,
 } from '@/ui';
-import { capitalize } from '@/lib/utils';
+import { capitalize } from '@/utils';
 import { useCallback, useEffect, useState } from 'react';
 import { useDebounceValue, useLocalStorage } from 'usehooks-ts';
 
@@ -33,7 +33,7 @@ function buildSearchTextOptions(): Array<{ id: string; name: string }> {
     // remove duplicates
     .filter(
       (item, index, self) =>
-        index === self.findIndex((i) => i.name === item.name),
+        index === self.findIndex((i) => i.name === item.name)
     );
 
   return items;
@@ -83,7 +83,7 @@ export function ItemSelectDialog({
   const getNewSortedItems = useCallback(() => {
     const filteredItems = itemList
       .filter((item) =>
-        itemMatchesSearchText({ item, searchText: debouncedFilter }),
+        itemMatchesSearchText({ item, searchText: debouncedFilter })
       )
       .sort((a, b) => a.name.localeCompare(b.name));
 
@@ -132,7 +132,7 @@ export function ItemSelectDialog({
             <div
               className={cn(
                 'text-left',
-                buildSlot === 'trait' ? 'col-span-2' : 'col-span-full',
+                buildSlot === 'trait' ? 'col-span-2' : 'col-span-full'
               )}
             >
               <ItemSearchText

@@ -1,11 +1,11 @@
 'use server';
 
 import { prisma } from '@/prisma';
-import { bigIntFix } from '@/lib/utils';
+import { bigIntFix } from '@/utils';
 
 import { type ErrorResponse } from '@/app/_types/error-response';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { DEFAULT_DISPLAY_NAME } from '@/app/(user)/profile/_constants/default-display-name';
 
 export async function getBuild(

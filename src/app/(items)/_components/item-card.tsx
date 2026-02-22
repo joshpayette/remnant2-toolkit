@@ -10,7 +10,7 @@ import {
   StatsIcon,
   Tooltip,
 } from '@/ui';
-import { capitalize } from '@/lib/utils';
+import { capitalize } from '@/utils';
 import copy from 'clipboard-copy';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -53,12 +53,12 @@ export function ItemCard({
   const [itemsToCompare, setItemsToCompare] = useLocalStorage<string[]>(
     LOCALSTORAGE_KEY.ITEM_COMPARE,
     DEFAULT_ITEM_COMPARE_LIST,
-    { initializeWithValue: false },
+    { initializeWithValue: false }
   );
   const itemBeingCompared = itemsToCompare.includes(item.id);
 
   const [itemBuildStats, setItemBuildStats] = useState<ItemBuildStats | null>(
-    null,
+    null
   );
 
   const { imagePath, category, name, description } = item;
@@ -96,7 +96,7 @@ export function ItemCard({
 
   function handleRemoveItemFromCompare() {
     const newItemsToCompare = itemsToCompare.map((id) =>
-      id === item.id ? '' : id,
+      id === item.id ? '' : id
     );
     setItemsToCompare(newItemsToCompare);
   }
@@ -107,7 +107,7 @@ export function ItemCard({
   }
   if (PerkItem.isPerkItem(item)) {
     itemCategory = `${item.linkedItems?.archetype?.name} ${capitalize(
-      item.type,
+      item.type
     )} Perk`;
   }
 
@@ -215,7 +215,7 @@ export function ItemCard({
               'mx-auto mb-2 h-[96px] w-[96px] flex-shrink-0 rounded-full',
               TraitItem.isTraitItem(item) && 'h-[96px] w-[48px]',
               WeaponItem.isWeaponItem(item) && 'h-[64px] w-[128px]',
-              ArchetypeItem.isArchetypeItem(item) && 'bg-black',
+              ArchetypeItem.isArchetypeItem(item) && 'bg-black'
             )}
             width={sizes.width}
             height={sizes.height}
@@ -351,7 +351,7 @@ export function ItemCard({
               <div
                 className={cn(
                   'grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300',
-                  index === 0 && '',
+                  index === 0 && ''
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Perk</p>
@@ -371,7 +371,7 @@ export function ItemCard({
             <div key={skill.name}>
               <div
                 className={cn(
-                  'grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300',
+                  'grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300'
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Skill</p>
@@ -391,7 +391,7 @@ export function ItemCard({
             <div key={trait.name}>
               <div
                 className={cn(
-                  'grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300',
+                  'grid w-full grid-cols-2 gap-2 border border-transparent  py-1 text-left text-sm text-gray-300'
                 )}
               >
                 <p className="flex items-center justify-start text-xs">Trait</p>

@@ -9,7 +9,7 @@ import {
   Skeleton,
   Tooltip,
 } from '@/ui';
-import { urlNoCache } from '@/lib/utils';
+import { urlNoCache } from '@/utils';
 import copy from 'clipboard-copy';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -81,7 +81,7 @@ export function ViewLinkedBuild({
 
   function handleCopyBuild(linkedBuildId: string) {
     const url = urlNoCache(
-      `${window.location.origin}/builder/linked/${linkedBuildId}`,
+      `${window.location.origin}/builder/linked/${linkedBuildId}`
     );
     copy(url);
     toast.success('Copied linked build URL to clipboard!');
@@ -168,7 +168,7 @@ export function ViewLinkedBuild({
                             color="green"
                             onClick={() =>
                               router.push(
-                                `/builder/linked/edit/${linkedBuildState.id}`,
+                                `/builder/linked/edit/${linkedBuildState.id}`
                               )
                             }
                             aria-label="Edit Linked Build"

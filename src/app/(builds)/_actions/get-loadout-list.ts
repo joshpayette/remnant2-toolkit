@@ -4,7 +4,7 @@ import { prisma } from '@/prisma';
 
 import { getIsLoadoutPublic } from '@/app/(builds)/_actions/get-is-loadout-public';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { DEFAULT_DISPLAY_NAME } from '@/app/(user)/profile/_constants/default-display-name';
 
 export async function getLoadoutList(userId?: string) {
@@ -95,7 +95,7 @@ export async function getLoadoutList(userId?: string) {
           createdAt: loadout.build.createdAt,
           updatedAt: loadout.build.updatedAt,
           variantIndex: variantBuildResponse[index]
-            ? variantBuildResponse[index].index ?? 0
+            ? (variantBuildResponse[index].index ?? 0)
             : 0,
           upvoted: true,
           totalUpvotes: buildVotesCounts.shift() || 0,

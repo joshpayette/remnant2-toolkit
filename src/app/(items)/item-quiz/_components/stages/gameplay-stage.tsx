@@ -1,5 +1,5 @@
 import { cn } from '@/ui';
-import { getArrayOfLength } from '@/lib/utils';
+import { getArrayOfLength } from '@/utils';
 import React from 'react';
 
 import { Heading } from '@/app/(items)/item-quiz/_components/heading';
@@ -35,7 +35,7 @@ export const GameplayStage = React.memo(
       <div
         className={cn(
           'grid grid-cols-2 gap-4',
-          layoutPreference === 'desktop' && 'sm:hidden',
+          layoutPreference === 'desktop' && 'sm:hidden'
         )}
       >
         {getArrayOfLength(TOTAL_CHOICES).map((_, index) => {
@@ -77,7 +77,7 @@ export const GameplayStage = React.memo(
         id="quiz-choice-grid"
         className={cn(
           'hidden sm:grid sm:grid-cols-3 sm:gap-4',
-          layoutPreference === 'mobile' && 'sm:hidden',
+          layoutPreference === 'mobile' && 'sm:hidden'
         )}
       >
         {/** Left arrow or 3 Key */}
@@ -129,7 +129,7 @@ export const GameplayStage = React.memo(
         </div>
       </div>
     </>
-  ),
+  )
 );
 
 GameplayStage.displayName = 'GameplayStage';

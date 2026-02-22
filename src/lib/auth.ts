@@ -1,9 +1,9 @@
 import { PrismaAdapter } from '@auth/prisma-adapter';
+import { redirect } from 'next/navigation';
 import NextAuth from 'next-auth';
 import { type AdapterUser } from 'next-auth/adapters';
 import Discord from 'next-auth/providers/discord';
 import Reddit from 'next-auth/providers/reddit';
-import { redirect } from 'next/navigation';
 
 import { DEFAULT_DISPLAY_NAME } from '@/app/(user)/profile/_constants/default-display-name';
 import { prisma } from '@/prisma';
@@ -34,7 +34,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         })
         .catch((e) => {
           console.info(
-            `${e.message}. No banned user found for User ID: ${user.id}`,
+            `${e.message}. No banned user found for User ID: ${user.id}`
           );
         });
       if (isBanned) return false;
@@ -50,7 +50,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         })
         .catch((e) => {
           console.error(
-            `Session callback error on ban check, ${e.message} - User ID: ${user.id}`,
+            `Session callback error on ban check, ${e.message} - User ID: ${user.id}`
           );
         });
       if (isBanned) {
@@ -72,7 +72,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
           })
           .catch((e) => {
             console.error(
-              `Session callback error on profile creation: ${e.message} - User ID: ${user.id}`,
+              `Session callback error on profile creation: ${e.message} - User ID: ${user.id}`
             );
           });
       }
@@ -92,7 +92,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         })
         .catch((e) => {
           console.error(
-            `Session callback error on avatar update: ${e.message} - User ID: ${user.id}`,
+            `Session callback error on avatar update: ${e.message} - User ID: ${user.id}`
           );
         });
 

@@ -6,7 +6,7 @@ import {
   BaseDialogTitle,
   Skeleton,
 } from '@/ui';
-import { getArrayOfLength } from '@/lib/utils';
+import { getArrayOfLength } from '@/utils';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -110,7 +110,7 @@ export function LoadoutDialog({ open, buildId, isEditable, onClose }: Props) {
             }
 
             const userLoadoutBuild = loadoutList.find(
-              (build) => build.slot - 1 === index,
+              (build) => build.slot - 1 === index
             );
 
             if (!userLoadoutBuild) {

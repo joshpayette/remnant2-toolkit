@@ -1,5 +1,5 @@
 import { getImageUrl } from '@/ui';
-import { cleanItemName } from '@/lib/utils';
+import { cleanItemName } from '@/utils';
 import { type Metadata, type ResolvingMetadata } from 'next';
 
 import { SITE_TITLE } from '@/app/_constants/meta';
@@ -29,7 +29,7 @@ function getItemFromParam(itemName: string) {
 
 export async function generateMetadata(
   { params: { itemName } }: { params: { itemName: string } },
-  _parent: ResolvingMetadata,
+  _parent: ResolvingMetadata
 ): Promise<Metadata> {
   const item = getItemFromParam(itemName);
 

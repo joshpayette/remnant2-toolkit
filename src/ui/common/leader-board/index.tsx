@@ -1,6 +1,6 @@
 'use client';
 
-import { getArrayOfLength } from '@/lib/utils';
+import { getArrayOfLength } from '@/utils';
 import { useEffect, useState } from 'react';
 import { BaseLink } from '../../base/link';
 import {
@@ -37,7 +37,7 @@ export function LeaderBoard({
   scoreColumnName = SCORE_COLUMN_NAME,
 }: LeaderBoardProps) {
   const [leaderBoardItems, setLeaderBoardItems] = useState<LeaderBoardItem[]>(
-    [],
+    []
   );
 
   useEffect(() => {
@@ -54,14 +54,10 @@ export function LeaderBoard({
     <div className="flex w-full flex-col items-center justify-start">
       {headerLink ? (
         <BaseLink className="hover:underline" href={headerLink}>
-          <h3 className="text-primary-500 mb-2 text-xl font-bold">
-            {title}
-          </h3>
+          <h3 className="text-primary-500 mb-2 text-xl font-bold">{title}</h3>
         </BaseLink>
       ) : (
-        <h3 className="text-primary-500 mb-2 text-xl font-bold">
-          {title}
-        </h3>
+        <h3 className="text-primary-500 mb-2 text-xl font-bold">{title}</h3>
       )}
       <div className="w-full">
         <BaseTable dense grid striped>

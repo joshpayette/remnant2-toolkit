@@ -2,7 +2,7 @@
 
 import { Disclosure } from '@headlessui/react';
 import { BaseButton, ChevronDownIcon, cn, InfoCircleIcon } from '@/ui';
-import { capitalize } from '@/lib/utils';
+import { capitalize } from '@/utils';
 import isEqual from 'lodash.isequal';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -44,7 +44,7 @@ export function ItemList({
       discoveredItemIds: [],
       collapsedCategories: [],
     },
-    { initializeWithValue: false },
+    { initializeWithValue: false }
   );
   const { collapsedCategories } = tracker;
 
@@ -53,7 +53,7 @@ export function ItemList({
   const [filters, setFilters] = useState(parseUrlFilters(searchParams));
 
   const [areFiltersApplied, setAreFiltersApplied] = useState(
-    !isEqual(filters, DEFAULT_ITEM_TRACKER_FILTERS),
+    !isEqual(filters, DEFAULT_ITEM_TRACKER_FILTERS)
   );
 
   useEffect(() => {
@@ -78,7 +78,7 @@ export function ItemList({
 
   function handleCategoryToggle(itemCategory: ItemTrackerCategory) {
     const newCollapsedItemCategories = collapsedCategories.includes(
-      itemCategory,
+      itemCategory
     )
       ? collapsedCategories.filter((type) => type !== itemCategory)
       : [...collapsedCategories, itemCategory];
@@ -156,14 +156,14 @@ export function ItemList({
                   <div className="flex w-full">
                     <button
                       className={cn(
-                        'text-md bg-background hover:bg-background-solid border-secondary-700 hover:border-primary-400 flex items-center justify-center border-b text-center font-bold sm:text-lg',
+                        'text-md bg-background hover:bg-background-solid border-secondary-700 hover:border-primary-400 flex items-center justify-center border-b text-center font-bold sm:text-lg'
                       )}
                       onClick={() => {
                         setCurrentFilteredItems(
                           getFilteredItemsForCategory(
                             ALL_TRACKABLE_ITEMS,
-                            itemCategory,
-                          ),
+                            itemCategory
+                          )
                         );
                         setItemLocationsDialogOpen(true);
                       }}
@@ -180,7 +180,7 @@ export function ItemList({
                           {getCategoryProgressLabel({
                             filteredItems: getFilteredItemsForCategory(
                               ALL_TRACKABLE_ITEMS,
-                              itemCategory,
+                              itemCategory
                             ),
                             discoveredItemIds,
                           })}
@@ -189,7 +189,7 @@ export function ItemList({
                       <ChevronDownIcon
                         className={cn(
                           'text-surface-solid h-5 w-5',
-                          open ? 'rotate-180 transform' : '',
+                          open ? 'rotate-180 transform' : ''
                         )}
                       />
                     </Disclosure.Button>
@@ -197,7 +197,7 @@ export function ItemList({
                   <Disclosure.Panel className="grid w-full grid-cols-3 gap-4 py-4 sm:grid-cols-5 md:grid-cols-8 lg:grid-cols-9 xl:grid-cols-10">
                     {getFilteredItemsForCategory(
                       filteredItems,
-                      itemCategory,
+                      itemCategory
                     ).map((item) => (
                       <ItemTrackerCard
                         key={item.id}

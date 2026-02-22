@@ -1,16 +1,16 @@
 'use server';
 
 import { type BuildCollection, prisma } from '@/prisma';
-import { urlNoCache } from '@/lib/utils';
+import { urlNoCache } from '@/utils';
 import { diffTrimmedLines } from 'diff';
 
 import { badWordFilter } from '@/app/_libs/bad-word-filter';
 import { sendWebhook } from '@/app/_libs/moderation/send-webhook';
-import { validateEnv } from '@/app/_libs/validate-env';
+import { validateEnv } from '@/utils/validate-env';
 import { type ErrorResponse } from '@/app/_types/error-response';
 import { MAX_COLLECTION_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
 import { isPermittedBuilder } from '@/app/(builds)/_libs/permitted-builders';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 
 export async function editBuildCollection({
   collectionId,

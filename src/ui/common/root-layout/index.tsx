@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google';
 import { ToastContainer } from 'react-toastify';
 import { SessionProvider } from '../session-provider';
 import { PreloadResources } from '../preload-resources';
-import { cn } from '../../utils/classnames';
+import { cn } from '../../../utils/classnames';
 import ThemeSelection from '../theme-select/theme-selection';
 
 const inter = Inter({
