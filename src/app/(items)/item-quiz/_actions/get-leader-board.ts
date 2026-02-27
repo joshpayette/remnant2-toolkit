@@ -1,7 +1,7 @@
 'use server';
 
 import { prisma } from '@/prisma';
-import { type LeaderBoardItem } from '@/ui';
+import type { LeaderBoardItem } from '@/ui/common/leader-board';
 
 export async function getLeaderBoard(): Promise<LeaderBoardItem[]> {
   const response = await prisma.userProfile.findMany({

@@ -1,12 +1,12 @@
 'use server';
 
-import { prisma } from '@/prisma';
-import { bigIntFix } from '@/utils';
 import { revalidatePath } from 'next/cache';
 
 import { BUILD_REVALIDATE_PATHS } from '@/app/(builds)/_constants/build-revalidate-paths';
 import { type BuildActionResponse } from '@/app/(builds)/_types/build-action-response';
 import { auth } from '@/lib/auth';
+import { prisma } from '@/prisma';
+import { bigIntFix } from '@/utils/big-int-fix';
 
 export async function addVoteForBuild({
   buildId,

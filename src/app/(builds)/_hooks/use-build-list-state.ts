@@ -1,4 +1,4 @@
-import { getArrayOfLength } from '@/utils';
+import { getArrayOfLength } from '@/utils/get-array-of-length';
 import { useState } from 'react';
 
 import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_constants/pagination';

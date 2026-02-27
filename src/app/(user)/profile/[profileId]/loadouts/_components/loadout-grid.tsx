@@ -1,6 +1,6 @@
 'use server';
 
-import { getArrayOfLength } from '@/utils';
+import { getArrayOfLength } from '@/utils/get-array-of-length';
 
 import { getLoadoutList } from '@/app/(builds)/_actions/get-loadout-list';
 import { EmptyLoadoutCard } from '@/app/(builds)/_components/empty-loadout-card';

@@ -1,4 +1,4 @@
-import { BaseButton } from '@/ui';
+import { BaseButton } from '@/ui/base/button';
 import React from 'react';
 
 import { Divider } from '@/app/(items)/item-quiz/_components/divider';
@@ -58,7 +58,7 @@ export const StartGameStage = React.memo(
         <TopScoresLeaderBoard />
       </div>
     </div>
-  ),
+  )
 );
 
 StartGameStage.displayName = 'StartGameStage';

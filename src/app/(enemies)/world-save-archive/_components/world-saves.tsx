@@ -1,6 +1,6 @@
 'use client';
 
-import { BaseButton } from '@/ui';
+import { BaseButton } from '@/ui/base/button';
 import isEqual from 'lodash.isequal';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -28,7 +28,7 @@ function getFilteredSaves(filters: WorldSaveFilters): FilteredWorldSave[] {
   // If boss name is not default, filter by boss name
   if (filters.bossName !== DEFAULT_FILTER) {
     filteredSaves = filteredSaves.filter(
-      (s) => s.bossName === filters.bossName,
+      (s) => s.bossName === filters.bossName
     );
   }
 
@@ -43,7 +43,7 @@ function getFilteredSaves(filters: WorldSaveFilters): FilteredWorldSave[] {
       const matchingAffixes = save.bossAffixes.filter((affix) =>
         filters.bossAffixes
           .filter((affix) => affix !== DEFAULT_FILTER)
-          .includes(affix),
+          .includes(affix)
       );
 
       if (filters.bossAffixes.length === 1) {
@@ -62,7 +62,7 @@ function getFilteredSaves(filters: WorldSaveFilters): FilteredWorldSave[] {
     filteredSaves = filteredSaves.filter((save) =>
       filters.releases
         .filter((release) => release !== DEFAULT_FILTER)
-        .includes(save.release),
+        .includes(save.release)
     );
   }
 
@@ -83,7 +83,7 @@ export function WorldSaves() {
   const [filters, setFilters] = useState(parseUrlFilters(searchParams));
 
   const [areFiltersApplied, setAreFiltersApplied] = useState(
-    !isEqual(filters, DEFAULT_WORLD_SAVE_FILTERS),
+    !isEqual(filters, DEFAULT_WORLD_SAVE_FILTERS)
   );
 
   useEffect(() => {

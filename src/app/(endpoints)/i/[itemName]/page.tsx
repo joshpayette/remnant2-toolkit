@@ -1,6 +1,6 @@
 'use client';
 
-import { BaseButton } from '@/ui';
+import { BaseButton } from '@/ui/base/button';
 import { useState } from 'react';
 
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';

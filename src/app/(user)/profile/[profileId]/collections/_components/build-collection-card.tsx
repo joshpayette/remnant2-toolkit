@@ -1,10 +1,13 @@
-import { BaseButton, BaseLink, EyeIcon, ShareIcon } from '@/ui';
-import { urlNoCache } from '@/utils';
 import copy from 'clipboard-copy';
 import { usePathname, useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 
 import type { BuildCollectionWithBuilds } from '@/app/(user)/profile/[profileId]/collections/_types/build-collection-with-builds';
+import { BaseButton } from '@/ui/base/button';
+import { BaseLink } from '@/ui/base/link';
+import { EyeIcon } from '@/ui/common/icons/eye';
+import { ShareIcon } from '@/ui/common/icons/share';
+import { urlNoCache } from '@/utils/url-no-cache';
 
 interface Props {
   collection: BuildCollectionWithBuilds;
@@ -29,7 +32,7 @@ export function BuildCollectionCard({ collection }: Props) {
           # of Builds: {collection.builds.length}
         </div>
 
-        <div className="mt-0 flex flex-grow flex-col justify-start text-xs">
+        <div className="mt-0 flex grow flex-col justify-start text-xs">
           <div className="text-surface-solid mt-2 h-auto max-h-[140px] w-full flex-row items-start justify-start gap-x-2 overflow-x-auto overflow-y-auto whitespace-pre-wrap text-xs">
             {collection.description || 'No collection description set.'}
           </div>

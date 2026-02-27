@@ -1,11 +1,13 @@
 'use client';
 
-import { BaseButton, MoveIcon, Tooltip } from '@/ui';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { changeLoadoutSlot } from '@/app/(builds)/_actions/change-loadout-slot';
 import { ChangeLoadoutSlotPrompt } from '@/app/(builds)/_components/change-loadout-slot-prompt';
+import { BaseButton } from '@/ui/base/button';
+import { MoveIcon } from '@/ui/common/icons/move';
+import { Tooltip } from '@/ui/common/tooltip';
 
 export function ChangeLoadoutSlotButton({
   buildId,
@@ -19,7 +21,7 @@ export function ChangeLoadoutSlotButton({
     newLoadouts: {
       oldSlot: number;
       newSlot: number;
-    } | null,
+    } | null
   ) => void;
 }) {
   const [alertOpen, setAlertOpen] = useState(false);
@@ -36,7 +38,7 @@ export function ChangeLoadoutSlotButton({
     const response = await changeLoadoutSlot(
       buildId,
       newSlotNumber,
-      variantIndex,
+      variantIndex
     );
     if (!response.success) {
       if (callback) callback(false, null);

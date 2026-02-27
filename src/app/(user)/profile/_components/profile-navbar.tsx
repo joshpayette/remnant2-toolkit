@@ -1,11 +1,14 @@
 'use client';
 
-import { cn, EyeIcon, EyeOffIcon } from '@/ui';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 import { useIsClient } from 'usehooks-ts';
 
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
+import { EyeIcon } from '@/ui/common/icons/eye';
+import { EyeOffIcon } from '@/ui/common/icons/eye-off';
+import { cn } from '@/utils/classnames';
 
 interface Props {
   isEditable: boolean;
@@ -22,13 +25,14 @@ export function ProfileNavbar({
 }: Props) {
   const pathname = usePathname();
   const isClient = useIsClient();
+  const [timestamp] = useState(Date.now);
 
   let navItems = [
     {
       name: 'Overview',
       href: {
         pathname: `/profile/${profileId}`,
-        query: { t: Date.now() },
+        query: { t: timestamp },
       },
       current: pathname === `/profile/${profileId}`,
     },
@@ -37,7 +41,7 @@ export function ProfileNavbar({
       href: {
         pathname: `/profile/${profileId}/created-builds`,
         query: {
-          t: Date.now(),
+          t: timestamp,
         },
       },
       current: pathname === `/profile/${profileId}/created-builds`,
@@ -47,7 +51,7 @@ export function ProfileNavbar({
       href: {
         pathname: `/profile/${profileId}/featured-builds`,
         query: {
-          t: Date.now(),
+          t: timestamp,
         },
       },
       current: pathname === `/profile/${profileId}/featured-builds`,
@@ -57,7 +61,7 @@ export function ProfileNavbar({
       href: {
         pathname: `/profile/${profileId}/favorited-builds`,
         query: {
-          t: Date.now(),
+          t: timestamp,
         },
       },
       current: pathname === `/profile/${profileId}/favorited-builds`,
@@ -67,7 +71,7 @@ export function ProfileNavbar({
       name: NAV_ITEMS.collections.label,
       href: {
         pathname: `/profile/${profileId}/collections`,
-        query: { t: Date.now() },
+        query: { t: timestamp },
       },
       current: pathname === `/profile/${profileId}/collections`,
     },
@@ -75,7 +79,7 @@ export function ProfileNavbar({
       name: NAV_ITEMS.loadouts.label,
       href: {
         pathname: `/profile/${profileId}/loadouts`,
-        query: { t: Date.now() },
+        query: { t: timestamp },
       },
       current: pathname === `/profile/${profileId}/loadouts`,
       private: !isLoadoutPublic,
@@ -108,7 +112,7 @@ export function ProfileNavbar({
                 href={item.href}
                 className={cn(
                   'hover:text-primary-300 flex items-center justify-center hover:underline',
-                  item.current ? 'text-primary-400' : '',
+                  item.current ? 'text-primary-400' : ''
                 )}
               >
                 {isEditable ? (

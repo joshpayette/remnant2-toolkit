@@ -1,16 +1,3 @@
-import {
-  BaseButton,
-  BaseDialog,
-  BaseDialogActions,
-  BaseDialogBody,
-  BaseDialogDescription,
-  BaseDialogTitle,
-  BaseDivider,
-  BaseField,
-  BaseInput,
-  BaseLabel,
-  BaseTextarea,
-} from '@/ui';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
@@ -31,6 +18,18 @@ import unsetGimmickBuild from '@/app/(builds)/_admin/actions/unsetGimmickBuild';
 import updateBuild from '@/app/(builds)/_admin/actions/update-build';
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
+import { BaseButton } from '@/ui/base/button';
+import {
+  BaseDialog,
+  BaseDialogActions,
+  BaseDialogBody,
+  BaseDialogDescription,
+  BaseDialogTitle,
+} from '@/ui/base/dialog';
+import { BaseDivider } from '@/ui/base/divider';
+import { BaseField, BaseLabel } from '@/ui/base/fieldset';
+import { BaseInput } from '@/ui/base/input';
+import { BaseTextarea } from '@/ui/base/textarea';
 
 interface Props {
   open: boolean;
@@ -50,10 +49,10 @@ export function ModeratorBuildToolsDialog({
 
   const [buildName, setBuildName] = useState(localBuild.name);
   const [buildDescription, setBuildDescription] = useState(
-    localBuild.description,
+    localBuild.description
   );
   const [buildReferenceLink, setBuildReferenceLink] = useState(
-    localBuild.buildLink ?? '',
+    localBuild.buildLink ?? ''
   );
 
   const { data: sessionData } = useSession();
@@ -110,7 +109,7 @@ export function ModeratorBuildToolsDialog({
               localBuild.buildId,
               buildName,
               buildDescription ?? '',
-              buildReferenceLink,
+              buildReferenceLink
             );
             if (response.status === 'error') {
               toast.error(response.message);
@@ -207,7 +206,7 @@ export function ModeratorBuildToolsDialog({
             <BaseButton
               onClick={async () => {
                 const response = await unsetBeginnerBuild(
-                  mainBuildState.buildId,
+                  mainBuildState.buildId
                 );
                 if (response.status === 'error') {
                   toast.error(response.message);
@@ -238,7 +237,7 @@ export function ModeratorBuildToolsDialog({
             <BaseButton
               onClick={async () => {
                 const response = await unsetBaseGameBuild(
-                  mainBuildState.buildId,
+                  mainBuildState.buildId
                 );
                 if (response.status === 'error') {
                   toast.error(response.message);
@@ -269,7 +268,7 @@ export function ModeratorBuildToolsDialog({
             <BaseButton
               onClick={async () => {
                 const response = await unsetGimmickBuild(
-                  mainBuildState.buildId,
+                  mainBuildState.buildId
                 );
                 if (response.status === 'error') {
                   toast.error(response.message);

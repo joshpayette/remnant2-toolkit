@@ -1,4 +1,4 @@
-import { getArrayOfLength } from '@/utils';
+import { getArrayOfLength } from '@/utils/get-array-of-length';
 import cloneDeep from 'lodash.clonedeep';
 
 import { INITIAL_BUILD_STATE } from '@/app/(builds)/_constants/initial-build-state';

@@ -1,9 +1,6 @@
-import {
-  BaseButton,
-  BaseInput,
-  type BaseInputProps,
-  CloseIcon,
-} from '@/ui';
+import { BaseButton } from '@/ui/base/button';
+import { BaseInput, type BaseInputProps } from '@/ui/base/input';
+import { CloseIcon } from '@/ui/common/icons/close';
 
 export function InputWithClear({
   onChange,

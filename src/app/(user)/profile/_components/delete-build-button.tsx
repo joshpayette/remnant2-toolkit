@@ -1,10 +1,12 @@
 'use client';
 
-import { BaseButton, Tooltip, TrashIcon } from '@/ui';
 import { useState } from 'react';
 
 import { DeleteBuildAlert } from '@/app/(builds)/_components/delete-build-alert';
 import { handleDeleteBuild } from '@/app/(builds)/_libs/handlers/handle-delete-build';
+import { BaseButton } from '@/ui/base/button';
+import { TrashIcon } from '@/ui/common/icons/trash';
+import { Tooltip } from '@/ui/common/tooltip';
 
 export function DeleteBuildButton({
   buildId,

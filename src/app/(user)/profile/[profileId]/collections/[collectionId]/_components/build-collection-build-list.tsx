@@ -1,14 +1,10 @@
 'use client';
 
-import type { BuildCollection } from '@/prisma';
-import { BaseButton, EditIcon, ShareIcon, TrashIcon } from '@/ui';
-import { urlNoCache } from '@/utils';
 import copy from 'clipboard-copy';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { isErrorResponse } from '@/utils/is-error-response';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';
 import type { DBBuild } from '@/app/(builds)/_types/db-build';
@@ -18,6 +14,13 @@ import { MAX_ALLOWED_BUILDS_PER_COLLECTION } from '@/app/(user)/profile/[profile
 import { DeleteBuildCollectionAlert } from '@/app/(user)/profile/[profileId]/collections/[collectionId]/_components/delete-build-collection-alert';
 import { EditBuildCollectionDialog } from '@/app/(user)/profile/[profileId]/collections/[collectionId]/_components/edit-build-collection-dialog';
 import { RemoveBuildFromCollectionAlert } from '@/app/(user)/profile/[profileId]/collections/[collectionId]/_components/remove-build-from-collection-alert';
+import type { BuildCollection } from '@/prisma';
+import { BaseButton } from '@/ui/base/button';
+import { EditIcon } from '@/ui/common/icons/edit';
+import { ShareIcon } from '@/ui/common/icons/share';
+import { TrashIcon } from '@/ui/common/icons/trash';
+import { isErrorResponse } from '@/utils/is-error-response';
+import { urlNoCache } from '@/utils/url-no-cache';
 
 interface Props {
   builds: DBBuild[];

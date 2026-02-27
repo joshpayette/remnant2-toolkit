@@ -1,6 +1,6 @@
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { mainBuildQuery } from '@/app/(builds)/_features/filters/_libs/queries/main-build-query';
-import { bigIntFix } from '@/utils';
+import { bigIntFix } from '@/utils/big-int-fix';
 import { Prisma, prisma } from '@/prisma';
 
 export const maxDuration = 60;

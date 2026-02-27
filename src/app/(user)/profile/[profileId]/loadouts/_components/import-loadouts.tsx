@@ -1,6 +1,5 @@
 'use client';
 
-import { BaseButton } from '@/ui';
 import { useEffect, useRef, useState } from 'react';
 import { useFormState } from 'react-dom';
 import { toast } from 'react-toastify';
@@ -8,6 +7,7 @@ import { toast } from 'react-toastify';
 import { ImportLoadoutsDialog } from '@/app/(builds)/_components/import-loadouts-dialog';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { parseSaveFile } from '@/app/(user)/profile/[profileId]/loadouts/_actions/parse-save-file';
+import { BaseButton } from '@/ui/base/button';
 
 interface Props {
   existingLoadouts: Array<DBBuild & { slot: number }>;
@@ -22,7 +22,7 @@ export function ImportLoadouts({ existingLoadouts }: Props) {
     {
       status: 'error',
       message: '',
-    },
+    }
   );
 
   // If the upload save file form response changes, we need to set the save data
@@ -39,7 +39,6 @@ export function ImportLoadouts({ existingLoadouts }: Props) {
       return;
     }
     toast.success('Save file imported successfully!');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [uploadSaveFormResponse]);
 
   return (

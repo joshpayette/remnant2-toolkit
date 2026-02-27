@@ -6,7 +6,7 @@ import {
   cn,
   SortIcon,
 } from '@/ui';
-import { capitalize } from '@/utils';
+import { capitalize } from '@/utils/capitalize';
 import { useCallback, useEffect, useState } from 'react';
 import { useDebounceValue, useLocalStorage } from 'usehooks-ts';
 

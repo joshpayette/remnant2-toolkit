@@ -1,11 +1,14 @@
-import { BaseLink, cn, getImageUrl } from '@/ui';
 import Image from 'next/image';
+
+import { BaseLink } from '@/ui/base/link';
+import { cn } from '@/utils/classnames';
+import { getImageUrl } from '@/utils/get-image-url';
 
 export function CreateBuildCard() {
   return (
     <BaseLink
       className={cn(
-        'border-primary-500 bg-background-solid hover:border-primary-300 col-span-1 flex h-full min-h-[362px] flex-col items-center justify-center rounded-lg border-4 text-center shadow hover:scale-[1.05]',
+        'border-primary-500 bg-background-solid hover:border-primary-300 col-span-1 flex h-full min-h-[362px] flex-col items-center justify-center rounded-lg border-4 text-center shadow hover:scale-[1.05]'
       )}
       href="/builder/create"
     >

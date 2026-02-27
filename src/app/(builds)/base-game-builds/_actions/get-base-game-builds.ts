@@ -1,7 +1,7 @@
 'use server';
 
 import { prisma } from '@/prisma';
-import { bigIntFix } from '@/utils';
+import { bigIntFix } from '@/utils/big-int-fix';
 
 import { getBuildList } from '@/app/(builds)/_actions/get-build-list';
 import { limitByAmuletSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/amulets';

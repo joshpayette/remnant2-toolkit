@@ -1,7 +1,7 @@
 'use server';
 
 import { prisma } from '@/prisma';
-import { bigIntFix } from '@/utils';
+import { bigIntFix } from '@/utils/big-int-fix';
 import { revalidatePath } from 'next/cache';
 
 import { BUILD_REVALIDATE_PATHS } from '@/app/(builds)/_constants/build-revalidate-paths';

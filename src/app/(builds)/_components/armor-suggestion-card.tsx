@@ -1,4 +1,3 @@
-import { cn, getImageUrl } from '@/ui';
 import Image from 'next/image';
 
 import { WEIGHT_CLASSES } from '@/app/(builds)/_constants/weight-classes';
@@ -8,6 +7,8 @@ import {
 } from '@/app/(builds)/_types/armor-calculator';
 import { ItemButton } from '@/app/(items)/_components/item-button';
 import { type ArmorItem } from '@/app/(items)/_types/armor-item';
+import { cn } from '@/utils/classnames';
+import { getImageUrl } from '@/utils/get-image-url';
 
 interface Props {
   desiredWeightClass: WeightClassKeysWithDefault;
@@ -37,7 +38,7 @@ export function ArmorSuggestionCard({
             className={cn(
               'text-2xl font-bold',
               desiredWeightClass !== 'CHOOSE' &&
-                WEIGHT_CLASSES[desiredWeightClass].textColor,
+                WEIGHT_CLASSES[desiredWeightClass].textColor
             )}
           >
             {suggestion.totalWeight}

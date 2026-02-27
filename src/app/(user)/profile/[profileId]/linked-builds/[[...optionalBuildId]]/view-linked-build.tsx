@@ -1,26 +1,24 @@
 'use client';
 
-import {
-  BaseButton,
-  BaseLink,
-  EditIcon,
-  EyeIcon,
-  ShareIcon,
-  Skeleton,
-  Tooltip,
-} from '@/ui';
-import { urlNoCache } from '@/utils';
 import copy from 'clipboard-copy';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { Pagination } from '@/components/pagination';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildList } from '@/app/(builds)/_components/build-list';
 import { type LinkedBuildState } from '@/app/(builds)/builder/(deprecated)/linked/[linkedBuildId]/types';
 import { getLinkedBuilds } from '@/app/(user)/profile/[profileId]/linked-builds/[[...optionalBuildId]]/get-linked-builds';
 import { LinkedBuildCard } from '@/app/(user)/profile/[profileId]/linked-builds/[[...optionalBuildId]]/linked-build-card';
+import { Pagination } from '@/components/pagination';
+import { BaseButton } from '@/ui/base/button';
+import { BaseLink } from '@/ui/base/link';
+import { EditIcon } from '@/ui/common/icons/edit';
+import { EyeIcon } from '@/ui/common/icons/eye';
+import { ShareIcon } from '@/ui/common/icons/share';
+import { Skeleton } from '@/ui/common/skeleton';
+import { Tooltip } from '@/ui/common/tooltip';
+import { urlNoCache } from '@/utils/url-no-cache';
 
 interface Props {
   itemsPerPage?: number;

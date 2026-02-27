@@ -1,15 +1,16 @@
 'use client';
 
+import { useState } from 'react';
+
 import {
   BaseAlert,
   BaseAlertActions,
   BaseAlertBody,
   BaseAlertDescription,
   BaseAlertTitle,
-  BaseButton,
-  BaseInput,
-} from '@/ui';
-import { useState } from 'react';
+} from '@/ui/base/alert';
+import { BaseButton } from '@/ui/base/button';
+import { BaseInput } from '@/ui/base/input';
 
 interface Props {
   open: boolean;

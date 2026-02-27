@@ -3,7 +3,7 @@
 import { prisma } from '@/prisma';
 import { type Session } from 'next-auth';
 
-import { badWordFilter } from '@/app/_libs/bad-word-filter';
+import { badWordFilter } from '@/utils/bad-word-filter';
 
 export async function verifyCreatorInfo(session: Session | null) {
   const buildCreator = await prisma.user.findUnique({

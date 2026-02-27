@@ -1,4 +1,5 @@
-import { BaseButton, cn } from '@/ui';
+import { BaseButton } from '@/ui/base/button';
+import { cn } from '@/utils/classnames';
 
 interface Props<T> {
   areFiltersApplied: boolean;

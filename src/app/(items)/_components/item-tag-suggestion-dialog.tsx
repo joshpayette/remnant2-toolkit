@@ -1,10 +1,10 @@
+import { BaseButton } from '@/ui/base/button';
 import {
-  BaseButton,
   BaseDialog,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@/ui';
+} from '@/ui/base/dialog';
 import { useState } from 'react';
 
 import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';
@@ -47,7 +47,7 @@ function buildTagOptions() {
  */
 function getItemSuggestions(
   buildState: BuildState,
-  tag: ItemTagOption,
+  tag: ItemTagOption
 ): Item[] {
   let suggestions: Item[] = [];
 
@@ -85,7 +85,7 @@ function getItemSuggestions(
     }
     if (
       buildState.items.archetype.some(
-        (archetype) => archetype?.id === suggestion.id,
+        (archetype) => archetype?.id === suggestion.id
       )
     ) {
       return false;
@@ -105,21 +105,21 @@ function getItemSuggestions(
     }
     if (
       buildState.items.relicfragment.some(
-        (relicfragment) => relicfragment?.id === suggestion.id,
+        (relicfragment) => relicfragment?.id === suggestion.id
       )
     ) {
       return false;
     }
     if (
       buildState.items.concoction.some(
-        (concoction) => concoction?.id === suggestion.id,
+        (concoction) => concoction?.id === suggestion.id
       )
     ) {
       return false;
     }
     if (
       buildState.items.consumable.some(
-        (consumable) => consumable?.id === suggestion.id,
+        (consumable) => consumable?.id === suggestion.id
       )
     ) {
       return false;
@@ -214,7 +214,7 @@ export function ItemTagSuggestionDialog({
    */
   function handleSelectItem(item: SelectedItem) {
     const itemAlreadySelected = selectedItems.some(
-      (selectedItem) => selectedItem.id === item.id,
+      (selectedItem) => selectedItem.id === item.id
     );
 
     if (itemAlreadySelected) {
@@ -223,7 +223,7 @@ export function ItemTagSuggestionDialog({
       // ------------------------------
       if (item.category === 'ring') {
         const selectedRing = selectedItems.find(
-          (selectedItem) => selectedItem.id === item.id,
+          (selectedItem) => selectedItem.id === item.id
         );
         const ringSlot = selectedRing?.slot;
         if (ringSlot) {
@@ -235,14 +235,14 @@ export function ItemTagSuggestionDialog({
             item.slot = 'ring4';
           } else if (ringSlot === 'ring4') {
             setSelectedItems((prev) =>
-              prev.filter((selectedItem) => selectedItem.slot !== ringSlot),
+              prev.filter((selectedItem) => selectedItem.slot !== ringSlot)
             );
             return;
           }
           setSelectedItems((prev) =>
             prev.map((selectedItem) =>
-              selectedItem.id === item.id ? item : selectedItem,
-            ),
+              selectedItem.id === item.id ? item : selectedItem
+            )
           );
         }
         return;
@@ -250,7 +250,7 @@ export function ItemTagSuggestionDialog({
 
       if (item.category === 'skill') {
         const selectedArchetype = selectedItems.find(
-          (selectedItem) => selectedItem.id === item.id,
+          (selectedItem) => selectedItem.id === item.id
         );
         const archetypeSlot = selectedArchetype?.slot;
         if (archetypeSlot) {
@@ -258,14 +258,12 @@ export function ItemTagSuggestionDialog({
             item.slot = 'archetype2';
             setSelectedItems((prev) =>
               prev.map((selectedItem) =>
-                selectedItem.id === item.id ? item : selectedItem,
-              ),
+                selectedItem.id === item.id ? item : selectedItem
+              )
             );
           } else if (archetypeSlot === 'archetype2') {
             setSelectedItems((prev) =>
-              prev.filter(
-                (selectedItem) => selectedItem.slot !== archetypeSlot,
-              ),
+              prev.filter((selectedItem) => selectedItem.slot !== archetypeSlot)
             );
           }
         }
@@ -274,7 +272,7 @@ export function ItemTagSuggestionDialog({
 
       if (item.category === 'perk') {
         const selectedArchetype = selectedItems.find(
-          (selectedItem) => selectedItem.id === item.id,
+          (selectedItem) => selectedItem.id === item.id
         );
         const archetypeSlot = selectedArchetype?.slot;
         if (archetypeSlot) {
@@ -282,14 +280,12 @@ export function ItemTagSuggestionDialog({
             item.slot = 'archetype2';
             setSelectedItems((prev) =>
               prev.map((selectedItem) =>
-                selectedItem.id === item.id ? item : selectedItem,
-              ),
+                selectedItem.id === item.id ? item : selectedItem
+              )
             );
           } else if (archetypeSlot === 'archetype2') {
             setSelectedItems((prev) =>
-              prev.filter(
-                (selectedItem) => selectedItem.slot !== archetypeSlot,
-              ),
+              prev.filter((selectedItem) => selectedItem.slot !== archetypeSlot)
             );
           }
         }
@@ -298,7 +294,7 @@ export function ItemTagSuggestionDialog({
 
       if (item.category === 'mod') {
         const selectedMod = selectedItems.find(
-          (selectedItem) => selectedItem.id === item.id,
+          (selectedItem) => selectedItem.id === item.id
         );
         const modSlot = selectedMod?.slot;
         if (modSlot) {
@@ -306,24 +302,24 @@ export function ItemTagSuggestionDialog({
             item.slot = 'hand gun';
             setSelectedItems((prev) =>
               prev.map((selectedItem) =>
-                selectedItem.id === item.id ? item : selectedItem,
-              ),
+                selectedItem.id === item.id ? item : selectedItem
+              )
             );
           } else if (modSlot === 'hand gun') {
             setSelectedItems((prev) =>
-              prev.filter((selectedItem) => selectedItem.slot !== modSlot),
+              prev.filter((selectedItem) => selectedItem.slot !== modSlot)
             );
           }
         } else {
           setSelectedItems((prev) =>
-            prev.filter((selectedItem) => selectedItem.id !== item.id),
+            prev.filter((selectedItem) => selectedItem.id !== item.id)
           );
         }
         return;
       }
       if (MutatorItem.isMutatorItem(item) && item.type === 'gun') {
         const selectedMutator = selectedItems.find(
-          (selectedItem) => selectedItem.id === item.id,
+          (selectedItem) => selectedItem.id === item.id
         );
         const mutatorSlot = selectedMutator?.slot;
         if (mutatorSlot) {
@@ -331,24 +327,24 @@ export function ItemTagSuggestionDialog({
             item.slot = 'hand gun';
             setSelectedItems((prev) =>
               prev.map((selectedItem) =>
-                selectedItem.id === item.id ? item : selectedItem,
-              ),
+                selectedItem.id === item.id ? item : selectedItem
+              )
             );
           } else if (mutatorSlot === 'hand gun') {
             setSelectedItems((prev) =>
-              prev.filter((selectedItem) => selectedItem.slot !== mutatorSlot),
+              prev.filter((selectedItem) => selectedItem.slot !== mutatorSlot)
             );
           }
         } else {
           setSelectedItems((prev) =>
-            prev.filter((selectedItem) => selectedItem.id !== item.id),
+            prev.filter((selectedItem) => selectedItem.id !== item.id)
           );
         }
         return;
       }
       if (item.category === 'consumable') {
         const selectedConsumable = selectedItems.find(
-          (selectedItem) => selectedItem.id === item.id,
+          (selectedItem) => selectedItem.id === item.id
         );
         const consumableSlot = selectedConsumable?.slot;
         if (consumableSlot) {
@@ -361,22 +357,22 @@ export function ItemTagSuggestionDialog({
           } else if (consumableSlot === 'consumable4') {
             setSelectedItems((prev) =>
               prev.filter(
-                (selectedItem) => selectedItem.slot !== consumableSlot,
-              ),
+                (selectedItem) => selectedItem.slot !== consumableSlot
+              )
             );
             return;
           }
           setSelectedItems((prev) =>
             prev.map((selectedItem) =>
-              selectedItem.id === item.id ? item : selectedItem,
-            ),
+              selectedItem.id === item.id ? item : selectedItem
+            )
           );
         }
         return;
       }
       if (item.category === 'relicfragment') {
         const selectedRelicFragment = selectedItems.find(
-          (selectedItem) => selectedItem.id === item.id,
+          (selectedItem) => selectedItem.id === item.id
         );
         const relicFragmentSlot = selectedRelicFragment?.slot;
         if (relicFragmentSlot) {
@@ -387,22 +383,22 @@ export function ItemTagSuggestionDialog({
           } else if (relicFragmentSlot === 'relicfragment3') {
             setSelectedItems((prev) =>
               prev.filter(
-                (selectedItem) => selectedItem.slot !== relicFragmentSlot,
-              ),
+                (selectedItem) => selectedItem.slot !== relicFragmentSlot
+              )
             );
             return;
           }
           setSelectedItems((prev) =>
             prev.map((selectedItem) =>
-              selectedItem.id === item.id ? item : selectedItem,
-            ),
+              selectedItem.id === item.id ? item : selectedItem
+            )
           );
         }
         return;
       }
       if (item.category === 'concoction') {
         const selectedConcoction = selectedItems.find(
-          (selectedItem) => selectedItem.id === item.id,
+          (selectedItem) => selectedItem.id === item.id
         );
         const concoctionSlotCount = getConcoctionSlotCount(buildState) + 1;
 
@@ -414,8 +410,8 @@ export function ItemTagSuggestionDialog({
             } else {
               setSelectedItems((prev) =>
                 prev.filter(
-                  (selectedItem) => selectedItem.slot !== concoctionSlot,
-                ),
+                  (selectedItem) => selectedItem.slot !== concoctionSlot
+                )
               );
               return;
             }
@@ -425,8 +421,8 @@ export function ItemTagSuggestionDialog({
             } else {
               setSelectedItems((prev) =>
                 prev.filter(
-                  (selectedItem) => selectedItem.slot !== concoctionSlot,
-                ),
+                  (selectedItem) => selectedItem.slot !== concoctionSlot
+                )
               );
               return;
             }
@@ -436,8 +432,8 @@ export function ItemTagSuggestionDialog({
             } else {
               setSelectedItems((prev) =>
                 prev.filter(
-                  (selectedItem) => selectedItem.slot !== concoctionSlot,
-                ),
+                  (selectedItem) => selectedItem.slot !== concoctionSlot
+                )
               );
               return;
             }
@@ -447,8 +443,8 @@ export function ItemTagSuggestionDialog({
             } else {
               setSelectedItems((prev) =>
                 prev.filter(
-                  (selectedItem) => selectedItem.slot !== concoctionSlot,
-                ),
+                  (selectedItem) => selectedItem.slot !== concoctionSlot
+                )
               );
               return;
             }
@@ -458,8 +454,8 @@ export function ItemTagSuggestionDialog({
             } else {
               setSelectedItems((prev) =>
                 prev.filter(
-                  (selectedItem) => selectedItem.slot !== concoctionSlot,
-                ),
+                  (selectedItem) => selectedItem.slot !== concoctionSlot
+                )
               );
               return;
             }
@@ -469,23 +465,23 @@ export function ItemTagSuggestionDialog({
             } else {
               setSelectedItems((prev) =>
                 prev.filter(
-                  (selectedItem) => selectedItem.slot !== concoctionSlot,
-                ),
+                  (selectedItem) => selectedItem.slot !== concoctionSlot
+                )
               );
               return;
             }
           } else if (concoctionSlot === 'concoction7') {
             setSelectedItems((prev) =>
               prev.filter(
-                (selectedItem) => selectedItem.slot !== concoctionSlot,
-              ),
+                (selectedItem) => selectedItem.slot !== concoctionSlot
+              )
             );
             return;
           }
           setSelectedItems((prev) =>
             prev.map((selectedItem) =>
-              selectedItem.id === item.id ? item : selectedItem,
-            ),
+              selectedItem.id === item.id ? item : selectedItem
+            )
           );
         }
         return;
@@ -493,7 +489,7 @@ export function ItemTagSuggestionDialog({
 
       // If the item doesn't have a slot, untoggle it
       setSelectedItems((prev) =>
-        prev.filter((selectedItem) => selectedItem.id !== item.id),
+        prev.filter((selectedItem) => selectedItem.id !== item.id)
       );
     } else {
       // ------------------------------
@@ -572,7 +568,7 @@ export function ItemTagSuggestionDialog({
         selectedItem.category === 'perk'
       ) {
         const linkedArchetype = archetypeItems.find(
-          (i) => i.name === selectedItem.linkedItems?.archetype?.name,
+          (i) => i.name === selectedItem.linkedItems?.archetype?.name
         );
         if (selectedItem.slot === 'archetype1') {
           // equip the linked archetype as well
@@ -585,7 +581,7 @@ export function ItemTagSuggestionDialog({
               if (linkedTraits) {
                 linkedTraits.forEach((trait) => {
                   newBuildState.items.trait = newBuildState.items.trait.filter(
-                    (t) => t.name !== trait.name,
+                    (t) => t.name !== trait.name
                   );
                 });
               }
@@ -818,7 +814,7 @@ export function ItemTagSuggestionDialog({
                       item={suggestion}
                       isEditable={false}
                       isToggled={selectedItems.some(
-                        (item) => item.id === suggestion.id,
+                        (item) => item.id === suggestion.id
                       )}
                       onClick={() => handleSelectItem(suggestion)}
                       onItemInfoClick={() => setItemInfo(suggestion)}

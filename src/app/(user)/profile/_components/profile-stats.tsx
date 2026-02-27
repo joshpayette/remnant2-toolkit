@@ -1,22 +1,19 @@
 'use server';
 
 import {
-  CheckIcon,
-  CommunityBuildsIcon,
-  EyeIcon,
-  FavoriteIcon,
-  getImageUrl,
-  LoadoutIcon,
-  QuizIcon,
-} from '@/ui';
-
-import {
   ALL_TRACKABLE_ITEMS,
   TOTAL_TRACKABLE_ITEM_COUNT,
 } from '@/app/(items)/item-tracker/_constants/trackable-items';
 import { DiscoveredItemsStatBox } from '@/app/(user)/profile/_components/discovered-items-stat-box';
 import { StatBox } from '@/app/(user)/profile/_components/stat-box';
 import { getProfileStats } from '@/app/(user)/profile/_lib/get-profile-stats';
+import { CheckIcon } from '@/ui/common/icons/check';
+import { CommunityBuildsIcon } from '@/ui/common/icons/community-builds';
+import { EyeIcon } from '@/ui/common/icons/eye';
+import { FavoriteIcon } from '@/ui/common/icons/favorite';
+import { LoadoutIcon } from '@/ui/common/icons/loadout';
+import { QuizIcon } from '@/ui/common/icons/quiz';
+import { getImageUrl } from '@/utils/get-image-url';
 
 interface Props {
   isEditable: boolean;
@@ -38,10 +35,10 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
   } = await getProfileStats({ profileId });
 
   const uniqueItemIds = Array.from(
-    new Set(discoveredItemIds.map((item) => item.itemId)),
+    new Set(discoveredItemIds.map((item) => item.itemId))
   );
   const discoveredItemIdCount = uniqueItemIds.filter((itemId) =>
-    ALL_TRACKABLE_ITEMS.some((i) => i.id === itemId),
+    ALL_TRACKABLE_ITEMS.some((i) => i.id === itemId)
   ).length;
 
   return (
@@ -70,7 +67,7 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
           unit: `/ ${TOTAL_TRACKABLE_ITEM_COUNT}`,
         }}
         isEditable={isEditable}
-        icon={<CheckIcon className="h-[36px] w-[36px] text-accent2-500" />}
+        icon={<CheckIcon className="text-accent2-500 h-[36px] w-[36px]" />}
       />
       <StatBox
         stat={{
@@ -78,7 +75,7 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
           value:
             typeof itemQuizScore === 'number'
               ? 0
-              : itemQuizScore?.topItemQuizScore ?? 0,
+              : (itemQuizScore?.topItemQuizScore ?? 0),
         }}
         icon={<QuizIcon className="text-primary-500 h-[36px] w-[36px]" />}
       />
@@ -128,7 +125,7 @@ export async function ProfileStats({ isEditable, profileId }: Props) {
           value:
             typeof totalBuildsViewCount === 'number'
               ? 0
-              : totalBuildsViewCount._sum?.viewCount ?? 0,
+              : (totalBuildsViewCount._sum?.viewCount ?? 0),
         }}
         icon={<EyeIcon className="text-accent1-500 h-[36px] w-[36px]" />}
       />

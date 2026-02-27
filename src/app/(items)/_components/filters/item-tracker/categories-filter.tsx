@@ -1,15 +1,12 @@
+import { DEFAULT_FILTER } from '@/app/_types/default-filter';
+import { type ItemTrackerCategory } from '@/app/(items)/item-tracker/_types/item-tracker-category';
+import { BaseButton } from '@/ui/base/button';
 import {
-  BaseButton,
   BaseCheckbox,
   BaseCheckboxField,
   BaseCheckboxGroup,
-  BaseFieldset,
-  BaseLabel,
-  BaseLegend,
-} from '@/ui';
-
-import { DEFAULT_FILTER } from '@/app/_types/default-filter';
-import { type ItemTrackerCategory } from '@/app/(items)/item-tracker/_types/item-tracker-category';
+} from '@/ui/base/checkbox';
+import { BaseFieldset, BaseLabel, BaseLegend } from '@/ui/base/fieldset';
 
 export const VALID_ITEM_CATEGORIES = [
   'Amulet',

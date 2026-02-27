@@ -1,8 +1,7 @@
-import { PrismIcon } from '@/ui';
-
+import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { LandingPageCard } from '@/components/landing-page-card';
 import { LandingPageContainer } from '@/components/landing-page-container';
-import { NAV_ITEMS } from '@/app/_constants/nav-items';
+import { PrismIcon } from '@/ui/common/icons/prism';
 
 export default async function Page() {
   return (

@@ -1,6 +1,7 @@
 'use client';
 
-import { BaseButton, Skeleton } from '@/ui';
+import { BaseButton } from '@/ui/base/button';
+import { Skeleton } from '@/ui/common/skeleton';
 import { useEffect, useState } from 'react';
 
 import { getLoadoutList } from '@/app/(builds)/_actions/get-loadout-list';
@@ -39,7 +40,7 @@ export function LoadoutManagementButton({
 
   const loadoutBuild = loadoutList.find(
     (loadoutBuild) =>
-      loadoutBuild.id === buildId && loadoutBuild.variantIndex === variantIndex,
+      loadoutBuild.id === buildId && loadoutBuild.variantIndex === variantIndex
   );
 
   const label = loadoutBuild

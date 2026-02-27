@@ -1,19 +1,18 @@
 'use client';
 
+import { useState } from 'react';
+
+import { MAX_COLLECTION_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
+import { BaseButton } from '@/ui/base/button';
 import {
-  BaseButton,
   BaseDialog,
   BaseDialogActions,
   BaseDialogBody,
   BaseDialogTitle,
-  BaseField,
-  BaseInput,
-  BaseLabel,
-  BaseTextarea,
-} from '@/ui';
-import { useState } from 'react';
-
-import { MAX_COLLECTION_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
+} from '@/ui/base/dialog';
+import { BaseField, BaseLabel } from '@/ui/base/fieldset';
+import { BaseInput } from '@/ui/base/input';
+import { BaseTextarea } from '@/ui/base/textarea';
 
 interface Props {
   collectionName: string;
@@ -22,7 +21,7 @@ interface Props {
   onClose: () => void;
   onConfirm: (
     newCollectionName: string,
-    newCollectionDescription: string,
+    newCollectionDescription: string
   ) => void;
 }
 
@@ -35,7 +34,7 @@ export function EditBuildCollectionDialog({
 }: Props) {
   const [newCollectionName, setNewCollectionName] = useState(collectionName);
   const [newCollectionDescription, setNewCollectionDescription] = useState(
-    collectionDescription,
+    collectionDescription
   );
 
   return (

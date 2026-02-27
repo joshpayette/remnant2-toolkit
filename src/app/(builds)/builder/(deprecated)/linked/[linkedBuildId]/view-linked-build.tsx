@@ -9,7 +9,7 @@ import {
   BaseListboxOption,
   cn,
 } from '@/ui';
-import { urlNoCache } from '@/utils';
+import { urlNoCache } from '@/utils/url-no-cache';
 import copy from 'clipboard-copy';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';

@@ -1,10 +1,10 @@
 'use server';
 
 import { type BuildCollection, prisma } from '@/prisma';
-import { urlNoCache } from '@/utils';
+import { urlNoCache } from '@/utils/url-no-cache';
 import { diffTrimmedLines } from 'diff';
 
-import { badWordFilter } from '@/app/_libs/bad-word-filter';
+import { badWordFilter } from '@/utils/bad-word-filter';
 import { sendWebhook } from '@/app/_libs/moderation/send-webhook';
 import { validateEnv } from '@/utils/validate-env';
 import { type ErrorResponse } from '@/app/_types/error-response';

@@ -1,5 +1,5 @@
 import { type BuildTags } from '@/prisma';
-import { cn } from '@/ui';
+import { cn } from '@/utils/classnames';
 import { type ReactNode, type RefObject } from 'react';
 
 import { type UpdateBuildCategory } from '@/app/(builds)/_libs/update-build-state';
@@ -62,7 +62,7 @@ export function BuilderContainer({
         <div
           ref={buildContainerRef}
           className={cn(
-            'w-full grow bg-background-solid',
+            'bg-background-solid w-full grow',
             isScreenshotMode && 'min-h-[731px] min-w-[994px]'
           )}
         >

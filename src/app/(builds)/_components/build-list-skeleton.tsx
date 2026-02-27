@@ -1,7 +1,6 @@
-import { getArrayOfLength } from '@/utils';
-
 import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_constants/pagination';
 import { BuildCardSkeleton } from '@/app/(builds)/_components/build-card-skeleton';
+import { getArrayOfLength } from '@/utils/get-array-of-length';
 
 export function BuildListSkeleton() {
   return (

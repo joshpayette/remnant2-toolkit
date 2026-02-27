@@ -1,12 +1,3 @@
-import {
-  BaseButton,
-  BaseDialog,
-  BaseDialogBody,
-  BaseDialogDescription,
-  BaseDialogTitle,
-  Skeleton,
-} from '@/ui';
-import { getArrayOfLength } from '@/utils';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -15,6 +6,15 @@ import { getLoadoutList } from '@/app/(builds)/_actions/get-loadout-list';
 import { EmptyLoadoutCard } from '@/app/(builds)/_components/empty-loadout-card';
 import { LoadoutCard } from '@/app/(builds)/_components/loadout-card';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
+import { BaseButton } from '@/ui/base/button';
+import {
+  BaseDialog,
+  BaseDialogBody,
+  BaseDialogDescription,
+  BaseDialogTitle,
+} from '@/ui/base/dialog';
+import { Skeleton } from '@/ui/common/skeleton';
+import { getArrayOfLength } from '@/utils/get-array-of-length';
 
 interface Props {
   open: boolean;

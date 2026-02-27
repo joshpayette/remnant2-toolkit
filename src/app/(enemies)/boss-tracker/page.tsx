@@ -1,4 +1,4 @@
-import { Skeleton } from '@/ui';
+import { Skeleton } from '@/ui/common/skeleton';
 import { Suspense } from 'react';
 
 import { PageHeader } from '@/components/page-header';

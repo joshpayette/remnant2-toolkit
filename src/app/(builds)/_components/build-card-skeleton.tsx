@@ -1,4 +1,4 @@
-import { Skeleton } from '@/ui';
+import { Skeleton } from '@/ui/common/skeleton';
 
 export function BuildCardSkeleton() {
   return (

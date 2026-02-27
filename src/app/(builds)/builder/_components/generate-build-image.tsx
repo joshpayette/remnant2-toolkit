@@ -1,4 +1,4 @@
-import { BaseButton } from '@/ui';
+import { BaseButton } from '@/ui/base/button';
 
 import { LoadingButton } from '@/app/(builds)/builder/_components/loading-button';
 

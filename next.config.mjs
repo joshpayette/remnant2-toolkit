@@ -5,6 +5,7 @@ const withMDX = nextMDX();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  reactCompiler: true,
   images: {
     minimumCacheTTL: 31536000, // 1 year
     remotePatterns: [

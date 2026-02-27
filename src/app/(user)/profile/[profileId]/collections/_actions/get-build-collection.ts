@@ -1,7 +1,7 @@
 'use server';
 
 import { type BuildCollection, prisma } from '@/prisma';
-import { bigIntFix } from '@/utils';
+import { bigIntFix } from '@/utils/big-int-fix';
 
 import type { ErrorResponse } from '@/app/_types/error-response';
 import type { DBBuild } from '@/app/(builds)/_types/db-build';

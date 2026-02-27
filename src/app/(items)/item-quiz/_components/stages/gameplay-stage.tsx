@@ -1,5 +1,5 @@
-import { cn } from '@/ui';
-import { getArrayOfLength } from '@/utils';
+import { cn } from '@/utils/classnames';
+import { getArrayOfLength } from '@/utils/get-array-of-length';
 import React from 'react';
 
 import { Heading } from '@/app/(items)/item-quiz/_components/heading';

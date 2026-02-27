@@ -1,6 +1,6 @@
 'use client';
 
-import { BaseButton } from '@/ui';
+import { BaseButton } from '@/ui/base/button';
 import { usePathname, useRouter } from 'next/navigation';
 
 import { NAV_ITEMS } from '@/app/_constants/nav-items';

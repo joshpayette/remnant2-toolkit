@@ -1,12 +1,5 @@
 'use client';
 
-import {
-  BaseButton,
-  BaseField,
-  BaseInput,
-  BaseTextarea,
-  EditIcon,
-} from '@/ui';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -14,6 +7,11 @@ import { saveProfile } from '@/app/(user)/profile/_actions/save-profile';
 import { AvatarBox } from '@/app/(user)/profile/_components/avatar-box';
 import { AvatarSelectDialog } from '@/app/(user)/profile/_components/avatar-select-dialog';
 import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
+import { BaseButton } from '@/ui/base/button';
+import { BaseField } from '@/ui/base/fieldset';
+import { BaseInput } from '@/ui/base/input';
+import { BaseTextarea } from '@/ui/base/textarea';
+import { EditIcon } from '@/ui/common/icons/edit';
 
 interface Props {
   avatarId: string;

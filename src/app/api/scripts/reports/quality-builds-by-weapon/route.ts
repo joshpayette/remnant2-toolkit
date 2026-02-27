@@ -7,7 +7,7 @@ import {
 } from '@/app/(builds)/_constants/max-trait-amount';
 import { MINIMUM_QUALITY_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/minimum-quality-description-length';
 import { weaponItems } from '@/app/(items)/_constants/weapon-items';
-import { bigIntFix } from '@/utils';
+import { bigIntFix } from '@/utils/big-int-fix';
 import { Prisma, prisma } from '@/prisma';
 
 const EXCLUDED_CATEGORIES = [

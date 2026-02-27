@@ -1,7 +1,7 @@
 'use client';
 
 import { BaseFieldset, BaseLabel, cn } from '@/ui';
-import { getArrayOfLength } from '@/utils';
+import { getArrayOfLength } from '@/utils/get-array-of-length';
 import { useState } from 'react';
 
 import { type BuildState } from '@/app/(builds)/_types/build-state';

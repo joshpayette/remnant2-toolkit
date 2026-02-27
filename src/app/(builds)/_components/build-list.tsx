@@ -1,10 +1,9 @@
 'use client';
 
-import { cn } from '@/ui';
-import { getArrayOfLength } from '@/utils';
-
 import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_constants/pagination';
 import { BuildCardSkeleton } from '@/app/(builds)/_components/build-card-skeleton';
+import { cn } from '@/utils/classnames';
+import { getArrayOfLength } from '@/utils/get-array-of-length';
 
 interface Props {
   children: React.ReactNode;

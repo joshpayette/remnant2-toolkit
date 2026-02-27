@@ -1,5 +1,3 @@
-import { capitalize } from '@/utils';
-
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 import { type ItemTrackerFilters } from '@/app/(items)/_components/filters/item-tracker/types';
 import { type Item } from '@/app/(items)/_types/item';
@@ -8,6 +6,7 @@ import { MutatorItem } from '@/app/(items)/_types/mutator-item';
 import { RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
 import { ALL_TRACKABLE_ITEMS } from '@/app/(items)/item-tracker/_constants/trackable-items';
+import { capitalize } from '@/utils/capitalize';
 
 export function getFilteredItemList(
   filters: ItemTrackerFilters,

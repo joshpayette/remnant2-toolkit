@@ -1,14 +1,14 @@
-import { DEFAULT_BIO } from '@/lib/constants';
-import { prisma } from '@/prisma';
-import { BaseText } from '@/ui';
 import { type Metadata } from 'next';
 
-import { PageHeader } from '@/components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
-import { isErrorResponse } from '@/utils/is-error-response';
-import { auth } from '@/lib/auth';
 import { getBuildCollection } from '@/app/(user)/profile/[profileId]/collections/_actions/get-build-collection';
 import { BuildCollectionBuildList } from '@/app/(user)/profile/[profileId]/collections/[collectionId]/_components/build-collection-build-list';
+import { PageHeader } from '@/components/page-header';
+import { auth } from '@/lib/auth';
+import { DEFAULT_BIO } from '@/lib/constants';
+import { prisma } from '@/prisma';
+import { BaseText } from '@/ui/base/text';
+import { isErrorResponse } from '@/utils/is-error-response';
 
 export async function generateMetadata({
   params: { profileId, collectionId },

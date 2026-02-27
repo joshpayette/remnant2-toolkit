@@ -1,4 +1,4 @@
-import { BaseLink } from '@/ui';
+import { BaseLink } from '@/ui/base/link';
 import { type Metadata } from 'next';
 
 import { PageHeader } from '@/components/page-header';

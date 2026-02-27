@@ -60,6 +60,9 @@ dependencies:
   '@vercel/flags':
     specifier: ^2.6.0
     version: 2.6.3(next@16.1.6)(react-dom@19.2.4)(react@19.2.4)
+  babel-plugin-react-compiler:
+    specifier: ^1.0.0
+    version: 1.0.0
   cheerio:
     specifier: 1.0.0-rc.12
     version: 1.0.0-rc.12
@@ -101,7 +104,7 @@ dependencies:
     version: 12.34.3(react-dom@19.2.4)(react@19.2.4)
   next:
     specifier: 16.1.6
-    version: 16.1.6(@babel/core@7.29.0)(react-dom@19.2.4)(react@19.2.4)
+    version: 16.1.6(@babel/core@7.29.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.4)(react@19.2.4)
   next-auth:
     specifier: 5.0.0-beta.30
     version: 5.0.0-beta.30(next@16.1.6)(react@19.2.4)
@@ -2906,7 +2909,7 @@ packages:
         optional: true
     dependencies:
       jose: 5.2.1
-      next: 16.1.6(@babel/core@7.29.0)(react-dom@19.2.4)(react@19.2.4)
+      next: 16.1.6(@babel/core@7.29.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.4)(react@19.2.4)
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
     dev: false
@@ -3297,6 +3300,12 @@ packages:
       '@babel/runtime': 7.28.6
       cosmiconfig: 7.1.0
       resolve: 1.22.11
+    dev: false
+
+  /babel-plugin-react-compiler@1.0.0:
+    resolution: {integrity: sha512-Ixm8tFfoKKIPYdCCKYTsqv+Fd4IJ0DQqMyEimo+pxUOMUR9cVPlwTrFt9Avu+3cb6Zp3mAzl+t1MrG2fxxKsxw==}
+    dependencies:
+      '@babel/types': 7.29.0
     dev: false
 
   /bail@2.0.2:
@@ -6073,7 +6082,7 @@ packages:
         optional: true
     dependencies:
       '@auth/core': 0.41.0
-      next: 16.1.6(@babel/core@7.29.0)(react-dom@19.2.4)(react@19.2.4)
+      next: 16.1.6(@babel/core@7.29.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.4)(react@19.2.4)
       react: 19.2.4
     dev: false
 
@@ -6087,7 +6096,7 @@ packages:
       react-dom: 19.2.4(react@19.2.4)
     dev: false
 
-  /next@16.1.6(@babel/core@7.29.0)(react-dom@19.2.4)(react@19.2.4):
+  /next@16.1.6(@babel/core@7.29.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.4)(react@19.2.4):
     resolution: {integrity: sha512-hkyRkcu5x/41KoqnROkfTm2pZVbKxvbZRuNvKXLRXxs3VfyO0WhY50TQS40EuKO9SW3rBj/sF3WbVwDACeMZyw==}
     engines: {node: '>=20.9.0'}
     hasBin: true
@@ -6110,6 +6119,7 @@ packages:
     dependencies:
       '@next/env': 16.1.6
       '@swc/helpers': 0.5.15
+      babel-plugin-react-compiler: 1.0.0
       baseline-browser-mapping: 2.9.19
       caniuse-lite: 1.0.30001770
       postcss: 8.4.31

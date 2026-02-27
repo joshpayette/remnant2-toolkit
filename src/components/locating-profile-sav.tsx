@@ -1,10 +1,5 @@
-import {
-  BaseCode,
-  BaseDialogBody,
-  BaseDialogTitle,
-  BaseText,
-  BaseTextLink,
-} from '@/ui';
+import { BaseDialogBody, BaseDialogTitle } from '@/ui/base/dialog';
+import { BaseCode, BaseText, BaseTextLink } from '@/ui/base/text';
 
 export default function LocatingProfileSav() {
   return (

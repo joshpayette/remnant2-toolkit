@@ -1,9 +1,10 @@
 'use client';
 
-import { BaseLink, cn, Skeleton } from '@/ui';
-
-import { DescriptionWithTokens } from '@/components/description-with-tokens';
 import { type LinkedBuildState } from '@/app/(builds)/builder/(deprecated)/linked/[linkedBuildId]/types';
+import { DescriptionWithTokens } from '@/components/description-with-tokens';
+import { BaseLink } from '@/ui/base/link';
+import { Skeleton } from '@/ui/common/skeleton';
+import { cn } from '@/utils/classnames';
 
 interface Props {
   linkedBuildState: LinkedBuildState;

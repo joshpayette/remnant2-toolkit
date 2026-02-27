@@ -1,7 +1,7 @@
 import { type SendWebhookParams } from '@/app/_libs/moderation/send-webhook';
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
-import { badWordFilter } from '@/utils/bad-word-filter/bad-word-filter';
+import { badWordFilter } from '@/utils/bad-word-filter';
 import { isValidYoutubeUrl } from '@/utils/youtube';
 
 export function verifyBuildState({

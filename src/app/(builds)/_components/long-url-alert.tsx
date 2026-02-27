@@ -3,9 +3,9 @@ import {
   BaseAlertActions,
   BaseAlertDescription,
   BaseAlertTitle,
-  BaseButton,
-} from '@/ui';
-import { urlNoCache } from '@/utils';
+} from '@/ui/base/alert';
+import { BaseButton } from '@/ui/base/button';
+import { urlNoCache } from '@/utils/url-no-cache';
 import copy from 'clipboard-copy';
 import { toast } from 'react-toastify';
 

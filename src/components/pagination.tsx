@@ -1,4 +1,7 @@
-import { ChevronLeftIcon, ChevronRightIcon, cn, Skeleton } from '@/ui';
+import { ChevronLeftIcon } from '@/ui/common/icons/chevron-left';
+import { ChevronRightIcon } from '@/ui/common/icons/chevron-right';
+import { Skeleton } from '@/ui/common/skeleton';
+import { cn } from '@/utils/classnames';
 
 interface Props {
   currentPage: number;
@@ -96,7 +99,7 @@ export function Pagination({
                   className={cn(
                     'ring-primary-500 hover:bg-primary-50 relative inline-flex w-[45px] items-center justify-center px-4 py-2 text-sm font-semibold text-gray-200 ring-1 ring-inset hover:text-gray-800 focus:z-20 focus:outline-offset-0',
                     currentPage === pageNumber &&
-                      'bg-primary-600 text-surface-solid focus-visible:outline-primary-600 relative z-10 inline-flex px-4 py-2 text-sm font-semibold focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+                      'bg-primary-600 text-surface-solid focus-visible:outline-primary-600 relative z-10 inline-flex px-4 py-2 text-sm font-semibold focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2'
                   )}
                   onClick={() => onSpecificPage(pageNumber)}
                 >

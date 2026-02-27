@@ -1,17 +1,15 @@
+import { useSession } from 'next-auth/react';
+
+import { getPermittedBuilder } from '@/app/(builds)/_libs/permitted-builders';
+import { AvatarBox } from '@/app/(user)/profile/_components/avatar-box';
+import { AVATARS } from '@/app/(user)/profile/_constants/avatars';
+import { BaseButton } from '@/ui/base/button';
 import {
-  BaseButton,
   BaseDialog,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@/ui';
-import { useSession } from 'next-auth/react';
-
-import {
-  getPermittedBuilder,
-} from '@/app/(builds)/_libs/permitted-builders';
-import { AvatarBox } from '@/app/(user)/profile/_components/avatar-box';
-import { AVATARS } from '@/app/(user)/profile/_constants/avatars';
+} from '@/ui/base/dialog';
 
 interface Props {
   open: boolean;

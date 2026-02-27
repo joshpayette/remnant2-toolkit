@@ -5,8 +5,8 @@ import {
   BaseAlertActions,
   BaseAlertDescription,
   BaseAlertTitle,
-  BaseButton,
-} from '@/ui';
+} from '@/ui/base/alert';
+import { BaseButton } from '@/ui/base/button';
 
 interface Props {
   open: boolean;

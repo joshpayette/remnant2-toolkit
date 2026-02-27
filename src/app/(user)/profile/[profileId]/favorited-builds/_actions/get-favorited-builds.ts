@@ -28,7 +28,7 @@ import { limitByWithVideoSegment } from '@/app/(builds)/_features/filters/_libs/
 import { type BuildListRequest } from '@/app/(builds)/_types/build-list-request';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { auth } from '@/lib/auth';
-import { bigIntFix } from '@/utils';
+import { bigIntFix } from '@/utils/big-int-fix';
 import { Prisma } from '@/prisma';
 
 export async function getFavoritedBuilds({

@@ -1,4 +1,4 @@
-import { getArrayOfLength } from '@/utils';
+import { getArrayOfLength } from '@/utils/get-array-of-length';
 
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 

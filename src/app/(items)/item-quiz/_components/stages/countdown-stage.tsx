@@ -1,4 +1,4 @@
-import { BaseButton } from '@/ui';
+import { BaseButton } from '@/ui/base/button';
 import React from 'react';
 
 interface Props {
@@ -29,7 +29,7 @@ export const CountdownStage = React.memo(
         <span className="font-bold">Enter</span> to skip.
       </p>
     </div>
-  ),
+  )
 );
 
 CountdownStage.displayName = 'CountdownStage';

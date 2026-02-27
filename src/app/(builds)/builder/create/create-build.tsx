@@ -1,7 +1,7 @@
 'use client';
 
 import { type BuildTags } from '@/prisma';
-import { BaseButton } from '@/ui';
+import { BaseButton } from '@/ui/base/button';
 import cloneDeep from 'lodash.clonedeep';
 import { useRef, useState } from 'react';
 import { useIsClient } from 'usehooks-ts';

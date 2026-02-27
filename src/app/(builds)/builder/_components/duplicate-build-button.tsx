@@ -1,4 +1,4 @@
-import { BaseButton } from '@/ui';
+import { BaseButton } from '@/ui/base/button';
 
 interface Props {
   onClick: () => void;

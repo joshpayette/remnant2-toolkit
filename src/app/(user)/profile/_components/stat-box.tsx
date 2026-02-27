@@ -1,4 +1,4 @@
-import { cn } from '@/ui';
+import { cn } from '@/utils/classnames';
 
 interface Props {
   stat: { name: string; value: number; unit?: string };
@@ -11,7 +11,7 @@ export function StatBox({ stat, icon, footer }: Props) {
     <div
       key={stat.name}
       className={cn(
-        'border-surface-solid/5 flex flex-col items-center justify-between border px-4 py-6 sm:px-6',
+        'border-surface-solid/5 flex flex-col items-center justify-between border px-4 py-6 sm:px-6'
       )}
     >
       <div className="">{icon ?? null}</div>

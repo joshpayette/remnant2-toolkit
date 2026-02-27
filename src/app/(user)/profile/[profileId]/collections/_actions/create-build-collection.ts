@@ -1,9 +1,9 @@
 'use server';
 
 import { prisma } from '@/prisma';
-import { urlNoCache } from '@/utils';
+import { urlNoCache } from '@/utils/url-no-cache';
 
-import { badWordFilter } from '@/app/_libs/bad-word-filter';
+import { badWordFilter } from '@/utils/bad-word-filter';
 import { type ErrorResponse } from '@/app/_types/error-response';
 import { MAX_COLLECTION_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
 import { auth } from '@/lib/auth';

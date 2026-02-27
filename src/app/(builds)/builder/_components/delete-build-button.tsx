@@ -1,6 +1,6 @@
 'use client';
 
-import { BaseButton } from '@/ui';
+import { BaseButton } from '@/ui/base/button';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';

@@ -1,7 +1,8 @@
-import { cn, getImageUrl } from '@/ui';
 import Image from 'next/image';
 
 import { type Avatar } from '@/app/(user)/profile/_types';
+import { cn } from '@/utils/classnames';
+import { getImageUrl } from '@/utils/get-image-url';
 
 interface Props {
   avatar: Avatar;
@@ -16,7 +17,7 @@ export function AvatarBox({
     <div
       className={cn(
         'ring-secondary-400/30 rounded-md p-1 text-xs font-medium ring-1 ring-inset',
-        bgColor ? bgColor : 'bg-background-solid',
+        bgColor ? bgColor : 'bg-background-solid'
       )}
     >
       <Image

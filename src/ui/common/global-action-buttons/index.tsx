@@ -1,19 +1,21 @@
 'use client';
 
-import { CHANGELOG_URL } from '@/lib/constants';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+
+import { CHANGELOG_URL } from '@/lib/constants';
+
+import { cn } from '../../../utils/classnames';
 import { BaseButton } from '../../base/button';
 import { BugReportPrompt, reportBug } from '../bug-report';
 import { ArrowUpIcon } from '../icons/arrow-up';
+import { BugIcon } from '../icons/bug';
 import { ChangeLogIcon } from '../icons/change-log';
 import { SettingsIcon } from '../icons/settings';
 import { ThemeIcon } from '../icons/theme';
-import { BugIcon } from '../icons/bug';
 import { ZINDEXES } from '../z-indexes';
-import { cn } from '../../../utils/classnames';
 
 // Lazy-load the theme toggle, since it relies on client context
 const ThemeSelectButton = dynamic(
@@ -38,7 +40,7 @@ export function GlobalActionButtons({ username }: GlobalActionButtonProps) {
   return (
     <div
       className={cn(
-        'fixed bottom-[8px] flex w-[98vw] flex-row-reverse gap-x-1',
+        'fixed bottom-2 flex w-[98vw] flex-row-reverse gap-x-1',
         ZINDEXES.GLOBAL_ACTION_BUTTONS
       )}
     >

@@ -1,15 +1,17 @@
 'use client';
 
-import { BaseButton, BaseText, getImageUrl } from '@/ui';
 import Image from 'next/image';
 import { useLocalStorage } from 'usehooks-ts';
 
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
+import { BaseButton } from '@/ui/base/button';
+import { BaseText } from '@/ui/base/text';
+import { getImageUrl } from '@/utils/get-image-url';
 
 export function RemnantOverseerCTA() {
   const [showBanner, setShowBanner] = useLocalStorage(
     'remnant-overseer-banner',
-    true,
+    true
   );
 
   if (!showBanner) return null;
