@@ -69,9 +69,7 @@ export function EditBuild({
   function handleSelectArmorSuggestion(newBuildState: BuildState) {
     setBuildVariants((prevBuildVariants) =>
       prevBuildVariants.map((bv) =>
-        bv.buildId === newBuildState.buildId
-          ? { ...bv, build: newBuildState }
-          : bv,
+        bv.buildId === newBuildState.buildId ? newBuildState : bv,
       ),
     );
     setShowArmorCalculator(false);

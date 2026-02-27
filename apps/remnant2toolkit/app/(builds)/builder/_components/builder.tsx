@@ -507,7 +507,7 @@ export function Builder({
       />
 
       {buildState.isPublic === false && !isScreenshotMode && (
-        <div className="text-md mb-4 flex flex-col items-center justify-center gap-4 border-2 border-accent3-500 p-4 font-semibold text-accent3-500">
+        <div className="text-md border-accent3-500 text-accent3-500 mb-4 flex flex-col items-center justify-center gap-4 border-2 p-4 font-semibold">
           This build is currently marked private. Other users will be unable to
           view it until you mark it public.
         </div>
@@ -634,13 +634,18 @@ export function Builder({
             </div>
           )}
           {buildState.updatedAt && (
-            <div className="my-1 flex items-center justify-center text-sm text-gray-400">
+            <div className="my-1 flex items-center justify-center gap-2 text-sm text-gray-400">
               <p className="text-left text-xs text-gray-400">
                 Last Updated:{' '}
                 <span className="text-gray-300">
                   {formatUpdatedAt(buildState.updatedAt)}
                 </span>
               </p>
+              {new Date(buildState.updatedAt) >= new Date('2024-09-24') && (
+                <span className="text-surface rounded bg-green-700 px-1.5 py-0.5 text-xs font-bold tracking-wide">
+                  Latest Patch
+                </span>
+              )}
             </div>
           )}
           <div className="mt-2 flex w-full flex-col items-center justify-center">
@@ -667,7 +672,7 @@ export function Builder({
           ) : null}
           {buildState.isPatchAffected && (
             <div className="mb-2 flex items-center justify-center text-sm text-gray-400">
-              <p className="border border-accent3-500 p-2 text-left text-xs font-bold text-accent3-500">
+              <p className="border-accent3-500 text-accent3-500 border p-2 text-left text-xs font-bold">
                 This build might have been affected by a past update. If you
                 created this build, please update it and untoggle the
                 patch-affected setting.
@@ -1221,7 +1226,7 @@ export function Builder({
             className="mb-4 flex w-full flex-col items-center justify-center"
           >
             {!hasBossRushBuildTag && !isScreenshotMode && isEditable && (
-              <span className="mb-1 text-sm text-accent3-500">
+              <span className="text-accent3-500 mb-1 text-sm">
                 Add the Boss Rush tag to add pylons to this build.
               </span>
             )}
