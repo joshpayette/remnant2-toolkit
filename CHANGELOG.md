@@ -11,6 +11,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - World filter on Item Lookup and Item Tracker pages now includes Ward 13.
 - Added "LATEST PATCH" badge next to the Last Updated date on a build to better indicate that a build is not outdated.
 
+### Fixed
+
+- Fixed bug where the Armor Calculator would not apply a new suggestion when editing a build.
+
 ## 2025-10-25
 
 ### Changed
