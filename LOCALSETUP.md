@@ -240,7 +240,7 @@ If you want to connect to the database and view records:
 1. Open a terminal and run the following command to connect to MySQL:
 
 ```bash
-mysql -u root -p
+mysql -u root -p -P 3307 -h 127.0.0.1 remnant2toolkit
 ```
 
 2. Enter the password you set for `MYSQL_ROOT_PASSWORD` in the `.env` file.
