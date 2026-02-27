@@ -4,6 +4,7 @@ export const WORLD_LOCATIONS = [
   'Yaesha',
   'Labyrinth',
   'Root Earth',
+  'Ward 13',
 ] as const satisfies string[];
 export type WorldLocation = (typeof WORLD_LOCATIONS)[number];
 
