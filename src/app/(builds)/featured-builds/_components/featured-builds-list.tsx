@@ -4,7 +4,7 @@ import { BaseLink, EyeIcon, Tooltip } from '@/ui';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 
-import { Pagination } from '@/app/_components/pagination';
+import { Pagination } from '@/components/pagination';
 import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_constants/pagination';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildCard } from '@/app/(builds)/_components/build-card';

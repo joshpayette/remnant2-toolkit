@@ -12,8 +12,8 @@ import {
 } from '@/ui';
 import React from 'react';
 
-import { ImportSaveSubmitButton } from '@/app/_components/import-save-submit-button';
-import LocatingProfileSav from '@/app/_components/locating-profile-sav';
+import { ImportSaveSubmitButton } from '@/components/import-save-submit-button';
+import LocatingProfileSav from '@/components/locating-profile-sav';
 
 interface Props {
   open: boolean;

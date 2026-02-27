@@ -15,7 +15,7 @@ import isEqual from 'lodash.isequal';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
 
-import { InputWithClear } from '@/app/_components/input-with-clear';
+import { InputWithClear } from '@/components/input-with-clear';
 import { EXCLUDE_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
 import { QualityBuildInfoDialog } from '@/app/(builds)/_components/quality-build-info-dialog';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
@@ -118,7 +118,7 @@ export function BuildFilters({
       }
       params.append(
         archetypeSlotFilter.buildFilterKey,
-        newFilters.archetypeSlot.toString(),
+        newFilters.archetypeSlot.toString()
       );
     }
 
@@ -205,7 +205,7 @@ export function BuildFilters({
       if (paramValues.length > 0) {
         params.set(
           legendaryFragmentFilter.buildFilterKey,
-          paramValues.join(','),
+          paramValues.join(',')
         );
       } else {
         params.delete(legendaryFragmentFilter.buildFilterKey);
@@ -393,7 +393,7 @@ export function BuildFilters({
     } else {
       params.set(
         withCollectionFilter.buildFilterKey,
-        newFilters.withCollection.toString(),
+        newFilters.withCollection.toString()
       );
     }
 
@@ -402,7 +402,7 @@ export function BuildFilters({
     } else {
       params.set(
         withOptionalPrismFilter.buildFilterKey,
-        newFilters.withOptionalPrism.toString(),
+        newFilters.withOptionalPrism.toString()
       );
     }
 
@@ -411,7 +411,7 @@ export function BuildFilters({
     } else {
       params.set(
         withPatchAffectedFilter.buildFilterKey,
-        newFilters.withPatchAffected.toString(),
+        newFilters.withPatchAffected.toString()
       );
     }
 
@@ -420,7 +420,7 @@ export function BuildFilters({
     } else {
       params.set(
         withQualityFilter.buildFilterKey,
-        newFilters.withQuality.toString(),
+        newFilters.withQuality.toString()
       );
     }
 
@@ -429,7 +429,7 @@ export function BuildFilters({
     } else {
       params.set(
         withReferenceFilter.buildFilterKey,
-        newFilters.withReference.toString(),
+        newFilters.withReference.toString()
       );
     }
 
@@ -438,7 +438,7 @@ export function BuildFilters({
     } else {
       params.set(
         withVideoFilter.buildFilterKey,
-        newFilters.withVideo.toString(),
+        newFilters.withVideo.toString()
       );
     }
 
@@ -530,7 +530,7 @@ export function BuildFilters({
                     />
                   </BaseField>
                   {unappliedFilters.archetypes.filter(
-                    (a) => a.state === 'included',
+                    (a) => a.state === 'included'
                   ).length === 1 ? (
                     <BaseField
                       id="archetype-slot"

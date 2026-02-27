@@ -1,11 +1,12 @@
 'use client';
 
-import { BaseLink, cn } from '@/ui';
 import { useState } from 'react';
 
-import GenericDialog from '@/app/_components/generic-dialog';
-import { type LandingPageCardProps } from '@/app/_components/landing-page-card';
-import { LandingPageCardContent } from '@/app/_components/landing-page-card-content';
+import GenericDialog from '@/components/generic-dialog';
+import { type LandingPageCardProps } from '@/components/landing-page-card';
+import { LandingPageCardContent } from '@/components/landing-page-card-content';
+import { BaseLink } from '@/ui/base/link';
+import { cn } from '@/utils/classnames';
 
 type Props = Omit<LandingPageCardProps, 'href' | 'target'> & {
   disabledReason?: string;
@@ -33,7 +34,7 @@ export function LandingPageCardDisabled({
         key={label}
         onClick={() => setDialogOpen(true)}
         className={cn(
-          'bg-background-solid/50 ring-background-solid/10 hover:border-primary-500 mb-4 flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent p-6 ring-1 ring-inset',
+          'bg-background-solid/50 ring-background-solid/10 hover:border-primary-500 mb-4 flex min-h-[200px] flex-row gap-x-4 rounded-xl border border-transparent p-6 ring-1 ring-inset'
         )}
       >
         <LandingPageCardContent

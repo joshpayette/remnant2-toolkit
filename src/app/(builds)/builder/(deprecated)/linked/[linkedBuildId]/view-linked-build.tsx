@@ -16,7 +16,7 @@ import { useSession } from 'next-auth/react';
 import { startTransition, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
+import { DescriptionWithTokens } from '@/components/description-with-tokens';
 import { LoadoutDialog } from '@/app/(builds)/_components/loadout-dialog';
 import { useImageExport } from '@/app/(builds)/_hooks/use-image-export';
 import { cleanUpBuildState } from '@/app/(builds)/_libs/clean-up-build-state';

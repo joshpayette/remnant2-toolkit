@@ -1,4 +1,4 @@
-import { cn } from '@/ui';
+import { cn } from '@/utils/classnames';
 
 interface Props {
   children: React.ReactNode;
@@ -12,7 +12,7 @@ export function LandingPageContainer({ children, title, description }: Props) {
       <div
         className={cn(
           'absolute left-0 top-0 -z-[5] h-full w-full',
-          'from-background to-secondary-900 bg-gradient-to-br',
+          'from-background to-secondary-900 bg-gradient-to-br'
         )}
       />
       <div className="sm:transform-g1 hidden w-full sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:blur-3xl">

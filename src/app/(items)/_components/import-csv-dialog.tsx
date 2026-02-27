@@ -10,7 +10,7 @@ import {
   BaseLabel,
 } from '@/ui';
 
-import { ToCsvButton } from '@/app/_components/to-csv-button';
+import { ToCsvButton } from '@/components/to-csv-button';
 import { type CsvItem } from '@/app/_types/csv';
 
 interface Props {

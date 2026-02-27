@@ -10,7 +10,7 @@ import {
 } from '@/ui';
 import { useEffect, useState } from 'react';
 
-import { Pagination } from '@/app/_components/pagination';
+import { Pagination } from '@/components/pagination';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { ArmorSuggestionCard } from '@/app/(builds)/_components/armor-suggestion-card';
 import { getArmorSuggestions } from '@/app/(builds)/_libs/get-armor-suggestions';
@@ -83,7 +83,7 @@ export function ArmorSuggestionDialog({
     useState<WeightClassKeysWithDefault>('CHOOSE');
 
   const [armorSuggestions, setArmorSuggestions] = useState<ArmorSuggestion[]>(
-    [],
+    []
   );
 
   const totalItems = armorSuggestions.length;
@@ -112,7 +112,7 @@ export function ArmorSuggestionDialog({
     // This allows the loading indicator to render
     const timeoutId = setTimeout(() => {
       setArmorSuggestions(
-        getArmorSuggestions({ buildState, desiredWeightClass }),
+        getArmorSuggestions({ buildState, desiredWeightClass })
       );
       setIsCalculating(false);
     }, 250);
@@ -125,7 +125,7 @@ export function ArmorSuggestionDialog({
     buildState.items.helm &&
       buildState.items.torso &&
       buildState.items.gloves &&
-      buildState.items.legs,
+      buildState.items.legs
   );
 
   function handleWeightClassChange(weightClass: WeightClassKeysWithDefault) {
@@ -154,7 +154,7 @@ export function ArmorSuggestionDialog({
   if (allSlotsFull) {
     return (
       <ArmorInfoContainer {...armorInfoProps}>
-        <div className="text-md mt-4 text-center font-semibold text-accent3-500">
+        <div className="text-md text-accent3-500 mt-4 text-center font-semibold">
           All armor slots are full. Clear at least one slot for suggestions.
         </div>
       </ArmorInfoContainer>
@@ -209,7 +209,7 @@ export function ArmorSuggestionDialog({
       </div>
       {armorSuggestions.length === 0 && (
         <div className="flex flex-col items-center justify-center">
-          <div className="text-md mt-4 text-center font-bold text-accent3-500">
+          <div className="text-md text-accent3-500 mt-4 text-center font-bold">
             No armor suggestions found for the selected weight class.
           </div>
         </div>
@@ -233,7 +233,7 @@ export function ArmorSuggestionDialog({
               {armorSuggestions
                 .slice(
                   (currentPage - 1) * ITEMS_PER_PAGE,
-                  currentPage * ITEMS_PER_PAGE,
+                  currentPage * ITEMS_PER_PAGE
                 )
                 .map((suggestion, index) => (
                   <div

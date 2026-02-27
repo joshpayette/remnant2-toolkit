@@ -1,7 +1,7 @@
 import { BaseLink, Skeleton } from '@/ui';
 import { Suspense } from 'react';
 
-import { PageHeader } from '@/app/_components/page-header';
+import { PageHeader } from '@/components/page-header';
 import { WorldSaveFilters } from '@/app/(enemies)/world-save-archive/_components/world-save-filters';
 import { WorldSaves } from '@/app/(enemies)/world-save-archive/_components/world-saves';
 import { worldSaves } from '@/app/(enemies)/world-save-archive/_constants/world-saves';
@@ -19,7 +19,7 @@ export default function Page() {
           own world saves, and how to install the world saves provided by the
           Remnant 2 Toolkit.{' '}
         </p>
-        <p className="text-md mb-2 text-accent3-500">
+        <p className="text-md text-accent3-500 mb-2">
           It is possible to lose your Cass inventory and other progress. While
           restoring a backup save should fix this, at least one user stated it
           did not.

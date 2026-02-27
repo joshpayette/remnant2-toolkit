@@ -2,7 +2,7 @@ import { DISCORD_INVITE_URL } from '@/lib/constants';
 import { BaseText, BaseTextLink } from '@/ui';
 import { type Metadata } from 'next';
 
-import { PageHeader } from '@/app/_components/page-header';
+import { PageHeader } from '@/components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { BuildFeedPageFooter } from '@/app/(builds)/_components/build-feed-page-footer';

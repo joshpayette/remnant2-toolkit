@@ -17,7 +17,7 @@ import { useMemo, useState } from 'react';
 import {
   ReleasesFilter,
   VALID_RELEASE_KEYS,
-} from '@/app/_components/releases-filter';
+} from '@/components/releases-filter';
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 import { BossAffixFilter } from '@/app/(enemies)/world-save-archive/_components/boss-affix-filter';
 import { BossNameFilter } from '@/app/(enemies)/world-save-archive/_components/boss-name-filter';
@@ -71,7 +71,7 @@ export function WorldSaveFilters() {
     // Add the releases filter
     if (!filtersToApply.releases.some((i) => i === DEFAULT_FILTER)) {
       url += `${WORLD_SAVE_FILTER_KEYS.RELEASES}=${filtersToApply.releases.join(
-        ',',
+        ','
       )}&`;
     }
 
@@ -171,7 +171,7 @@ export function WorldSaveFilters() {
             className={cn(
               'border-primary-500 mt-2 w-full border bg-gray-950 p-4',
               areAnyFiltersActive &&
-                'border-accent1-300 shadow-accent1-600 shadow-xl',
+                'border-accent1-300 shadow-accent1-600 shadow-xl'
             )}
           >
             <BaseFieldset>

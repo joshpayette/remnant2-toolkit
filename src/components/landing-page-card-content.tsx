@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from '@/ui';
+import { ArrowRightIcon } from '@/ui/common/icons/arrow-right';
 
 export function LandingPageCardContent({
   icon,

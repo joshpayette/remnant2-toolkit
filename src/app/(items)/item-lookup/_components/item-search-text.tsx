@@ -1,9 +1,14 @@
 'use client';
 
 import { Combobox } from '@headlessui/react';
-import { ArrowUpDownIcon, BaseInput, CheckIcon, cn, Skeleton } from '@/ui';
 import React, { useEffect, useState } from 'react';
 import { useIsClient, useMediaQuery } from 'usehooks-ts';
+
+import { BaseInput } from '@/ui/base/input';
+import { ArrowUpDownIcon } from '@/ui/common/icons/arrow-up-down';
+import { CheckIcon } from '@/ui/common/icons/check';
+import { Skeleton } from '@/ui/common/skeleton';
+import { cn } from '@/utils/classnames';
 
 type Item = {
   id: string;
@@ -33,7 +38,7 @@ export function ItemSearchText({
       : {
           id: '',
           name: value,
-        },
+        }
   );
 
   useEffect(() => {
@@ -45,7 +50,7 @@ export function ItemSearchText({
     value === ''
       ? items
       : items.filter((item) =>
-          item.name.toLowerCase().includes(value.toLowerCase()),
+          item.name.toLowerCase().includes(value.toLowerCase())
         );
 
   const isClient = useIsClient();
@@ -74,7 +79,7 @@ export function ItemSearchText({
       <Combobox.Label
         className={cn(
           'text-primary-500 block text-sm font-bold leading-6',
-          showLabel && 'sr-only',
+          showLabel && 'sr-only'
         )}
       >
         Search Text
@@ -104,7 +109,7 @@ export function ItemSearchText({
                   'relative cursor-default select-none py-2 pl-3 pr-9',
                   active
                     ? 'bg-secondary-600 text-surface-solid'
-                    : 'text-gray-300',
+                    : 'text-gray-300'
                 )
               }
             >
@@ -121,7 +126,7 @@ export function ItemSearchText({
                   'relative cursor-default select-none py-2 pl-3 pr-9',
                   active
                     ? 'bg-secondary-600 text-surface-solid'
-                    : 'text-gray-300',
+                    : 'text-gray-300'
                 )
               }
             >
@@ -130,7 +135,7 @@ export function ItemSearchText({
                   <span
                     className={cn(
                       'block truncate',
-                      selected && 'font-semibold',
+                      selected && 'font-semibold'
                     )}
                   >
                     {item.name}
@@ -140,7 +145,7 @@ export function ItemSearchText({
                     <span
                       className={cn(
                         'absolute inset-y-0 right-0 flex items-center pr-4',
-                        active ? 'text-surface-solid' : 'text-secondary-600',
+                        active ? 'text-surface-solid' : 'text-secondary-600'
                       )}
                     >
                       <CheckIcon className="h-5 w-5" aria-hidden="true" />

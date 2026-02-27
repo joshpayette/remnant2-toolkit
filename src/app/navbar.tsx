@@ -1,19 +1,17 @@
 'use client';
 
 import { Menu, Transition } from '@headlessui/react';
-import {
-  BaseLink,
-  ChevronDownIcon,
-  cn,
-  Logo,
-  NavbarContainer,
-  ZINDEXES,
-} from '@/ui';
 import { useSession } from 'next-auth/react';
 import { Fragment } from 'react';
 
-import { ProfileButton } from '@/app/_components/profile-button';
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
+import { ProfileButton } from '@/components/profile-button';
+import { BaseLink } from '@/ui/base/link';
+import { ChevronDownIcon } from '@/ui/common/icons/chevron-down';
+import { Logo } from '@/ui/common/logo';
+import { NavbarContainer } from '@/ui/common/navbar-container';
+import { ZINDEXES } from '@/ui/common/z-indexes';
+import { cn } from '@/utils/classnames';
 
 export function Navbar({ showNotifications }: { showNotifications: boolean }) {
   const { status } = useSession();
@@ -51,7 +49,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
               <Menu.Items
                 className={cn(
                   'bg-background-solid absolute left-0 mt-2 w-[290px] origin-top-left rounded-md p-2 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none',
-                  ZINDEXES.NAVBAR_MENU_ITEMS,
+                  ZINDEXES.NAVBAR_MENU_ITEMS
                 )}
               >
                 <Menu.Item>
@@ -64,7 +62,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                       }
                       className={cn(
                         active ? 'bg-gray-800' : '',
-                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
+                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold'
                       )}
                     >
                       <div className="mr-4 w-[20px]">
@@ -85,7 +83,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                       href={NAV_ITEMS.featuredBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
-                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
+                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold'
                       )}
                     >
                       <div className="mr-4 w-[20px]">
@@ -106,7 +104,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                       href={NAV_ITEMS.communityBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
-                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
+                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold'
                       )}
                     >
                       <div className="mr-4 w-[20px]">
@@ -127,7 +125,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                       href={NAV_ITEMS.gimmickBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
-                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
+                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold'
                       )}
                     >
                       <div className="mr-4 w-[20px]">
@@ -148,7 +146,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                       href={NAV_ITEMS.baseGameBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
-                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
+                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold'
                       )}
                     >
                       <div className="mr-4 w-[20px]">
@@ -169,7 +167,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                       href={NAV_ITEMS.beginnerBuilds.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
-                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
+                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold'
                       )}
                     >
                       <div className="mr-4 w-[20px]">
@@ -190,7 +188,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
                       href={NAV_ITEMS.randomBuild.href}
                       className={cn(
                         active ? 'bg-gray-800' : '',
-                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold',
+                        'text-surface-solid flex w-full flex-row items-start justify-start p-2 text-sm font-semibold'
                       )}
                     >
                       <div className="mr-4 w-[20px]">
@@ -211,7 +209,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           <BaseLink
             href={NAV_ITEMS.itemLookup.href}
             className={cn(
-              'text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start text-sm font-semibold',
+              'text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start text-sm font-semibold'
             )}
           >
             {NAV_ITEMS.itemLookup.label}
@@ -219,7 +217,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           <BaseLink
             href={NAV_ITEMS.itemTracker.href}
             className={cn(
-              'text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start text-sm font-semibold',
+              'text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start text-sm font-semibold'
             )}
           >
             {NAV_ITEMS.itemTracker.label}
@@ -227,7 +225,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           <BaseLink
             href={NAV_ITEMS.itemQuiz.href}
             className={cn(
-              'text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start text-sm font-semibold',
+              'text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start text-sm font-semibold'
             )}
           >
             {NAV_ITEMS.itemQuiz.label}
@@ -235,7 +233,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           <BaseLink
             href={NAV_ITEMS.resources.href}
             className={cn(
-              'text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start text-sm font-semibold',
+              'text-surface-solid hover:text-primary-500 flex flex-row items-center justify-start text-sm font-semibold'
             )}
           >
             {NAV_ITEMS.resources.label}
@@ -243,7 +241,7 @@ export function Navbar({ showNotifications }: { showNotifications: boolean }) {
           <BaseLink
             href={NAV_ITEMS.supportR2TK.href}
             className={cn(
-              'text-accent1-500 hover:text-accent1-300 flex flex-row items-center justify-start text-sm font-semibold',
+              'text-accent1-500 hover:text-accent1-300 flex flex-row items-center justify-start text-sm font-semibold'
             )}
           >
             {NAV_ITEMS.supportR2TK.label}

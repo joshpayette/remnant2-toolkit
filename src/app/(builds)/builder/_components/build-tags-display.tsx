@@ -1,7 +1,5 @@
 'use client';
 
-import { type BuildTags } from '@/prisma';
-import { BaseButton, BaseFieldset, BaseLabel, cn } from '@/ui';
 import { useState } from 'react';
 
 import { ALL_BUILD_TAGS } from '@/app/(builds)/_constants/all-build-tags';
@@ -10,6 +8,10 @@ import { isBuildBaseGameBuild } from '@/app/(builds)/_libs/is-build-base-game-bu
 import type { BuildState } from '@/app/(builds)/_types/build-state';
 import { type BuildTag } from '@/app/(builds)/_types/build-tag';
 import { BaseGameBuildCheckDialog } from '@/app/(builds)/builder/_components/base-game-build-check-dialog';
+import { type BuildTags } from '@/prisma';
+import { BaseButton } from '@/ui/base/button';
+import { BaseFieldset, BaseLabel } from '@/ui/base/fieldset';
+import { cn } from '@/utils/classnames';
 
 import { BuildTagItem } from './build-tag-item';
 

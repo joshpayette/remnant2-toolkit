@@ -1,7 +1,7 @@
-import { getImageUrl } from '@/ui';
 import Image from 'next/image';
 
 import { type ArmorItem } from '@/app/(items)/_types/armor-item';
+import { getImageUrl } from '@/utils/get-image-url';
 
 interface Props {
   item: ArmorItem;
@@ -9,7 +9,7 @@ interface Props {
 
 export function ArmorInfo({ item }: Props) {
   return (
-    <div className="flex w-full flex-grow flex-col justify-center">
+    <div className="flex w-full grow flex-col justify-center">
       <div className="flex w-full flex-row items-center justify-center">
         <div className="flex w-full flex-col items-start justify-start">
           <div className=" grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">

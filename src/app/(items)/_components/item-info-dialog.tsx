@@ -1,20 +1,7 @@
-import {
-  BaseButton,
-  BaseDialog,
-  BaseDialogBody,
-  BaseDialogDescription,
-  BaseDialogTitle,
-  BaseLink,
-  BaseTextLink,
-  cn,
-  getImageUrl,
-} from '@/ui';
-import { capitalize } from '@/utils';
 import copy from 'clipboard-copy';
 import Image from 'next/image';
 import { toast } from 'react-toastify';
 
-import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
 import { RELEASE_TO_NAME } from '@/app/_constants/releases';
 import { ArmorInfo } from '@/app/(items)/_components/armor-info';
 import { WeaponInfo } from '@/app/(items)/_components/weapon-info';
@@ -33,6 +20,19 @@ import { PerkItem } from '@/app/(items)/_types/perk-item';
 import { SkillItem } from '@/app/(items)/_types/skill-item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
+import { DescriptionWithTokens } from '@/components/description-with-tokens';
+import { BaseButton } from '@/ui/base/button';
+import {
+  BaseDialog,
+  BaseDialogBody,
+  BaseDialogDescription,
+  BaseDialogTitle,
+} from '@/ui/base/dialog';
+import { BaseLink } from '@/ui/base/link';
+import { BaseTextLink } from '@/ui/base/text';
+import { capitalize } from '@/utils/capitalize';
+import { cn } from '@/utils/classnames';
+import { getImageUrl } from '@/utils/get-image-url';
 
 function generateDungeonLabel(location: ItemLocation, itemId: string) {
   let label = `${location.world} - `;

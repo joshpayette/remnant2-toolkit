@@ -1,12 +1,10 @@
+import { BaseButton } from '@/ui/base/button';
 import {
-  BaseButton,
   BaseCheckbox,
   BaseCheckboxField,
   BaseCheckboxGroup,
-  BaseFieldset,
-  BaseLabel,
-  BaseLegend,
-} from '@/ui';
+} from '@/ui/base/checkbox';
+import { BaseFieldset, BaseLabel, BaseLegend } from '@/ui/base/fieldset';
 
 export const VALID_DISCOVERED_FILTERS = ['Discovered', 'Undiscovered'];
 

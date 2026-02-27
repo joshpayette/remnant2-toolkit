@@ -1,7 +1,7 @@
 import { type ReadonlyURLSearchParams } from 'next/navigation';
 
-import { VALID_DISCOVERED_FILTERS } from '@/app/_components/discovered-filter';
-import { VALID_RELEASE_KEYS } from '@/app/_components/releases-filter';
+import { VALID_DISCOVERED_FILTERS } from '@/components/discovered-filter';
+import { VALID_RELEASE_KEYS } from '@/components/releases-filter';
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 import type { ReleaseKey } from '@/app/_types/releases';
 import {
@@ -18,7 +18,7 @@ import {
 import { VALID_ITEM_CATEGORIES } from '@/app/(items)/item-tracker/_constants/valid-item-categories';
 
 export function parseUrlFilters(
-  searchParams: ReadonlyURLSearchParams,
+  searchParams: ReadonlyURLSearchParams
 ): ItemTrackerFilters {
   const parsedParams = new URLSearchParams(searchParams);
 
@@ -30,7 +30,7 @@ export function parseUrlFilters(
   // Else ensure that the categories provided are valid
   if (categories.length > 0) {
     categories = categories.filter((category) =>
-      (VALID_ITEM_CATEGORIES as string[]).includes(category),
+      (VALID_ITEM_CATEGORIES as string[]).includes(category)
     );
   }
 
@@ -43,7 +43,7 @@ export function parseUrlFilters(
     collections = VALID_DISCOVERED_FILTERS;
   } else {
     collections = collections.filter((collection) =>
-      VALID_DISCOVERED_FILTERS.includes(collection),
+      VALID_DISCOVERED_FILTERS.includes(collection)
     );
     // If no collections, set to default
     if (collections.length === 0) {
@@ -59,7 +59,7 @@ export function parseUrlFilters(
     releases = VALID_RELEASE_KEYS;
   } else {
     releases = releases.filter((release) =>
-      VALID_RELEASE_KEYS.includes(release as ReleaseKey),
+      VALID_RELEASE_KEYS.includes(release as ReleaseKey)
     );
     // If no releases, set to default
     if (releases.length === 0) {

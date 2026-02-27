@@ -1,7 +1,5 @@
 'use client';
 
-import { cn, Tooltip } from '@/ui';
-import { stripUnicode } from '@/utils';
 import { type ReactNode, useState } from 'react';
 import reactStringReplace from 'react-string-replace';
 import { v4 as uuidv4 } from 'uuid';
@@ -12,6 +10,9 @@ import { allItems } from '@/app/(items)/_constants/all-items';
 import { type Item } from '@/app/(items)/_types/item';
 import { EXTERNAL_TOKENS } from '@/app/(items)/item-lookup/_constants/external-tokens';
 import { INLINE_TOKENS } from '@/app/(items)/item-lookup/_constants/inline-tokens';
+import { Tooltip } from '@/ui/common/tooltip';
+import { cn } from '@/utils/classnames';
+import { stripUnicode } from '@/utils/strip-unicode';
 
 // Start with all description tokens, which are always included
 const ALL_DESCRIPTION_TOKENS: string[] = [

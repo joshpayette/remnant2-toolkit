@@ -1,37 +1,34 @@
+import RemnantOverseerIcon from '@/components/remnant-overseer-icon';
+import VashIcon from '@/components/vash-icon';
+import WikiIcon from '@/components/wiki-icon';
 import { CHANGELOG_URL, DISCORD_INVITE_URL } from '@/lib/constants';
-import {
-  ArmorGeneratorIcon,
-  BaseGameBuildsIcon,
-  BeginnerBuildsIcon,
-  BossIcon,
-  ChangeLogIcon,
-  CollectionIcon,
-  CommunityBuildsIcon,
-  CreateBuildIcon,
-  DiscordIcon,
-  FAQIcon,
-  FavoriteIcon,
-  FeaturedBuildsIcon,
-  GimmickBuildsIcon,
-  HardcoreIcon,
-  ItemLookupIcon,
-  ItemTrackerIcon,
-  LoadoutIcon,
-  ModdingIcon,
-  MyBuildsIcon,
-  ProfileIcon,
-  QuizIcon,
-  RandomIcon,
-  ResourcesIcon,
-  SignInIcon,
-  SignOutIcon,
-  SupportIcon,
-  WorldSaveIcon,
-} from '@/ui';
-
-import RemnantOverseerIcon from '@/app/_components/remnant-overseer-icon';
-import VashIcon from '@/app/_components/vash-icon';
-import WikiIcon from '@/app/_components/wiki-icon';
+import { ArmorGeneratorIcon } from '@/ui/common/icons/armor-generator';
+import { BaseGameBuildsIcon } from '@/ui/common/icons/base-game-builds';
+import { BeginnerBuildsIcon } from '@/ui/common/icons/beginner-builds';
+import { BossIcon } from '@/ui/common/icons/boss';
+import { ChangeLogIcon } from '@/ui/common/icons/change-log';
+import { CollectionIcon } from '@/ui/common/icons/collection';
+import { CommunityBuildsIcon } from '@/ui/common/icons/community-builds';
+import { CreateBuildIcon } from '@/ui/common/icons/create-build';
+import { DiscordIcon } from '@/ui/common/icons/discord';
+import { FAQIcon } from '@/ui/common/icons/faq';
+import { FavoriteIcon } from '@/ui/common/icons/favorite';
+import { FeaturedBuildsIcon } from '@/ui/common/icons/featured-builds';
+import { GimmickBuildsIcon } from '@/ui/common/icons/gimmick-builds';
+import { HardcoreIcon } from '@/ui/common/icons/hardcore';
+import { ItemLookupIcon } from '@/ui/common/icons/item-lookup';
+import { ItemTrackerIcon } from '@/ui/common/icons/item-tracker';
+import { LoadoutIcon } from '@/ui/common/icons/loadout';
+import { ModdingIcon } from '@/ui/common/icons/modding';
+import { MyBuildsIcon } from '@/ui/common/icons/my-builds';
+import { ProfileIcon } from '@/ui/common/icons/profile';
+import { QuizIcon } from '@/ui/common/icons/quiz';
+import { RandomIcon } from '@/ui/common/icons/random';
+import { ResourcesIcon } from '@/ui/common/icons/resources';
+import { SignInIcon } from '@/ui/common/icons/sign-in';
+import { SignOutIcon } from '@/ui/common/icons/sign-out';
+import { SupportIcon } from '@/ui/common/icons/support';
+import { WorldSaveIcon } from '@/ui/common/icons/world-save';
 
 /**
  * The base pages for the site

@@ -2,7 +2,7 @@
 
 import { BaseLink, cn, Skeleton } from '@/ui';
 
-import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
+import { DescriptionWithTokens } from '@/components/description-with-tokens';
 import { type LinkedBuildState } from '@/app/(builds)/builder/(deprecated)/linked/[linkedBuildId]/types';
 
 interface Props {
@@ -27,7 +27,7 @@ export function LinkedBuildCard({
       ) : (
         <div
           className={cn(
-            'border-secondary-500 bg-background-solid relative col-span-1 flex h-full flex-col rounded-lg border shadow',
+            'border-secondary-500 bg-background-solid relative col-span-1 flex h-full flex-col rounded-lg border shadow'
           )}
         >
           <div className="flex w-full flex-1 items-start justify-start p-4 pb-0">

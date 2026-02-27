@@ -1,6 +1,6 @@
 import { type Metadata } from 'next';
 
-import { PageHeader } from '@/app/_components/page-header';
+import { PageHeader } from '@/components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
 

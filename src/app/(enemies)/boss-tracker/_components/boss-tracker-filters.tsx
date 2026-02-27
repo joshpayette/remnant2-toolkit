@@ -12,7 +12,7 @@ import isEqual from 'lodash.isequal';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
 
-import { InputWithClear } from '@/app/_components/input-with-clear';
+import { InputWithClear } from '@/components/input-with-clear';
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 import { CategoriesFilter } from '@/app/(enemies)/boss-tracker/_components/categories-filter';
 import {
@@ -53,7 +53,7 @@ export function BossTrackerFilters() {
     // Add the categories filter
     if (!filtersToApply.categories.some((i) => i === DEFAULT_FILTER)) {
       url += `${BOSS_TRACKER_KEYS.CATEGORIES}=${filtersToApply.categories.join(
-        ',',
+        ','
       )}&`;
     }
 
@@ -155,7 +155,7 @@ export function BossTrackerFilters() {
             className={cn(
               'border-primary-500 mt-2 w-full border bg-gray-950 p-4',
               areAnyFiltersActive &&
-                'border-accent1-300 shadow-accent1-600 shadow-xl',
+                'border-accent1-300 shadow-accent1-600 shadow-xl'
             )}
           >
             <BaseFieldset>

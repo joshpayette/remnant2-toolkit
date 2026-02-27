@@ -1,9 +1,9 @@
-import { getImageUrl, Tooltip } from '@/ui';
-
 import {
   POPULAR_VOTE_THRESHOLD1,
   POPULAR_VOTE_THRESHOLD2,
 } from '@/app/(builds)/_constants/popular-vote-thresholds';
+import { Tooltip } from '@/ui/common/tooltip';
+import { getImageUrl } from '@/utils/get-image-url';
 
 export function PopularBuildBadge({ level }: { level: 1 | 2 }) {
   let src = '';

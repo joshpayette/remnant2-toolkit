@@ -15,7 +15,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { Pagination } from '@/app/_components/pagination';
+import { Pagination } from '@/components/pagination';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildList } from '@/app/(builds)/_components/build-list';
 import { type LinkedBuildState } from '@/app/(builds)/builder/(deprecated)/linked/[linkedBuildId]/types';

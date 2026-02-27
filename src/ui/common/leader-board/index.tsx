@@ -1,7 +1,9 @@
 'use client';
 
-import { getArrayOfLength } from '@/utils';
 import { useEffect, useState } from 'react';
+
+import { getArrayOfLength } from '@/utils/get-array-of-length';
+
 import { BaseLink } from '../../base/link';
 import {
   BaseTable,
@@ -96,7 +98,6 @@ export function LeaderBoard({
 
 function TopScoresSkeleton({ itemCount }: { itemCount: number }) {
   return getArrayOfLength(itemCount).map((_, index) => (
-    // eslint-disable-next-line react/no-array-index-key
     <BaseTableRow key={index}>
       <BaseTableHeader>{index + 1}</BaseTableHeader>
       <BaseTableHeader>

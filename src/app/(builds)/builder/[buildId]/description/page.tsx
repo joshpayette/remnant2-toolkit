@@ -1,4 +1,4 @@
-import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
+import { DescriptionWithTokens } from '@/components/description-with-tokens';
 import { isErrorResponse } from '@/utils/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
 import { incrementViewCount } from '@/app/(builds)/_actions/increment-view-count';

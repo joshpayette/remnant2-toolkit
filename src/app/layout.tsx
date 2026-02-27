@@ -1,14 +1,14 @@
 import './globals.css';
 
-import { GlobalActionButtons, RootLayout } from '@/ui';
 import { Analytics } from '@vercel/analytics/react';
 import { type Viewport } from 'next';
-import dynamic from 'next/dynamic';
 
-import { Footer } from '@/app/_components/footer';
 import { showNotificationsFlag } from '@/app/_constants/feature-flag';
-import { auth } from '@/lib/auth';
 import { Navbar } from '@/app/navbar';
+import { Footer } from '@/components/footer';
+import { auth } from '@/lib/auth';
+import { GlobalActionButtons } from '@/ui/common/global-action-buttons';
+import { RootLayout } from '@/ui/common/root-layout';
 
 export const viewport: Viewport = {};
 export { metadata } from './metadata';

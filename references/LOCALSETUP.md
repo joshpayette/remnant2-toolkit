@@ -61,29 +61,10 @@ Run the following command to install the dependencies for the project:
 pnpm install
 ```
 
-### Initialize the `packages/database/.env` file
+### Initialize the `.env.local` file
 
 ```bash
-cp ./packages/database/.env.example ./packages/database/.env
-```
-
-Open the `/packages/database/.env` file and set the following environment variables per the below instructions.
-
-#### `MYSQL_` Environment Variables
-
-You will need to assign a password to `MYSQL_ROOT_PASSWORD` and `MYSQL_PASSWORD`.
-Choose any values you want. These will be the root and user passwords for the database Docker creates. You can use a tool like [https://passwordsgenerator.net/](https://passwordsgenerator.net/) to generate a random string of characters.
-
-If you change these values after the first-time setup, you will need to delete the `db-1` volume in Docker Desktop and rebuild the dev environment.
-
-#### Sample `.env` file
-
-```bash
-DATABASE_URL="mysql://r2tk:{{ PASSWORD HERE }}@localhost:3306/remnant2toolkit"
-MYSQL_DATABASE="remnant2toolkit"
-MYSQL_USER="r2tk"
-MYSQL_PASSWORD="{{ PASSWORD HERE }}"
-MYSQL_ROOT_PASSWORD="{{ DIFFERENT PASSWORD HERE }}"
+cp .env.example .env.local
 ```
 
 #### `DATABASE_URL` Environment Variable
@@ -91,20 +72,8 @@ MYSQL_ROOT_PASSWORD="{{ DIFFERENT PASSWORD HERE }}"
 The `DATABASE_URL` environment variable is used by Prisma to connect to the database. There is a sample value in the `.env.example` file. You will need to replace `{{ PASSWORD HERE }}` with the value you set for `MYSQL_PASSWORD` in the previous step.
 
 ```bash
-DATABASE_URL="mysql://r2tk:password@localhost:3306/remnant2toolkit"
+DATABASE_URL="mysql://r2tk:r2tk_dev_password@localhost:3307/r2tk_db"
 ```
-
-**Use this same database URL in every other `.env` file where the `DATABASE_URL` field exists.**
-
-### Initialize the `apps/remnant2toolkit/.env` file
-
-```bash
-cp ./apps/remnant2toolkit/.env.example ./apps/remnant2toolkit/.env
-```
-
-#### `DATABASE_URL` environment variable
-
-Copy the `DATABASE_URL` value from the `packages/database/.env` file and paste it into the `apps/remnant2toolkit/.env` file.
 
 ### Allowing sign-in with Discord/Reddit
 

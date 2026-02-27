@@ -1,6 +1,6 @@
 'use client';
 
-import { ToCsvButton } from '@/app/_components/to-csv-button';
+import { ToCsvButton } from '@/components/to-csv-button';
 import { allItems } from '@/app/(items)/_constants/all-items';
 import { itemToCsvItem } from '@/app/(items)/_lib/item-to-csv-item';
 import { MutatorItem } from '@/app/(items)/_types/mutator-item';

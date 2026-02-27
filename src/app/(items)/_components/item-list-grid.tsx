@@ -1,13 +1,13 @@
 'use client';
 
-import { Skeleton } from '@/ui';
-import { getArrayOfLength } from '@/utils';
 import { useState } from 'react';
 import { useIsClient } from 'usehooks-ts';
 
 import { ItemCard } from '@/app/(items)/_components/item-card';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { type Item } from '@/app/(items)/_types/item';
+import { Skeleton } from '@/ui/common/skeleton';
+import { getArrayOfLength } from '@/utils/get-array-of-length';
 
 interface Props {
   allowItemCompare?: boolean;

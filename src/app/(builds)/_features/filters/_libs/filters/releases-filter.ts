@@ -1,7 +1,6 @@
-import type { FilterOption } from '@/ui';
-
 import { ALL_RELEASE_KEYS, RELEASE_TO_NAME } from '@/app/_constants/releases';
 import type { FilterDefinition } from '@/app/(builds)/_features/filters/_types/filter-definition';
+import type { FilterOption } from '@/ui/common/filters/filter-listbox';
 
 export const releasesFilter = {
   buildFilterKey: 'releases',

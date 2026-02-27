@@ -1,4 +1,5 @@
-import { cleanItemName, urlNoCache } from '@/utils';
+import { cleanItemName } from '@/utils/clean-item-name';
+import { urlNoCache } from '@/utils/url-no-cache';
 
 /**
  * Builds a link to the provided item's endpoint.

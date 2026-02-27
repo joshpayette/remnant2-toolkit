@@ -3,7 +3,7 @@ import { prisma } from '@/prisma';
 import { BaseText } from '@/ui';
 import { type Metadata } from 'next';
 
-import { PageHeader } from '@/app/_components/page-header';
+import { PageHeader } from '@/components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { isErrorResponse } from '@/utils/is-error-response';
 import { auth } from '@/lib/auth';

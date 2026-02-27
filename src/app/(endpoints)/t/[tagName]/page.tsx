@@ -1,6 +1,6 @@
 'use client';
 
-import { PageHeader } from '@/app/_components/page-header';
+import { PageHeader } from '@/components/page-header';
 import { ItemListGrid } from '@/app/(items)/_components/item-list-grid';
 import { type Item } from '@/app/(items)/_types/item';
 

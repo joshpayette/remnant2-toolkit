@@ -16,12 +16,12 @@ import { useMemo, useState } from 'react';
 import {
   DiscoveredFilter,
   VALID_DISCOVERED_FILTERS,
-} from '@/app/_components/discovered-filter';
-import { InputWithClear } from '@/app/_components/input-with-clear';
+} from '@/components/discovered-filter';
+import { InputWithClear } from '@/components/input-with-clear';
 import {
   ReleasesFilter,
   VALID_RELEASE_KEYS,
-} from '@/app/_components/releases-filter';
+} from '@/components/releases-filter';
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 import {
   ITEM_TRACKER_KEYS,
@@ -71,7 +71,7 @@ export function ItemTrackerFilters() {
       filtersToApply.categories.length > 0
     ) {
       url += `${ITEM_TRACKER_KEYS.CATEGORIES}=${filtersToApply.categories.join(
-        ',',
+        ','
       )}&`;
     }
 
@@ -85,7 +85,7 @@ export function ItemTrackerFilters() {
     // Add the releases filter
     if (filtersToApply.releases.length !== VALID_RELEASE_KEYS.length) {
       url += `${ITEM_TRACKER_KEYS.RELEASES}=${filtersToApply.releases.join(
-        ',',
+        ','
       )}&`;
     }
 
@@ -264,7 +264,7 @@ export function ItemTrackerFilters() {
             className={cn(
               'border-primary-500 mt-2 w-full border bg-gray-950 p-4',
               areAnyFiltersActive &&
-                'border-accent1-300 shadow-accent1-600 shadow-xl',
+                'border-accent1-300 shadow-accent1-600 shadow-xl'
             )}
           >
             <BaseFieldset>

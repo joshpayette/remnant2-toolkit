@@ -8,7 +8,7 @@ import { startTransition, useOptimistic, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useLocalStorage } from 'usehooks-ts';
 
-import { ToCsvButton } from '@/app/_components/to-csv-button';
+import { ToCsvButton } from '@/components/to-csv-button';
 import { isErrorResponse } from '@/utils/is-error-response';
 import {
   type ItemOwnershipPreference,

@@ -1,15 +1,12 @@
+import { ALL_RELEASE_KEYS, RELEASE_TO_NAME } from '@/app/_constants/releases';
+import { type ReleaseKey } from '@/app/_types/releases';
+import { BaseButton } from '@/ui/base/button';
 import {
-  BaseButton,
   BaseCheckbox,
   BaseCheckboxField,
   BaseCheckboxGroup,
-  BaseFieldset,
-  BaseLabel,
-  BaseLegend,
-} from '@/ui';
-
-import { ALL_RELEASE_KEYS, RELEASE_TO_NAME } from '@/app/_constants/releases';
-import { type ReleaseKey } from '@/app/_types/releases';
+} from '@/ui/base/checkbox';
+import { BaseFieldset, BaseLabel, BaseLegend } from '@/ui/base/fieldset';
 
 export const VALID_RELEASE_KEYS = ALL_RELEASE_KEYS;
 

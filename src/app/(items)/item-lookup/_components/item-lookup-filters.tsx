@@ -1,26 +1,10 @@
 'use client';
 
 import { Disclosure } from '@headlessui/react';
-import {
-  BaseButton,
-  BaseFieldGroup,
-  BaseFieldset,
-  cn,
-  FilterIcon,
-  TrashIcon,
-} from '@/ui';
 import isEqual from 'lodash.isequal';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useMemo, useRef, useState } from 'react';
 
-import {
-  DiscoveredFilter,
-  VALID_DISCOVERED_FILTERS,
-} from '@/app/_components/discovered-filter';
-import {
-  ReleasesFilter,
-  VALID_RELEASE_KEYS,
-} from '@/app/_components/releases-filter';
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 import { WorldFilter } from '@/app/(items)/_components/filters/world-filter';
 import { allItems } from '@/app/(items)/_constants/all-items';
@@ -33,6 +17,19 @@ import { ITEM_FILTER_KEYS } from '@/app/(items)/item-lookup/_constants/item-filt
 import { ITEM_TOKENS } from '@/app/(items)/item-lookup/_constants/item-tokens';
 import { parseUrlFilters } from '@/app/(items)/item-lookup/_lib/parse-url-filters';
 import { type ItemLookupFilters } from '@/app/(items)/item-lookup/_types/item-lookup-filters';
+import {
+  DiscoveredFilter,
+  VALID_DISCOVERED_FILTERS,
+} from '@/components/discovered-filter';
+import {
+  ReleasesFilter,
+  VALID_RELEASE_KEYS,
+} from '@/components/releases-filter';
+import { BaseButton } from '@/ui/base/button';
+import { BaseFieldGroup, BaseFieldset } from '@/ui/base/fieldset';
+import { FilterIcon } from '@/ui/common/icons/filter';
+import { TrashIcon } from '@/ui/common/icons/trash';
+import { cn } from '@/utils/classnames';
 
 import { EXTERNAL_TOKENS } from '../_constants/external-tokens';
 import { INLINE_TOKENS } from '../_constants/inline-tokens';
@@ -66,7 +63,7 @@ function buildItemSearchTextItems() {
     // remove duplicates
     items = items.filter(
       (item, index, self) =>
-        index === self.findIndex((i) => i.name === item.name),
+        index === self.findIndex((i) => i.name === item.name)
     );
 
     return items;
@@ -116,21 +113,21 @@ export function ItemLookupFilters() {
       filtersToApply.categories.length > 0
     ) {
       url += `${ITEM_FILTER_KEYS.CATEGORIES}=${filtersToApply.categories.join(
-        ',',
+        ','
       )}&`;
     }
 
     // Add the collections filter
     if (filtersToApply.collections.length !== VALID_DISCOVERED_FILTERS.length) {
       url += `${ITEM_FILTER_KEYS.COLLECTIONS}=${filtersToApply.collections.join(
-        ',',
+        ','
       )}&`;
     }
 
     // Add the releases filter
     if (filtersToApply.releases.length !== VALID_RELEASE_KEYS.length) {
       url += `${ITEM_FILTER_KEYS.RELEASES}=${filtersToApply.releases.join(
-        ',',
+        ','
       )}&`;
     }
 
@@ -317,7 +314,7 @@ export function ItemLookupFilters() {
               className={cn(
                 'border-primary-500 mt-2 w-full border bg-gray-950 p-4',
                 areAnyFiltersActive &&
-                  'border-accent1-300 shadow-accent1-600 shadow-xl',
+                  'border-accent1-300 shadow-accent1-600 shadow-xl'
               )}
             >
               <BaseFieldset>

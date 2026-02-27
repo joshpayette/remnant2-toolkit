@@ -1,6 +1,5 @@
 'use client';
 
-import { cn } from '@/ui';
 import { useState } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
 
@@ -12,16 +11,17 @@ import { ItemCard } from '@/app/(items)/_components/item-card';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { allItems } from '@/app/(items)/_constants/all-items';
 import { type Item } from '@/app/(items)/_types/item';
+import { cn } from '@/utils/classnames';
 
 export function ItemCompareList() {
   const [itemsToCompare, _setItemsToCompare] = useLocalStorage<string[]>(
     LOCALSTORAGE_KEY.ITEM_COMPARE,
     DEFAULT_ITEM_COMPARE_LIST,
-    { initializeWithValue: false },
+    { initializeWithValue: false }
   );
 
   const areAnyItemsBeingCompared = itemsToCompare.some(
-    (itemId) => itemId !== '',
+    (itemId) => itemId !== ''
   );
 
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
@@ -76,7 +76,7 @@ function EmptyItemCard() {
   return (
     <div
       className={cn(
-        'bg-background-solid col-span-1 flex h-full min-h-[300px] flex-col items-center justify-start rounded-lg border-4 border-dashed border-gray-500 text-center shadow',
+        'bg-background-solid col-span-1 flex h-full min-h-[300px] flex-col items-center justify-start rounded-lg border-4 border-dashed border-gray-500 text-center shadow'
       )}
     >
       <p className="mt-8 p-4 text-2xl font-semibold text-gray-700">

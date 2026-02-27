@@ -1,7 +1,7 @@
 import { Skeleton } from '@/ui';
 import { Suspense } from 'react';
 
-import { PageHeader } from '@/app/_components/page-header';
+import { PageHeader } from '@/components/page-header';
 import { BossList } from '@/app/(enemies)/boss-tracker/_components/boss-list';
 import { BossTrackerFilters } from '@/app/(enemies)/boss-tracker/_components/boss-tracker-filters';
 

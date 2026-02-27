@@ -1,10 +1,9 @@
 'use server';
 
-import { BaseLink } from '@/ui';
-
-import { NAV_ITEMS } from '../_constants/nav-items';
-import { getTotalBuildCount } from '../(builds)/_actions/get-total-build-count';
+import { NAV_ITEMS } from '@/app/_constants/nav-items';
+import { getTotalBuildCount } from '@/app/(builds)/_actions/get-total-build-count';
 import { auth } from '@/lib/auth';
+import { BaseLink } from '@/ui/base/link';
 
 export async function LandingPageHeaderDescription() {
   const session = await auth();

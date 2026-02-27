@@ -1,14 +1,13 @@
+import { isBuildBaseGameBuild } from '@/app/(builds)/_libs/is-build-base-game-build';
+import type { BuildState } from '@/app/(builds)/_types/build-state';
+import { BaseButton } from '@/ui/base/button';
 import {
-  BaseButton,
   BaseDialog,
   BaseDialogActions,
   BaseDialogBody,
   BaseDialogTitle,
-  BaseText,
-} from '@/ui';
-
-import { isBuildBaseGameBuild } from '@/app/(builds)/_libs/is-build-base-game-build';
-import type { BuildState } from '@/app/(builds)/_types/build-state';
+} from '@/ui/base/dialog';
+import { BaseText } from '@/ui/base/text';
 
 interface Props {
   buildState: BuildState;

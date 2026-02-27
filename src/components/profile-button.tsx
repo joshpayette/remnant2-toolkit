@@ -1,14 +1,17 @@
 'use client';
 
 import { Menu, Transition } from '@headlessui/react';
-import { BaseLink, cn, getImageUrl } from '@/ui';
 import { useSession } from 'next-auth/react';
 import { Fragment, useEffect, useState } from 'react';
 
-import { PlaceHolderIcon } from '@/app/_components/placeholder-icon';
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { getAvatarId } from '@/app/(user)/profile/_actions/get-avatar-id';
 import { getAvatarById } from '@/app/(user)/profile/_lib/get-avatar-by-id';
+import { PlaceHolderIcon } from '@/components/placeholder-icon';
+import { BaseLink } from '@/ui/base/link';
+import { cn } from '@/utils/classnames';
+import { getImageUrl } from '@/utils/get-image-url';
+import { urlNoCache } from '@/utils/url-no-cache';
 
 function ProfileButtonComponent({
   variant,
@@ -18,7 +21,7 @@ function ProfileButtonComponent({
   const { data: session, status } = useSession();
 
   const [profileImage, setProfileImage] = useState<string | undefined>(
-    session?.user?.image ?? undefined,
+    session?.user?.image ?? undefined
   );
 
   useEffect(() => {
@@ -37,7 +40,7 @@ function ProfileButtonComponent({
       <div className="space-y-2">
         {session?.user?.id ? (
           <BaseLink
-            href={`/profile/${session?.user?.id}?t=${Date.now()}`}
+            href={urlNoCache(`/profile/${session?.user?.id}`)}
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.profile.icon
@@ -56,8 +59,7 @@ function ProfileButtonComponent({
 
         {session?.user?.id ? (
           <BaseLink
-            href={`/profile/${session?.user
-              ?.id}/created-builds?t=${Date.now()}`}
+            href={urlNoCache(`/profile/${session?.user?.id}/created-builds`)}
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.myBuilds.icon
@@ -76,8 +78,7 @@ function ProfileButtonComponent({
 
         {session?.user?.id ? (
           <BaseLink
-            href={`/profile/${session?.user
-              ?.id}/favorited-builds?t=${Date.now()}`}
+            href={urlNoCache(`/profile/${session?.user?.id}/favorited-builds`)}
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.favoritedBuilds.icon
@@ -96,7 +97,7 @@ function ProfileButtonComponent({
 
         {session?.user?.id ? (
           <BaseLink
-            href={`/profile/${session?.user?.id}/collections?t=${Date.now()}`}
+            href={urlNoCache(`/profile/${session?.user?.id}/collections`)}
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.collections.icon
@@ -115,7 +116,7 @@ function ProfileButtonComponent({
 
         {session?.user?.id ? (
           <BaseLink
-            href={`/profile/${session?.user?.id}/loadouts?t=${Date.now()}`}
+            href={urlNoCache(`/profile/${session?.user?.id}/loadouts`)}
             className="flex flex-row items-center justify-start"
           >
             <NAV_ITEMS.loadouts.icon
@@ -180,7 +181,7 @@ function ProfileButtonComponent({
     <BaseLink
       href={NAV_ITEMS.signin.href}
       className={cn(
-        'bg-secondary-700 text-surface-solid hover:bg-secondary-500 hidden flex-row items-center justify-start rounded-lg p-2 text-xs font-semibold lg:flex',
+        'bg-secondary-700 text-surface-solid hover:bg-secondary-500 hidden flex-row items-center justify-start rounded-lg p-2 text-xs font-semibold lg:flex'
       )}
     >
       {NAV_ITEMS.signin.label}
@@ -213,17 +214,17 @@ function ProfileButtonComponent({
       >
         <Menu.Items
           className={cn(
-            'bg-background-solid absolute right-0 mt-2 w-48 origin-top-right rounded-md py-1 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none',
+            'bg-background-solid absolute right-0 mt-2 w-48 origin-top-right rounded-md py-1 shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none'
           )}
         >
           {session?.user?.id ? (
             <Menu.Item>
               {({ active }) => (
                 <BaseLink
-                  href={`/profile/${session?.user?.id}?t=${Date.now()}`}
+                  href={urlNoCache(`/profile/${session?.user?.id}`)}
                   className={cn(
                     active ? 'bg-gray-800' : '',
-                    'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
+                    'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300'
                   )}
                 >
                   <NAV_ITEMS.profile.icon className="text-primary-600 mr-1 h-4 w-4" />
@@ -239,7 +240,7 @@ function ProfileButtonComponent({
                   href={`/profile/${session?.user?.id}/created-builds`}
                   className={cn(
                     active ? 'bg-gray-800' : '',
-                    'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
+                    'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300'
                   )}
                 >
                   <NAV_ITEMS.myBuilds.icon className="text-primary-600 mr-1 h-4 w-4" />
@@ -252,11 +253,12 @@ function ProfileButtonComponent({
             <Menu.Item>
               {({ active }) => (
                 <BaseLink
-                  href={`/profile/${session?.user
-                    ?.id}/favorited-builds?t=${Date.now()}`}
+                  href={urlNoCache(
+                    `/profile/${session?.user?.id}/favorited-builds`
+                  )}
                   className={cn(
                     active ? 'bg-gray-800' : '',
-                    'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300',
+                    'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300'
                   )}
                 >
                   <NAV_ITEMS.favoritedBuilds.icon className="text-primary-600 mr-1 h-4 w-4" />
@@ -270,11 +272,10 @@ function ProfileButtonComponent({
             <Menu.Item>
               {({ active }) => (
                 <BaseLink
-                  href={`/profile/${session?.user
-                    ?.id}/collections?t=${Date.now()}`}
+                  href={urlNoCache(`/profile/${session?.user?.id}/collections`)}
                   className={cn(
                     active ? 'bg-gray-800' : '',
-                    'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300',
+                    'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300'
                   )}
                 >
                   <NAV_ITEMS.collections.icon className="text-primary-600 mr-1 h-4 w-4" />
@@ -288,11 +289,10 @@ function ProfileButtonComponent({
             <Menu.Item>
               {({ active }) => (
                 <BaseLink
-                  href={`/profile/${session?.user
-                    ?.id}/loadouts?t=${Date.now()}`}
+                  href={urlNoCache(`/profile/${session?.user?.id}/loadouts`)}
                   className={cn(
                     active ? 'bg-gray-800' : '',
-                    'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300',
+                    'flex flex-row items-center justify-start  px-4 py-2 text-sm text-gray-300'
                   )}
                 >
                   <NAV_ITEMS.loadouts.icon className="text-primary-600 mr-1 h-4 w-4" />
@@ -307,7 +307,7 @@ function ProfileButtonComponent({
                 href={NAV_ITEMS.signout.href}
                 className={cn(
                   active ? 'bg-gray-800' : '',
-                  'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300',
+                  'flex flex-row items-center justify-start px-4 py-2 text-sm text-gray-300'
                 )}
               >
                 <NAV_ITEMS.signout.icon className="text-primary-600 mr-1 h-4 w-4" />

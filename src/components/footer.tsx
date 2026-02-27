@@ -1,9 +1,11 @@
-import { DISCORD_INVITE_URL } from '@/lib/constants';
-import { cn, FooterContainer, getImageUrl } from '@/ui';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
+import { DISCORD_INVITE_URL } from '@/lib/constants';
+import { FooterContainer } from '@/ui/common/footer-container';
+import { cn } from '@/utils/classnames';
+import { getImageUrl } from '@/utils/get-image-url';
 
 const aClass = 'text-gray-300 hover:text-primary-400 underline';
 

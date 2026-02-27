@@ -1,6 +1,5 @@
-import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@/ui';
-
 import { QualityBuildConditions } from '@/app/(builds)/_components/quality-build-conditions';
+import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@/ui/base/dialog';
 
 interface Props {
   open: boolean;

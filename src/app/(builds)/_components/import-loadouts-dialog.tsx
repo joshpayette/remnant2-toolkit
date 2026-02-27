@@ -16,8 +16,8 @@ import {
 import { getArrayOfLength } from '@/utils';
 import React from 'react';
 
-import { ImportSaveSubmitButton } from '@/app/_components/import-save-submit-button';
-import LocatingProfileSav from '@/app/_components/locating-profile-sav';
+import { ImportSaveSubmitButton } from '@/components/import-save-submit-button';
+import LocatingProfileSav from '@/components/locating-profile-sav';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 
 interface Props {

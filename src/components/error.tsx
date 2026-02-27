@@ -1,9 +1,9 @@
 'use client';
 
-import { BaseButton } from '@/ui';
 import { useEffect } from 'react';
 
-import { PageHeader } from '@/app/_components/page-header';
+import { PageHeader } from '@/components/page-header';
+import { BaseButton } from '@/ui/base/button';
 
 export function Error({
   error,

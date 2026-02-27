@@ -1,12 +1,11 @@
-import { cn } from '@/ui';
-
 import { ARCHETYPE_COLORS } from '@/app/_constants/archetype-colors';
+import { cn } from '@/utils/classnames';
 
 export function ArchetypeLabel({ name }: { name: string }) {
   return (
     <span
       className={cn(
-        'text-md inline-flex flex-shrink-0 items-center justify-center rounded-md px-2 py-1 font-medium',
+        'text-md inline-flex shrink-0 items-center justify-center rounded-md px-2 py-1 font-medium',
         name.toLowerCase() === 'alchemist' &&
           `${ARCHETYPE_COLORS.ALCHEMIST.bg} ${ARCHETYPE_COLORS.ALCHEMIST.text}`,
         name.toLowerCase() === 'archon' &&
@@ -34,7 +33,7 @@ export function ArchetypeLabel({ name }: { name: string }) {
         name.toLowerCase() === 'ritualist' &&
           `${ARCHETYPE_COLORS.RITUALIST.bg} ${ARCHETYPE_COLORS.RITUALIST.text}`,
         name.toLowerCase() === 'warden' &&
-          `${ARCHETYPE_COLORS.WARDEN.bg} ${ARCHETYPE_COLORS.WARDEN.text}`,
+          `${ARCHETYPE_COLORS.WARDEN.bg} ${ARCHETYPE_COLORS.WARDEN.text}`
       )}
     >
       {name}

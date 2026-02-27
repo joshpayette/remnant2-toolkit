@@ -1,6 +1,5 @@
-import { cn } from '@/ui';
-
 import { type BuildTag } from '@/app/(builds)/_types/build-tag';
+import { cn } from '@/utils/classnames';
 
 function itemClasses({
   tag,
@@ -15,7 +14,7 @@ function itemClasses({
     'inline-flex items-center rounded-md bg-gray-400/10 px-2 py-1 text-xs font-medium text-gray-400',
     isEditable && !isActive && 'hover:bg-gray-400/20',
     isActive && `${tag.colors.text} ${tag.colors.bg}`,
-    isActive && isEditable && `${tag.colors.hover}`,
+    isActive && isEditable && `${tag.colors.hover}`
   );
 }
 

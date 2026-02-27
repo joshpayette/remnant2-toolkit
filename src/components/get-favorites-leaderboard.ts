@@ -1,8 +1,8 @@
 'use server';
 
-import { bigIntFix } from '@/utils';
 import { prisma } from '@/prisma';
-import { type LeaderBoardItem } from '@/ui';
+import type { LeaderBoardItem } from '@/ui/common/leader-board';
+import { bigIntFix } from '@/utils/big-int-fix';
 
 export async function getFavoritesLeaderboard(): Promise<LeaderBoardItem[]> {
   // Excluding remnant2toolkit account

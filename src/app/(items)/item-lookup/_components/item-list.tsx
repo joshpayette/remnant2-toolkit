@@ -1,7 +1,5 @@
 'use client';
 
-import { BaseButton } from '@/ui';
-import { capitalize } from '@/utils';
 import isEqual from 'lodash.isequal';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -23,6 +21,8 @@ import { WeaponItem } from '@/app/(items)/_types/weapon-item';
 import { DEFAULT_ITEM_LOOKUP_FILTERS } from '@/app/(items)/item-lookup/_components/item-lookup-filters';
 import { parseUrlFilters } from '@/app/(items)/item-lookup/_lib/parse-url-filters';
 import { type ItemLookupFilters } from '@/app/(items)/item-lookup/_types/item-lookup-filters';
+import { BaseButton } from '@/ui/base/button';
+import { capitalize } from '@/utils/capitalize';
 
 const allItemsWithDiscovered = allItems.map((item) => ({
   ...item,

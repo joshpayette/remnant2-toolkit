@@ -3,7 +3,7 @@ import { prisma } from '@/prisma';
 import { type Metadata, type ResolvingMetadata } from 'next';
 import { revalidatePath } from 'next/cache';
 
-import { PageHeader } from '@/app/_components/page-header';
+import { PageHeader } from '@/components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { getIsLoadoutPublic } from '@/app/(builds)/_actions/get-is-loadout-public';
 import { auth } from '@/lib/auth';

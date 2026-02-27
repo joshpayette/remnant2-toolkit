@@ -1,17 +1,21 @@
-import { BaseLink, getImageUrl, LeaderBoard, Skeleton } from '@/ui';
 import Image from 'next/image';
 import { Suspense } from 'react';
 
-import { getFavoritesLeaderboard } from '@/app/_components/get-favorites-leaderboard';
-import { LandingPageCard } from '@/app/_components/landing-page-card';
-import { LandingPageCardDisabled } from '@/app/_components/landing-page-card-disabled';
-import { LandingPageContainer } from '@/app/_components/landing-page-container';
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { QualityBuildFeed } from '@/app/(builds)/_components/quality-build-feed';
 import { getLeaderBoard as getItemQuizLeaderBoard } from '@/app/(items)/item-quiz/_actions/get-leader-board';
+import { getFavoritesLeaderboard } from '@/components/get-favorites-leaderboard';
+import { LandingPageCard } from '@/components/landing-page-card';
+import { LandingPageCardDisabled } from '@/components/landing-page-card-disabled';
+import { LandingPageContainer } from '@/components/landing-page-container';
+import { LandingPageHeaderDescription } from '@/components/landing-page-header-description';
 import { auth } from '@/lib/auth';
+import { BaseLink } from '@/ui/base/link';
+import { LeaderBoard } from '@/ui/common/leader-board';
+import { Skeleton } from '@/ui/common/skeleton';
+import { getImageUrl } from '@/utils/get-image-url';
+import { urlNoCache } from '@/utils/url-no-cache';
 
-import { LandingPageHeaderDescription } from './_components/landing-page-header-description';
 import { GenesisCodeDisplay } from './(features)/_genesis-code/_components/genesis-code-display';
 
 export default async function Page() {
@@ -113,9 +117,7 @@ export default async function Page() {
               {session?.user?.id ? (
                 <LandingPageCard
                   {...NAV_ITEMS.loadouts}
-                  href={`/profile/${
-                    session?.user?.id
-                  }/loadouts?t=${Date.now()}`}
+                  href={urlNoCache(`/profile/${session?.user?.id}/loadouts`)}
                   icon={
                     <NAV_ITEMS.loadouts.icon
                       className="text-primary-500 h-7 w-7 flex-none"

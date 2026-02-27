@@ -19,7 +19,7 @@ import {
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 
-import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
+import { DescriptionWithTokens } from '@/components/description-with-tokens';
 import { BuildDescriptionTemplateAlert } from '@/app/(builds)/_components/build-description-template-alert';
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
 import { DescriptionTokenDialog } from '@/app/(builds)/builder/_components/description-token-dialog';
@@ -87,7 +87,7 @@ export function MemberFeatures({
               <div
                 className={cn(
                   'text-md overflow-x-auto overflow-y-auto whitespace-pre-wrap text-gray-200',
-                  isScreenshotMode && 'max-h-none',
+                  isScreenshotMode && 'max-h-none'
                 )}
               >
                 <DescriptionWithTokens
@@ -136,7 +136,7 @@ This build is designed for [insert game difficulty here] and is a [insert build 
 If you don't have the [insert item name here], you can use [insert alternative item name here] instead. If you don't have the [insert item name here], you can use [insert alternative item name here] instead.
 
 The playstyle of this build relies on [insert playstyle here].
-`.trim(),
+`.trim()
                 );
               }}
             />

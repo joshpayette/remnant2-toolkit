@@ -3,7 +3,7 @@
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useMemo } from 'react';
 
-import { Pagination } from '@/app/_components/pagination';
+import { Pagination } from '@/components/pagination';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
 import { BuildList } from '@/app/(builds)/_components/build-list';
@@ -179,7 +179,7 @@ export function CreatedBuildsList({
                       setBuildListState((prevState) => ({
                         ...prevState,
                         builds: prevState.builds.filter(
-                          (b) => b.id !== buildId,
+                          (b) => b.id !== buildId
                         ),
                       }));
                     }}

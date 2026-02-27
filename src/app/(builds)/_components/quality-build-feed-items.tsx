@@ -4,7 +4,9 @@ import { getOrderBySegment } from '@/app/(builds)/_features/filters/_libs/querie
 import { limitByWithQualityBuildsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-quality';
 import { auth } from '@/lib/auth';
 import { Prisma } from '@/prisma';
-import { BaseLink, EyeIcon, Tooltip } from '@/ui';
+import { BaseLink } from '@/ui/base/link';
+import { EyeIcon } from '@/ui/common/icons/eye';
+import { Tooltip } from '@/ui/common/tooltip';
 
 export async function QualityBuildFeedItems() {
   const session = await auth();

@@ -1,11 +1,3 @@
-import {
-  BaseField,
-  BaseLabel,
-  BaseListbox,
-  BaseListboxLabel,
-  BaseListboxOption,
-} from '@/ui';
-
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 import {
   LABYRINTH_DUNGEONS,
@@ -15,6 +7,12 @@ import {
   WORLD_LOCATIONS,
   YAESHA_DUNGEONS,
 } from '@/app/(items)/_types/locations';
+import { BaseField, BaseLabel } from '@/ui/base/fieldset';
+import {
+  BaseListbox,
+  BaseListboxLabel,
+  BaseListboxOption,
+} from '@/ui/base/listbox';
 
 export const VALID_WORLDS = WORLD_LOCATIONS;
 
@@ -48,7 +46,7 @@ export function WorldFilter({
         LOSOMN_DUNGEONS.sort((a, b) => a.localeCompare(b)).map((dungeon) => ({
           label: dungeon as string,
           value: dungeon as string,
-        })),
+        }))
       );
       break;
     case `N'Erud`:
@@ -56,7 +54,7 @@ export function WorldFilter({
         NERUD_DUNGEONS.sort((a, b) => a.localeCompare(b)).map((dungeon) => ({
           label: dungeon as string,
           value: dungeon as string,
-        })),
+        }))
       );
       break;
     case 'Yaesha':
@@ -64,7 +62,7 @@ export function WorldFilter({
         YAESHA_DUNGEONS.sort((a, b) => a.localeCompare(b)).map((dungeon) => ({
           label: dungeon as string,
           value: dungeon as string,
-        })),
+        }))
       );
       break;
     case 'Root Earth':
@@ -73,8 +71,8 @@ export function WorldFilter({
           (dungeon) => ({
             label: dungeon as string,
             value: dungeon as string,
-          }),
-        ),
+          })
+        )
       );
       break;
     case 'Labyrinth':
@@ -83,8 +81,8 @@ export function WorldFilter({
           (dungeon) => ({
             label: dungeon as string,
             value: dungeon as string,
-          }),
-        ),
+          })
+        )
       );
       break;
     default:

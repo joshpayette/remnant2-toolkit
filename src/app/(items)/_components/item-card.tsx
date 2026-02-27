@@ -1,23 +1,9 @@
-import {
-  BaseButton,
-  BaseLink,
-  BaseText,
-  BaseTextLink,
-  cn,
-  getImageUrl,
-  MagnifyMinusIcon,
-  MagnifyPlusIcon,
-  StatsIcon,
-  Tooltip,
-} from '@/ui';
-import { capitalize } from '@/utils';
 import copy from 'clipboard-copy';
 import Image from 'next/image';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useLocalStorage } from 'usehooks-ts';
 
-import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
 import {
   DEFAULT_ITEM_COMPARE_LIST,
   LOCALSTORAGE_KEY,
@@ -38,6 +24,17 @@ import { RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 import { SkillItem } from '@/app/(items)/_types/skill-item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
 import { WeaponItem } from '@/app/(items)/_types/weapon-item';
+import { DescriptionWithTokens } from '@/components/description-with-tokens';
+import { BaseButton } from '@/ui/base/button';
+import { BaseLink } from '@/ui/base/link';
+import { BaseText, BaseTextLink } from '@/ui/base/text';
+import { MagnifyMinusIcon } from '@/ui/common/icons/magnify-minus';
+import { MagnifyPlusIcon } from '@/ui/common/icons/magnify-plus';
+import { StatsIcon } from '@/ui/common/icons/stats';
+import { Tooltip } from '@/ui/common/tooltip';
+import { capitalize } from '@/utils/capitalize';
+import { cn } from '@/utils/classnames';
+import { getImageUrl } from '@/utils/get-image-url';
 
 interface Props {
   allowItemCompare?: boolean;

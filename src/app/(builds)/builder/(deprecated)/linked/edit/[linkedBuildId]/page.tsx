@@ -1,4 +1,4 @@
-import { PageHeader } from '@/app/_components/page-header';
+import { PageHeader } from '@/components/page-header';
 
 export default async function Page() {
   return (

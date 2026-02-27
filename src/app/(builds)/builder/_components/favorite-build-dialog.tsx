@@ -1,4 +1,4 @@
-import GenericDialog from '@/app/_components/generic-dialog';
+import GenericDialog from '@/components/generic-dialog';
 
 interface Props {
   open: boolean;

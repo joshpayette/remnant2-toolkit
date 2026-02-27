@@ -1,4 +1,4 @@
-import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@/ui';
+import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@/ui/base/dialog';
 
 interface Props {
   children: React.ReactNode;

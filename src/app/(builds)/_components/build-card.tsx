@@ -1,23 +1,7 @@
 'use client';
 
-import {
-  BaseButton,
-  BaseLink,
-  cn,
-  EyeIcon,
-  EyeOffIcon,
-  FavoriteIcon,
-  IndentIcon,
-  PaperClipIcon,
-  Skeleton,
-  Tooltip,
-  UnfavoriteIcon,
-  VideoIcon,
-} from '@/ui';
-import { isValidYoutubeUrl } from '@/utils';
 import { useSession } from 'next-auth/react';
 
-import { DescriptionWithTokens } from '@/app/_components/description-with-tokens';
 import { useBadges } from '@/app/_hooks/use-badges';
 import { dbBuildToBuildState } from '@/app/(builds)/_libs/db-build-to-build-state';
 import { formatUpdatedAt } from '@/app/(builds)/_libs/format-updated-at';
@@ -29,6 +13,20 @@ import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { ArchetypeLabel } from '@/app/(builds)/builder/_components/archetype-label';
 import { BuildBadges } from '@/app/(builds)/builder/_components/build-badges';
 import { BuildTagsDisplay } from '@/app/(builds)/builder/_components/build-tags-display';
+import { DescriptionWithTokens } from '@/components/description-with-tokens';
+import { BaseButton } from '@/ui/base/button';
+import { BaseLink } from '@/ui/base/link';
+import { EyeIcon } from '@/ui/common/icons/eye';
+import { EyeOffIcon } from '@/ui/common/icons/eye-off';
+import { FavoriteIcon } from '@/ui/common/icons/favorite';
+import { IndentIcon } from '@/ui/common/icons/indent';
+import { PaperClipIcon } from '@/ui/common/icons/paper-clip';
+import { UnfavoriteIcon } from '@/ui/common/icons/unfavorite';
+import { VideoIcon } from '@/ui/common/icons/video';
+import { Skeleton } from '@/ui/common/skeleton';
+import { Tooltip } from '@/ui/common/tooltip';
+import { cn } from '@/utils/classnames';
+import { isValidYoutubeUrl } from '@/utils/youtube';
 
 interface Props {
   build: DBBuild;

@@ -1,11 +1,12 @@
 'use server';
 
-import { BaseLink, Skeleton } from '@/ui';
-import { getArrayOfLength } from '@/utils';
 import { Suspense } from 'react';
 
 import { QualityBuildFeedInfoDialog } from '@/app/(builds)/_components/quality-build-feed-info-dialog';
 import { QualityBuildFeedItems } from '@/app/(builds)/_components/quality-build-feed-items';
+import { BaseLink } from '@/ui/base/link';
+import { Skeleton } from '@/ui/common/skeleton';
+import { getArrayOfLength } from '@/utils/get-array-of-length';
 
 export async function QualityBuildFeed() {
   return (

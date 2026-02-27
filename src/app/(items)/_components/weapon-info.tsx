@@ -1,6 +1,6 @@
-import { BaseLink, cn } from '@/ui';
-
 import { type WeaponItem } from '@/app/(items)/_types/weapon-item';
+import { BaseLink } from '@/ui/base/link';
+import { cn } from '@/utils/classnames';
 
 interface Props {
   item: WeaponItem;
@@ -9,13 +9,13 @@ interface Props {
 
 export function WeaponInfo({ item, includeMod = true }: Props) {
   return (
-    <dl className="flex w-full flex-grow flex-col justify-start">
+    <dl className="flex w-full grow flex-col justify-start">
       <dd className="flex w-full flex-row items-center justify-start">
         <div className="flex w-full flex-col items-start justify-start">
           <div
             className={cn(
               'mb-2 grid w-full',
-              item.type === 'melee' ? 'grid-cols-1' : 'grid-cols-3',
+              item.type === 'melee' ? 'grid-cols-1' : 'grid-cols-3'
             )}
           >
             <div className="flex w-full flex-col items-center justify-start text-gray-300">

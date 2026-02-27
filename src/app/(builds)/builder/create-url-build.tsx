@@ -6,7 +6,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { ToCsvButton } from '@/app/_components/to-csv-button';
+import { ToCsvButton } from '@/components/to-csv-button';
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
 import { LongUrlAlert } from '@/app/(builds)/_components/long-url-alert';
 import { INITIAL_BUILD_STATE } from '@/app/(builds)/_constants/initial-build-state';

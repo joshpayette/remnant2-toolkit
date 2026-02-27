@@ -1,6 +1,6 @@
 import { permanentRedirect } from 'next/navigation';
 
-import { PageHeader } from '@/app/_components/page-header';
+import { PageHeader } from '@/components/page-header';
 import { auth } from '@/lib/auth';
 
 export default async function Page() {

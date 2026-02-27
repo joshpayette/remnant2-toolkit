@@ -1,4 +1,4 @@
-import { PageHeader } from '@/app/_components/page-header';
+import { PageHeader } from '@/components/page-header';
 import { isErrorResponse } from '@/utils/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
 import { dbBuildToBuildVariants } from '@/app/(builds)/_libs/db-build-to-build-variants';
