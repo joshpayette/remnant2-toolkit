@@ -60,9 +60,6 @@ dependencies:
   '@vercel/flags':
     specifier: ^2.6.0
     version: 2.6.3(next@16.1.6)(react-dom@19.2.4)(react@19.2.4)
-  babel-plugin-react-compiler:
-    specifier: ^1.0.0
-    version: 1.0.0
   cheerio:
     specifier: 1.0.0-rc.12
     version: 1.0.0-rc.12
@@ -111,6 +108,9 @@ dependencies:
   next-themes:
     specifier: 0.3.0
     version: 0.3.0(react-dom@19.2.4)(react@19.2.4)
+  nuqs:
+    specifier: 2.5.2
+    version: 2.5.2(next@16.1.6)(react@19.2.4)
   papaparse:
     specifier: 5.4.1
     version: 5.4.1
@@ -203,6 +203,9 @@ devDependencies:
   autoprefixer:
     specifier: 10.4.18
     version: 10.4.18(postcss@8.5.6)
+  babel-plugin-react-compiler:
+    specifier: ^1.0.0
+    version: 1.0.0
   dotenv-cli:
     specifier: 10.0.0
     version: 10.0.0
@@ -2187,6 +2190,10 @@ packages:
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
     dev: true
 
+  /@standard-schema/spec@1.0.0:
+    resolution: {integrity: sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA==}
+    dev: false
+
   /@standard-schema/spec@1.1.0:
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
@@ -3306,7 +3313,6 @@ packages:
     resolution: {integrity: sha512-Ixm8tFfoKKIPYdCCKYTsqv+Fd4IJ0DQqMyEimo+pxUOMUR9cVPlwTrFt9Avu+3cb6Zp3mAzl+t1MrG2fxxKsxw==}
     dependencies:
       '@babel/types': 7.29.0
-    dev: false
 
   /bail@2.0.2:
     resolution: {integrity: sha512-0xO6mYd7JB2YesxDKplafRpsiOzPt9V02ddPCLbY1xYGPOX24NTyN50qnUxgCPcSoYMhKpAuBTjQoRZCAkUDRw==}
@@ -6171,6 +6177,32 @@ packages:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
     dependencies:
       boolbase: 1.0.0
+    dev: false
+
+  /nuqs@2.5.2(next@16.1.6)(react@19.2.4):
+    resolution: {integrity: sha512-vzKeoYlMRmNYPWECdn53Nmh/jM+r/iSezEin342EVXPogT6KzALwdnYbZxASE5vTdXRUtOymtPkgsarLipKetg==}
+    peerDependencies:
+      '@remix-run/react': '>=2'
+      '@tanstack/react-router': ^1
+      next: '>=14.2.0'
+      react: '>=18.2.0 || ^19.0.0-0'
+      react-router: ^6 || ^7
+      react-router-dom: ^6 || ^7
+    peerDependenciesMeta:
+      '@remix-run/react':
+        optional: true
+      '@tanstack/react-router':
+        optional: true
+      next:
+        optional: true
+      react-router:
+        optional: true
+      react-router-dom:
+        optional: true
+    dependencies:
+      '@standard-schema/spec': 1.0.0
+      next: 16.1.6(@babel/core@7.29.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.4)(react@19.2.4)
+      react: 19.2.4
     dev: false
 
   /nypm@0.6.5:

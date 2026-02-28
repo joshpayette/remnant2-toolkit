@@ -53,6 +53,7 @@
     "next": "16.1.6",
     "next-auth": "5.0.0-beta.30",
     "next-themes": "0.3.0",
+    "nuqs": "2.5.2",
     "papaparse": "5.4.1",
     "patreon": "0.4.1",
     "react": "19.2.4",
