@@ -1,14 +1,9 @@
 'use client';
 import { Disclosure } from '@headlessui/react';
-import { BaseButton } from '@/ui/base/button';
-import { BaseField, BaseFieldGroup, BaseFieldset } from '@/ui/base/fieldset';
-import { FilterIcon } from '@/ui/common/icons/filter';
-import { cn } from '@/utils/classnames';
 import isEqual from 'lodash.isequal';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
 
-import { InputWithClear } from '@/components/input-with-clear';
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 import { CategoriesFilter } from '@/app/(enemies)/boss-tracker/_components/categories-filter';
 import {
@@ -16,6 +11,11 @@ import {
   type BossTrackerFilters as Filters,
 } from '@/app/(enemies)/boss-tracker/_types';
 import { parseUrlFilters } from '@/app/(enemies)/boss-tracker/_utils/parse-url-filters';
+import { InputWithClear } from '@/components/input-with-clear';
+import { BaseButton } from '@/ui/base/button';
+import { BaseField, BaseFieldGroup, BaseFieldset } from '@/ui/base/fieldset';
+import { FilterIcon } from '@/ui/common/icons/filter';
+import { cn } from '@/utils/classnames';
 
 export const DEFAULT_BOSS_TRACKER_FILTERS = {
   categories: [DEFAULT_FILTER],

@@ -1,7 +1,7 @@
 import { Disclosure } from '@headlessui/react';
 import isEqual from 'lodash.isequal';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { startTransition, useMemo, useState } from 'react';
+import { useState } from 'react';
 
 import { EXCLUDE_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
 import { QualityBuildInfoDialog } from '@/app/(builds)/_components/quality-build-info-dialog';
@@ -51,42 +51,27 @@ export function BuildFilters({
   defaultFilterOverrides?: Partial<BuildFilterFields>;
   onFiltersChange: () => void;
 }) {
-  const defaultFilters = useMemo(() => {
-    return {
-      ...DEFAULT_BUILD_FIELDS,
-      ...defaultFilterOverrides,
-    };
-  }, [defaultFilterOverrides]);
+  const defaultFilters = {
+    ...DEFAULT_BUILD_FIELDS,
+    ...defaultFilterOverrides,
+  };
 
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
 
+  const filters = parseUrlParams({ searchParams, defaultFilters });
+
   const [unappliedFilters, setUnappliedFilters] =
-    useState<BuildFilterFields>(DEFAULT_BUILD_FIELDS);
+    useState<BuildFilterFields>(filters);
 
   const [isQualityDescriptionOpen, setIsQualityDescriptionOpen] =
     useState(false);
 
-  const filters = useMemo(() => {
-    const newFilters = parseUrlParams({ searchParams, defaultFilters });
-    // TODO: Test that this still works
-    startTransition(() => {
-      setUnappliedFilters(newFilters);
-    });
-    return newFilters;
-  }, [searchParams, defaultFilters]);
-
   /** Whether any filters are active */
-  const areAnyFiltersActive = useMemo(() => {
-    if (isEqual(filters, defaultFilters)) return false;
-    return true;
-  }, [filters, defaultFilters]);
+  const areAnyFiltersActive = isEqual(filters, defaultFilters) ? false : true;
 
-  const areFiltersApplied = useMemo(() => {
-    if (isEqual(filters, unappliedFilters)) return true;
-    return false;
-  }, [filters, unappliedFilters]);
+  const areFiltersApplied = isEqual(filters, unappliedFilters) ? true : false;
 
   // #region URL Filters
   /**
@@ -858,7 +843,7 @@ export function BuildFilters({
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                 <BaseField
                   id="with-quality-filter"
-                  className="col-span-full bg-slate-300 p-1 dark:bg-slate-700 sm:col-span-1"
+                  className="col-span-full bg-slate-300 p-1 sm:col-span-1 dark:bg-slate-700"
                 >
                   <BaseLabel className="text-surface-solid h-[40px] !text-sm font-medium">
                     {withQualityFilter.label}
@@ -889,7 +874,7 @@ export function BuildFilters({
                 </BaseField>
                 <BaseField
                   id="with-optional-prism-filter"
-                  className="col-span-full bg-slate-300 p-1 dark:bg-slate-700 sm:col-span-1"
+                  className="col-span-full bg-slate-300 p-1 sm:col-span-1 dark:bg-slate-700"
                 >
                   <BaseLabel className="text-surface-solid h-[40px] !text-sm font-medium">
                     {withOptionalPrismFilter.label}

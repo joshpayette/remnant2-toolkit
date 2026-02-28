@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useState } from 'react';
 
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
 import { useBadges } from '@/app/_hooks/use-badges';
@@ -130,10 +130,7 @@ export function Builder({
    * Returns a list of items that match the selected slot
    * This is passed to the ItemSelect modal to display the correct items
    */
-  const itemListForSlot = useMemo(
-    () => getItemListForSlot(buildState, selectedItemSlot),
-    [selectedItemSlot, buildState]
-  );
+  const itemListForSlot = getItemListForSlot(buildState, selectedItemSlot);
 
   /**
    * Fires when the user changes an item in the build.
@@ -144,147 +141,144 @@ export function Builder({
    * If the item is not null, the item is added to the build
    * and the query string is updated.
    */
-  const handleSelectItem = useCallback(
-    (selectedItem: Item | null) => {
-      if (!selectedItemSlot.category) return;
-      if (!onUpdateBuildState) return;
+  const handleSelectItem = (selectedItem: Item | null) => {
+    if (!selectedItemSlot.category) return;
+    if (!onUpdateBuildState) return;
 
-      const selectedCategory = selectedItemSlot.category as ItemCategory;
+    const selectedCategory = selectedItemSlot.category as ItemCategory;
 
-      /**
-       * The item index is used to determine which item in the array of items
-       * for slots like rings and archetypes
-       */
-      const specifiedIndex = selectedItemSlot.index;
-      const isIndexSpecified = specifiedIndex !== undefined;
+    /**
+     * The item index is used to determine which item in the array of items
+     * for slots like rings and archetypes
+     */
+    const specifiedIndex = selectedItemSlot.index;
+    const isIndexSpecified = specifiedIndex !== undefined;
 
-      // If the item is null, remove the item from the build
-      // and from the query string
-      // If the item can be multiple, such as rings,
-      // then remove the item at the specified index
-      if (!selectedItem) {
-        if (isIndexSpecified) {
-          const buildItems = buildState.items[selectedCategory];
+    // If the item is null, remove the item from the build
+    // and from the query string
+    // If the item can be multiple, such as rings,
+    // then remove the item at the specified index
+    if (!selectedItem) {
+      if (isIndexSpecified) {
+        const buildItems = buildState.items[selectedCategory];
 
-          if (!Array.isArray(buildItems)) return;
+        if (!Array.isArray(buildItems)) return;
 
-          // We can't filter here because we want to preserve the index
-          // If we filtered, the second archetype would become the first archetype
-          // if you removed the first archetype
-          const newBuildItems = buildItems.map((item, index) =>
-            index === specifiedIndex ? null : item
-          );
-          const newItemIds = newBuildItems.map((i) => i?.id ?? '');
-          onUpdateBuildState({
-            buildState,
-            category: selectedCategory,
-            value: newItemIds,
-          });
-        } else {
-          onUpdateBuildState({
-            buildState,
-            category: selectedCategory,
-            value: '',
-          });
-        }
-
-        setSelectedItemSlot({ category: null });
-        return;
+        // We can't filter here because we want to preserve the index
+        // If we filtered, the second archetype would become the first archetype
+        // if you removed the first archetype
+        const newBuildItems = buildItems.map((item, index) =>
+          index === specifiedIndex ? null : item
+        );
+        const newItemIds = newBuildItems.map((i) => i?.id ?? '');
+        onUpdateBuildState({
+          buildState,
+          category: selectedCategory,
+          value: newItemIds,
+        });
+      } else {
+        onUpdateBuildState({
+          buildState,
+          category: selectedCategory,
+          value: '',
+        });
       }
 
-      const categoryItemOrItems = buildState.items[selectedCategory];
+      setSelectedItemSlot({ category: null });
+      return;
+    }
 
-      // If the item can be multiple, such as rings,
-      // then add the item at the specified index
-      if (Array.isArray(categoryItemOrItems)) {
-        const buildItems = categoryItemOrItems;
+    const categoryItemOrItems = buildState.items[selectedCategory];
 
-        let itemAlreadyInBuild = false;
+    // If the item can be multiple, such as rings,
+    // then add the item at the specified index
+    if (Array.isArray(categoryItemOrItems)) {
+      const buildItems = categoryItemOrItems;
 
-        if (selectedItemSlot.category !== 'relicfragment') {
+      let itemAlreadyInBuild = false;
+
+      if (selectedItemSlot.category !== 'relicfragment') {
+        itemAlreadyInBuild = Boolean(
+          buildItems.find((i) => i?.id === selectedItem.id)
+        );
+      } else {
+        if (!RelicFragmentItem.isRelicFragmentItem(selectedItem)) {
+          return;
+        }
+        if (selectedItemSlot.index === undefined) {
+          return Boolean(buildItems.find((i) => i?.id === selectedItem.id));
+        }
+        // If the selectedItem.slot is 0-2, then we need to check only those slots
+        // If the selectedItem.slot is 3-7, then we need to check only those slots
+        // if the selectedItem.slot is 8, then we need to check only that slot
+        if (selectedItemSlot.index < 3) {
+          itemAlreadyInBuild = Boolean(
+            buildItems.slice(0, 3).find((i) => i?.id === selectedItem.id)
+          );
+        } else if (selectedItemSlot.index < 8) {
+          itemAlreadyInBuild = Boolean(
+            buildItems.slice(3, 8).find((i) => i?.id === selectedItem.id)
+          );
+        } else {
           itemAlreadyInBuild = Boolean(
             buildItems.find((i) => i?.id === selectedItem.id)
           );
-        } else {
-          if (!RelicFragmentItem.isRelicFragmentItem(selectedItem)) {
-            return;
-          }
-          if (selectedItemSlot.index === undefined) {
-            return Boolean(buildItems.find((i) => i?.id === selectedItem.id));
-          }
-          // If the selectedItem.slot is 0-2, then we need to check only those slots
-          // If the selectedItem.slot is 3-7, then we need to check only those slots
-          // if the selectedItem.slot is 8, then we need to check only that slot
-          if (selectedItemSlot.index < 3) {
-            itemAlreadyInBuild = Boolean(
-              buildItems.slice(0, 3).find((i) => i?.id === selectedItem.id)
-            );
-          } else if (selectedItemSlot.index < 8) {
-            itemAlreadyInBuild = Boolean(
-              buildItems.slice(3, 8).find((i) => i?.id === selectedItem.id)
-            );
-          } else {
-            itemAlreadyInBuild = Boolean(
-              buildItems.find((i) => i?.id === selectedItem.id)
-            );
-          }
         }
+      }
 
-        if (itemAlreadyInBuild) return;
+      if (itemAlreadyInBuild) return;
 
-        /** Used to add the new item to the array of items for this slot */
-        const newBuildItems = [...buildItems];
+      /** Used to add the new item to the array of items for this slot */
+      const newBuildItems = [...buildItems];
 
-        const specifiedIndex = selectedItemSlot.index;
-        const isIndexSpecified = specifiedIndex !== undefined;
+      const specifiedIndex = selectedItemSlot.index;
+      const isIndexSpecified = specifiedIndex !== undefined;
 
-        isIndexSpecified
-          ? (newBuildItems[specifiedIndex] = selectedItem)
-          : newBuildItems.push(selectedItem);
+      isIndexSpecified
+        ? (newBuildItems[specifiedIndex] = selectedItem)
+        : newBuildItems.push(selectedItem);
 
-        // If the item is a trait, then we need to add the amount
-        if (selectedItemSlot.category === 'trait') {
-          const newTraitItemParams = TraitItem.toParams(
-            newBuildItems as TraitItem[]
-          );
-
-          onUpdateBuildState({
-            buildState,
-            category: 'trait',
-            value: newTraitItemParams,
-          });
-          setSelectedItemSlot({ category: null });
-          return;
-        }
-
-        // If we got here, add the item to the build
-        const newItemIds = newBuildItems.map((i) =>
-          i?.optional ? `${i?.id}${OPTIONAL_ITEM_SYMBOL}` : i?.id
+      // If the item is a trait, then we need to add the amount
+      if (selectedItemSlot.category === 'trait') {
+        const newTraitItemParams = TraitItem.toParams(
+          newBuildItems as TraitItem[]
         );
+
         onUpdateBuildState({
           buildState,
-          category: selectedItem.category,
-          value: newItemIds,
+          category: 'trait',
+          value: newTraitItemParams,
         });
         setSelectedItemSlot({ category: null });
         return;
       }
 
-      // If the item is not null, add the item to the build
-      const buildItem = categoryItemOrItems;
-
-      const itemAlreadyInBuild = buildItem?.id === selectedItem.id;
-      if (itemAlreadyInBuild) return;
-
+      // If we got here, add the item to the build
+      const newItemIds = newBuildItems.map((i) =>
+        i?.optional ? `${i?.id}${OPTIONAL_ITEM_SYMBOL}` : i?.id
+      );
       onUpdateBuildState({
         buildState,
         category: selectedItem.category,
-        value: selectedItem.id,
+        value: newItemIds,
       });
       setSelectedItemSlot({ category: null });
-    },
-    [buildState, selectedItemSlot, onUpdateBuildState]
-  );
+      return;
+    }
+
+    // If the item is not null, add the item to the build
+    const buildItem = categoryItemOrItems;
+
+    const itemAlreadyInBuild = buildItem?.id === selectedItem.id;
+    if (itemAlreadyInBuild) return;
+
+    onUpdateBuildState({
+      buildState,
+      category: selectedItem.category,
+      value: selectedItem.id,
+    });
+    setSelectedItemSlot({ category: null });
+  };
 
   function handleToggleOptional(selectedItem: Item, optional: boolean) {
     if (!isEditable) return;

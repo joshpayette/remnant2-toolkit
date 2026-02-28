@@ -1,12 +1,14 @@
 'use client';
 
 import Select from 'react-select';
-import { cn } from '../../../../utils/classnames';
-import { BaseLabel } from '../../../base/fieldset';
+
+import { BaseLabel } from '@/ui/base/fieldset';
+import { cn } from '@/utils/classnames';
+
+import { ClearIndicator } from './clear-all-indicator';
 import { MultiValueLabel } from './multi-value-label';
 import { MultiValueRemove } from './multi-value-remove';
 import { Option } from './option';
-import { ClearIndicator } from './clear-all-indicator';
 import type { FilterListboxState, FilterOption } from './types';
 
 interface FilterListboxProps {
@@ -56,6 +58,8 @@ export function FilterListbox({
           'bg-surface-solid/5 text-surface-solid border-surface-solid/10 w-full rounded-[calc(theme(borderRadius.lg)-1px)] border px-2 text-sm shadow focus:outline-none'
         )}
         closeMenuOnSelect={false}
+        inputId={`filter-listbox-${label.toLowerCase().replace(/\s+/g, '-')}`}
+        instanceId={`filter-listbox-${label.toLowerCase().replace(/\s+/g, '-')}`}
         components={{
           ClearIndicator,
           Option,
