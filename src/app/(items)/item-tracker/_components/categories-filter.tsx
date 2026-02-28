@@ -1,15 +1,12 @@
+import { DEFAULT_FILTER } from '@/app/_types/default-filter';
+import { VALID_ITEM_CATEGORIES } from '@/app/(items)/item-tracker/_constants/valid-item-categories';
+import { BaseButton } from '@/ui/base/button';
 import {
-  BaseButton,
   BaseCheckbox,
   BaseCheckboxField,
   BaseCheckboxGroup,
-  BaseFieldset,
-  BaseLabel,
-  BaseLegend,
-} from '@/ui';
-
-import { DEFAULT_FILTER } from '@/app/_types/default-filter';
-import { VALID_ITEM_CATEGORIES } from '@/app/(items)/item-tracker/_constants/valid-item-categories';
+} from '@/ui/base/checkbox';
+import { BaseFieldset, BaseLabel, BaseLegend } from '@/ui/base/fieldset';
 
 interface Props {
   values: string[];

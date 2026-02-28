@@ -1,21 +1,8 @@
 import { Disclosure } from '@headlessui/react';
-import {
-  BaseButton,
-  BaseField,
-  BaseLabel,
-  BaseListbox,
-  BaseListboxLabel,
-  BaseListboxOption,
-  FilterIcon,
-  FilterListbox,
-  FiltersContainer,
-  InfoCircleIcon,
-} from '@/ui';
 import isEqual from 'lodash.isequal';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useMemo, useState } from 'react';
+import { startTransition, useMemo, useState } from 'react';
 
-import { InputWithClear } from '@/components/input-with-clear';
 import { EXCLUDE_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
 import { QualityBuildInfoDialog } from '@/app/(builds)/_components/quality-build-info-dialog';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
@@ -44,6 +31,18 @@ import { withReferenceFilter } from '@/app/(builds)/_features/filters/_libs/filt
 import { withVideoFilter } from '@/app/(builds)/_features/filters/_libs/filters/with-video-filter';
 import { parseUrlParams } from '@/app/(builds)/_features/filters/_libs/parse-url-params';
 import { type BuildFilterFields } from '@/app/(builds)/_features/filters/_types/build-filter-fields';
+import { InputWithClear } from '@/components/input-with-clear';
+import { BaseButton } from '@/ui/base/button';
+import { BaseField, BaseLabel } from '@/ui/base/fieldset';
+import {
+  BaseListbox,
+  BaseListboxLabel,
+  BaseListboxOption,
+} from '@/ui/base/listbox';
+import { FilterListbox } from '@/ui/common/filters/filter-listbox';
+import { FiltersContainer } from '@/ui/common/filters/filters-container';
+import { FilterIcon } from '@/ui/common/icons/filter';
+import { InfoCircleIcon } from '@/ui/common/icons/info-circle';
 
 export function BuildFilters({
   defaultFilterOverrides,
@@ -71,7 +70,10 @@ export function BuildFilters({
 
   const filters = useMemo(() => {
     const newFilters = parseUrlParams({ searchParams, defaultFilters });
-    setUnappliedFilters(newFilters);
+    // TODO: Test that this still works
+    startTransition(() => {
+      setUnappliedFilters(newFilters);
+    });
     return newFilters;
   }, [searchParams, defaultFilters]);
 

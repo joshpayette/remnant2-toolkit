@@ -1,4 +1,4 @@
-import { getImageUrl } from '@/ui';
+import { getImageUrl } from '@/utils/get-image-url';
 
 export function getDownloadUrl(bossName: string, bossAffixes: string[]) {
   const url = getImageUrl(`/world-save-archive/`);

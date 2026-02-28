@@ -1,24 +1,24 @@
 'use client';
 
-import {
-  BaseButton,
-  BaseDialog,
-  BaseDialogActions,
-  BaseDialogBody,
-  BaseDialogDescription,
-  BaseDialogTitle,
-  BaseDivider,
-  BaseLink,
-  OptionalOffIcon,
-  OwnershipIcon,
-  QuestionIcon,
-} from '@/ui';
 import { Fragment, useState } from 'react';
 
 import { RandomBuildButton } from '@/app/(builds)/builder/_components/random-build-button';
 import { ItemButton } from '@/app/(items)/_components/item-button';
 import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
 import type { Item } from '@/app/(items)/_types/item';
+import { BaseButton } from '@/ui/base/button';
+import {
+  BaseDialog,
+  BaseDialogActions,
+  BaseDialogBody,
+  BaseDialogDescription,
+  BaseDialogTitle,
+} from '@/ui/base/dialog';
+import { BaseDivider } from '@/ui/base/divider';
+import { BaseLink } from '@/ui/base/link';
+import { OptionalOffIcon } from '@/ui/common/icons/optional-off';
+import { OwnershipIcon } from '@/ui/common/icons/ownership';
+import { QuestionIcon } from '@/ui/common/icons/question';
 
 const sections = [
   {
@@ -41,9 +41,9 @@ const sections = [
     title: 'Optional Items',
     description: (
       <>
-        Items can be marked optional if they aren't required in order for the
-        build to be effective. Optional items are shown with a dotted border.
-        Items can be toggled on/off by clicking the{' '}
+        Items can be marked optional if they {`aren't`} required in order for
+        the build to be effective. Optional items are shown with a dotted
+        border. Items can be toggled on/off by clicking the{' '}
         <OptionalOffIcon className="h-4 w-4 text-yellow-500" /> icon at the top
         left of each item button when creating or editing a build.
       </>
@@ -66,7 +66,7 @@ const sections = [
           Item Tracker
         </BaseLink>
         , you can click the <strong>Toggle Collected</strong> button to add the{' '}
-        <OwnershipIcon className="h-4 w-4 text-accent2-500" /> icon to items you
+        <OwnershipIcon className="text-accent2-500 h-4 w-4" /> icon to items you
         own in the build.
       </>
     ),
@@ -78,9 +78,9 @@ const sections = [
       <>
         Clicking the Armor Calculator button will open a dialog that will
         suggest items to reach a specified weight class. It will account for any
-        items you currently have equipped in the builder, so it's the perfect
-        tool for trying to find the best possible option to reach a specific
-        weight class.
+        items you currently have equipped in the builder, so {`it's`} the
+        perfect tool for trying to find the best possible option to reach a
+        specific weight class.
       </>
     ),
     sample: null,
@@ -91,8 +91,8 @@ const sections = [
       <>
         Clicking the Item Suggestions button will open a dialog that will allow
         you to view all items that match a specified item token. The dialog will
-        allow you to also add the item to the builder if you don't already have
-        it.
+        allow you to also add the item to the builder if you {`don't`} already
+        have it.
       </>
     ),
     sample: null,
@@ -111,9 +111,9 @@ const sections = [
     title: 'Random Builds',
     description: (
       <>
-        If you've collected all or most of the items in the game and are looking
-        for a challenge, you can click the Random Build button on the builder to
-        generate a random build.
+        If {`you've`} collected all or most of the items in the game and are
+        looking for a challenge, you can click the Random Build button on the
+        builder to generate a random build.
       </>
     ),
     sample: (

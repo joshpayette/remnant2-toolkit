@@ -1,27 +1,10 @@
 'use client';
 
 import { Disclosure } from '@headlessui/react';
-import {
-  BaseButton,
-  BaseField,
-  BaseFieldGroup,
-  BaseFieldset,
-  cn,
-  FilterIcon,
-} from '@/ui';
 import isEqual from 'lodash.isequal';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
 
-import {
-  DiscoveredFilter,
-  VALID_DISCOVERED_FILTERS,
-} from '@/components/discovered-filter';
-import { InputWithClear } from '@/components/input-with-clear';
-import {
-  ReleasesFilter,
-  VALID_RELEASE_KEYS,
-} from '@/components/releases-filter';
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 import {
   ITEM_TRACKER_KEYS,
@@ -31,6 +14,19 @@ import { WorldFilter } from '@/app/(items)/_components/filters/world-filter';
 import { CategoriesFilter } from '@/app/(items)/item-tracker/_components/categories-filter';
 import { VALID_ITEM_CATEGORIES } from '@/app/(items)/item-tracker/_constants/valid-item-categories';
 import { parseUrlFilters } from '@/app/(items)/item-tracker/_utils/parse-url-filters';
+import {
+  DiscoveredFilter,
+  VALID_DISCOVERED_FILTERS,
+} from '@/components/discovered-filter';
+import { InputWithClear } from '@/components/input-with-clear';
+import {
+  ReleasesFilter,
+  VALID_RELEASE_KEYS,
+} from '@/components/releases-filter';
+import { BaseButton } from '@/ui/base/button';
+import { BaseField, BaseFieldGroup, BaseFieldset } from '@/ui/base/fieldset';
+import { FilterIcon } from '@/ui/common/icons/filter';
+import { cn } from '@/utils/classnames';
 
 export const DEFAULT_ITEM_TRACKER_FILTERS = {
   categories: VALID_ITEM_CATEGORIES,

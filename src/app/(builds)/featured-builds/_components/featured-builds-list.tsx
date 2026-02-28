@@ -1,10 +1,8 @@
 'use client';
 
-import { BaseLink, EyeIcon, Tooltip } from '@/ui';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 
-import { Pagination } from '@/components/pagination';
 import { DEFAULT_ITEMS_PER_PAGE } from '@/app/_constants/pagination';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
@@ -15,6 +13,10 @@ import { useTimeRangeFilter } from '@/app/(builds)/_features/filters/_hooks/use-
 import { parseUrlParams } from '@/app/(builds)/_features/filters/_libs/parse-url-params';
 import { useBuildListState } from '@/app/(builds)/_hooks/use-build-list-state';
 import { getFeaturedBuilds } from '@/app/(builds)/featured-builds/_actions/get-featured-builds';
+import { Pagination } from '@/components/pagination';
+import { BaseLink } from '@/ui/base/link';
+import { EyeIcon } from '@/ui/common/icons/eye';
+import { Tooltip } from '@/ui/common/tooltip';
 
 interface Props {
   itemsPerPage?: number;

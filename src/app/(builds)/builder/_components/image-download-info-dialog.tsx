@@ -1,9 +1,5 @@
-import {
-  BaseDialog,
-  BaseDialogBody,
-  BaseDialogTitle,
-  Skeleton,
-} from '@/ui';
+import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@/ui/base/dialog';
+import { Skeleton } from '@/ui/common/skeleton';
 
 interface Props {
   imageDownloadInfo: { imageLink: string; imageName: string } | null;

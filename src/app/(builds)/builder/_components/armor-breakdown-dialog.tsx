@@ -3,7 +3,7 @@ import {
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@/ui';
+} from '@/ui/base/dialog';
 
 import { StatsListItem } from '@/app/(builds)/builder/_components/stats-list-item';
 import { StatsSection } from '@/app/(builds)/builder/_components/stats-section';
@@ -12,7 +12,7 @@ import { type TraitItem } from '@/app/(items)/_types/trait-item';
 
 function getArmorStepLabel(
   item: TraitItem,
-  equippedArmorStepItems: TraitItem[],
+  equippedArmorStepItems: TraitItem[]
 ) {
   const traitAmount =
     equippedArmorStepItems.find((t) => t.name === item.name)?.amount ?? 0;
@@ -52,7 +52,7 @@ function getArmorPercentLabel(item: Item) {
 
 function getArmorStepPercentLabel(
   item: TraitItem,
-  equippedArmorStepPercentItems: TraitItem[],
+  equippedArmorStepPercentItems: TraitItem[]
 ) {
   const traitAmount =
     equippedArmorStepPercentItems.find((t) => t.name === item.name)?.amount ??
@@ -108,7 +108,7 @@ export function ArmorBreakdownDialog({ open, breakdown, onClose }: Props) {
                     <StatsListItem key={item.id}>
                       {getArmorStepLabel(
                         item,
-                        breakdown.equippedArmorStepItems,
+                        breakdown.equippedArmorStepItems
                       )}
                     </StatsListItem>
                   ))}
@@ -137,7 +137,7 @@ export function ArmorBreakdownDialog({ open, breakdown, onClose }: Props) {
                     <StatsListItem key={item.id}>
                       {getArmorStepPercentLabel(
                         item,
-                        breakdown.equippedArmorStepPercentItems,
+                        breakdown.equippedArmorStepPercentItems
                       )}
                     </StatsListItem>
                   ))}

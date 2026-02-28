@@ -2,8 +2,9 @@
 
 import * as Headless from '@headlessui/react';
 import { forwardRef } from 'react';
-import { cn } from '../../../utils/classnames';
-import { BaseLink } from '../link';
+
+import { BaseLink } from '@/ui/base/link';
+import { cn } from '@/utils/classnames';
 
 const styles = {
   base: [
@@ -158,7 +159,7 @@ export const BaseButton = forwardRef(function Button(
   const classes = cn(
     className,
     styles.base,
-    // eslint-disable-next-line no-nested-ternary
+
     outline
       ? styles.outline
       : plain
@@ -193,7 +194,7 @@ export function TouchTarget({ children }: { children: React.ReactNode }) {
     <>
       <span
         aria-hidden="true"
-        className="absolute left-1/2 top-1/2 size-[max(100%,2.75rem)] -translate-x-1/2 -translate-y-1/2 [@media(pointer:fine)]:hidden"
+        className="size-[max(100%,2.75rem)] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 [@media(pointer:fine)]:hidden"
       />
       {children}
     </>

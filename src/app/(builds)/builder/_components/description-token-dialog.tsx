@@ -3,7 +3,7 @@ import {
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@/ui';
+} from '@/ui/base/dialog';
 
 import { DescriptionWithTokens } from '@/components/description-with-tokens';
 import { INLINE_TOKENS } from '@/app/(items)/item-lookup/_constants/inline-tokens';

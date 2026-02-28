@@ -1,4 +1,3 @@
-import { cn, getImageUrl, InfoCircleIcon, Tooltip, ZINDEXES } from '@/ui';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -13,6 +12,11 @@ import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { ArmorBreakdownDialog } from '@/app/(builds)/builder/_components/armor-breakdown-dialog';
 import { HealthBreakdownDialog } from '@/app/(builds)/builder/_components/health-breakdown-dialog';
 import { StaminaBreakdownDialog } from '@/app/(builds)/builder/_components/stamina-breakdown-dialog';
+import { InfoCircleIcon } from '@/ui/common/icons/info-circle';
+import { Tooltip } from '@/ui/common/tooltip';
+import { ZINDEXES } from '@/ui/common/z-indexes';
+import { cn } from '@/utils/classnames';
+import { getImageUrl } from '@/utils/get-image-url';
 
 interface Props {
   buildState: BuildState;
@@ -58,7 +62,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
         open={armorInfoOpen}
         onClose={() => setArmorInfoOpen(false)}
       />
-      <div className="flex w-full flex-grow flex-col justify-start">
+      <div className="flex w-full grow flex-col justify-start">
         <div className="flex w-full flex-row items-center justify-start">
           <div className="flex w-full flex-col items-start justify-start sm:max-w-[275px]">
             <div className="border-b-primary-500 relative grid w-full grid-cols-2 gap-2 border border-transparent text-left text-sm text-gray-300">
@@ -67,7 +71,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               <button
                 className={cn(
                   'text-md bg-background-solid flex items-center justify-end rounded-full border-transparent text-right font-bold sm:text-lg',
-                  isScreenshotMode && 'text-lg',
+                  isScreenshotMode && 'text-lg'
                 )}
                 onClick={() => setHealthInfoOpen(true)}
               >
@@ -83,7 +87,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               <button
                 className={cn(
                   'text-md bg-background-solid flex items-center justify-end rounded-full border-transparent text-right font-bold sm:text-lg',
-                  isScreenshotMode && 'text-lg',
+                  isScreenshotMode && 'text-lg'
                 )}
                 onClick={() => setStaminaInfoOpen(true)}
               >
@@ -99,7 +103,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               <button
                 className={cn(
                   'text-md bg-background-solid flex items-center justify-end rounded-full border-transparent text-right font-bold sm:text-lg',
-                  isScreenshotMode && 'text-lg',
+                  isScreenshotMode && 'text-lg'
                 )}
                 onClick={() => setArmorInfoOpen(true)}
               >
@@ -115,7 +119,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 className={cn(
                   'text-md flex items-center justify-end text-right font-bold sm:text-lg',
                   isScreenshotMode && 'text-lg',
-                  weightClass.textColor,
+                  weightClass.textColor
                 )}
               >
                 <Tooltip
@@ -152,7 +156,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 <span
                   className={cn(
                     'text-md flex items-center justify-end text-right font-bold sm:text-lg',
-                    isScreenshotMode && 'text-lg',
+                    isScreenshotMode && 'text-lg'
                   )}
                 >
                   {totalBleedResistance}
@@ -171,7 +175,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 <span
                   className={cn(
                     'text-md flex items-center justify-end text-right font-bold sm:text-lg',
-                    isScreenshotMode && 'text-lg',
+                    isScreenshotMode && 'text-lg'
                   )}
                 >
                   {totalFireResistance}
@@ -190,7 +194,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 <span
                   className={cn(
                     'text-md flex items-center justify-end text-right font-bold sm:text-lg',
-                    isScreenshotMode && 'text-lg',
+                    isScreenshotMode && 'text-lg'
                   )}
                 >
                   {totalShockResistance}
@@ -209,7 +213,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 <span
                   className={cn(
                     'text-md flex items-center justify-end text-right font-bold sm:text-lg',
-                    isScreenshotMode && 'text-lg',
+                    isScreenshotMode && 'text-lg'
                   )}
                 >
                   {totalToxinResistance}
@@ -228,7 +232,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
                 <span
                   className={cn(
                     'text-md flex items-center justify-end text-right font-bold sm:text-lg',
-                    isScreenshotMode && 'text-lg',
+                    isScreenshotMode && 'text-lg'
                   )}
                 >
                   {totalBlightResistance}
@@ -239,7 +243,7 @@ export function Stats({ buildState, isScreenshotMode }: Props) {
               <div
                 className={cn(
                   'mt-2 flex w-full items-center justify-center',
-                  ZINDEXES.VASH_BUTTON,
+                  ZINDEXES.VASH_BUTTON
                 )}
               >
                 <a

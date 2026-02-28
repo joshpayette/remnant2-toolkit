@@ -1,4 +1,8 @@
-import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@/ui';
+import {
+  BaseListbox,
+  BaseListboxLabel,
+  BaseListboxOption,
+} from '@/ui/base/listbox';
 
 import {
   type OrderBy,

@@ -1,16 +1,5 @@
-import {
-  BaseButton,
-  BaseDialog,
-  BaseDialogBody,
-  BaseDialogDescription,
-  BaseDialogTitle,
-  BaseListbox,
-  BaseListboxLabel,
-  BaseListboxOption,
-} from '@/ui';
 import { useEffect, useState } from 'react';
 
-import { Pagination } from '@/components/pagination';
 import { usePagination } from '@/app/_hooks/use-pagination';
 import { ArmorSuggestionCard } from '@/app/(builds)/_components/armor-suggestion-card';
 import { getArmorSuggestions } from '@/app/(builds)/_libs/get-armor-suggestions';
@@ -21,6 +10,19 @@ import {
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { ItemInfoDialog } from '@/app/(items)/_components/item-info-dialog';
 import { type Item } from '@/app/(items)/_types/item';
+import { Pagination } from '@/components/pagination';
+import { BaseButton } from '@/ui/base/button';
+import {
+  BaseDialog,
+  BaseDialogBody,
+  BaseDialogDescription,
+  BaseDialogTitle,
+} from '@/ui/base/dialog';
+import {
+  BaseListbox,
+  BaseListboxLabel,
+  BaseListboxOption,
+} from '@/ui/base/listbox';
 
 const ITEMS_PER_PAGE = 8;
 

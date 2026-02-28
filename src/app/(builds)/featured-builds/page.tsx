@@ -1,5 +1,5 @@
 import { DISCORD_INVITE_URL } from '@/lib/constants';
-import { BaseText, BaseTextLink } from '@/ui';
+import { BaseText, BaseTextLink } from '@/ui/base/text';
 import { type Metadata } from 'next';
 
 import { PageHeader } from '@/components/page-header';

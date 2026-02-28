@@ -1,4 +1,5 @@
 import { Tooltip } from '@/ui/common/tooltip';
+import { getImageUrl } from '@/utils/get-image-url';
 
 export function BaseGameBuildBadge() {
   return (

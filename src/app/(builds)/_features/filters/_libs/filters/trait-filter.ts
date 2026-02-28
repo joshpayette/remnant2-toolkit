@@ -1,10 +1,9 @@
-import type { FilterOption } from '@/ui';
-
 import type { FilterDefinition } from '@/app/(builds)/_features/filters/_types/filter-definition';
 import { traitItems } from '@/app/(items)/_constants/trait-items';
+import type { FilterOption } from '@/ui/common/filters/filter-listbox';
 
 const sortedTraitItems = traitItems.sort((a, b) =>
-  a.name.localeCompare(b.name),
+  a.name.localeCompare(b.name)
 );
 
 export const traitFilter = {

@@ -1,8 +1,11 @@
-import { ArrowUpIcon, BaseButton, cn, getImageUrl } from '@/ui';
 import Image from 'next/image';
 
 import { ARROW_TO_INDEX } from '@/app/(items)/item-quiz/_constants/arrow-to-index';
 import { type QuizItem } from '@/app/(items)/item-quiz/_types/quiz-item';
+import { BaseButton } from '@/ui/base/button';
+import { ArrowUpIcon } from '@/ui/common/icons/arrow-up';
+import { cn } from '@/utils/classnames';
+import { getImageUrl } from '@/utils/get-image-url';
 
 interface Props {
   item: QuizItem;

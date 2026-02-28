@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { startTransition, useEffect, useRef, useState } from 'react';
 import { useFormState } from 'react-dom';
 import { toast } from 'react-toastify';
 
@@ -25,13 +25,15 @@ export function ImportLoadouts({ existingLoadouts }: Props) {
     }
   );
 
+  // TODO: Test that import save dialog is still opening
+
   // If the upload save file form response changes, we need to set the save data
   useEffect(() => {
     if (uploadSaveFormResponse.message === '') return;
 
     const { status, message } = uploadSaveFormResponse;
 
-    setImportSaveDialogOpen(false);
+    startTransition(() => setImportSaveDialogOpen(false));
     saveFileInputRef.current = null;
 
     if (status === 'error') {

@@ -1,6 +1,7 @@
-import { BaseCheckbox, BaseField, BaseLabel, LayoutIcon } from '@/ui';
-
 import { type LayoutPreference } from '@/app/(items)/item-quiz/_types/layout-preference';
+import { BaseCheckbox } from '@/ui/base/checkbox';
+import { BaseField, BaseLabel } from '@/ui/base/fieldset';
+import { LayoutIcon } from '@/ui/common/icons/layout';
 
 interface Props {
   layoutPreference: LayoutPreference;

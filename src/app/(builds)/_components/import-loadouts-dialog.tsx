@@ -23,7 +23,7 @@ import { getArrayOfLength } from '@/utils/get-array-of-length';
 
 interface Props {
   open: boolean;
-  fileInputRef: React.RefObject<HTMLInputElement>;
+  fileInputRef: React.RefObject<HTMLInputElement | null>;
   existingLoadouts: Array<DBBuild & { slot: number }>;
   onClose: () => void;
   onSubmit: (payload: FormData) => void;

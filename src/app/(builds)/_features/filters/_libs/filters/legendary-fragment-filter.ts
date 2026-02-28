@@ -1,4 +1,4 @@
-import type { FilterOption } from '@/ui';
+import type { FilterOption } from '@/ui/common/filters/filter-listbox';
 
 import type { FilterDefinition } from '@/app/(builds)/_features/filters/_types/filter-definition';
 import { relicFragmentItems } from '@/app/(items)/_constants/relic-fragment-items';

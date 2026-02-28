@@ -1,6 +1,9 @@
-import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@/ui';
-
 import { type ItemTokenWithDefault } from '@/app/(items)/_components/item-tag-suggestion-dialog';
+import {
+  BaseListbox,
+  BaseListboxLabel,
+  BaseListboxOption,
+} from '@/ui/base/listbox';
 
 interface Props {
   value: ItemTokenWithDefault;

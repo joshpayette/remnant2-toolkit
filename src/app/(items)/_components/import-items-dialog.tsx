@@ -1,23 +1,22 @@
+import React from 'react';
+
+import { ImportSaveSubmitButton } from '@/components/import-save-submit-button';
+import LocatingProfileSav from '@/components/locating-profile-sav';
+import { BaseButton } from '@/ui/base/button';
 import {
-  BaseButton,
-  BaseCode,
   BaseDialog,
   BaseDialogActions,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-  BaseField,
-  BaseInput,
-  BaseLabel,
-} from '@/ui';
-import React from 'react';
-
-import { ImportSaveSubmitButton } from '@/components/import-save-submit-button';
-import LocatingProfileSav from '@/components/locating-profile-sav';
+} from '@/ui/base/dialog';
+import { BaseField, BaseLabel } from '@/ui/base/fieldset';
+import { BaseInput } from '@/ui/base/input';
+import { BaseCode } from '@/ui/base/text';
 
 interface Props {
   open: boolean;
-  fileInputRef: React.RefObject<HTMLInputElement>;
+  fileInputRef: React.RefObject<HTMLInputElement | null>;
   onClose: () => void;
   onSubmit: (payload: FormData) => void;
 }

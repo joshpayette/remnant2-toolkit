@@ -1,13 +1,4 @@
-import {
-  BaseButton,
-  BaseDialog,
-  BaseDialogBody,
-  BaseDialogTitle,
-  cn,
-  SortIcon,
-} from '@/ui';
-import { capitalize } from '@/utils/capitalize';
-import { useCallback, useEffect, useState } from 'react';
+import { startTransition, useCallback, useEffect, useState } from 'react';
 import { useDebounceValue, useLocalStorage } from 'usehooks-ts';
 
 import { type SortingPreference } from '@/app/_types/localstorage';
@@ -20,6 +11,11 @@ import type { Item } from '@/app/(items)/_types/item';
 import type { TraitItem } from '@/app/(items)/_types/trait-item';
 import { ItemSearchText } from '@/app/(items)/item-lookup/_components/item-search-text';
 import { ITEM_TOKENS } from '@/app/(items)/item-lookup/_constants/item-tokens';
+import { BaseButton } from '@/ui/base/button';
+import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@/ui/base/dialog';
+import { SortIcon } from '@/ui/common/icons/sort';
+import { capitalize } from '@/utils/capitalize';
+import { cn } from '@/utils/classnames';
 
 function buildSearchTextOptions(): Array<{ id: string; name: string }> {
   let items = ITEM_TOKENS.map((tag) => ({
@@ -102,8 +98,12 @@ export function ItemSelectDialog({
   const [filteredItemList, setFilteredItemList] = useState(getNewSortedItems());
 
   // * useEffect appropriate here to react to changes
+  // TODO: Test to ensure it still works
+  // TODO: Optimize as this can likely be derived state
   useEffect(() => {
-    setFilteredItemList(getNewSortedItems());
+    startTransition(() => {
+      setFilteredItemList(getNewSortedItems());
+    });
   }, [debouncedFilter, sortingPreference, getNewSortedItems]);
 
   function handleSortingPreferenceToggle() {

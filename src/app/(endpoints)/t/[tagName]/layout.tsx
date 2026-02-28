@@ -16,12 +16,12 @@ function getItemsFromTagParam(tagName: string): Item[] {
   let tagToken = INLINE_TOKENS.find(
     (tag) =>
       tag.type.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === cleanTagName ||
-      tag.token.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === cleanTagName,
+      tag.token.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === cleanTagName
   )?.token as string;
 
   if (!tagToken) {
     const itemTag = ITEM_TOKENS.find(
-      (tag) => tag.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === cleanTagName,
+      (tag) => tag.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === cleanTagName
     );
     if (itemTag) {
       tagToken = itemTag as string;
@@ -54,7 +54,7 @@ function getItemDescription(items: Item[], label: string): string | null {
 
 export async function generateMetadata(
   { params: { tagName } }: { params: { tagName: string } },
-  _parent: ResolvingMetadata,
+  _parent: ResolvingMetadata
 ): Promise<Metadata> {
   const items = getItemsFromTagParam(tagName);
 
@@ -73,19 +73,19 @@ export async function generateMetadata(
       item.category === 'helm' ||
       item.category === 'torso' ||
       item.category === 'legs' ||
-      item.category === 'gloves',
+      item.category === 'gloves'
   );
   if (armorItems.length > 0)
     description += getItemDescription(armorItems, 'Armor');
 
   const concoctionItems = items.filter(
-    (item) => item.category === 'concoction',
+    (item) => item.category === 'concoction'
   );
   if (concoctionItems.length > 0)
     description += getItemDescription(concoctionItems, 'Concoctions');
 
   const consumableItems = items.filter(
-    (item) => item.category === 'consumable',
+    (item) => item.category === 'consumable'
   );
   if (consumableItems.length > 0)
     description += getItemDescription(consumableItems, 'Consumables');
@@ -102,7 +102,7 @@ export async function generateMetadata(
     description += getItemDescription(perkItems, 'Perks');
 
   const relicItems = items.filter(
-    (item) => item.category === 'relic' || item.category === 'relicfragment',
+    (item) => item.category === 'relic' || item.category === 'relicfragment'
   );
   if (relicItems.length > 0)
     description += getItemDescription(relicItems, 'Relics');

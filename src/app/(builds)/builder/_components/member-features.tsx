@@ -1,28 +1,24 @@
 'use client';
 
-import {
-  BaseButton,
-  BaseField,
-  BaseFieldset,
-  BaseInput,
-  BaseLabel,
-  BaseLink,
-  BaseSwitch,
-  BaseTextarea,
-  cn,
-  DocumentIcon,
-  NewWindowIcon,
-  Skeleton,
-  TokensIcon,
-  Tooltip,
-} from '@/ui';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 
-import { DescriptionWithTokens } from '@/components/description-with-tokens';
 import { BuildDescriptionTemplateAlert } from '@/app/(builds)/_components/build-description-template-alert';
 import { MAX_BUILD_DESCRIPTION_LENGTH } from '@/app/(builds)/_constants/max-build-description-length';
 import { DescriptionTokenDialog } from '@/app/(builds)/builder/_components/description-token-dialog';
+import { DescriptionWithTokens } from '@/components/description-with-tokens';
+import { BaseButton } from '@/ui/base/button';
+import { BaseField, BaseFieldset, BaseLabel } from '@/ui/base/fieldset';
+import { BaseInput } from '@/ui/base/input';
+import { BaseLink } from '@/ui/base/link';
+import { BaseSwitch } from '@/ui/base/switch';
+import { BaseTextarea } from '@/ui/base/textarea';
+import { DocumentIcon } from '@/ui/common/icons/document';
+import { NewWindowIcon } from '@/ui/common/icons/new-window';
+import { TokensIcon } from '@/ui/common/icons/tokens';
+import { Skeleton } from '@/ui/common/skeleton';
+import { Tooltip } from '@/ui/common/tooltip';
+import { cn } from '@/utils/classnames';
 
 type Props = {
   buildId: string | null;

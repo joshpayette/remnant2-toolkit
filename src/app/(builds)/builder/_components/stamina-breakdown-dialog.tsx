@@ -1,18 +1,17 @@
+import { StatsListItem } from '@/app/(builds)/builder/_components/stats-list-item';
+import { StatsSection } from '@/app/(builds)/builder/_components/stats-section';
+import { type Item } from '@/app/(items)/_types/item';
+import { type TraitItem } from '@/app/(items)/_types/trait-item';
 import {
   BaseDialog,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@/ui';
-
-import { StatsListItem } from '@/app/(builds)/builder/_components/stats-list-item';
-import { StatsSection } from '@/app/(builds)/builder/_components/stats-section';
-import { type Item } from '@/app/(items)/_types/item';
-import { type TraitItem } from '@/app/(items)/_types/trait-item';
+} from '@/ui/base/dialog';
 
 function getStaminaStepLabel(
   item: TraitItem,
-  equippedStaminaStepItems: TraitItem[],
+  equippedStaminaStepItems: TraitItem[]
 ) {
   const traitAmount =
     equippedStaminaStepItems.find((t) => t.name === item.name)?.amount ?? 0;
@@ -52,7 +51,7 @@ function getStaminaPercentLabel(item: Item) {
 
 function getStaminaStepPercentLabel(
   item: TraitItem,
-  equippedStaminaStepPercentItems: TraitItem[],
+  equippedStaminaStepPercentItems: TraitItem[]
 ) {
   const traitAmount =
     equippedStaminaStepPercentItems.find((t) => t.name === item.name)?.amount ??
@@ -113,7 +112,7 @@ export function StaminaBreakdownDialog({ open, breakdown, onClose }: Props) {
                     <StatsListItem key={item.id}>
                       {getStaminaStepLabel(
                         item,
-                        breakdown.equippedStaminaStepItems,
+                        breakdown.equippedStaminaStepItems
                       )}
                     </StatsListItem>
                   ))}
@@ -142,7 +141,7 @@ export function StaminaBreakdownDialog({ open, breakdown, onClose }: Props) {
                     <StatsListItem key={item.id}>
                       {getStaminaStepPercentLabel(
                         item,
-                        breakdown.equippedStaminaStepPercentItems,
+                        breakdown.equippedStaminaStepPercentItems
                       )}
                     </StatsListItem>
                   ))}

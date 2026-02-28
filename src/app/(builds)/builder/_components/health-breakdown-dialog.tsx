@@ -3,7 +3,7 @@ import {
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-} from '@/ui';
+} from '@/ui/base/dialog';
 
 import { StatsListItem } from '@/app/(builds)/builder/_components/stats-list-item';
 import { StatsSection } from '@/app/(builds)/builder/_components/stats-section';
@@ -12,7 +12,7 @@ import { type TraitItem } from '@/app/(items)/_types/trait-item';
 
 function getHealthStepLabel(
   item: TraitItem,
-  equippedHealthStepItems: TraitItem[],
+  equippedHealthStepItems: TraitItem[]
 ) {
   const traitAmount =
     equippedHealthStepItems.find((t) => t.name === item.name)?.amount ?? 0;
@@ -53,7 +53,7 @@ function getHealthPercentLabel(item: Item) {
 
 function ggetHealthStepPercentLabel(
   item: TraitItem,
-  equippedHealthStepPercentItems: TraitItem[],
+  equippedHealthStepPercentItems: TraitItem[]
 ) {
   const traitAmount =
     equippedHealthStepPercentItems.find((t) => t.name === item.name)?.amount ??
@@ -127,7 +127,7 @@ export function HealthBreakdownDialog({ open, breakdown, onClose }: Props) {
                     <StatsListItem key={item.id}>
                       {getHealthStepLabel(
                         item,
-                        breakdown.equippedHealthStepItems,
+                        breakdown.equippedHealthStepItems
                       )}
                     </StatsListItem>
                   ))}
@@ -156,7 +156,7 @@ export function HealthBreakdownDialog({ open, breakdown, onClose }: Props) {
                     <StatsListItem key={item.id}>
                       {ggetHealthStepPercentLabel(
                         item,
-                        breakdown.equippedHealthStepPercentItems,
+                        breakdown.equippedHealthStepPercentItems
                       )}
                     </StatsListItem>
                   ))}

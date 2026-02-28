@@ -1,7 +1,5 @@
 'use client';
 
-import { type BuildTags } from '@/prisma';
-import { BaseButton } from '@/ui/base/button';
 import cloneDeep from 'lodash.clonedeep';
 import { useRef, useState } from 'react';
 import { useIsClient } from 'usehooks-ts';
@@ -30,6 +28,8 @@ import { ItemSuggestionsButton } from '@/app/(builds)/builder/_components/item-s
 import { RandomBuildButton } from '@/app/(builds)/builder/_components/random-build-button';
 import { SaveBuildButton } from '@/app/(builds)/builder/_components/save-build-button';
 import { ItemTagSuggestionDialog } from '@/app/(items)/_components/item-tag-suggestion-dialog';
+import { type BuildTags } from '@/prisma';
+import { BaseButton } from '@/ui/base/button';
 
 interface Props {
   enableMemberFeatures: boolean;
@@ -41,6 +41,8 @@ export function CreateBuild({
   initialBuildState = INITIAL_BUILD_STATE,
 }: Props) {
   const [detailedBuildDialogOpen, setDetailedBuildDialogOpen] = useState(false);
+
+  const [timestamp] = useState(Date.now);
 
   const {
     activeBuildVariant,
@@ -57,7 +59,7 @@ export function CreateBuild({
     initialBuildVariants: [
       {
         ...cloneDeep(initialBuildState),
-        buildId: Date.now().toString(),
+        buildId: timestamp.toString(),
       },
     ],
   });

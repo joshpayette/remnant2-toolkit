@@ -1,15 +1,13 @@
 'use client';
 
+import { type BuildState } from '@/app/(builds)/_types/build-state';
+import { BaseField, BaseLabel } from '@/ui/base/fieldset';
 import {
-  BaseField,
-  BaseLabel,
   BaseListbox,
   BaseListboxLabel,
   BaseListboxOption,
-  cn,
-} from '@/ui';
-
-import { type BuildState } from '@/app/(builds)/_types/build-state';
+} from '@/ui/base/listbox';
+import { cn } from '@/utils/classnames';
 
 type Props = {
   activeBuild: BuildState;
@@ -36,7 +34,7 @@ export function TabbedBuildsDisplay({
             value={activeBuild.name}
             onChange={(value) => {
               const linkedBuild = buildVariants.find(
-                (build) => build.name === value,
+                (build) => build.name === value
               );
               if (linkedBuild) {
                 onChangeActiveBuild(linkedBuild);
@@ -68,7 +66,7 @@ export function TabbedBuildsDisplay({
                     : 'text-gray-400 hover:text-gray-300',
                   tabIdx === 0 ? 'rounded-l-lg' : '',
                   tabIdx === buildVariants.length - 1 ? 'rounded-r-lg' : '',
-                  'group relative min-w-0 flex-1 overflow-hidden bg-gray-900 px-4 py-4 text-center text-sm font-medium hover:bg-gray-800 focus:z-10',
+                  'group relative min-w-0 flex-1 overflow-hidden bg-gray-900 px-4 py-4 text-center text-sm font-medium hover:bg-gray-800 focus:z-10'
                 )}
               >
                 <span>{build.name}</span>
@@ -78,7 +76,7 @@ export function TabbedBuildsDisplay({
                     build.buildId === activeBuild.buildId
                       ? 'bg-purple-500'
                       : 'bg-transparent',
-                    'absolute inset-x-0 bottom-0 h-0.5',
+                    'absolute inset-x-0 bottom-0 h-0.5'
                   )}
                 />
               </button>

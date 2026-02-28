@@ -1,12 +1,13 @@
-import { BaseLink, cn, ZINDEXES } from '@/ui';
 import { type Metadata } from 'next';
-import React from 'react';
 
-import { PageHeader } from '@/components/page-header';
 import { OG_IMAGE_URL, SITE_TITLE } from '@/app/_constants/meta';
 import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { CreateBuild } from '@/app/(builds)/builder/create/create-build';
+import { PageHeader } from '@/components/page-header';
 import { auth } from '@/lib/auth';
+import { BaseLink } from '@/ui/base/link';
+import { ZINDEXES } from '@/ui/common/z-indexes';
+import { cn } from '@/utils/classnames';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `${NAV_ITEMS.createBuild.label} - ${SITE_TITLE}`;

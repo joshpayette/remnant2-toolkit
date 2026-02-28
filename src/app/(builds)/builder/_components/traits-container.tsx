@@ -1,14 +1,3 @@
-import {
-  BaseButton,
-  BaseInput,
-  CloseCircleIcon,
-  cn,
-  OptionalOffIcon,
-  OptionalOnIcon,
-  OwnershipIcon,
-  Tooltip,
-  ZINDEXES,
-} from '@/ui';
 import { useState } from 'react';
 
 import { DEFAULT_TRAIT_AMOUNT } from '@/app/(builds)/_constants/default-trait-amount';
@@ -16,6 +5,15 @@ import { getTraitCount } from '@/app/(builds)/_libs/get-trait-count';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { type Item } from '@/app/(items)/_types/item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
+import { BaseButton } from '@/ui/base/button';
+import { BaseInput } from '@/ui/base/input';
+import { CloseCircleIcon } from '@/ui/common/icons/close-circle';
+import { OptionalOffIcon } from '@/ui/common/icons/optional-off';
+import { OptionalOnIcon } from '@/ui/common/icons/optional-on';
+import { OwnershipIcon } from '@/ui/common/icons/ownership';
+import { Tooltip } from '@/ui/common/tooltip';
+import { ZINDEXES } from '@/ui/common/z-indexes';
+import { cn } from '@/utils/classnames';
 
 export function TraitsContainer({
   buildState,
@@ -43,12 +41,12 @@ export function TraitsContainer({
   const { trait: traitItems, archetype: archetypeItems } = buildState.items;
 
   const [editingTraitItem, setEditingTraitItem] = useState<TraitItem | null>(
-    null,
+    null
   );
 
   const totalTraitAmount = traitItems.reduce(
     (total, traitItem) => total + traitItem.amount,
-    0,
+    0
   );
 
   /**
@@ -60,7 +58,7 @@ export function TraitsContainer({
       primaryArchetype?.linkedItems?.traits?.some(
         (linkedTraitItem) =>
           linkedTraitItem.name === traitItem.name &&
-          linkedTraitItem.amount === 10,
+          linkedTraitItem.amount === 10
       );
     if (isLinkedPrimaryArchetypeTraitMaxed) {
       return false;
@@ -71,7 +69,7 @@ export function TraitsContainer({
       secondaryArchetype?.linkedItems?.traits?.some(
         (linkedTraitItem) =>
           linkedTraitItem.name === traitItem.name &&
-          linkedTraitItem.amount === 10,
+          linkedTraitItem.amount === 10
       );
     if (isLinkedSecondaryArchetypeTraitMaxed) {
       return false;
@@ -104,7 +102,7 @@ export function TraitsContainer({
     const primaryArchtype = archetypeItems[0];
     if (
       primaryArchtype?.linkedItems?.traits?.some(
-        (linkedTraitItem) => linkedTraitItem.name === traitItem.name,
+        (linkedTraitItem) => linkedTraitItem.name === traitItem.name
       )
     ) {
       return true;
@@ -116,7 +114,7 @@ export function TraitsContainer({
       secondaryArchtype?.linkedItems?.traits?.some(
         (linkedTraitItem) =>
           linkedTraitItem.name === traitItem.name &&
-          linkedTraitItem.amount === 10,
+          linkedTraitItem.amount === 10
       )
     ) {
       return true;
@@ -133,7 +131,7 @@ export function TraitsContainer({
       primaryArchtype?.linkedItems?.traits?.some(
         (linkedTraitItem) =>
           linkedTraitItem.name === traitItem.name &&
-          linkedTraitItem.amount === 10,
+          linkedTraitItem.amount === 10
       )
     ) {
       return true;
@@ -146,7 +144,7 @@ export function TraitsContainer({
       secondaryArchtype?.linkedItems?.traits?.some(
         (linkedTraitItem) =>
           linkedTraitItem.name === traitItem.name &&
-          linkedTraitItem.amount === 10,
+          linkedTraitItem.amount === 10
       )
     ) {
       return true;
@@ -169,7 +167,7 @@ export function TraitsContainer({
       <div
         className={cn(
           'grid grid-cols-1 gap-2 sm:grid-cols-2',
-          isScreenshotMode && 'grid-cols-2',
+          isScreenshotMode && 'grid-cols-2'
         )}
       >
         {!isScreenshotMode && (
@@ -177,7 +175,8 @@ export function TraitsContainer({
             <span
               className={cn(
                 'text-lg font-bold',
-                totalTraitAmount > getTraitCount(buildState) && 'text-accent3-500',
+                totalTraitAmount > getTraitCount(buildState) &&
+                  'text-accent3-500'
               )}
             >
               {totalTraitAmount}
@@ -208,7 +207,7 @@ export function TraitsContainer({
               isArchetypeTrait(traitItem) &&
                 !isArchetypeCoreTrait(traitItem) &&
                 traitItem.optional &&
-                'border-secondary-500',
+                'border-secondary-500'
             )}
           >
             <div className="flex items-center text-lg font-bold">
@@ -239,7 +238,7 @@ export function TraitsContainer({
                       new TraitItem({
                         ...traitItem,
                         amount: isNaN(amount) ? 0 : amount,
-                      }),
+                      })
                     );
                   }}
                   // Update the parent state when the input is blurred
@@ -259,7 +258,7 @@ export function TraitsContainer({
                     'min-w-[47px] text-left',
                     !isScreenshotMode &&
                       isEditable &&
-                      'border-dashed border-zinc-500',
+                      'border-dashed border-zinc-500'
                   )}
                 >
                   {traitItem.amount ?? DEFAULT_TRAIT_AMOUNT}
@@ -323,7 +322,9 @@ export function TraitsContainer({
                   <OwnershipIcon
                     className={cn(
                       'h-3 w-3',
-                      traitItem.isOwned ? 'text-accent2-500' : 'text-accent3-500',
+                      traitItem.isOwned
+                        ? 'text-accent2-500'
+                        : 'text-accent3-500'
                     )}
                   />
                 </button>
@@ -337,7 +338,7 @@ export function TraitsContainer({
                   aria-label="Remove Trait"
                 >
                   <CloseCircleIcon
-                    className="h-5 w-5 text-accent3-500"
+                    className="text-accent3-500 h-5 w-5"
                     aria-hidden="true"
                   />
                 </BaseButton>

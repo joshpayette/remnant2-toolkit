@@ -1,7 +1,6 @@
 'use client';
 
 import { Disclosure } from '@headlessui/react';
-import { ChevronDownIcon, cn } from '@/ui';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useIsClient, useLocalStorage } from 'usehooks-ts';
@@ -24,6 +23,8 @@ import {
 } from '@/app/(enemies)/boss-tracker/_types';
 import { getTrackerProgress } from '@/app/(enemies)/boss-tracker/_utils/get-tracker-progress';
 import { parseUrlFilters } from '@/app/(enemies)/boss-tracker/_utils/parse-url-filters';
+import { ChevronDownIcon } from '@/ui/common/icons/chevron-down';
+import { cn } from '@/utils/classnames';
 
 const TRACKABLE_BOSSES = [
   ...bossEnemies,
@@ -33,7 +34,7 @@ const TRACKABLE_BOSSES = [
 
 function getFilteredBossList(
   filters: BossTrackerFilters,
-  discoveredBossIds: string[],
+  discoveredBossIds: string[]
 ): Array<Enemy & { discovered: boolean }> {
   let filteredBosses = TRACKABLE_BOSSES.map((b) => {
     return {
@@ -51,14 +52,14 @@ function getFilteredBossList(
       filters.categories
         .map((c) => c.toLowerCase())
         .filter((i) => i !== DEFAULT_FILTER)
-        .includes(b.category.toLowerCase()),
+        .includes(b.category.toLowerCase())
     );
   }
 
   // If search text is not empty, filter by search text
   if (filters.searchText.length > 0) {
     filteredBosses = filteredBosses.filter((b) =>
-      b.name.toLowerCase().includes(filters.searchText.toLowerCase()),
+      b.name.toLowerCase().includes(filters.searchText.toLowerCase())
     );
   }
 
@@ -79,7 +80,7 @@ export function BossList() {
       discoveredBossIds: [],
       collapsedBossCategories: [],
     },
-    { initializeWithValue: false },
+    { initializeWithValue: false }
   );
   const { discoveredBossIds, collapsedBossCategories } = tracker;
 
@@ -91,12 +92,12 @@ export function BossList() {
     { category: 'aberration' as BossCategory, label: 'Aberration' },
   ].filter((bossCategory) => {
     const visibleBossCategories = Array.from(
-      new Set(TRACKABLE_BOSSES.map((boss) => boss.category)),
+      new Set(TRACKABLE_BOSSES.map((boss) => boss.category))
     ).filter(
       (category) =>
         filters.categories
           .map((category) => category.toLowerCase())
-          .includes(category) || filters.categories.includes(DEFAULT_FILTER),
+          .includes(category) || filters.categories.includes(DEFAULT_FILTER)
     );
 
     return visibleBossCategories.includes(bossCategory.category);
@@ -104,7 +105,7 @@ export function BossList() {
 
   function handleCategoryToggle(bossCategory: BossCategory) {
     const newCollapsedBossCategories = collapsedBossCategories.includes(
-      bossCategory,
+      bossCategory
     )
       ? collapsedBossCategories.filter((type) => type !== bossCategory)
       : [...collapsedBossCategories, bossCategory];
@@ -119,7 +120,7 @@ export function BossList() {
     // If the boss is already discovered, undiscover it
     if (discoveredBossIds.includes(bossId)) {
       const newDiscoveredBossIds = discoveredBossIds.filter(
-        (id) => id !== bossId,
+        (id) => id !== bossId
       );
       setTracker({ ...tracker, discoveredBossIds: newDiscoveredBossIds });
       // We need to set the user item insert needed flag
@@ -159,7 +160,7 @@ export function BossList() {
                           filteredBosses.filter((boss) => {
                             return boss.category === bossCategory.category;
                           }),
-                          bossCategory,
+                          bossCategory
                         )
                       : 'Calculating...'}
                   </span>
@@ -167,7 +168,7 @@ export function BossList() {
                 <ChevronDownIcon
                   className={cn(
                     'text-surface-solid h-5 w-5',
-                    open ? 'rotate-180 transform' : '',
+                    open ? 'rotate-180 transform' : ''
                   )}
                 />
               </Disclosure.Button>

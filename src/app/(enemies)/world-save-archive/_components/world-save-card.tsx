@@ -1,11 +1,14 @@
-import { BaseButton, DownloadIcon, getImageUrl, Tooltip } from '@/ui';
 import Image from 'next/image';
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'; // TODO: replace with useId
 
 import { RELEASE_TO_NAME } from '@/app/_constants/releases';
 import { ALL_BOSS_AFFIXES } from '@/app/(enemies)/world-save-archive/_constants/all-boss-affixes';
 import { type FilteredWorldSave } from '@/app/(enemies)/world-save-archive/_types';
 import { getDownloadUrl } from '@/app/(enemies)/world-save-archive/_utils/get-download-url';
+import { BaseButton } from '@/ui/base/button';
+import { DownloadIcon } from '@/ui/common/icons/download';
+import { Tooltip } from '@/ui/common/tooltip';
+import { getImageUrl } from '@/utils/get-image-url';
 
 interface Props {
   saveItem: FilteredWorldSave;
@@ -31,7 +34,7 @@ export function WorldSaveCard({ saveItem }: Props) {
                 key={`${uuidv4()}}`}
                 content={
                   ALL_BOSS_AFFIXES.find(
-                    (a) => a.name.toLowerCase() === affix.toLowerCase(),
+                    (a) => a.name.toLowerCase() === affix.toLowerCase()
                   )?.description
                 }
               >

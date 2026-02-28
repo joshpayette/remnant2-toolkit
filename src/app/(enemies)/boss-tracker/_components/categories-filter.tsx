@@ -1,10 +1,9 @@
+import { BaseField, BaseLabel } from '@/ui/base/fieldset';
 import {
-  BaseField,
-  BaseLabel,
   BaseListbox,
   BaseListboxLabel,
   BaseListboxOption,
-} from '@/ui';
+} from '@/ui/base/listbox';
 
 import { DEFAULT_FILTER } from '@/app/_types/default-filter';
 

@@ -1,6 +1,8 @@
 'use client';
 
-import { BaseLink, EyeIcon, Tooltip } from '@/ui';
+import { BaseLink } from '@/ui/base/link';
+import { EyeIcon } from '@/ui/common/icons/eye';
+import { Tooltip } from '@/ui/common/tooltip';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 

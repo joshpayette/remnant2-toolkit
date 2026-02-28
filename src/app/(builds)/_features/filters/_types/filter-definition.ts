@@ -1,4 +1,4 @@
-import { type FilterOption } from '@/ui';
+import type { FilterOption } from '@/ui/common/filters/filter-listbox';
 
 export type FilterDefinition = {
   buildFilterKey: string;

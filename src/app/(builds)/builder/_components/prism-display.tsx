@@ -1,7 +1,5 @@
 'use client';
 
-import { BaseFieldset, BaseLabel, cn } from '@/ui';
-import { getArrayOfLength } from '@/utils/get-array-of-length';
 import { useState } from 'react';
 
 import { type BuildState } from '@/app/(builds)/_types/build-state';
@@ -9,6 +7,9 @@ import { type ItemCategory } from '@/app/(builds)/_types/item-category';
 import { FragmentOrFusionDialog } from '@/app/(builds)/builder/_components/fragment-or-fusion-dialog';
 import { ItemButton } from '@/app/(items)/_components/item-button';
 import { type Item } from '@/app/(items)/_types/item';
+import { BaseFieldset, BaseLabel } from '@/ui/base/fieldset';
+import { cn } from '@/utils/classnames';
+import { getArrayOfLength } from '@/utils/get-array-of-length';
 
 import {
   MAX_BONUS_RELIC_FRAGMENT_COUNT,

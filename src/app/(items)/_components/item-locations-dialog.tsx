@@ -1,8 +1,7 @@
-import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@/ui';
-import { groupBy } from '@/utils';
-
 import { type Item } from '@/app/(items)/_types/item';
 import { getCategoryProgressStats } from '@/app/(items)/item-tracker/_utils/get-category-progress-stats';
+import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@/ui/base/dialog';
+import { groupBy } from '@/utils/object-utils';
 
 interface Props {
   open: boolean;

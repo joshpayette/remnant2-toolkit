@@ -1,7 +1,5 @@
 'use client';
 
-import { type BuildTags } from '@/prisma';
-import { BaseButton } from '@/ui/base/button';
 import cloneDeep from 'lodash.clonedeep';
 import { useSession } from 'next-auth/react';
 import { useRef, useState } from 'react';
@@ -28,6 +26,8 @@ import { ImageDownloadInfoDialog } from '@/app/(builds)/builder/_components/imag
 import { ItemSuggestionsButton } from '@/app/(builds)/builder/_components/item-suggestions-button';
 import { SaveBuildButton } from '@/app/(builds)/builder/_components/save-build-button';
 import { ItemTagSuggestionDialog } from '@/app/(items)/_components/item-tag-suggestion-dialog';
+import { type BuildTags } from '@/prisma';
+import { BaseButton } from '@/ui/base/button';
 
 interface Props {
   enableMemberFeatures: boolean;

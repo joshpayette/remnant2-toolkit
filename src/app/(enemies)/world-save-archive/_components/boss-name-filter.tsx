@@ -1,12 +1,11 @@
+import { DEFAULT_FILTER } from '@/app/_types/default-filter';
+import { ALL_BOSSES } from '@/app/(enemies)/world-save-archive/_constants/all-bosses';
+import { BaseField } from '@/ui/base/fieldset';
 import {
-  BaseField,
   BaseListbox,
   BaseListboxLabel,
   BaseListboxOption,
-} from '@/ui';
-
-import { DEFAULT_FILTER } from '@/app/_types/default-filter';
-import { ALL_BOSSES } from '@/app/(enemies)/world-save-archive/_constants/all-bosses';
+} from '@/ui/base/listbox';
 
 interface Props {
   value: string;

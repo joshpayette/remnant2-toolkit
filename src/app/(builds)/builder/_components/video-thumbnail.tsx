@@ -1,12 +1,12 @@
-import {
-  isValidYoutubeUrl,
-  videoUrlToThumbnailUrl,
-  videoUrlToWatchUrl,
-} from '@/utils';
 import Image from 'next/image';
 
 import { VIDEO_APPROVAL_WINDOW } from '@/app/(builds)/_constants/video-approval-window';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
+import {
+  isValidYoutubeUrl,
+  videoUrlToThumbnailUrl,
+  videoUrlToWatchUrl,
+} from '@/utils/youtube';
 
 interface Props {
   buildState: BuildState;

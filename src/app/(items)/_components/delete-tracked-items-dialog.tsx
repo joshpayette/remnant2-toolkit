@@ -1,10 +1,10 @@
+import { BaseButton } from '@/ui/base/button';
 import {
-  BaseButton,
   BaseDialog,
   BaseDialogActions,
   BaseDialogBody,
   BaseDialogTitle,
-} from '@/ui';
+} from '@/ui/base/dialog';
 
 interface Props {
   open: boolean;

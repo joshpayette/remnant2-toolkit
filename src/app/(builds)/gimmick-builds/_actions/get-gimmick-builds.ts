@@ -1,8 +1,5 @@
 'use server';
 
-import { prisma } from '@/prisma';
-import { bigIntFix } from '@/utils/big-int-fix';
-
 import { getBuildList } from '@/app/(builds)/_actions/get-build-list';
 import { limitByAmuletSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/amulets';
 import { limitByArchetypesSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/archetypes';
@@ -30,6 +27,8 @@ import { limitByWithVideoSegment } from '@/app/(builds)/_features/filters/_libs/
 import { type BuildListRequest } from '@/app/(builds)/_types/build-list-request';
 import { type DBBuild } from '@/app/(builds)/_types/db-build';
 import { auth } from '@/lib/auth';
+import { Prisma } from '@/prisma';
+import { bigIntFix } from '@/utils/big-int-fix';
 
 export async function getGimmickBuilds({
   buildFilterFields,

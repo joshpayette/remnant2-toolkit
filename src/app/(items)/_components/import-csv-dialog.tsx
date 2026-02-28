@@ -1,22 +1,20 @@
+import { type CsvItem } from '@/app/_types/csv';
+import { ToCsvButton } from '@/components/to-csv-button';
+import { BaseButton } from '@/ui/base/button';
 import {
-  BaseButton,
   BaseDialog,
   BaseDialogActions,
   BaseDialogBody,
   BaseDialogDescription,
   BaseDialogTitle,
-  BaseField,
-  BaseInput,
-  BaseLabel,
-} from '@/ui';
-
-import { ToCsvButton } from '@/components/to-csv-button';
-import { type CsvItem } from '@/app/_types/csv';
+} from '@/ui/base/dialog';
+import { BaseField, BaseLabel } from '@/ui/base/fieldset';
+import { BaseInput } from '@/ui/base/input';
 
 interface Props {
   open: boolean;
   items: CsvItem[];
-  fileInputRef: React.RefObject<HTMLInputElement>;
+  fileInputRef: React.RefObject<HTMLInputElement | null>;
   onClose: () => void;
   onSubmit: () => void;
 }

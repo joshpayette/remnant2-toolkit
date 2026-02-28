@@ -1,6 +1,6 @@
 'use client';
 
-import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@/ui';
+import { BaseDialog, BaseDialogBody, BaseDialogTitle } from '@/ui/base/dialog';
 import { useState } from 'react';
 
 import { buildStateToItemList } from '@/app/(builds)/_libs/build-state-to-item-list';

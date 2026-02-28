@@ -1,7 +1,6 @@
-import type { FilterOption } from '@/ui';
-
 import type { FilterDefinition } from '@/app/(builds)/_features/filters/_types/filter-definition';
 import { skillItems } from '@/app/(items)/_constants/skill-items';
+import type { FilterOption } from '@/ui/common/filters/filter-listbox';
 
 export const skillFilter = {
   buildFilterKey: 'skills',

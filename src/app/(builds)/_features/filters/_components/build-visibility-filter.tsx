@@ -1,6 +1,9 @@
-import { BaseListbox, BaseListboxLabel, BaseListboxOption } from '@/ui';
-
 import { useBuildVisibilityFilter } from '@/app/(builds)/_features/filters/_hooks/use-build-visibility-filter';
+import {
+  BaseListbox,
+  BaseListboxLabel,
+  BaseListboxOption,
+} from '@/ui/base/listbox';
 
 interface Props {
   isLoading: boolean;

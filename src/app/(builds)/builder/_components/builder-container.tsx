@@ -1,15 +1,15 @@
-import { type BuildTags } from '@/prisma';
-import { cn } from '@/utils/classnames';
 import { type ReactNode, type RefObject } from 'react';
 
 import { type UpdateBuildCategory } from '@/app/(builds)/_libs/update-build-state';
 import { type BuildState } from '@/app/(builds)/_types/build-state';
 import { BuilderHelp } from '@/app/(builds)/builder/_components/builder-help';
+import { type BuildTags } from '@/prisma';
+import { cn } from '@/utils/classnames';
 
 import { Builder } from './builder';
 
 type Props = {
-  buildContainerRef: RefObject<HTMLDivElement>;
+  buildContainerRef: RefObject<HTMLDivElement | null>;
   builderActions: ReactNode;
   buildState: BuildState;
   isMainBuild: boolean;

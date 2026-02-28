@@ -1,16 +1,3 @@
-import { type BuildTags } from '@/prisma';
-import {
-  BaseButton,
-  BaseInput,
-  BaseLink,
-  cn,
-  DuplicateIcon,
-  EyeIcon,
-  FavoriteIcon,
-  Logo,
-  Tooltip,
-} from '@/ui';
-import { getArrayOfLength, stripUnicode } from '@/utils';
 import { useCallback, useMemo, useState } from 'react';
 
 import { OPTIONAL_ITEM_SYMBOL } from '@/app/_constants/item-symbols';
@@ -38,6 +25,18 @@ import { perkItems } from '@/app/(items)/_constants/perk-items';
 import { type Item } from '@/app/(items)/_types/item';
 import { RelicFragmentItem } from '@/app/(items)/_types/relic-fragment-item';
 import { TraitItem } from '@/app/(items)/_types/trait-item';
+import { type BuildTags } from '@/prisma';
+import { BaseButton } from '@/ui/base/button';
+import { BaseInput } from '@/ui/base/input';
+import { BaseLink } from '@/ui/base/link';
+import { DuplicateIcon } from '@/ui/common/icons/duplicate';
+import { EyeIcon } from '@/ui/common/icons/eye';
+import { FavoriteIcon } from '@/ui/common/icons/favorite';
+import { Logo } from '@/ui/common/logo';
+import { Tooltip } from '@/ui/common/tooltip';
+import { cn } from '@/utils/classnames';
+import { getArrayOfLength } from '@/utils/get-array-of-length';
+import { stripUnicode } from '@/utils/strip-unicode';
 
 import { MemberFeatures } from './member-features';
 import { Stats } from './stats';
@@ -1093,7 +1092,7 @@ export function Builder({
                         }}
                         className="max-w-[200px]"
                       >
-                        + Mudtooth's Snake Oil
+                        {`+ Mudtooth's Snake Oil`}
                       </BaseButton>
                     </div>
                   ) : null}

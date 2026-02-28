@@ -1,13 +1,12 @@
+import type { QualityBuildCheckResult } from '@/app/(builds)/_libs/is-build-quality-build';
+import { BaseButton } from '@/ui/base/button';
 import {
-  BaseButton,
   BaseDialog,
   BaseDialogActions,
   BaseDialogBody,
   BaseDialogTitle,
-  BaseText,
-} from '@/ui';
-
-import type { QualityBuildCheckResult } from '@/app/(builds)/_libs/is-build-quality-build';
+} from '@/ui/base/dialog';
+import { BaseText } from '@/ui/base/text';
 
 interface Props {
   open: boolean;

@@ -1,4 +1,4 @@
-import type { FilterOption } from '@/ui';
+import type { FilterOption } from '@/ui/common/filters/filter-listbox';
 
 import { ALL_BUILD_TAGS } from '@/app/(builds)/_constants/all-build-tags';
 import type { FilterDefinition } from '@/app/(builds)/_features/filters/_types/filter-definition';
