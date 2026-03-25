@@ -1009,7 +1009,7 @@ export const ringItems: RingItem[] = [
   },
   {
     category: 'ring',
-    name: 'Dryzr Sniper Sigil',
+    name: 'Drzyr Sniper Sigil',
     imagePath: '/items/rings/dryzrsnipersigil.png',
     saveFileSlug: 'Ring_DrzyrSniperSigil_C',
     id: 'gtli7e',
