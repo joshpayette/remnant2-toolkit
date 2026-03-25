@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2026-03-25
+
+### Fixed
+
+- Fixed a bug where the builder would crash when adding and removing items and variants in a specific way.
+- Fixed Dryzyr Sniper Sigil -> Drzyr Sniper Sigil
+
 ## 2026-02-27
 
 ### Added

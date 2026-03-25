@@ -102,7 +102,7 @@ export function isBuildQualityBuild(
   // Rusty items do not have mods, so reduce the total for every weapon that
   // has isRusty set to true
   const rustyWeaponCount = buildState.items.weapon.filter(
-    (weapon) => weapon !== null && weapon.isRusty,
+    (weapon) => weapon !== null && weapon !== undefined && weapon.isRusty,
   ).length;
   let requiredModCount = MAX_ALLOWED_MODS - rustyWeaponCount;
 
