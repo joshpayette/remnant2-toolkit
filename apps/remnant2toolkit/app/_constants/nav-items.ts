@@ -223,7 +223,7 @@ export const NAV_ITEMS = {
     label: `Vash Cowaii's Loadout Calculator`,
     description:
       'An incredible tool for advanced build stats and calculations.',
-    href: 'https://cowaii.io/index.html?s=s',
+    href: 'https://cowaii.io/Remnant2/Calculator',
     icon: VashIcon,
   },
   wiki: {
