@@ -1,4 +1,0 @@
-model TotalBuildMilestone {
-  id               String @id @default(cuid())
-  targetBuildCount Int    @default(0)
-}

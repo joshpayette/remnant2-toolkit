@@ -1,3 +1,9 @@
-packages:
-  - "apps/*"
-  - "packages/*"
+# Not a workspace — this file only holds pnpm settings (pnpm 10+ moved these
+# out of package.json/.npmrc). With no `packages:` key the repo stays a single
+# package. `allowBuilds` lists dependencies permitted to run install/build scripts.
+allowBuilds:
+  '@prisma/client': true
+  '@prisma/engines': true
+  prisma: true
+  sharp: true
+  unrs-resolver: true

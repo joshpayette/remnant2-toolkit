@@ -1,1 +1,0 @@
-export const MAX_ALLOWED_RELIC_FRAGMENTS = 8;

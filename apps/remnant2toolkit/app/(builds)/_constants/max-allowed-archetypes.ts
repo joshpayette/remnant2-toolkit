@@ -1,1 +1,0 @@
-export const MAX_ALLOWED_ARCHETYPES = 2;

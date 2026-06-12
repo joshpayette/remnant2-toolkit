@@ -47,9 +47,11 @@ next-env.d.ts
 .env.db
 
 # custom scripts
+scripts/top-items-report/output
 profile.sav
 profile.txt
 UPGRADE.md
 convertedSave.txt
 wiki-data.csv
 pscale
+.env*
