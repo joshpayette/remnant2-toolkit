@@ -1,0 +1,14 @@
+model AuditLog {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  userId      String
+  moderatorId String
+  action      String
+  details     String
+  User        User     @relation(name: "user", fields: [userId], references: [id])
+  Moderator   User     @relation(name: "moderator", fields: [moderatorId], references: [id])
+
+  @@index([userId])
+  @@index([moderatorId])
+}

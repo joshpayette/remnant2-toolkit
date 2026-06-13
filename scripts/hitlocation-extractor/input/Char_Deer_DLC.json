@@ -1,0 +1,1300 @@
+[
+  {
+    "Type": "ActionComponent",
+    "Name": "ActionComp",
+    "Outer": "Default__Char_Deer_DLC_C",
+    "Class": "UScriptClass'ActionComponent'",
+    "Template": {
+      "ObjectName": "ActionComponent'Default__BP_Monster_C:ActionComp'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.0"
+    }
+  },
+  {
+    "Type": "ActorCustomizationComponent",
+    "Name": "Visual_GEN_VARIABLE",
+    "Outer": "Char_Deer_DLC_C",
+    "Class": "UScriptClass'ActorCustomizationComponent'",
+    "Template": {
+      "ObjectName": "ActorCustomizationComponent'BP_Monster_C:Visual_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.1"
+    },
+    "Properties": {
+      "CustomizationSet": {
+        "ObjectName": "ActorCustomizationSet'Char_Deer_VisualSet'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_VisualSet.18"
+      }
+    }
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Char_Deer_DLC_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+    },
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Char_Deer_DLC_C:SimpleConstructionScript_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.22"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'Char_Deer_DLC_C:InheritableComponentHandler'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.15"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'Char_Deer_DLC_C:ExecuteUbergraph_Char_Deer_DLC'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.11"
+      }
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'Char_Deer_DLC_C:ModifyDamage'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.12"
+      },
+      {
+        "ObjectName": "Function'Char_Deer_DLC_C:DeActivateWP_Horns'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.10"
+      },
+      {
+        "ObjectName": "Function'Char_Deer_DLC_C:ActivateWP_Horns'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.9"
+      },
+      {
+        "ObjectName": "Function'Char_Deer_DLC_C:OnDead_Event'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.13"
+      },
+      {
+        "ObjectName": "Function'Char_Deer_DLC_C:ExecuteUbergraph_Char_Deer_DLC'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.11"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ProjectileShootLocation",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WP_Horns",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'BoxComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Power Override",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_Char_Deer_DLC": {
+        "ObjectName": "Function'Char_Deer_DLC_C:ExecuteUbergraph_Char_Deer_DLC'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.11"
+      },
+      "OnDead_Event": {
+        "ObjectName": "Function'Char_Deer_DLC_C:OnDead_Event'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.13"
+      },
+      "ActivateWP_Horns": {
+        "ObjectName": "Function'Char_Deer_DLC_C:ActivateWP_Horns'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.9"
+      },
+      "DeActivateWP_Horns": {
+        "ObjectName": "Function'Char_Deer_DLC_C:DeActivateWP_Horns'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.10"
+      },
+      "ModifyDamage": {
+        "ObjectName": "Function'Char_Deer_DLC_C:ModifyDamage'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.12"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Char_Deer_DLC_C'Default__Char_Deer_DLC_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.6"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "WP_Horns_GEN_VARIABLE",
+    "Outer": "Char_Deer_DLC_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Properties": {
+      "BoxExtent": {
+        "X": 85.0,
+        "Y": 35.0,
+        "Z": 55.0
+      },
+      "bGenerateOverlapEvents": false,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel6",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "WeaponPhantom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Window",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "BossPawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 95.0,
+        "Y": 30.0,
+        "Z": 4.0031845E-12
+      },
+      "RelativeRotation": {
+        "Pitch": 3.1824261E-12,
+        "Yaw": 35.0,
+        "Roll": 1.4024244E-12
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "WindowCapsule_GEN_VARIABLE",
+    "Outer": "Char_Deer_DLC_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'BP_Monster_C:WindowCapsule_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.6"
+    },
+    "Properties": {
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_WorldStatic",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "PrimaryComponentTick": {
+        "bStartWithTickEnabled": false
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__Char_Deer_DLC_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__BP_Monster_C:CollisionCylinder'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.7"
+    }
+  },
+  {
+    "Type": "Char_Deer_DLC_C",
+    "Name": "Default__Char_Deer_DLC_C",
+    "Class": "BlueprintGeneratedClass'/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.Char_Deer_DLC_C'",
+    "Template": {
+      "ObjectName": "BP_Monster_C'Default__BP_Monster_C'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.4"
+    },
+    "Properties": {
+      "UberGraphFrame": {},
+      "Power Override": 2,
+      "DissolveSoundFX": {
+        "SoundObject": {
+          "ObjectName": "AkAudioEvent'Creature_Dissolve_Short'",
+          "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_Shared/Creature_Dissolve/Creature_Dissolve_Short.1"
+        }
+      },
+      "AlertSound": {
+        "SoundObject": {
+          "ObjectName": "AkAudioEvent'Voc_DLC2_Deer_Alert_BP'",
+          "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_Alert_BP/Alert_DLC2/Voc_DLC2_Deer_Alert_BP.1"
+        }
+      },
+      "CharacterBiome": "MonsterBiome::NewEnumerator0",
+      "Blackboard": {
+        "ObjectName": "BlackboardData'Char_Deer_Blackboard'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_Blackboard.0"
+      },
+      "CombatClass": {
+        "ObjectName": "BlueprintGeneratedClass'CombatClass_Swarm_C'",
+        "ObjectPath": "/Game/_Core/CombatClasses/CombatClass_Swarm.0"
+      },
+      "StatsComp": {
+        "ObjectName": "StatsComponent'Default__Char_Deer_DLC_C:StatsComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.26"
+      },
+      "ActionComp": {
+        "ObjectName": "ActionComponent'Default__Char_Deer_DLC_C:ActionComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.0"
+      },
+      "WeaponPhantomProviderComp": {
+        "ObjectName": "WeaponPhantomComponent'Default__Char_Deer_DLC_C:WeaponPhantomProviderComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.27"
+      },
+      "HitLogComp": {
+        "ObjectName": "HitLogComponent'Default__Char_Deer_DLC_C:HitLogComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.14"
+      },
+      "ReplicatedMovementComp": {
+        "ObjectName": "ReplicatedMovementComponent'Default__Char_Deer_DLC_C:ReplicatedMovement'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.16"
+      },
+      "Data": {
+        "DataTable": {
+          "ObjectName": "DataTable'Stats_Character_DLC2'",
+          "ObjectPath": "/Game/World_DLC2/Stats/Stats_Character_DLC2.0"
+        },
+        "RowName": "Deer"
+      },
+      "ImpactDescriptorSet": {
+        "DefaultImpact": {
+          "Effect": {
+            "ImpactEffectName": "IE_Weapon_Blunt_Medium"
+          }
+        },
+        "Foot": {
+          "Effect": {
+            "ImpactEffectName": "None"
+          }
+        }
+      },
+      "ActiveRagdollInfo": {
+        "FoleySound": {
+          "SoundObject": {
+            "ObjectName": "AkAudioEvent'DLC2_Deer_Foley_Heavy_Long'",
+            "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_DLC2/DLC2_Deer/DLC2_Deer_Foley_Heavy_Long.1"
+          }
+        },
+        "DeathVocalization": {
+          "SoundObject": {
+            "ObjectName": "AkAudioEvent'Voc_DLC2_Deer_Death'",
+            "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_DLC2/DLC2_Deer/Voc_DLC2_Deer_Death.1"
+          }
+        },
+        "DeathVocalizationSocketName": "Bone_RD_Head"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_Deer_DLC_C:CharacterMesh0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.23"
+      },
+      "CharacterMovement": {
+        "ObjectName": "CharacterMovementComponentGunfire'Default__Char_Deer_DLC_C:CharMoveComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.7"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Deer_DLC_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.5"
+      },
+      "AIControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'Char_Deer_DLC_AIController_C'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC_AIController.1"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Deer_DLC_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.5"
+      }
+    }
+  },
+  {
+    "Type": "CharacterMovementComponentGunfire",
+    "Name": "CharMoveComp",
+    "Outer": "Default__Char_Deer_DLC_C",
+    "Class": "UScriptClass'CharacterMovementComponentGunfire'",
+    "Template": {
+      "ObjectName": "CharacterMovementComponentGunfire'Default__BP_Monster_C:CharMoveComp'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.8"
+    }
+  },
+  {
+    "Type": "DissolveComponent",
+    "Name": "Dissolve_GEN_VARIABLE",
+    "Outer": "Char_Deer_DLC_C",
+    "Class": "UScriptClass'DissolveComponent'",
+    "Template": {
+      "ObjectName": "DissolveComponent'BP_Monster_C:Dissolve_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.11"
+    },
+    "Properties": {
+      "Materials": [
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Deer_Male_Fur_Head'",
+            "ObjectPath": "/Game/World_Jungle/Characters/RedDoe/Materials/M_Pan_Deer_Male_Fur_Head.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Deer_Male_Fur_Head_Dissolve'",
+            "ObjectPath": "/Game/World_Jungle/Characters/RedDoe/Materials/M_Pan_Deer_Male_Fur_Head_Dissolve.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Deer_Male_Fur_Body'",
+            "ObjectPath": "/Game/World_Jungle/Characters/RedDoe/Materials/M_Pan_Deer_Male_Fur_Body.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Deer_Male_Fur_Body_Dissolve'",
+            "ObjectPath": "/Game/World_Jungle/Characters/RedDoe/Materials/M_Pan_Deer_Male_Fur_Body_Dissolve.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Deer_Male_fur'",
+            "ObjectPath": "/Game/World_Jungle/Characters/RedDoe/Materials/M_Pan_Deer_Male_fur.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Deer_Male_fur_Dissolve'",
+            "ObjectPath": "/Game/World_Jungle/Characters/RedDoe/Materials/M_Pan_Deer_Male_fur_Dissolve.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Deer_Male_EyeLashes'",
+            "ObjectPath": "/Game/World_Jungle/Characters/RedDoe/Materials/M_Pan_Deer_Male_EyeLashes.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Deer_Male_EyeLashes_Dissolve'",
+            "ObjectPath": "/Game/World_Jungle/Characters/RedDoe/Materials/M_Pan_Deer_Male_EyeLashes_Dissolve.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Deer_Male_Horns'",
+            "ObjectPath": "/Game/World_Jungle/Characters/RedDoe/Materials/M_Pan_Deer_Male_Horns.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Deer_Male_Horns_Dissolve'",
+            "ObjectPath": "/Game/World_Jungle/Characters/RedDoe/Materials/M_Pan_Deer_Male_Horns_Dissolve.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Deer_Male_Head'",
+            "ObjectPath": "/Game/World_Jungle/Characters/RedDoe/Materials/M_Pan_Deer_Male_Head.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Deer_Male_Head_Dissolve'",
+            "ObjectPath": "/Game/World_Jungle/Characters/RedDoe/Materials/M_Pan_Deer_Male_Head_Dissolve.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Deer_Male_Body'",
+            "ObjectPath": "/Game/World_Jungle/Characters/RedDoe/Materials/M_Pan_Deer_Male_Body.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Pan_Deer_Male_Body_Dissolve'",
+            "ObjectPath": "/Game/World_Jungle/Characters/RedDoe/Materials/M_Pan_Deer_Male_Body_Dissolve.0"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "ActivateWP_Horns",
+    "Outer": "Char_Deer_DLC_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "DeActivateWP_Horns",
+    "Outer": "Char_Deer_DLC_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_Char_Deer_DLC",
+    "Outer": "Char_Deer_DLC_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioAttachParams",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioAttachParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioStopParams",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioStopParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_WeaponPhantomInfo",
+        "Flags": "RF_Public",
+        "ElementSize": 208,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'WeaponPhantomInfo'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSoundAttached_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_Reason",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": null
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'CharacterGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Cause",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "ModifyDamage",
+    "Outer": "Char_Deer_DLC_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'DamageSourceInterface:ModifyDamage'",
+      "ObjectPath": "/Script/GunfireRuntime"
+    },
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "Info",
+        "Flags": "RF_Public",
+        "ElementSize": 528,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'DamageInfo'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetActorUpVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetActorLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ClassClass_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetActorForwardVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetActorForwardVector_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetActorLocation_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Subtract_VectorVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetActorRightVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Cross_VectorVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Add_VectorVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Dot_VectorVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_NegateVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_SignOfFloat_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Add_VectorVector_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_GreaterEqual_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CheckTag_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SelectVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnDead_Event",
+    "Outer": "Char_Deer_DLC_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_Monster_C:OnDead_Event'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.23"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "Reason",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": null
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'CharacterGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Cause",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "HitLogComponent",
+    "Name": "HitLogComp",
+    "Outer": "Default__Char_Deer_DLC_C",
+    "Class": "UScriptClass'HitLogComponent'",
+    "Template": {
+      "ObjectName": "HitLogComponent'Default__BP_Monster_C:HitLogComp'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.31"
+    },
+    "Properties": {
+      "HitLocations": [
+        {
+          "NameID": "Flesh",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Flesh_Chest'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_Chest.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "Head",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Flesh_Head'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_Head.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": true,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "Char_Deer_DLC_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'StateMachineComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "StateMachineComponent'Char_Deer_DLC_C:StateMachine_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.25"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "StateMachine",
+            "AssociatedGuid": "1226ECA4-48F65379-CC82D286-262B8701"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'ActorCustomizationComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "ActorCustomizationComponent'Char_Deer_DLC_C:Visual_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.1"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_Base_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.3"
+            },
+            "SCSVariableName": "Visual",
+            "AssociatedGuid": "88E8F05F-499F34E6-178F9CA8-75D39337"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'DissolveComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "DissolveComponent'Char_Deer_DLC_C:Dissolve_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.8"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "Dissolve",
+            "AssociatedGuid": "63F89BCB-4D3243A5-A96E8C83-1826967D"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'SoundSetComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "SoundSetComponent'Char_Deer_DLC_C:SoundSet_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.24"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "SoundSet",
+            "AssociatedGuid": "5B85C075-472CBB69-861FEA8F-8A8CDCA4"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'CapsuleComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "CapsuleComponent'Char_Deer_DLC_C:WindowCapsule_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.4"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "WindowCapsule",
+            "AssociatedGuid": "3FCCD0B8-4FAE2074-DF333D9F-87A449A1"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "ReplicatedMovementComponent",
+    "Name": "ReplicatedMovement",
+    "Outer": "Default__Char_Deer_DLC_C",
+    "Class": "UScriptClass'ReplicatedMovementComponent'",
+    "Template": {
+      "ObjectName": "ReplicatedMovementComponent'Default__BP_Monster_C:ReplicatedMovement'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.33"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "Char_Deer_DLC_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "ProjectileShootLocation_GEN_VARIABLE",
+    "Outer": "Char_Deer_DLC_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": 130.0,
+        "Y": -3.403539E-07,
+        "Z": -6.559731E-10
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 1.9083328E-13,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_Deer_DLC_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.17"
+      },
+      "VariableGuid": "C0BFBF03-429FBE05-C5AD7483-F571D36E",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'BoxComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent'Char_Deer_DLC_C:WP_Horns_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.3"
+      },
+      "AttachToName": "Bone_RD_Head",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "2B32548B-4D75E3F3-F37F58B4-8872D67D",
+      "InternalVariableName": "WP_Horns"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_Deer_DLC_C:ProjectileShootLocation_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.18"
+      },
+      "AttachToName": "Bone_RD_Head",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "D9DD1CE5-4F476786-974B3994-DA4E207A",
+      "InternalVariableName": "ProjectileShootLocation"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "Char_Deer_DLC_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_Deer_DLC_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.20"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Deer_DLC_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.21"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_Deer_DLC_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.20"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Deer_DLC_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.21"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Char_Deer_DLC_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.19"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponentBudgeted",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__Char_Deer_DLC_C",
+    "Class": "UScriptClass'SkeletalMeshComponentBudgeted'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponentBudgeted'Default__BP_Monster_C:CharacterMesh0'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.53"
+    },
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'Char_Deer_AnimBP_C'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_AnimBP.0"
+      },
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'Male_Deer'",
+        "ObjectPath": "/Game/World_Jungle/Characters/RedDoe/Mesh/Male_Deer.4"
+      },
+      "SkinnedAsset": {
+        "ObjectName": "SkeletalMesh'Male_Deer'",
+        "ObjectPath": "/Game/World_Jungle/Characters/RedDoe/Mesh/Male_Deer.4"
+      },
+      "VisibilityBasedAnimTickOption": "EVisibilityBasedAnimTickOption::OnlyTickPoseWhenRendered",
+      "bComponentUseFixedSkelBounds": true,
+      "bEnableUpdateRateOptimizations": true,
+      "LDMaxDrawDistance": 8000.0,
+      "CachedMaxDrawDistance": 8000.0,
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Deer_DLC_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC.5"
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -90.0,
+        "Roll": 0.0
+      },
+      "RelativeScale3D": {
+        "X": 0.33,
+        "Y": 0.33,
+        "Z": 0.33
+      }
+    }
+  },
+  {
+    "Type": "SoundSetComponent",
+    "Name": "SoundSet_GEN_VARIABLE",
+    "Outer": "Char_Deer_DLC_C",
+    "Class": "UScriptClass'SoundSetComponent'",
+    "Template": {
+      "ObjectName": "SoundSetComponent'BP_Monster_C:SoundSet_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.54"
+    },
+    "Properties": {
+      "SoundSet": {
+        "ObjectName": "SoundSet'Char_Deer_DLC2_SoundSet'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_DLC2_SoundSet.114"
+      },
+      "SoundTags": [
+        "SFX_Deer_DLC2",
+        "Voc_Deer_DLC2"
+      ]
+    }
+  },
+  {
+    "Type": "StateMachineComponent",
+    "Name": "StateMachine_GEN_VARIABLE",
+    "Outer": "Char_Deer_DLC_C",
+    "Class": "UScriptClass'StateMachineComponent'",
+    "Template": {
+      "ObjectName": "StateMachineComponent'BP_Monster_C:StateMachine_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.55"
+    },
+    "Properties": {
+      "StateMachine": {
+        "ObjectName": "StateMachine'Char_Deer_StateMachine'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Deer_DLC2/Blueprints/Char_Deer_StateMachine.2186"
+      }
+    }
+  },
+  {
+    "Type": "StatsComponent",
+    "Name": "StatsComp",
+    "Outer": "Default__Char_Deer_DLC_C",
+    "Class": "UScriptClass'StatsComponent'",
+    "Template": {
+      "ObjectName": "StatsComponent'Default__BP_Monster_C:StatsComp'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.56"
+    }
+  },
+  {
+    "Type": "WeaponPhantomComponent",
+    "Name": "WeaponPhantomProviderComp",
+    "Outer": "Default__Char_Deer_DLC_C",
+    "Class": "UScriptClass'WeaponPhantomComponent'",
+    "Template": {
+      "ObjectName": "WeaponPhantomComponent'Default__BP_Monster_C:WeaponPhantomProviderComp'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.60"
+    },
+    "Properties": {
+      "DefaultHitCooldown": 1.0
+    }
+  }
+]

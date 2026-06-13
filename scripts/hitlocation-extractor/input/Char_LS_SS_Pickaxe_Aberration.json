@@ -1,0 +1,575 @@
+[
+  {
+    "Type": "ActionComponent",
+    "Name": "ActionComp",
+    "Outer": "Default__Char_LS_SS_Pickaxe_Aberration_C",
+    "Class": "UScriptClass'ActionComponent'",
+    "Template": {
+      "ObjectName": "ActionComponent'Default__Char_LS_SS_Pickaxe_Evolved_C:ActionComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Char_LS_SS_Pickaxe_Evolved.0"
+    }
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Char_LS_SS_Pickaxe_Aberration_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'Char_LS_SS_Pickaxe_Evolved_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Char_LS_SS_Pickaxe_Evolved.2"
+    },
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Char_LS_SS_Pickaxe_Aberration_C:SimpleConstructionScript_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.15"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'Char_LS_SS_Pickaxe_Aberration_C:InheritableComponentHandler'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.10"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_Aberration_C:ExecuteUbergraph_Char_LS_SS_Pickaxe_Aberration'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.6"
+      }
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_Aberration_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.8"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_Aberration_C:PlayDeathStinger'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.7"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_Aberration_C:ExecuteUbergraph_Char_LS_SS_Pickaxe_Aberration'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.6"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_Char_LS_SS_Pickaxe_Aberration": {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_Aberration_C:ExecuteUbergraph_Char_LS_SS_Pickaxe_Aberration'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.6"
+      },
+      "PlayDeathStinger": {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_Aberration_C:PlayDeathStinger'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.7"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'Char_LS_SS_Pickaxe_Aberration_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.8"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Char_LS_SS_Pickaxe_Aberration_C'Default__Char_LS_SS_Pickaxe_Aberration_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.3"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__Char_LS_SS_Pickaxe_Aberration_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__Char_LS_SS_Pickaxe_Evolved_C:CollisionCylinder'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Char_LS_SS_Pickaxe_Evolved.3"
+    }
+  },
+  {
+    "Type": "Char_LS_SS_Pickaxe_Aberration_C",
+    "Name": "Default__Char_LS_SS_Pickaxe_Aberration_C",
+    "Class": "BlueprintGeneratedClass'/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.Char_LS_SS_Pickaxe_Aberration_C'",
+    "Template": {
+      "ObjectName": "Char_LS_SS_Pickaxe_Evolved_C'Default__Char_LS_SS_Pickaxe_Evolved_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Char_LS_SS_Pickaxe_Evolved.4"
+    },
+    "Properties": {
+      "UberGraphFrame": {},
+      "SFX_FlyLoop_Sound": null,
+      "DissolveSoundFX": {
+        "SoundObject": {
+          "ObjectName": "AkAudioEvent'Creature_Dissolve_Aberration'",
+          "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_Shared/Creature_Dissolve/Creature_Dissolve_Aberration.1"
+        }
+      },
+      "Type": "MonsterType::NewEnumerator5",
+      "ModTable": {
+        "ObjectName": "SpawnTable'Char_LS_SS_Pickaxe_Aberration_Mod'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration_Mod.0"
+      },
+      "AlertSound": {
+        "SoundObject": {
+          "ObjectName": "AkAudioEvent'Voc_DLC2_SS_Aberration_Alert_BP'",
+          "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_Alert_BP/Alert_DLC2/Voc_DLC2_SS_Aberration_Alert_BP.1"
+        }
+      },
+      "CombatClass": {
+        "ObjectName": "BlueprintGeneratedClass'CombatClass_Aberration_C'",
+        "ObjectPath": "/Game/_Core/CombatClasses/CombatClass_Aberration.0"
+      },
+      "StatsComp": {
+        "ObjectName": "StatsComponent'Default__Char_LS_SS_Pickaxe_Aberration_C:StatsComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.17"
+      },
+      "ActionComp": {
+        "ObjectName": "ActionComponent'Default__Char_LS_SS_Pickaxe_Aberration_C:ActionComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.0"
+      },
+      "WeaponPhantomProviderComp": {
+        "ObjectName": "WeaponPhantomComponent'Default__Char_LS_SS_Pickaxe_Aberration_C:WeaponPhantomProviderComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.18"
+      },
+      "HitLogComp": {
+        "ObjectName": "HitLogComponent'Default__Char_LS_SS_Pickaxe_Aberration_C:HitLogComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.9"
+      },
+      "ReplicatedMovementComp": {
+        "ObjectName": "ReplicatedMovementComponent'Default__Char_LS_SS_Pickaxe_Aberration_C:ReplicatedMovement'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.12"
+      },
+      "Data": {
+        "RowName": "Pan_ShiftingSoldier_Aberration"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_LS_SS_Pickaxe_Aberration_C:CharacterMesh0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.16"
+      },
+      "CharacterMovement": {
+        "ObjectName": "CharacterMovementComponentGunfire'Default__Char_LS_SS_Pickaxe_Aberration_C:CharMoveComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.4"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_SS_Pickaxe_Aberration_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.2"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_SS_Pickaxe_Aberration_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.2"
+      },
+      "Tags": [
+        "CanActivateWP",
+        "Evolved",
+        "NoMark",
+        "NoBleed"
+      ]
+    }
+  },
+  {
+    "Type": "CharacterMovementComponentGunfire",
+    "Name": "CharMoveComp",
+    "Outer": "Default__Char_LS_SS_Pickaxe_Aberration_C",
+    "Class": "UScriptClass'CharacterMovementComponentGunfire'",
+    "Template": {
+      "ObjectName": "CharacterMovementComponentGunfire'Default__Char_LS_SS_Pickaxe_Evolved_C:CharMoveComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Char_LS_SS_Pickaxe_Evolved.5"
+    }
+  },
+  {
+    "Type": "DisplayInfoComponent_C",
+    "Name": "DisplayInfoComponent_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Pickaxe_Aberration_C",
+    "Class": "BlueprintGeneratedClass'/Game/_Core/Blueprints/Base/DisplayInfoComponent.DisplayInfoComponent_C'",
+    "Template": {
+      "ObjectName": "DisplayInfoComponent_C'BP_Monster_C:DisplayInfoComponent_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.10"
+    },
+    "Properties": {
+      "Label": {
+        "Namespace": "",
+        "Key": "48561F9D48C4DFB162774FB29D74ED65",
+        "SourceString": "The Fractured",
+        "LocalizedString": "The Fractured"
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_Char_LS_SS_Pickaxe_Aberration",
+    "Outer": "Char_LS_SS_Pickaxe_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioAttachParams",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioAttachParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioStopParams",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioStopParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSound2D_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSoundAttached_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "PlayDeathStinger",
+    "Outer": "Char_LS_SS_Pickaxe_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_Monster_Base_C:PlayDeathStinger'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.39"
+    },
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "Char_LS_SS_Pickaxe_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_LS_SS_Pickaxe_Evolved_C:ReceiveBeginPlay'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Char_LS_SS_Pickaxe_Evolved.12"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "HitLogComponent",
+    "Name": "HitLogComp",
+    "Outer": "Default__Char_LS_SS_Pickaxe_Aberration_C",
+    "Class": "UScriptClass'HitLogComponent'",
+    "Template": {
+      "ObjectName": "HitLogComponent'Default__Char_LS_SS_Pickaxe_Evolved_C:HitLogComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Char_LS_SS_Pickaxe_Evolved.13"
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "Char_LS_SS_Pickaxe_Aberration_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'DisplayInfoComponent_C'",
+            "ObjectPath": "/Game/_Core/Blueprints/Base/DisplayInfoComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "DisplayInfoComponent_C'Char_LS_SS_Pickaxe_Aberration_C:DisplayInfoComponent_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.5"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "DisplayInfoComponent",
+            "AssociatedGuid": "9D516F77-47F7A864-60CD9289-9CBD107C"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_SS_Pickaxe_Aberration_C:VFX_Idle_Sand_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.11"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_SS_Base_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.4"
+            },
+            "SCSVariableName": "VFX_Idle_Sand",
+            "AssociatedGuid": "C66B7687-4F1736F9-692B8F99-C422D4D3"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "VFX_Idle_Sand_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Pickaxe_Aberration_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_SS_Pickaxe_Evolved_C:VFX_Idle_Sand_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Char_LS_SS_Pickaxe_Evolved.15"
+    },
+    "Properties": {
+      "OverrideParameters": {
+        "SortedParameterOffsets": [
+          {
+            "Offset": 0,
+            "Name": "User.Color",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 16,
+            "Name": "User.Color_02",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 48,
+            "Name": "User.EVO_Color",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 32,
+            "Name": "User.FormedLerp",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 36,
+            "Name": "User.HeightScale",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 40,
+            "Name": "User.OpacityScale",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 44,
+            "Name": "User.Scale",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "ReplicatedMovementComponent",
+    "Name": "ReplicatedMovement",
+    "Outer": "Default__Char_LS_SS_Pickaxe_Aberration_C",
+    "Class": "UScriptClass'ReplicatedMovementComponent'",
+    "Template": {
+      "ObjectName": "ReplicatedMovementComponent'Default__Char_LS_SS_Pickaxe_Evolved_C:ReplicatedMovement'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Char_LS_SS_Pickaxe_Evolved.16"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Pickaxe_Aberration_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_LS_SS_Pickaxe_Aberration_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.13"
+      },
+      "VariableGuid": "B32A9D04-4FB7A6DA-526CC8AB-1898E5FA",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "Char_LS_SS_Pickaxe_Aberration_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Char_LS_SS_Pickaxe_Aberration_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.14"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponentBudgeted",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__Char_LS_SS_Pickaxe_Aberration_C",
+    "Class": "UScriptClass'SkeletalMeshComponentBudgeted'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_LS_SS_Pickaxe_Evolved_C:CharacterMesh0'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Char_LS_SS_Pickaxe_Evolved.20"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_SS_Pickaxe_Aberration_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Aberration/Char_LS_SS_Pickaxe_Aberration.2"
+      }
+    }
+  },
+  {
+    "Type": "StatsComponent",
+    "Name": "StatsComp",
+    "Outer": "Default__Char_LS_SS_Pickaxe_Aberration_C",
+    "Class": "UScriptClass'StatsComponent'",
+    "Template": {
+      "ObjectName": "StatsComponent'Default__Char_LS_SS_Pickaxe_Evolved_C:StatsComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Char_LS_SS_Pickaxe_Evolved.22"
+    }
+  },
+  {
+    "Type": "WeaponPhantomComponent",
+    "Name": "WeaponPhantomProviderComp",
+    "Outer": "Default__Char_LS_SS_Pickaxe_Aberration_C",
+    "Class": "UScriptClass'WeaponPhantomComponent'",
+    "Template": {
+      "ObjectName": "WeaponPhantomComponent'Default__Char_LS_SS_Pickaxe_Evolved_C:WeaponPhantomProviderComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Char_LS_SS_Pickaxe_Evolved.23"
+    }
+  }
+]

@@ -1,0 +1,4847 @@
+[
+  {
+    "Type": "ActionComponent",
+    "Name": "ActionComp",
+    "Outer": "Default__Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'ActionComponent'",
+    "Template": {
+      "ObjectName": "ActionComponent'Default__Char_Root_Spriggan_C:ActionComp'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.0"
+    }
+  },
+  {
+    "Type": "ActorCustomizationComponent",
+    "Name": "Visual_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'ActorCustomizationComponent'",
+    "Template": {
+      "ObjectName": "ActorCustomizationComponent'Char_Root_Spriggan_C:Visual_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.1"
+    },
+    "Properties": {
+      "CustomizationSet": {
+        "ObjectName": "ActorCustomizationSet'Char_Harsgaard_Variant_VisualSet'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant_VisualSet.1"
+      }
+    }
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'Char_Root_Spriggan_C'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.2"
+    },
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Char_Harsgaard_Variant_C:SimpleConstructionScript_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.73"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'Char_Harsgaard_Variant_C:InheritableComponentHandler'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.48"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:ExecuteUbergraph_Char_Harsgaard_Variant'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.27"
+      }
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:ValidateCeiling_Shoot'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.45"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:ValidateCeiling_Reload'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.44"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:EndTargetLoop'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.26"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:EndQuerierLoop'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.25"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:Bloom_OnTarget'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.12"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:BloomTarget_Spawner'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.14"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:BloomExtended_Spawner'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.13"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:SetFloatingSMInvisible'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.37"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.33"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:ReceiveTick'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.34"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:ShootBlooms'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.39"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:SpawnShockwave'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.40"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:FireProjectile'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.28"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:ReloadFloatingSM'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.35"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:CrystalExplode'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.17"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:VFX_Melee03'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.46"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:Querier_SetLocations'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.32"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:Target_SetLocations'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.43"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:BreakOnDeath'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.15"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:SetHeadWeakpoint'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.38"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:ResetHeadWeakpoint'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.36"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:HeartBroken'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.29"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:OpenActivateGate'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.31"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:CloseActivateGate'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.16"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:ActivateWeakpoints'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.11"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:DeactivateWeakpoints'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.18"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:StartWeakpointFrequencyEffects'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.41"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:StopWeakpointFrequencyEffects'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.42"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:OnDead_Event'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.30"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:EmergeSetup'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.24"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:EmergeEnd'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.23"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:Emerge_ShowRock1'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.19"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:Emerge_ShowRock2'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.20"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:Emerge_ShowRock3'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.21"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:Emerge_ShowRock4'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.22"
+      },
+      {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:ExecuteUbergraph_Char_Harsgaard_Variant'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.27"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "VFX_Weakpoint_Frequency",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Head_Collision",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CapsuleComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "FlowerStateMachine",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StateMachineComponent'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WP_Rocks",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SphereComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Melee03_ExplodePoint",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Shockwave_Spawnpoint",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ProjectileShootLocation",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Beam_Origin",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "FloatingSM_4",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "FloatingSM_3",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "FloatingSM_2",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "FloatingSM_1",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "RocksStateMachine",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StateMachineComponent'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "NeedReload",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "FloatingSM_Array",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | ContainsInstancedReference",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "FloatingSM_Array",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyFlags": "InstancedReference",
+          "PropertyClass": {
+            "ObjectName": "Class'StaticMeshComponent'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "BloomRandomIndex",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "BloomQuerierLocations",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "BloomQuerierLocations",
+          "Flags": "RF_Public",
+          "ElementSize": 24,
+          "Struct": {
+            "ObjectName": "Class'Vector'",
+            "ObjectPath": "/Script/CoreUObject"
+          }
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "BloomTargetLocations",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "BloomTargetLocations",
+          "Flags": "RF_Public",
+          "ElementSize": 24,
+          "Struct": {
+            "ObjectName": "Class'Vector'",
+            "ObjectPath": "/Script/CoreUObject"
+          }
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "BloomQuerierLoop",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Struct": {
+          "ObjectName": "Class'TimerHandle'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "BloomTargetLoop",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Struct": {
+          "ObjectName": "Class'TimerHandle'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "NS_OnDeathBreak",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraSystem'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "AffectedCharacters",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnTemplate | DisableEditOnInstance",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "AffectedCharacters",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Actor'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_Char_Harsgaard_Variant": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:ExecuteUbergraph_Char_Harsgaard_Variant'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.27"
+      },
+      "Emerge_ShowRock4": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:Emerge_ShowRock4'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.22"
+      },
+      "Emerge_ShowRock3": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:Emerge_ShowRock3'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.21"
+      },
+      "Emerge_ShowRock2": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:Emerge_ShowRock2'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.20"
+      },
+      "Emerge_ShowRock1": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:Emerge_ShowRock1'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.19"
+      },
+      "EmergeEnd": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:EmergeEnd'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.23"
+      },
+      "EmergeSetup": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:EmergeSetup'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.24"
+      },
+      "OnDead_Event": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:OnDead_Event'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.30"
+      },
+      "StopWeakpointFrequencyEffects": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:StopWeakpointFrequencyEffects'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.42"
+      },
+      "StartWeakpointFrequencyEffects": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:StartWeakpointFrequencyEffects'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.41"
+      },
+      "DeactivateWeakpoints": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:DeactivateWeakpoints'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.18"
+      },
+      "ActivateWeakpoints": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:ActivateWeakpoints'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.11"
+      },
+      "CloseActivateGate": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:CloseActivateGate'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.16"
+      },
+      "OpenActivateGate": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:OpenActivateGate'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.31"
+      },
+      "HeartBroken": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:HeartBroken'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.29"
+      },
+      "ResetHeadWeakpoint": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:ResetHeadWeakpoint'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.36"
+      },
+      "SetHeadWeakpoint": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:SetHeadWeakpoint'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.38"
+      },
+      "BreakOnDeath": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:BreakOnDeath'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.15"
+      },
+      "Target_SetLocations": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:Target_SetLocations'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.43"
+      },
+      "Querier_SetLocations": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:Querier_SetLocations'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.32"
+      },
+      "VFX_Melee03": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:VFX_Melee03'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.46"
+      },
+      "CrystalExplode": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:CrystalExplode'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.17"
+      },
+      "ReloadFloatingSM": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:ReloadFloatingSM'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.35"
+      },
+      "FireProjectile": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:FireProjectile'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.28"
+      },
+      "SpawnShockwave": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:SpawnShockwave'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.40"
+      },
+      "ShootBlooms": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:ShootBlooms'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.39"
+      },
+      "ReceiveTick": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:ReceiveTick'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.34"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.33"
+      },
+      "SetFloatingSMInvisible": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:SetFloatingSMInvisible'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.37"
+      },
+      "BloomExtended_Spawner": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:BloomExtended_Spawner'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.13"
+      },
+      "BloomTarget_Spawner": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:BloomTarget_Spawner'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.14"
+      },
+      "Bloom_OnTarget": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:Bloom_OnTarget'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.12"
+      },
+      "EndQuerierLoop": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:EndQuerierLoop'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.25"
+      },
+      "EndTargetLoop": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:EndTargetLoop'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.26"
+      },
+      "ValidateCeiling_Reload": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:ValidateCeiling_Reload'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.44"
+      },
+      "ValidateCeiling_Shoot": {
+        "ObjectName": "Function'Char_Harsgaard_Variant_C:ValidateCeiling_Shoot'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.45"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Char_Harsgaard_Variant_C'Default__Char_Harsgaard_Variant_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.8"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "Weakspot_Collision1_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Template": {
+      "ObjectName": "BoxComponent'Char_Root_Spriggan_C:Weakspot_Collision1_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.5"
+    },
+    "Properties": {
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "Weakspot_Collision2_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Template": {
+      "ObjectName": "BoxComponent'Char_Root_Spriggan_C:Weakspot_Collision2_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.6"
+    },
+    "Properties": {
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "Weakspot_Collision3_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Template": {
+      "ObjectName": "BoxComponent'Char_Root_Spriggan_C:Weakspot_Collision3_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.7"
+    },
+    "Properties": {
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "Head_Collision_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Properties": {
+      "CapsuleHalfHeight": 60.0,
+      "CapsuleRadius": 44.0,
+      "bGenerateOverlapEvents": false,
+      "BodyInstance": {
+        "CollisionProfileName": "Custom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "ThrownProjectile",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "WeaponPhantom",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        },
+        "PhysMaterialOverride": {
+          "ObjectName": "PhysicalMaterial'PhysMat_Flesh_Root_Head'",
+          "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_Root_Head.0"
+        }
+      },
+      "RelativeLocation": {
+        "X": 30.284374,
+        "Y": -62.78217,
+        "Z": 9.8753505E-11
+      },
+      "RelativeRotation": {
+        "Pitch": 1.8781299E-10,
+        "Yaw": 9.0406946E-11,
+        "Roll": 90.0
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__Char_Root_Spriggan_C:CollisionCylinder'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.11"
+    }
+  },
+  {
+    "Type": "Char_Harsgaard_Variant_C",
+    "Name": "Default__Char_Harsgaard_Variant_C",
+    "Class": "BlueprintGeneratedClass'/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.Char_Harsgaard_Variant_C'",
+    "Template": {
+      "ObjectName": "Char_Root_Spriggan_C'Default__Char_Root_Spriggan_C'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.12"
+    },
+    "Properties": {
+      "UberGraphFrame": {},
+      "BloomQuerierLoop": {
+        "Handle": 0
+      },
+      "BloomTargetLoop": {
+        "Handle": 0
+      },
+      "NS_OnDeathBreak": {
+        "ObjectName": "NiagaraSystem'NS_Harsgaard_Variant_Seed_Muzzle'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/VFX/NS_Harsgaard_Variant_Seed_Muzzle.75"
+      },
+      "SFX_Weakspot_Loop": {
+        "ObjectName": "AkAudioEvent'DLC2_Harsgaard_Variant_Weakspot_Loop'",
+        "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_DLC2/DLC2_Harsgaard_Variant/DLC2_Harsgaard_Variant_Weakspot_Loop.1"
+      },
+      "StatsComp": {
+        "ObjectName": "StatsComponent'Default__Char_Harsgaard_Variant_C:StatsComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.83"
+      },
+      "ActionComp": {
+        "ObjectName": "ActionComponent'Default__Char_Harsgaard_Variant_C:ActionComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.0"
+      },
+      "WeaponPhantomProviderComp": {
+        "ObjectName": "WeaponPhantomComponent'Default__Char_Harsgaard_Variant_C:WeaponPhantomProviderComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.84"
+      },
+      "HitLogComp": {
+        "ObjectName": "HitLogComponent'Default__Char_Harsgaard_Variant_C:HitLogComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.47"
+      },
+      "ReplicatedMovementComp": {
+        "ObjectName": "ReplicatedMovementComponent'Default__Char_Harsgaard_Variant_C:ReplicatedMovement'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.52"
+      },
+      "Data": {
+        "DataTable": {
+          "ObjectName": "DataTable'Stats_Character_DLC2'",
+          "ObjectPath": "/Game/World_DLC2/Stats/Stats_Character_DLC2.0"
+        },
+        "RowName": "Harsgaard_Variant"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_Harsgaard_Variant_C:CharacterMesh0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.74"
+      },
+      "CharacterMovement": {
+        "ObjectName": "CharacterMovementComponentGunfire'Default__Char_Harsgaard_Variant_C:CharMoveComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.9"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Harsgaard_Variant_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.7"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Harsgaard_Variant_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.7"
+      }
+    }
+  },
+  {
+    "Type": "CharacterMovementComponentGunfire",
+    "Name": "CharMoveComp",
+    "Outer": "Default__Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'CharacterMovementComponentGunfire'",
+    "Template": {
+      "ObjectName": "CharacterMovementComponentGunfire'Default__Char_Root_Spriggan_C:CharMoveComp'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.13"
+    },
+    "Properties": {
+      "SoftCharacterCollisionWeight": 1000.0
+    }
+  },
+  {
+    "Type": "DissolveComponent",
+    "Name": "Dissolve_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'DissolveComponent'",
+    "Template": {
+      "ObjectName": "DissolveComponent'Char_Root_Spriggan_C:Dissolve_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.14"
+    },
+    "Properties": {
+      "Materials": [
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Root_Harsgaard_tentacle_A'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Materials/M_Root_Harsgaard_tentacle_A.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Root_Harsgaard_tentacle_A_Dis'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Materials/M_Root_Harsgaard_tentacle_A_Dis.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_Root_Harsgaard_body_A_DLC2_Variant'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Materials/M_Root_Harsgaard_body_A_DLC2_Variant.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_Root_Harsgaard_body_A_DLC2_Variant_Dis'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Materials/M_Root_Harsgaard_body_A_DLC2_Variant_Dis.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'MI_DLC2_Harsgaard_BloomingFlower_A_'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Materials/MI_DLC2_Harsgaard_BloomingFlower_A_.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'MI_DLC2_BloomingFlower_A_Dis'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Materials/MI_DLC2_BloomingFlower_A_Dis.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'MI_DLC2_Mud_Rock'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Materials/MI_DLC2_Mud_Rock.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'MI_DLC2_Mud_Rock_Diss'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Materials/MI_DLC2_Mud_Rock_Diss.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'MI_DLC2_Stones'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Materials/MI_DLC2_Stones.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'MI_DLC2_Stones_Dis'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Materials/MI_DLC2_Stones_Dis.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'MI_DLC2_Stones_Attack_Flying'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Materials/MI_DLC2_Stones_Attack_Flying.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'MI_DLC2_Stones_Attack_Flying'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Materials/MI_DLC2_Stones_Attack_Flying.0"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "ActivateWeakpoints",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Bloom_OnTarget",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetActorLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SnapToGround_SnappedPosition",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_SnapToGround_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeTransform_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 96,
+        "Struct": {
+          "ObjectName": "Class'Transform'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_FinishSpawningActor_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Harsgaard_BloomAOE_C'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/BP_Harsgaard_BloomAOE.0"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BloomExtended_Spawner",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeTransform_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 96,
+        "Struct": {
+          "ObjectName": "Class'Transform'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Subtract_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_RandomIntegerInRange_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_FinishSpawningActor_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Harsgaard_BloomAOE_C'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/BP_Harsgaard_BloomAOE.0"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BloomTarget_Spawner",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_RandomFloatInRange_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Subtract_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Add_VectorVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_RandomIntegerInRange_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeTransform_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 96,
+        "Struct": {
+          "ObjectName": "Class'Transform'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_FinishSpawningActor_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Harsgaard_BloomAOE_C'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/BP_Harsgaard_BloomAOE.0"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BreakOnDeath",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "CloseActivateGate",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "CrystalExplode",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "DeactivateWeakpoints",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Emerge_ShowRock1",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Emerge_ShowRock2",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Emerge_ShowRock3",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Emerge_ShowRock4",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "EmergeEnd",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "EmergeSetup",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "EndQuerierLoop",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "EndTargetLoop",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_Char_Harsgaard_Variant",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate",
+        "Flags": "RF_Public",
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "Class'EnvQueryInstanceBlueprintWrapper:EQSQueryDoneSignature__DelegateSignature'",
+          "ObjectPath": "/Script/AIModule"
+        }
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
+        "Flags": "RF_Public",
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "Class'EnvQueryInstanceBlueprintWrapper:EQSQueryDoneSignature__DelegateSignature'",
+          "ObjectPath": "/Script/AIModule"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_ActorQueryFilter",
+        "Flags": "RF_Public",
+        "ElementSize": 40,
+        "Struct": {
+          "ObjectName": "Class'ActorQueryFilter'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioAttachParams",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioAttachParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_2",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSoundAttached_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioAttachParams_1",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioAttachParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioStopParams",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioStopParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSoundAttached_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_3",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire_3",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioAttachParams_2",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioAttachParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioStopParams_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioStopParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSoundAttached_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Whether_the_gate_is_currently_open_or_close_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable_3",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable_3",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_DeltaSeconds",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetComponentToWorld_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 96,
+        "Struct": {
+          "ObjectName": "Class'Transform'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnObject_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'Action_AOE_Attack_C'",
+          "ObjectPath": "/Game/_Core/Blueprints/Actions/Action_AOE_Attack.1"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_FinishSpawningActor_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_SegmentedShockwave_Spawner_C'",
+          "ObjectPath": "/Game/World_Base/Blueprints/Common/SegmentedShockwave/BP_SegmentedShockwave_Spawner.0"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_DamageInfo",
+        "Flags": "RF_Public",
+        "ElementSize": 528,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'DamageInfo'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetSocketLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CanDoActionInternal_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnSystemAtLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsServer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "K2Node_MakeArray_Array",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm | ContainsInstancedReference",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "K2Node_MakeArray_Array",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyFlags": "InstancedReference",
+          "PropertyClass": {
+            "ObjectName": "Class'StaticMeshComponent'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnObject_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'Action_Lob_Projectile_C'",
+          "ObjectPath": "/Game/_Core/Blueprints/Actions/Action_Lob_Projectile.1"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_DamageInfo_1",
+        "Flags": "RF_Public",
+        "ElementSize": 528,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'DamageInfo'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable_4",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CanDoActionInternal_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_4",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_CustomEvent_QueryInstance_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'EnvQueryInstanceBlueprintWrapper'",
+          "ObjectPath": "/Script/AIModule"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_CustomEvent_QueryStatus_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Class'EEnvQueryStatus'",
+          "ObjectPath": "/Script/AIModule"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_RunEQSQuery_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'EnvQueryInstanceBlueprintWrapper'",
+          "ObjectPath": "/Script/AIModule"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_GetQueryResultsAsLocations_ResultLocations",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm",
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "CallFunc_GetQueryResultsAsLocations_ResultLocations",
+          "Flags": "RF_Public",
+          "ElementSize": 24,
+          "Struct": {
+            "ObjectName": "Class'Vector'",
+            "ObjectPath": "/Script/CoreUObject"
+          }
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_GetQueryResultsAsLocations_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetTimer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'TimerHandle'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_CustomEvent_QueryInstance",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'EnvQueryInstanceBlueprintWrapper'",
+          "ObjectPath": "/Script/AIModule"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_CustomEvent_QueryStatus",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Class'EEnvQueryStatus'",
+          "ObjectPath": "/Script/AIModule"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_GetQueryResultsAsLocations_ResultLocations_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm",
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "CallFunc_GetQueryResultsAsLocations_ResultLocations_1",
+          "Flags": "RF_Public",
+          "ElementSize": 24,
+          "Struct": {
+            "ObjectName": "Class'Vector'",
+            "ObjectPath": "/Script/CoreUObject"
+          }
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_GetQueryResultsAsLocations_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetTimer_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'TimerHandle'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetTimer_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'TimerHandle'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetTimer_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'TimerHandle'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_RunEQSQuery_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'EnvQueryInstanceBlueprintWrapper'",
+          "ObjectPath": "/Script/AIModule"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetSocketTransform_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 96,
+        "Struct": {
+          "ObjectName": "Class'Transform'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_BreakTransform_Location",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_BreakTransform_Rotation",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Rotator'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_BreakTransform_Scale",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSoundAtLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Temp_name_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | ReferenceParm",
+        "Inner": {
+          "Type": "NameProperty",
+          "Name": "Temp_name_Variable",
+          "Flags": "RF_Public",
+          "ElementSize": 12
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnSystemAtLocation_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_DoActionInternal_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Has_Been_Initd_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetActorLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_GetActorsInRange_OutResults",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "CallFunc_GetActorsInRange_OutResults",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Actor'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsCharacter_Gunfire",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'CharacterGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CheckTag_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "Temp_name_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 12,
+        "PropertyFlags": "ConstParm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnSystemAttached_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_Reason",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": null
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'CharacterGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Cause",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable_4",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsAlive_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CharacterHasWindowOrTag_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanOR_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item_3",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsCharacter_Gunfire_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'CharacterGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "K2Node_DynamicCast_AsBPI_Combat_Flower",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "InterfaceClass": {
+          "ObjectName": "BlueprintGeneratedClass'BPI_CombatFlower_C'",
+          "ObjectPath": "/Game/World_DLC2/Environments/Blueprints/Combat_Flower/BPI_CombatFlower.0"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_DoesImplementInterface_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_IsClosed_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Temp_name_Variable_2",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | ReferenceParm",
+        "Inner": {
+          "Type": "NameProperty",
+          "Name": "Temp_name_Variable_2",
+          "Flags": "RF_Public",
+          "ElementSize": 12
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_AddUnique_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_DoActionInternal_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "Temp_name_Variable_3",
+        "Flags": "RF_Public",
+        "ElementSize": 12,
+        "PropertyFlags": "ConstParm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item_4",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsCharacter_Gunfire_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'CharacterGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess_3",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue_4",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "K2Node_DynamicCast_AsBPI_Combat_Flower_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "InterfaceClass": {
+          "ObjectName": "BlueprintGeneratedClass'BPI_CombatFlower_C'",
+          "ObjectPath": "/Game/World_DLC2/Environments/Blueprints/Combat_Flower/BPI_CombatFlower.0"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess_4",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue_4",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "K2Node_DynamicCast_AsBPI_Combat_Flower_2",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "InterfaceClass": {
+          "ObjectName": "BlueprintGeneratedClass'BPI_CombatFlower_C'",
+          "ObjectPath": "/Game/World_DLC2/Environments/Blueprints/Combat_Flower/BPI_CombatFlower.0"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess_5",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsAlive_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CheckTag_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_DoesImplementInterface_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Array_IsValidIndex_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_AddSource_Out",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "FireProjectile",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "HeartBroken",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_Root_Spriggan_C:HeartBroken'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.38"
+    },
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnDead_Event",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_Root_Spriggan_C:OnDead_Event'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.46"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "Reason",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": null
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'CharacterGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Cause",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OpenActivateGate",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Querier_SetLocations",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "QueryInstance",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'EnvQueryInstanceBlueprintWrapper'",
+          "ObjectPath": "/Script/AIModule"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "QueryStatus",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": {
+          "ObjectName": "Class'EEnvQueryStatus'",
+          "ObjectPath": "/Script/AIModule"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_Root_Spriggan_C:ReceiveBeginPlay'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.54"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveTick",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'Actor:ReceiveTick'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "FloatProperty",
+        "Name": "DeltaSeconds",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReloadFloatingSM",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ResetHeadWeakpoint",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetFloatingSMInvisible",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetHeadWeakpoint",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ShootBlooms",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SpawnShockwave",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "StartWeakpointFrequencyEffects",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "StopWeakpointFrequencyEffects",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Target_SetLocations",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "QueryInstance",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'EnvQueryInstanceBlueprintWrapper'",
+          "ObjectPath": "/Script/AIModule"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "QueryStatus",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": {
+          "ObjectName": "Class'EEnvQueryStatus'",
+          "ObjectPath": "/Script/AIModule"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ValidateCeiling_Reload",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "NoCeiling",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Temp_object_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | ReferenceParm",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "Temp_object_Variable",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Actor'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetSocketLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Add_VectorVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Add_VectorVector_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_LineTraceSingle_OutHit",
+        "Flags": "RF_Public",
+        "ElementSize": 240,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_LineTraceSingle_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CheckCooldown_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ValidateCeiling_Shoot",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "NoCeiling",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Temp_object_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | ReferenceParm",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "Temp_object_Variable",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Actor'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetSocketLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Add_VectorVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Add_VectorVector_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_LineTraceSingle_OutHit",
+        "Flags": "RF_Public",
+        "ElementSize": 240,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_LineTraceSingle_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CheckCooldown_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "VFX_Melee03",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "HitLogComponent",
+    "Name": "HitLogComp",
+    "Outer": "Default__Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'HitLogComponent'",
+    "Template": {
+      "ObjectName": "HitLogComponent'Default__Char_Root_Spriggan_C:HitLogComp'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.67"
+    },
+    "Properties": {
+      "HitLocations": [
+        {
+          "NameID": "Head",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Flesh_Root_Head'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_Root_Head.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "ArmL",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Flesh_Root_ArmL'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_Root_ArmL.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "ArmR",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Flesh_Root_ArmR'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_Root_ArmR.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "Weakpoint",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Weakpoint_Root'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Weakpoint_Root.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": true,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "Body",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Flesh_Root'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_Root.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_Harsgaard_Variant_C:NS_Root-Spriggan_Weakspot_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.49"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_Root_Spriggan_C'",
+              "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.2"
+            },
+            "SCSVariableName": "NS_Root-Spriggan_Weakspot",
+            "AssociatedGuid": "7A14AE47-49975818-22D1E19C-3870398E"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_Harsgaard_Variant_C:NS_Root_Spriggan_Eye_Ambient_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.50"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_Root_Spriggan_C'",
+              "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.2"
+            },
+            "SCSVariableName": "NS_Root_Spriggan_Eye_Ambient",
+            "AssociatedGuid": "52AA0710-4F1D86DA-BAC766BA-88A6F888"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'StateMachineComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "StateMachineComponent'Char_Harsgaard_Variant_C:StateMachine_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.78"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "StateMachine",
+            "AssociatedGuid": "1226ECA4-48F65379-CC82D286-262B8701"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'SceneComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "SceneComponent'Char_Harsgaard_Variant_C:Healthbar_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.55"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_Root_Spriggan_C'",
+              "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.2"
+            },
+            "SCSVariableName": "Healthbar",
+            "AssociatedGuid": "61C6A5DA-4AF5DAAB-348C2694-CB60C783"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'ActorCustomizationComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "ActorCustomizationComponent'Char_Harsgaard_Variant_C:Visual_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.1"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_Base_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.3"
+            },
+            "SCSVariableName": "Visual",
+            "AssociatedGuid": "88E8F05F-499F34E6-178F9CA8-75D39337"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'DissolveComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "DissolveComponent'Char_Harsgaard_Variant_C:Dissolve_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.10"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "Dissolve",
+            "AssociatedGuid": "63F89BCB-4D3243A5-A96E8C83-1826967D"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'BoxComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BoxComponent'Char_Harsgaard_Variant_C:Weakspot_Collision3_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.5"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_Root_Spriggan_C'",
+              "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.2"
+            },
+            "SCSVariableName": "Weakspot_Collision3",
+            "AssociatedGuid": "4AC1505A-49405A0B-4FD6FA89-3BF28690"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'BoxComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BoxComponent'Char_Harsgaard_Variant_C:Weakspot_Collision2_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.4"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_Root_Spriggan_C'",
+              "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.2"
+            },
+            "SCSVariableName": "Weakspot_Collision2",
+            "AssociatedGuid": "4679D4CF-45D79C4B-CFC687BD-56896A61"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'BoxComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BoxComponent'Char_Harsgaard_Variant_C:Weakspot_Collision1_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.3"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_Root_Spriggan_C'",
+              "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.2"
+            },
+            "SCSVariableName": "Weakspot_Collision1",
+            "AssociatedGuid": "16653A88-42524D5E-4519BBAF-702D4554"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_Root-Spriggan_Weakspot_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_Root_Spriggan_C:NS_Root-Spriggan_Weakspot_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.69"
+    },
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_Harsgaard_Variant_Weakspot'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/VFX/NS_Harsgaard_Variant_Weakspot.72"
+      },
+      "OverrideParameters": {}
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_Root_Spriggan_Eye_Ambient_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_Root_Spriggan_C:NS_Root_Spriggan_Eye_Ambient_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.70"
+    },
+    "Properties": {
+      "Asset": null,
+      "OverrideParameters": {}
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "VFX_Weakpoint_Frequency_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_HarsgaardVariant_Weakpoint'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/VFX/NS_HarsgaardVariant_Weakpoint.39"
+      },
+      "OverrideParameters": {
+        "UserParameterRedirects": [
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "BeatSpeed",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.BeatSpeed",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Color",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Color",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Contrast",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Contrast",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "FadeOut",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.FadeOut",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Radius",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Radius",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          }
+        ],
+        "SortedParameterOffsets": [
+          {
+            "Offset": 0,
+            "Name": "User.BeatSpeed",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 4,
+            "Name": "User.Color",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 20,
+            "Name": "User.Contrast",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 24,
+            "Name": "User.FadeOut",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 28,
+            "Name": "User.Radius",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          }
+        ],
+        "ParameterData": [
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          63,
+          167,
+          63,
+          251,
+          60,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          250,
+          67
+        ]
+      },
+      "RelativeScale3D": {
+        "X": 0.2,
+        "Y": 0.2,
+        "Z": 0.2
+      },
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "ReplicatedMovementComponent",
+    "Name": "ReplicatedMovement",
+    "Outer": "Default__Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'ReplicatedMovementComponent'",
+    "Template": {
+      "ObjectName": "ReplicatedMovementComponent'Default__Char_Root_Spriggan_C:ReplicatedMovement'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.71"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "Beam_Origin_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Properties": {
+      "bAbsoluteLocation": true,
+      "Mobility": "EComponentMobility::Stationary"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "Healthbar_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Template": {
+      "ObjectName": "SceneComponent'Char_Root_Spriggan_C:Healthbar_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.73"
+    },
+    "Properties": {
+      "RelativeLocation": {
+        "X": 2.2737368E-13,
+        "Y": -1.007319E-06,
+        "Z": 299.02783
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "Melee03_ExplodePoint_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 400.0,
+        "Z": 150.0
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "ProjectileShootLocation_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "Shockwave_Spawnpoint_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": -2.2981617E-14,
+        "Y": -250.0,
+        "Z": 0.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -90.0,
+        "Roll": -0.0
+      }
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_Harsgaard_Variant_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.54"
+      },
+      "VariableGuid": "101FAD45-4D25535D-27267C81-0BAEF390",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_Harsgaard_Variant_C:Beam_Origin_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.53"
+      },
+      "ParentComponentOrVariableName": "CollisionCylinder",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "9FC2DD3E-41241AF1-CA7BB59A-B3CC030D",
+      "InternalVariableName": "Beam_Origin"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_Harsgaard_Variant_C:Melee03_ExplodePoint_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.56"
+      },
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "7C1CB325-45120E93-22788B85-8D7DEB71",
+      "InternalVariableName": "Melee03_ExplodePoint"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_11",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CapsuleComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CapsuleComponent'Char_Harsgaard_Variant_C:Head_Collision_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.6"
+      },
+      "AttachToName": "Bone_RB_Head",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "15656757-426E0FAF-D02F7A9A-7DF408D5",
+      "InternalVariableName": "Head_Collision"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_12",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'Char_Harsgaard_Variant_C:VFX_Weakpoint_Frequency_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.51"
+      },
+      "AttachToName": "Bone_BF_Core",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "52D649FC-463B30BC-70015FB0-D6E7FDA6",
+      "InternalVariableName": "VFX_Weakpoint_Frequency"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_13",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SphereComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SphereComponent'Char_Harsgaard_Variant_C:WP_Rocks_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.75"
+      },
+      "AttachToName": "Bone_HO_Weapon_FX_Ball_03_L_Vis",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "3642D4F3-4DEF0AA6-10AC9F9E-D3844CC5",
+      "InternalVariableName": "WP_Rocks"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StateMachineComponent'",
+        "ObjectPath": "/Script/GunfireRuntime"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StateMachineComponent'Char_Harsgaard_Variant_C:RocksStateMachine_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.77"
+      },
+      "VariableGuid": "9410E583-476C612D-1363F2A5-3750C233",
+      "InternalVariableName": "RocksStateMachine"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'Char_Harsgaard_Variant_C:FloatingSM_1_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.79"
+      },
+      "AttachToName": "Bone_HO_Weapon_FX_Ball_03_L_Vis",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "CC9C4B92-447CE021-9C9CE8A2-A01058FA",
+      "InternalVariableName": "FloatingSM_1"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'Char_Harsgaard_Variant_C:FloatingSM_2_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.80"
+      },
+      "AttachToName": "Bone_HO_Weapon_FX_Ball_02_L_Vis",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "4108F778-470C0CAA-5CE185BD-E4A2B23C",
+      "InternalVariableName": "FloatingSM_2"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'Char_Harsgaard_Variant_C:FloatingSM_3_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.81"
+      },
+      "AttachToName": "Bone_HO_Weapon_FX_Ball_03_R_Vis",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "AD50EF81-4A75205F-605E2396-91DC61C2",
+      "InternalVariableName": "FloatingSM_3"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'Char_Harsgaard_Variant_C:FloatingSM_4_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.82"
+      },
+      "AttachToName": "Bone_HO_Weapon_FX_Ball_02_R_Vis",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "F1439915-4A3A319C-C46AB88B-0138FB2F",
+      "InternalVariableName": "FloatingSM_4"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_Harsgaard_Variant_C:ProjectileShootLocation_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.57"
+      },
+      "AttachToName": "Bone_HO_Weapon_FX_Ball_03_R_Vis",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "486BB425-4678082E-93F5F29F-501114EC",
+      "InternalVariableName": "ProjectileShootLocation"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StateMachineComponent'",
+        "ObjectPath": "/Script/GunfireRuntime"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StateMachineComponent'Char_Harsgaard_Variant_C:FlowerStateMachine_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.76"
+      },
+      "VariableGuid": "8A705DEB-491A55ED-86F9F9AD-DFC8D5C0",
+      "InternalVariableName": "FlowerStateMachine"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_Harsgaard_Variant_C:Shockwave_Spawnpoint_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.58"
+      },
+      "AttachToName": "Bone_RB_Root",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "90F28FAF-467EB632-37AB65BB-3EE875CE",
+      "InternalVariableName": "Shockwave_Spawnpoint"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.65"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.66"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.67"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.68"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.69"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.60"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.70"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.72"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.61"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.64"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.71"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.62"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.63"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.65"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.66"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.67"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.68"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.69"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.60"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.70"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.72"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.61"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.64"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.71"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.62"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.63"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Char_Harsgaard_Variant_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.59"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponentBudgeted",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'SkeletalMeshComponentBudgeted'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_Root_Spriggan_C:CharacterMesh0'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.91"
+    },
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'Char_Harsgaard_Variant_AnimBP_C'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant_AnimBP.0"
+      },
+      "AnimationData": {
+        "bSavedPlaying": false
+      },
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'Harsgaard_StoneScarred_Variant'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Mesh/Harsgaard_StoneScarred_Variant.3"
+      },
+      "SkinnedAsset": {
+        "ObjectName": "SkeletalMesh'Harsgaard_StoneScarred_Variant'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Mesh/Harsgaard_StoneScarred_Variant.3"
+      },
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Harsgaard_Variant_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant.7"
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "WP_Rocks_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'SphereComponent'",
+    "Properties": {
+      "bGenerateOverlapEvents": false,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel6",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "WeaponPhantom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Window",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "BossPawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Type": "StateMachineComponent",
+    "Name": "FlowerStateMachine_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'StateMachineComponent'",
+    "Properties": {
+      "StateMachine": {
+        "ObjectName": "StateMachine'Harsgaard_Variant_Flower_StateMachine'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Harsgaard_Variant_Flower_StateMachine.10"
+      },
+      "AnimationLayer": "UpperBody",
+      "Secondary": true
+    }
+  },
+  {
+    "Type": "StateMachineComponent",
+    "Name": "RocksStateMachine_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'StateMachineComponent'",
+    "Properties": {
+      "StateMachine": {
+        "ObjectName": "StateMachine'Harsgaard_Variant_Rocks_StateMachine'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Harsgaard_Variant_Rocks_StateMachine.35"
+      },
+      "AnimationLayer": "Secondary",
+      "Secondary": true
+    }
+  },
+  {
+    "Type": "StateMachineComponent",
+    "Name": "StateMachine_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'StateMachineComponent'",
+    "Template": {
+      "ObjectName": "StateMachineComponent'Char_Root_Spriggan_C:StateMachine_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.92"
+    },
+    "Properties": {
+      "StateMachine": {
+        "ObjectName": "StateMachine'Char_Harsgaard_Variant_StateMachine'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Blueprints/Char_Harsgaard_Variant_StateMachine.2422"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "FloatingSM_1_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'Harsgaard_StoneScarred_Variant_DirtBall_1'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Mesh/Harsgaard_StoneScarred_Variant_DirtBall_1.2"
+      },
+      "OverrideMaterials": [
+        null
+      ],
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeScale3D": {
+        "X": 0.4,
+        "Y": 0.40000004,
+        "Z": 0.40000004
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "FloatingSM_2_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'Harsgaard_StoneScarred_Variant_DirtBall_2'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Mesh/Harsgaard_StoneScarred_Variant_DirtBall_2.2"
+      },
+      "OverrideMaterials": [
+        null
+      ],
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeScale3D": {
+        "X": 0.4,
+        "Y": 0.4,
+        "Z": 0.39999998
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "FloatingSM_3_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'Harsgaard_StoneScarred_Variant_DirtBall_1'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Mesh/Harsgaard_StoneScarred_Variant_DirtBall_1.2"
+      },
+      "OverrideMaterials": [
+        null
+      ],
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeRotation": {
+        "Pitch": 359.999,
+        "Yaw": 179.99951,
+        "Roll": 291.59918
+      },
+      "RelativeScale3D": {
+        "X": 0.4,
+        "Y": 0.39999998,
+        "Z": 0.39999998
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "FloatingSM_4_GEN_VARIABLE",
+    "Outer": "Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'Harsgaard_StoneScarred_Variant_DirtBall_3'",
+        "ObjectPath": "/Game/World_DLC2/Characters/HarsgaardVariant/Mesh/Harsgaard_StoneScarred_Variant_DirtBall_3.2"
+      },
+      "OverrideMaterials": [
+        null
+      ],
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeRotation": {
+        "Pitch": 60.0,
+        "Yaw": -1.079689E-09,
+        "Roll": -55.0
+      },
+      "RelativeScale3D": {
+        "X": 0.4,
+        "Y": 0.39999998,
+        "Z": 0.39999998
+      }
+    }
+  },
+  {
+    "Type": "StatsComponent",
+    "Name": "StatsComp",
+    "Outer": "Default__Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'StatsComponent'",
+    "Template": {
+      "ObjectName": "StatsComponent'Default__Char_Root_Spriggan_C:StatsComp'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.93"
+    }
+  },
+  {
+    "Type": "WeaponPhantomComponent",
+    "Name": "WeaponPhantomProviderComp",
+    "Outer": "Default__Char_Harsgaard_Variant_C",
+    "Class": "UScriptClass'WeaponPhantomComponent'",
+    "Template": {
+      "ObjectName": "WeaponPhantomComponent'Default__Char_Root_Spriggan_C:WeaponPhantomProviderComp'",
+      "ObjectPath": "/Game/World_Root/Characters/Root_Spriggan/Blueprints/Char_Root_Spriggan.95"
+    }
+  }
+]

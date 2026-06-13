@@ -1,0 +1,4277 @@
+[
+  {
+    "Type": "ActionComponent",
+    "Name": "ActionComp",
+    "Outer": "Default__Char_LS_SS_Base_C",
+    "Class": "UScriptClass'ActionComponent'",
+    "Template": {
+      "ObjectName": "ActionComponent'Default__BP_Monster_C:ActionComp'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.0"
+    }
+  },
+  {
+    "Type": "ActorCustomizationComponent",
+    "Name": "Visual_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'ActorCustomizationComponent'",
+    "Template": {
+      "ObjectName": "ActorCustomizationComponent'BP_Monster_C:Visual_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.1"
+    },
+    "Properties": {
+      "CustomizationSet": {
+        "ObjectName": "ActorCustomizationSet'Char_LS_SS_Base_VisualSet'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base_VisualSet.36"
+      },
+      "Slots": [
+        {
+          "NameID": "Default",
+          "DefaultCustomizationID": "Default",
+          "CustomizationID": "Default",
+          "IsTransient": false
+        },
+        {
+          "NameID": "StatusEffects",
+          "DefaultCustomizationID": "None",
+          "CustomizationID": "None",
+          "IsTransient": true
+        },
+        {
+          "NameID": "Weakpoint",
+          "DefaultCustomizationID": "None",
+          "CustomizationID": "None",
+          "IsTransient": true
+        }
+      ]
+    }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "Ak_PL_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'AkComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": 1.1937262E-06,
+        "Y": 15.892173,
+        "Z": 244.324
+      }
+    }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "Ak_VisSet_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'AkComponent'",
+    "Template": {
+      "ObjectName": "AkComponent'BP_Monster_Base_C:Ak_VisSet_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.2"
+    },
+    "Properties": {
+      "RelativeLocation": {
+        "X": 3.854959E-06,
+        "Y": 47.542458,
+        "Z": 179.19763
+      }
+    }
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+    },
+    "Properties": {
+      "Timelines": [
+        {
+          "ObjectName": "TimelineTemplate'Char_LS_SS_Base_C:Timeline_Template'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.83"
+        },
+        {
+          "ObjectName": "TimelineTemplate'Char_LS_SS_Base_C:Timeline_0_Template'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.79"
+        },
+        {
+          "ObjectName": "TimelineTemplate'Char_LS_SS_Base_C:Timeline_1_Template'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.80"
+        },
+        {
+          "ObjectName": "TimelineTemplate'Char_LS_SS_Base_C:Timeline_VoidDis_Template'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.84"
+        },
+        {
+          "ObjectName": "TimelineTemplate'Char_LS_SS_Base_C:Timeline_2_Template'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.81"
+        },
+        {
+          "ObjectName": "TimelineTemplate'Char_LS_SS_Base_C:Timeline_3_Template'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.82"
+        }
+      ],
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Char_LS_SS_Base_C:SimpleConstructionScript_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.74"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'Char_LS_SS_Base_C:InheritableComponentHandler'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.64"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:ExecuteUbergraph_Char_LS_SS_Base'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.25"
+      }
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:RemoveSource'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.41"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:AddSource'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.17"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:GetMaterial'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.28"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:PlayEmergeFX'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.39"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:FilterIncomingDamage'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.27"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:IsStatue'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.31"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:InitMaterials'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.30"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:GetWeakpointsToActivate'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.29"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:VFX_Puddle_End'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.61"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:VFX_Puddle_Start'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.62"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:EvolveCharacter'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.24"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:EvadeCheck'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.23"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline__FinishedFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.57"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline__UpdateFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.58"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_0__FinishedFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.49"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_0__UpdateFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.50"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_1__FinishedFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.51"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_1__UpdateFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.52"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_VoidDis__FinishedFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.59"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_VoidDis__UpdateFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.60"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_2__FinishedFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.53"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_2__UpdateFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.54"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_3__FinishedFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.55"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_3__UpdateFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.56"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:SFX_FlyLoop_Start'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.42"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:SFX_IdleLoop_Start'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.44"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:SFX_FlyLoop_Stop'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.43"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:SFX_IdleLoop_Stop'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.45"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:SFX_Puddle_STOP'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.46"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.40"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:OnDead_Event'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.34"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Enable_Visibility'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.22"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Disable_Visibility'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.21"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:ActivateWeakpoint_LS'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.16"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:DeactivateWeakpoint_LS'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.20"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:OnEmergeStatueEnter'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.36"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:OnEmergeStatueExit'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.37"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Crystal Bright'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.18"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Crystal Dark'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.19"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:FadeVoid'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.26"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:StartFlowerFresnel'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.47"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:StopFlowerFresnel'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.48"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:OnActivateWeakpoint'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.32"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:OnDeactivateWeakpoint'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.33"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:OnEnableWeakpoint'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.38"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:OnDisableWeakpoint'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.35"
+      },
+      {
+        "ObjectName": "Function'Char_LS_SS_Base_C:ExecuteUbergraph_Char_LS_SS_Base'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.25"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Ak_PL",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AkComponent'",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "VFX_Idle_Sand",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Weakpoint_Chest",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CapsuleComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "HealthBar",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Timeline_3_delta_7747B044468D274DA44E6AB90A378A63",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Timeline_3__Direction_7747B044468D274DA44E6AB90A378A63",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Class'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Timeline_3",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Timeline_2_delta_515E219748EA5382FED800A762E9C969",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Timeline_2__Direction_515E219748EA5382FED800A762E9C969",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Class'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Timeline_2",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Timeline_VoidDis_delta_85462EF34FBF2E9AC8F261BBB5F00792",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Timeline_VoidDis__Direction_85462EF34FBF2E9AC8F261BBB5F00792",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Class'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Timeline_VoidDis",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Timeline_1_delta_DD3BDB804D6C250CE3602390E72BA956",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Timeline_1__Direction_DD3BDB804D6C250CE3602390E72BA956",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Class'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Timeline_1",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Timeline_0_delta_A2BC13F3452890ECD08F92A02B950324",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Timeline_0__Direction_A2BC13F3452890ECD08F92A02B950324",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Class'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Timeline_0",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Timeline_delta_DBDCC54E4B229CD0F9C93CB1337EDA1B",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Timeline__Direction_DBDCC54E4B229CD0F9C93CB1337EDA1B",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Class'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Timeline",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "EvadeChance",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Debug_Evade",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | ExposeOnSpawn",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Debug_Evolved",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | ExposeOnSpawn",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "EvolvedCustomization",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 12,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "VFX_SandPuddle",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "SFX_Fly_Loop",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Debug_Puddle",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | ExposeOnSpawn",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ClassProperty",
+        "Name": "EvolveClass",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "PropertyClass": {
+          "ObjectName": "Class'Class'",
+          "ObjectPath": "/Script/CoreUObject"
+        },
+        "MetaClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CachedCustomization",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 12,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CrystalDark",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Material_Weakspot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInstanceDynamic'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Material_Stone",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInstanceDynamic'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Material_Fresnel_Control",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInstanceDynamic'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "MaxFresnelAmount",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "SFX_Idle_Loop",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SFX_FlyLoop_Sound",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "SFX_Puddle",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "FlowerSources",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnTemplate | DisableEditOnInstance",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "FlowerSources",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Actor'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Sources",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnTemplate | DisableEditOnInstance",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "Sources",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Actor'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_Char_LS_SS_Base": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:ExecuteUbergraph_Char_LS_SS_Base'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.25"
+      },
+      "OnDisableWeakpoint": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:OnDisableWeakpoint'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.35"
+      },
+      "OnEnableWeakpoint": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:OnEnableWeakpoint'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.38"
+      },
+      "OnDeactivateWeakpoint": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:OnDeactivateWeakpoint'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.33"
+      },
+      "OnActivateWeakpoint": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:OnActivateWeakpoint'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.32"
+      },
+      "StopFlowerFresnel": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:StopFlowerFresnel'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.48"
+      },
+      "StartFlowerFresnel": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:StartFlowerFresnel'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.47"
+      },
+      "FadeVoid": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:FadeVoid'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.26"
+      },
+      "Crystal Dark": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Crystal Dark'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.19"
+      },
+      "Crystal Bright": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Crystal Bright'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.18"
+      },
+      "OnEmergeStatueExit": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:OnEmergeStatueExit'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.37"
+      },
+      "OnEmergeStatueEnter": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:OnEmergeStatueEnter'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.36"
+      },
+      "DeactivateWeakpoint_LS": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:DeactivateWeakpoint_LS'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.20"
+      },
+      "ActivateWeakpoint_LS": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:ActivateWeakpoint_LS'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.16"
+      },
+      "Disable_Visibility": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Disable_Visibility'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.21"
+      },
+      "Enable_Visibility": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Enable_Visibility'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.22"
+      },
+      "OnDead_Event": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:OnDead_Event'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.34"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.40"
+      },
+      "SFX_Puddle_STOP": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:SFX_Puddle_STOP'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.46"
+      },
+      "SFX_IdleLoop_Stop": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:SFX_IdleLoop_Stop'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.45"
+      },
+      "SFX_FlyLoop_Stop": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:SFX_FlyLoop_Stop'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.43"
+      },
+      "SFX_IdleLoop_Start": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:SFX_IdleLoop_Start'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.44"
+      },
+      "SFX_FlyLoop_Start": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:SFX_FlyLoop_Start'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.42"
+      },
+      "Timeline_3__UpdateFunc": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_3__UpdateFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.56"
+      },
+      "Timeline_3__FinishedFunc": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_3__FinishedFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.55"
+      },
+      "Timeline_2__UpdateFunc": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_2__UpdateFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.54"
+      },
+      "Timeline_2__FinishedFunc": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_2__FinishedFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.53"
+      },
+      "Timeline_VoidDis__UpdateFunc": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_VoidDis__UpdateFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.60"
+      },
+      "Timeline_VoidDis__FinishedFunc": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_VoidDis__FinishedFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.59"
+      },
+      "Timeline_1__UpdateFunc": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_1__UpdateFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.52"
+      },
+      "Timeline_1__FinishedFunc": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_1__FinishedFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.51"
+      },
+      "Timeline_0__UpdateFunc": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_0__UpdateFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.50"
+      },
+      "Timeline_0__FinishedFunc": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline_0__FinishedFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.49"
+      },
+      "Timeline__UpdateFunc": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline__UpdateFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.58"
+      },
+      "Timeline__FinishedFunc": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:Timeline__FinishedFunc'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.57"
+      },
+      "EvadeCheck": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:EvadeCheck'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.23"
+      },
+      "EvolveCharacter": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:EvolveCharacter'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.24"
+      },
+      "VFX_Puddle_Start": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:VFX_Puddle_Start'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.62"
+      },
+      "VFX_Puddle_End": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:VFX_Puddle_End'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.61"
+      },
+      "GetWeakpointsToActivate": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:GetWeakpointsToActivate'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.29"
+      },
+      "InitMaterials": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:InitMaterials'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.30"
+      },
+      "IsStatue": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:IsStatue'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.31"
+      },
+      "FilterIncomingDamage": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:FilterIncomingDamage'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.27"
+      },
+      "PlayEmergeFX": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:PlayEmergeFX'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.39"
+      },
+      "GetMaterial": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:GetMaterial'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.28"
+      },
+      "AddSource": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:AddSource'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.17"
+      },
+      "RemoveSource": {
+        "ObjectName": "Function'Char_LS_SS_Base_C:RemoveSource'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.41"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "Interfaces": [
+      {
+        "Class": {
+          "ObjectName": "BlueprintGeneratedClass'BPI_CombatFlower_C'",
+          "ObjectPath": "/Game/World_DLC2/Environments/Blueprints/Combat_Flower/BPI_CombatFlower.0"
+        },
+        "PointerOffset": 0,
+        "bImplementedByK2": true
+      }
+    ],
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Char_LS_SS_Base_C'Default__Char_LS_SS_Base_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.7"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal",
+      "ImplementedInterfaces": "((Interface=/Script/Engine.BlueprintGeneratedClass'\"/Game/World_DLC2/Environments/Blueprints/Combat_Flower/BPI_CombatFlower.BPI_CombatFlower_C\"'))"
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "Weakpoint_Chest_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Properties": {
+      "CapsuleHalfHeight": 32.0,
+      "CapsuleRadius": 15.0,
+      "bGenerateOverlapEvents": false,
+      "BodyInstance": {
+        "CollisionProfileName": "Custom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "ThrownProjectile",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "WeaponPhantom",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        },
+        "PhysMaterialOverride": {
+          "ObjectName": "PhysicalMaterial'PhysMat_Flesh_Stone'",
+          "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_Stone.0"
+        }
+      },
+      "RelativeLocation": {
+        "X": -21.0,
+        "Y": -10.0,
+        "Z": 1.0
+      },
+      "RelativeRotation": {
+        "Pitch": 90.0,
+        "Yaw": -351.11935,
+        "Roll": -341.11935
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__Char_LS_SS_Base_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__BP_Monster_C:CollisionCylinder'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.7"
+    }
+  },
+  {
+    "Type": "Char_LS_SS_Base_C",
+    "Name": "Default__Char_LS_SS_Base_C",
+    "Class": "BlueprintGeneratedClass'/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.Char_LS_SS_Base_C'",
+    "Template": {
+      "ObjectName": "BP_Monster_C'Default__BP_Monster_C'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.4"
+    },
+    "Properties": {
+      "UberGraphFrame": {},
+      "EvadeChance": 0.2,
+      "Debug_Evade": true,
+      "Debug_Evolved": true,
+      "SFX_Fly_Loop": {
+        "AudioComponent": null
+      },
+      "Debug_Puddle": true,
+      "EvolveClass": {
+        "ObjectName": "BlueprintGeneratedClass'Char_LS_SS_Pickaxe_Evolved_C'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Pickaxe/Pickaxe_Evolved/Char_LS_SS_Pickaxe_Evolved.2"
+      },
+      "MaxFresnelAmount": 1.17,
+      "SFX_Idle_Loop": {
+        "AudioComponent": null
+      },
+      "SFX_FlyLoop_Sound": {
+        "ObjectName": "AkAudioEvent'DLC2_SS_Fly_Loop'",
+        "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_DLC2/DLC2_SS/DLC2_SS_Fly_Loop.1"
+      },
+      "SFX_Puddle": {
+        "AudioComponent": null
+      },
+      "DissolveSoundFX": {
+        "SoundObject": {
+          "ObjectName": "AkAudioEvent'Creature_Dissolve_Short'",
+          "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_Shared/Creature_Dissolve/Creature_Dissolve_Short.1"
+        }
+      },
+      "Type": "MonsterType::NewEnumerator1",
+      "AlertSound": {
+        "SoundObject": {
+          "ObjectName": "AkAudioEvent'Voc_DLC2_SS_Alert'",
+          "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_DLC2/DLC2_SS/Voc_Base/Voc_DLC2_SS_Alert.1"
+        }
+      },
+      "CharacterBiome": "MonsterBiome::NewEnumerator0",
+      "CombatClass": {
+        "ObjectName": "BlueprintGeneratedClass'CombatClass_Soldier_C'",
+        "ObjectPath": "/Game/_Core/CombatClasses/CombatClass_Soldier.0"
+      },
+      "StatsComp": {
+        "ObjectName": "StatsComponent'Default__Char_LS_SS_Base_C:StatsComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.78"
+      },
+      "ActionComp": {
+        "ObjectName": "ActionComponent'Default__Char_LS_SS_Base_C:ActionComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.0"
+      },
+      "WeaponPhantomProviderComp": {
+        "ObjectName": "WeaponPhantomComponent'Default__Char_LS_SS_Base_C:WeaponPhantomProviderComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.85"
+      },
+      "HitLogComp": {
+        "ObjectName": "HitLogComponent'Default__Char_LS_SS_Base_C:HitLogComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.63"
+      },
+      "ReplicatedMovementComp": {
+        "ObjectName": "ReplicatedMovementComponent'Default__Char_LS_SS_Base_C:ReplicatedMovement'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.66"
+      },
+      "Data": {
+        "DataTable": {
+          "ObjectName": "DataTable'Stats_Character_DLC2'",
+          "ObjectPath": "/Game/World_DLC2/Stats/Stats_Character_DLC2.0"
+        },
+        "RowName": "Pan_ShiftingSoldier"
+      },
+      "ImpactDescriptorSet": {
+        "DefaultImpact": {
+          "Effect": {
+            "ImpactEffectName": "IE_Weapon_Blunt_Medium"
+          }
+        },
+        "Foot": {
+          "Effect": {
+            "ImpactEffectName": "IE_Creature_Footfall_Medium"
+          }
+        },
+        "FootSprint": {
+          "Effect": {
+            "ImpactEffectName": "IE_Creature_Footfall_Medium"
+          }
+        },
+        "Hand": {
+          "Effect": {
+            "ImpactEffectName": "IE_Creature_Handfall_Medium"
+          }
+        },
+        "Land": {
+          "Effect": {
+            "ImpactEffectName": "IE_Creature_Land_Medium"
+          }
+        },
+        "Body": {
+          "Effect": {
+            "ImpactEffectName": "IE_Creature_Bodyfall_Medium"
+          }
+        }
+      },
+      "ActiveRagdollInfo": {
+        "FoleySound": {
+          "SoundObject": {
+            "ObjectName": "AkAudioEvent'DLC2_SS_Foley_Light_Short'",
+            "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_DLC2/DLC2_SS/DLC2_SS_Foley_Light_Short.1"
+          }
+        },
+        "DeathVocalization": {
+          "SoundObject": {
+            "ObjectName": "AkAudioEvent'Voc_DLC2_SS_Death'",
+            "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_DLC2/DLC2_SS/Voc_Base/Voc_DLC2_SS_Death.1"
+          }
+        },
+        "DeathVocalizationSocketName": "SFX_PL_Head"
+      },
+      "SpawnRelevanceInfo": {
+        "DefaultSpawnRange": {
+          "MinPlayerRangeToSpawn": 2500.0
+        }
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_LS_SS_Base_C:CharacterMesh0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.75"
+      },
+      "CharacterMovement": {
+        "ObjectName": "CharacterMovementComponentGunfire'Default__Char_LS_SS_Base_C:CharMoveComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.8"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_SS_Base_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.6"
+      },
+      "AIControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'Char_LS_SS_Base_AiController_C'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base_AiController.0"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_SS_Base_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.6"
+      },
+      "Tags": [
+        "CanActivateWP",
+        "NoBleed"
+      ]
+    }
+  },
+  {
+    "Type": "CharacterMovementComponentGunfire",
+    "Name": "CharMoveComp",
+    "Outer": "Default__Char_LS_SS_Base_C",
+    "Class": "UScriptClass'CharacterMovementComponentGunfire'",
+    "Template": {
+      "ObjectName": "CharacterMovementComponentGunfire'Default__BP_Monster_C:CharMoveComp'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.8"
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_1",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.0,
+            "Value": 0.0,
+            "ArriveTangent": 2.1406593,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 2.140659,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.33,
+            "Value": 1.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_1_2",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.0,
+            "Value": 1.0,
+            "ArriveTangent": -0.03645184,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": -0.036452338,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.33,
+            "Value": 0.0,
+            "ArriveTangent": -0.2895846,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": -0.28958607,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_1_2_3",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.0,
+            "Value": 0.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.5,
+            "Value": 1.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_1_2_3_4",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.0,
+            "Value": 1.0,
+            "ArriveTangent": -0.03645184,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": -0.036452338,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.25,
+            "Value": 0.0,
+            "ArriveTangent": -0.2895846,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": -0.28958607,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_1_3",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.0,
+            "Value": 0.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.5,
+            "Value": 1.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_1_3_4",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.0,
+            "Value": 0.0,
+            "ArriveTangent": 2.1406593,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 2.140659,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.25,
+            "Value": 1.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "DissolveComponent",
+    "Name": "Dissolve_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'DissolveComponent'",
+    "Template": {
+      "ObjectName": "DissolveComponent'BP_Monster_C:Dissolve_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.11"
+    },
+    "Properties": {
+      "Materials": [
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_ShiftingSoldier'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Materials/M_ShiftingSoldier.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_ShiftingSoldier_Dissolve'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Materials/M_ShiftingSoldier_Dissolve.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_ShiftingSoldier_Gem'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Materials/M_ShiftingSoldier_Gem.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_ShiftingSoldier_Gem_Dissolve'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Materials/M_ShiftingSoldier_Gem_Dissolve.0"
+          }
+        },
+        {
+          "Material": {
+            "ObjectName": "MaterialInstanceConstant'M_ShiftingSoldier_Void'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Materials/M_ShiftingSoldier_Void.0"
+          },
+          "DissolveMaterial": {
+            "ObjectName": "MaterialInstanceConstant'M_ShiftingSoldier_Void_Dis'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Materials/M_ShiftingSoldier_Void_Dis.0"
+          }
+        }
+      ],
+      "DissolveFX": {
+        "ObjectName": "NiagaraSystem'NS_Dissolve_LivingStone'",
+        "ObjectPath": "/Game/World_DLC2/VFX/NS_Dissolve_LivingStone.77"
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "ActivateWeakpoint_LS",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_Net | FUNC_NetReliable | FUNC_NetMulticast | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "AddSource",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Source",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Out",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_ActorHasTag_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_GetSlotCustomizationID_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_NameName_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_AddUnique_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_NameName_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanOR_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_AddUnique_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Crystal Bright",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Crystal Dark",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "DeactivateWeakpoint_LS",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_Net | FUNC_NetReliable | FUNC_NetMulticast | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Disable_Visibility",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_Net | FUNC_NetReliable | FUNC_NetMulticast | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Enable_Visibility",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_Net | FUNC_NetReliable | FUNC_NetMulticast | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "EvadeCheck",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "T/F",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsInterruptible_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Add_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_RandomBoolWithWeight_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CheckCooldown_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Add_DoubleDouble_A_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_VariableSet_EvadeChance_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "EvolveCharacter",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetComponentToWorld_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 96,
+        "Struct": {
+          "ObjectName": "Class'Transform'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnCharacter_AsCharacter_Gunfire",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'CharacterGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CheckTag_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_Char_LS_SS_Base",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioAttachParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_2",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioAttachParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_3",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioStopParams",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioStopParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioStopParams_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioStopParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioStopParams_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioStopParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioStopParams_3",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioStopParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_LinearColorLerp_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "Struct": {
+          "ObjectName": "Class'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_LinearColorLerp_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "Struct": {
+          "ObjectName": "Class'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioStopParams_4",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioStopParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioStopParams_5",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioStopParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_IsClosed_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Has_Been_Initd_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSoundAttached_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSoundAttached_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_Reason",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": null
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'CharacterGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Cause",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_GetWeakpointsToActivate_Weakpoints",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm | ContainsInstancedReference",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "CallFunc_GetWeakpointsToActivate_Weakpoints",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyFlags": "InstancedReference",
+          "PropertyClass": {
+            "ObjectName": "Class'CapsuleComponent'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'CapsuleComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'CapsuleComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Has_Been_Initd_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_GetSlotCustomizationID_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SelectColor_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "Struct": {
+          "ObjectName": "Class'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SelectColor_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "Struct": {
+          "ObjectName": "Class'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CheckTag_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Has_Been_Initd_Variable_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_K2_AttachToComponent_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CheckTag_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_K2_AttachToComponent_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CheckTag_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_K2_SetState_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_IsClosed_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Lerp_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Source_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_AddSource_Out",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Source",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_RemoveSource_Out",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_IsClosed_Variable_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue_4",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue_5",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue_6",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetMaterial_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetMaterial_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue_7",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetMaterial_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue_8",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetMaterial_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue_9",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetMaterial_ReturnValue_4",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue_10",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetMaterial_ReturnValue_5",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue_11",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetMaterial_ReturnValue_6",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Lerp_Alpha_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetScalarParameterValue_Value_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "FadeVoid",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "FilterIncomingDamage",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CharacterGunfire:FilterIncomingDamage'",
+      "ObjectPath": "/Script/GunfireRuntime"
+    },
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "DamageInfo",
+        "Flags": "RF_Public",
+        "ElementSize": 528,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'DamageInfo'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "DamageOut",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "Parm | OutParm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "ShouldApplyDamage",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsStatue_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetMaterial",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "NameProperty",
+        "Name": "MaterialSlotName",
+        "Flags": "RF_Public",
+        "ElementSize": 12,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "Parm | OutParm | ReturnParm",
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_GetMaterialIndex_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetMaterial_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetWeakpointsToActivate",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ArrayProperty",
+        "Name": "Weakpoints",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "Parm | OutParm | ContainsInstancedReference",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "Weakpoints",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyFlags": "InstancedReference",
+          "PropertyClass": {
+            "ObjectName": "Class'CapsuleComponent'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "K2Node_MakeArray_Array",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm | ContainsInstancedReference",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "K2Node_MakeArray_Array",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyFlags": "InstancedReference",
+          "PropertyClass": {
+            "ObjectName": "Class'CapsuleComponent'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure"
+  },
+  {
+    "Type": "Function",
+    "Name": "InitMaterials",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetMaterial_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetMaterial_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_GetMaterialIndex_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_CreateDynamicMaterialInstance_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInstanceDynamic'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_CreateDynamicMaterialInstance_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInstanceDynamic'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "IsStatue",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm | ReturnParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CheckTag_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsWindowSet_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanOR_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnActivateWeakpoint",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Source",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnDeactivateWeakpoint",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Source",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnDead_Event",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_Monster_C:OnDead_Event'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.23"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "Reason",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": null
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'CharacterGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Cause",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnDisableWeakpoint",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnEmergeStatueEnter",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnEmergeStatueExit",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnEnableWeakpoint",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "PlayEmergeFX",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_Monster_C:ReceiveBeginPlay'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.27"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "RemoveSource",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Source",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Out",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_MakeLiteralName_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_ActorHasTag_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Array_IsValidIndex_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsAlive_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Array_IsValidIndex_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Array_RemoveItem_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Array_IsEmpty_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Array_RemoveItem_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SFX_FlyLoop_Start",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SFX_FlyLoop_Stop",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SFX_IdleLoop_Start",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SFX_IdleLoop_Stop",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SFX_Puddle_STOP",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_Net | FUNC_NetReliable | FUNC_NetMulticast | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "StartFlowerFresnel",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_Net | FUNC_NetReliable | FUNC_NetMulticast | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "StopFlowerFresnel",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_Net | FUNC_NetReliable | FUNC_NetMulticast | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_0__FinishedFunc",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_0__UpdateFunc",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_1__FinishedFunc",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_1__UpdateFunc",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_2__FinishedFunc",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_2__UpdateFunc",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_3__FinishedFunc",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_3__UpdateFunc",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline__FinishedFunc",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline__UpdateFunc",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_VoidDis__FinishedFunc",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_VoidDis__UpdateFunc",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "VFX_Puddle_End",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioStopParams",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioStopParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "VFX_Puddle_Start",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioAttachParams",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioAttachParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSoundAttached_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnSystemAttached_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "HitLogComponent",
+    "Name": "HitLogComp",
+    "Outer": "Default__Char_LS_SS_Base_C",
+    "Class": "UScriptClass'HitLogComponent'",
+    "Template": {
+      "ObjectName": "HitLogComponent'Default__BP_Monster_C:HitLogComp'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.31"
+    },
+    "Properties": {
+      "HitLocations": [
+        {
+          "NameID": "ArmL",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_ENV_Stone_ArmL'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Mesh/PhysMats/PhysMat_ENV_Stone_ArmL.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "ArmR",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_ENV_Stone_ArmR'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Mesh/PhysMats/PhysMat_ENV_Stone_ArmR.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "Head",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_ENV_Stone_Head'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Mesh/PhysMats/PhysMat_ENV_Stone_Head.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "Body",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_ENV_Stone'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_ENV_Stone.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "Weakpoint",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_ENV_Glass'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_ENV_Glass.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": true,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "WeakspotOFF",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Flesh_Stone'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_Stone.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'StateMachineComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "StateMachineComponent'Char_LS_SS_Base_C:StateMachine_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.77"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "StateMachine",
+            "AssociatedGuid": "1226ECA4-48F65379-CC82D286-262B8701"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'ActorCustomizationComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "ActorCustomizationComponent'Char_LS_SS_Base_C:Visual_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.1"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_Base_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.3"
+            },
+            "SCSVariableName": "Visual",
+            "AssociatedGuid": "88E8F05F-499F34E6-178F9CA8-75D39337"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'DissolveComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "DissolveComponent'Char_LS_SS_Base_C:Dissolve_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.15"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "Dissolve",
+            "AssociatedGuid": "63F89BCB-4D3243A5-A96E8C83-1826967D"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'AkComponent'",
+            "ObjectPath": "/Script/AkAudio"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "AkComponent'Char_LS_SS_Base_C:Ak_VisSet_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.3"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_Base_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.3"
+            },
+            "SCSVariableName": "Ak_VisSet",
+            "AssociatedGuid": "8E4EEA47-43F8F142-71A094AC-F51AE463"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'SoundSetComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "SoundSetComponent'Char_LS_SS_Base_C:SoundSet_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.76"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "SoundSet",
+            "AssociatedGuid": "5B85C075-472CBB69-861FEA8F-8A8CDCA4"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "VFX_Idle_Sand_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_SS_Idle_Sand'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/VFX/NS_SS_Idle_Sand.80"
+      },
+      "OverrideParameters": {
+        "UserParameterRedirects": [
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Color",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Color",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Color_02",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Color_02",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "FormedLerp",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.FormedLerp",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "HeightScale",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.HeightScale",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "OpacityScale",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.OpacityScale",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Scale",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Scale",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          }
+        ],
+        "SortedParameterOffsets": [
+          {
+            "Offset": 0,
+            "Name": "User.Color",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 16,
+            "Name": "User.Color_02",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 32,
+            "Name": "User.FormedLerp",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 36,
+            "Name": "User.HeightScale",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 40,
+            "Name": "User.OpacityScale",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 44,
+            "Name": "User.Scale",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          }
+        ],
+        "ParameterData": [
+          205,
+          204,
+          204,
+          62,
+          82,
+          184,
+          166,
+          62,
+          184,
+          30,
+          133,
+          62,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          63,
+          90,
+          185,
+          87,
+          61,
+          10,
+          215,
+          163,
+          60,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          62,
+          154,
+          153,
+          153,
+          62,
+          205,
+          204,
+          76,
+          62,
+          0,
+          0,
+          240,
+          66
+        ]
+      },
+      "RelativeRotation": {
+        "Pitch": -0.0,
+        "Yaw": -1.2722219E-14,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "ReplicatedMovementComponent",
+    "Name": "ReplicatedMovement",
+    "Outer": "Default__Char_LS_SS_Base_C",
+    "Class": "UScriptClass'ReplicatedMovementComponent'",
+    "Template": {
+      "ObjectName": "ReplicatedMovementComponent'Default__BP_Monster_C:ReplicatedMovement'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.33"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "HealthBar_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 170.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 1.2722219E-14,
+        "Roll": -0.0
+      }
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_LS_SS_Base_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.67"
+      },
+      "VariableGuid": "BA1DB43D-431A3D2E-20CD84BA-D8753552",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_LS_SS_Base_C:HealthBar_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.68"
+      },
+      "ParentComponentOrVariableName": "CollisionCylinder",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "2D65AC1C-47F18BFC-6C8E5BA8-E8CEC485",
+      "InternalVariableName": "HealthBar"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CapsuleComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CapsuleComponent'Char_LS_SS_Base_C:Weakpoint_Chest_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.5"
+      },
+      "AttachToName": "Bone_SS_ShiftingChest",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "03ECAC74-4FA4DF70-4C3A53AD-688DF27A",
+      "InternalVariableName": "Weakpoint_Chest"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'Char_LS_SS_Base_C:VFX_Idle_Sand_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.65"
+      },
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "C66B7687-4F1736F9-692B8F99-C422D4D3",
+      "InternalVariableName": "VFX_Idle_Sand"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AkComponent'",
+        "ObjectPath": "/Script/AkAudio"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AkComponent'Char_LS_SS_Base_C:Ak_PL_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.2"
+      },
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "CAA48ED5-4E735FA0-C757CD96-5C7E32DA",
+      "InternalVariableName": "Ak_PL"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_LS_SS_Base_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.70"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_LS_SS_Base_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.71"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_LS_SS_Base_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.72"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_LS_SS_Base_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.73"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_LS_SS_Base_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.70"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_LS_SS_Base_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.71"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_LS_SS_Base_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.72"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_LS_SS_Base_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.73"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Char_LS_SS_Base_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.69"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponentBudgeted",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__Char_LS_SS_Base_C",
+    "Class": "UScriptClass'SkeletalMeshComponentBudgeted'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponentBudgeted'Default__BP_Monster_C:CharacterMesh0'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.53"
+    },
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'Char_LS_SS_Base_AnimBP_C'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base_AnimBP.0"
+      },
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'Pan_LivingStone_SS_Complete'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Mesh/Pan_LivingStone_SS_Complete.0"
+      },
+      "SkinnedAsset": {
+        "ObjectName": "SkeletalMesh'Pan_LivingStone_SS_Complete'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Mesh/Pan_LivingStone_SS_Complete.0"
+      },
+      "OverrideMaterials": [
+        null,
+        null,
+        null,
+        null,
+        {
+          "ObjectName": "MaterialInstanceConstant'M_ShiftingSoldier'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Materials/M_ShiftingSoldier.0"
+        }
+      ],
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_SS_Base_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.6"
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -90.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SoundSetComponent",
+    "Name": "SoundSet_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'SoundSetComponent'",
+    "Template": {
+      "ObjectName": "SoundSetComponent'BP_Monster_C:SoundSet_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.54"
+    },
+    "Properties": {
+      "SoundSet": {
+        "ObjectName": "SoundSet'Char_LS_SS_Base_SoundSet'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base_SoundSet.238"
+      },
+      "SoundTags": [
+        "SFX_SS_Base",
+        "Voc_SS_Base"
+      ]
+    }
+  },
+  {
+    "Type": "StateMachineComponent",
+    "Name": "StateMachine_GEN_VARIABLE",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'StateMachineComponent'",
+    "Template": {
+      "ObjectName": "StateMachineComponent'BP_Monster_C:StateMachine_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.55"
+    },
+    "Properties": {
+      "StateMachine": {
+        "ObjectName": "StateMachine'Char_LS_SS_Base_StateMachine'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base_StateMachine.2245"
+      }
+    }
+  },
+  {
+    "Type": "StatsComponent",
+    "Name": "StatsComp",
+    "Outer": "Default__Char_LS_SS_Base_C",
+    "Class": "UScriptClass'StatsComponent'",
+    "Template": {
+      "ObjectName": "StatsComponent'Default__BP_Monster_C:StatsComp'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.56"
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "Timeline_0_Template",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Properties": {
+      "TimelineLength": 0.33,
+      "bIgnoreTimeDilation": true,
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'Char_LS_SS_Base_C:CurveFloat_1_2'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.10"
+          },
+          "PropertyName": "Timeline_0_delta_A2BC13F3452890ECD08F92A02B950324",
+          "TrackName": "delta",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "A2BC13F3-452890EC-D08F92A0-2B950324",
+      "VariableName": "Timeline_0",
+      "DirectionPropertyName": "Timeline_0__Direction_A2BC13F3452890ECD08F92A02B950324",
+      "UpdateFunctionName": "Timeline_0__UpdateFunc",
+      "FinishedFunctionName": "Timeline_0__FinishedFunc"
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "Timeline_1_Template",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Properties": {
+      "TimelineLength": 0.5,
+      "bIgnoreTimeDilation": true,
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'Char_LS_SS_Base_C:CurveFloat_1_3'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.13"
+          },
+          "PropertyName": "Timeline_1_delta_DD3BDB804D6C250CE3602390E72BA956",
+          "TrackName": "delta",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "DD3BDB80-4D6C250C-E3602390-E72BA956",
+      "VariableName": "Timeline_1",
+      "DirectionPropertyName": "Timeline_1__Direction_DD3BDB804D6C250CE3602390E72BA956",
+      "UpdateFunctionName": "Timeline_1__UpdateFunc",
+      "FinishedFunctionName": "Timeline_1__FinishedFunc"
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "Timeline_2_Template",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Properties": {
+      "TimelineLength": 1.25,
+      "bIgnoreTimeDilation": true,
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'Char_LS_SS_Base_C:CurveFloat_1_2_3_4'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.12"
+          },
+          "PropertyName": "Timeline_2_delta_515E219748EA5382FED800A762E9C969",
+          "TrackName": "delta",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "515E2197-48EA5382-FED800A7-62E9C969",
+      "VariableName": "Timeline_2",
+      "DirectionPropertyName": "Timeline_2__Direction_515E219748EA5382FED800A762E9C969",
+      "UpdateFunctionName": "Timeline_2__UpdateFunc",
+      "FinishedFunctionName": "Timeline_2__FinishedFunc"
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "Timeline_3_Template",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Properties": {
+      "TimelineLength": 1.25,
+      "bIgnoreTimeDilation": true,
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'Char_LS_SS_Base_C:CurveFloat_1_3_4'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.14"
+          },
+          "PropertyName": "Timeline_3_delta_7747B044468D274DA44E6AB90A378A63",
+          "TrackName": "delta",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "7747B044-468D274D-A44E6AB9-0A378A63",
+      "VariableName": "Timeline_3",
+      "DirectionPropertyName": "Timeline_3__Direction_7747B044468D274DA44E6AB90A378A63",
+      "UpdateFunctionName": "Timeline_3__UpdateFunc",
+      "FinishedFunctionName": "Timeline_3__FinishedFunc"
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "Timeline_Template",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Properties": {
+      "TimelineLength": 0.33,
+      "bIgnoreTimeDilation": true,
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'Char_LS_SS_Base_C:CurveFloat_1'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.9"
+          },
+          "PropertyName": "Timeline_delta_DBDCC54E4B229CD0F9C93CB1337EDA1B",
+          "TrackName": "delta",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "DBDCC54E-4B229CD0-F9C93CB1-337EDA1B",
+      "VariableName": "Timeline",
+      "DirectionPropertyName": "Timeline__Direction_DBDCC54E4B229CD0F9C93CB1337EDA1B",
+      "UpdateFunctionName": "Timeline__UpdateFunc",
+      "FinishedFunctionName": "Timeline__FinishedFunc"
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "Timeline_VoidDis_Template",
+    "Outer": "Char_LS_SS_Base_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Properties": {
+      "TimelineLength": 0.5,
+      "bIgnoreTimeDilation": true,
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'Char_LS_SS_Base_C:CurveFloat_1_2_3'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_ShiftingSoldier/Blueprints/Char_LS_SS_Base.11"
+          },
+          "PropertyName": "Timeline_VoidDis_delta_85462EF34FBF2E9AC8F261BBB5F00792",
+          "TrackName": "delta",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "85462EF3-4FBF2E9A-C8F261BB-B5F00792",
+      "VariableName": "Timeline_VoidDis",
+      "DirectionPropertyName": "Timeline_VoidDis__Direction_85462EF34FBF2E9AC8F261BBB5F00792",
+      "UpdateFunctionName": "Timeline_VoidDis__UpdateFunc",
+      "FinishedFunctionName": "Timeline_VoidDis__FinishedFunc"
+    }
+  },
+  {
+    "Type": "WeaponPhantomComponent",
+    "Name": "WeaponPhantomProviderComp",
+    "Outer": "Default__Char_LS_SS_Base_C",
+    "Class": "UScriptClass'WeaponPhantomComponent'",
+    "Template": {
+      "ObjectName": "WeaponPhantomComponent'Default__BP_Monster_C:WeaponPhantomProviderComp'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.60"
+    }
+  }
+]

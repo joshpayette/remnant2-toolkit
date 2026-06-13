@@ -1,0 +1,24 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/patreon/reconcile",
+      "schedule": "0 */12 * * *"
+    },
+    {
+      "path": "/api/cron/imagekit/cleanup",
+      "schedule": "0 */2 * * *"
+    },
+    {
+      "path": "/api/cron/wiki/validate-wiki-links",
+      "schedule": "0 1 * * 0"
+    },
+    {
+      "path": "/api/cron/milestones/build-count",
+      "schedule": "0 */2 * * *"
+    },
+    {
+      "path": "/api/cron/milestones/favorite-count",
+      "schedule": "0 */2 * * *"
+    }
+  ]
+}

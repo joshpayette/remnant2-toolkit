@@ -1,0 +1,924 @@
+[
+  {
+    "Type": "ActionComponent",
+    "Name": "ActionComp",
+    "Outer": "Default__Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'ActionComponent'",
+    "Template": {
+      "ObjectName": "ActionComponent'Default__Char_LS_Kiln_C:ActionComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.0"
+    }
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'Char_LS_Kiln_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.3"
+    },
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Char_LS_Kiln_Aberration_C:SimpleConstructionScript_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.25"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'Char_LS_Kiln_Aberration_C:InheritableComponentHandler'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.10"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'Char_LS_Kiln_Aberration_C:ExecuteUbergraph_Char_LS_Kiln_Aberration'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.6"
+      }
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'Char_LS_Kiln_Aberration_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.8"
+      },
+      {
+        "ObjectName": "Function'Char_LS_Kiln_Aberration_C:PlayDeathStinger'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.7"
+      },
+      {
+        "ObjectName": "Function'Char_LS_Kiln_Aberration_C:ExecuteUbergraph_Char_LS_Kiln_Aberration'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.6"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Name",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NamedActorComponent'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_Char_LS_Kiln_Aberration": {
+        "ObjectName": "Function'Char_LS_Kiln_Aberration_C:ExecuteUbergraph_Char_LS_Kiln_Aberration'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.6"
+      },
+      "PlayDeathStinger": {
+        "ObjectName": "Function'Char_LS_Kiln_Aberration_C:PlayDeathStinger'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.7"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'Char_LS_Kiln_Aberration_C:ReceiveBeginPlay'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.8"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Char_LS_Kiln_Aberration_C'Default__Char_LS_Kiln_Aberration_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.3"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__Char_LS_Kiln_C:CollisionCylinder'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.12"
+    }
+  },
+  {
+    "Type": "Char_LS_Kiln_Aberration_C",
+    "Name": "Default__Char_LS_Kiln_Aberration_C",
+    "Class": "BlueprintGeneratedClass'/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.Char_LS_Kiln_Aberration_C'",
+    "Template": {
+      "ObjectName": "Char_LS_Kiln_C'Default__Char_LS_Kiln_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.13"
+    },
+    "Properties": {
+      "UberGraphFrame": {},
+      "DissolveSoundFX": {
+        "SoundObject": {
+          "ObjectName": "AkAudioEvent'Creature_Dissolve_Aberration'",
+          "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_Shared/Creature_Dissolve/Creature_Dissolve_Aberration.1"
+        }
+      },
+      "Type": "MonsterType::NewEnumerator5",
+      "ModTable": {
+        "ObjectName": "SpawnTable'Char_LS_Kiln_Aberration_Mod'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration_Mod.0"
+      },
+      "AlertSound": {
+        "SoundObject": {
+          "ObjectName": "AkAudioEvent'Voc_LS_Kiln_Aberration_Alert_BP'",
+          "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_Alert_BP/Alert_DLC2/Voc_LS_Kiln_Aberration_Alert_BP.1"
+        }
+      },
+      "CombatClass": {
+        "ObjectName": "BlueprintGeneratedClass'CombatClass_Aberration_C'",
+        "ObjectPath": "/Game/_Core/CombatClasses/CombatClass_Aberration.0"
+      },
+      "StatsComp": {
+        "ObjectName": "StatsComponent'Default__Char_LS_Kiln_Aberration_C:StatsComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.27"
+      },
+      "ActionComp": {
+        "ObjectName": "ActionComponent'Default__Char_LS_Kiln_Aberration_C:ActionComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.0"
+      },
+      "WeaponPhantomProviderComp": {
+        "ObjectName": "WeaponPhantomComponent'Default__Char_LS_Kiln_Aberration_C:WeaponPhantomProviderComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.28"
+      },
+      "HitLogComp": {
+        "ObjectName": "HitLogComponent'Default__Char_LS_Kiln_Aberration_C:HitLogComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.9"
+      },
+      "ReplicatedMovementComp": {
+        "ObjectName": "ReplicatedMovementComponent'Default__Char_LS_Kiln_Aberration_C:ReplicatedMovement'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.21"
+      },
+      "Data": {
+        "RowName": "Pan_Kiln_Aberration"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_LS_Kiln_Aberration_C:CharacterMesh0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.26"
+      },
+      "CharacterMovement": {
+        "ObjectName": "CharacterMovementComponentGunfire'Default__Char_LS_Kiln_Aberration_C:CharMoveComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.4"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_Kiln_Aberration_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.2"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_Kiln_Aberration_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.2"
+      },
+      "Tags": [
+        "Ranged",
+        "CanActivateWP",
+        "NoBleed",
+        "NoMark"
+      ]
+    }
+  },
+  {
+    "Type": "CharacterMovementComponentGunfire",
+    "Name": "CharMoveComp",
+    "Outer": "Default__Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'CharacterMovementComponentGunfire'",
+    "Template": {
+      "ObjectName": "CharacterMovementComponentGunfire'Default__Char_LS_Kiln_C:CharMoveComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.14"
+    }
+  },
+  {
+    "Type": "DisplayInfoComponent_C",
+    "Name": "DisplayInfoComponent_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Aberration_C",
+    "Class": "BlueprintGeneratedClass'/Game/_Core/Blueprints/Base/DisplayInfoComponent.DisplayInfoComponent_C'",
+    "Template": {
+      "ObjectName": "DisplayInfoComponent_C'BP_Monster_C:DisplayInfoComponent_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.10"
+    },
+    "Properties": {
+      "Label": {
+        "Namespace": "",
+        "Key": "D263A2614C03487C9FB0CEAEE99A3951",
+        "SourceString": "Charred Sentry",
+        "LocalizedString": "Charred Sentry"
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_Char_LS_Kiln_Aberration",
+    "Outer": "Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioAttachParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_GunfireAudioStopParams",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioStopParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_2",
+        "Flags": "RF_Public",
+        "ElementSize": 280,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GunfireAudioPlayParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_SoundGunfire_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'SoundGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSound2D_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SpawnSoundAttached_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Class'AudioComponentGunfire'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "PlayDeathStinger",
+    "Outer": "Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_Monster_Base_C:PlayDeathStinger'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.39"
+    },
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'Char_LS_Kiln_C:ReceiveBeginPlay'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.65"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "HitLogComponent",
+    "Name": "HitLogComp",
+    "Outer": "Default__Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'HitLogComponent'",
+    "Template": {
+      "ObjectName": "HitLogComponent'Default__Char_LS_Kiln_C:HitLogComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.111"
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_Kiln_Aberration_C:Niagara_Flames_Side_2_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.13"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_Kiln_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.3"
+            },
+            "SCSVariableName": "Niagara_Flames_Side_2",
+            "AssociatedGuid": "8FE98B57-487D4507-1FA55FB4-FCD57DE7"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_Kiln_Aberration_C:Niagara_Flames_Side_1_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.12"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_Kiln_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.3"
+            },
+            "SCSVariableName": "Niagara_Flames_Side_1",
+            "AssociatedGuid": "8F65E2AF-43987D50-F8453E80-F41B7FCC"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_Kiln_Aberration_C:Niagara_Flames_Top_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.14"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_Kiln_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.3"
+            },
+            "SCSVariableName": "Niagara_Flames_Top",
+            "AssociatedGuid": "D08F11AB-4005EAF9-EE77C7A9-A1D846FA"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_Kiln_Aberration_C:VFX_BoltCharge_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.18"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_Kiln_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.3"
+            },
+            "SCSVariableName": "VFX_BoltCharge",
+            "AssociatedGuid": "B5DEEECD-49F8BCE7-16AD0292-45BFE768"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_Kiln_Aberration_C:NS_Kiln_Exhaust_Spray_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.15"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_Kiln_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.3"
+            },
+            "SCSVariableName": "NS_Kiln_Exhaust_Spray",
+            "AssociatedGuid": "5189626C-48CEA335-EFEC42AD-BFBB2E2A"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_Kiln_Aberration_C:NS_Kiln_PreEmerge_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.17"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_Kiln_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.3"
+            },
+            "SCSVariableName": "NS_Kiln_PreEmerge",
+            "AssociatedGuid": "AAE91727-4F56759E-C32E4694-14709143"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'NiagaraComponent'",
+            "ObjectPath": "/Script/Niagara"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NiagaraComponent'Char_LS_Kiln_Aberration_C:NS_Kiln_InteriorLight_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.16"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'Char_LS_Kiln_C'",
+              "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.3"
+            },
+            "SCSVariableName": "NS_Kiln_InteriorLight",
+            "AssociatedGuid": "A5CEADBD-43A0ED38-D928669D-091EAF0A"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'DisplayInfoComponent_C'",
+            "ObjectPath": "/Game/_Core/Blueprints/Base/DisplayInfoComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "DisplayInfoComponent_C'Char_LS_Kiln_Aberration_C:DisplayInfoComponent_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.5"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "DisplayInfoComponent",
+            "AssociatedGuid": "9D516F77-47F7A864-60CD9289-9CBD107C"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "NamedActorComponent",
+    "Name": "Name_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'NamedActorComponent'",
+    "Properties": {
+      "NameID": "Pan_LS_Kiln"
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "Niagara_Flames_Side_1_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_Kiln_C:Niagara_Flames_Side_1_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.113"
+    },
+    "Properties": {
+      "OverrideParameters": {}
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "Niagara_Flames_Side_2_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_Kiln_C:Niagara_Flames_Side_2_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.114"
+    },
+    "Properties": {
+      "OverrideParameters": {}
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "Niagara_Flames_Top_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_Kiln_C:Niagara_Flames_Top_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.115"
+    },
+    "Properties": {
+      "OverrideParameters": {}
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_Kiln_Exhaust_Spray_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_Kiln_C:NS_Kiln_Exhaust_Spray_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.116"
+    },
+    "Properties": {
+      "OverrideParameters": {
+        "DataInterfaces": [
+          {
+            "ObjectName": "NiagaraDataInterfaceCurve'Char_LS_Kiln_Aberration_C:NS_Kiln_Exhaust_Spray_GEN_VARIABLE.NiagaraDataInterfaceCurve_0'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.19"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_Kiln_InteriorLight_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_Kiln_C:NS_Kiln_InteriorLight_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.117"
+    },
+    "Properties": {
+      "OverrideParameters": {}
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_Kiln_PreEmerge_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_Kiln_C:NS_Kiln_PreEmerge_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.118"
+    },
+    "Properties": {
+      "OverrideParameters": {
+        "SortedParameterOffsets": [
+          {
+            "Offset": 28,
+            "Name": "User.Blue",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraBool'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 0,
+            "Name": "User.NumberOfPoints",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraInt32'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 4,
+            "Name": "User.ParticleLifetime",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 8,
+            "Name": "User.Radius",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 0,
+            "Name": "User.SpinAmountOverLifetime",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraDataInterfaceCurve'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 1,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 12,
+            "Name": "User.SpriteSize",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 16,
+            "Name": "User.SystemLifetime",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 20,
+            "Name": "User.Velocity",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          }
+        ],
+        "ParameterData": [
+          10,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          65,
+          0,
+          0,
+          92,
+          66,
+          0,
+          0,
+          112,
+          65,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          160,
+          66,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "DataInterfaces": [
+          {
+            "ObjectName": "NiagaraDataInterfaceCurve'Char_LS_Kiln_Aberration_C:NS_Kiln_PreEmerge_GEN_VARIABLE.NiagaraDataInterfaceCurve_0'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.20"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "VFX_BoltCharge_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Template": {
+      "ObjectName": "NiagaraComponent'Char_LS_Kiln_C:VFX_BoltCharge_GEN_VARIABLE'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.119"
+    },
+    "Properties": {
+      "OverrideParameters": {}
+    }
+  },
+  {
+    "Type": "NiagaraDataInterfaceCurve",
+    "Name": "NiagaraDataInterfaceCurve_0",
+    "Outer": "NS_Kiln_Exhaust_Spray_GEN_VARIABLE",
+    "Class": "UScriptClass'NiagaraDataInterfaceCurve'",
+    "Template": {
+      "ObjectName": "NiagaraDataInterfaceCurve'Char_LS_Kiln_C:NS_Kiln_Exhaust_Spray_GEN_VARIABLE.NiagaraDataInterfaceCurve_0'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.120"
+    },
+    "Properties": {
+      "Curve": {
+        "Keys": []
+      }
+    }
+  },
+  {
+    "Type": "NiagaraDataInterfaceCurve",
+    "Name": "NiagaraDataInterfaceCurve_0",
+    "Outer": "NS_Kiln_PreEmerge_GEN_VARIABLE",
+    "Class": "UScriptClass'NiagaraDataInterfaceCurve'",
+    "Template": {
+      "ObjectName": "NiagaraDataInterfaceCurve'Char_LS_Kiln_C:NS_Kiln_PreEmerge_GEN_VARIABLE.NiagaraDataInterfaceCurve_0'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.121"
+    },
+    "Properties": {
+      "Curve": {
+        "Keys": []
+      }
+    }
+  },
+  {
+    "Type": "ReplicatedMovementComponent",
+    "Name": "ReplicatedMovement",
+    "Outer": "Default__Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'ReplicatedMovementComponent'",
+    "Template": {
+      "ObjectName": "ReplicatedMovementComponent'Default__Char_LS_Kiln_C:ReplicatedMovement'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.122"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_LS_Kiln_Aberration_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.22"
+      },
+      "VariableGuid": "C1A7E5D1-428951DE-4C5384B2-DC96F93E",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NamedActorComponent'",
+        "ObjectPath": "/Script/GunfireRuntime"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NamedActorComponent'Char_LS_Kiln_Aberration_C:Name_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.11"
+      },
+      "VariableGuid": "A99A8E3B-4A20F586-8BE96CA0-7B74AC4D",
+      "InternalVariableName": "Name"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_LS_Kiln_Aberration_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.24"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_LS_Kiln_Aberration_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.24"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Char_LS_Kiln_Aberration_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.23"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponentBudgeted",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'SkeletalMeshComponentBudgeted'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_LS_Kiln_C:CharacterMesh0'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.164"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__Char_LS_Kiln_Aberration_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Aberration/Char_LS_Kiln_Aberration.2"
+      }
+    }
+  },
+  {
+    "Type": "StatsComponent",
+    "Name": "StatsComp",
+    "Outer": "Default__Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'StatsComponent'",
+    "Template": {
+      "ObjectName": "StatsComponent'Default__Char_LS_Kiln_C:StatsComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.170"
+    }
+  },
+  {
+    "Type": "WeaponPhantomComponent",
+    "Name": "WeaponPhantomProviderComp",
+    "Outer": "Default__Char_LS_Kiln_Aberration_C",
+    "Class": "UScriptClass'WeaponPhantomComponent'",
+    "Template": {
+      "ObjectName": "WeaponPhantomComponent'Default__Char_LS_Kiln_C:WeaponPhantomProviderComp'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_Living_Stone_Kiln/Blueprints/Char_LS_Kiln.179"
+    }
+  }
+]

@@ -1,0 +1,995 @@
+[
+  {
+    "Type": "ActionComponent",
+    "Name": "ActionComp",
+    "Outer": "Default__Char_Pan_NobleSwordsman_C",
+    "Class": "UScriptClass'ActionComponent'",
+    "Template": {
+      "ObjectName": "ActionComponent'Default__BP_Monster_C:ActionComp'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.0"
+    }
+  },
+  {
+    "Type": "ActorCustomizationComponent",
+    "Name": "Visual_GEN_VARIABLE",
+    "Outer": "Char_Pan_NobleSwordsman_C",
+    "Class": "UScriptClass'ActorCustomizationComponent'",
+    "Template": {
+      "ObjectName": "ActorCustomizationComponent'BP_Monster_C:Visual_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.1"
+    },
+    "Properties": {
+      "CustomizationSet": {
+        "ObjectName": "ActorCustomizationSet'Char_Pan_NobleSwordsman_VisualSet'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman_VisualSet.2"
+      },
+      "Slots": [
+        {
+          "NameID": "Default",
+          "DefaultCustomizationID": "Default",
+          "CustomizationID": "Default",
+          "IsTransient": false
+        },
+        {
+          "NameID": "StatusEffects",
+          "DefaultCustomizationID": "None",
+          "CustomizationID": "None",
+          "IsTransient": true
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Char_Pan_NobleSwordsman_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+    },
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Char_Pan_NobleSwordsman_C:SimpleConstructionScript_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.17"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'Char_Pan_NobleSwordsman_C:InheritableComponentHandler'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.11"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'Char_Pan_NobleSwordsman_C:ExecuteUbergraph_Char_Pan_NobleSwordsman'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.8"
+      }
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'Char_Pan_NobleSwordsman_C:FireStabProjectile'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.9"
+      },
+      {
+        "ObjectName": "Function'Char_Pan_NobleSwordsman_C:ExecuteUbergraph_Char_Pan_NobleSwordsman'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.8"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WP_Arm",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'BoxComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WP_Scimitar",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'BoxComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_Char_Pan_NobleSwordsman": {
+        "ObjectName": "Function'Char_Pan_NobleSwordsman_C:ExecuteUbergraph_Char_Pan_NobleSwordsman'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.8"
+      },
+      "FireStabProjectile": {
+        "ObjectName": "Function'Char_Pan_NobleSwordsman_C:FireStabProjectile'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.9"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Char_Pan_NobleSwordsman_C'Default__Char_Pan_NobleSwordsman_C'",
+      "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.6"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "WP_Arm_GEN_VARIABLE",
+    "Outer": "Char_Pan_NobleSwordsman_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Properties": {
+      "BoxExtent": {
+        "X": 40.0,
+        "Y": 8.0,
+        "Z": 8.0
+      },
+      "bGenerateOverlapEvents": false,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel6",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "WeaponPhantom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Window",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "BossPawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 12.11407,
+        "Y": 5.893197E-14,
+        "Z": 9.790537E-08
+      },
+      "RelativeRotation": {
+        "Pitch": 5.724998E-14,
+        "Yaw": 0.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "WP_Scimitar_GEN_VARIABLE",
+    "Outer": "Char_Pan_NobleSwordsman_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Properties": {
+      "BoxExtent": {
+        "X": 6.0,
+        "Y": 130.0,
+        "Z": 6.0
+      },
+      "bGenerateOverlapEvents": false,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel6",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "WeaponPhantom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Window",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "BossPawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": -3.9146472E-13,
+        "Y": 40.0,
+        "Z": -3.4823148E-07
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__Char_Pan_NobleSwordsman_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__BP_Monster_C:CollisionCylinder'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.7"
+    }
+  },
+  {
+    "Type": "Char_Pan_NobleSwordsman_C",
+    "Name": "Default__Char_Pan_NobleSwordsman_C",
+    "Class": "BlueprintGeneratedClass'/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.Char_Pan_NobleSwordsman_C'",
+    "Template": {
+      "ObjectName": "BP_Monster_C'Default__BP_Monster_C'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.4"
+    },
+    "Properties": {
+      "UberGraphFrame": {},
+      "DissolveSoundFX": {
+        "SoundObject": {
+          "ObjectName": "AkAudioEvent'Creature_Dissolve_Short'",
+          "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_Shared/Creature_Dissolve/Creature_Dissolve_Short.1"
+        }
+      },
+      "Type": "MonsterType::NewEnumerator1",
+      "AlertSound": {
+        "SoundObject": {
+          "ObjectName": "AkAudioEvent'Voc_DLC2_Pan_Nobleman_Alert_BP'",
+          "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_Alert_BP/Alert_DLC2/Voc_DLC2_Pan_Nobleman_Alert_BP.1"
+        }
+      },
+      "CharacterBiome": "MonsterBiome::NewEnumerator0",
+      "CombatClass": {
+        "ObjectName": "BlueprintGeneratedClass'CombatClass_Soldier_C'",
+        "ObjectPath": "/Game/_Core/CombatClasses/CombatClass_Soldier.0"
+      },
+      "StatsComp": {
+        "ObjectName": "StatsComponent'Default__Char_Pan_NobleSwordsman_C:StatsComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.21"
+      },
+      "ActionComp": {
+        "ObjectName": "ActionComponent'Default__Char_Pan_NobleSwordsman_C:ActionComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.0"
+      },
+      "WeaponPhantomProviderComp": {
+        "ObjectName": "WeaponPhantomComponent'Default__Char_Pan_NobleSwordsman_C:WeaponPhantomProviderComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.22"
+      },
+      "HitLogComp": {
+        "ObjectName": "HitLogComponent'Default__Char_Pan_NobleSwordsman_C:HitLogComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.10"
+      },
+      "ReplicatedMovementComp": {
+        "ObjectName": "ReplicatedMovementComponent'Default__Char_Pan_NobleSwordsman_C:ReplicatedMovement'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.12"
+      },
+      "Data": {
+        "DataTable": {
+          "ObjectName": "DataTable'Stats_Character_DLC2'",
+          "ObjectPath": "/Game/World_DLC2/Stats/Stats_Character_DLC2.0"
+        },
+        "RowName": "Pan_NobleSword_Aberration"
+      },
+      "ImpactDescriptorSet": {
+        "DefaultImpact": {
+          "Effect": {
+            "ImpactEffectName": "IE_Weapon_Blade_Metal_Medium"
+          }
+        },
+        "DefaultBlock": {
+          "Effect": {
+            "ImpactEffectName": "IE_Weapon_Block_Invincible"
+          }
+        },
+        "Foot": {
+          "Effect": {
+            "ImpactEffectName": "IE_Creature_Footfall_Hoof_Medium"
+          }
+        },
+        "FootSprint": {
+          "Effect": {
+            "ImpactEffectName": "IE_Creature_Footfall_Hoof_Medium"
+          }
+        },
+        "Hand": {
+          "Effect": {
+            "ImpactEffectName": "IE_Creature_Handfall_Medium"
+          }
+        },
+        "HandSprint": {
+          "Effect": {
+            "ImpactEffectName": "IE_Creature_Handfall_Medium"
+          }
+        },
+        "Land": {
+          "Effect": {
+            "ImpactEffectName": "IE_Creature_Land_Medium"
+          }
+        },
+        "Body": {
+          "Effect": {
+            "ImpactEffectName": "IE_Creature_Bodyfall_Medium"
+          }
+        }
+      },
+      "ActiveRagdollInfo": {
+        "FoleySound": {
+          "SoundObject": {
+            "ObjectName": "AkAudioEvent'DLC2_Pan_Nobleman_Foley_Heavy_Long'",
+            "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_DLC2/DLC2_Pan_Nobleman/DLC2_Pan_Nobleman_Foley_Heavy_Long.1"
+          }
+        },
+        "DeathVocalization": {
+          "SoundObject": {
+            "ObjectName": "AkAudioEvent'Voc_DLC2_Pan_Nobleman_Death'",
+            "ObjectPath": "/Game/WwiseAudio/Events/Creature/Creature_DLC2/DLC2_Pan_Nobleman/Voc_DLC2_Pan_Nobleman_Death.1"
+          }
+        },
+        "DeathVocalizationSocketName": "Bone_PS_Head"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponentBudgeted'Default__Char_Pan_NobleSwordsman_C:CharacterMesh0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.18"
+      },
+      "CharacterMovement": {
+        "ObjectName": "CharacterMovementComponentGunfire'Default__Char_Pan_NobleSwordsman_C:CharMoveComp'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.7"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Pan_NobleSwordsman_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.5"
+      },
+      "AIControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'Char_Pan_NobleSwordsman_AI_Controller_C'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman_AI_Controller.0"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Pan_NobleSwordsman_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.5"
+      }
+    }
+  },
+  {
+    "Type": "CharacterMovementComponentGunfire",
+    "Name": "CharMoveComp",
+    "Outer": "Default__Char_Pan_NobleSwordsman_C",
+    "Class": "UScriptClass'CharacterMovementComponentGunfire'",
+    "Template": {
+      "ObjectName": "CharacterMovementComponentGunfire'Default__BP_Monster_C:CharMoveComp'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.8"
+    },
+    "Properties": {
+      "SoftCharacterCollisionWeight": 250.0,
+      "SoftCharacterCollisionRadius": 60.0
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_Char_Pan_NobleSwordsman",
+    "Outer": "Char_Pan_NobleSwordsman_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsServer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetSocketLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetSocketLocation_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetDirectionUnitVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Conv_DoubleToVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Multiply_VectorVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Add_VectorVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Class'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_ProjectileParams",
+        "Flags": "RF_Public",
+        "ElementSize": 144,
+        "Struct": {
+          "ObjectName": "Class'ProjectileParams'",
+          "ObjectPath": "/Script/GunfireRuntime"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_FireProjectile_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'Pan_NobleSwordsman_Projectile_C'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Pan_NobleSwordsman_Projectile.1"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "FireStabProjectile",
+    "Outer": "Char_Pan_NobleSwordsman_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "HitLogComponent",
+    "Name": "HitLogComp",
+    "Outer": "Default__Char_Pan_NobleSwordsman_C",
+    "Class": "UScriptClass'HitLogComponent'",
+    "Template": {
+      "ObjectName": "HitLogComponent'Default__BP_Monster_C:HitLogComp'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.31"
+    },
+    "Properties": {
+      "HitLocations": [
+        {
+          "NameID": "Flesh",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Flesh_Chest'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_Chest.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "ArmL",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Flesh_ArmL'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_ArmL.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "ArmR",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Flesh_ArmR'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_ArmR.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "LegL",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Flesh_LegL'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_LegL.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "LegR",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Flesh_LegR'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_LegR.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": false,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        },
+        {
+          "NameID": "Head",
+          "PhysMat": {
+            "ObjectName": "PhysicalMaterial'PhysMat_Flesh_Head'",
+            "ObjectPath": "/Game/_Core/PhysMats/PhysMat_Flesh_Head.0"
+          },
+          "bCollisionInitiallyEnabled": true,
+          "DamageScalar": 1.0,
+          "HealthRatio": 1.0,
+          "EventOnDestroyed": "None",
+          "EventOnRepaired": "None",
+          "KillOnDestroyed": false,
+          "DestroyedAnimTag": "None",
+          "DebrisSocketLocationOnDestroy": "None",
+          "DebrisOnDestroy": null,
+          "bResistSpot": false,
+          "bIsWeakSpot": true,
+          "AoEPriority": 0,
+          "bAoERequiresLoS": false,
+          "DestroyedDependentHitLocationsToActivate": [],
+          "BoneNamesToActivateCollision": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "Char_Pan_NobleSwordsman_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'StateMachineComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "StateMachineComponent'Char_Pan_NobleSwordsman_C:StateMachine_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.20"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "StateMachine",
+            "AssociatedGuid": "1226ECA4-48F65379-CC82D286-262B8701"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'ActorCustomizationComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "ActorCustomizationComponent'Char_Pan_NobleSwordsman_C:Visual_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.1"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_Base_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster_Base.3"
+            },
+            "SCSVariableName": "Visual",
+            "AssociatedGuid": "88E8F05F-499F34E6-178F9CA8-75D39337"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'SoundSetComponent'",
+            "ObjectPath": "/Script/GunfireRuntime"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "SoundSetComponent'Char_Pan_NobleSwordsman_C:SoundSet_GEN_VARIABLE'",
+            "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.19"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Monster_C'",
+              "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.3"
+            },
+            "SCSVariableName": "SoundSet",
+            "AssociatedGuid": "5B85C075-472CBB69-861FEA8F-8A8CDCA4"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "ReplicatedMovementComponent",
+    "Name": "ReplicatedMovement",
+    "Outer": "Default__Char_Pan_NobleSwordsman_C",
+    "Class": "UScriptClass'ReplicatedMovementComponent'",
+    "Template": {
+      "ObjectName": "ReplicatedMovementComponent'Default__BP_Monster_C:ReplicatedMovement'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.33"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "Char_Pan_NobleSwordsman_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Char_Pan_NobleSwordsman_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.13"
+      },
+      "VariableGuid": "C971E55C-485200A4-A3FA089C-49FB2D78",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'BoxComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent'Char_Pan_NobleSwordsman_C:WP_Scimitar_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.4"
+      },
+      "AttachToName": "Bone_PS_Weapon_Main",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "F565C06A-41A14737-B73B8995-D4D48AD0",
+      "InternalVariableName": "WP_Scimitar"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'BoxComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent'Char_Pan_NobleSwordsman_C:WP_Arm_GEN_VARIABLE'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.3"
+      },
+      "AttachToName": "Bone_PS_ForeArmRoll_R",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "B71F9176-40295B64-54AEBD86-14345AB2",
+      "InternalVariableName": "WP_Arm"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "Char_Pan_NobleSwordsman_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_Pan_NobleSwordsman_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.15"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Pan_NobleSwordsman_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.16"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Char_Pan_NobleSwordsman_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.15"
+        },
+        {
+          "ObjectName": "SCS_Node'Char_Pan_NobleSwordsman_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.16"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Char_Pan_NobleSwordsman_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.14"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponentBudgeted",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__Char_Pan_NobleSwordsman_C",
+    "Class": "UScriptClass'SkeletalMeshComponentBudgeted'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponentBudgeted'Default__BP_Monster_C:CharacterMesh0'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.53"
+    },
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'Char_Pan_NobleSwordsman_AnimBP_C'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman_AnimBP.0"
+      },
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'Pan_NobleSwordsman'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Mesh/Pan_NobleSwordsman.0"
+      },
+      "SkinnedAsset": {
+        "ObjectName": "SkeletalMesh'Pan_NobleSwordsman'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Mesh/Pan_NobleSwordsman.0"
+      },
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__Char_Pan_NobleSwordsman_C:CollisionCylinder'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman.5"
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -90.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SoundSetComponent",
+    "Name": "SoundSet_GEN_VARIABLE",
+    "Outer": "Char_Pan_NobleSwordsman_C",
+    "Class": "UScriptClass'SoundSetComponent'",
+    "Template": {
+      "ObjectName": "SoundSetComponent'BP_Monster_C:SoundSet_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.54"
+    },
+    "Properties": {
+      "SoundSet": {
+        "ObjectName": "SoundSet'Pan_NobleSwordsman_SoundSet'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Pan_NobleSwordsman_SoundSet.74"
+      },
+      "SoundTags": [
+        "SFX_Pan_Nobleman",
+        "Voc_Pan_Nobleman"
+      ]
+    }
+  },
+  {
+    "Type": "StateMachineComponent",
+    "Name": "StateMachine_GEN_VARIABLE",
+    "Outer": "Char_Pan_NobleSwordsman_C",
+    "Class": "UScriptClass'StateMachineComponent'",
+    "Template": {
+      "ObjectName": "StateMachineComponent'BP_Monster_C:StateMachine_GEN_VARIABLE'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.55"
+    },
+    "Properties": {
+      "StateMachine": {
+        "ObjectName": "StateMachine'Char_Pan_NobleSwordsman_StateMachine'",
+        "ObjectPath": "/Game/World_DLC2/Characters/Pan_NobleSwordsman/Blueprints/Char_Pan_NobleSwordsman_StateMachine.2277"
+      }
+    }
+  },
+  {
+    "Type": "StatsComponent",
+    "Name": "StatsComp",
+    "Outer": "Default__Char_Pan_NobleSwordsman_C",
+    "Class": "UScriptClass'StatsComponent'",
+    "Template": {
+      "ObjectName": "StatsComponent'Default__BP_Monster_C:StatsComp'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.56"
+    }
+  },
+  {
+    "Type": "WeaponPhantomComponent",
+    "Name": "WeaponPhantomProviderComp",
+    "Outer": "Default__Char_Pan_NobleSwordsman_C",
+    "Class": "UScriptClass'WeaponPhantomComponent'",
+    "Template": {
+      "ObjectName": "WeaponPhantomComponent'Default__BP_Monster_C:WeaponPhantomProviderComp'",
+      "ObjectPath": "/Game/_Core/Blueprints/Base/BP_Monster.60"
+    }
+  }
+]

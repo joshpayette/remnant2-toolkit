@@ -1,0 +1,2 @@
+export const MAX_RELIC_FRAGMENT_COUNT = 3;
+export const MAX_BONUS_RELIC_FRAGMENT_COUNT = 5;

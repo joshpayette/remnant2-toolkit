@@ -1,0 +1,19 @@
+import type { FilterDefinition } from '@/app/(builds)/_features/filters/_types/filter-definition';
+import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
+import type { FilterOption } from '@/components/ui';
+
+export const archetypeFilter = {
+  buildFilterKey: 'archetypes',
+  defaultValue: archetypeItems.map((item) => ({
+    label: item.name,
+    value: item.name,
+    state: 'default',
+  })) as FilterOption[],
+  label: 'Archetypes',
+  options: archetypeItems.map((item) => ({
+    label: item.name,
+    value: item.name,
+  })),
+} as const satisfies FilterDefinition;
+
+export type ArchetypeFilterValue = typeof archetypeFilter.defaultValue;

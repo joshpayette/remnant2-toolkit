@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5b356400-6e04-4539-99d4-829990338052" name="Changes" comment="Removed jest and tests&#10;&#10;There really weren't good tests in the first place, don't want to worry about test setup while upgrading Next versions.">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LOCALSETUP.md" beforeDir="false" afterPath="$PROJECT_DIR$/LOCALSETUP.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="825" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="development" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;joshpayette&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/joshpayette/remnant2-toolkit.git&quot;,
+    &quot;accountId&quot;: &quot;984035f2-b242-4f11-a476-a769159c8486&quot;
+  }
+}</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000000738923371" />
+      <entry key="S2" value="1.0164873117809685" />
+      <entry key="S5" value="1.1935807233356883" />
+      <entry key="S10" value="1.4467730141393944" />
+      <entry key="S30" value="4.460190990796971" />
+      <entry key="S60" value="14.386812084287426" />
+      <entry key="M2" value="31.92960774733171" />
+      <entry key="M5" value="63.04454997102945" />
+      <entry key="M10" value="84.69327538454452" />
+      <entry key="M15" value="94.3671534000838" />
+      <entry key="M30" value="105.69086520673241" />
+      <entry key="H1" value="112.07362122955732" />
+      <entry key="H2" value="115.50095295639231" />
+      <entry key="H4" value="120.30558629301875" />
+      <entry key="D1" value="351.4690446350452" />
+      <entry key="W1" value="714.6323141851527" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="6.720852219024566E-297" />
+      <entry key="S2" value="9.054325152472055E-75" />
+      <entry key="S5" value="2.4140287308820847E-30" />
+      <entry key="S10" value="1.5537144946488973E-15" />
+      <entry key="S30" value="1.1582182552137473E-5" />
+      <entry key="S60" value="0.003403260576584966" />
+      <entry key="M2" value="0.05833747146204544" />
+      <entry key="M5" value="0.32090688919010896" />
+      <entry key="M10" value="0.5664864421944342" />
+      <entry key="M15" value="0.6846359186867926" />
+      <entry key="M30" value="0.8274272890633967" />
+      <entry key="H1" value="0.9096304350488593" />
+      <entry key="H2" value="0.9543625174943026" />
+      <entry key="H4" value="1.019414081826467" />
+      <entry key="D1" value="2.4725143396680735" />
+      <entry key="W1" value="3.7104232296232427" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.9659363289248456" />
+      <entry key="MS500" value="0.9930925212379961" />
+      <entry key="S2" value="1.0109424944032839" />
+      <entry key="S5" value="1.1735543678098246" />
+      <entry key="S10" value="1.4238763609210345" />
+      <entry key="S30" value="4.446683021548256" />
+      <entry key="S60" value="14.382040876017623" />
+      <entry key="M2" value="31.982643997565187" />
+      <entry key="M5" value="63.36183711334685" />
+      <entry key="M10" value="85.25729764654358" />
+      <entry key="M15" value="95.04993958277554" />
+      <entry key="M30" value="106.51724328508628" />
+      <entry key="H1" value="112.98269139963685" />
+      <entry key="H2" value="116.4550256656771" />
+      <entry key="H4" value="121.32484825276619" />
+      <entry key="D1" value="353.9414951665307" />
+      <entry key="W1" value="718.3427216502201" />
+    </decayedShown>
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3DKVnlNm79KDC5dFnXQlcDutFKC" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "disable.download.node.interpreter.editor.notification": "true",
+    "git-widget-placeholder": "single-repo-conversion",
+    "javascript.preferred.runtime.type.id": "node",
+    "last_opened_file_path": "/home/josh/Coding/remnant2-toolkit",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "prettierjs.PrettierConfiguration.Package": "/home/josh/Coding/remnant2-toolkit/node_modules/prettier",
+    "ts.external.directory.path": "/home/josh/Coding/remnant2-toolkit/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="ReactDesignerToolWindowState">
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.intellij.reactbuddy.reactComponents" value="false" />
+        <entry key="com.intellij.reactbuddy.reactInspector" value="false" />
+        <entry key="com.intellij.reactbuddy.storybook" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-WS-261.25134.101" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5b356400-6e04-4539-99d4-829990338052" name="Changes" comment="" />
+      <created>1778030917970</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1778030917970</updated>
+      <workItem from="1778030919039" duration="15000" />
+      <workItem from="1778259796870" duration="57000" />
+      <workItem from="1781206879732" duration="16707000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added package protection">
+      <option name="closed" value="true" />
+      <created>1781207582076</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1781207582076</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Converted styles and project structure to remove the unneeded monorepo.">
+      <option name="closed" value="true" />
+      <created>1781275597111</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1781275597111</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Removed jest and tests&#10;&#10;There really weren't good tests in the first place, don't want to worry about test setup while upgrading Next versions.">
+      <option name="closed" value="true" />
+      <created>1781283023305</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1781283023305</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added package protection" />
+    <MESSAGE value="Converted styles and project structure to remove the unneeded monorepo." />
+    <MESSAGE value="Removed jest and tests&#10;&#10;There really weren't good tests in the first place, don't want to worry about test setup while upgrading Next versions." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed jest and tests&#10;&#10;There really weren't good tests in the first place, don't want to worry about test setup while upgrading Next versions." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/ui/base/alert/index.tsx</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/ui/common/z-indexes.ts</url>
+          <line>10</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/ui/base/table/index.tsx</url>
+          <line>47</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/ui/base/dialog/index.tsx</url>
+          <line>17</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
