@@ -43,7 +43,7 @@ yarn-error.log*
 
 # env
 next-env.d.ts
-.env*.local
+.env
 .env.db
 
 # custom scripts

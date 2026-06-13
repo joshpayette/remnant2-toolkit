@@ -16,7 +16,7 @@
     "lint": "next lint",
     "test": "",
     "format": "prettier --write \"src/**/*.{ts,tsx,md}\"",
-    "db:up": "docker compose -f docker-compose.dev.yml up db",
+    "db:up": "docker compose -f compose.dev.yml up db",
     "db:generate": "prisma generate",
     "db:push": "prisma db push --skip-generate",
     "prisma:studio": "prisma studio",
