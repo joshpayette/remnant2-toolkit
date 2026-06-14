@@ -10,11 +10,20 @@ node_modules
 # testing
 /coverage
 
-# next.js
+# dev
+.vercel
+.turbo
+*.tsbuildinfo
 .next/
 .swc
 .husky
 /out/
+.idea
+
+# env
+next-env.d.ts
+.env*
+.env.db
 
 # production
 /build
@@ -29,22 +38,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
-.env
-
-# vercel
-.vercel
-
-# Turborepo
-.turbo
-
-# typescript
-*.tsbuildinfo
-
-# env
-next-env.d.ts
-.env
-.env.db
 
 # custom scripts
 scripts/top-items-report/output
@@ -54,4 +47,3 @@ UPGRADE.md
 convertedSave.txt
 wiki-data.csv
 pscale
-.env*
