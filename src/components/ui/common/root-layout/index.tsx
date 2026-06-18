@@ -39,7 +39,6 @@ export function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
       <body
         className={cn(
           'relative flex min-h-fit flex-col items-center justify-start',

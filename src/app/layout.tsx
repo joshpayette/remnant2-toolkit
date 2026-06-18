@@ -13,9 +13,9 @@ import { GlobalActionButtons, RootLayout } from '@/components/ui';
 export const viewport: Viewport = {};
 export { metadata } from './metadata';
 
-const AlertBanner = dynamic(() => import('@/components/ui/common/alert-banner'), {
-  ssr: false,
-});
+// const AlertBanner = dynamic(() => import('@/components/ui/common/alert-banner'), {
+//   ssr: false,
+// });
 
 export default async function Layout({
   children,
