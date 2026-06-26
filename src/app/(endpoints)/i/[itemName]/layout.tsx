@@ -28,9 +28,15 @@ function getItemFromParam(itemName: string) {
 }
 
 export async function generateMetadata(
-  { params: { itemName } }: { params: { itemName: string } },
-  _parent: ResolvingMetadata,
+  props: { params: Promise<{ itemName: string }> },
+  _parent: ResolvingMetadata
 ): Promise<Metadata> {
+  const params = await props.params;
+
+  const {
+    itemName
+  } = params;
+
   const item = getItemFromParam(itemName);
 
   if (!item) {
@@ -103,11 +109,17 @@ export async function generateMetadata(
   };
 }
 
-export default async function Layout({
-  params: { itemName },
-}: {
-  params: { itemName: string };
-}) {
+export default async function Layout(
+  props: {
+    params: Promise<{ itemName: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    itemName
+  } = params;
+
   const item = getItemFromParam(itemName);
 
   if (!item) {

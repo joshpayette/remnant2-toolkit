@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { useFormState } from 'react-dom';
+import { useActionState } from 'react';
 import { toast } from 'react-toastify';
 
 import { ImportLoadoutsDialog } from '@/app/(builds)/_components/import-loadouts-dialog';
@@ -17,7 +17,7 @@ export function ImportLoadouts({ existingLoadouts }: Props) {
   const [importSaveDialogOpen, setImportSaveDialogOpen] = useState(false);
   const saveFileInputRef = useRef<HTMLInputElement | null>(null);
 
-  const [uploadSaveFormResponse, saveFileFormAction] = useFormState(
+  const [uploadSaveFormResponse, saveFileFormAction] = useActionState(
     parseSaveFile,
     {
       status: 'error',

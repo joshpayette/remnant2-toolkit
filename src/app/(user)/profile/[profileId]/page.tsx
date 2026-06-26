@@ -77,11 +77,17 @@ async function getCreatedBuilds(profileId: string) {
   return bigIntFix({ topBuildsAllTime, topBuildsCurrent });
 }
 
-export default async function Page({
-  params: { profileId },
-}: {
-  params: { profileId: string };
-}) {
+export default async function Page(
+  props: {
+    params: Promise<{ profileId: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    profileId
+  } = params;
+
   const { topBuildsAllTime, topBuildsCurrent } =
     await getCreatedBuilds(profileId);
 

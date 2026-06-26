@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useFormState } from 'react-dom';
+import { useActionState } from 'react';
 import { toast } from 'react-toastify';
 
 import { parseSaveFile } from '@/app/(items)/item-tracker/_actions/parse-save-file';
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export function useSaveFileUpload({ handleSetDiscoveredItems }: Props) {
-  const [uploadSaveFormResponse, saveFileFormAction] = useFormState(
+  const [uploadSaveFormResponse, saveFileFormAction] = useActionState(
     parseSaveFile,
     {
       saveFileDiscoveredItemIds: null,

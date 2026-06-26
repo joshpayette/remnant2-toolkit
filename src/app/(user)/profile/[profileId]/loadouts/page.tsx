@@ -12,11 +12,17 @@ import { LoadoutPublicCheckbox } from '@/app/(user)/profile/[profileId]/loadouts
 import { DEFAULT_BIO } from '@/lib/constants';
 import { prisma } from '@/lib/db';
 
-export async function generateMetadata({
-  params: { profileId },
-}: {
-  params: { profileId: string };
-}): Promise<Metadata> {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ profileId: string }>;
+  }
+): Promise<Metadata> {
+  const params = await props.params;
+
+  const {
+    profileId
+  } = params;
+
   const user = await prisma.user.findUnique({
     where: {
       id: profileId,
@@ -129,11 +135,17 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({
-  params: { profileId },
-}: {
-  params: { profileId: string };
-}) {
+export default async function Page(
+  props: {
+    params: Promise<{ profileId: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    profileId
+  } = params;
+
   const session = await getSession();
   const isLoadoutPublic = await getIsLoadoutPublic(profileId);
   const existingLoadouts = await getLoadoutList(profileId);

@@ -10,11 +10,18 @@ import { BaseText } from '@/components/ui';
 import { DEFAULT_BIO } from '@/lib/constants';
 import { prisma } from '@/lib/db';
 
-export async function generateMetadata({
-  params: { profileId, collectionId },
-}: {
-  params: { profileId: string; collectionId: string };
-}): Promise<Metadata> {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ profileId: string; collectionId: string }>;
+  }
+): Promise<Metadata> {
+  const params = await props.params;
+
+  const {
+    profileId,
+    collectionId
+  } = params;
+
   const user = await prisma.user.findUnique({
     where: {
       id: profileId,
@@ -120,11 +127,18 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({
-  params: { profileId, collectionId },
-}: {
-  params: { profileId: string; collectionId: string };
-}) {
+export default async function Page(
+  props: {
+    params: Promise<{ profileId: string; collectionId: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    profileId,
+    collectionId
+  } = params;
+
   const session = await getSession();
 
   const collectionResponse = await getBuildCollection(collectionId, profileId);

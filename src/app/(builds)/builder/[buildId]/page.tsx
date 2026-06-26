@@ -15,15 +15,19 @@ import { ViewBuildContainer } from '@/app/(builds)/builder/[buildId]/_components
 import { MAX_BUILD_VARIANTS } from '../../_constants/max-build-variants';
 
 export async function generateMetadata(
-  {
-    params: { buildId },
-    searchParams,
-  }: {
-    params: { buildId: string };
-    searchParams: { [key: string]: string | string[] | undefined };
+  props: {
+    params: Promise<{ buildId: string }>;
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
   },
-  _parent: ResolvingMetadata,
+  _parent: ResolvingMetadata
 ): Promise<Metadata> {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
+
+  const {
+    buildId
+  } = params;
+
   // check if the `variant` search param is set
   const variantIndex =
     searchParams.variant && typeof searchParams.variant === 'string'
@@ -145,11 +149,17 @@ export async function generateMetadata(
   };
 }
 
-export default async function Page({
-  params: { buildId },
-}: {
-  params: { buildId: string };
-}) {
+export default async function Page(
+  props: {
+    params: Promise<{ buildId: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    buildId
+  } = params;
+
   const mainBuildResponse = await getBuild(buildId);
 
   if (isErrorResponse(mainBuildResponse)) {

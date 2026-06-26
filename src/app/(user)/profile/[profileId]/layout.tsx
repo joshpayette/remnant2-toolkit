@@ -15,9 +15,15 @@ import { DEFAULT_BIO } from '@/lib/constants';
 import { prisma } from '@/lib/db';
 
 export async function generateMetadata(
-  { params: { profileId } }: { params: { profileId: string } },
-  _parent: ResolvingMetadata,
+  props: { params: Promise<{ profileId: string }> },
+  _parent: ResolvingMetadata
 ): Promise<Metadata> {
+  const params = await props.params;
+
+  const {
+    profileId
+  } = params;
+
   const userData = await prisma.user.findUnique({
     where: {
       id: profileId,
@@ -130,13 +136,22 @@ export async function generateMetadata(
   };
 }
 
-export default async function Layout({
-  children,
-  params: { profileId },
-}: {
-  children: React.ReactNode;
-  params: { profileId: string };
-}) {
+export default async function Layout(
+  props: {
+    children: React.ReactNode;
+    params: Promise<{ profileId: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    profileId
+  } = params;
+
+  const {
+    children
+  } = props;
+
   const session = await getSession();
   const isEditable = session?.user?.id === profileId;
 

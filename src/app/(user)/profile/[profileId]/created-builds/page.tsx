@@ -3,11 +3,17 @@ import { CreatedBuilds } from '@/app/(user)/profile/[profileId]/created-builds/_
 
 export const maxDuration = 60;
 
-export default async function Page({
-  params: { profileId },
-}: {
-  params: { profileId: string };
-}) {
+export default async function Page(
+  props: {
+    params: Promise<{ profileId: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    profileId
+  } = params;
+
   const session = await getSession();
   const isEditable = session?.user?.id === profileId;
 

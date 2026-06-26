@@ -7,11 +7,17 @@ import { ViewLinkedBuild } from '@/app/(user)/profile/[profileId]/linked-builds/
 import { DEFAULT_BIO } from '@/lib/constants';
 import { prisma } from '@/lib/db';
 
-export async function generateMetadata({
-  params: { profileId },
-}: {
-  params: { profileId: string };
-}): Promise<Metadata> {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ profileId: string }>;
+  }
+): Promise<Metadata> {
+  const params = await props.params;
+
+  const {
+    profileId
+  } = params;
+
   const userData = await prisma.user.findUnique({
     where: {
       id: profileId,
@@ -94,11 +100,18 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({
-  params: { profileId, optionalBuildId },
-}: {
-  params: { profileId: string; optionalBuildId: string[] };
-}) {
+export default async function Page(
+  props: {
+    params: Promise<{ profileId: string; optionalBuildId: string[] }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    profileId,
+    optionalBuildId
+  } = params;
+
   const session = await getSession();
   const isEditable = session?.user?.id === profileId;
 

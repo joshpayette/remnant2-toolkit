@@ -3,11 +3,17 @@ import { isErrorResponse } from '@/app/_libs/is-error-response';
 import { getBuild } from '@/app/(builds)/_actions/get-build';
 import { incrementViewCount } from '@/app/(builds)/_actions/increment-view-count';
 
-export default async function Page({
-  params: { buildId },
-}: {
-  params: { buildId: string };
-}) {
+export default async function Page(
+  props: {
+    params: Promise<{ buildId: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    buildId
+  } = params;
+
   const mainBuildResponse = await getBuild(buildId);
 
   if (isErrorResponse(mainBuildResponse)) {

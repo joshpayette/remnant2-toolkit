@@ -5,11 +5,17 @@ import { dbBuildToBuildVariants } from '@/app/(builds)/_libs/db-build-to-build-v
 import { EditBuild } from '@/app/(builds)/builder/edit/[buildId]/edit-build';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 
-export default async function Page({
-  params: { buildId },
-}: {
-  params: { buildId: string };
-}) {
+export default async function Page(
+  props: {
+    params: Promise<{ buildId: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    buildId
+  } = params;
+
   const session = await getSession();
   const mainBuildResponse = await getBuild(buildId);
 

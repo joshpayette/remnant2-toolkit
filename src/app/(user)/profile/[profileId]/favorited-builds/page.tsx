@@ -3,11 +3,17 @@ import { FavoritedBuilds } from '@/app/(user)/profile/[profileId]/favorited-buil
 
 export const maxDuration = 60;
 
-export default async function Page({
-  params: { profileId },
-}: {
-  params: { profileId: string };
-}) {
+export default async function Page(
+  props: {
+    params: Promise<{ profileId: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    profileId
+  } = params;
+
   const session = await getSession();
 
   if (session?.user?.id !== profileId) {

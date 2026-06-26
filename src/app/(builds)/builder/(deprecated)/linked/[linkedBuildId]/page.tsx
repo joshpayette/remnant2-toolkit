@@ -6,9 +6,15 @@ import { getLinkedBuild } from '@/app/(builds)/builder/(deprecated)/linked/[link
 import { ViewLinkedBuild } from '@/app/(builds)/builder/(deprecated)/linked/[linkedBuildId]/view-linked-build';
 
 export async function generateMetadata(
-  { params: { linkedBuildId } }: { params: { linkedBuildId: string } },
-  _parent: ResolvingMetadata,
+  props: { params: Promise<{ linkedBuildId: string }> },
+  _parent: ResolvingMetadata
 ): Promise<Metadata> {
+  const params = await props.params;
+
+  const {
+    linkedBuildId
+  } = params;
+
   const buildData = await getLinkedBuild(linkedBuildId);
 
   if (isErrorResponse(buildData)) {
@@ -98,11 +104,17 @@ export async function generateMetadata(
   };
 }
 
-export default async function Page({
-  params: { linkedBuildId },
-}: {
-  params: { linkedBuildId: string };
-}) {
+export default async function Page(
+  props: {
+    params: Promise<{ linkedBuildId: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    linkedBuildId
+  } = params;
+
   const buildData = await getLinkedBuild(linkedBuildId);
   if (isErrorResponse(buildData)) {
     console.info(buildData.errors);

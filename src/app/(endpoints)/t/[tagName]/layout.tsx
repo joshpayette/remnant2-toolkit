@@ -53,9 +53,15 @@ function getItemDescription(items: Item[], label: string): string | null {
 }
 
 export async function generateMetadata(
-  { params: { tagName } }: { params: { tagName: string } },
-  _parent: ResolvingMetadata,
+  props: { params: Promise<{ tagName: string }> },
+  _parent: ResolvingMetadata
 ): Promise<Metadata> {
+  const params = await props.params;
+
+  const {
+    tagName
+  } = params;
+
   const items = getItemsFromTagParam(tagName);
 
   const title = `Items with the "${tagName}" tag`;
@@ -155,11 +161,17 @@ export async function generateMetadata(
   };
 }
 
-export default async function Layout({
-  params: { tagName },
-}: {
-  params: { tagName: string };
-}) {
+export default async function Layout(
+  props: {
+    params: Promise<{ tagName: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    tagName
+  } = params;
+
   const items = getItemsFromTagParam(tagName);
   return <TagPage params={{ tagName, items }} />;
 }
