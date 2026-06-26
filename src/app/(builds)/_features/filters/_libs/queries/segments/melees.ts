@@ -1,9 +1,8 @@
-import isEqual from 'lodash.isequal';
-
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { MeleeFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/melee-filter';
 import { weaponItems } from '@/app/(items)/_constants/weapon-items';
 import { Prisma } from '@/lib/db';
+import { isDeepStrictEqual } from 'util';
 
 const meleeItems = weaponItems.filter((item) => item.type === 'melee');
 
@@ -11,7 +10,7 @@ export function limitByMeleeSegment(
   meleeFilters: MeleeFilterValue,
 ): Prisma.Sql {
   // if the melees are the default filters, do nothing
-  if (isEqual(meleeFilters, DEFAULT_BUILD_FIELDS.melees)) {
+  if (isDeepStrictEqual(meleeFilters, DEFAULT_BUILD_FIELDS.melees)) {
     return Prisma.empty;
   }
   // If there are no filters, do nothing

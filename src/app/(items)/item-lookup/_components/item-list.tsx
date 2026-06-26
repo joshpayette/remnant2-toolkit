@@ -1,6 +1,5 @@
 'use client';
 
-import isEqual from 'lodash.isequal';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useIsClient } from 'usehooks-ts';
@@ -23,6 +22,7 @@ import { parseUrlFilters } from '@/app/(items)/item-lookup/_lib/parse-url-filter
 import { type ItemLookupFilters } from '@/app/(items)/item-lookup/_types/item-lookup-filters';
 import { BaseButton } from '@/components/ui';
 import { capitalize } from '@/lib/utils';
+import { isDeepStrictEqual } from 'util';
 
 const allItemsWithDiscovered = allItems.map((item) => ({
   ...item,
@@ -221,13 +221,13 @@ export function ItemList() {
   const [filters, setFilters] = useState(parseUrlFilters(searchParams));
 
   const [areFiltersApplied, setAreFiltersApplied] = useState(
-    !isEqual(filters, DEFAULT_ITEM_LOOKUP_FILTERS),
+    !isDeepStrictEqual(filters, DEFAULT_ITEM_LOOKUP_FILTERS),
   );
 
   useEffect(() => {
     const newFilters = parseUrlFilters(searchParams);
     setFilters(newFilters);
-    if (!isEqual(newFilters, DEFAULT_ITEM_LOOKUP_FILTERS)) {
+    if (!isDeepStrictEqual(newFilters, DEFAULT_ITEM_LOOKUP_FILTERS)) {
       setAreFiltersApplied(true);
     }
   }, [searchParams]);

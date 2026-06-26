@@ -1,16 +1,15 @@
-import isEqual from 'lodash.isequal';
-
 import { MAX_ALLOWED_MUTATORS } from '@/app/(builds)/_constants/max-allowed-mutators';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { MutatorFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/mutator-filter';
 import { mutatorItems } from '@/app/(items)/_constants/mutator-items';
 import { Prisma } from '@/lib/db';
+import { isDeepStrictEqual } from 'util';
 
 export function limitByMutatorsSegment(
   mutatorFilters: MutatorFilterValue,
 ): Prisma.Sql {
   // if the mutators are the default filters, do nothing
-  if (isEqual(mutatorFilters, DEFAULT_BUILD_FIELDS.mutators)) {
+  if (isDeepStrictEqual(mutatorFilters, DEFAULT_BUILD_FIELDS.mutators)) {
     return Prisma.empty;
   }
   // If there are no filters, do nothing

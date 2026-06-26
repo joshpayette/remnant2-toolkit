@@ -1,17 +1,16 @@
-import isEqual from 'lodash.isequal';
-
 import { MAX_ALLOWED_ARCHETYPES } from '@/app/(builds)/_constants/max-allowed-archetypes';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { ArchetypeFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/archetype-filter';
 import { archetypeItems } from '@/app/(items)/_constants/archetype-items';
 import { Prisma } from '@/lib/db';
+import { isDeepStrictEqual } from 'util';
 
 export function limitByArchetypesSegment(
   archetypeFilters: ArchetypeFilterValue,
   archetypeSlot: number,
 ): Prisma.Sql {
   // if the archetypes are the default filters, do nothing
-  if (isEqual(archetypeFilters, DEFAULT_BUILD_FIELDS.archetypes)) {
+  if (isDeepStrictEqual(archetypeFilters, DEFAULT_BUILD_FIELDS.archetypes)) {
     return Prisma.empty;
   }
   // If there are no filters, do nothing

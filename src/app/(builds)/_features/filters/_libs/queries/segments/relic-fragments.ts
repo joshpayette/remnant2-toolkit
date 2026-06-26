@@ -1,16 +1,15 @@
-import isEqual from 'lodash.isequal';
-
 import { MAX_ALLOWED_RELIC_FRAGMENTS } from '@/app/(builds)/_constants/max-allowed-relic-fragments';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { RelicFragmentFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/relic-fragment-filter';
 import { relicFragmentItems } from '@/app/(items)/_constants/relic-fragment-items';
 import { Prisma } from '@/lib/db';
+import { isDeepStrictEqual } from 'util';
 
 export function limitByRelicFragmentsSegment(
   relicFragmentFilters: RelicFragmentFilterValue,
 ): Prisma.Sql {
   // if the relic fragments are the default filters, do nothing
-  if (isEqual(relicFragmentFilters, DEFAULT_BUILD_FIELDS.relicFragments)) {
+  if (isDeepStrictEqual(relicFragmentFilters, DEFAULT_BUILD_FIELDS.relicFragments)) {
     return Prisma.empty;
   }
   // If there are no filters, do nothing

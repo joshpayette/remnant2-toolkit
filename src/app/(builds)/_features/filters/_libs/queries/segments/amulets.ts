@@ -1,15 +1,14 @@
-import isEqual from 'lodash.isequal';
-
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { AmuletFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/amulet-filter';
 import { amuletItems } from '@/app/(items)/_constants/amulet-items';
 import { Prisma } from '@/lib/db';
+import { isDeepStrictEqual } from 'util';
 
 export function limitByAmuletSegment(
   amuletFilters: AmuletFilterValue,
 ): Prisma.Sql {
   // if the amulets are the default filters, do nothing
-  if (isEqual(amuletFilters, DEFAULT_BUILD_FIELDS.amulets)) {
+  if (isDeepStrictEqual(amuletFilters, DEFAULT_BUILD_FIELDS.amulets)) {
     return Prisma.empty;
   }
   // If there are no filters, do nothing

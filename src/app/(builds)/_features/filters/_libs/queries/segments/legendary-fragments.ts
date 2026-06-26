@@ -1,9 +1,8 @@
-import isEqual from 'lodash.isequal';
-
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { LegendaryFragmentFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/legendary-fragment-filter';
 import { relicFragmentItems } from '@/app/(items)/_constants/relic-fragment-items';
 import { Prisma } from '@/lib/db';
+import { isDeepStrictEqual } from 'util';
 
 const legendaryFragmentItems = relicFragmentItems.filter(
   (item) => item.color === 'legendary',
@@ -14,7 +13,7 @@ export function limitByLegendaryFragmentsSegment(
 ): Prisma.Sql {
   // if the legendary fragments are the default filters, do nothing
   if (
-    isEqual(legendaryFragmentFilters, DEFAULT_BUILD_FIELDS.legendaryFragments)
+    isDeepStrictEqual(legendaryFragmentFilters, DEFAULT_BUILD_FIELDS.legendaryFragments)
   ) {
     return Prisma.empty;
   }

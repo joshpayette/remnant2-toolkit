@@ -1,16 +1,15 @@
-import isEqual from 'lodash.isequal';
-
 import { MAX_ALLOWED_SKILLS } from '@/app/(builds)/_constants/max-allowed-skills';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { SkillFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/skill-filter';
 import { skillItems } from '@/app/(items)/_constants/skill-items';
 import { Prisma } from '@/lib/db';
+import { isDeepStrictEqual } from 'util';
 
 export function limitBySkillsSegment(
   skillFilters: SkillFilterValue,
 ): Prisma.Sql {
   // if the skills are the default filters, do nothing
-  if (isEqual(skillFilters, DEFAULT_BUILD_FIELDS.skills)) {
+  if (isDeepStrictEqual(skillFilters, DEFAULT_BUILD_FIELDS.skills)) {
     return Prisma.empty;
   }
   // If there are no filters, do nothing

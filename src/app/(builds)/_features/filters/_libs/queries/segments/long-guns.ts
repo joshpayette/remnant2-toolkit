@@ -1,9 +1,8 @@
-import isEqual from 'lodash.isequal';
-
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { LongGunFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/long-gun-filter';
 import { weaponItems } from '@/app/(items)/_constants/weapon-items';
 import { Prisma } from '@/lib/db';
+import { isDeepStrictEqual } from 'util';
 
 const longGunItems = weaponItems.filter((item) => item.type === 'long gun');
 
@@ -11,7 +10,7 @@ export function limitByLongGunSegment(
   longFunFilters: LongGunFilterValue,
 ): Prisma.Sql {
   // if the longGuns are the default filters, do nothing
-  if (isEqual(longFunFilters, DEFAULT_BUILD_FIELDS.longGuns)) {
+  if (isDeepStrictEqual(longFunFilters, DEFAULT_BUILD_FIELDS.longGuns)) {
     return Prisma.empty;
   }
   // If there are no filters, do nothing

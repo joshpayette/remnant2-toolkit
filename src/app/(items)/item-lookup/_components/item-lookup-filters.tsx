@@ -1,7 +1,6 @@
 'use client';
 
 import { Disclosure } from '@headlessui/react';
-import isEqual from 'lodash.isequal';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useMemo, useRef, useState } from 'react';
 
@@ -36,6 +35,7 @@ import {
 
 import { EXTERNAL_TOKENS } from '../_constants/external-tokens';
 import { INLINE_TOKENS } from '../_constants/inline-tokens';
+import { isDeepStrictEqual } from 'util';
 
 function buildItemSearchTextItems() {
   {
@@ -99,7 +99,7 @@ export function ItemLookupFilters() {
   }
 
   const areAnyFiltersActive = useMemo(() => {
-    if (isEqual(filters, DEFAULT_ITEM_LOOKUP_FILTERS)) return false;
+    if (isDeepStrictEqual(filters, DEFAULT_ITEM_LOOKUP_FILTERS)) return false;
     return true;
   }, [filters]);
 

@@ -1,6 +1,5 @@
 'use client';
 
-import isEqual from 'lodash.isequal';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -15,6 +14,7 @@ import {
 } from '@/app/(enemies)/world-save-archive/_types';
 import { parseUrlFilters } from '@/app/(enemies)/world-save-archive/_utils/parse-url-filters';
 import { BaseButton } from '@/components/ui';
+import { isDeepStrictEqual } from 'util';
 
 function getFilteredSaves(filters: WorldSaveFilters): FilteredWorldSave[] {
   let filteredSaves: FilteredWorldSave[] = worldSaves.map((s) => {
@@ -83,7 +83,7 @@ export function WorldSaves() {
   const [filters, setFilters] = useState(parseUrlFilters(searchParams));
 
   const [areFiltersApplied, setAreFiltersApplied] = useState(
-    !isEqual(filters, DEFAULT_WORLD_SAVE_FILTERS),
+    !isDeepStrictEqual(filters, DEFAULT_WORLD_SAVE_FILTERS),
   );
 
   useEffect(() => {
@@ -91,7 +91,7 @@ export function WorldSaves() {
   }, [searchParams]);
 
   useEffect(() => {
-    if (!isEqual(filters, DEFAULT_WORLD_SAVE_FILTERS)) {
+    if (!isDeepStrictEqual(filters, DEFAULT_WORLD_SAVE_FILTERS)) {
       setAreFiltersApplied(true);
     }
   }, [filters]);

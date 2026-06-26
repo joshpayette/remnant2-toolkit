@@ -1,14 +1,13 @@
-import isEqual from 'lodash.isequal';
-
 import { MAX_ALLOWED_RINGS } from '@/app/(builds)/_constants/max-allowed-rings';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { RingFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/ring-filter';
 import { ringItems } from '@/app/(items)/_constants/ring-items';
 import { Prisma } from '@/lib/db';
+import { isDeepStrictEqual } from 'util';
 
 export function limitByRingsSegment(ringFilters: RingFilterValue): Prisma.Sql {
   // if the rings are the default filters, do nothing
-  if (isEqual(ringFilters, DEFAULT_BUILD_FIELDS.rings)) {
+  if (isDeepStrictEqual(ringFilters, DEFAULT_BUILD_FIELDS.rings)) {
     return Prisma.empty;
   }
   // If there are no filters, do nothing

@@ -1,6 +1,5 @@
 'use client';
 import { Disclosure } from '@headlessui/react';
-import isEqual from 'lodash.isequal';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
 
@@ -20,6 +19,7 @@ import {
   cn,
   FilterIcon,
 } from '@/components/ui';
+import { isDeepStrictEqual } from 'util';
 
 export const DEFAULT_BOSS_TRACKER_FILTERS = {
   categories: [DEFAULT_FILTER],
@@ -40,7 +40,7 @@ export function BossTrackerFilters() {
   }
 
   const areAnyFiltersActive = useMemo(() => {
-    if (isEqual(filters, DEFAULT_BOSS_TRACKER_FILTERS)) return false;
+    if (isDeepStrictEqual(filters, DEFAULT_BOSS_TRACKER_FILTERS)) return false;
     return true;
   }, [filters]);
 

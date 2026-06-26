@@ -1,7 +1,6 @@
 'use client';
 
 import { Disclosure } from '@headlessui/react';
-import isEqual from 'lodash.isequal';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useIsClient, useLocalStorage } from 'usehooks-ts';
@@ -24,6 +23,7 @@ import { getFilteredItemsForCategory } from '@/app/(items)/item-tracker/_utils/g
 import { parseUrlFilters } from '@/app/(items)/item-tracker/_utils/parse-url-filters';
 import { BaseButton, ChevronDownIcon, cn, InfoCircleIcon } from '@/components/ui';
 import { capitalize } from '@/lib/utils';
+import { isDeepStrictEqual } from 'util';
 
 interface Props {
   discoveredItemIds: string[];
@@ -53,7 +53,7 @@ export function ItemList({
   const [filters, setFilters] = useState(parseUrlFilters(searchParams));
 
   const [areFiltersApplied, setAreFiltersApplied] = useState(
-    !isEqual(filters, DEFAULT_ITEM_TRACKER_FILTERS),
+    !isDeepStrictEqual(filters, DEFAULT_ITEM_TRACKER_FILTERS),
   );
 
   useEffect(() => {
@@ -61,7 +61,7 @@ export function ItemList({
   }, [searchParams]);
 
   useEffect(() => {
-    if (!isEqual(filters, DEFAULT_ITEM_TRACKER_FILTERS)) {
+    if (!isDeepStrictEqual(filters, DEFAULT_ITEM_TRACKER_FILTERS)) {
       setAreFiltersApplied(true);
     }
   }, [filters]);

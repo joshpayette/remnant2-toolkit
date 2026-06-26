@@ -1,15 +1,14 @@
-import isEqual from 'lodash.isequal';
-
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { TraitFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/trait-filter';
 import { traitItems } from '@/app/(items)/_constants/trait-items';
 import { Prisma } from '@/lib/db';
+import { isDeepStrictEqual } from 'util';
 
 export function limitByTraitsSegment(
   traitFilters: TraitFilterValue,
 ): Prisma.Sql {
   // if the traits are the default filters, do nothing
-  if (isEqual(traitFilters, DEFAULT_BUILD_FIELDS.traits)) {
+  if (isDeepStrictEqual(traitFilters, DEFAULT_BUILD_FIELDS.traits)) {
     return Prisma.empty;
   }
   // If there are no filters, do nothing

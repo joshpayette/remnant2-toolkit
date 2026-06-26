@@ -1,5 +1,4 @@
 import { Disclosure } from '@headlessui/react';
-import isEqual from 'lodash.isequal';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
 
@@ -44,6 +43,7 @@ import {
   FiltersContainer,
   InfoCircleIcon,
 } from '@/components/ui';
+import { isDeepStrictEqual } from 'util';
 
 export function BuildFilters({
   defaultFilterOverrides,
@@ -77,12 +77,12 @@ export function BuildFilters({
 
   /** Whether any filters are active */
   const areAnyFiltersActive = useMemo(() => {
-    if (isEqual(filters, defaultFilters)) return false;
+    if (isDeepStrictEqual(filters, defaultFilters)) return false;
     return true;
   }, [filters, defaultFilters]);
 
   const areFiltersApplied = useMemo(() => {
-    if (isEqual(filters, unappliedFilters)) return true;
+    if (isDeepStrictEqual(filters, unappliedFilters)) return true;
     return false;
   }, [filters, unappliedFilters]);
 
@@ -93,7 +93,7 @@ export function BuildFilters({
   function applyUrlFilters(newFilters: BuildFilterFields) {
     const params = new URLSearchParams(searchParams.toString());
 
-    if (isEqual(newFilters.archetypes, defaultFilters.archetypes)) {
+    if (isDeepStrictEqual(newFilters.archetypes, defaultFilters.archetypes)) {
       params.delete(archetypeFilter.buildFilterKey);
     } else {
       const paramValues = newFilters.archetypes
@@ -110,7 +110,7 @@ export function BuildFilters({
       }
     }
 
-    if (isEqual(newFilters.archetypeSlot, defaultFilters.archetypeSlot)) {
+    if (isDeepStrictEqual(newFilters.archetypeSlot, defaultFilters.archetypeSlot)) {
       params.delete(archetypeSlotFilter.buildFilterKey);
     } else {
       if (params.has(archetypeSlotFilter.buildFilterKey)) {
@@ -122,7 +122,7 @@ export function BuildFilters({
       );
     }
 
-    if (isEqual(newFilters.amulets, defaultFilters.amulets)) {
+    if (isDeepStrictEqual(newFilters.amulets, defaultFilters.amulets)) {
       params.delete(amuletFilter.buildFilterKey);
     } else {
       const paramValues = newFilters.amulets
@@ -139,7 +139,7 @@ export function BuildFilters({
       }
     }
 
-    if (isEqual(newFilters.buildTags, defaultFilters.buildTags)) {
+    if (isDeepStrictEqual(newFilters.buildTags, defaultFilters.buildTags)) {
       params.delete(buildTagFilter.buildFilterKey);
     } else {
       const paramValues = newFilters.buildTags
@@ -156,7 +156,7 @@ export function BuildFilters({
       }
     }
 
-    if (isEqual(newFilters.fusions, defaultFilters.fusions)) {
+    if (isDeepStrictEqual(newFilters.fusions, defaultFilters.fusions)) {
       params.delete(fusionFilter.buildFilterKey);
     } else {
       const paramValues = newFilters.fusions
@@ -173,7 +173,7 @@ export function BuildFilters({
       }
     }
 
-    if (isEqual(newFilters.handGuns, defaultFilters.handGuns)) {
+    if (isDeepStrictEqual(newFilters.handGuns, defaultFilters.handGuns)) {
       params.delete(handGunFilter.buildFilterKey);
     } else {
       const paramValues = newFilters.handGuns
@@ -191,7 +191,7 @@ export function BuildFilters({
     }
 
     if (
-      isEqual(newFilters.legendaryFragments, defaultFilters.legendaryFragments)
+      isDeepStrictEqual(newFilters.legendaryFragments, defaultFilters.legendaryFragments)
     ) {
       params.delete(legendaryFragmentFilter.buildFilterKey);
     } else {
@@ -212,7 +212,7 @@ export function BuildFilters({
       }
     }
 
-    if (isEqual(newFilters.longGuns, defaultFilters.longGuns)) {
+    if (isDeepStrictEqual(newFilters.longGuns, defaultFilters.longGuns)) {
       params.delete(longGunFilter.buildFilterKey);
     } else {
       const paramValues = newFilters.longGuns
@@ -229,7 +229,7 @@ export function BuildFilters({
       }
     }
 
-    if (isEqual(newFilters.melees, defaultFilters.melees)) {
+    if (isDeepStrictEqual(newFilters.melees, defaultFilters.melees)) {
       params.delete(meleeFilter.buildFilterKey);
     } else {
       const paramValues = newFilters.melees
@@ -246,7 +246,7 @@ export function BuildFilters({
       }
     }
 
-    if (isEqual(newFilters.mods, defaultFilters.mods)) {
+    if (isDeepStrictEqual(newFilters.mods, defaultFilters.mods)) {
       params.delete(modFilter.buildFilterKey);
     } else {
       const paramValues = newFilters.mods
@@ -263,7 +263,7 @@ export function BuildFilters({
       }
     }
 
-    if (isEqual(newFilters.mutators, defaultFilters.mutators)) {
+    if (isDeepStrictEqual(newFilters.mutators, defaultFilters.mutators)) {
       params.delete(mutatorFilter.buildFilterKey);
     } else {
       const paramValues = newFilters.mutators
@@ -280,7 +280,7 @@ export function BuildFilters({
       }
     }
 
-    if (isEqual(newFilters.releases, defaultFilters.releases)) {
+    if (isDeepStrictEqual(newFilters.releases, defaultFilters.releases)) {
       params.delete('releases');
     } else {
       const paramValues = newFilters.releases
@@ -297,7 +297,7 @@ export function BuildFilters({
       }
     }
 
-    if (isEqual(newFilters.relics, defaultFilters.relics)) {
+    if (isDeepStrictEqual(newFilters.relics, defaultFilters.relics)) {
       params.delete(relicFilter.buildFilterKey);
     } else {
       const paramValues = newFilters.relics
@@ -314,7 +314,7 @@ export function BuildFilters({
       }
     }
 
-    if (isEqual(newFilters.relicFragments, defaultFilters.relicFragments)) {
+    if (isDeepStrictEqual(newFilters.relicFragments, defaultFilters.relicFragments)) {
       params.delete(relicFragmentFilter.buildFilterKey);
     } else {
       const paramValues = newFilters.relicFragments
@@ -331,7 +331,7 @@ export function BuildFilters({
       }
     }
 
-    if (isEqual(newFilters.rings, defaultFilters.rings)) {
+    if (isDeepStrictEqual(newFilters.rings, defaultFilters.rings)) {
       params.delete(ringFilter.buildFilterKey);
     } else {
       const paramValues = newFilters.rings
@@ -371,7 +371,7 @@ export function BuildFilters({
       }
     }
 
-    if (isEqual(newFilters.traits, defaultFilters.traits)) {
+    if (isDeepStrictEqual(newFilters.traits, defaultFilters.traits)) {
       params.delete(traitFilter.buildFilterKey);
     } else {
       const paramValues = newFilters.traits

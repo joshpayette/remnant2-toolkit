@@ -1,14 +1,13 @@
-import isEqual from 'lodash.isequal';
-
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { ReleasesFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/releases-filter';
 import { Prisma } from '@/lib/db';
+import { isDeepStrictEqual } from 'util';
 
 export function limitByReleaseSegment(
   releaseFilters: ReleasesFilterValue,
 ): Prisma.Sql {
   // if the releases are the default filters, do nothing
-  if (isEqual(releaseFilters, DEFAULT_BUILD_FIELDS.releases)) {
+  if (isDeepStrictEqual(releaseFilters, DEFAULT_BUILD_FIELDS.releases)) {
     return Prisma.empty;
   }
   // If there are no filters, do nothing

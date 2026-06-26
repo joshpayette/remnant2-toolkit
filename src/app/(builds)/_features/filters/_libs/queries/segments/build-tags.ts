@@ -1,15 +1,14 @@
-import isEqual from 'lodash.isequal';
-
 import { MAX_BUILD_TAGS } from '@/app/(builds)/_constants/max-build-tags';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { BuildTagFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/build-tag-filter';
 import { Prisma } from '@/lib/db';
+import { isDeepStrictEqual } from 'util';
 
 export function limitByBuildTagsSegment(
   buildTagFilters: BuildTagFilterValue,
 ): Prisma.Sql {
   // If the build tags are the default filters, do nothing
-  if (isEqual(buildTagFilters, DEFAULT_BUILD_FIELDS.buildTags)) {
+  if (isDeepStrictEqual(buildTagFilters, DEFAULT_BUILD_FIELDS.buildTags)) {
     return Prisma.empty;
   }
   // If there are no filters, do nothing

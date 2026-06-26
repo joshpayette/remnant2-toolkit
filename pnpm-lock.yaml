@@ -90,9 +90,6 @@ importers:
       lodash.clonedeep:
         specifier: 4.5.0
         version: 4.5.0
-      lodash.isequal:
-        specifier: 4.5.0
-        version: 4.5.0
       next:
         specifier: 16.2.9
         version: 16.2.9(@babel/core@7.29.7)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
@@ -169,9 +166,6 @@ importers:
       '@types/lodash.clonedeep':
         specifier: 4.5.9
         version: 4.5.9
-      '@types/lodash.isequal':
-        specifier: 4.5.8
-        version: 4.5.8
       '@types/mdx':
         specifier: 2.0.10
         version: 2.0.10
@@ -1144,9 +1138,6 @@ packages:
 
   '@types/lodash.clonedeep@4.5.9':
     resolution: {integrity: sha512-19429mWC+FyaAhOLzsS8kZUsI+/GmBAQ0HFiCPsKGU+7pBXOQWhyrY6xNNDwUSX8SMZMJvuFVMF9O5dQOlQK9Q==}
-
-  '@types/lodash.isequal@4.5.8':
-    resolution: {integrity: sha512-uput6pg4E/tj2LGxCZo9+y27JNyB2OZuuI/T5F+ylVDYuqICLG2/ktjxx0v6GvVntAf8TvEzeQLcV0ffRirXuA==}
 
   '@types/lodash@4.17.24':
     resolution: {integrity: sha512-gIW7lQLZbue7lRSWEFql49QJJWThrTFFeIMJdp3eH4tKoxm1OvEPg02rm4wCCSHS0cL3/Fizimb35b7k8atwsQ==}
@@ -3027,10 +3018,6 @@ packages:
 
   lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
-
-  lodash.isequal@4.5.0:
-    resolution: {integrity: sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==}
-    deprecated: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
 
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
@@ -5253,10 +5240,6 @@ snapshots:
   '@types/json5@0.0.29': {}
 
   '@types/lodash.clonedeep@4.5.9':
-    dependencies:
-      '@types/lodash': 4.17.24
-
-  '@types/lodash.isequal@4.5.8':
     dependencies:
       '@types/lodash': 4.17.24
 
@@ -7504,8 +7487,6 @@ snapshots:
   lodash.clonedeep@4.5.0: {}
 
   lodash.debounce@4.0.8: {}
-
-  lodash.isequal@4.5.0: {}
 
   lodash.merge@4.6.2: {}
 

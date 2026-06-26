@@ -1,16 +1,15 @@
-import isEqual from 'lodash.isequal';
-
 import { MAX_ALLOWED_FUSIONS } from '@/app/(builds)/_constants/max-allowed-fusions';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { FusionFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/fusion-filter';
 import { fusionItems } from '@/app/(items)/_constants/fusion-items';
 import { Prisma } from '@/lib/db';
+import { isDeepStrictEqual } from 'util';
 
 export function limitByFusionsSegment(
   fusionFilters: FusionFilterValue,
 ): Prisma.Sql {
   // if the fusions are the default filters, do nothing
-  if (isEqual(fusionFilters, DEFAULT_BUILD_FIELDS.fusions)) {
+  if (isDeepStrictEqual(fusionFilters, DEFAULT_BUILD_FIELDS.fusions)) {
     return Prisma.empty;
   }
   // If there are no filters, do nothing
