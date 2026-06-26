@@ -1,10 +1,12 @@
+'use client'
+
 import {
   Input as HeadlessInput,
   type InputProps as HeadlessInputProps,
 } from '@headlessui/react';
 import { forwardRef } from 'react';
 
-import { cn } from '../../utils/classnames';
+import { cn } from '@/components/ui';
 
 const dateTypes = ['date', 'datetime-local', 'month', 'time', 'week'];
 type DateType = (typeof dateTypes)[number];

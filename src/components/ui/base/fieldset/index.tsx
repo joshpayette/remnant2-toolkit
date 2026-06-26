@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Description as HeadlessDescription,
   type DescriptionProps as HeadlessDescriptionProps,
@@ -12,7 +14,7 @@ import {
 } from '@headlessui/react';
 import React from 'react';
 
-import { cn } from '../../utils/classnames';
+import { cn } from '@/components/ui';
 
 export function BaseFieldset({
   className,

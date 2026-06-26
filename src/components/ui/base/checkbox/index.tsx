@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Checkbox as HeadlessCheckbox,
   type CheckboxProps as HeadlessCheckboxProps,
@@ -6,7 +8,7 @@ import {
 } from '@headlessui/react';
 import React from 'react';
 
-import { cn } from '../../utils/classnames';
+import { cn } from '@/components/ui';
 
 export function BaseCheckboxGroup({
   className,

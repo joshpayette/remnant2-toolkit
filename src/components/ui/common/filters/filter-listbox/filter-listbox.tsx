@@ -3,7 +3,7 @@
 import Select from 'react-select';
 
 import { BaseLabel } from '../../../base/fieldset';
-import { cn } from '../../../utils/classnames';
+import { cn } from '@/components/ui';
 import { ClearIndicator } from './clear-all-indicator';
 import { MultiValueLabel } from './multi-value-label';
 import { MultiValueRemove } from './multi-value-remove';

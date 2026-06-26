@@ -1,7 +1,5 @@
 'use client'
 
-import 'tippy.js/dist/tippy.css';
-
 import Tippy, { type TippyProps } from '@tippyjs/react';
 
 export function Tooltip({

@@ -8,9 +8,9 @@ import {
   BaseAlertBody,
   BaseAlertDescription,
   BaseAlertTitle,
-} from '../../../base/alert';
-import { BaseButton } from '../../../base/button';
-import { BaseTextarea } from '../../../base/textarea';
+} from '@/components/ui';
+import { BaseButton } from '@/components/ui';
+import { BaseTextarea } from '@/components/ui';
 
 interface BugReportPromptProps {
   open: boolean;

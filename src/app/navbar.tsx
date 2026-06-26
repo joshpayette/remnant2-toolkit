@@ -15,12 +15,11 @@ import {
   ZINDEXES,
 } from '@/components/ui';
 
-export function Navbar({ showNotifications }: { showNotifications: boolean }) {
+export function Navbar() {
   const { status } = useSession();
 
   return (
     <NavbarContainer
-      showNotifications={showNotifications}
       logo={<Logo variant="remnant2toolkit" />}
       desktopProfileButton={<ProfileButton.Desktop />}
       mobileProfileButton={<ProfileButton.Mobile />}

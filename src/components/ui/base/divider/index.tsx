@@ -1,4 +1,4 @@
-import { cn } from '../../utils/classnames';
+import { cn } from '@/components/ui';
 
 export function BaseDivider({
   soft = false,

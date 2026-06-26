@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Description as HeadlessDescription,
   Dialog as HeadlessDialog,
@@ -10,7 +12,7 @@ import {
 import React, { Fragment } from 'react';
 
 import { ZINDEXES } from '../../common/z-indexes';
-import { cn } from '../../utils/classnames';
+import { cn } from '@/components/ui';
 import { BaseText } from '../text';
 
 const sizes = {

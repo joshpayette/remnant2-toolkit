@@ -2,10 +2,7 @@ import './globals.css';
 
 import { Analytics } from '@vercel/analytics/react';
 import { type Viewport } from 'next';
-import dynamic from 'next/dynamic';
-
 import { Footer } from '@/app/_components/footer';
-import { showNotificationsFlag } from '@/app/_constants/feature-flag';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { Navbar } from '@/app/navbar';
 import { GlobalActionButtons, RootLayout } from '@/components/ui';
@@ -23,8 +20,6 @@ export default async function Layout({
   children: React.ReactNode;
 }) {
   const session = await getSession();
-  const showNotifications = await showNotificationsFlag();
-
   return (
     <RootLayout
       alertBanner={
@@ -41,7 +36,7 @@ export default async function Layout({
         // </AlertBanner>
       }
       footer={<Footer />}
-      navbar={<Navbar showNotifications={showNotifications} />}
+      navbar={<Navbar />}
       trackers={<Analytics />}
     >
       <GlobalActionButtons username={session?.user?.name || 'Unknown User'} />

@@ -5,9 +5,10 @@ import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 import { ToastContainer } from 'react-toastify';
 
-import { cn } from '../../utils/classnames';
+import { cn } from '@/components/ui';
 import { PreloadResources } from '../preload-resources';
 import { SessionProvider } from '../session-provider';
+import ThemeSelection from '@/components/ui/common/theme-select/theme-selection';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -16,13 +17,6 @@ const inter = Inter({
 });
 
 export const viewport: Viewport = {};
-
-const ThemeSelection = dynamic(
-  () => import('../theme-select/theme-selection'),
-  {
-    ssr: false,
-  },
-);
 
 export function RootLayout({
   children,

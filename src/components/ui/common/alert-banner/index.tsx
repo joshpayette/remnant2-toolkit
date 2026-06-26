@@ -4,7 +4,7 @@ import { useLocalStorage } from 'usehooks-ts';
 
 import { BaseButton } from '../../base/button';
 import { BaseText } from '../../base/text';
-import { cn } from '../../utils/classnames';
+import { cn } from '@/components/ui';
 import { CloseIcon } from '../icons/close';
 import { ZINDEXES } from '../z-indexes';
 

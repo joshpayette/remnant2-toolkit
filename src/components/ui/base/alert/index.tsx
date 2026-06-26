@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Description as HeadlessDescription,
   Dialog as HeadlessDialog,

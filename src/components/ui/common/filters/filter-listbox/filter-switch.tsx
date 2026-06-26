@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '../../../utils/classnames';
+import { cn } from '@/components/ui';
 import { CheckIcon } from '../../icons/check';
 import { SquareIcon } from '../../icons/square';
 import { XIcon } from '../../icons/x';

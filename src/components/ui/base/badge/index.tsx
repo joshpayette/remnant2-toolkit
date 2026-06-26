@@ -1,10 +1,12 @@
+'use client'
+
 import {
   Button as HeadlessButton,
   type ButtonProps as HeadlessButtonProps,
 } from '@headlessui/react';
 import { forwardRef } from 'react';
 
-import { cn } from '../../utils/classnames';
+import { cn } from '@/components/ui';
 import { TouchTarget } from '../button';
 import { BaseLink } from '../link';
 

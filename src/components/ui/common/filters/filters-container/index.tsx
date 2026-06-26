@@ -1,9 +1,10 @@
+'use client'
+
 import { Disclosure } from '@headlessui/react';
 import React from 'react';
 
-import { BaseButton } from '../../../base/button';
-import { cn } from '../../../utils/classnames';
-import { FilterIcon } from '../../icons/filter';
+import { cn, FilterIcon } from '@/components/ui';
+import { BaseButton } from '@/components/ui';
 
 interface FiltersContainerProps {
   children: React.ReactNode;

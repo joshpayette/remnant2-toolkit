@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import { components, type OptionProps } from 'react-select';
 
-import { cn } from '../../../utils/classnames';
+import { cn } from '@/components/ui';
 import { FilterSwitch } from './filter-switch';
 import type { FilterOption } from './types';
 

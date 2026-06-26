@@ -2,7 +2,7 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { useReadLocalStorage } from 'usehooks-ts';
 
-import { BaseButton } from '../../../base/button';
+import { BaseButton } from '@/components/ui';
 import {
   BaseDialog,
   BaseDialogBody,

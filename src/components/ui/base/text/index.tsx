@@ -1,4 +1,4 @@
-import { cn } from '../../utils/classnames';
+import { cn } from '@/components/ui';
 import { BaseLink } from '../link';
 
 export function BaseText({

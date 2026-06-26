@@ -1,12 +1,14 @@
+'use client'
+
 import {
   Button as HeadlessButton,
   type ButtonProps as HeadlessButtonProps,
 } from '@headlessui/react';
 import { forwardRef } from 'react';
 
-import { cn } from '../../utils/classnames';
 import { TouchTarget } from '../button';
 import { BaseLink } from '../link';
+import { cn } from '@/components/ui';
 
 interface AvatarProps {
   src?: string | null;

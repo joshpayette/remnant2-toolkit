@@ -4,7 +4,7 @@ import * as Headless from '@headlessui/react';
 import { Fragment } from 'react';
 
 import { ZINDEXES } from '../../common/z-indexes';
-import { cn } from '../../utils/classnames';
+import { cn } from '@/components/ui';
 
 export function BaseListbox<T>({
   className,

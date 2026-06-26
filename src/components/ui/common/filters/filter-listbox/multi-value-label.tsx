@@ -1,6 +1,6 @@
 import { components, type MultiValueGenericProps } from 'react-select';
 
-import { cn } from '../../../utils/classnames';
+import { cn } from '@/components/ui';
 import { CheckIcon } from '../../icons/check';
 import { XIcon } from '../../icons/x';
 import type { FilterOption } from './types';

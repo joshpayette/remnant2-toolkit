@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import { CHANGELOG_URL } from '@/lib/constants';
 
 import { BaseButton } from '../../base/button';
-import { cn } from '../../utils/classnames';
+import { cn } from '@/components/ui';
 import { BugReportPrompt, reportBug } from '../bug-report';
 import { ArrowUpIcon } from '../icons/arrow-up';
 import { BugIcon } from '../icons/bug';

@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { BaseButton } from '../../base/button';
-import { cn } from '../../utils/classnames';
+import { cn } from '@/components/ui';
 import { BarsIcon } from '../icons/bars';
 import { CloseIcon } from '../icons/close';
 import { NotificationNavIcon } from '../notifications/notification-nav-icon';
@@ -17,7 +17,6 @@ interface NavbarContainerProps {
   logo: React.ReactNode;
   mobileProfileButton: React.ReactNode;
   mobileChildren: React.ReactNode;
-  showNotifications: boolean;
 }
 
 export function NavbarContainer({
@@ -26,7 +25,6 @@ export function NavbarContainer({
   logo,
   mobileProfileButton,
   mobileChildren,
-  showNotifications,
 }: NavbarContainerProps) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -65,7 +63,6 @@ export function NavbarContainer({
           {desktopChildren}
         </div>
         <div className="hidden w-[100px] grow items-center justify-end lg:flex gap-x-4">
-          {showNotifications ? <NotificationNavIcon /> : null}
           {desktopProfileButton}
         </div>
       </nav>
@@ -86,7 +83,6 @@ export function NavbarContainer({
         >
           <div className="flex items-center justify-between">
             {logo}
-            {showNotifications ? <NotificationNavIcon /> : null}
             <BaseButton
               aria-label="Close menu"
               className="-m-2.5"
