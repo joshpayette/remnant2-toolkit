@@ -13,6 +13,7 @@ import { BaseLink, getImageUrl, LeaderBoard, Skeleton } from '@/components/ui';
 
 import { LandingPageHeaderDescription } from './_components/landing-page-header-description';
 import { GenesisCodeDisplay } from './(features)/_genesis-code/_components/genesis-code-display';
+import { ReturnToWard13CTA } from '@/app/return-to-ward-13-cta';
 
 export default async function Page() {
   const session = await getSession();
@@ -20,6 +21,9 @@ export default async function Page() {
   return (
     <>
       <div className="grid grid-cols-4 gap-x-4">
+        <div className="col-span-full w-full">
+          <ReturnToWard13CTA />
+        </div>
         <div className="col-span-full w-full xl:col-span-3">
           <LandingPageContainer
             description={

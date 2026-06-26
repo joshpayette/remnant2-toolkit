@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2026-06-26
+
+### Added
+
+- Added CTA for upcoming Return to Ward 13 community event!
+
 ## 2026-03-25
 
 ### Fixed
