@@ -1,4 +1,4 @@
-import ImageKit from 'imagekit';
+import ImageKit from '@imagekit/nodejs';
 import { type NextRequest } from 'next/server';
 
 export async function POST(request: NextRequest) {
@@ -7,12 +7,10 @@ export async function POST(request: NextRequest) {
 
   try {
     const imagekit = new ImageKit({
-      publicKey: process.env.IMAGEKIT_CLIENT_ID ?? '',
       privateKey: process.env.IMAGEKIT_CLIENT_SECRET ?? '',
-      urlEndpoint: 'https://ik.imagekit.io/remnant2toolkit/',
     });
 
-    const response = await imagekit.upload({
+    const response = await imagekit.files.upload({
       file: base64Image,
       fileName: `${imageName}`,
       folder: 'build-uploads-temp',

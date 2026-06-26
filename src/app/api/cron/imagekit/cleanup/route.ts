@@ -1,4 +1,4 @@
-import ImageKit from 'imagekit';
+import ImageKit from '@imagekit/nodejs';
 import { type NextRequest } from 'next/server';
 
 export async function GET(request: NextRequest) {
@@ -10,31 +10,31 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const imagekit = new ImageKit({
-      publicKey: process.env.IMAGEKIT_CLIENT_ID ?? '',
+    const client = new ImageKit({
       privateKey: process.env.IMAGEKIT_CLIENT_SECRET ?? '',
-      urlEndpoint: 'https://ik.imagekit.io/remnant2toolkit/',
     });
 
     // Get all files created over an hour ago
-    const files = await imagekit.listFiles({
+    const files = await client.assets.list({
       path: 'build-uploads-temp',
       searchQuery: 'createdAt < "1h"',
     });
 
-    if (files.length > 0) {
-      const fileIds = files.map((file) => file.fileId);
+    const fileIds = files
+      .map((file) => ('fileId' in file ? file.fileId : undefined))
+      .filter((fileId): fileId is string => Boolean(fileId));
 
+    if (fileIds.length > 0) {
       // Delete each file
-      await imagekit.bulkDeleteFiles(fileIds);
+      await client.files.bulk.delete({ fileIds });
 
       console.info('Deleted files:', fileIds.join(', '));
     }
 
     // Purge the cache
-    await imagekit.purgeCache(
-      'https://ik.imagekit.io/remnant2toolkit/build-uploads-temp*',
-    );
+    await client.cache.invalidation.create({
+      url: 'https://ik.imagekit.io/remnant2toolkit/build-uploads-temp*',
+    });
 
     console.info('Purged cache for build-uploads-temp');
 
