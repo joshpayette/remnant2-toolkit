@@ -98,6 +98,7 @@ export function validateBuildState(buildState: unknown) {
             'Beginner',
             'BossRush',
             'Gimmick',
+            'RTW13_26'
           ]),
           category: z.enum(['Type', 'Tag']),
           buildId: z.string(),

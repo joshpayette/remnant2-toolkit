@@ -1,5 +1,7 @@
 import { type BuildTag } from '@/app/(builds)/_types/build-tag';
 
+
+
 export const ALL_BUILD_TAGS: BuildTag[] = [
   {
     label: 'Base Game',
@@ -85,6 +87,16 @@ export const ALL_BUILD_TAGS: BuildTag[] = [
       hover: 'hover:bg-accent2-400/20',
       text: 'text-accent2-500',
     },
+  },
+  {
+    label: `Return to Ward 13 '26`,
+    value: `RTW13_26`,
+    category: 'Tag',
+    colors: {
+      bg: 'bg-primary-400/10',
+      hover: 'hover:bg-primary-400/20',
+      text: 'text-primary-500'
+    }
   },
   {
     label: 'Skills',

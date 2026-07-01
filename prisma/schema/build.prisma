@@ -112,6 +112,7 @@ enum BUILD_TAG {
   Beginner
   BossRush
   Gimmick
+  RTW13_26
 }
 
 enum BUILD_TAG_CATEGORY {
