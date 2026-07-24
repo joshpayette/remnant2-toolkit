@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache';
 
 import { sendWebhook } from '@/app/_libs/moderation/send-webhook';
 import { validateEnv } from '@/app/_libs/validate-env';
+import { revalidatePublicBuildFeeds } from '@/app/(builds)/_actions/revalidate-public-build-feeds';
 import { type AdminToolResponse } from '@/app/(builds)/_types/admin-tool-response';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { prisma } from '@/lib/db';
@@ -76,6 +77,8 @@ export default async function unfeatureBuild(
     }
 
     revalidatePath('/builder/[buildId]', 'page');
+
+    revalidatePublicBuildFeeds();
 
     return {
       status: 'success',

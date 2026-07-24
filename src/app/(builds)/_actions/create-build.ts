@@ -7,9 +7,12 @@ import { sendWebhook } from '@/app/_libs/moderation/send-webhook';
 import { verifyBuildState } from '@/app/_libs/moderation/verify-build-state';
 import { verifyCreatorInfo } from '@/app/_libs/moderation/verify-creator-info';
 import { validateEnv } from '@/app/_libs/validate-env';
+import { revalidatePublicBuildFeeds } from '@/app/(builds)/_actions/revalidate-public-build-feeds';
 import { BUILD_REVALIDATE_PATHS } from '@/app/(builds)/_constants/build-revalidate-paths';
 import { DEFAULT_BUILD_NAME } from '@/app/(builds)/_constants/default-build-name';
 import { buildStateToBuildItems } from '@/app/(builds)/_libs/build-state-to-build-items';
+import { getBuildDlcFlags } from '@/app/(builds)/_libs/get-build-dlc-flags';
+import { getCountableItemCount } from '@/app/(builds)/_libs/get-countable-item-count';
 import { isBuildQualityBuild } from '@/app/(builds)/_libs/is-build-quality-build';
 import { isPermittedBuilder } from '@/app/(builds)/_libs/permitted-builders';
 import { type BuildActionResponse } from '@/app/(builds)/_types/build-action-response';
@@ -120,6 +123,8 @@ export async function createBuild({
     // Add each build and variant to the Build table
     const createBuildsResponse = await Promise.all(
       buildVariants.map((variant) => {
+        const { hasBaseItems, hasDlc3Items, hasDlc2Items, hasDlc1Items} = getBuildDlcFlags(variant)
+
         return prisma.build.create({
           data: {
             name:
@@ -130,13 +135,15 @@ export async function createBuild({
               variant.description && variant.description !== ''
                 ? badWordFilter.clean(variant.description)
                 : '',
-            isPublic: Boolean(variant.isPublic),
-            isPatchAffected: Boolean(variant.isPatchAffected),
+            isPublic: variant.isPublic,
+            isPatchAffected: variant.isPatchAffected,
             isModeratorApproved: false,
             isQualityBuild: isBuildQualityBuild(variant).length === 0,
             videoUrl: variant.videoUrl,
             buildLink: variant.buildLink,
             buildLinkUpdatedAt: variant.buildLinkUpdatedAt,
+            ...getBuildDlcFlags(variant),
+            countableItemCount: getCountableItemCount(variant),
             createdBy: {
               connect: {
                 id: session.user?.id,
@@ -173,12 +180,17 @@ export async function createBuild({
       };
     }
 
-    // Register a vote for the build
+    // Register a vote for the build (creator auto-upvotes their own build)
     await prisma.buildVoteCounts.create({
       data: {
         buildId: mainBuildResponse.id,
         userId: session.user.id,
       },
+    });
+    // Keep the denormalized upvote count in step with the auto-vote.
+    await prisma.build.update({
+      where: { id: mainBuildResponse.id },
+      data: { totalUpvotes: { increment: 1 } },
     });
 
     // Add the newly created builds to the BuildVariant table
@@ -278,6 +290,8 @@ export async function createBuild({
     for (const path of BUILD_REVALIDATE_PATHS) {
       revalidatePath(path, 'page');
     }
+
+    revalidatePublicBuildFeeds();
 
     return {
       message: 'Build successfully saved!',

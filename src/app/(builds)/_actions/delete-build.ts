@@ -2,6 +2,7 @@
 
 import { revalidatePath } from 'next/cache';
 
+import { revalidatePublicBuildFeeds } from '@/app/(builds)/_actions/revalidate-public-build-feeds';
 import { BUILD_REVALIDATE_PATHS } from '@/app/(builds)/_constants/build-revalidate-paths';
 import { type BuildActionResponse } from '@/app/(builds)/_types/build-action-response';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
@@ -73,6 +74,8 @@ export async function deleteBuild(
     for (const path of BUILD_REVALIDATE_PATHS) {
       revalidatePath(path, 'page');
     }
+
+    revalidatePublicBuildFeeds();
 
     return {
       message: 'Build successfully deleted!',

@@ -1,6 +1,5 @@
-import { getBuildList } from '@/app/(builds)/_actions/get-build-list';
 import { BuildCard } from '@/app/(builds)/_components/build-card';
-import { getOrderBySegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/order-by';
+import { getPublicBuildFeed } from '@/app/(builds)/_features/filters/_libs/queries/public-build-feed-cursor-query';
 import { limitByWithQualityBuildsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-quality';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { BaseLink, EyeIcon, Tooltip } from '@/components/ui';
@@ -10,14 +9,15 @@ export async function QualityBuildFeedItems() {
   const session = await getSession();
   const userId = session?.user?.id;
 
-  const orderBySegment = getOrderBySegment('newest');
   const includeBuildVariants = false;
 
-  const { builds } = await getBuildList({
+  // Fixed 4-item homepage widget.
+  // First page only, so the cursor is discarded.
+  const { builds } = await getPublicBuildFeed({
+    cursor: null,
     includeBuildVariants,
     itemsPerPage: 4,
-    orderBy: orderBySegment,
-    pageNumber: 1,
+    orderBy: 'newest',
     searchText: '',
     userId,
     whereConditions: Prisma.sql`

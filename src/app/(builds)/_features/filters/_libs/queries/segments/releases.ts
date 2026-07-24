@@ -1,5 +1,6 @@
 import isEqual from 'lodash.isequal';
 
+import { ALL_RELEASE_KEYS } from '@/app/_constants/releases';
 import { DEFAULT_BUILD_FIELDS } from '@/app/(builds)/_features/filters/_constants/default-build-fields';
 import type { ReleasesFilterValue } from '@/app/(builds)/_features/filters/_libs/filters/releases-filter';
 import { Prisma } from '@/lib/db';
@@ -24,16 +25,28 @@ export function limitByReleaseSegment(
     return Prisma.empty;
   }
 
-  // If there is one or more included releases, we want to ensure that all builds
-  // returned have the included releases. We also want to exclude any excluded releases
-  return Prisma.sql`AND NOT EXISTS (
-    SELECT 1
-    FROM BuildItems
-    LEFT JOIN Item ON BuildItems.itemId = Item.itemId 
-    WHERE BuildItems.buildId = Build.id
-    AND (Item.dlc NOT IN (${Prisma.join(
-      allIncludedReleaseKeys,
-    )}) AND BuildItems.itemId != '')
-  )
-`;
+  // Keep only builds whose items fall entirely within the included releases
+  const deselectedKeys = ALL_RELEASE_KEYS.filter(
+    (key) => !allIncludedReleaseKeys.includes(key),
+  );
+
+  if (deselectedKeys.length === 0) {
+    return Prisma.empty;
+  }
+
+  const conditions: Prisma.Sql[] = [];
+  if (deselectedKeys.includes('base')) {
+    conditions.push(Prisma.sql`Build.hasBaseItems = false`);
+  }
+  if (deselectedKeys.includes('dlc1')) {
+    conditions.push(Prisma.sql`Build.hasDlc1Items = false`);
+  }
+  if (deselectedKeys.includes('dlc2')) {
+    conditions.push(Prisma.sql`Build.hasDlc2Items = false`);
+  }
+  if (deselectedKeys.includes('dlc3')) {
+    conditions.push(Prisma.sql`Build.hasDlc3Items = false`);
+  }
+
+  return Prisma.sql`AND ${Prisma.join(conditions, ' AND ')}`;
 }

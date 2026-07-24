@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 
-import { components, type ClearIndicatorProps } from 'react-select';
+import { type ClearIndicatorProps,components } from 'react-select';
 
 import type { FilterOption } from './types';
 

@@ -1,5 +1,6 @@
   SELECT
       i.itemId AS 'Item ID',
+      i.name as 'Item Name',
       COUNT(*) AS 'Total Count'
   FROM BuildItems bi
   INNER JOIN Build b ON bi.buildId = b.id

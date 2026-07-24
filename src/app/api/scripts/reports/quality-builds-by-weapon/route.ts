@@ -50,6 +50,7 @@ function getQuery(weaponIds: string[]) {
     ) as ItemCounts ON Build.id = ItemCounts.buildId
     LEFT JOIN BuildTags on Build.id = BuildTags.buildId
     WHERE Build.isPublic = 1
+    AND Build.createdAt >= '2024-09-24'
     AND Build.isPatchAffected = 0
     AND (
       SELECT COUNT(*)

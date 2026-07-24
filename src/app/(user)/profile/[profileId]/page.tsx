@@ -1,6 +1,6 @@
 import { BuildCard } from '@/app/(builds)/_components/build-card';
-import { mainBuildQuery } from '@/app/(builds)/_features/filters/_libs/queries/main-build-query';
-import { Prisma, prisma } from '@/lib/db';
+import { getUserBuildFeed } from '@/app/(builds)/_features/filters/_libs/queries/user-build-feed-cursor-query';
+import { Prisma } from '@/lib/db';
 import { bigIntFix } from '@/lib/utils';
 
 export const maxDuration = 60;
@@ -19,60 +19,28 @@ async function getCreatedBuilds(profileId: string) {
   AND Build.isPatchAffected = false
   `;
 
-  const orderBySegment = Prisma.sql`ORDER BY totalUpvotes DESC`;
-
-  const [topBuildsAllTime, topBuildsCurrent] = await Promise.all([
-    mainBuildQuery({
-      includeBuildVariants: false,
-      userId: profileId,
-      itemsPerPage: itemsToFetch,
-      pageNumber: 1,
-      orderBySegment,
-      whereConditions: whereConditionsAllTime,
-      searchText: '',
-      percentageOwned: 0,
-    }),
-    mainBuildQuery({
-      includeBuildVariants: false,
-      userId: profileId,
-      itemsPerPage: itemsToFetch,
-      pageNumber: 1,
-      orderBySegment,
-      whereConditions: whereConditionsCurrent,
-      searchText: '',
-      percentageOwned: 0,
-    }),
-  ]);
-
-  // Then, for each Build, get the associated BuildItems
-  for (const build of topBuildsAllTime) {
-    const buildItems = await prisma.buildItems.findMany({
-      where: { buildId: build.id },
-      take: 2000,
-    });
-    build.buildItems = buildItems;
-  }
-  for (const build of topBuildsCurrent) {
-    const buildItems = await prisma.buildItems.findMany({
-      where: { buildId: build.id },
-      take: 2000,
-    });
-    build.buildItems = buildItems;
-  }
-
-  // Then, for each Build, get the associated BuildTags
-  for (const build of topBuildsAllTime) {
-    const buildTags = await prisma.buildTags.findMany({
-      where: { buildId: build.id },
-    });
-    build.buildTags = buildTags;
-  }
-  for (const build of topBuildsCurrent) {
-    const buildTags = await prisma.buildTags.findMany({
-      where: { buildId: build.id },
-    });
-    build.buildTags = buildTags;
-  }
+  // Fixed page-1 "top builds" panels
+  const [{ builds: topBuildsAllTime }, { builds: topBuildsCurrent }] =
+    await Promise.all([
+      getUserBuildFeed({
+        cursor: null,
+        itemsPerPage: itemsToFetch,
+        orderBy: 'most favorited',
+        searchText: '',
+        userId: profileId,
+        whereConditions: whereConditionsAllTime,
+        withCollection: 0,
+      }),
+      getUserBuildFeed({
+        cursor: null,
+        itemsPerPage: itemsToFetch,
+        orderBy: 'most favorited',
+        searchText: '',
+        userId: profileId,
+        whereConditions: whereConditionsCurrent,
+        withCollection: 0,
+      }),
+    ]);
 
   return bigIntFix({ topBuildsAllTime, topBuildsCurrent });
 }

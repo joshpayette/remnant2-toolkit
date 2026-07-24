@@ -7,6 +7,7 @@ import { prisma } from '@/lib/db';
 
 import { BUILD_REVALIDATE_PATHS } from '../_constants/build-revalidate-paths';
 import { type BuildActionResponse } from '../_types/build-action-response';
+import { revalidatePublicBuildFeeds } from './revalidate-public-build-feeds';
 
 export async function deleteBuildVariants(
   buildId: string,
@@ -71,6 +72,8 @@ export async function deleteBuildVariants(
     for (const path of BUILD_REVALIDATE_PATHS) {
       revalidatePath(path, 'page');
     }
+
+    revalidatePublicBuildFeeds();
 
     return {
       message: 'Build successfully deleted!',

@@ -1,6 +1,13 @@
 'use server';
 
-import { getBuildList } from '@/app/(builds)/_actions/get-build-list';
+import { unstable_cache } from 'next/cache';
+
+import {
+  isDefaultPublicFeedView,
+  PUBLIC_BUILD_FEEDS_CACHE_TAG,
+  PUBLIC_BUILD_FEEDS_REVALIDATE_SECONDS,
+} from '@/app/(builds)/_features/filters/_libs/queries/feed-cache';
+import { getPublicBuildFeed } from '@/app/(builds)/_features/filters/_libs/queries/public-build-feed-cursor-query';
 import { limitByAmuletSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/amulets';
 import { limitByArchetypesSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/archetypes';
 import { limitByBuildTagsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/build-tags';
@@ -11,7 +18,6 @@ import { limitByLongGunSegment } from '@/app/(builds)/_features/filters/_libs/qu
 import { limitByMeleeSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/melees';
 import { limitByModsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/mods';
 import { limitByMutatorsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/mutators';
-import { getOrderBySegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/order-by';
 import { limitByReleaseSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/releases';
 import { limitByRelicSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/relic';
 import { limitByRelicFragmentsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/relic-fragments';
@@ -24,19 +30,21 @@ import { limitByWithPatchAffectedSegment } from '@/app/(builds)/_features/filter
 import { limitByWithQualityBuildsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-quality';
 import { limitByWithReferenceSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-reference';
 import { limitByWithVideoSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-video';
-import { type BuildListRequest } from '@/app/(builds)/_types/build-list-request';
-import { type DBBuild } from '@/app/(builds)/_types/db-build';
+import {
+  type BuildFeedRequest,
+  type BuildFeedResponse,
+} from '@/app/(builds)/_types/build-feed-request';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { Prisma } from '@/lib/db';
 import { bigIntFix } from '@/lib/utils';
 
 export async function getCommunityBuilds({
   buildFilterFields,
+  cursor,
   itemsPerPage,
   orderBy,
-  pageNumber,
   timeRange,
-}: BuildListRequest): Promise<{ builds: DBBuild[]; totalCount: number }> {
+}: BuildFeedRequest): Promise<BuildFeedResponse> {
   const session = await getSession();
   const userId = session?.user?.id;
 
@@ -95,14 +103,49 @@ export async function getCommunityBuilds({
     ${limitByWithVideoSegment(withVideo)}
   `;
 
-  const orderBySegment = getOrderBySegment(orderBy);
-
   try {
-    const { builds, totalCount } = await getBuildList({
+    if (
+      isDefaultPublicFeedView({
+        buildFilterFields,
+        cursor,
+        defaultOrderBy: 'newest',
+        itemsPerPage,
+        orderBy,
+        timeRange,
+        userId,
+      })
+    ) {
+      // Cache the logged-out landing view (identical for every visitor).
+      // Captures the default `whereConditions`, which is only
+      // reached when no filters are active.
+      const getCachedDefaultFeed = unstable_cache(
+        async () => {
+          const { builds, nextCursor } = await getPublicBuildFeed({
+            cursor: null,
+            includeBuildVariants,
+            itemsPerPage,
+            orderBy,
+            searchText: '',
+            userId: undefined,
+            whereConditions,
+            withCollection: 0,
+          });
+          return bigIntFix({ builds, nextCursor });
+        },
+        ['default-community-feed'],
+        {
+          tags: [PUBLIC_BUILD_FEEDS_CACHE_TAG],
+          revalidate: PUBLIC_BUILD_FEEDS_REVALIDATE_SECONDS,
+        },
+      );
+      return getCachedDefaultFeed();
+    }
+
+    const { builds, nextCursor } = await getPublicBuildFeed({
+      cursor,
       includeBuildVariants,
       itemsPerPage,
-      orderBy: orderBySegment,
-      pageNumber,
+      orderBy,
       searchText,
       userId,
       whereConditions,
@@ -111,7 +154,7 @@ export async function getCommunityBuilds({
 
     return bigIntFix({
       builds,
-      totalCount,
+      nextCursor,
     });
   } catch (e) {
     if (e) {

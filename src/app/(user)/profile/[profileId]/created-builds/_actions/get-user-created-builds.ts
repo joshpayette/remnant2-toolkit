@@ -1,6 +1,5 @@
 'use server';
 
-import { getBuildList } from '@/app/(builds)/_actions/get-build-list';
 import { limitByAmuletSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/amulets';
 import { limitByArchetypesSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/archetypes';
 import { limitByBuildTagsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/build-tags';
@@ -12,7 +11,6 @@ import { limitByLongGunSegment } from '@/app/(builds)/_features/filters/_libs/qu
 import { limitByMeleeSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/melees';
 import { limitByModsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/mods';
 import { limitByMutatorsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/mutators';
-import { getOrderBySegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/order-by';
 import { limitByReleaseSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/releases';
 import { limitByRelicSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/relic';
 import { limitByRelicFragmentsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/relic-fragments';
@@ -25,8 +23,11 @@ import { limitByWithPatchAffectedSegment } from '@/app/(builds)/_features/filter
 import { limitByWithQualityBuildsSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-quality';
 import { limitByWithReferenceSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-reference';
 import { limitByWithVideoSegment } from '@/app/(builds)/_features/filters/_libs/queries/segments/with-video';
-import { type ProfileBuildListRequest } from '@/app/(builds)/_types/build-list-request';
-import { type DBBuild } from '@/app/(builds)/_types/db-build';
+import { getUserBuildFeed } from '@/app/(builds)/_features/filters/_libs/queries/user-build-feed-cursor-query';
+import {
+  type BuildFeedResponse,
+  type ProfileBuildFeedRequest,
+} from '@/app/(builds)/_types/build-feed-request';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
 import { Prisma } from '@/lib/db';
 import { bigIntFix } from '@/lib/utils';
@@ -36,16 +37,13 @@ export type UserCreatedBuildsFilter = 'date created' | 'upvotes';
 export async function getUserCreatedBuilds({
   buildFilterFields,
   buildVisibility = 'public',
+  cursor,
   featuredBuildsOnly,
   itemsPerPage,
   orderBy,
-  pageNumber,
   profileId,
   timeRange,
-}: ProfileBuildListRequest): Promise<{
-  builds: DBBuild[];
-  totalCount: number;
-}> {
+}: ProfileBuildFeedRequest): Promise<BuildFeedResponse> {
   const session = await getSession();
 
   const {
@@ -122,14 +120,11 @@ export async function getUserCreatedBuilds({
     ${limitByWithVideoSegment(withVideo)}
   `;
 
-  const orderBySegment = getOrderBySegment(orderBy);
-
   try {
-    const { builds, totalCount } = await getBuildList({
-      includeBuildVariants,
+    const { builds, nextCursor } = await getUserBuildFeed({
+      cursor,
       itemsPerPage,
-      orderBy: orderBySegment,
-      pageNumber,
+      orderBy,
       searchText,
       userId: profileId,
       whereConditions,
@@ -138,12 +133,12 @@ export async function getUserCreatedBuilds({
 
     return bigIntFix({
       builds,
-      totalCount,
+      nextCursor,
     });
   } catch (e) {
     if (e) {
       console.error(e);
     }
-    throw new Error('Failed to get community builds, please try again.');
+    throw new Error('Failed to get created builds, please try again.');
   }
 }

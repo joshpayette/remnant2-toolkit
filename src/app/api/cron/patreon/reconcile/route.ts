@@ -169,6 +169,11 @@ export async function GET(request: NextRequest) {
             userId: toolkitUserId,
           },
         });
+        // Maintain the denormalized upvote count.
+        await prisma.build.update({
+          where: { id: build.id },
+          data: { totalUpvotes: { increment: 1 } },
+        });
       }
     }
 

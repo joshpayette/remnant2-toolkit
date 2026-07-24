@@ -1,10 +1,7 @@
 import type { OrderBy } from '@/app/(builds)/_features/filters/_hooks/use-order-by-filter';
 import { Prisma } from '@/lib/db';
 
-export function getOrderBySegment(
-  orderBy: OrderBy,
-  isFeaturedBuilds?: boolean,
-) {
+export function getOrderBySegment(orderBy: OrderBy) {
   let orderBySegment = Prisma.sql`
   ORDER BY totalUpvotes DESC
   `;
@@ -14,15 +11,9 @@ export function getOrderBySegment(
     ORDER BY TRIM(Build.name) ASC
     `;
   } else if (orderBy === 'newest') {
-    if (isFeaturedBuilds) {
-      orderBySegment = Prisma.sql`
-    ORDER BY dateFeatured DESC
-    `;
-    } else {
-      orderBySegment = Prisma.sql`
+    orderBySegment = Prisma.sql`
       ORDER BY createdAt DESC
       `;
-    }
   } else if (orderBy === 'most viewed') {
     orderBySegment = Prisma.sql`
     ORDER BY validatedViewCount DESC

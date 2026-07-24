@@ -8,9 +8,12 @@ import { sendWebhook } from '@/app/_libs/moderation/send-webhook';
 import { verifyBuildState } from '@/app/_libs/moderation/verify-build-state';
 import { verifyCreatorInfo } from '@/app/_libs/moderation/verify-creator-info';
 import { validateEnv } from '@/app/_libs/validate-env';
+import { revalidatePublicBuildFeeds } from '@/app/(builds)/_actions/revalidate-public-build-feeds';
 import { BUILD_REVALIDATE_PATHS } from '@/app/(builds)/_constants/build-revalidate-paths';
 import { DEFAULT_BUILD_NAME } from '@/app/(builds)/_constants/default-build-name';
 import { buildStateToBuildItems } from '@/app/(builds)/_libs/build-state-to-build-items';
+import { getBuildDlcFlags } from '@/app/(builds)/_libs/get-build-dlc-flags';
+import { getCountableItemCount } from '@/app/(builds)/_libs/get-countable-item-count';
 import { isBuildQualityBuild } from '@/app/(builds)/_libs/is-build-quality-build';
 import { isPermittedBuilder } from '@/app/(builds)/_libs/permitted-builders';
 import { type BuildActionResponse } from '@/app/(builds)/_types/build-action-response';
@@ -221,6 +224,8 @@ export async function updateBuild({
             videoUrl: variant.videoUrl,
             buildLink: variant.buildLink,
             buildLinkUpdatedAt: variant.buildLinkUpdatedAt,
+            ...getBuildDlcFlags(variant),
+            countableItemCount: getCountableItemCount(variant),
             createdBy: {
               connect: {
                 id: buildCreator.id,
@@ -314,6 +319,8 @@ export async function updateBuild({
         buildLink: mainBuildState.buildLink,
         buildLinkUpdatedAt,
         isVideoApproved,
+        ...getBuildDlcFlags(mainBuildState),
+        countableItemCount: getCountableItemCount(mainBuildState),
         BuildItems: {
           deleteMany: {},
           create: buildStateToBuildItems(mainBuildState).filter(
@@ -374,6 +381,8 @@ export async function updateBuild({
             isModeratorApproved: false,
             isVideoApproved,
             isQualityBuild: isBuildQualityBuild(variant).length === 0,
+            ...getBuildDlcFlags(variant),
+            countableItemCount: getCountableItemCount(variant),
             BuildItems: {
               deleteMany: {},
               create: buildStateToBuildItems(variant).filter(
@@ -617,6 +626,8 @@ export async function updateBuild({
       revalidatePath(path, 'page');
     }
     revalidatePath(`/builder/[buildId]`, 'page');
+
+    revalidatePublicBuildFeeds();
 
     return {
       message: 'Build successfully updated!',

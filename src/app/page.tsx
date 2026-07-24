@@ -9,11 +9,11 @@ import { NAV_ITEMS } from '@/app/_constants/nav-items';
 import { QualityBuildFeed } from '@/app/(builds)/_components/quality-build-feed';
 import { getLeaderBoard as getItemQuizLeaderBoard } from '@/app/(items)/item-quiz/_actions/get-leader-board';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
+import { ReturnToWard13CTA } from '@/app/return-to-ward-13-cta';
 import { BaseLink, getImageUrl, LeaderBoard, Skeleton } from '@/components/ui';
 
 import { LandingPageHeaderDescription } from './_components/landing-page-header-description';
 import { GenesisCodeDisplay } from './(features)/_genesis-code/_components/genesis-code-display';
-import { ReturnToWard13CTA } from '@/app/return-to-ward-13-cta';
 
 export default async function Page() {
   const session = await getSession();

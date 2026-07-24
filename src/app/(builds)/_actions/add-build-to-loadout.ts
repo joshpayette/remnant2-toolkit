@@ -28,6 +28,11 @@ export async function addBuildToLoadout(
         userId: session.user.id,
       },
     });
+    // maintain the denormalized upvote count
+    await prisma.build.update({
+      where: { id: buildId },
+      data: { totalUpvotes: { increment: 1 } },
+    });
   }
 
   const existingLoadout = await prisma.userLoadouts.findFirst({

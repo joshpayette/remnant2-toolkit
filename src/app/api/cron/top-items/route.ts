@@ -19,9 +19,7 @@ import { traitItems } from '@/app/(items)/_constants/trait-items';
 import { weaponItems } from '@/app/(items)/_constants/weapon-items';
 import { type Item } from '@/app/(items)/_types/item';
 import { prisma } from '@/lib/db';
-
-/** To quickly reference for the AFTER_DATE */
-const _DLC3_RELEASE_DATE = new Date('2024-09-24');
+import { DLC3_RELEASE_DATE } from '@/app/_constants/releases';
 
 /**
  * * Used to fetch builds updatedAt after this date
@@ -233,7 +231,7 @@ async function runReportForCategory(
             isPublic: true,
             isPatchAffected: false,
             updatedAt: {
-              gte: AFTER_DATE,
+              gte: DLC3_RELEASE_DATE,
             },
           },
         },
@@ -247,7 +245,7 @@ async function runReportForCategory(
             isPatchAffected: false,
             isFeaturedBuild: true,
             updatedAt: {
-              gte: AFTER_DATE,
+              gte: DLC3_RELEASE_DATE,
             },
           },
         },

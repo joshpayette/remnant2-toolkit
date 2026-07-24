@@ -76,11 +76,11 @@ export async function removeVoteForBuild({
       },
     });
 
-    // Get the new total upvotes
-    const totalUpvotes = await prisma.buildVoteCounts.count({
-      where: {
-        buildId,
-      },
+    // Maintain the denormalized count and read the new total from it.
+    const { totalUpvotes } = await prisma.build.update({
+      where: { id: buildId },
+      data: { totalUpvotes: { decrement: 1 } },
+      select: { totalUpvotes: true },
     });
 
     // Refresh the cache for the routes

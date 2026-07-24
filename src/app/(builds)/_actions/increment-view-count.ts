@@ -2,7 +2,7 @@
 
 import { type BuildActionResponse } from '@/app/(builds)/_types/build-action-response';
 import { getSession } from '@/app/(user)/_auth/services/sessionService';
-import { prisma } from '@/lib/db';
+import { Prisma, prisma } from '@/lib/db';
 
 export async function incrementViewCount({
   buildId,
@@ -42,19 +42,43 @@ export async function incrementViewCount({
       }
     }
 
-    // if the user is authenticated, add a BuildValidatedView count for the user and build if it doesn't exist
+    // If the user is authenticated, record a BuildValidatedView for the user and
+    // build if it doesn't already exist. We track whether a NEW row was created
+    // so the validatedViewCount is only incremented once per user.
+    //
+    // Check for an existing row first so the repeat-view never attempts a
+    // duplicate insert.
+    let isNewValidatedView = false;
     if (userId) {
-      await prisma.buildValidatedViews.upsert({
-        where: {
-          id: `${buildId}-${userId}`,
-        },
-        update: {},
-        create: {
-          id: `${buildId}-${userId}`,
-          buildId,
-          userId,
-        },
+      const validatedViewId = `${buildId}-${userId}`;
+      const existingView = await prisma.buildValidatedViews.findUnique({
+        where: { id: validatedViewId },
+        select: { id: true },
       });
+
+      if (!existingView) {
+        try {
+          await prisma.buildValidatedViews.create({
+            data: {
+              id: validatedViewId,
+              buildId,
+              userId,
+            },
+          });
+          isNewValidatedView = true;
+        } catch (e) {
+          // Blocks a concurrent request creating the row between our check and insert.
+          // Don't double-count; any other error should surface.
+          if (
+            !(
+              e instanceof Prisma.PrismaClientKnownRequestError &&
+              e.code === 'P2002'
+            )
+          ) {
+            throw e;
+          }
+        }
+      }
     }
 
     const updatedBuild = await prisma.build.update({
@@ -65,6 +89,9 @@ export async function incrementViewCount({
         viewCount: {
           increment: 1,
         },
+        ...(isNewValidatedView
+          ? { validatedViewCount: { increment: 1 } }
+          : {}),
         updatedAt: build.updatedAt,
       },
     });

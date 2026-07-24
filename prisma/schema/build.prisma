@@ -23,6 +23,13 @@ model Build {
   buildLinkUpdatedAt       DateTime?
   viewCount                Int                        @default(0)
   duplicateCount           Int                        @default(0)
+  totalUpvotes             Int                        @default(0)
+  validatedViewCount       Int                        @default(0)
+  hasBaseItems             Boolean                    @default(false)
+  hasDlc1Items             Boolean                    @default(false)
+  hasDlc2Items             Boolean                    @default(false)
+  hasDlc3Items             Boolean                    @default(false)
+  countableItemCount       Int                        @default(0)
   milestoneLogged          Boolean?                   @default(false)
   BuildVotes               BuildVoteCounts[]
   BuildItems               BuildItems[]
@@ -39,9 +46,14 @@ model Build {
 
   @@index([createdById])
   @@index([userProfileId])
+  @@index([isPublic, createdAt, id])
+  @@index([isPublic, totalUpvotes, id])
+  @@index([isFeaturedBuild, dateFeatured, id])
+  @@index([isBeginnerBuild, createdAt, id])
+  @@index([isBaseGameBuild, createdAt, id])
+  @@index([isGimmickBuild, createdAt, id])
 }
 
-// TODO Make this non-plural
 model BuildItems {
   id       String  @id @default(cuid())
   build    Build   @relation(fields: [buildId], references: [id], onDelete: Cascade)
@@ -53,9 +65,8 @@ model BuildItems {
   amount   Int?
   optional Boolean @default(false)
 
-  @@index([buildId])
+  @@index([buildId, category, itemId])
   @@index([itemId])
-  @@index([category])
 }
 
 model BuildVariant {
@@ -72,7 +83,6 @@ model BuildVariant {
   @@index([secondaryBuildId])
 }
 
-// TODO Make this non-plural
 model BuildVoteCounts {
   id        String    @id @default(cuid())
   createdAt DateTime  @default(now())
@@ -82,7 +92,7 @@ model BuildVoteCounts {
   user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String
 
-  @@index([buildId])
+  @@index([buildId, userId])
   @@index([userId])
 }
 
@@ -95,7 +105,7 @@ model BuildValidatedViews {
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String
 
-  @@index([buildId])
+  @@index([buildId, userId])
   @@index([userId])
 }
 
