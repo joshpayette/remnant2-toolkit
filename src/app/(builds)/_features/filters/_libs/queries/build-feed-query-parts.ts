@@ -73,10 +73,11 @@ export function buildFeedSelectColumns(
     : Prisma.sql`,
       0 as percentageOwned`;
 
-  // totalUpvotes and validatedViewCount are denormalized columns on Build,
-  // so they arrive via Build.*, rather than the old way of a subquery
+  // The denormalized columns are aliased back to the legacy field names
   return Prisma.sql`
       Build.*,
+      Build.denormalizedUpvotes as totalUpvotes,
+      Build.denormalizedViewCount as validatedViewCount,
       User.name as createdByName,
       User.displayName as createdByDisplayName,
       0 as totalReports,
@@ -158,6 +159,7 @@ export function ownershipOuterFilter(
   percentageOwned: PercentageOwned,
 ): Prisma.Sql {
   if (!userId || percentageOwned === 0) return Prisma.sql`1=1`;
-  if (percentageOwned === 100) return Prisma.sql`SubQuery.percentageOwned = 100`;
+  if (percentageOwned === 100)
+    return Prisma.sql`SubQuery.percentageOwned = 100`;
   return Prisma.sql`SubQuery.percentageOwned >= ${percentageOwned}`;
 }

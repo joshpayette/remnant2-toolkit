@@ -77,10 +77,10 @@ export async function removeVoteForBuild({
     });
 
     // Maintain the denormalized count and read the new total from it.
-    const { totalUpvotes } = await prisma.build.update({
+    const { denormalizedUpvotes } = await prisma.build.update({
       where: { id: buildId },
-      data: { totalUpvotes: { decrement: 1 } },
-      select: { totalUpvotes: true },
+      data: { denormalizedUpvotes: { decrement: 1 } },
+      select: { denormalizedUpvotes: true },
     });
 
     // Refresh the cache for the routes
@@ -93,7 +93,7 @@ export async function removeVoteForBuild({
 
     return bigIntFix({
       message: 'Vote removed!',
-      totalUpvotes: totalUpvotes,
+      totalUpvotes: denormalizedUpvotes,
     });
   } catch (e) {
     console.error(e);

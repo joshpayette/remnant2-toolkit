@@ -7,8 +7,8 @@ import { prisma } from '@/lib/db';
 export const maxDuration = 300;
 
 /**
- * One-off backfill for the denormalized columns `Build.totalUpvotes`
- * and `Build.validatedViewCount`.
+ * One-off backfill for the denormalized columns `Build.denormalizedUpvotes`
+ * and `Build.denormalizedViewCount`.
  *
  * - Default: recomputes both columns from the live BuildVoteCounts /
  *   BuildValidatedViews rows.
@@ -42,7 +42,11 @@ export async function GET(request: NextRequest) {
 
   if (isAudit) {
     const builds = await prisma.build.findMany({
-      select: { id: true, totalUpvotes: true, validatedViewCount: true },
+      select: {
+        id: true,
+        denormalizedUpvotes: true,
+        denormalizedViewCount: true,
+      },
     });
 
     const mismatches = builds
@@ -50,16 +54,16 @@ export async function GET(request: NextRequest) {
         const expectedUpvotes = voteMap.get(build.id) ?? 0;
         const expectedViews = viewMap.get(build.id) ?? 0;
         if (
-          build.totalUpvotes === expectedUpvotes &&
-          build.validatedViewCount === expectedViews
+          build.denormalizedUpvotes === expectedUpvotes &&
+          build.denormalizedViewCount === expectedViews
         ) {
           return null;
         }
         return {
           id: build.id,
-          storedUpvotes: build.totalUpvotes,
+          storedUpvotes: build.denormalizedUpvotes,
           expectedUpvotes,
-          storedViews: build.validatedViewCount,
+          storedViews: build.denormalizedViewCount,
           expectedViews,
         };
       })
@@ -74,31 +78,39 @@ export async function GET(request: NextRequest) {
     });
   }
 
-  // Only builds with at least one vote or view need a non-zero value; the
-  // columns default to 0 for everything else.
-  const buildIds = [...new Set<string>([...voteMap.keys(), ...viewMap.keys()])];
+  const existingBuildIds = new Set(
+    (await prisma.build.findMany({ select: { id: true } })).map((b) => b.id),
+  );
+
+  const candidateIds = [
+    ...new Set<string>([...voteMap.keys(), ...viewMap.keys()]),
+  ];
+  const buildIds = candidateIds.filter((id) => existingBuildIds.has(id));
+  const orphanedIdsSkipped = candidateIds.length - buildIds.length;
 
   let buildsUpdated = 0;
-  const CHUNK_SIZE = 25;
+  const CHUNK_SIZE = 10;
   for (let i = 0; i < buildIds.length; i += CHUNK_SIZE) {
     const chunk = buildIds.slice(i, i + CHUNK_SIZE);
     await Promise.all(
       chunk.map((id) =>
-        prisma.build.update({
+        prisma.build.updateMany({
           where: { id },
           data: {
-            totalUpvotes: voteMap.get(id) ?? 0,
-            validatedViewCount: viewMap.get(id) ?? 0,
+            denormalizedUpvotes: voteMap.get(id) ?? 0,
+            denormalizedViewCount: viewMap.get(id) ?? 0,
           },
         }),
       ),
     );
     buildsUpdated += chunk.length;
+    await new Promise((resolve) => setTimeout(resolve, 50));
   }
 
   return Response.json({
     message: 'Backfill complete.',
     buildsUpdated,
+    orphanedIdsSkipped,
     buildsWithVotes: voteMap.size,
     buildsWithViews: viewMap.size,
   });

@@ -172,7 +172,7 @@ export async function GET(request: NextRequest) {
         // Maintain the denormalized upvote count.
         await prisma.build.update({
           where: { id: build.id },
-          data: { totalUpvotes: { increment: 1 } },
+          data: { denormalizedUpvotes: { increment: 1 } },
         });
       }
     }

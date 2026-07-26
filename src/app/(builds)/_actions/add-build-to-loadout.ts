@@ -31,7 +31,7 @@ export async function addBuildToLoadout(
     // maintain the denormalized upvote count
     await prisma.build.update({
       where: { id: buildId },
-      data: { totalUpvotes: { increment: 1 } },
+      data: { denormalizedUpvotes: { increment: 1 } },
     });
   }
 

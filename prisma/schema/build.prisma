@@ -23,8 +23,8 @@ model Build {
   buildLinkUpdatedAt       DateTime?
   viewCount                Int                        @default(0)
   duplicateCount           Int                        @default(0)
-  totalUpvotes             Int                        @default(0)
-  validatedViewCount       Int                        @default(0)
+  denormalizedUpvotes      Int                        @default(0)
+  denormalizedViewCount    Int                        @default(0)
   hasBaseItems             Boolean                    @default(false)
   hasDlc1Items             Boolean                    @default(false)
   hasDlc2Items             Boolean                    @default(false)
@@ -44,14 +44,14 @@ model Build {
   SecondaryBuildVariant    BuildVariant[]             @relation(name: "secondaryBuildId")
   BuildsToBuildCollections BuildsToBuildCollections[]
 
-  @@index([createdById])
-  @@index([userProfileId])
   @@index([isPublic, createdAt, id])
-  @@index([isPublic, totalUpvotes, id])
+  @@index([isPublic, denormalizedUpvotes, id])
   @@index([isFeaturedBuild, dateFeatured, id])
   @@index([isBeginnerBuild, createdAt, id])
   @@index([isBaseGameBuild, createdAt, id])
   @@index([isGimmickBuild, createdAt, id])
+  @@index([createdById])
+  @@index([userProfileId])
 }
 
 model BuildItems {

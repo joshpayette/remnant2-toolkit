@@ -68,16 +68,21 @@ export async function GET(request: NextRequest) {
     });
   }
 
-  // Only builds that have items need a non-zero count; the rest keep default 0.
-  const buildIds = [...itemsByBuild.keys()];
+  const existingBuildIds = new Set(
+    (await prisma.build.findMany({ select: { id: true } })).map((b) => b.id),
+  );
+
+  const candidateIds = [...itemsByBuild.keys()];
+  const buildIds = candidateIds.filter((id) => existingBuildIds.has(id));
+  const orphanedIdsSkipped = candidateIds.length - buildIds.length;
 
   let buildsUpdated = 0;
-  const CHUNK_SIZE = 25;
+  const CHUNK_SIZE = 10;
   for (let i = 0; i < buildIds.length; i += CHUNK_SIZE) {
     const chunk = buildIds.slice(i, i + CHUNK_SIZE);
     await Promise.all(
       chunk.map((id) =>
-        prisma.build.update({
+        prisma.build.updateMany({
           where: { id },
           data: {
             countableItemCount: getCountableItemCountFromBuildItems(
@@ -88,11 +93,13 @@ export async function GET(request: NextRequest) {
       ),
     );
     buildsUpdated += chunk.length;
+    await new Promise((resolve) => setTimeout(resolve, 50));
   }
 
   return Response.json({
     message: 'Countable item count backfill complete.',
     buildsUpdated,
+    orphanedIdsSkipped,
     buildsWithItems: itemsByBuild.size,
   });
 }

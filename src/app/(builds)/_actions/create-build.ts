@@ -123,8 +123,6 @@ export async function createBuild({
     // Add each build and variant to the Build table
     const createBuildsResponse = await Promise.all(
       buildVariants.map((variant) => {
-        const { hasBaseItems, hasDlc3Items, hasDlc2Items, hasDlc1Items} = getBuildDlcFlags(variant)
-
         return prisma.build.create({
           data: {
             name:
@@ -190,7 +188,7 @@ export async function createBuild({
     // Keep the denormalized upvote count in step with the auto-vote.
     await prisma.build.update({
       where: { id: mainBuildResponse.id },
-      data: { totalUpvotes: { increment: 1 } },
+      data: { denormalizedUpvotes: { increment: 1 } },
     });
 
     // Add the newly created builds to the BuildVariant table

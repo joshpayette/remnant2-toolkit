@@ -69,9 +69,9 @@ function getKeysetSort(
       return {
         orderBySql: Prisma.sql`ORDER BY ${column} DESC, Build.id DESC`,
         predicate: (value, id) =>
-          Prisma.sql`AND (${column} < ${new Date(value)} OR (${column} = ${new Date(
+          Prisma.sql`AND (${column} < ${new Date(
             value,
-          )} AND Build.id < ${id}))`,
+          )} OR (${column} = ${new Date(value)} AND Build.id < ${id}))`,
         getValue: (build) => {
           const raw =
             newestColumn === 'dateFeatured'
@@ -83,11 +83,11 @@ function getKeysetSort(
     }
     case 'most viewed':
       return {
-        orderBySql: Prisma.sql`ORDER BY Build.validatedViewCount DESC, Build.id DESC`,
+        orderBySql: Prisma.sql`ORDER BY Build.denormalizedViewCount DESC, Build.id DESC`,
         predicate: (value, id) =>
-          Prisma.sql`AND (Build.validatedViewCount < ${Number(
+          Prisma.sql`AND (Build.denormalizedViewCount < ${Number(
             value,
-          )} OR (Build.validatedViewCount = ${Number(
+          )} OR (Build.denormalizedViewCount = ${Number(
             value,
           )} AND Build.id < ${id}))`,
         getValue: (build) => build.validatedViewCount,
@@ -98,11 +98,13 @@ function getKeysetSort(
     // 'most favorited' and any future default sort by upvotes.
     default:
       return {
-        orderBySql: Prisma.sql`ORDER BY Build.totalUpvotes DESC, Build.id DESC`,
+        orderBySql: Prisma.sql`ORDER BY Build.denormalizedUpvotes DESC, Build.id DESC`,
         predicate: (value, id) =>
-          Prisma.sql`AND (Build.totalUpvotes < ${Number(
+          Prisma.sql`AND (Build.denormalizedUpvotes < ${Number(
             value,
-          )} OR (Build.totalUpvotes = ${Number(value)} AND Build.id < ${id}))`,
+          )} OR (Build.denormalizedUpvotes = ${Number(
+            value,
+          )} AND Build.id < ${id}))`,
         getValue: (build) => build.totalUpvotes,
       };
   }

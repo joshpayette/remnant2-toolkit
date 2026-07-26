@@ -83,27 +83,34 @@ export async function GET(request: NextRequest) {
     });
   }
 
-  // Only builds that have items need flags set; the rest keep the default false.
-  const buildIds = [...itemIdsByBuild.keys()];
+  const existingBuildIds = new Set(
+    (await prisma.build.findMany({ select: { id: true } })).map((b) => b.id),
+  );
+
+  const candidateIds = [...itemIdsByBuild.keys()];
+  const buildIds = candidateIds.filter((id) => existingBuildIds.has(id));
+  const orphanedIdsSkipped = candidateIds.length - buildIds.length;
 
   let buildsUpdated = 0;
-  const CHUNK_SIZE = 25;
+  const CHUNK_SIZE = 10;
   for (let i = 0; i < buildIds.length; i += CHUNK_SIZE) {
     const chunk = buildIds.slice(i, i + CHUNK_SIZE);
     await Promise.all(
       chunk.map((id) =>
-        prisma.build.update({
+        prisma.build.updateMany({
           where: { id },
           data: getDlcFlagsFromItemIds(itemIdsByBuild.get(id) ?? []),
         }),
       ),
     );
     buildsUpdated += chunk.length;
+    await new Promise((resolve) => setTimeout(resolve, 50));
   }
 
   return Response.json({
     message: 'DLC flag backfill complete.',
     buildsUpdated,
+    orphanedIdsSkipped,
     buildsWithItems: itemIdsByBuild.size,
   });
 }

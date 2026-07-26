@@ -90,7 +90,7 @@ export async function incrementViewCount({
           increment: 1,
         },
         ...(isNewValidatedView
-          ? { validatedViewCount: { increment: 1 } }
+          ? { denormalizedViewCount: { increment: 1 } }
           : {}),
         updatedAt: build.updatedAt,
       },
