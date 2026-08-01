@@ -56,7 +56,7 @@ export class ConcoctionItem extends BaseItem implements BaseConcoctionItem {
       const item = concoctionItems.find((i) => i.id === buildItem.itemId);
       if (!item) continue;
       if (item.category !== 'concoction') continue;
-      buildItem.index
+      buildItem.index != null
         ? (concoctionValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,

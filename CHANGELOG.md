@@ -6,10 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 2026-08-01
 
-### Changed
+### Fixed
 
 - Major change to how the database is queried across various build feeds. Things should load significantly faster now.
 - Removed pagination from build queues and opted instead for a LOAD MORE button. The value of pagination was not offsetting the resource cost.
+- Fixed bug the above change introduced where the first item of multi-slot items (rings, weapons, etc.) wouldn't show.
 
 ### Removed
 

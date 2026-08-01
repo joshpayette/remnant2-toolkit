@@ -161,7 +161,7 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
       if (!item) continue;
       if (item.category === 'archetype') {
         // insert the archtype at the index
-        buildItem.index
+        buildItem.index != null
           ? archtypeValues.splice(buildItem.index, 0, {
               ...item,
               optional: buildItem.optional,
@@ -176,7 +176,7 @@ export class TraitItem extends BaseItem implements BaseTraitItem {
         ...item,
         amount: buildItem.amount,
       } as TraitItem;
-      buildItem.index
+      buildItem.index != null
         ? (traitValues[buildItem.index] = {
             ...traitItem,
             optional: buildItem.optional,

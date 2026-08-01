@@ -56,7 +56,7 @@ export class ConsumableItem extends BaseItem implements BaseConsumableItem {
       const item = consumableItems.find((i) => i.id === buildItem.itemId);
       if (!item) continue;
       if (item.category !== 'consumable') continue;
-      buildItem.index
+      buildItem.index != null
         ? (consumableValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,

@@ -25,7 +25,7 @@ export async function getBuild(
       include: {
         createdBy: true,
         BuildVotes: true,
-        BuildItems: true,
+        BuildItems: { orderBy: { index: 'asc' } },
         BuildTags: true,
         BuildValidatedViews: true,
       },

@@ -53,7 +53,7 @@ export class RingItem extends BaseItem implements BaseRingItem {
     for (const buildItem of buildItems) {
       const item = ringItems.find((i) => i.id === buildItem.itemId);
       if (!item) continue;
-      buildItem.index
+      buildItem.index != null
         ? (ringValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,

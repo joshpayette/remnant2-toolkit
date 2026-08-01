@@ -53,7 +53,7 @@ export class ModItem extends BaseItem implements BaseModItem {
     for (const buildItem of buildItems) {
       const item = modItems.find((i) => i.id === buildItem.itemId);
       if (!item) continue;
-      buildItem.index
+      buildItem.index != null
         ? (modValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,

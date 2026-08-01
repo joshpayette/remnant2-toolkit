@@ -51,7 +51,7 @@ export class SkillItem extends BaseItem implements BaseSkillItem {
     for (const buildItem of buildItems) {
       const item = skillItems.find((i) => i.id === buildItem.itemId);
       if (!item) continue;
-      buildItem.index
+      buildItem.index != null
         ? (skillValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,

@@ -69,7 +69,7 @@ export class RelicFragmentItem
     for (const buildItem of buildItems) {
       const item = relicFragmentItems.find((i) => i.id === buildItem.itemId);
       if (!item) continue;
-      buildItem.index
+      buildItem.index != null
         ? (relicFragmentValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,

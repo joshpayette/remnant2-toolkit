@@ -56,7 +56,7 @@ export class PerkItem extends BaseItem implements BasePerkItem {
       const item = perkItems.find((i) => i.id === buildItem.itemId);
       if (!item) continue;
       if (item.category !== 'perk') continue;
-      buildItem.index
+      buildItem.index != null
         ? (perkValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,

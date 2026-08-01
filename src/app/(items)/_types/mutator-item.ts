@@ -61,7 +61,7 @@ export class MutatorItem extends BaseItem implements BaseMutatorItem {
     for (const buildItem of buildItems) {
       const item = mutatorItems.find((i) => i.id === buildItem.itemId);
       if (!item) continue;
-      buildItem.index
+      buildItem.index != null
         ? (mutatorValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,

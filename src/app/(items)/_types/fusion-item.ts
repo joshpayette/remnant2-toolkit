@@ -73,7 +73,7 @@ export class FusionItem extends BaseItem implements BaseFusionItem {
       const item = fusionItems.find((i) => i.id === buildItem.itemId);
       if (!item) continue;
 
-      buildItem.index
+      buildItem.index != null
         ? (fusionValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,

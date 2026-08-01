@@ -55,7 +55,7 @@ export class ArchetypeItem extends BaseItem implements BaseArchetypeItem {
       const item = archetypeItems.find((i) => i.id === buildItem.itemId);
       if (!item) continue;
       if (item.category !== 'archetype') continue;
-      buildItem.index
+      buildItem.index != null
         ? (archetypeValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,

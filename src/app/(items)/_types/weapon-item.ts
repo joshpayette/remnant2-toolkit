@@ -90,7 +90,7 @@ export class WeaponItem extends BaseItem implements BaseWeaponItem {
     for (const buildItem of buildItems) {
       const item = weaponItems.find((i) => i.id === buildItem.itemId);
       if (!item) continue;
-      buildItem.index
+      buildItem.index != null
         ? (weaponValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,

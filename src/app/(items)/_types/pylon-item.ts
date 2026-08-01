@@ -53,7 +53,7 @@ export class PylonItem extends BaseItem implements BasePylonItem {
     for (const buildItem of buildItems) {
       const item = pylonItems.find((i) => i.id === buildItem.itemId);
       if (!item) continue;
-      buildItem.index
+      buildItem.index != null
         ? (pylonValues[buildItem.index] = {
             ...item,
             optional: buildItem.optional,
