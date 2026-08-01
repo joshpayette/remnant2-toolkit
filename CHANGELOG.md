@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## 2026-08-01
+
+### Changed
+
+- Major change to how the database is queried across various build feeds. Things should load significantly faster now.
+- Removed pagination from build queues and opted instead for a LOAD MORE button. The value of pagination was not offsetting the resource cost.
+
+### Removed
+
+- Removed the "Return to Ward 13" event banner.
+
 ## 2026-06-30
 
 - Added `Return to Ward 13 '26` build tag to builds.
