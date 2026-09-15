@@ -12,7 +12,7 @@ function calculateCode(ts: number): string {
   };
 
   const index = Math.floor((ts - seeds.date) / 3600);
-  const code = Math.imul(index, seeds.code) | 0xB;
+  const code = Math.imul(index, seeds.code) | 0xC;
   return code.toString().slice(-4).padStart(4, '0');
 }
 
