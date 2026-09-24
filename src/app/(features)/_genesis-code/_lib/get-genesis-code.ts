@@ -5,6 +5,23 @@
  * To calculate the next code (the one you need to input in-game) you
  * can do calculateCode(Date.now() / 1000 + 3600); adding an hour to the previous one
  */
+
+// Gunfire Games founding to the hour, in UTC
+const anniversaryHour = 14;
+const anniversaryDay = 15;
+const anniversaryMonth = 8; // 0-indexed -> September
+const anniversaryYear = 2014;
+
+// always 365 days. leap years are not accounted for by the ingame code generation.
+const SECONDS_PER_YEAR = 365 * 24 * 3600; 
+
+const anniversaryEpoch =
+  Date.UTC(anniversaryYear, anniversaryMonth, anniversaryDay, anniversaryHour) / 1000;
+
+function getYearOffset(ts: number): number {
+  return Math.floor((ts - anniversaryEpoch) / SECONDS_PER_YEAR);
+}
+
 function calculateCode(ts: number): string {
   const seeds = {
     code: 9358314,
@@ -12,7 +29,8 @@ function calculateCode(ts: number): string {
   };
 
   const index = Math.floor((ts - seeds.date) / 3600);
-  const code = Math.imul(index, seeds.code) | 0xC;
+  const offset = getYearOffset(ts);
+  const code = Math.imul(index, seeds.code) | offset;
   return code.toString().slice(-4).padStart(4, '0');
 }
 
