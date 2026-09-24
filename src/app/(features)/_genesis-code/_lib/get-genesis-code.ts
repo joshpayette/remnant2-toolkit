@@ -11,22 +11,15 @@ const anniversaryHour = 14;
 const anniversaryDay = 15;
 const anniversaryMonth = 8; // 0-indexed -> September
 const anniversaryYear = 2014;
-/**
- * Couldnt test if the hour is accurate, so if it breaks for a few hours 
- * next year, we have to adjust the hour.
-*/
 
+// always 365 days. leap years are not accounted for by the ingame code generation.
+const SECONDS_PER_YEAR = 365 * 24 * 3600; 
+
+const anniversaryEpoch =
+  Date.UTC(anniversaryYear, anniversaryMonth, anniversaryDay, anniversaryHour) / 1000;
 
 function getYearOffset(ts: number): number {
-  const date = new Date(ts * 1000);
-  const currentYear = date.getUTCFullYear();
-
-  const anniversaryThisYear =
-    Date.UTC(currentYear, anniversaryMonth, anniversaryDay, anniversaryHour) / 1000;
-
-  const effectiveYear = ts < anniversaryThisYear ? currentYear - 1 : currentYear;
-
-  return effectiveYear - anniversaryYear;
+  return Math.floor((ts - anniversaryEpoch) / SECONDS_PER_YEAR);
 }
 
 function calculateCode(ts: number): string {
