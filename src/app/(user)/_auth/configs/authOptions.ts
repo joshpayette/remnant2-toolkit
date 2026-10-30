@@ -95,6 +95,9 @@ export const authOptions: NextAuthOptions = {
     DiscordProvider({
       clientId: process.env.DISCORD_CLIENT_ID ?? '',
       clientSecret: process.env.DISCORD_CLIENT_SECRET ?? '',
+      // Discord now sends `iss` on the OAuth callback (RFC 9207), which
+      // openid-client validates against the configured issuer.
+      issuer: 'https://discord.com',
     }),
     RedditProvider({
       clientId: process.env.REDDIT_CLIENT_ID ?? '',
